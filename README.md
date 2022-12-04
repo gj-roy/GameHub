@@ -1,5 +1,15 @@
 # Gamedge
 
+#Hojat's changes:
+
+This code base has too many unnecessary modules and I prefer to consolidate them all to related modules. 
+Moreover, I'm trying to add functionalities such as accounts and messaging to it. I will make my own back end for this project as well.
+Furthermore, I need to rename the package name to something of my own.
+
+My trello board of this project is shared in here:
+https://trello.com/b/lG03zl6P/game-news-app
+
+
 ![Min API](https://img.shields.io/badge/API-21%2B-orange.svg?style=flat)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](http://developer.android.com/index.html)
 [![Build](https://github.com/mars885/gamedge/workflows/Build/badge.svg?branch=master)](https://github.com/mars885/gamedge/actions)
