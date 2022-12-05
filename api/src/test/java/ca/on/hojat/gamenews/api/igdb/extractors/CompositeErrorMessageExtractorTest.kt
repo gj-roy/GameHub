@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.igdb.api.extractors
+package ca.on.hojat.gamenews.api.igdb.extractors
 
 import com.google.common.truth.Truth.assertThat
 import com.paulrybitskyi.gamedge.igdb.api.common.errorextractors.CompositeErrorMessageExtractor

@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.igdb.api
+package ca.on.hojat.gamenews.api.igdb
 
 import com.google.common.truth.Truth.assertThat
 import com.paulrybitskyi.gamedge.igdb.api.auth.AuthHeaderParser

@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.igdb.gamespot
+package ca.on.hojat.gamenews.api.gamespot
 
 import com.google.common.truth.Truth.assertThat
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.GamespotErrorMessageExtractor

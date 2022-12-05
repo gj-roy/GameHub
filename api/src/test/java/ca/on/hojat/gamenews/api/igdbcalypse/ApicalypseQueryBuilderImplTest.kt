@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.igdb.apicalypse
+package ca.on.hojat.gamenews.api.igdbcalypse
 
 import com.google.common.truth.Truth.assertThat
 import com.paulrybitskyi.gamedge.igdb.apicalypse.querybuilder.ApicalypseQueryBuilderImpl
