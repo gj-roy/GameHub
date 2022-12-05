@@ -1,19 +1,3 @@
-/*
- * Copyright 2021 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.igdb.apicalypse
 
 import com.google.common.truth.Truth.assertThat
@@ -275,7 +259,7 @@ internal class ApicalypseQueryBuilderImplTest {
         assertThat(query)
             .isEqualTo(
                 "fields id, title, genres;where genres = {20, 30, 40};offset 100;" +
-                "limit 500;sort title asc;"
+                        "limit 500;sort title asc;"
             )
     }
 
@@ -284,7 +268,7 @@ internal class ApicalypseQueryBuilderImplTest {
         val query = SUT.select("id, title, genres, likes")
             .where {
                 "genres".containsAnyOf(listOf("20", "30", "40")) and
-                { "likes".isLargerThan("20") }
+                        { "likes".isLargerThan("20") }
             }
             .offset(100)
             .limit(500)
@@ -294,7 +278,7 @@ internal class ApicalypseQueryBuilderImplTest {
         assertThat(query)
             .isEqualTo(
                 "fields id, title, genres, likes;where genres = (20, 30, 40) & likes > 20;offset 100;" +
-                "limit 500;sort title asc;"
+                        "limit 500;sort title asc;"
             )
     }
 
@@ -303,7 +287,7 @@ internal class ApicalypseQueryBuilderImplTest {
         val query = SUT.select("id, title, genres, likes")
             .where {
                 "genres".containsAnyOf(listOf("20", "30", "40")) or
-                { "likes".isLargerThan("20") }
+                        { "likes".isLargerThan("20") }
             }
             .offset(100)
             .limit(500)
@@ -313,7 +297,7 @@ internal class ApicalypseQueryBuilderImplTest {
         assertThat(query)
             .isEqualTo(
                 "fields id, title, genres, likes;where genres = (20, 30, 40) | likes > 20;" +
-                "offset 100;limit 500;sort title asc;"
+                        "offset 100;limit 500;sort title asc;"
             )
     }
 
@@ -323,11 +307,11 @@ internal class ApicalypseQueryBuilderImplTest {
             .select("id, title, genres, likes, rating, release_date")
             .where {
                 "id".containsAnyOf(listOf("1", "2", "3")) and
-                { "title".isNotNull } and
-                { "genres".containsAnyOf(listOf("20", "30", "40")) } and
-                { "likes".isLargerThan("20") } or
-                { "rating".isLargerThanOrEqualTo("80") } or
-                { "release_date".isEqual("2020-03-01") }
+                        { "title".isNotNull } and
+                        { "genres".containsAnyOf(listOf("20", "30", "40")) } and
+                        { "likes".isLargerThan("20") } or
+                        { "rating".isLargerThanOrEqualTo("80") } or
+                        { "release_date".isEqual("2020-03-01") }
             }
             .offset(100)
             .limit(500)
@@ -337,8 +321,8 @@ internal class ApicalypseQueryBuilderImplTest {
         assertThat(query)
             .isEqualTo(
                 "fields id, title, genres, likes, rating, release_date;where id = (1, 2, 3) & title != null & " +
-                "genres = (20, 30, 40) & likes > 20 | rating >= 80 | release_date = 2020-03-01;offset 100;limit 500;" +
-                "sort id asc;"
+                        "genres = (20, 30, 40) & likes > 20 | rating >= 80 | release_date = 2020-03-01;offset 100;limit 500;" +
+                        "sort id asc;"
             )
     }
 }
