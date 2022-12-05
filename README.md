@@ -125,12 +125,6 @@ You'll need to supply API/client keys for the various services that the app uses
 
 [Gamespot](https://www.gamespot.com/) is a video gaming website that provides news, reviews, previews, downloads, and other information on video games. The app uses its API to solely retrieve the latest news in the gaming world.
 
-Check [this link](https://www.gamespot.com/api/) on how to obtain an API key. Once you have obtained the key, you can set it in your `~/.gradle/gradle.properties`:
-
-```
-GAMESPOT_API_KEY=your_api_key_here
-```
-
 ## Download
 
 Go to the [Releases](https://github.com/mars885/gamedge/releases) to download the latest APK.
