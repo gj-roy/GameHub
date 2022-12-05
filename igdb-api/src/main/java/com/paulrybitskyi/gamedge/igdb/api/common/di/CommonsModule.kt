@@ -16,9 +16,9 @@
 
 package com.paulrybitskyi.gamedge.igdb.api.common.di
 
-import com.paulrybitskyi.gamedge.common.api.ErrorMessageExtractor
-import com.paulrybitskyi.gamedge.common.api.addInterceptorAsFirstInChain
-import com.paulrybitskyi.gamedge.common.api.calladapter.ApiResultCallAdapterFactory
+import com.paulrybitskyi.gamedge.igdb.common.ErrorMessageExtractor
+import com.paulrybitskyi.gamedge.igdb.common.addInterceptorAsFirstInChain
+import com.paulrybitskyi.gamedge.igdb.common.calladapter.ApiResultCallAdapterFactory
 import com.paulrybitskyi.gamedge.igdb.api.auth.Authorizer
 import com.paulrybitskyi.gamedge.igdb.api.common.AuthorizationInterceptor
 import com.paulrybitskyi.gamedge.igdb.api.common.CredentialsStore

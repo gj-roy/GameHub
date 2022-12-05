@@ -1,6 +1,6 @@
 package com.paulrybitskyi.gamedge.igdb.api.auth
 
-import com.paulrybitskyi.gamedge.common.api.ApiResult
+import com.paulrybitskyi.gamedge.igdb.common.ApiResult
 import com.paulrybitskyi.gamedge.igdb.api.auth.entities.ApiGrantType
 import com.paulrybitskyi.gamedge.igdb.api.auth.entities.ApiOauthCredentials
 

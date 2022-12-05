@@ -19,7 +19,7 @@ package com.paulrybitskyi.gamedge.igdb.api
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.api.Error
+import com.paulrybitskyi.gamedge.igdb.common.Error
 import com.paulrybitskyi.gamedge.common.testing.startSafe
 import com.paulrybitskyi.gamedge.igdb.api.auth.entities.ApiOauthCredentials
 import com.paulrybitskyi.gamedge.igdb.api.common.CredentialsStore

@@ -16,7 +16,7 @@
 
 package com.paulrybitskyi.gamedge.igdb.gamespot.articles
 
-import com.paulrybitskyi.gamedge.common.api.ApiResult
+import com.paulrybitskyi.gamedge.igdb.common.ApiResult
 import com.paulrybitskyi.gamedge.igdb.gamespot.articles.entities.ApiArticle
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.Response
 import retrofit2.http.GET

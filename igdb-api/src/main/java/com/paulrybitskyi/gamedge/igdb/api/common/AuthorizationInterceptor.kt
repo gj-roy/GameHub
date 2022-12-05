@@ -16,7 +16,7 @@
 
 package com.paulrybitskyi.gamedge.igdb.api.common
 
-import com.paulrybitskyi.gamedge.common.api.HttpHeaders
+import com.paulrybitskyi.gamedge.igdb.common.HttpHeaders
 import com.paulrybitskyi.gamedge.igdb.api.auth.Authorizer
 import com.paulrybitskyi.gamedge.igdb.api.auth.entities.ApiAuthorizationType
 import kotlinx.coroutines.runBlocking

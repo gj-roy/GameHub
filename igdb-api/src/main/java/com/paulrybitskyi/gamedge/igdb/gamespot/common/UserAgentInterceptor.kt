@@ -1,7 +1,7 @@
 package com.paulrybitskyi.gamedge.igdb.gamespot.common
 
-import com.paulrybitskyi.gamedge.common.api.HttpHeaders
-import com.paulrybitskyi.gamedge.common.api.UserAgentProvider
+import com.paulrybitskyi.gamedge.igdb.common.HttpHeaders
+import com.paulrybitskyi.gamedge.igdb.common.UserAgentProvider
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject

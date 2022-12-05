@@ -16,14 +16,13 @@
 
 package com.paulrybitskyi.gamedge.igdb.gamespot.common.di
 
-import com.paulrybitskyi.gamedge.common.api.ErrorMessageExtractor
-import com.paulrybitskyi.gamedge.common.api.addInterceptorAsFirstInChain
-import com.paulrybitskyi.gamedge.common.api.calladapter.ApiResultCallAdapterFactory
+import com.paulrybitskyi.gamedge.igdb.common.ErrorMessageExtractor
+import com.paulrybitskyi.gamedge.igdb.common.addInterceptorAsFirstInChain
+import com.paulrybitskyi.gamedge.igdb.common.calladapter.ApiResultCallAdapterFactory
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.GamespotConstantsProvider
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.GamespotQueryParamsFactory
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.GamespotQueryParamsFactoryImpl
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.UserAgentInterceptor
-import com.paulrybitskyi.gamedge.igdb.gamespot.common.di.GamespotApi
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.serialization.GamespotFieldsSerializer
 import dagger.Module
 import dagger.Provides

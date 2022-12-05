@@ -16,14 +16,14 @@
 
 package com.paulrybitskyi.gamedge.common.data.common
 
-import com.paulrybitskyi.gamedge.common.api.httpErrorMessage
-import com.paulrybitskyi.gamedge.common.api.Error as ApiError
-import com.paulrybitskyi.gamedge.common.api.isHttpError
-import com.paulrybitskyi.gamedge.common.api.isNetworkError
-import com.paulrybitskyi.gamedge.common.api.isServerError
-import com.paulrybitskyi.gamedge.common.api.isUnknownError
-import com.paulrybitskyi.gamedge.common.api.networkErrorMessage
-import com.paulrybitskyi.gamedge.common.api.unknownErrorMessage
+import com.paulrybitskyi.gamedge.igdb.common.httpErrorMessage
+import com.paulrybitskyi.gamedge.igdb.common.Error as ApiError
+import com.paulrybitskyi.gamedge.igdb.common.isHttpError
+import com.paulrybitskyi.gamedge.igdb.common.isNetworkError
+import com.paulrybitskyi.gamedge.igdb.common.isServerError
+import com.paulrybitskyi.gamedge.igdb.common.isUnknownError
+import com.paulrybitskyi.gamedge.igdb.common.networkErrorMessage
+import com.paulrybitskyi.gamedge.igdb.common.unknownErrorMessage
 import com.paulrybitskyi.gamedge.common.domain.common.entities.Error
 import javax.inject.Inject
 

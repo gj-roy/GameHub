@@ -16,8 +16,8 @@
 
 package com.paulrybitskyi.gamedge.igdb.gamespot.articles
 
-import com.paulrybitskyi.gamedge.common.api.asConverterFactory
-import com.paulrybitskyi.gamedge.common.api.calladapter.ApiResultCallAdapterFactory
+import com.paulrybitskyi.gamedge.igdb.common.asConverterFactory
+import com.paulrybitskyi.gamedge.igdb.common.calladapter.ApiResultCallAdapterFactory
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.GamespotConstantsProvider
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.di.Endpoint
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.di.GamespotApi

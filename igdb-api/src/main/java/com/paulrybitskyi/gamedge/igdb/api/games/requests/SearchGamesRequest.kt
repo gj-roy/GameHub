@@ -16,7 +16,7 @@
 
 package com.paulrybitskyi.gamedge.igdb.api.games.requests
 
-import com.paulrybitskyi.gamedge.common.api.ApiRequest
+import com.paulrybitskyi.gamedge.igdb.common.ApiRequest
 
 data class SearchGamesRequest(
     val searchQuery: String,

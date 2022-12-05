@@ -1,8 +1,8 @@
 
 package com.paulrybitskyi.gamedge.igdb.api.auth
 
-import com.paulrybitskyi.gamedge.common.api.asConverterFactory
-import com.paulrybitskyi.gamedge.common.api.calladapter.ApiResultCallAdapterFactory
+import com.paulrybitskyi.gamedge.igdb.common.asConverterFactory
+import com.paulrybitskyi.gamedge.igdb.common.calladapter.ApiResultCallAdapterFactory
 import com.paulrybitskyi.gamedge.igdb.api.common.TwitchConstantsProvider
 import com.paulrybitskyi.gamedge.igdb.api.common.di.qualifiers.Endpoint
 import com.paulrybitskyi.gamedge.igdb.api.common.di.qualifiers.IgdbApi

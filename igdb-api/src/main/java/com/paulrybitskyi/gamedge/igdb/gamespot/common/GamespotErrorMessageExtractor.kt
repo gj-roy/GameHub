@@ -16,7 +16,7 @@
 
 package com.paulrybitskyi.gamedge.igdb.gamespot.common
 
-import com.paulrybitskyi.gamedge.common.api.ErrorMessageExtractor
+import com.paulrybitskyi.gamedge.igdb.common.ErrorMessageExtractor
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.di.GamespotApi
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject

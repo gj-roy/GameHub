@@ -23,7 +23,7 @@ plugins {
 dependencies {
     api(project(deps.local.commonTestingDomain))
     implementation(project(deps.local.core))
-    implementation(project(deps.local.commonApi))
+    implementation(project(deps.local.igdbApi))
 
     // Unit tests
     implementation(deps.testing.jUnit)

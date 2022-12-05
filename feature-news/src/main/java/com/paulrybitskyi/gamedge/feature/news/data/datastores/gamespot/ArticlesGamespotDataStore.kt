@@ -1,7 +1,7 @@
 package com.paulrybitskyi.gamedge.feature.news.data.datastores.gamespot
 
 import com.github.michaelbull.result.mapEither
-import com.paulrybitskyi.gamedge.common.api.ApiResult
+import com.paulrybitskyi.gamedge.igdb.common.ApiResult
 import com.paulrybitskyi.gamedge.common.data.common.ApiErrorMapper
 import com.paulrybitskyi.gamedge.common.domain.common.DispatcherProvider
 import com.paulrybitskyi.gamedge.common.domain.common.DomainResult

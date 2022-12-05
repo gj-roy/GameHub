@@ -21,7 +21,6 @@ android {
 }
 
 dependencies {
-    api(project(deps.local.commonApi))
     implementation(project(deps.local.core))
 
     implementation(deps.kotlin.coroutines)

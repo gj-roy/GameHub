@@ -17,7 +17,7 @@
 package com.paulrybitskyi.gamedge.igdb.gamespot.articles
 
 import com.github.michaelbull.result.map
-import com.paulrybitskyi.gamedge.common.api.ApiResult
+import com.paulrybitskyi.gamedge.igdb.common.ApiResult
 import com.paulrybitskyi.gamedge.igdb.gamespot.articles.entities.ApiArticle
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.GamespotQueryParamsFactory
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.QUERY_PARAM_LIMIT

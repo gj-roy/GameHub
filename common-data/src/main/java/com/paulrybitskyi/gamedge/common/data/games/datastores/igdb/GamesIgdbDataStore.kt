@@ -17,7 +17,7 @@
 package com.paulrybitskyi.gamedge.common.data.games.datastores.igdb
 
 import com.github.michaelbull.result.mapEither
-import com.paulrybitskyi.gamedge.common.api.ApiResult
+import com.paulrybitskyi.gamedge.igdb.common.ApiResult
 import com.paulrybitskyi.gamedge.common.data.common.ApiErrorMapper
 import com.paulrybitskyi.gamedge.common.data.games.common.DiscoveryGamesReleaseDatesProvider
 import com.paulrybitskyi.gamedge.common.domain.common.DispatcherProvider
