@@ -1,8 +1,8 @@
-package com.paulrybitskyi.gamedge.igdb.api.di
+package ca.on.hojat.gamenews.api.di
 
 import com.paulrybitskyi.gamedge.igdb.api.common.IgdbConstantsProvider
 import com.paulrybitskyi.gamedge.igdb.api.common.di.IgdbConstantsModule
-import com.paulrybitskyi.gamedge.igdb.api.utils.FakeIgdbConstantsProvider
+import ca.on.hojat.gamenews.api.utils.FakeIgdbConstantsProvider
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.components.SingletonComponent

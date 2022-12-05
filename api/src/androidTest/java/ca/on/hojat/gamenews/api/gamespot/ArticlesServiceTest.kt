@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.igdb.api.gamespot
+package ca.on.hojat.gamenews.api.gamespot
 
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError

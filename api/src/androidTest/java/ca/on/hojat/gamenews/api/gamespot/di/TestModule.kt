@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.igdb.api.gamespot.di
+package ca.on.hojat.gamenews.api.gamespot.di
 
 import com.paulrybitskyi.gamedge.common.testing.di.MocksModule
 import dagger.Module

@@ -1,8 +1,8 @@
-package com.paulrybitskyi.gamedge.igdb.api.di
+package ca.on.hojat.gamenews.api.di
 
 import com.paulrybitskyi.gamedge.common.testing.di.MocksModule
 import com.paulrybitskyi.gamedge.igdb.api.common.CredentialsStore
-import com.paulrybitskyi.gamedge.igdb.api.utils.FakeCredentialsStore
+import ca.on.hojat.gamenews.api.utils.FakeCredentialsStore
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

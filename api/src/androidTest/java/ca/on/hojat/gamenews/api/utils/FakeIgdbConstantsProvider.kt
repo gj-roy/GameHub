@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.igdb.api.utils
+package ca.on.hojat.gamenews.api.utils
 
 import com.paulrybitskyi.gamedge.igdb.api.common.IgdbConstantsProvider
 import okhttp3.mockwebserver.MockWebServer

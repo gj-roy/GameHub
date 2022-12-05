@@ -1,6 +1,6 @@
-package com.paulrybitskyi.gamedge.igdb.api.gamespot.di
+package ca.on.hojat.gamenews.api.gamespot.di
 
-import com.paulrybitskyi.gamedge.igdb.api.gamespot.utils.FakeGamespotConstantsProvider
+import ca.on.hojat.gamenews.api.gamespot.utils.FakeGamespotConstantsProvider
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.GamespotConstantsProvider
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.di.GamespotConstantsModule
 import dagger.Binds

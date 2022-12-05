@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.igdb.api.gamespot.utils
+package ca.on.hojat.gamenews.api.gamespot.utils
 
 import com.paulrybitskyi.gamedge.igdb.gamespot.common.GamespotConstantsProvider
 import okhttp3.mockwebserver.MockWebServer
