@@ -121,13 +121,6 @@ You'll need to supply API/client keys for the various services that the app uses
 
 [IGDB](https://www.igdb.com/discover) is a website dedicated to combining all the relevant information about games into a comprehensive resource for gamers everywhere. This is the main API that the app uses to fetch information about pretty much any video game there is.
 
-Check [this link](https://api-docs.igdb.com/#account-creation) on how to obtain a client ID and secret. Once you have obtained the keys, you can set them in your `~/.gradle/gradle.properties`:
-
-```
-TWITCH_APP_CLIENT_ID=yout_client_id_here
-TWITCH_APP_CLIENT_SECRET=your_client_secret_here
-```
-
 ### Gamespot
 
 [Gamespot](https://www.gamespot.com/) is a video gaming website that provides news, reviews, previews, downloads, and other information on video games. The app uses its API to solely retrieve the latest news in the gaming world.
