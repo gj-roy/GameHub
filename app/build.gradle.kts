@@ -43,7 +43,6 @@ dependencies {
     implementation(project(deps.local.commonUi))
     implementation(project(deps.local.commonUiWidgets))
     implementation(project(deps.local.igdbApi))
-    implementation(project(deps.local.gamespotApi))
     implementation(project(deps.local.database))
     implementation(project(deps.local.featureCategory))
     implementation(project(deps.local.featureDiscovery))

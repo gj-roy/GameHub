@@ -1,19 +1,3 @@
-/*
- * Copyright 2021 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.feature.news.presentation.widgets
 
 import android.content.res.Configuration
@@ -50,8 +34,8 @@ import com.paulrybitskyi.gamedge.common.ui.widgets.GamedgeProgressIndicator
 import com.paulrybitskyi.gamedge.common.ui.widgets.Info
 import com.paulrybitskyi.gamedge.common.ui.widgets.RefreshableContent
 import com.paulrybitskyi.gamedge.common.ui.widgets.toolbars.Toolbar
-import com.paulrybitskyi.gamedge.feature.news.presentation.GamingNewsCommand
 import com.paulrybitskyi.gamedge.feature.news.R
+import com.paulrybitskyi.gamedge.feature.news.presentation.GamingNewsCommand
 import com.paulrybitskyi.gamedge.feature.news.presentation.GamingNewsViewModel
 
 @Composable
@@ -195,7 +179,7 @@ private fun GamingNewsSuccessStatePreview() {
             imageUrl = "",
             title = "Call of Duty: Vanguard's UK Launch Sales are Down 40% From Last Year",
             lede = "Call of Duty: Vanguard's launch sales are down about 40% compared to last year's " +
-                "Call of Duty: Black Ops Cold War in the UK.",
+                    "Call of Duty: Black Ops Cold War in the UK.",
             publicationDate = "an hour ago",
             siteDetailUrl = "url",
         ),
@@ -204,7 +188,7 @@ private fun GamingNewsSuccessStatePreview() {
             imageUrl = null,
             title = "WoW Classic Season of Mastery: Full List of Changes",
             lede = "World of Warcraft Classic's first season is nearly here, and Blizzard has " +
-                "detailed all the changes players can expect.",
+                    "detailed all the changes players can expect.",
             publicationDate = "2 hours ago",
             siteDetailUrl = "url",
         ),
