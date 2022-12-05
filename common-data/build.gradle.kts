@@ -25,7 +25,7 @@ plugins {
 dependencies {
     implementation(project(deps.local.commonDomain))
     implementation(project(deps.local.core))
-    implementation(project(deps.local.igdbApi))
+    implementation(project(deps.local.api))
     implementation(project(deps.local.database))
 
     implementation(deps.kotlin.coroutines)

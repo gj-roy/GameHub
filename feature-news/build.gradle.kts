@@ -42,7 +42,7 @@ dependencies {
     implementation(project(deps.local.core))
     implementation(project(deps.local.commonUi))
     implementation(project(deps.local.commonUiWidgets))
-    implementation(project(deps.local.igdbApi))
+    implementation(project(deps.local.api))
     implementation(project(deps.local.database))
 
     implementation(deps.androidX.prefsDataStore)

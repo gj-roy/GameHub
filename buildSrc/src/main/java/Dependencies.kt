@@ -63,7 +63,7 @@ object deps {
 
         const val core = ":core"
         const val database = ":database"
-        const val igdbApi = ":igdb-api"
+        const val api = ":api"
         const val commonDomain = ":common-domain"
         const val commonData = ":common-data"
         const val commonUi = ":common-ui"
