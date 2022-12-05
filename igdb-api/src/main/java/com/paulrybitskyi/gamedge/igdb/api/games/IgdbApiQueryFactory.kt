@@ -1,19 +1,3 @@
-/*
- * Copyright 2021 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.igdb.api.games
 
 import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiGame
@@ -66,7 +50,7 @@ internal class IgdbApiQueryFactoryImpl @Inject constructor(
             .select(gameEntityFields)
             .where {
                 USERS_RATING.isNotNull and
-                { RELEASE_DATE.isLargerThan(request.minReleaseDateTimestamp.toString()) }
+                        { RELEASE_DATE.isLargerThan(request.minReleaseDateTimestamp.toString()) }
             }
             .offset(request.offset)
             .limit(request.limit)
@@ -79,7 +63,7 @@ internal class IgdbApiQueryFactoryImpl @Inject constructor(
             .select(gameEntityFields)
             .where {
                 RELEASE_DATE.isLargerThan(request.minReleaseDateTimestamp.toString()) and
-                { RELEASE_DATE.isSmallerThan(request.maxReleaseDateTimestamp.toString()) }
+                        { RELEASE_DATE.isSmallerThan(request.maxReleaseDateTimestamp.toString()) }
             }
             .offset(request.offset)
             .limit(request.limit)
@@ -102,7 +86,7 @@ internal class IgdbApiQueryFactoryImpl @Inject constructor(
             .select(gameEntityFields)
             .where {
                 RELEASE_DATE.isLargerThan(request.minReleaseDateTimestamp.toString()) and
-                { HYPE_COUNT.isNotNull }
+                        { HYPE_COUNT.isNotNull }
             }
             .offset(request.offset)
             .limit(request.limit)

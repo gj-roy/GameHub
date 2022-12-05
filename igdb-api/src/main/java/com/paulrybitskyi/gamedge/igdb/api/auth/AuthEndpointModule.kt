@@ -1,19 +1,18 @@
-
 package com.paulrybitskyi.gamedge.igdb.api.auth
 
-import com.paulrybitskyi.gamedge.igdb.common.asConverterFactory
-import com.paulrybitskyi.gamedge.igdb.common.calladapter.ApiResultCallAdapterFactory
 import com.paulrybitskyi.gamedge.igdb.api.common.TwitchConstantsProvider
 import com.paulrybitskyi.gamedge.igdb.api.common.di.qualifiers.Endpoint
 import com.paulrybitskyi.gamedge.igdb.api.common.di.qualifiers.IgdbApi
+import com.paulrybitskyi.gamedge.igdb.common.asConverterFactory
+import com.paulrybitskyi.gamedge.igdb.common.calladapter.ApiResultCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
