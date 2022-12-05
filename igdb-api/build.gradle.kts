@@ -27,6 +27,7 @@ dependencies {
     implementation(deps.kotlin.coroutines)
     implementation(deps.kotlin.serialization)
 
+    implementation(deps.square.okHttpLoggingInterceptor)
     implementation(deps.square.retrofit)
     implementation(deps.square.retrofitKotlinxSerializationConverter)
     implementation(deps.square.retrofitScalarsConverter)
