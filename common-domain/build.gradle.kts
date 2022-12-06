@@ -26,7 +26,7 @@ dependencies {
     implementation(deps.google.daggerHiltCore)
     kapt(deps.google.daggerHiltCoreCompiler)
 
-    testImplementation(project(deps.local.commonTestingDomain))
+    testImplementation(project(deps.local.commonTesting))
     testImplementation(deps.testing.jUnit)
     testImplementation(deps.testing.truth)
     testImplementation(deps.testing.mockk)

@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    api(project(deps.local.commonTestingDomain))
+    api(project(deps.local.commonTesting))
     implementation(project(deps.local.commonDomain))
     implementation(project(deps.local.core))
     implementation(project(deps.local.api))
