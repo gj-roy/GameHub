@@ -1,19 +1,3 @@
-/*
- * Copyright 2021 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.common.ui.widgets.categorypreview
 
 import android.content.res.Configuration
@@ -40,12 +24,12 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintLayoutBaseScope
 import androidx.constraintlayout.compose.ConstraintLayoutScope
 import androidx.constraintlayout.compose.Dimension
+import com.paulrybitskyi.gamedge.common.ui.R
 import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
 import com.paulrybitskyi.gamedge.common.ui.widgets.GameCover
 import com.paulrybitskyi.gamedge.common.ui.widgets.GamedgeCard
 import com.paulrybitskyi.gamedge.common.ui.widgets.GamedgeProgressIndicator
 import com.paulrybitskyi.gamedge.common.ui.widgets.Info
-import com.paulrybitskyi.gamedge.common.ui.widgets.R
 
 @Composable
 fun GamesCategoryPreview(
@@ -64,7 +48,8 @@ fun GamesCategoryPreview(
             val moreBtnHorizontalMargin = GamedgeTheme.spaces.spacing_1_5
             val refs = createRefs()
             val (titleRef, progressBarRef, moreBtnRef, itemsListRef, infoRef) = refs
-            val topBarBarrier = createBottomBarrier(titleRef, progressBarRef, moreBtnRef, margin = topBarMargin)
+            val topBarBarrier =
+                createBottomBarrier(titleRef, progressBarRef, moreBtnRef, margin = topBarMargin)
 
             Title(
                 title = title,

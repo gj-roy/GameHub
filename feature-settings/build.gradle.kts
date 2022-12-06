@@ -21,7 +21,6 @@ dependencies {
     implementation(project(deps.local.commonDomain))
     implementation(project(deps.local.core))
     implementation(project(deps.local.commonUi))
-    implementation(project(deps.local.commonUiWidgets))
 
     implementation(deps.androidX.protoDataStore)
 

@@ -41,7 +41,6 @@ dependencies {
     implementation(project(deps.local.commonData))
     implementation(project(deps.local.core))
     implementation(project(deps.local.commonUi))
-    implementation(project(deps.local.commonUiWidgets))
     implementation(project(deps.local.api))
     implementation(project(deps.local.database))
     implementation(project(deps.local.featureCategory))
