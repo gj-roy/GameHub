@@ -16,11 +16,11 @@
 
 package com.paulrybitskyi.gamedge.common.data.auth.datastores.igdb
 
+import ca.on.hojat.gamenews.api.igdb.auth.entities.ApiOauthCredentials
+import ca.on.hojat.gamenews.api.igdb.common.CredentialsStore
 import com.github.michaelbull.result.get
 import com.paulrybitskyi.gamedge.common.domain.auth.datastores.AuthLocalDataStore
 import com.paulrybitskyi.gamedge.common.domain.auth.datastores.AuthRemoteDataStore
-import com.paulrybitskyi.gamedge.igdb.api.auth.entities.ApiOauthCredentials
-import com.paulrybitskyi.gamedge.igdb.api.common.CredentialsStore
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 import javax.inject.Singleton

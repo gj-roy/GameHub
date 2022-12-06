@@ -1,21 +1,20 @@
-/*
- * Copyright 2020 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.common.data.games.datastores.igdb
 
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiAgeRating
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiCategory
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiCompany
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiGame
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiGenre
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiImage
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiInvolvedCompany
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiKeyword
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiMode
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiPlatform
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiPlayerPerspective
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiReleaseDate
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiTheme
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiVideo
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiWebsite
 import com.paulrybitskyi.gamedge.common.domain.games.entities.AgeRating
 import com.paulrybitskyi.gamedge.common.domain.games.entities.AgeRatingCategory
 import com.paulrybitskyi.gamedge.common.domain.games.entities.AgeRatingType
@@ -35,21 +34,6 @@ import com.paulrybitskyi.gamedge.common.domain.games.entities.Theme
 import com.paulrybitskyi.gamedge.common.domain.games.entities.Video
 import com.paulrybitskyi.gamedge.common.domain.games.entities.Website
 import com.paulrybitskyi.gamedge.common.domain.games.entities.WebsiteCategory
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiAgeRating
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiCategory
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiCompany
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiGame
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiGenre
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiImage
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiInvolvedCompany
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiKeyword
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiMode
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiPlatform
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiPlayerPerspective
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiReleaseDate
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiTheme
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiVideo
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiWebsite
 import javax.inject.Inject
 
 internal class IgdbGameMapper @Inject constructor() {

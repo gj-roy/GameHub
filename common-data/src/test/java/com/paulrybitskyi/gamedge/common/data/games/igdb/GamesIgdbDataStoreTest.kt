@@ -1,40 +1,24 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.common.data.games.igdb
 
+import ca.on.hojat.gamenews.api.igdb.games.GamesEndpoint
+import ca.on.hojat.gamenews.api.igdb.games.entities.ApiGame
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAME
-import com.paulrybitskyi.gamedge.common.testing.domain.PAGINATION
-import com.paulrybitskyi.gamedge.common.testing.API_ERROR_HTTP
-import com.paulrybitskyi.gamedge.common.testing.API_ERROR_NETWORK
-import com.paulrybitskyi.gamedge.common.testing.API_ERROR_UNKNOWN
 import com.paulrybitskyi.gamedge.common.data.DOMAIN_COMPANY
 import com.paulrybitskyi.gamedge.common.data.FakeDiscoveryGamesReleaseDatesProvider
 import com.paulrybitskyi.gamedge.common.data.common.ApiErrorMapper
 import com.paulrybitskyi.gamedge.common.data.games.datastores.igdb.GamesIgdbDataStore
 import com.paulrybitskyi.gamedge.common.data.games.datastores.igdb.IgdbGameMapper
 import com.paulrybitskyi.gamedge.common.data.games.datastores.igdb.mapToDomainGames
+import com.paulrybitskyi.gamedge.common.testing.API_ERROR_HTTP
+import com.paulrybitskyi.gamedge.common.testing.API_ERROR_NETWORK
+import com.paulrybitskyi.gamedge.common.testing.API_ERROR_UNKNOWN
+import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAME
 import com.paulrybitskyi.gamedge.common.testing.domain.MainCoroutineRule
-import com.paulrybitskyi.gamedge.igdb.api.games.GamesEndpoint
-import com.paulrybitskyi.gamedge.igdb.api.games.entities.ApiGame
+import com.paulrybitskyi.gamedge.common.testing.domain.PAGINATION
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -54,7 +38,8 @@ internal class GamesIgdbDataStoreTest {
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
-    @MockK private lateinit var gamesEndpoint: GamesEndpoint
+    @MockK
+    private lateinit var gamesEndpoint: GamesEndpoint
 
     private lateinit var igdbGameMapper: IgdbGameMapper
     private lateinit var apiErrorMapper: ApiErrorMapper

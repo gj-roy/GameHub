@@ -16,12 +16,12 @@
 
 package com.paulrybitskyi.gamedge.common.data.auth.datastores.igdb
 
+import ca.on.hojat.gamenews.api.igdb.auth.AuthEndpoint
 import com.github.michaelbull.result.mapEither
 import com.paulrybitskyi.gamedge.common.data.common.ApiErrorMapper
 import com.paulrybitskyi.gamedge.common.domain.auth.datastores.AuthRemoteDataStore
 import com.paulrybitskyi.gamedge.common.domain.auth.entities.OauthCredentials
 import com.paulrybitskyi.gamedge.common.domain.common.DomainResult
-import com.paulrybitskyi.gamedge.igdb.api.auth.AuthEndpoint
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 import javax.inject.Singleton

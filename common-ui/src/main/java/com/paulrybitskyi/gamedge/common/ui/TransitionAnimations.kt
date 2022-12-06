@@ -1,19 +1,3 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.common.ui
 
 import android.view.animation.OvershootInterpolator
@@ -26,9 +10,10 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import kotlin.math.roundToInt
+
+//import androidx.compose.animation.slideInHorizontally
+//import androidx.compose.animation.slideOutHorizontally
+//import kotlin.math.roundToInt
 
 sealed interface TransitionAnimations {
 
@@ -155,52 +140,52 @@ object OvershootScaling : TransitionAnimations {
 // The GitHub issue: https://github.com/google/accompanist/issues/1160
 object HorizontalSliding : TransitionAnimations {
 
-    private const val MinAlpha = 0.8f
-    private const val MaxOffsetRatio = 0.25f
+//    private const val MinAlpha = 0.8f
+//    private const val MaxOffsetRatio = 0.25f
 
     override fun enter(): EnterTransition {
         return Fading.enter()
-        return slideInHorizontally(
-            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
-            initialOffsetX = HorizontalSliding::calculateMinOffsetX,
-        )
+//        return slideInHorizontally(
+//            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
+//            initialOffsetX = HorizontalSliding::calculateMinOffsetX,
+//        )
     }
 
     override fun exit(): ExitTransition {
         return Fading.exit()
-        return fadeOut(
-            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
-            targetAlpha = MinAlpha,
-        ) + slideOutHorizontally(
-            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
-            targetOffsetX = HorizontalSliding::calculateMaxOffsetX,
-        )
+//        return fadeOut(
+//            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
+//            targetAlpha = MinAlpha,
+//        ) + slideOutHorizontally(
+//            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
+//            targetOffsetX = HorizontalSliding::calculateMaxOffsetX,
+//        )
     }
 
     override fun popEnter(): EnterTransition {
         return Fading.popEnter()
-        return fadeIn(
-            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
-            initialAlpha = MinAlpha,
-        ) + slideInHorizontally(
-            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
-            initialOffsetX = HorizontalSliding::calculateMaxOffsetX,
-        )
+//        return fadeIn(
+//            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
+//            initialAlpha = MinAlpha,
+//        ) + slideInHorizontally(
+//            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
+//            initialOffsetX = HorizontalSliding::calculateMaxOffsetX,
+//        )
     }
 
     override fun popExit(): ExitTransition {
         return Fading.popExit()
-        return slideOutHorizontally(
-            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
-            targetOffsetX = HorizontalSliding::calculateMinOffsetX,
-        )
+//        return slideOutHorizontally(
+//            animationSpec = tween(TransitionAnimations.DefaultAnimationDuration),
+//            targetOffsetX = HorizontalSliding::calculateMinOffsetX,
+//        )
     }
 
-    private fun calculateMinOffsetX(fullWidth: Int): Int {
-        return fullWidth
-    }
+//    private fun calculateMinOffsetX(fullWidth: Int): Int {
+//        return fullWidth
+//    }
 
-    private fun calculateMaxOffsetX(fullWidth: Int): Int {
-        return (-fullWidth * MaxOffsetRatio).roundToInt()
-    }
+//    private fun calculateMaxOffsetX(fullWidth: Int): Int {
+//        return (-fullWidth * MaxOffsetRatio).roundToInt()
+//    }
 }

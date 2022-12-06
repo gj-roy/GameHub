@@ -16,8 +16,8 @@
 
 package com.paulrybitskyi.gamedge.common.data.auth.datastores.igdb
 
+import ca.on.hojat.gamenews.api.igdb.auth.entities.ApiOauthCredentials
 import com.paulrybitskyi.gamedge.common.domain.auth.entities.OauthCredentials
-import com.paulrybitskyi.gamedge.igdb.api.auth.entities.ApiOauthCredentials
 import javax.inject.Inject
 
 internal class IgdbAuthMapper @Inject constructor() {

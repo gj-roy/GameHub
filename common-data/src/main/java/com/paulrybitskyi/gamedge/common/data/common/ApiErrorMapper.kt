@@ -16,16 +16,18 @@
 
 package com.paulrybitskyi.gamedge.common.data.common
 
-import com.paulrybitskyi.gamedge.igdb.common.httpErrorMessage
-import com.paulrybitskyi.gamedge.igdb.common.Error as ApiError
-import com.paulrybitskyi.gamedge.igdb.common.isHttpError
-import com.paulrybitskyi.gamedge.igdb.common.isNetworkError
-import com.paulrybitskyi.gamedge.igdb.common.isServerError
-import com.paulrybitskyi.gamedge.igdb.common.isUnknownError
-import com.paulrybitskyi.gamedge.igdb.common.networkErrorMessage
-import com.paulrybitskyi.gamedge.igdb.common.unknownErrorMessage
+import ca.on.hojat.gamenews.api.common.httpErrorMessage
+import ca.on.hojat.gamenews.api.common.isHttpError
+import ca.on.hojat.gamenews.api.common.isNetworkError
+import ca.on.hojat.gamenews.api.common.isServerError
+import ca.on.hojat.gamenews.api.common.isUnknownError
+import ca.on.hojat.gamenews.api.common.networkErrorMessage
+import ca.on.hojat.gamenews.api.common.unknownErrorMessage
 import com.paulrybitskyi.gamedge.common.domain.common.entities.Error
 import javax.inject.Inject
+import kotlin.IllegalStateException
+import kotlin.with
+import ca.on.hojat.gamenews.api.common.Error as ApiError
 
 class ApiErrorMapper @Inject constructor() {
 

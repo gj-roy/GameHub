@@ -1,32 +1,16 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.common.data.games.database
 
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAME
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAMES
-import com.paulrybitskyi.gamedge.common.testing.domain.PAGINATION
 import com.paulrybitskyi.gamedge.common.data.DOMAIN_COMPANY
 import com.paulrybitskyi.gamedge.common.data.FakeDiscoveryGamesReleaseDatesProvider
 import com.paulrybitskyi.gamedge.common.data.games.datastores.database.DbGameMapper
 import com.paulrybitskyi.gamedge.common.data.games.datastores.database.GamesDatabaseDataStore
 import com.paulrybitskyi.gamedge.common.data.games.datastores.database.mapToDatabaseGames
+import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAME
+import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAMES
 import com.paulrybitskyi.gamedge.common.testing.domain.MainCoroutineRule
+import com.paulrybitskyi.gamedge.common.testing.domain.PAGINATION
 import com.paulrybitskyi.gamedge.database.games.tables.GamesTable
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -44,7 +28,8 @@ internal class GamesDatabaseDataStoreTest {
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
-    @MockK private lateinit var gamesTable: GamesTable
+    @MockK
+    private lateinit var gamesTable: GamesTable
 
     private lateinit var dbGameMapper: DbGameMapper
     private lateinit var SUT: GamesDatabaseDataStore
@@ -147,7 +132,14 @@ internal class GamesDatabaseDataStoreTest {
         runTest {
             val dbGames = dbGameMapper.mapToDatabaseGames(DOMAIN_GAMES)
 
-            every { gamesTable.observeRecentlyReleasedGames(any(), any(), any(), any()) } returns flowOf(dbGames)
+            every {
+                gamesTable.observeRecentlyReleasedGames(
+                    any(),
+                    any(),
+                    any(),
+                    any()
+                )
+            } returns flowOf(dbGames)
 
             SUT.observeRecentlyReleasedGames(PAGINATION).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
@@ -175,7 +167,9 @@ internal class GamesDatabaseDataStoreTest {
         runTest {
             val dbGames = dbGameMapper.mapToDatabaseGames(DOMAIN_GAMES)
 
-            every { gamesTable.observeMostAnticipatedGames(any(), any(), any()) } returns flowOf(dbGames)
+            every { gamesTable.observeMostAnticipatedGames(any(), any(), any()) } returns flowOf(
+                dbGames
+            )
 
             SUT.observeMostAnticipatedGames(PAGINATION).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
