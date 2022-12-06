@@ -3,6 +3,7 @@ plugins {
     gamedgeAndroid()
     kotlinKapt()
     ksp()
+    daggerHiltAndroid()
 }
 
 android {
@@ -17,6 +18,7 @@ android {
 
 dependencies {
     implementation(project(deps.local.core))
+    implementation(project(deps.local.commonDomain))
 
     implementation(deps.compose.ui)
     implementation(deps.compose.tooling)
@@ -24,6 +26,8 @@ dependencies {
     implementation(deps.compose.activity)
     implementation(deps.compose.runtime)
     implementation(deps.compose.material)
+    implementation(deps.compose.constraintLayout)
+    implementation(deps.compose.accompanist.swipeRefresh)
     implementation(deps.compose.accompanist.systemUi)
 
     implementation(deps.commons.core)
