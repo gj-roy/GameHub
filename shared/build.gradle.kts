@@ -17,6 +17,7 @@ dependencies {
 
     implementation(project(deps.local.commonDomain))
     testImplementation(project(deps.local.commonTesting))
+    implementation(project(deps.local.api))
 
 
 
@@ -28,6 +29,7 @@ dependencies {
     implementation(deps.commons.network)
     implementation(deps.commons.windowAnims)
     implementation(deps.misc.kotlinResult)
+    implementation(deps.testing.daggerHilt)
     implementation(deps.google.daggerHiltAndroid)
     kapt(deps.google.daggerHiltAndroidCompiler)
     implementation(deps.misc.hiltBinder)
@@ -36,6 +38,8 @@ dependencies {
     testImplementation(deps.testing.jUnit)
     testImplementation(deps.testing.truth)
     testImplementation(deps.testing.mockk)
+    implementation(deps.testing.mockWebServer)
+
     testImplementation(deps.testing.coroutines)
     androidTestImplementation(deps.testing.testRunner)
     androidTestImplementation(deps.testing.jUnitExt)
