@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.paulrybitskyi.gamedge.common.domain.games.entities
+package ca.on.hojat.gamenews.shared.domain.games.entities
 
 data class Platform(
     val abbreviation: String?,

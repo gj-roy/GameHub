@@ -7,7 +7,7 @@ import com.github.michaelbull.result.map
 import com.github.michaelbull.result.mapEither
 import com.github.michaelbull.result.mapError
 import ca.on.hojat.gamenews.shared.domain.common.DomainException
-import com.paulrybitskyi.gamedge.common.domain.common.DomainResult
+import ca.on.hojat.gamenews.shared.domain.common.DomainResult
 import ca.on.hojat.gamenews.shared.domain.common.entities.Error
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

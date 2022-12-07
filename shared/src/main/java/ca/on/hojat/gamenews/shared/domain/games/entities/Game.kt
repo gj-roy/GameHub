@@ -1,13 +1,5 @@
 package ca.on.hojat.gamenews.shared.domain.games.entities
 
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Mode
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Platform
-import com.paulrybitskyi.gamedge.common.domain.games.entities.PlayerPerspective
-import com.paulrybitskyi.gamedge.common.domain.games.entities.ReleaseDate
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Theme
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Video
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Website
-
 data class Game(
     val id: Int,
     val followerCount: Int?,

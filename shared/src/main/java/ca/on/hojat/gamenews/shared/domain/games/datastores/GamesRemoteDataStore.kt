@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.domain.games.datastores
 
-import com.paulrybitskyi.gamedge.common.domain.common.DomainResult
+import ca.on.hojat.gamenews.shared.domain.common.DomainResult
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.games.entities.Company
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game

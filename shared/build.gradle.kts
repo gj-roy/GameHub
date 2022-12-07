@@ -28,8 +28,6 @@ android {
 
 dependencies {
 
-    implementation(project(deps.local.api))
-
     implementation(deps.kotlin.coroutines)
     implementation(deps.kotlin.serialization)
     implementation(deps.androidX.browser)
@@ -43,6 +41,7 @@ dependencies {
     implementation("androidx.test:runner:1.5.1")
     implementation("io.mockk:mockk:1.13.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    androidTestImplementation(project(mapOf("path" to ":api")))
     kapt(deps.google.daggerHiltCoreCompiler)
     implementation(deps.google.daggerHiltAndroid)
     kapt(deps.google.daggerHiltAndroidCompiler)
@@ -60,6 +59,7 @@ dependencies {
     testImplementation(deps.testing.jUnit)
     testImplementation(deps.testing.truth)
     testImplementation(deps.testing.mockk)
+    testImplementation("com.google.truth:truth:1.1.3")
 
     androidTestImplementation(deps.testing.testRunner)
     androidTestImplementation(deps.testing.jUnitExt)

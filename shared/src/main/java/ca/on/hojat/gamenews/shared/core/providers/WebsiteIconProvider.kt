@@ -1,8 +1,8 @@
 package ca.on.hojat.gamenews.shared.core.providers
 
 import ca.on.hojat.gamenews.shared.R
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Website
-import com.paulrybitskyi.gamedge.common.domain.games.entities.WebsiteCategory
+import ca.on.hojat.gamenews.shared.domain.games.entities.Website
+import ca.on.hojat.gamenews.shared.domain.games.entities.WebsiteCategory
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

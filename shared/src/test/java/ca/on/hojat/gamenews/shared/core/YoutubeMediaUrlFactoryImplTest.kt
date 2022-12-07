@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.shared.core
 import ca.on.hojat.gamenews.shared.core.factories.YoutubeMediaUrlFactoryImpl
 import ca.on.hojat.gamenews.shared.core.factories.YoutubeThumbnailSize
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Video
+import ca.on.hojat.gamenews.shared.domain.games.entities.Video
 import org.junit.Before
 import org.junit.Test
 
