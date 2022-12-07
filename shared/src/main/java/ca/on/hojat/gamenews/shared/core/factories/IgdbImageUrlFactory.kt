@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.core.factories
 
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Image
+import ca.on.hojat.gamenews.shared.domain.games.entities.Image
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

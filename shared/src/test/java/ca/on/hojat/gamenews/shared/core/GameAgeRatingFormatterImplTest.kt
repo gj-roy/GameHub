@@ -3,10 +3,10 @@ package ca.on.hojat.gamenews.shared.core
 import ca.on.hojat.gamenews.shared.core.formatters.GameAgeRatingFormatterImpl
 import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.domain.games.entities.AgeRating
-import com.paulrybitskyi.gamedge.common.domain.games.entities.AgeRatingCategory
-import com.paulrybitskyi.gamedge.common.domain.games.entities.AgeRatingType
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAME
+import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRating
+import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRatingCategory
+import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRatingType
+import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import org.junit.Before
 import org.junit.Test
 

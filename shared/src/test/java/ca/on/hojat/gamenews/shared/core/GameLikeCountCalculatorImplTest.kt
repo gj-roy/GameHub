@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.core
 
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAME
+import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import org.junit.Before
 import org.junit.Test
 

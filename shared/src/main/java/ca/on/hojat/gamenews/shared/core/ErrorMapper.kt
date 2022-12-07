@@ -2,8 +2,8 @@ package ca.on.hojat.gamenews.shared.core
 
 import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.shared.core.providers.StringProvider
-import com.paulrybitskyi.gamedge.common.domain.common.DomainException
-import com.paulrybitskyi.gamedge.common.domain.common.entities.Error
+import ca.on.hojat.gamenews.shared.domain.common.DomainException
+import ca.on.hojat.gamenews.shared.domain.common.entities.Error
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

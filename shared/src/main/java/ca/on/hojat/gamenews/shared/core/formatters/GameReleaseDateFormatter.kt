@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.shared.core.formatters
 
 import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.shared.core.providers.StringProvider
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Game
+import ca.on.hojat.gamenews.shared.domain.games.entities.Game
 import com.paulrybitskyi.gamedge.common.domain.games.entities.ReleaseDate
 import com.paulrybitskyi.gamedge.common.domain.games.entities.ReleaseDateCategory
 import com.paulrybitskyi.hiltbinder.BindType
