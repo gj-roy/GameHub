@@ -68,6 +68,7 @@ object deps {
         const val commonData = ":common-data"
         const val commonUi = ":common-ui"
         const val commonTesting = ":common-testing"
+        const val shared = ":shared"
 
         const val featureCategory = ":feature-category"
         const val featureDiscovery = ":feature-discovery"
