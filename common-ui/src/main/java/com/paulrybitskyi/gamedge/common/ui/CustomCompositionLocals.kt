@@ -1,9 +1,9 @@
 package com.paulrybitskyi.gamedge.common.ui
 
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.paulrybitskyi.gamedge.core.providers.NetworkStateProvider
-import com.paulrybitskyi.gamedge.core.sharers.TextSharer
-import com.paulrybitskyi.gamedge.core.urlopener.UrlOpener
+import ca.on.hojat.gamenews.shared.core.providers.NetworkStateProvider
+import ca.on.hojat.gamenews.shared.core.sharers.TextSharer
+import ca.on.hojat.gamenews.shared.core.urlopener.UrlOpener
 
 val LocalUrlOpener = staticCompositionLocalOf<UrlOpener> {
     error("UrlOpener not provided.")

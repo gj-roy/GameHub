@@ -29,7 +29,7 @@ ksp {
 }
 
 dependencies {
-    implementation(project(deps.local.core))
+    implementation(project(deps.local.shared))
 
     implementation(deps.kotlin.coroutines)
     implementation(deps.kotlin.serialization)
@@ -44,14 +44,12 @@ dependencies {
     implementation(deps.misc.hiltBinder)
     ksp(deps.misc.hiltBinderCompiler)
 
-    testImplementation(project(deps.local.commonTesting))
     testImplementation(deps.testing.jUnit)
     testImplementation(deps.testing.truth)
     testImplementation(deps.testing.mockk)
     testImplementation(deps.testing.coroutines)
     testImplementation(deps.testing.turbine)
 
-    androidTestImplementation(project(deps.local.commonTesting))
     androidTestImplementation(deps.testing.testRunner)
     androidTestImplementation(deps.testing.jUnitExt)
     androidTestImplementation(deps.testing.truth)

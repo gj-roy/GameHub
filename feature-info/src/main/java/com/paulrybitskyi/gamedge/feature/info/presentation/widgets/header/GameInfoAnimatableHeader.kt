@@ -1,19 +1,3 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 @file:Suppress("LongMethod")
 
 package com.paulrybitskyi.gamedge.feature.info.presentation.widgets.header
@@ -140,7 +124,7 @@ internal fun GameInfoAnimatableHeader(
     val isPageIndicatorVisible = remember(artworks) { artworks.size > 1 }
     val hasDefaultPlaceholderArtwork = remember(artworks) {
         artworks.size == 1 &&
-        artworks.single() is GameInfoArtworkUiModel.DefaultImage
+                artworks.single() is GameInfoArtworkUiModel.DefaultImage
     }
     var selectedArtworkPage by remember { mutableStateOf(0) }
     var secondTitleText by rememberSaveable { mutableStateOf("") }
@@ -304,7 +288,8 @@ internal fun GameInfoAnimatableHeader(
                 if (textLayoutResult.hasVisualOverflow) {
                     val firstTitleWidth = textLayoutResult.size.width.toFloat()
                     val firstTitleOffset = Offset(firstTitleWidth, 0f)
-                    val firstTitleVisibleTextEndIndex = textLayoutResult.getOffsetForPosition(firstTitleOffset) + 1
+                    val firstTitleVisibleTextEndIndex =
+                        textLayoutResult.getOffsetForPosition(firstTitleOffset) + 1
 
                     secondTitleText = headerInfo.title.substring(firstTitleVisibleTextEndIndex)
                 }

@@ -7,9 +7,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(deps.local.commonDomain))
-    implementation(project(deps.local.core))
-    implementation(project(deps.local.api))
+    implementation(project(deps.local.shared))
     implementation(project(deps.local.database))
 
     implementation(deps.kotlin.coroutines)
@@ -25,7 +23,6 @@ dependencies {
     implementation(deps.misc.hiltBinder)
     ksp(deps.misc.hiltBinderCompiler)
 
-    testImplementation(project(deps.local.commonTesting))
     testImplementation(deps.testing.jUnit)
     testImplementation(deps.testing.truth)
     testImplementation(deps.testing.mockk)

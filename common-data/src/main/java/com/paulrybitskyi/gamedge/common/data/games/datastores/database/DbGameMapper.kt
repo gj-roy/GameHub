@@ -1,40 +1,24 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.common.data.games.datastores.database
 
-import com.paulrybitskyi.gamedge.common.domain.games.entities.AgeRating
-import com.paulrybitskyi.gamedge.common.domain.games.entities.AgeRatingCategory
-import com.paulrybitskyi.gamedge.common.domain.games.entities.AgeRatingType
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Category
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Company
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Game
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Genre
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Image
-import com.paulrybitskyi.gamedge.common.domain.games.entities.InvolvedCompany
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Keyword
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Mode
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Platform
-import com.paulrybitskyi.gamedge.common.domain.games.entities.PlayerPerspective
-import com.paulrybitskyi.gamedge.common.domain.games.entities.ReleaseDate
-import com.paulrybitskyi.gamedge.common.domain.games.entities.ReleaseDateCategory
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Theme
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Video
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Website
-import com.paulrybitskyi.gamedge.common.domain.games.entities.WebsiteCategory
+import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRating
+import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRatingCategory
+import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRatingType
+import ca.on.hojat.gamenews.shared.domain.games.entities.Category
+import ca.on.hojat.gamenews.shared.domain.games.entities.Company
+import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.shared.domain.games.entities.Genre
+import ca.on.hojat.gamenews.shared.domain.games.entities.Image
+import ca.on.hojat.gamenews.shared.domain.games.entities.InvolvedCompany
+import ca.on.hojat.gamenews.shared.domain.games.entities.Keyword
+import ca.on.hojat.gamenews.shared.domain.games.entities.Mode
+import ca.on.hojat.gamenews.shared.domain.games.entities.Platform
+import ca.on.hojat.gamenews.shared.domain.games.entities.PlayerPerspective
+import ca.on.hojat.gamenews.shared.domain.games.entities.ReleaseDate
+import ca.on.hojat.gamenews.shared.domain.games.entities.ReleaseDateCategory
+import ca.on.hojat.gamenews.shared.domain.games.entities.Theme
+import ca.on.hojat.gamenews.shared.domain.games.entities.Video
+import ca.on.hojat.gamenews.shared.domain.games.entities.Website
+import ca.on.hojat.gamenews.shared.domain.games.entities.WebsiteCategory
 import com.paulrybitskyi.gamedge.database.games.entities.DbAgeRating
 import com.paulrybitskyi.gamedge.database.games.entities.DbAgeRatingCategory
 import com.paulrybitskyi.gamedge.database.games.entities.DbAgeRatingType

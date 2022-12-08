@@ -17,8 +17,7 @@ android {
 }
 
 dependencies {
-    implementation(project(deps.local.core))
-    implementation(project(deps.local.commonDomain))
+    implementation(project(deps.local.shared))
 
     implementation(deps.compose.ui)
     implementation(deps.compose.tooling)

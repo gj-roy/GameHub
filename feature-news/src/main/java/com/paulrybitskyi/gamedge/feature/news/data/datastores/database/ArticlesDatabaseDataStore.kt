@@ -1,7 +1,7 @@
 package com.paulrybitskyi.gamedge.feature.news.data.datastores.database
 
-import com.paulrybitskyi.gamedge.common.domain.common.DispatcherProvider
-import com.paulrybitskyi.gamedge.common.domain.common.entities.Pagination
+import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import com.paulrybitskyi.gamedge.database.articles.DatabaseArticle
 import com.paulrybitskyi.gamedge.database.articles.tables.ArticlesTable
 import com.paulrybitskyi.gamedge.feature.news.domain.datastores.ArticlesLocalDataStore

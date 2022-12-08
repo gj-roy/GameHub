@@ -1,9 +1,9 @@
 package com.paulrybitskyi.gamedge.common.data.games.datastores.database
 
-import com.paulrybitskyi.gamedge.common.domain.common.DispatcherProvider
-import com.paulrybitskyi.gamedge.common.domain.common.entities.Pagination
-import com.paulrybitskyi.gamedge.common.domain.games.datastores.LikedGamesLocalDataStore
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Game
+import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
+import ca.on.hojat.gamenews.shared.domain.games.datastores.LikedGamesLocalDataStore
+import ca.on.hojat.gamenews.shared.domain.games.entities.Game
 import com.paulrybitskyi.gamedge.database.games.entities.DbGame
 import com.paulrybitskyi.gamedge.database.games.tables.LikedGamesTable
 import com.paulrybitskyi.hiltbinder.BindType

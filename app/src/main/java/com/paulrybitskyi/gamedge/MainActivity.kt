@@ -1,19 +1,3 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge
 
 import android.content.Context
@@ -34,10 +18,10 @@ import com.paulrybitskyi.gamedge.common.ui.LocalNetworkStateProvider
 import com.paulrybitskyi.gamedge.common.ui.LocalTextSharer
 import com.paulrybitskyi.gamedge.common.ui.LocalUrlOpener
 import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
-import com.paulrybitskyi.gamedge.core.providers.NetworkStateProvider
-import com.paulrybitskyi.gamedge.core.sharers.TextSharer
-import com.paulrybitskyi.gamedge.core.urlopener.UrlOpener
-import com.paulrybitskyi.gamedge.common.domain.common.extensions.execute
+import ca.on.hojat.gamenews.shared.domain.common.extensions.execute
+import ca.on.hojat.gamenews.shared.core.providers.NetworkStateProvider
+import ca.on.hojat.gamenews.shared.core.sharers.TextSharer
+import ca.on.hojat.gamenews.shared.core.urlopener.UrlOpener
 import com.paulrybitskyi.gamedge.feature.settings.domain.entities.Settings
 import com.paulrybitskyi.gamedge.feature.settings.domain.entities.Theme
 import com.paulrybitskyi.gamedge.feature.settings.domain.usecases.ObserveThemeUseCase
@@ -55,11 +39,17 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    @Inject lateinit var urlOpener: UrlOpener
-    @Inject lateinit var textSharer: TextSharer
-    @Inject lateinit var networkStateProvider: NetworkStateProvider
+    @Inject
+    lateinit var urlOpener: UrlOpener
 
-    @Inject lateinit var observeThemeUseCase: ObserveThemeUseCase
+    @Inject
+    lateinit var textSharer: TextSharer
+
+    @Inject
+    lateinit var networkStateProvider: NetworkStateProvider
+
+    @Inject
+    lateinit var observeThemeUseCase: ObserveThemeUseCase
 
     private var shouldKeepSplashOpen = true
 

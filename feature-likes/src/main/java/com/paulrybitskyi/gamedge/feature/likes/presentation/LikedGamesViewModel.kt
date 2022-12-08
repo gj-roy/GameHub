@@ -1,23 +1,14 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.feature.likes.presentation
 
 import androidx.lifecycle.viewModelScope
-import com.paulrybitskyi.gamedge.common.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.core.ErrorMapper
+import ca.on.hojat.gamenews.shared.core.Logger
+import ca.on.hojat.gamenews.shared.core.providers.StringProvider
+import ca.on.hojat.gamenews.shared.core.utils.onError
+import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.domain.common.entities.hasDefaultLimit
+import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
+import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
 import com.paulrybitskyi.gamedge.common.ui.base.BaseViewModel
 import com.paulrybitskyi.gamedge.common.ui.base.events.common.GeneralCommand
 import com.paulrybitskyi.gamedge.common.ui.widgets.games.GameUiModel
@@ -27,17 +18,9 @@ import com.paulrybitskyi.gamedge.common.ui.widgets.games.mapToUiModels
 import com.paulrybitskyi.gamedge.common.ui.widgets.games.toEmptyState
 import com.paulrybitskyi.gamedge.common.ui.widgets.games.toLoadingState
 import com.paulrybitskyi.gamedge.common.ui.widgets.games.toSuccessState
-import com.paulrybitskyi.gamedge.core.ErrorMapper
-import com.paulrybitskyi.gamedge.core.Logger
-import com.paulrybitskyi.gamedge.core.providers.StringProvider
-import com.paulrybitskyi.gamedge.core.utils.onError
-import com.paulrybitskyi.gamedge.common.domain.common.entities.hasDefaultLimit
-import com.paulrybitskyi.gamedge.common.domain.common.entities.nextLimit
-import com.paulrybitskyi.gamedge.common.domain.games.common.ObserveGamesUseCaseParams
 import com.paulrybitskyi.gamedge.feature.likes.R
 import com.paulrybitskyi.gamedge.feature.likes.domain.ObserveLikedGamesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.delay
@@ -52,6 +35,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 private const val SUBSEQUENT_EMISSION_DELAY = 500L
 

@@ -21,11 +21,8 @@ android {
 }
 
 dependencies {
-    implementation(project(deps.local.commonDomain))
     implementation(project(deps.local.commonData))
-    implementation(project(deps.local.core))
     implementation(project(deps.local.commonUi))
-    implementation(project(deps.local.api))
     implementation(project(deps.local.database))
     implementation(project(deps.local.featureCategory))
     implementation(project(deps.local.featureDiscovery))
@@ -35,6 +32,7 @@ dependencies {
     implementation(project(deps.local.featureNews))
     implementation(project(deps.local.featureSearch))
     implementation(project(deps.local.featureSettings))
+    implementation(project(deps.local.shared))
 
     implementation(deps.androidX.splash)
 

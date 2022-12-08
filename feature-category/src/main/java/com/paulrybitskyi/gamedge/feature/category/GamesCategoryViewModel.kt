@@ -1,36 +1,20 @@
-/*
- * Copyright 2021 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.feature.category
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.paulrybitskyi.gamedge.common.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.core.ErrorMapper
+import ca.on.hojat.gamenews.shared.core.Logger
+import ca.on.hojat.gamenews.shared.core.providers.StringProvider
+import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
 import com.paulrybitskyi.gamedge.common.ui.base.BaseViewModel
 import com.paulrybitskyi.gamedge.common.ui.base.events.common.GeneralCommand
 import com.paulrybitskyi.gamedge.common.ui.di.qualifiers.TransitionAnimationDuration
-import com.paulrybitskyi.gamedge.core.ErrorMapper
-import com.paulrybitskyi.gamedge.core.Logger
-import com.paulrybitskyi.gamedge.core.providers.StringProvider
-import com.paulrybitskyi.gamedge.core.utils.onError
-import com.paulrybitskyi.gamedge.common.domain.common.entities.nextLimit
-import com.paulrybitskyi.gamedge.common.domain.common.entities.nextOffset
-import com.paulrybitskyi.gamedge.common.domain.common.extensions.resultOrError
-import com.paulrybitskyi.gamedge.common.domain.games.common.ObserveGamesUseCaseParams
-import com.paulrybitskyi.gamedge.common.domain.games.common.RefreshGamesUseCaseParams
+import ca.on.hojat.gamenews.shared.core.utils.onError
+import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
+import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
+import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
 import com.paulrybitskyi.gamedge.feature.category.di.GamesCategoryKey
 import com.paulrybitskyi.gamedge.feature.category.widgets.GameCategoryUiModelMapper
 import com.paulrybitskyi.gamedge.feature.category.widgets.GameCategoryUiModel
@@ -93,7 +77,8 @@ internal class GamesCategoryViewModel @Inject constructor(
     val uiState: StateFlow<GamesCategoryUiState> = _uiState.asStateFlow()
 
     init {
-        gamesCategory = GamesCategory.valueOf(checkNotNull(savedStateHandle.get<String>(PARAM_GAMES_CATEGORY)))
+        gamesCategory =
+            GamesCategory.valueOf(checkNotNull(savedStateHandle.get<String>(PARAM_GAMES_CATEGORY)))
         gamesCategoryKeyType = gamesCategory.toKeyType()
 
         _uiState.update {

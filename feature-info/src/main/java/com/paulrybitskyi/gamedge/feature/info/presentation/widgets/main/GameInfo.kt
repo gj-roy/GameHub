@@ -1,19 +1,3 @@
-/*
- * Copyright 2021 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.feature.info.presentation.widgets.main
 
 import android.content.res.Configuration
@@ -416,6 +400,7 @@ private enum class GameInfoItem(
     Details(key = 5, contentType = 5),
     Links(key = 6, contentType = 6),
     Companies(key = 7, contentType = 7),
+
     // Both other & similar games is the same composable
     // filled with different data. That's why contentType
     // is the same for them two.
@@ -575,11 +560,11 @@ private fun buildFakeGameModel(): GameInfoUiModel {
             ),
         ),
         summary = "Elden Ring is an action-RPG open world game with RPG " +
-            "elements such as stats, weapons and spells.",
+                "elements such as stats, weapons and spells.",
         detailsModel = GameInfoDetailsUiModel(
             genresText = "Role-playing (RPG)",
             platformsText = "PC (Microsoft Windows) • PlayStation 4 • " +
-                "Xbox One • PlayStation 5 • Xbox Series X|S",
+                    "Xbox One • PlayStation 5 • Xbox Series X|S",
             modesText = "Single player • Multiplayer • Co-operative",
             playerPerspectivesText = "Third person",
             themesText = "Action",

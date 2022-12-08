@@ -1,25 +1,16 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.paulrybitskyi.gamedge.feature.search.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
+import ca.on.hojat.gamenews.shared.core.ErrorMapper
+import ca.on.hojat.gamenews.shared.core.Logger
+import ca.on.hojat.gamenews.shared.core.providers.StringProvider
+import ca.on.hojat.gamenews.shared.core.utils.onError
+import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
+import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
+import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
 import com.paulrybitskyi.commons.utils.observeChanges
-import com.paulrybitskyi.gamedge.common.domain.common.DispatcherProvider
 import com.paulrybitskyi.gamedge.common.ui.base.BaseViewModel
 import com.paulrybitskyi.gamedge.common.ui.base.events.common.GeneralCommand
 import com.paulrybitskyi.gamedge.common.ui.widgets.games.GameUiModel
@@ -27,17 +18,9 @@ import com.paulrybitskyi.gamedge.common.ui.widgets.games.GameUiModelMapper
 import com.paulrybitskyi.gamedge.common.ui.widgets.games.GamesUiState
 import com.paulrybitskyi.gamedge.common.ui.widgets.games.mapToUiModels
 import com.paulrybitskyi.gamedge.common.ui.widgets.games.toSuccessState
-import com.paulrybitskyi.gamedge.core.ErrorMapper
-import com.paulrybitskyi.gamedge.core.Logger
-import com.paulrybitskyi.gamedge.core.providers.StringProvider
-import com.paulrybitskyi.gamedge.core.utils.onError
-import com.paulrybitskyi.gamedge.common.domain.common.entities.Pagination
-import com.paulrybitskyi.gamedge.common.domain.common.entities.nextOffset
-import com.paulrybitskyi.gamedge.common.domain.common.extensions.resultOrError
 import com.paulrybitskyi.gamedge.feature.search.R
 import com.paulrybitskyi.gamedge.feature.search.domain.SearchGamesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -47,6 +30,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 private const val KEY_CURRENT_SEARCH_QUERY = "current_search_query"
 private const val KEY_CONFIRMED_SEARCH_QUERY = "confirmed_search_query"
@@ -75,7 +59,9 @@ internal class GamesSearchViewModel @Inject constructor(
     }
 
     private var pagination: Pagination
-        set(value) { useCaseParams = useCaseParams.copy(pagination = value) }
+        set(value) {
+            useCaseParams = useCaseParams.copy(pagination = value)
+        }
         get() = useCaseParams.pagination
 
     private var useCaseParams = SearchGamesUseCase.Params(searchQuery = "")
@@ -188,11 +174,11 @@ internal class GamesSearchViewModel @Inject constructor(
                 }
                 .map(::combineWithAlreadyLoadedGames)
         }
-        .collect { emittedUiState ->
-            configureNextLoad(emittedUiState)
-            updateTotalGamesResult(emittedUiState)
-            _uiState.update { it.copy(gamesUiState = emittedUiState) }
-        }
+            .collect { emittedUiState ->
+                configureNextLoad(emittedUiState)
+                updateTotalGamesResult(emittedUiState)
+                _uiState.update { it.copy(gamesUiState = emittedUiState) }
+            }
     }
 
     private fun isPerformingNewSearch(): Boolean {

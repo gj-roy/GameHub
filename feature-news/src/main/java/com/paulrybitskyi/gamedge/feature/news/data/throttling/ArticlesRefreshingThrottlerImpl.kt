@@ -4,7 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.longPreferencesKey
-import com.paulrybitskyi.gamedge.core.providers.TimestampProvider
+import ca.on.hojat.gamenews.shared.core.providers.TimestampProvider
 import com.paulrybitskyi.gamedge.feature.news.domain.throttling.ArticlesRefreshingThrottler
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.first

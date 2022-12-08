@@ -1,14 +1,14 @@
 package com.paulrybitskyi.gamedge.feature.news.presentation
 
 import androidx.lifecycle.viewModelScope
-import com.paulrybitskyi.gamedge.common.domain.common.DispatcherProvider
-import com.paulrybitskyi.gamedge.common.domain.common.entities.Pagination
-import com.paulrybitskyi.gamedge.common.domain.common.extensions.resultOrError
+import ca.on.hojat.gamenews.shared.core.ErrorMapper
+import ca.on.hojat.gamenews.shared.core.Logger
+import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
+import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
 import com.paulrybitskyi.gamedge.common.ui.base.BaseViewModel
 import com.paulrybitskyi.gamedge.common.ui.base.events.common.GeneralCommand
-import com.paulrybitskyi.gamedge.core.ErrorMapper
-import com.paulrybitskyi.gamedge.core.Logger
-import com.paulrybitskyi.gamedge.core.utils.onError
+import ca.on.hojat.gamenews.shared.core.utils.onError
 import com.paulrybitskyi.gamedge.feature.news.domain.usecases.ObserveArticlesUseCase
 import com.paulrybitskyi.gamedge.feature.news.domain.usecases.RefreshArticlesUseCase
 import com.paulrybitskyi.gamedge.feature.news.presentation.mapping.GamingNewsItemUiModelMapper

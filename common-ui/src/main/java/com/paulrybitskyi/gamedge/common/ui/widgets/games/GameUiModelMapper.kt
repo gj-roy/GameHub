@@ -1,9 +1,9 @@
 package com.paulrybitskyi.gamedge.common.ui.widgets.games
 
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Game
-import com.paulrybitskyi.gamedge.core.factories.IgdbImageSize
-import com.paulrybitskyi.gamedge.core.factories.IgdbImageUrlFactory
-import com.paulrybitskyi.gamedge.core.formatters.GameReleaseDateFormatter
+import ca.on.hojat.gamenews.shared.core.factories.IgdbImageSize
+import ca.on.hojat.gamenews.shared.core.factories.IgdbImageUrlFactory
+import ca.on.hojat.gamenews.shared.core.formatters.GameReleaseDateFormatter
+import ca.on.hojat.gamenews.shared.domain.games.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

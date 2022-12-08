@@ -1,10 +1,10 @@
 package com.paulrybitskyi.gamedge.feature.news.domain.usecases
 
-import com.paulrybitskyi.gamedge.common.domain.common.DispatcherProvider
-import com.paulrybitskyi.gamedge.common.domain.common.DomainResult
-import com.paulrybitskyi.gamedge.common.domain.common.entities.Pagination
-import com.paulrybitskyi.gamedge.common.domain.common.extensions.onEachSuccess
-import com.paulrybitskyi.gamedge.common.domain.common.usecases.ObservableUseCase
+import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.domain.common.DomainResult
+import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
+import ca.on.hojat.gamenews.shared.domain.common.usecases.ObservableUseCase
+import ca.on.hojat.gamenews.shared.domain.common.extensions.onEachSuccess
 import com.paulrybitskyi.gamedge.feature.news.domain.datastores.ArticlesDataStores
 import com.paulrybitskyi.gamedge.feature.news.domain.entities.Article
 import com.paulrybitskyi.gamedge.feature.news.domain.throttling.ArticlesRefreshingThrottlerTools

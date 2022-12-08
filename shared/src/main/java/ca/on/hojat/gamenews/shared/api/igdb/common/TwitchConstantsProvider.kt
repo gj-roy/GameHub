@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.igdb.common
 
-import ca.on.hojat.gamenews.api.BuildConfig
+import ca.on.hojat.gamenews.shared.BuildConfig
 import javax.inject.Inject
 
 internal interface TwitchConstantsProvider {

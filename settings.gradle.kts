@@ -8,13 +8,9 @@ pluginManagement {
 }
 
 include(":app")
-include(":core")
-include(":common-domain")
 include(":common-data")
 include(":common-ui")
-include(":common-testing")
 include(":database")
-include(":api")
 include(":feature-category")
 include(":feature-discovery")
 include(":feature-info")

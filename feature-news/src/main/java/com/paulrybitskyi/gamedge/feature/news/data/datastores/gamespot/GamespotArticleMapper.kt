@@ -1,7 +1,7 @@
 package com.paulrybitskyi.gamedge.feature.news.data.datastores.gamespot
 
-import ca.on.hojat.gamenews.api.gamespot.articles.entities.ApiArticle
-import ca.on.hojat.gamenews.api.gamespot.articles.entities.ApiImageType
+import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle
+import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiImageType
 import com.paulrybitskyi.gamedge.feature.news.domain.DomainArticle
 import com.paulrybitskyi.gamedge.feature.news.domain.DomainImageType
 import javax.inject.Inject

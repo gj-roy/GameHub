@@ -1,6 +1,6 @@
 package com.paulrybitskyi.gamedge.feature.news.presentation.mapping
 
-import com.paulrybitskyi.gamedge.core.formatters.ArticlePublicationDateFormatter
+import ca.on.hojat.gamenews.shared.core.formatters.ArticlePublicationDateFormatter
 import com.paulrybitskyi.gamedge.feature.news.domain.entities.Article
 import com.paulrybitskyi.gamedge.feature.news.domain.entities.ImageType
 import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.GamingNewsItemUiModel

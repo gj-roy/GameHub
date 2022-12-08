@@ -41,19 +41,19 @@ The aim of this project is to showcase the latest trends in Android development 
 
 <details>
 <summary><b>Demo 1</b></summary>
-</p>
+
 
 https://user-images.githubusercontent.com/14782808/111520186-88671800-8760-11eb-8995-8e45a5cd9213.mp4
 </details>
 <details>
 <summary><b>Demo 2</b></summary>
-</p>
+
 
 https://user-images.githubusercontent.com/14782808/111520260-9b79e800-8760-11eb-9665-1062ed2b2c24.mp4
 </details>
 <details>
 <summary><b>Demo 3</b></summary>
-</p>
+
 
 https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-9dbe-0ffc44635ef8.mp4
 </details>
@@ -129,14 +129,7 @@ You'll need to supply API/client keys for the various services that the app uses
 
 Go to the [Releases](https://github.com/mars885/gamedge/releases) to download the latest APK.
 
-## Contribution
-
-See the [CONTRIBUTION.md](/CONTRIBUTION.md) file.
-
 ## Questions
 
 If you have any questions regarding the codebase, hit me up on [Twitter](https://twitter.com/PRybitskyi).
 
-## License
-
-Gamedge is licensed under the [Apache 2.0 License](LICENSE).

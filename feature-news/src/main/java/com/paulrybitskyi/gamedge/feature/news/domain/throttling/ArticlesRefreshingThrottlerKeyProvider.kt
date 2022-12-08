@@ -1,6 +1,6 @@
 package com.paulrybitskyi.gamedge.feature.news.domain.throttling
 
-import com.paulrybitskyi.gamedge.common.domain.common.entities.Pagination
+import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 import javax.inject.Singleton
