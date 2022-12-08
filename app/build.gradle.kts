@@ -19,6 +19,8 @@ android {
         kotlinCompilerExtensionVersion = versions.compose
     }
 
+    // Without the below block, a build failure was happening when running ./gradlew connectedAndroidTest
+    // See: https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-debug#debug-agent-and-android
     packagingOptions {
         resources.excludes.add("META-INF/LICENSE.md")
         resources.excludes.add("META-INF/LICENSE-notice.md")
@@ -31,6 +33,13 @@ android {
         resources.excludes.add("META-INF/notice.txt")
         resources.excludes.add("META-INF/ASL2.0")
         resources.excludes.add("META-INF/*.kotlin_module")
+        // for JNA and JNA-platform
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
+        // for byte-buddy
+        resources.excludes.add("META-INF/licenses/ASM")
+        resources.pickFirsts.add("win32-x86-64/attach_hotspot_windows.dll")
+        resources.pickFirsts.add("win32-x86/attach_hotspot_windows.dll")
     }
 }
 
