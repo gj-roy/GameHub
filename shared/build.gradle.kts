@@ -11,6 +11,15 @@ plugins {
 }
 
 android {
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = versions.compose
+    }
+
     namespace = "ca.on.hojat.gamenews.shared"
 
     compileOptions {
@@ -53,6 +62,19 @@ dependencies {
     implementation(deps.square.retrofitKotlinxSerializationConverter)
     implementation(deps.square.retrofitScalarsConverter)
 
+    implementation(deps.compose.ui)
+    implementation(deps.compose.tooling)
+    implementation(deps.compose.foundation)
+    implementation(deps.compose.activity)
+    implementation(deps.compose.runtime)
+    implementation(deps.compose.material)
+    implementation(deps.compose.constraintLayout)
+    implementation(deps.compose.accompanist.swipeRefresh)
+    implementation(deps.compose.accompanist.systemUi)
+
+    implementation(deps.misc.coil)
+
+
     testImplementation(deps.testing.turbine)
     testImplementation(deps.testing.coroutines)
     testImplementation(deps.testing.jUnit)
@@ -63,7 +85,6 @@ dependencies {
     androidTestImplementation(deps.testing.testRunner)
     androidTestImplementation(deps.testing.jUnitExt)
     androidTestImplementation(deps.testing.daggerHilt)
-
     kaptAndroidTest(deps.google.daggerHiltAndroidCompiler)
 
 }
