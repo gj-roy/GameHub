@@ -61,6 +61,10 @@ dependencies {
     implementation(deps.compose.material)
     implementation(deps.compose.runtime)
     implementation(deps.compose.navigation)
+    implementation(deps.compose.animation)
+    implementation(deps.compose.constraintLayout)
+    implementation(deps.compose.accompanist.flowLayout)
+    implementation(deps.compose.accompanist.pager)
     implementation(deps.compose.accompanist.navigationAnimations)
     implementation(deps.compose.hilt)
 
