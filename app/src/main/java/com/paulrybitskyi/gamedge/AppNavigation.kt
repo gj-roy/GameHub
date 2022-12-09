@@ -23,8 +23,8 @@ import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.main.GameInfo
 import com.paulrybitskyi.gamedge.feature.likes.presentation.LikedGames
 import com.paulrybitskyi.gamedge.feature.likes.presentation.LikedGamesRoute
 import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.GamingNews
-import com.paulrybitskyi.gamedge.feature.search.presentation.GamesSearch
-import com.paulrybitskyi.gamedge.feature.search.presentation.GamesSearchRoute
+import com.paulrybitskyi.gamedge.feature_search.presentation.GamesSearch
+import com.paulrybitskyi.gamedge.feature_search.presentation.GamesSearchRoute
 import com.paulrybitskyi.gamedge.feature.settings.presentation.Settings
 
 @Composable

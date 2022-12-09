@@ -61,13 +61,8 @@ object deps {
 
     object local {
 
-        const val core = ":core"
         const val database = ":database"
-        const val api = ":api"
-        const val commonDomain = ":common-domain"
         const val commonData = ":common-data"
-        const val commonUi = ":common-ui"
-        const val commonTesting = ":common-testing"
         const val shared = ":shared"
 
         const val featureCategory = ":feature-category"
@@ -76,7 +71,6 @@ object deps {
         const val featureImageViewer = ":feature-image-viewer"
         const val featureLikes = ":feature-likes"
         const val featureNews = ":feature-news"
-        const val featureSearch = ":feature-search"
         const val featureSettings = ":feature-settings"
     }
 
