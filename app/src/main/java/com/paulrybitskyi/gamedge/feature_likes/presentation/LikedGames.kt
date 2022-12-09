@@ -24,7 +24,7 @@ import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.shared.ui.widgets.games.Games
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GamesUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
-import com.paulrybitskyi.gamedge.feature.likes.R
+import com.paulrybitskyi.gamedge.R
 
 @Composable
 fun LikedGames(

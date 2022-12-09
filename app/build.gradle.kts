@@ -50,7 +50,6 @@ dependencies {
     implementation(project(deps.local.featureDiscovery))
     implementation(project(deps.local.featureInfo))
     implementation(project(deps.local.featureImageViewer))
-    implementation(project(deps.local.featureLikes))
     implementation(project(deps.local.featureSettings))
     implementation(project(deps.local.shared))
 

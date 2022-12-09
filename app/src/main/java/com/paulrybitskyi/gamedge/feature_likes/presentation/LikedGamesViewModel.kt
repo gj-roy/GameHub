@@ -18,7 +18,7 @@ import ca.on.hojat.gamenews.shared.ui.widgets.games.mapToUiModels
 import ca.on.hojat.gamenews.shared.ui.widgets.games.toEmptyState
 import ca.on.hojat.gamenews.shared.ui.widgets.games.toLoadingState
 import ca.on.hojat.gamenews.shared.ui.widgets.games.toSuccessState
-import com.paulrybitskyi.gamedge.feature.likes.R
+import com.paulrybitskyi.gamedge.R
 import com.paulrybitskyi.gamedge.feature_likes.domain.ObserveLikedGamesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
