@@ -70,7 +70,6 @@ object deps {
         const val featureInfo = ":feature-info"
         const val featureImageViewer = ":feature-image-viewer"
         const val featureLikes = ":feature-likes"
-        const val featureNews = ":feature-news"
         const val featureSettings = ":feature-settings"
     }
 
