@@ -10,4 +10,8 @@
     <!--    feature news -->
     <string name="gaming_news_toolbar_title">News</string>
     <string name="gaming_news_info_view_title">No News Available</string>
+
+    <!--    feature likes -->
+    <string name="liked_games_toolbar_title">Likes</string>
+    <string name="liked_games_info_title">You haven\'t liked any games yet</string>
 </resources>
