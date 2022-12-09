@@ -78,6 +78,8 @@ dependencies {
     implementation(deps.kotlin.coroutines)
 
     implementation(deps.misc.kotlinResult)
+    implementation(deps.misc.coil)
+    implementation(deps.androidX.prefsDataStore)
 
     coreLibraryDesugaring(deps.misc.desugaredLibs)
 
