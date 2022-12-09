@@ -9,7 +9,6 @@ pluginManagement {
 
 include(":app")
 include(":common-data")
-include(":common-ui")
 include(":database")
 include(":feature-category")
 include(":feature-discovery")
