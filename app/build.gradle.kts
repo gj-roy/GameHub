@@ -65,6 +65,7 @@ dependencies {
     implementation(deps.compose.runtime)
     implementation(deps.compose.navigation)
     implementation(deps.compose.accompanist.navigationAnimations)
+    implementation(deps.compose.hilt)
 
     implementation(deps.commons.core)
     implementation(deps.commons.ktx)
@@ -75,10 +76,21 @@ dependencies {
     implementation(deps.misc.hiltBinder)
     ksp(deps.misc.hiltBinderCompiler)
 
+    implementation(deps.kotlin.coroutines)
+
+    implementation(deps.misc.kotlinResult)
+
     coreLibraryDesugaring(deps.misc.desugaredLibs)
 
     testImplementation(deps.testing.jUnit)
     androidTestImplementation(deps.testing.jUnitExt)
+
+    testImplementation(deps.testing.truth)
+    testImplementation(deps.testing.mockk)
+    testImplementation(deps.testing.coroutines)
+    testImplementation(deps.testing.turbine)
+    androidTestImplementation(deps.testing.testRunner)
+
 }
 
 val installGitHook by tasks.registering(Copy::class) {
