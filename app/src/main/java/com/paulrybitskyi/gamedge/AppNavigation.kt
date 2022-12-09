@@ -8,10 +8,10 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
+import ca.on.hojat.gamenews.shared.ui.HorizontalSliding
+import ca.on.hojat.gamenews.shared.ui.OvershootScaling
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
-import com.paulrybitskyi.gamedge.common.ui.HorizontalSliding
-import com.paulrybitskyi.gamedge.common.ui.OvershootScaling
 import com.paulrybitskyi.gamedge.feature.category.GamesCategoryRoute
 import com.paulrybitskyi.gamedge.feature.category.widgets.GamesCategory
 import com.paulrybitskyi.gamedge.feature.discovery.GamesDiscoveryRoute

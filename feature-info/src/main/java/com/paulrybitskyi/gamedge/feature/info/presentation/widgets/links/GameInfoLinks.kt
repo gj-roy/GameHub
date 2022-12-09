@@ -16,12 +16,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.domain.games.entities.WebsiteCategory
+import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
 import com.google.accompanist.flowlayout.FlowRow
-import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
-import com.paulrybitskyi.gamedge.common.ui.widgets.GamedgeCard
 import com.paulrybitskyi.gamedge.feature.info.R
 import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.utils.GameInfoSection
-import java.util.*
+import java.util.Locale
 
 @Composable
 internal fun GameInfoLinks(

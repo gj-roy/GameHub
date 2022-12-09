@@ -1,7 +1,7 @@
 package com.paulrybitskyi.gamedge.feature.settings.presentation
 
 import androidx.compose.runtime.Immutable
-import com.paulrybitskyi.gamedge.common.ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 
 @Immutable
 internal data class SettingsUiState(

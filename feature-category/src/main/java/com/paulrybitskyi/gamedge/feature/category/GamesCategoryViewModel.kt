@@ -8,13 +8,13 @@ import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
-import com.paulrybitskyi.gamedge.common.ui.base.BaseViewModel
-import com.paulrybitskyi.gamedge.common.ui.base.events.common.GeneralCommand
-import com.paulrybitskyi.gamedge.common.ui.di.qualifiers.TransitionAnimationDuration
 import ca.on.hojat.gamenews.shared.core.utils.onError
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
 import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
+import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
+import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
+import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration
 import com.paulrybitskyi.gamedge.feature.category.di.GamesCategoryKey
 import com.paulrybitskyi.gamedge.feature.category.widgets.GameCategoryUiModelMapper
 import com.paulrybitskyi.gamedge.feature.category.widgets.GameCategoryUiModel

@@ -3,8 +3,8 @@ package com.paulrybitskyi.gamedge.feature.settings.presentation
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.shared.core.Constants
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import com.paulrybitskyi.gamedge.common.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.domain.common.extensions.execute
+import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import com.paulrybitskyi.gamedge.feature.settings.domain.entities.Settings
 import com.paulrybitskyi.gamedge.feature.settings.domain.entities.Theme
 import com.paulrybitskyi.gamedge.feature.settings.domain.usecases.ObserveSettingsUseCase

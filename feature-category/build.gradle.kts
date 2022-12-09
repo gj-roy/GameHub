@@ -18,7 +18,6 @@ android {
 
 dependencies {
     implementation(project(deps.local.shared))
-    implementation(project(deps.local.commonUi))
 
     implementation(deps.kotlin.coroutines)
 

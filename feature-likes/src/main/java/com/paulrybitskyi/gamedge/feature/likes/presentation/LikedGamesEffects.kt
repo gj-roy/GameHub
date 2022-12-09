@@ -2,7 +2,7 @@
 
 package com.paulrybitskyi.gamedge.feature.likes.presentation
 
-import com.paulrybitskyi.gamedge.common.ui.base.events.Route
+import ca.on.hojat.gamenews.shared.ui.base.events.Route
 
 sealed class LikedGamesRoute : Route {
     object Search : LikedGamesRoute()

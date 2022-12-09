@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
-import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
 
 private const val BOTTOM_BAR_ANIMATION_DURATION = 300
 

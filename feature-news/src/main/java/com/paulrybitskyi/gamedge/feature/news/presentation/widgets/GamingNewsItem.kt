@@ -17,11 +17,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
+import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
+import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
 import coil.compose.AsyncImage
-import com.paulrybitskyi.gamedge.common.ui.images.defaultImageRequest
-import com.paulrybitskyi.gamedge.common.ui.images.secondaryImage
-import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
-import com.paulrybitskyi.gamedge.common.ui.widgets.GamedgeCard
 import com.paulrybitskyi.gamedge.feature.news.R
 
 @Composable

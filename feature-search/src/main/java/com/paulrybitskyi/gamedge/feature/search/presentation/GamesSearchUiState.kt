@@ -1,8 +1,8 @@
 package com.paulrybitskyi.gamedge.feature.search.presentation
 
 import androidx.compose.runtime.Immutable
-import com.paulrybitskyi.gamedge.common.ui.widgets.games.GameUiModel
-import com.paulrybitskyi.gamedge.common.ui.widgets.games.GamesUiState
+import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.shared.ui.widgets.games.GamesUiState
 
 @Immutable
 internal data class GamesSearchUiState(

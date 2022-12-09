@@ -8,25 +8,24 @@ import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.core.utils.onError
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
-import com.paulrybitskyi.gamedge.common.ui.base.BaseViewModel
-import com.paulrybitskyi.gamedge.common.ui.base.events.common.GeneralCommand
-import com.paulrybitskyi.gamedge.common.ui.di.qualifiers.TransitionAnimationDuration
+import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
+import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
+import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration
 import com.paulrybitskyi.gamedge.feature.info.R
 import com.paulrybitskyi.gamedge.feature.info.domain.entities.GameImageType
 import com.paulrybitskyi.gamedge.feature.info.domain.usecases.GetGameImageUrlsUseCase
 import com.paulrybitskyi.gamedge.feature.info.domain.usecases.GetGameInfoUseCase
 import com.paulrybitskyi.gamedge.feature.info.domain.usecases.likes.ToggleGameLikeStateUseCase
-import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.main.GameInfoUiModelMapper
 import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.companies.GameInfoCompanyUiModel
 import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.links.GameInfoLinkUiModel
-import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.videos.GameInfoVideoUiModel
-import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
+import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.main.GameInfoUiModelMapper
 import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.main.GameInfoUiState
 import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.main.toEmptyState
 import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.main.toLoadingState
 import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.main.toSuccessState
+import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
+import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.videos.GameInfoVideoUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -37,6 +36,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 private const val PARAM_GAME_ID = "game-id"
 

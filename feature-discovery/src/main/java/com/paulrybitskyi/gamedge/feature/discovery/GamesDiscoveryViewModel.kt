@@ -1,17 +1,17 @@
 package com.paulrybitskyi.gamedge.feature.discovery
 
 import androidx.lifecycle.viewModelScope
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
-import com.paulrybitskyi.gamedge.common.ui.base.BaseViewModel
-import com.paulrybitskyi.gamedge.common.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.core.ErrorMapper
 import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.core.utils.onError
+import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
 import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
+import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import com.paulrybitskyi.gamedge.feature.discovery.mapping.GamesDiscoveryItemGameUiModelMapper
 import com.paulrybitskyi.gamedge.feature.discovery.mapping.mapToUiModels
 import com.paulrybitskyi.gamedge.feature.discovery.widgets.GamesDiscoveryItemGameUiModel
@@ -20,7 +20,6 @@ import com.paulrybitskyi.gamedge.feature.discovery.widgets.hideProgressBar
 import com.paulrybitskyi.gamedge.feature.discovery.widgets.showProgressBar
 import com.paulrybitskyi.gamedge.feature.discovery.widgets.toSuccessState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -33,6 +32,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
+import javax.inject.Inject
 
 @HiltViewModel
 internal class GamesDiscoveryViewModel @Inject constructor(

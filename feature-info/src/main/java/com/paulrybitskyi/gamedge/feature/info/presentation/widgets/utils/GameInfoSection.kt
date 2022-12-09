@@ -12,8 +12,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
-import com.paulrybitskyi.gamedge.common.ui.widgets.GamedgeCard
+import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
 
 @Composable
 internal fun GameInfoSection(

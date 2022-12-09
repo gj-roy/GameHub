@@ -27,20 +27,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import ca.on.hojat.gamenews.shared.ui.CommandsHandler
+import ca.on.hojat.gamenews.shared.ui.LocalUrlOpener
+import ca.on.hojat.gamenews.shared.ui.NavBarColorHandler
+import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.subtitle3
+import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
+import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
+import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
+import ca.on.hojat.gamenews.shared.ui.widgets.dialogs.GamedgeDialog
+import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
 import com.paulrybitskyi.commons.ktx.showShortToast
-import com.paulrybitskyi.gamedge.common.ui.CommandsHandler
-import com.paulrybitskyi.gamedge.common.ui.LocalUrlOpener
-import com.paulrybitskyi.gamedge.common.ui.NavBarColorHandler
-import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
-import com.paulrybitskyi.gamedge.common.ui.theme.subtitle3
-import com.paulrybitskyi.gamedge.common.ui.widgets.AnimatedContentContainer
-import com.paulrybitskyi.gamedge.common.ui.widgets.FiniteUiState
-import com.paulrybitskyi.gamedge.common.ui.widgets.GamedgeCard
-import com.paulrybitskyi.gamedge.common.ui.widgets.GamedgeProgressIndicator
-import com.paulrybitskyi.gamedge.common.ui.widgets.dialogs.GamedgeDialog
-import com.paulrybitskyi.gamedge.common.ui.widgets.toolbars.Toolbar
-import com.paulrybitskyi.gamedge.feature.settings.domain.entities.Theme
 import com.paulrybitskyi.gamedge.feature.settings.R
+import com.paulrybitskyi.gamedge.feature.settings.domain.entities.Theme
 
 @Composable
 fun Settings(modifier: Modifier) {

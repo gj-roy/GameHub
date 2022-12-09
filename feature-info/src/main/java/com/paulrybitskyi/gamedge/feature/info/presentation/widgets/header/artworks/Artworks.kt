@@ -8,13 +8,13 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
+import ca.on.hojat.gamenews.shared.ui.clickable
+import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
+import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
+import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
 import coil.compose.AsyncImage
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.paulrybitskyi.gamedge.common.ui.clickable
-import com.paulrybitskyi.gamedge.common.ui.images.defaultImageRequest
-import com.paulrybitskyi.gamedge.common.ui.images.secondaryImage
-import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
 import com.paulrybitskyi.gamedge.feature.info.R
 
 @Composable

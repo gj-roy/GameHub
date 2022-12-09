@@ -1,6 +1,6 @@
 package com.paulrybitskyi.gamedge.feature.discovery.widgets
 
-import com.paulrybitskyi.gamedge.common.ui.widgets.categorypreview.GamesCategoryPreviewItemUiModel
+import ca.on.hojat.gamenews.shared.ui.widgets.categorypreview.GamesCategoryPreviewItemUiModel
 
 internal fun List<GamesDiscoveryItemGameUiModel>.mapToCategoryUiModels(): List<GamesCategoryPreviewItemUiModel> {
     return map {

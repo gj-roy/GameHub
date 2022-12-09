@@ -31,6 +31,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import ca.on.hojat.gamenews.shared.ui.CommandsHandler
+import ca.on.hojat.gamenews.shared.ui.LocalNetworkStateProvider
+import ca.on.hojat.gamenews.shared.ui.LocalTextSharer
+import ca.on.hojat.gamenews.shared.ui.RoutesHandler
+import ca.on.hojat.gamenews.shared.ui.base.events.Route
+import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
+import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.navBar
+import ca.on.hojat.gamenews.shared.ui.theme.statusBar
+import ca.on.hojat.gamenews.shared.ui.widgets.Info
+import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
 import coil.size.Size
@@ -40,17 +51,6 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.mxalbert.zoomable.OverZoomConfig
 import com.mxalbert.zoomable.Zoomable
 import com.mxalbert.zoomable.rememberZoomableState
-import com.paulrybitskyi.gamedge.common.ui.CommandsHandler
-import com.paulrybitskyi.gamedge.common.ui.RoutesHandler
-import com.paulrybitskyi.gamedge.common.ui.LocalNetworkStateProvider
-import com.paulrybitskyi.gamedge.common.ui.LocalTextSharer
-import com.paulrybitskyi.gamedge.common.ui.base.events.Route
-import com.paulrybitskyi.gamedge.common.ui.images.defaultImageRequest
-import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
-import com.paulrybitskyi.gamedge.common.ui.theme.navBar
-import com.paulrybitskyi.gamedge.common.ui.theme.statusBar
-import com.paulrybitskyi.gamedge.common.ui.widgets.Info
-import com.paulrybitskyi.gamedge.common.ui.widgets.toolbars.Toolbar
 
 private const val ZoomScaleMin = 0.5f
 private const val ZoomScaleMax = 5f

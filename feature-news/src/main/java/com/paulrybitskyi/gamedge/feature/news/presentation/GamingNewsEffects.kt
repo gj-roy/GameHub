@@ -2,7 +2,7 @@
 
 package com.paulrybitskyi.gamedge.feature.news.presentation
 
-import com.paulrybitskyi.gamedge.common.ui.base.events.Command
+import ca.on.hojat.gamenews.shared.ui.base.events.Command
 
 internal sealed class GamingNewsCommand : Command {
     data class OpenUrl(val url: String) : GamingNewsCommand()

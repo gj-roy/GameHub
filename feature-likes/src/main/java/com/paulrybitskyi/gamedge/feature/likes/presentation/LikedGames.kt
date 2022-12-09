@@ -15,15 +15,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.paulrybitskyi.gamedge.common.ui.CommandsHandler
-import com.paulrybitskyi.gamedge.common.ui.NavBarColorHandler
-import com.paulrybitskyi.gamedge.common.ui.RoutesHandler
-import com.paulrybitskyi.gamedge.common.ui.base.events.Route
-import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
-import com.paulrybitskyi.gamedge.common.ui.widgets.games.GameUiModel
-import com.paulrybitskyi.gamedge.common.ui.widgets.games.Games
-import com.paulrybitskyi.gamedge.common.ui.widgets.games.GamesUiState
-import com.paulrybitskyi.gamedge.common.ui.widgets.toolbars.Toolbar
+import ca.on.hojat.gamenews.shared.ui.CommandsHandler
+import ca.on.hojat.gamenews.shared.ui.NavBarColorHandler
+import ca.on.hojat.gamenews.shared.ui.RoutesHandler
+import ca.on.hojat.gamenews.shared.ui.base.events.Route
+import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.shared.ui.widgets.games.Games
+import ca.on.hojat.gamenews.shared.ui.widgets.games.GamesUiState
+import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
 import com.paulrybitskyi.gamedge.feature.likes.R
 
 @Composable

@@ -1,7 +1,7 @@
 package com.paulrybitskyi.gamedge.feature.info.presentation
 
-import com.paulrybitskyi.gamedge.common.ui.base.events.Command
-import com.paulrybitskyi.gamedge.common.ui.base.events.Route
+import ca.on.hojat.gamenews.shared.ui.base.events.Command
+import ca.on.hojat.gamenews.shared.ui.base.events.Route
 
 internal sealed class GameInfoCommand : Command {
     data class OpenUrl(val url: String) : GameInfoCommand()

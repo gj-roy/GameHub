@@ -24,6 +24,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
+import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
+import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
 import coil.compose.rememberAsyncImagePainter
 import coil.size.Size
 import coil.transform.Transformation
@@ -31,10 +35,6 @@ import com.paulrybitskyi.commons.ktx.centerX
 import com.paulrybitskyi.commons.ktx.centerY
 import com.paulrybitskyi.commons.ktx.hasTransparentPixels
 import com.paulrybitskyi.commons.ktx.isOpaque
-import com.paulrybitskyi.gamedge.common.ui.images.defaultImageRequest
-import com.paulrybitskyi.gamedge.common.ui.images.secondaryImage
-import com.paulrybitskyi.gamedge.common.ui.theme.GamedgeTheme
-import com.paulrybitskyi.gamedge.common.ui.widgets.GamedgeCard
 import com.paulrybitskyi.gamedge.feature.info.R
 import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.utils.GameInfoSectionWithInnerList
 import kotlin.math.roundToInt
