@@ -48,7 +48,6 @@ dependencies {
     implementation(project(deps.local.database))
     implementation(project(deps.local.featureCategory))
     implementation(project(deps.local.featureDiscovery))
-    implementation(project(deps.local.featureImageViewer))
     implementation(project(deps.local.featureSettings))
     implementation(project(deps.local.shared))
 
