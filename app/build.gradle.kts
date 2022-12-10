@@ -56,6 +56,7 @@ dependencies {
 
     implementation(deps.compose.ui)
     implementation(deps.compose.tooling)
+    implementation(deps.compose.activity)
     implementation(deps.compose.foundation)
     implementation(deps.compose.material)
     implementation(deps.compose.runtime)
@@ -65,6 +66,7 @@ dependencies {
     implementation(deps.compose.accompanist.flowLayout)
     implementation(deps.compose.accompanist.pager)
     implementation(deps.compose.accompanist.navigationAnimations)
+    implementation(deps.compose.accompanist.systemUi)
     implementation(deps.compose.hilt)
 
     implementation(deps.commons.core)
@@ -80,18 +82,20 @@ dependencies {
 
     implementation(deps.misc.kotlinResult)
     implementation(deps.misc.coil)
+    implementation(deps.misc.zoomable)
     implementation(deps.androidX.prefsDataStore)
 
     coreLibraryDesugaring(deps.misc.desugaredLibs)
 
     testImplementation(deps.testing.jUnit)
-    androidTestImplementation(deps.testing.jUnitExt)
-
     testImplementation(deps.testing.truth)
     testImplementation(deps.testing.mockk)
     testImplementation(deps.testing.coroutines)
     testImplementation(deps.testing.turbine)
+
     androidTestImplementation(deps.testing.testRunner)
+    androidTestImplementation(deps.testing.jUnitExt)
+
 
 }
 
