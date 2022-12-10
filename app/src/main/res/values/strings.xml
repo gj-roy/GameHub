@@ -40,4 +40,8 @@
     <!--    feature category -->
     <string name="games_category_info_view_title">No Games Available</string>
 
+    <!--    feature discovery -->
+    <string name="games_discovery_toolbar_title">Discover</string>
+
+
 </resources>
