@@ -1,8 +1,8 @@
-package com.paulrybitskyi.gamedge.feature.category
+package com.paulrybitskyi.gamedge.feature_category
 
 import ca.on.hojat.gamenews.shared.domain.games.ObservableGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.RefreshableGamesUseCase
-import com.paulrybitskyi.gamedge.feature.category.di.GamesCategoryKey.Type
+import com.paulrybitskyi.gamedge.feature_category.di.GamesCategoryKey.Type
 import javax.inject.Inject
 import javax.inject.Provider
 

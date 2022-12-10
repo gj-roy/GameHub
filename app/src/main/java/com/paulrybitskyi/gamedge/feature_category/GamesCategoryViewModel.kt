@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.category
+package com.paulrybitskyi.gamedge.feature_category
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
@@ -15,15 +15,14 @@ import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration
-import com.paulrybitskyi.gamedge.feature.category.di.GamesCategoryKey
-import com.paulrybitskyi.gamedge.feature.category.widgets.GameCategoryUiModelMapper
-import com.paulrybitskyi.gamedge.feature.category.widgets.GameCategoryUiModel
-import com.paulrybitskyi.gamedge.feature.category.widgets.GamesCategoryUiState
-import com.paulrybitskyi.gamedge.feature.category.widgets.disableLoading
-import com.paulrybitskyi.gamedge.feature.category.widgets.mapToUiModels
-import com.paulrybitskyi.gamedge.feature.category.widgets.toEmptyState
-import com.paulrybitskyi.gamedge.feature.category.widgets.enableLoading
-import com.paulrybitskyi.gamedge.feature.category.widgets.toSuccessState
+import com.paulrybitskyi.gamedge.feature_category.di.GamesCategoryKey
+import com.paulrybitskyi.gamedge.feature_category.widgets.GameCategoryUiModel
+import com.paulrybitskyi.gamedge.feature_category.widgets.GamesCategoryUiState
+import com.paulrybitskyi.gamedge.feature_category.widgets.disableLoading
+import com.paulrybitskyi.gamedge.feature_category.widgets.mapToUiModels
+import com.paulrybitskyi.gamedge.feature_category.widgets.toEmptyState
+import com.paulrybitskyi.gamedge.feature_category.widgets.enableLoading
+import com.paulrybitskyi.gamedge.feature_category.widgets.toSuccessState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin
@@ -40,6 +39,8 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+import com.paulrybitskyi.gamedge.feature_category.widgets.GameCategoryUiModelMapper
 
 private const val PARAM_GAMES_CATEGORY = "category"
 

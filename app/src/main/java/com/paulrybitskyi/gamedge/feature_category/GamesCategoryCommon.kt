@@ -1,6 +1,7 @@
-package com.paulrybitskyi.gamedge.feature.category
+package com.paulrybitskyi.gamedge.feature_category
 
-import com.paulrybitskyi.gamedge.feature.category.di.GamesCategoryKey
+import com.paulrybitskyi.gamedge.R
+import com.paulrybitskyi.gamedge.feature_category.di.GamesCategoryKey
 
 internal val GamesCategory.titleId: Int
     get() = when (this) {

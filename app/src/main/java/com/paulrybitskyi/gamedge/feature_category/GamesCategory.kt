@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.category
+package com.paulrybitskyi.gamedge.feature_category
 
 internal enum class GamesCategory {
     POPULAR,

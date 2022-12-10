@@ -1,39 +1,28 @@
-/*
- * Copyright 2021 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
-package com.paulrybitskyi.gamedge.feature.category
+package ca.on.hojat.gamenews.feature_category
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.shared.domain.games.usecases.ObservePopularGamesUseCase
+import ca.on.hojat.gamenews.shared.domain.games.usecases.RefreshPopularGamesUseCase
+import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
+import ca.on.hojat.gamenews.shared.testing.FakeLogger
+import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
+import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
+import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
+import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Game
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAMES
-import com.paulrybitskyi.gamedge.common.testing.FakeErrorMapper
-import com.paulrybitskyi.gamedge.common.testing.FakeLogger
-import com.paulrybitskyi.gamedge.common.testing.FakeStringProvider
-import com.paulrybitskyi.gamedge.common.testing.domain.MainCoroutineRule
-import com.paulrybitskyi.gamedge.common.ui.base.events.common.GeneralCommand
-import com.paulrybitskyi.gamedge.common.ui.widgets.FiniteUiState
-import com.paulrybitskyi.gamedge.common.domain.games.usecases.ObservePopularGamesUseCase
-import com.paulrybitskyi.gamedge.common.domain.games.usecases.RefreshPopularGamesUseCase
-import com.paulrybitskyi.gamedge.feature.category.di.GamesCategoryKey
-import com.paulrybitskyi.gamedge.feature.category.widgets.GameCategoryUiModelMapper
-import com.paulrybitskyi.gamedge.feature.category.widgets.GameCategoryUiModel
-import com.paulrybitskyi.gamedge.feature.category.widgets.finiteUiState
+import com.paulrybitskyi.gamedge.feature_category.GamesCategory
+import com.paulrybitskyi.gamedge.feature_category.GamesCategoryRoute
+import com.paulrybitskyi.gamedge.feature_category.GamesCategoryUseCases
+import com.paulrybitskyi.gamedge.feature_category.GamesCategoryViewModel
+import com.paulrybitskyi.gamedge.feature_category.di.GamesCategoryKey
+import com.paulrybitskyi.gamedge.feature_category.widgets.GameCategoryUiModel
+import com.paulrybitskyi.gamedge.feature_category.widgets.GameCategoryUiModelMapper
+import com.paulrybitskyi.gamedge.feature_category.widgets.finiteUiState
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.delay

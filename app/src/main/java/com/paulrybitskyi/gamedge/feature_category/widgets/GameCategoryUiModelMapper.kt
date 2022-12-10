@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.category.widgets
+package com.paulrybitskyi.gamedge.feature_category.widgets
 
 import ca.on.hojat.gamenews.shared.core.factories.IgdbImageSize
 import ca.on.hojat.gamenews.shared.core.factories.IgdbImageUrlFactory

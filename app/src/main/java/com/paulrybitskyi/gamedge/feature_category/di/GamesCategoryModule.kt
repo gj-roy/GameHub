@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.category.di
+package com.paulrybitskyi.gamedge.feature_category.di
 
 import ca.on.hojat.gamenews.shared.domain.games.ObservableGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.RefreshableGamesUseCase

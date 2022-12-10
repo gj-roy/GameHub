@@ -12,8 +12,8 @@ import ca.on.hojat.gamenews.shared.ui.HorizontalSliding
 import ca.on.hojat.gamenews.shared.ui.OvershootScaling
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
-import com.paulrybitskyi.gamedge.feature.category.GamesCategoryRoute
-import com.paulrybitskyi.gamedge.feature.category.widgets.GamesCategory
+import com.paulrybitskyi.gamedge.feature_category.GamesCategoryRoute
+import com.paulrybitskyi.gamedge.feature_category.widgets.GamesCategory
 import com.paulrybitskyi.gamedge.feature.discovery.GamesDiscoveryRoute
 import com.paulrybitskyi.gamedge.feature.discovery.widgets.GamesDiscovery
 import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.GamingNews

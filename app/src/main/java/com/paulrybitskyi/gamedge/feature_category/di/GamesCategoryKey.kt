@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.category.di
+package com.paulrybitskyi.gamedge.feature_category.di
 
 import dagger.MapKey
 

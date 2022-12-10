@@ -1,6 +1,6 @@
 @file:Suppress("MatchingDeclarationName")
 
-package com.paulrybitskyi.gamedge.feature.category
+package com.paulrybitskyi.gamedge.feature_category
 
 import ca.on.hojat.gamenews.shared.ui.base.events.Route
 

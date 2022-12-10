@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.category.widgets
+package com.paulrybitskyi.gamedge.feature_category.widgets
 
 import androidx.compose.runtime.Immutable
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState

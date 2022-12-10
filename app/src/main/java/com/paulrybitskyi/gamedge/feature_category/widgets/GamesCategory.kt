@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.category.widgets
+package com.paulrybitskyi.gamedge.feature_category.widgets
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.PaddingValues
@@ -31,13 +31,13 @@ import ca.on.hojat.gamenews.shared.ui.base.events.Route
 import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
-import ca.on.hojat.gamenews.shared.ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
+import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
 import ca.on.hojat.gamenews.shared.ui.widgets.Info
+import ca.on.hojat.gamenews.shared.ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
-import com.paulrybitskyi.gamedge.feature.category.GamesCategoryViewModel
-import com.paulrybitskyi.gamedge.feature.category.R
+import com.paulrybitskyi.gamedge.R
+import com.paulrybitskyi.gamedge.feature_category.GamesCategoryViewModel
 
 @Composable
 fun GamesCategory(onRoute: (Route) -> Unit) {
