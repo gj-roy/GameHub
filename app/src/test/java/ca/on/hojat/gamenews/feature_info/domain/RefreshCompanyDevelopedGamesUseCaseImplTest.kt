@@ -1,37 +1,21 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.feature_info.REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS
+import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottler
+import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottlerTools
+import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesDataStores
+import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesRemoteDataStore
+import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_ERROR_UNKNOWN
+import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
+import ca.on.hojat.gamenews.shared.testing.domain.FakeGamesRefreshingThrottlerKeyProvider
+import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.shared.testing.domain.coVerifyNotCalled
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_ERROR_UNKNOWN
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAMES
-import com.paulrybitskyi.gamedge.common.testing.domain.FakeGamesRefreshingThrottlerKeyProvider
-import com.paulrybitskyi.gamedge.common.testing.domain.coVerifyNotCalled
-import com.paulrybitskyi.gamedge.common.domain.games.common.throttling.GamesRefreshingThrottler
-import com.paulrybitskyi.gamedge.common.domain.games.common.throttling.GamesRefreshingThrottlerTools
-import com.paulrybitskyi.gamedge.common.domain.games.datastores.GamesDataStores
-import com.paulrybitskyi.gamedge.common.domain.games.datastores.GamesLocalDataStore
-import com.paulrybitskyi.gamedge.common.domain.games.datastores.GamesRemoteDataStore
-import com.paulrybitskyi.gamedge.common.testing.domain.MainCoroutineRule
-import com.paulrybitskyi.gamedge.feature.info.REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS
 import com.paulrybitskyi.gamedge.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -48,9 +32,12 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
-    @MockK private lateinit var gamesLocalDataStore: GamesLocalDataStore
-    @MockK private lateinit var gamesRemoteDataStore: GamesRemoteDataStore
-    @MockK private lateinit var throttler: GamesRefreshingThrottler
+    @MockK
+    private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    @MockK
+    private lateinit var gamesRemoteDataStore: GamesRemoteDataStore
+    @MockK
+    private lateinit var throttler: GamesRefreshingThrottler
 
     private lateinit var SUT: RefreshCompanyDevelopedGamesUseCaseImpl
 
@@ -75,7 +62,9 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
     fun `Emits remote games when refresh is possible`() {
         runTest {
             coEvery { throttler.canRefreshCompanyDevelopedGames(any()) } returns true
-            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Ok(DOMAIN_GAMES)
+            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Ok(
+                DOMAIN_GAMES
+            )
 
             SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
@@ -99,7 +88,9 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
     fun `Saves remote games into local data store when refresh is successful`() {
         runTest {
             coEvery { throttler.canRefreshCompanyDevelopedGames(any()) } returns true
-            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Ok(DOMAIN_GAMES)
+            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Ok(
+                DOMAIN_GAMES
+            )
 
             SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 
@@ -122,7 +113,9 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
     fun `Does not save remote games into local data store when refresh is unsuccessful`() {
         runTest {
             coEvery { throttler.canRefreshCompanyDevelopedGames(any()) } returns false
-            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
+            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Err(
+                DOMAIN_ERROR_UNKNOWN
+            )
 
             SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 
@@ -134,7 +127,9 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
     fun `Updates games last refresh time when refresh is successful`() {
         runTest {
             coEvery { throttler.canRefreshCompanyDevelopedGames(any()) } returns true
-            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Ok(DOMAIN_GAMES)
+            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Ok(
+                DOMAIN_GAMES
+            )
 
             SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 
@@ -157,7 +152,9 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
     fun `Does not update games last refresh time when refresh is unsuccessful`() {
         runTest {
             coEvery { throttler.canRefreshCompanyDevelopedGames(any()) } returns false
-            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
+            coEvery { gamesRemoteDataStore.getCompanyDevelopedGames(any(), any()) } returns Err(
+                DOMAIN_ERROR_UNKNOWN
+            )
 
             SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 

@@ -1,19 +1,3 @@
-/*
- * Copyright 2022 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
@@ -48,9 +32,12 @@ internal class RefreshSimilarGamesUseCaseImplTest {
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
-    @MockK private lateinit var gamesLocalDataStore: GamesLocalDataStore
-    @MockK private lateinit var gamesRemoteDataStore: GamesRemoteDataStore
-    @MockK private lateinit var throttler: GamesRefreshingThrottler
+    @MockK
+    private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    @MockK
+    private lateinit var gamesRemoteDataStore: GamesRemoteDataStore
+    @MockK
+    private lateinit var throttler: GamesRefreshingThrottler
 
     private lateinit var SUT: RefreshSimilarGamesUseCaseImpl
 
@@ -122,7 +109,9 @@ internal class RefreshSimilarGamesUseCaseImplTest {
     fun `Does not save remote games into local data store when refresh is unsuccessful`() {
         runTest {
             coEvery { throttler.canRefreshSimilarGames(any()) } returns false
-            coEvery { gamesRemoteDataStore.getSimilarGames(any(), any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
+            coEvery { gamesRemoteDataStore.getSimilarGames(any(), any()) } returns Err(
+                DOMAIN_ERROR_UNKNOWN
+            )
 
             SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
 
@@ -157,7 +146,9 @@ internal class RefreshSimilarGamesUseCaseImplTest {
     fun `Does not update games last refresh time when refresh is unsuccessful`() {
         runTest {
             coEvery { throttler.canRefreshSimilarGames(any()) } returns false
-            coEvery { gamesRemoteDataStore.getSimilarGames(any(), any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
+            coEvery { gamesRemoteDataStore.getSimilarGames(any(), any()) } returns Err(
+                DOMAIN_ERROR_UNKNOWN
+            )
 
             SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
 
