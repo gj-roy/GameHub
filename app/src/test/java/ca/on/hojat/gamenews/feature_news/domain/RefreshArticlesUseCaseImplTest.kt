@@ -9,11 +9,11 @@ import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature.news.domain.throttling.ArticlesRefreshingThrottler
-import com.paulrybitskyi.gamedge.feature.news.domain.throttling.ArticlesRefreshingThrottlerKeyProvider
-import com.paulrybitskyi.gamedge.feature.news.domain.throttling.ArticlesRefreshingThrottlerTools
-import com.paulrybitskyi.gamedge.feature.news.domain.usecases.RefreshArticlesUseCase
-import com.paulrybitskyi.gamedge.feature.news.domain.usecases.RefreshArticlesUseCaseImpl
+import com.paulrybitskyi.gamedge.feature_news.domain.throttling.ArticlesRefreshingThrottler
+import com.paulrybitskyi.gamedge.feature_news.domain.throttling.ArticlesRefreshingThrottlerKeyProvider
+import com.paulrybitskyi.gamedge.feature_news.domain.throttling.ArticlesRefreshingThrottlerTools
+import com.paulrybitskyi.gamedge.feature_news.domain.usecases.RefreshArticlesUseCase
+import com.paulrybitskyi.gamedge.feature_news.domain.usecases.RefreshArticlesUseCaseImpl
 import com.paulrybitskyi.gamedge.feature_news.domain.datastores.ArticlesDataStores
 import com.paulrybitskyi.gamedge.feature_news.domain.datastores.ArticlesLocalDataStore
 import com.paulrybitskyi.gamedge.feature_news.domain.datastores.ArticlesRemoteDataStore

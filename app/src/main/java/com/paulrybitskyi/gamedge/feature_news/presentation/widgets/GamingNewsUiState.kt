@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.news.presentation.widgets
+package com.paulrybitskyi.gamedge.feature_news.presentation.widgets
 
 import androidx.compose.runtime.Immutable
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState

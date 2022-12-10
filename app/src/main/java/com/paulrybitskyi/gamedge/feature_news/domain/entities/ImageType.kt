@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.news.domain.entities
+package com.paulrybitskyi.gamedge.feature_news.domain.entities
 
 internal enum class ImageType {
     UNKNOWN,

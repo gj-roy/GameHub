@@ -1,11 +1,11 @@
-package com.paulrybitskyi.gamedge.feature.news.domain.usecases
+package com.paulrybitskyi.gamedge.feature_news.domain.usecases
 
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.usecases.ObservableUseCase
 import com.paulrybitskyi.gamedge.feature_news.domain.datastores.ArticlesLocalDataStore
 import com.paulrybitskyi.gamedge.feature_news.domain.entities.Article
-import com.paulrybitskyi.gamedge.feature.news.domain.usecases.ObserveArticlesUseCase.Params
+import com.paulrybitskyi.gamedge.feature_news.domain.usecases.ObserveArticlesUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn

@@ -1,7 +1,5 @@
 package com.paulrybitskyi.gamedge.feature_news.domain.entities
 
-import com.paulrybitskyi.gamedge.feature.news.domain.entities.ImageType
-
 internal data class Article(
     val id: Int,
     val title: String,

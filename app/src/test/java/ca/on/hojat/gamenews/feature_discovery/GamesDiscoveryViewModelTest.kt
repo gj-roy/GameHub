@@ -12,7 +12,7 @@ import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature.discovery.di.GamesDiscoveryKey
+import com.paulrybitskyi.gamedge.feature_discovery.di.GamesDiscoveryKey
 import com.paulrybitskyi.gamedge.feature_discovery.GamesDiscoveryCategory
 import com.paulrybitskyi.gamedge.feature_discovery.GamesDiscoveryRoute
 import com.paulrybitskyi.gamedge.feature_discovery.GamesDiscoveryUseCases

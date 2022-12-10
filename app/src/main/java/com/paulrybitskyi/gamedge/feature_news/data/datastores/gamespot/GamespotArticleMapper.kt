@@ -2,8 +2,8 @@ package com.paulrybitskyi.gamedge.feature_news.data.datastores.gamespot
 
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiImageType
-import com.paulrybitskyi.gamedge.feature.news.domain.DomainArticle
-import com.paulrybitskyi.gamedge.feature.news.domain.DomainImageType
+import com.paulrybitskyi.gamedge.feature_news.domain.DomainArticle
+import com.paulrybitskyi.gamedge.feature_news.domain.DomainImageType
 import javax.inject.Inject
 
 internal class GamespotArticleMapper @Inject constructor(

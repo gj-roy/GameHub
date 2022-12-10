@@ -5,8 +5,8 @@ import ca.on.hojat.gamenews.feature_news.DOMAIN_ARTICLES
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature.news.domain.usecases.ObserveArticlesUseCase
-import com.paulrybitskyi.gamedge.feature.news.domain.usecases.ObserveArticlesUseCaseImpl
+import com.paulrybitskyi.gamedge.feature_news.domain.usecases.ObserveArticlesUseCase
+import com.paulrybitskyi.gamedge.feature_news.domain.usecases.ObserveArticlesUseCaseImpl
 import com.paulrybitskyi.gamedge.feature_news.domain.datastores.ArticlesLocalDataStore
 import io.mockk.MockKAnnotations
 import io.mockk.every

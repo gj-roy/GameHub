@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.news.domain.usecases
+package com.paulrybitskyi.gamedge.feature_news.domain.usecases
 
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.DomainResult
@@ -7,8 +7,8 @@ import ca.on.hojat.gamenews.shared.domain.common.usecases.ObservableUseCase
 import ca.on.hojat.gamenews.shared.domain.common.extensions.onEachSuccess
 import com.paulrybitskyi.gamedge.feature_news.domain.datastores.ArticlesDataStores
 import com.paulrybitskyi.gamedge.feature_news.domain.entities.Article
-import com.paulrybitskyi.gamedge.feature.news.domain.throttling.ArticlesRefreshingThrottlerTools
-import com.paulrybitskyi.gamedge.feature.news.domain.usecases.RefreshArticlesUseCase.Params
+import com.paulrybitskyi.gamedge.feature_news.domain.throttling.ArticlesRefreshingThrottlerTools
+import com.paulrybitskyi.gamedge.feature_news.domain.usecases.RefreshArticlesUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

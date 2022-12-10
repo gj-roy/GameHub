@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.news.presentation.widgets
+package com.paulrybitskyi.gamedge.feature_news.presentation.widgets
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
@@ -35,8 +35,8 @@ import ca.on.hojat.gamenews.shared.ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
 import com.paulrybitskyi.commons.ktx.showShortToast
 import com.paulrybitskyi.gamedge.R
-import com.paulrybitskyi.gamedge.feature.news.presentation.GamingNewsCommand
-import com.paulrybitskyi.gamedge.feature.news.presentation.GamingNewsViewModel
+import com.paulrybitskyi.gamedge.feature_news.presentation.GamingNewsCommand
+import com.paulrybitskyi.gamedge.feature_news.presentation.GamingNewsViewModel
 
 @Composable
 fun GamingNews(modifier: Modifier) {

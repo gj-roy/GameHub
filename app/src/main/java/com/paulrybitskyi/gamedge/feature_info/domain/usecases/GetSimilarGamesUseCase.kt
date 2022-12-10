@@ -7,7 +7,6 @@ import ca.on.hojat.gamenews.shared.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game
 import com.github.michaelbull.result.Ok
-import com.paulrybitskyi.gamedge.feature.info.domain.usecases.RefreshSimilarGamesUseCase
 import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetSimilarGamesUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow

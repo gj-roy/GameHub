@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.news.domain.throttling
+package com.paulrybitskyi.gamedge.feature_news.domain.throttling
 
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import com.paulrybitskyi.hiltbinder.BindType

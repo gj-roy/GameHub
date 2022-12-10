@@ -1,6 +1,6 @@
 @file:Suppress("MatchingDeclarationName")
 
-package com.paulrybitskyi.gamedge.feature.news.presentation
+package com.paulrybitskyi.gamedge.feature_news.presentation
 
 import ca.on.hojat.gamenews.shared.ui.base.events.Command
 

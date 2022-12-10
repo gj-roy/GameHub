@@ -2,8 +2,8 @@ package com.paulrybitskyi.gamedge.feature_news.data.datastores.database
 
 import com.paulrybitskyi.gamedge.database.articles.DatabaseArticle
 import com.paulrybitskyi.gamedge.database.articles.DatabaseImageType
-import com.paulrybitskyi.gamedge.feature.news.domain.DomainArticle
-import com.paulrybitskyi.gamedge.feature.news.domain.DomainImageType
+import com.paulrybitskyi.gamedge.feature_news.domain.DomainArticle
+import com.paulrybitskyi.gamedge.feature_news.domain.DomainImageType
 import javax.inject.Inject
 
 internal class DbArticleMapper @Inject constructor() {

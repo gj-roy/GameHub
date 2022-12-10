@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.news.presentation.widgets
+package com.paulrybitskyi.gamedge.feature_news.presentation.widgets
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column

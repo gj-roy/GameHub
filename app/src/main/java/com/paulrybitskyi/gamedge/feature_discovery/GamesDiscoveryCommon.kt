@@ -1,7 +1,7 @@
 package com.paulrybitskyi.gamedge.feature_discovery
 
 import com.paulrybitskyi.gamedge.R
-import com.paulrybitskyi.gamedge.feature.discovery.di.GamesDiscoveryKey
+import com.paulrybitskyi.gamedge.feature_discovery.di.GamesDiscoveryKey
 
 internal val GamesDiscoveryCategory.titleId: Int
     get() = when (this) {

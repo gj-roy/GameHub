@@ -1,9 +1,9 @@
-package com.paulrybitskyi.gamedge.feature.news.presentation.mapping
+package com.paulrybitskyi.gamedge.feature_news.presentation.mapping
 
 import ca.on.hojat.gamenews.shared.core.formatters.ArticlePublicationDateFormatter
 import com.paulrybitskyi.gamedge.feature_news.domain.entities.Article
-import com.paulrybitskyi.gamedge.feature.news.domain.entities.ImageType
-import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.GamingNewsItemUiModel
+import com.paulrybitskyi.gamedge.feature_news.domain.entities.ImageType
+import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.GamingNewsItemUiModel
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

@@ -46,7 +46,6 @@ android {
 dependencies {
     implementation(project(deps.local.commonData))
     implementation(project(deps.local.database))
-    implementation(project(deps.local.featureDiscovery))
     implementation(project(deps.local.featureSettings))
     implementation(project(deps.local.shared))
 

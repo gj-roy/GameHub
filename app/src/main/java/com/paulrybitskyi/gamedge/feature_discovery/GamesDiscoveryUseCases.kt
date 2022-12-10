@@ -2,7 +2,7 @@ package com.paulrybitskyi.gamedge.feature_discovery
 
 import ca.on.hojat.gamenews.shared.domain.games.ObservableGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.RefreshableGamesUseCase
-import com.paulrybitskyi.gamedge.feature.discovery.di.GamesDiscoveryKey.Type
+import com.paulrybitskyi.gamedge.feature_discovery.di.GamesDiscoveryKey.Type
 import javax.inject.Inject
 
 class GamesDiscoveryUseCases @Inject constructor(

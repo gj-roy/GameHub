@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.shared.domain.games.entities.InvolvedCompany
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
-import com.paulrybitskyi.gamedge.feature.info.domain.usecases.RefreshSimilarGamesUseCase
+import com.paulrybitskyi.gamedge.feature_info.domain.usecases.RefreshSimilarGamesUseCase
 import com.paulrybitskyi.gamedge.feature_info.domain.entities.GameInfo
 import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCase
 import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetGameUseCase

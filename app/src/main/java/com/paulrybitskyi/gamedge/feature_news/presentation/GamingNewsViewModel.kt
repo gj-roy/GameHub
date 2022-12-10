@@ -1,4 +1,4 @@
-package com.paulrybitskyi.gamedge.feature.news.presentation
+package com.paulrybitskyi.gamedge.feature_news.presentation
 
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.shared.core.ErrorMapper
@@ -9,17 +9,17 @@ import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
-import com.paulrybitskyi.gamedge.feature.news.domain.usecases.ObserveArticlesUseCase
-import com.paulrybitskyi.gamedge.feature.news.domain.usecases.RefreshArticlesUseCase
-import com.paulrybitskyi.gamedge.feature.news.presentation.mapping.GamingNewsItemUiModelMapper
-import com.paulrybitskyi.gamedge.feature.news.presentation.mapping.mapToUiModels
-import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.GamingNewsItemUiModel
-import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.GamingNewsUiState
-import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.disableRefreshing
-import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.enableRefreshing
-import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.toEmptyState
-import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.toLoadingState
-import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.toSuccessState
+import com.paulrybitskyi.gamedge.feature_news.domain.usecases.ObserveArticlesUseCase
+import com.paulrybitskyi.gamedge.feature_news.domain.usecases.RefreshArticlesUseCase
+import com.paulrybitskyi.gamedge.feature_news.presentation.mapping.GamingNewsItemUiModelMapper
+import com.paulrybitskyi.gamedge.feature_news.presentation.mapping.mapToUiModels
+import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.GamingNewsItemUiModel
+import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.GamingNewsUiState
+import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.disableRefreshing
+import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.enableRefreshing
+import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.toEmptyState
+import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.toLoadingState
+import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.toSuccessState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
