@@ -18,8 +18,8 @@ import com.paulrybitskyi.gamedge.feature.discovery.GamesDiscoveryRoute
 import com.paulrybitskyi.gamedge.feature.discovery.widgets.GamesDiscovery
 import com.paulrybitskyi.gamedge.feature.image.viewer.ImageViewer
 import com.paulrybitskyi.gamedge.feature.image.viewer.ImageViewerRoute
-import com.paulrybitskyi.gamedge.feature.info.presentation.GameInfoRoute
-import com.paulrybitskyi.gamedge.feature.info.presentation.widgets.main.GameInfo
+import com.paulrybitskyi.gamedge.feature_info.presentation.GameInfoRoute
+import com.paulrybitskyi.gamedge.feature_info.presentation.widgets.main.GameInfo
 import com.paulrybitskyi.gamedge.feature_likes.presentation.LikedGames
 import com.paulrybitskyi.gamedge.feature_likes.presentation.LikedGamesRoute
 import com.paulrybitskyi.gamedge.feature.news.presentation.widgets.GamingNews
