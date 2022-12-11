@@ -24,13 +24,13 @@ internal class ObservePopularGamesUseCaseImplTest {
 
     @MockK private lateinit var gamesLocalDataStore: GamesLocalDataStore
 
-    private lateinit var SUT: ObservePopularGamesUseCaseImpl
+    private lateinit var sut: ObservePopularGamesUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = ObservePopularGamesUseCaseImpl(
+        sut = ObservePopularGamesUseCaseImpl(
             gamesLocalDataStore = gamesLocalDataStore,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
@@ -41,7 +41,7 @@ internal class ObservePopularGamesUseCaseImplTest {
         runTest {
             every { gamesLocalDataStore.observePopularGames(any()) } returns flowOf(DOMAIN_GAMES)
 
-            SUT.execute(ObserveGamesUseCaseParams()).test {
+            sut.execute(ObserveGamesUseCaseParams()).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }

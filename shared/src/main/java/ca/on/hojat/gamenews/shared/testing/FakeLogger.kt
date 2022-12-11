@@ -4,9 +4,9 @@ import ca.on.hojat.gamenews.shared.core.Logger
 
 class FakeLogger : Logger {
 
-    var infoMessage = ""
-    var debugMessage = ""
-    var warningMessage = ""
+    private var infoMessage = ""
+    private var debugMessage = ""
+    private var warningMessage = ""
     var errorMessage = ""
 
     override fun info(tag: String, message: String, throwable: Throwable?) {

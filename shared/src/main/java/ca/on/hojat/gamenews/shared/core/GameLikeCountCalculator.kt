@@ -14,8 +14,7 @@ internal class GameLikeCountCalculatorImpl @Inject constructor() : GameLikeCount
     override fun calculateLikeCount(game: Game): Int {
         val followerCount = (game.followerCount ?: 0)
         val hypeCount = (game.hypeCount ?: 0)
-        val likeCount = (followerCount + hypeCount)
 
-        return likeCount
+        return (followerCount + hypeCount)
     }
 }

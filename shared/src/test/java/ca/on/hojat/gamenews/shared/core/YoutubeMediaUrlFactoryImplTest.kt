@@ -14,17 +14,17 @@ private val VIDEO = Video(
 
 internal class YoutubeMediaUrlFactoryImplTest {
 
-    private lateinit var SUT: YoutubeMediaUrlFactoryImpl
+    private lateinit var sut: YoutubeMediaUrlFactoryImpl
 
     @Before
     fun setup() {
-        SUT = YoutubeMediaUrlFactoryImpl()
+        sut = YoutubeMediaUrlFactoryImpl()
     }
 
     @Test
     fun `Creates thumbnail image urls correctly`() {
         for (ytThumbnailSize in YoutubeThumbnailSize.values()) {
-            assertThat(SUT.createThumbnailUrl(VIDEO, ytThumbnailSize))
+            assertThat(sut.createThumbnailUrl(VIDEO, ytThumbnailSize))
                 .isEqualTo("https://img.youtube.com/vi/${VIDEO.id}/${ytThumbnailSize.rawSize}.jpg")
         }
     }
@@ -32,7 +32,7 @@ internal class YoutubeMediaUrlFactoryImplTest {
     @Test
     fun `Returns null when video id is blank while creating thumbnail image url`() {
         assertThat(
-            SUT.createThumbnailUrl(
+            sut.createThumbnailUrl(
                 VIDEO.copy(id = "   "),
                 YoutubeThumbnailSize.MEDIUM
             )
@@ -42,13 +42,13 @@ internal class YoutubeMediaUrlFactoryImplTest {
     @Test
     fun `Creates video urls correctly`() {
         for (ytThumbnailSize in YoutubeThumbnailSize.values()) {
-            assertThat(SUT.createVideoUrl(VIDEO))
+            assertThat(sut.createVideoUrl(VIDEO))
                 .isEqualTo("https://youtu.be/${VIDEO.id}")
         }
     }
 
     @Test
     fun `Returns null when video id is blank while creating video url`() {
-        assertThat(SUT.createVideoUrl(VIDEO.copy(id = "   "))).isNull()
+        assertThat(sut.createVideoUrl(VIDEO.copy(id = "   "))).isNull()
     }
 }

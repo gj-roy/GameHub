@@ -10,11 +10,11 @@ import org.junit.Test
 
 internal class GamespotFieldsSerializerImplTest {
 
-    private lateinit var SUT: GamespotFieldsSerializer
+    private lateinit var sut: GamespotFieldsSerializer
 
     @Before
     fun setup() {
-        SUT = GamespotFieldsSerializerImpl()
+        sut = GamespotFieldsSerializerImpl()
     }
 
     @Test
@@ -34,7 +34,7 @@ internal class GamespotFieldsSerializerImplTest {
             val field6: Float
         )
 
-        assertThat(SUT.serializeFields(Entity::class.java))
+        assertThat(sut.serializeFields(Entity::class.java))
             .isEqualTo("field1,field2,field3,field4,field5,field6")
     }
 
@@ -46,7 +46,7 @@ internal class GamespotFieldsSerializerImplTest {
             val field3: Double
         )
 
-        assertThat(SUT.serializeFields(Entity::class.java)).isEmpty()
+        assertThat(sut.serializeFields(Entity::class.java)).isEmpty()
     }
 
     @Test
@@ -57,7 +57,7 @@ internal class GamespotFieldsSerializerImplTest {
         )
 
         assertThrows(IllegalArgumentException::class.java) {
-            SUT.serializeFields(Entity::class.java)
+            sut.serializeFields(Entity::class.java)
         }
     }
 
@@ -69,7 +69,7 @@ internal class GamespotFieldsSerializerImplTest {
         )
 
         assertThrows(IllegalArgumentException::class.java) {
-            SUT.serializeFields(Entity::class.java)
+            sut.serializeFields(Entity::class.java)
         }
     }
 }

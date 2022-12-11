@@ -10,11 +10,11 @@ import org.junit.Test
 
 internal class CompositeErrorMessageExtractorTest {
 
-    private lateinit var SUT: CompositeErrorMessageExtractor
+    private lateinit var sut: CompositeErrorMessageExtractor
 
     @Before
     fun setup() {
-        SUT = CompositeErrorMessageExtractor(
+        sut = CompositeErrorMessageExtractor(
             setOf(
                 TwitchErrorMessageExtractor(Json),
                 IgdbErrorMessageExtractor(Json)
@@ -31,7 +31,7 @@ internal class CompositeErrorMessageExtractorTest {
             }
         """.trimIndent()
 
-        assertThat(SUT.extract(responseBody)).isEqualTo("invalid client secret")
+        assertThat(sut.extract(responseBody)).isEqualTo("invalid client secret")
     }
 
     @Test
@@ -46,7 +46,7 @@ internal class CompositeErrorMessageExtractorTest {
             ]
         """.trimIndent()
 
-        assertThat(SUT.extract(responseBody)).isEqualTo("Syntax Error")
+        assertThat(sut.extract(responseBody)).isEqualTo("Syntax Error")
     }
 
     @Test
@@ -58,6 +58,6 @@ internal class CompositeErrorMessageExtractorTest {
             }
         """.trimIndent()
 
-        assertThat(SUT.extract(responseBody)).isEqualTo("Unknown Error: $responseBody")
+        assertThat(sut.extract(responseBody)).isEqualTo("Unknown Error: $responseBody")
     }
 }

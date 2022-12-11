@@ -52,9 +52,8 @@ internal class ArticlePublicationDateFormatterImpl @Inject constructor(
 
     private fun formatAsAbsoluteDate(dateTime: LocalDateTime): String {
         val pattern = getAbsoluteDatePattern(dateTime)
-        val formattedDate = DateTimeFormatter.ofPattern(pattern).format(dateTime)
 
-        return formattedDate
+        return DateTimeFormatter.ofPattern(pattern).format(dateTime)
     }
 
     private fun getAbsoluteDatePattern(dateTime: LocalDateTime): String {

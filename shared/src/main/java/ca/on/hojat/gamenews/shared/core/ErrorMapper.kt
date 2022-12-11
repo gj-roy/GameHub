@@ -24,7 +24,7 @@ internal class ErrorMapperImpl @Inject constructor(
 
     private fun DomainException.toMessage(): String {
         return when (error) {
-            is Error.ApiError -> (error as Error.ApiError).toMessage()
+            is Error.ApiError -> error.toMessage()
 
             is Error.NotFound,
             is Error.Unknown -> stringProvider.getString(R.string.error_unknown_message)

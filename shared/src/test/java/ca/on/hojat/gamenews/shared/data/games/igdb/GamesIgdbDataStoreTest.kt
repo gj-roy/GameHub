@@ -1,24 +1,24 @@
 package ca.on.hojat.gamenews.shared.data.games.igdb
 
-import ca.on.hojat.gamenews.api.igdb.games.GamesEndpoint
-import ca.on.hojat.gamenews.api.igdb.games.entities.ApiGame
+import ca.on.hojat.gamenews.shared.api.igdb.games.GamesEndpoint
+import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame
+import ca.on.hojat.gamenews.shared.data.DOMAIN_COMPANY
+import ca.on.hojat.gamenews.shared.data.FakeDiscoveryGamesReleaseDatesProvider
+import ca.on.hojat.gamenews.shared.data.common.ApiErrorMapper
+import ca.on.hojat.gamenews.shared.data.games.datastores.igdb.GamesIgdbDataStore
+import ca.on.hojat.gamenews.shared.data.games.datastores.igdb.IgdbGameMapper
+import ca.on.hojat.gamenews.shared.data.games.datastores.igdb.mapToDomainGames
+import ca.on.hojat.gamenews.shared.testing.API_ERROR_HTTP
+import ca.on.hojat.gamenews.shared.testing.API_ERROR_NETWORK
+import ca.on.hojat.gamenews.shared.testing.API_ERROR_UNKNOWN
+import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
+import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.data.DOMAIN_COMPANY
-import com.paulrybitskyi.gamedge.common.data.FakeDiscoveryGamesReleaseDatesProvider
-import ca.on.hojat.gamenews.shared.data.common.ApiErrorMapper
-import ca.on.hojat.gamenews.shared.data.games.datastores.igdb.GamesIgdbDataStore
-import ca.on.hojat.gamenews.shared.data.games.datastores.igdb.IgdbGameMapper
-import ca.on.hojat.gamenews.shared.data.games.datastores.igdb.mapToDomainGames
-import com.paulrybitskyi.gamedge.common.testing.API_ERROR_HTTP
-import com.paulrybitskyi.gamedge.common.testing.API_ERROR_NETWORK
-import com.paulrybitskyi.gamedge.common.testing.API_ERROR_UNKNOWN
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAME
-import com.paulrybitskyi.gamedge.common.testing.domain.MainCoroutineRule
-import com.paulrybitskyi.gamedge.common.testing.domain.PAGINATION
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -43,7 +43,7 @@ internal class GamesIgdbDataStoreTest {
 
     private lateinit var igdbGameMapper: IgdbGameMapper
     private lateinit var apiErrorMapper: ApiErrorMapper
-    private lateinit var SUT: GamesIgdbDataStore
+    private lateinit var sut: GamesIgdbDataStore
 
     @Before
     fun setup() {
@@ -51,7 +51,7 @@ internal class GamesIgdbDataStoreTest {
 
         igdbGameMapper = IgdbGameMapper()
         apiErrorMapper = ApiErrorMapper()
-        SUT = GamesIgdbDataStore(
+        sut = GamesIgdbDataStore(
             gamesEndpoint = gamesEndpoint,
             releaseDatesProvider = FakeDiscoveryGamesReleaseDatesProvider(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
@@ -65,7 +65,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.searchGames(any()) } returns Ok(API_GAMES)
 
-            val result = SUT.searchGames("query", PAGINATION)
+            val result = sut.searchGames("query", PAGINATION)
 
             assertThat(result.get())
                 .isEqualTo(igdbGameMapper.mapToDomainGames(API_GAMES))
@@ -77,7 +77,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.searchGames(any()) } returns Err(API_ERROR_HTTP)
 
-            val result = SUT.searchGames("query", PAGINATION)
+            val result = sut.searchGames("query", PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_HTTP))
@@ -89,7 +89,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.searchGames(any()) } returns Err(API_ERROR_NETWORK)
 
-            val result = SUT.searchGames("query", PAGINATION)
+            val result = sut.searchGames("query", PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_NETWORK))
@@ -101,7 +101,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.searchGames(any()) } returns Err(API_ERROR_UNKNOWN)
 
-            val result = SUT.searchGames("query", PAGINATION)
+            val result = sut.searchGames("query", PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_UNKNOWN))
@@ -113,7 +113,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getPopularGames(any()) } returns Ok(API_GAMES)
 
-            val result = SUT.getPopularGames(PAGINATION)
+            val result = sut.getPopularGames(PAGINATION)
 
             assertThat(result.get())
                 .isEqualTo(igdbGameMapper.mapToDomainGames(API_GAMES))
@@ -125,7 +125,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getPopularGames(any()) } returns Err(API_ERROR_HTTP)
 
-            val result = SUT.getPopularGames(PAGINATION)
+            val result = sut.getPopularGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_HTTP))
@@ -137,7 +137,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getPopularGames(any()) } returns Err(API_ERROR_NETWORK)
 
-            val result = SUT.getPopularGames(PAGINATION)
+            val result = sut.getPopularGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_NETWORK))
@@ -149,7 +149,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getPopularGames(any()) } returns Err(API_ERROR_UNKNOWN)
 
-            val result = SUT.getPopularGames(PAGINATION)
+            val result = sut.getPopularGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_UNKNOWN))
@@ -161,7 +161,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getRecentlyReleasedGames(any()) } returns Ok(API_GAMES)
 
-            val result = SUT.getRecentlyReleasedGames(PAGINATION)
+            val result = sut.getRecentlyReleasedGames(PAGINATION)
 
             assertThat(result.get())
                 .isEqualTo(igdbGameMapper.mapToDomainGames(API_GAMES))
@@ -173,7 +173,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getRecentlyReleasedGames(any()) } returns Err(API_ERROR_HTTP)
 
-            val result = SUT.getRecentlyReleasedGames(PAGINATION)
+            val result = sut.getRecentlyReleasedGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_HTTP))
@@ -185,7 +185,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getRecentlyReleasedGames(any()) } returns Err(API_ERROR_NETWORK)
 
-            val result = SUT.getRecentlyReleasedGames(PAGINATION)
+            val result = sut.getRecentlyReleasedGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_NETWORK))
@@ -197,7 +197,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getRecentlyReleasedGames(any()) } returns Err(API_ERROR_UNKNOWN)
 
-            val result = SUT.getRecentlyReleasedGames(PAGINATION)
+            val result = sut.getRecentlyReleasedGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_UNKNOWN))
@@ -209,7 +209,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getComingSoonGames(any()) } returns Ok(API_GAMES)
 
-            val result = SUT.getComingSoonGames(PAGINATION)
+            val result = sut.getComingSoonGames(PAGINATION)
 
             assertThat(result.get())
                 .isEqualTo(igdbGameMapper.mapToDomainGames(API_GAMES))
@@ -221,7 +221,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getComingSoonGames(any()) } returns Err(API_ERROR_HTTP)
 
-            val result = SUT.getComingSoonGames(PAGINATION)
+            val result = sut.getComingSoonGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_HTTP))
@@ -233,7 +233,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getComingSoonGames(any()) } returns Err(API_ERROR_NETWORK)
 
-            val result = SUT.getComingSoonGames(PAGINATION)
+            val result = sut.getComingSoonGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_NETWORK))
@@ -245,7 +245,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getComingSoonGames(any()) } returns Err(API_ERROR_UNKNOWN)
 
-            val result = SUT.getComingSoonGames(PAGINATION)
+            val result = sut.getComingSoonGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_UNKNOWN))
@@ -257,7 +257,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getMostAnticipatedGames(any()) } returns Ok(API_GAMES)
 
-            val result = SUT.getMostAnticipatedGames(PAGINATION)
+            val result = sut.getMostAnticipatedGames(PAGINATION)
 
             assertThat(result.get())
                 .isEqualTo(igdbGameMapper.mapToDomainGames(API_GAMES))
@@ -269,7 +269,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getMostAnticipatedGames(any()) } returns Err(API_ERROR_HTTP)
 
-            val result = SUT.getMostAnticipatedGames(PAGINATION)
+            val result = sut.getMostAnticipatedGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_HTTP))
@@ -281,7 +281,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getMostAnticipatedGames(any()) } returns Err(API_ERROR_NETWORK)
 
-            val result = SUT.getMostAnticipatedGames(PAGINATION)
+            val result = sut.getMostAnticipatedGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_NETWORK))
@@ -293,7 +293,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getMostAnticipatedGames(any()) } returns Err(API_ERROR_UNKNOWN)
 
-            val result = SUT.getMostAnticipatedGames(PAGINATION)
+            val result = sut.getMostAnticipatedGames(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_UNKNOWN))
@@ -305,7 +305,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getGames(any()) } returns Ok(API_GAMES)
 
-            val result = SUT.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION)
+            val result = sut.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION)
 
             assertThat(result.get())
                 .isEqualTo(igdbGameMapper.mapToDomainGames(API_GAMES))
@@ -317,7 +317,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getGames(any()) } returns Err(API_ERROR_HTTP)
 
-            val result = SUT.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION)
+            val result = sut.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_HTTP))
@@ -329,7 +329,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getGames(any()) } returns Err(API_ERROR_NETWORK)
 
-            val result = SUT.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION)
+            val result = sut.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_NETWORK))
@@ -341,7 +341,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getGames(any()) } returns Err(API_ERROR_UNKNOWN)
 
-            val result = SUT.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION)
+            val result = sut.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_UNKNOWN))
@@ -353,7 +353,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getGames(any()) } returns Ok(API_GAMES)
 
-            val result = SUT.getSimilarGames(DOMAIN_GAME, PAGINATION)
+            val result = sut.getSimilarGames(DOMAIN_GAME, PAGINATION)
 
             assertThat(result.get())
                 .isEqualTo(igdbGameMapper.mapToDomainGames(API_GAMES))
@@ -365,7 +365,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getGames(any()) } returns Err(API_ERROR_HTTP)
 
-            val result = SUT.getSimilarGames(DOMAIN_GAME, PAGINATION)
+            val result = sut.getSimilarGames(DOMAIN_GAME, PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_HTTP))
@@ -377,7 +377,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getGames(any()) } returns Err(API_ERROR_NETWORK)
 
-            val result = SUT.getSimilarGames(DOMAIN_GAME, PAGINATION)
+            val result = sut.getSimilarGames(DOMAIN_GAME, PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_NETWORK))
@@ -389,7 +389,7 @@ internal class GamesIgdbDataStoreTest {
         runTest {
             coEvery { gamesEndpoint.getGames(any()) } returns Err(API_ERROR_UNKNOWN)
 
-            val result = SUT.getSimilarGames(DOMAIN_GAME, PAGINATION)
+            val result = sut.getSimilarGames(DOMAIN_GAME, PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_UNKNOWN))

@@ -1,11 +1,11 @@
 package ca.on.hojat.gamenews.shared.api.gamespot
 
+import ca.on.hojat.gamenews.shared.api.gamespot.articles.ArticlesService
+import ca.on.hojat.gamenews.shared.testing.startSafe
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.testing.startSafe
-import com.paulrybitskyi.gamedge.igdb.gamespot.articles.ArticlesService
-import com.paulrybitskyi.gamedge.igdb.gamespot.articles.entities.ApiArticle
+import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking

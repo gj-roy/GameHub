@@ -13,12 +13,12 @@ import org.junit.Test
 internal class GameAgeRatingFormatterImplTest {
 
     private lateinit var stringProvider: FakeStringProvider
-    private lateinit var SUT: GameAgeRatingFormatterImpl
+    private lateinit var sut: GameAgeRatingFormatterImpl
 
     @Before
     fun setup() {
         stringProvider = FakeStringProvider()
-        SUT = GameAgeRatingFormatterImpl(stringProvider)
+        sut = GameAgeRatingFormatterImpl(stringProvider)
     }
 
     @Test
@@ -29,14 +29,14 @@ internal class GameAgeRatingFormatterImplTest {
             )
         )
 
-        SUT.formatAgeRating(game)
+        sut.formatAgeRating(game)
 
         assertThat(stringProvider.isRatingAvailable).isTrue()
     }
 
     @Test
     fun `Returns not available string when game does not contain any ratings`() {
-        SUT.formatAgeRating(DOMAIN_GAME)
+        sut.formatAgeRating(DOMAIN_GAME)
 
         assertThat(stringProvider.isRatingNotAvailable).isTrue()
     }
@@ -50,7 +50,7 @@ internal class GameAgeRatingFormatterImplTest {
             )
         )
 
-        SUT.formatAgeRating(game)
+        sut.formatAgeRating(game)
 
         assertThat(stringProvider.isRatingNotAvailable).isTrue()
     }

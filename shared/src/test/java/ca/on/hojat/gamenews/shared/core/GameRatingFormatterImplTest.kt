@@ -9,17 +9,17 @@ import org.junit.Test
 internal class GameRatingFormatterImplTest {
 
     private lateinit var stringProvider: FakeStringProvider
-    private lateinit var SUT: GameRatingFormatterImpl
+    private lateinit var sut: GameRatingFormatterImpl
 
     @Before
     fun setup() {
         stringProvider = FakeStringProvider()
-        SUT = GameRatingFormatterImpl(stringProvider)
+        sut = GameRatingFormatterImpl(stringProvider)
     }
 
     @Test
     fun `Returns not available string when rating is null`() {
-        SUT.formatRating(null)
+        sut.formatRating(null)
 
         assertThat(stringProvider.isRatingNotAvailable).isTrue()
     }
@@ -28,7 +28,7 @@ internal class GameRatingFormatterImplTest {
     fun `Returns properly formatted string without coercing rating`() {
         val rating = 50.0
 
-        SUT.formatRating(rating)
+        sut.formatRating(rating)
 
         assertThat(stringProvider.isRatingAvailable).isTrue()
         assertThat(stringProvider.rating).isEqualTo(rating.toInt())
@@ -38,7 +38,7 @@ internal class GameRatingFormatterImplTest {
     fun `Returns properly formatted string with rating coerced to min rating`() {
         val rating = -50.0
 
-        SUT.formatRating(rating)
+        sut.formatRating(rating)
 
         assertThat(stringProvider.isRatingAvailable).isTrue()
         assertThat(stringProvider.rating).isEqualTo(0)
@@ -48,7 +48,7 @@ internal class GameRatingFormatterImplTest {
     fun `Returns properly formatted string with rating coerced to max rating`() {
         val rating = 150.0
 
-        SUT.formatRating(rating)
+        sut.formatRating(rating)
 
         assertThat(stringProvider.isRatingAvailable).isTrue()
         assertThat(stringProvider.rating).isEqualTo(100)

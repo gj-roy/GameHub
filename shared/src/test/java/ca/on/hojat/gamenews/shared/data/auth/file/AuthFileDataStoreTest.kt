@@ -32,13 +32,13 @@ internal class AuthFileDataStoreTest {
     @MockK
     private lateinit var timestampProvider: TimestampProvider
 
-    private lateinit var SUT: AuthFileDataStore
+    private lateinit var sut: AuthFileDataStore
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = AuthFileDataStore(
+        sut = AuthFileDataStore(
             protoDataStore = protoDataStore,
             protoAuthMapper = ProtoAuthMapper(AuthExpiryTimeCalculator(timestampProvider)),
         )
@@ -49,7 +49,7 @@ internal class AuthFileDataStoreTest {
         runTest {
             coEvery { protoDataStore.updateData(any()) } returns PROTO_OAUTH_CREDENTIALS
 
-            SUT.saveOauthCredentials(DOMAIN_OAUTH_CREDENTIALS)
+            sut.saveOauthCredentials(DOMAIN_OAUTH_CREDENTIALS)
 
             coVerify { protoDataStore.updateData(any()) }
         }
@@ -60,7 +60,7 @@ internal class AuthFileDataStoreTest {
         runTest {
             every { protoDataStore.data } returns flowOf(PROTO_OAUTH_CREDENTIALS)
 
-            assertThat(SUT.getOauthCredentials()).isEqualTo(DOMAIN_OAUTH_CREDENTIALS)
+            assertThat(sut.getOauthCredentials()).isEqualTo(DOMAIN_OAUTH_CREDENTIALS)
         }
     }
 
@@ -69,7 +69,7 @@ internal class AuthFileDataStoreTest {
         runTest {
             every { protoDataStore.data } returns flowOf()
 
-            assertThat(SUT.getOauthCredentials()).isNull()
+            assertThat(sut.getOauthCredentials()).isNull()
         }
     }
 }

@@ -27,18 +27,14 @@ internal class DiscoveryGamesReleaseDatesProviderImpl @Inject constructor(
 
     override fun getPopularGamesMinReleaseDate(): Long {
         val currentUnixTimestamp = getUnixTimestamp()
-        val minReleaseDateTimestamp =
-            (currentUnixTimestamp - POPULAR_GAMES_MIN_RELEASE_DATE_DURATION)
 
-        return minReleaseDateTimestamp
+        return (currentUnixTimestamp - POPULAR_GAMES_MIN_RELEASE_DATE_DURATION)
     }
 
     override fun getRecentlyReleasedGamesMinReleaseDate(): Long {
         val maxReleaseDateTimestamp = getRecentlyReleasedGamesMaxReleaseDate()
-        val minReleaseDateTimestamp =
-            (maxReleaseDateTimestamp - RECENTLY_RELEASED_GAMES_MIN_RELEASE_DATE_DURATION)
 
-        return minReleaseDateTimestamp
+        return (maxReleaseDateTimestamp - RECENTLY_RELEASED_GAMES_MIN_RELEASE_DATE_DURATION)
     }
 
     override fun getRecentlyReleasedGamesMaxReleaseDate(): Long {

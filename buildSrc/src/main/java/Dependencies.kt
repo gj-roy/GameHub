@@ -1,19 +1,3 @@
-/*
- * Copyright 2020 Paul Rybitskyi, paul.rybitskyi.work@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 @file:Suppress("ClassName")
 
 import org.gradle.api.JavaVersion
@@ -54,14 +38,14 @@ object deps {
 
         const val androidGradle = "com.android.tools.build:gradle:${gradlePluginVersion}"
         const val kotlinGradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
-        const val daggerHiltGradle = "com.google.dagger:hilt-android-gradle-plugin:${versions.daggerHilt}"
+        const val daggerHiltGradle =
+            "com.google.dagger:hilt-android-gradle-plugin:${versions.daggerHilt}"
         const val protobuf = "com.google.protobuf:protobuf-gradle-plugin:$protobufPluginVersion"
-        const val gradleVersions = "com.github.ben-manes:gradle-versions-plugin:${versions.gradleVersionsPlugin}"
+        const val gradleVersions =
+            "com.github.ben-manes:gradle-versions-plugin:${versions.gradleVersionsPlugin}"
     }
 
     object local {
-
-        const val database = ":database"
         const val shared = ":shared"
     }
 
@@ -70,8 +54,10 @@ object deps {
         private const val serializationVersion = "1.3.3"
 
         const val stdLib = "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
-        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
-        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
+        const val coroutines =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
+        const val serialization =
+            "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
     }
 
     object androidX {
@@ -105,18 +91,20 @@ object deps {
         const val runtime = "androidx.compose.runtime:runtime:${versions.compose}"
 
         const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
-        const val constraintLayout = "androidx.constraintlayout:constraintlayout-compose:$constraintLayoutVersion"
+        const val constraintLayout =
+            "androidx.constraintlayout:constraintlayout-compose:$constraintLayoutVersion"
         const val hilt = "androidx.hilt:hilt-navigation-compose:$hiltVersion"
 
         object accompanist {
 
-            const val version = "0.25.0"
+            private const val version = "0.25.0"
 
             const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:$version"
             const val flowLayout = "com.google.accompanist:accompanist-flowlayout:$version"
             const val pager = "com.google.accompanist:accompanist-pager:$version"
             const val systemUi = "com.google.accompanist:accompanist-systemuicontroller:$version"
-            const val navigationAnimations = "com.google.accompanist:accompanist-navigation-animation:$version"
+            const val navigationAnimations =
+                "com.google.accompanist:accompanist-navigation-animation:$version"
         }
     }
 
@@ -127,7 +115,8 @@ object deps {
         const val daggerHiltCore = "com.google.dagger:hilt-core:${versions.daggerHilt}"
         const val daggerHiltCoreCompiler = "com.google.dagger:hilt-compiler:${versions.daggerHilt}"
         const val daggerHiltAndroid = "com.google.dagger:hilt-android:${versions.daggerHilt}"
-        const val daggerHiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${versions.daggerHilt}"
+        const val daggerHiltAndroidCompiler =
+            "com.google.dagger:hilt-android-compiler:${versions.daggerHilt}"
         const val protobuf = "com.google.protobuf:protobuf-javalite:${protobufVersion}"
         const val protobufCompiler = "com.google.protobuf:protoc:${protobufVersion}"
     }
@@ -138,10 +127,13 @@ object deps {
         private const val retrofitVersion = "2.9.0"
         private const val retrofitKotlinxSerializationConverterVersion = "0.8.0"
 
-        const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
+        const val okHttpLoggingInterceptor =
+            "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${retrofitVersion}"
-        const val retrofitScalarsConverter = "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
-        const val retrofitKotlinxSerializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitKotlinxSerializationConverterVersion"
+        const val retrofitScalarsConverter =
+            "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
+        const val retrofitKotlinxSerializationConverter =
+            "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitKotlinxSerializationConverterVersion"
     }
 
     object commons {
@@ -154,7 +146,8 @@ object deps {
         const val core = "com.paulrybitskyi.commons:commons-core:${coreVersion}"
         const val ktx = "com.paulrybitskyi.commons:commons-ktx:${ktxVersion}"
         const val network = "com.paulrybitskyi.commons:commons-network:${networkVersion}"
-        const val windowAnims = "com.paulrybitskyi.commons:commons-window-anims:${windowAnimsVersion}"
+        const val windowAnims =
+            "com.paulrybitskyi.commons:commons-window-anims:${windowAnimsVersion}"
     }
 
     object misc {
@@ -166,7 +159,8 @@ object deps {
         private const val zoomableVersion = "1.5.1"
 
         const val desugaredLibs = "com.android.tools:desugar_jdk_libs:${desugaredLibsVersion}"
-        const val kotlinResult = "com.michael-bull.kotlin-result:kotlin-result:${kotlinResultVersion}"
+        const val kotlinResult =
+            "com.michael-bull.kotlin-result:kotlin-result:${kotlinResultVersion}"
         const val hiltBinder = "com.paulrybitskyi:hilt-binder:$hiltBinderVersion"
         const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:$hiltBinderVersion"
         const val coil = "io.coil-kt:coil-compose:$coilVersion"
@@ -188,7 +182,8 @@ object deps {
         const val jUnitExt = "androidx.test.ext:junit:$jUnitExtVersion"
         const val truth = "com.google.truth:truth:$truthVersion"
         const val mockk = "io.mockk:mockk:$mockkVersion"
-        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}"
+        const val coroutines =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}"
         const val turbine = "app.cash.turbine:turbine:$turbineVersion"
         const val testRunner = "androidx.test:runner:$testRunnerVersion"
         const val archCore = "androidx.arch.core:core-testing:$archCoreVersion"

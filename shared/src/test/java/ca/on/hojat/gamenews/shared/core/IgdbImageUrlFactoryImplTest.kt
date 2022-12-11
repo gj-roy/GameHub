@@ -18,11 +18,11 @@ private val IMAGE = Image(
 
 internal class IgdbImageUrlFactoryImplTest {
 
-    private lateinit var SUT: IgdbImageUrlFactoryImpl
+    private lateinit var sut: IgdbImageUrlFactoryImpl
 
     @Before
     fun setup() {
-        SUT = IgdbImageUrlFactoryImpl()
+        sut = IgdbImageUrlFactoryImpl()
     }
 
     @Test
@@ -42,7 +42,7 @@ internal class IgdbImageUrlFactoryImplTest {
                     config.extension.rawExtension
                 )
 
-                assertThat(SUT.createUrl(IMAGE, config)).isEqualTo(expectedUrl)
+                assertThat(sut.createUrl(IMAGE, config)).isEqualTo(expectedUrl)
             }
         }
     }
@@ -65,7 +65,7 @@ internal class IgdbImageUrlFactoryImplTest {
                     config.extension.rawExtension
                 )
 
-                assertThat(SUT.createUrl(IMAGE, config)).isEqualTo(expectedUrl)
+                assertThat(sut.createUrl(IMAGE, config)).isEqualTo(expectedUrl)
             }
         }
     }
@@ -76,6 +76,6 @@ internal class IgdbImageUrlFactoryImplTest {
             size = IgdbImageSize.BIG_COVER
         )
 
-        assertThat(SUT.createUrl(IMAGE.copy(id = "   "), config)).isNull()
+        assertThat(sut.createUrl(IMAGE.copy(id = "   "), config)).isNull()
     }
 }

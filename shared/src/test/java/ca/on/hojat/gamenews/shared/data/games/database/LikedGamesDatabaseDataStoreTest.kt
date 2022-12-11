@@ -1,17 +1,17 @@
 package ca.on.hojat.gamenews.shared.data.games.database
 
 import app.cash.turbine.test
-import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.DbGameMapper
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.LikedGameFactory
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.LikedGamesDatabaseDataStore
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.mapToDatabaseGames
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAMES
-import com.paulrybitskyi.gamedge.common.testing.domain.MainCoroutineRule
-import com.paulrybitskyi.gamedge.common.testing.domain.PAGINATION
-import com.paulrybitskyi.gamedge.database.games.entities.DbGame
-import com.paulrybitskyi.gamedge.database.games.entities.DbLikedGame
-import com.paulrybitskyi.gamedge.database.games.tables.LikedGamesTable
+import ca.on.hojat.gamenews.shared.database.games.entities.DbGame
+import ca.on.hojat.gamenews.shared.database.games.entities.DbLikedGame
+import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
+import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
+import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
+import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
@@ -29,13 +29,13 @@ internal class LikedGamesDatabaseDataStoreTest {
 
     private lateinit var likedGamesTable: FakeLikedGamesTable
     private lateinit var dbGameMapper: DbGameMapper
-    private lateinit var SUT: LikedGamesDatabaseDataStore
+    private lateinit var sut: LikedGamesDatabaseDataStore
 
     @Before
     fun setup() {
         likedGamesTable = FakeLikedGamesTable()
         dbGameMapper = DbGameMapper()
-        SUT = LikedGamesDatabaseDataStore(
+        sut = LikedGamesDatabaseDataStore(
             likedGamesTable = likedGamesTable,
             likedGameFactory = FakeLikedGameFactory(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
@@ -46,40 +46,40 @@ internal class LikedGamesDatabaseDataStoreTest {
     @Test
     fun `Likes game successfully`() {
         runTest {
-            SUT.likeGame(GAME_ID)
+            sut.likeGame(GAME_ID)
 
-            assertThat(SUT.isGameLiked(GAME_ID)).isTrue()
+            assertThat(sut.isGameLiked(GAME_ID)).isTrue()
         }
     }
 
     @Test
     fun `Unlikes game successfully`() {
         runTest {
-            SUT.likeGame(GAME_ID)
-            SUT.unlikeGame(GAME_ID)
+            sut.likeGame(GAME_ID)
+            sut.unlikeGame(GAME_ID)
 
-            assertThat(SUT.isGameLiked(GAME_ID)).isFalse()
+            assertThat(sut.isGameLiked(GAME_ID)).isFalse()
         }
     }
 
     @Test
     fun `Validates that unliked game is unliked`() {
         runTest {
-            assertThat(SUT.isGameLiked(gameId = ANOTHER_GAME_ID)).isFalse()
+            assertThat(sut.isGameLiked(gameId = ANOTHER_GAME_ID)).isFalse()
         }
     }
 
     @Test
     fun `Observes game like state successfully`() {
         runTest {
-            SUT.likeGame(GAME_ID)
+            sut.likeGame(GAME_ID)
 
-            SUT.observeGameLikeState(GAME_ID).test {
+            sut.observeGameLikeState(GAME_ID).test {
                 assertThat(awaitItem()).isTrue()
                 awaitComplete()
             }
 
-            SUT.observeGameLikeState(ANOTHER_GAME_ID).test {
+            sut.observeGameLikeState(ANOTHER_GAME_ID).test {
                 assertThat(awaitItem()).isFalse()
                 awaitComplete()
             }
@@ -93,7 +93,7 @@ internal class LikedGamesDatabaseDataStoreTest {
 
             likedGamesTable.dbGamesToObserve = dbGames
 
-            SUT.observeLikedGames(PAGINATION).test {
+            sut.observeLikedGames(PAGINATION).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }

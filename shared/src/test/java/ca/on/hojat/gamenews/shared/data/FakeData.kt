@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.data
 
-import com.paulrybitskyi.gamedge.common.domain.auth.entities.OauthCredentials
-import com.paulrybitskyi.gamedge.common.domain.games.entities.Company
+import ca.on.hojat.gamenews.shared.domain.auth.entities.OauthCredentials
+import ca.on.hojat.gamenews.shared.domain.games.entities.Company
 
 internal val DOMAIN_OAUTH_CREDENTIALS = OauthCredentials(
     accessToken = "access_token",

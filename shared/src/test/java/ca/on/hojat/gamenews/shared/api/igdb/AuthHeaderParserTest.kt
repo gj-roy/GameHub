@@ -12,22 +12,22 @@ internal class AuthHeaderParserTest {
         const val TOKEN = "token"
     }
 
-    private lateinit var SUT: AuthHeaderParser
+    private lateinit var sut: AuthHeaderParser
 
     @Before
     fun setup() {
-        SUT = AuthHeaderParser()
+        sut = AuthHeaderParser()
     }
 
     @Test
     fun `Returns null when header string is empty`() {
-        assertThat(SUT.parse("")).isNull()
+        assertThat(sut.parse("")).isNull()
     }
 
     @Test
     fun `Returns result with basic auth type`() {
         val expectedAuthType = ApiAuthorizationType.BASIC
-        val actualResult = SUT.parse("Basic $TOKEN")
+        val actualResult = sut.parse("Basic $TOKEN")
 
         assertThat(actualResult).isNotNull()
         assertThat(actualResult!!.type).isEqualTo(expectedAuthType)
@@ -37,7 +37,7 @@ internal class AuthHeaderParserTest {
     @Test
     fun `Returns result with bearer auth type`() {
         val expectedAuthType = ApiAuthorizationType.BEARER
-        val actualResult = SUT.parse("Bearer $TOKEN")
+        val actualResult = sut.parse("Bearer $TOKEN")
 
         assertThat(actualResult).isNotNull()
         assertThat(actualResult!!.type).isEqualTo(expectedAuthType)

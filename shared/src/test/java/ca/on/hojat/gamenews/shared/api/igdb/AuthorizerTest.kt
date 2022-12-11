@@ -13,18 +13,18 @@ internal class AuthorizerTest {
         const val ACCESS_TOKEN = "access_token"
     }
 
-    private lateinit var SUT: Authorizer
+    private lateinit var sut: Authorizer
 
     @Before
     fun setup() {
-        SUT = Authorizer()
+        sut = Authorizer()
     }
 
     @Test
     fun `Builds basic authorization header successfully`() {
         runTest {
             val expectedHeader = "Basic $ACCESS_TOKEN"
-            val actualHeader = SUT.buildAuthorizationHeader(
+            val actualHeader = sut.buildAuthorizationHeader(
                 type = ApiAuthorizationType.BASIC,
                 token = ACCESS_TOKEN,
             )
@@ -37,7 +37,7 @@ internal class AuthorizerTest {
     fun `Builds bearer authorization header successfully`() {
         runTest {
             val expectedHeader = "Bearer $ACCESS_TOKEN"
-            val actualHeader = SUT.buildAuthorizationHeader(
+            val actualHeader = sut.buildAuthorizationHeader(
                 type = ApiAuthorizationType.BEARER,
                 token = ACCESS_TOKEN,
             )

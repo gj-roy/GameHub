@@ -18,14 +18,14 @@ internal class RelativeDateFormatterImplTest {
     private lateinit var timeProvider: TimeProvider
 
     private lateinit var stringProvider: FakeStringProvider
-    private lateinit var SUT: RelativeDateFormatterImpl
+    private lateinit var sut: RelativeDateFormatterImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
         stringProvider = FakeStringProvider()
-        SUT = RelativeDateFormatterImpl(
+        sut = RelativeDateFormatterImpl(
             timeProvider = timeProvider,
             stringProvider = stringProvider
         )
@@ -40,7 +40,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(futureTime)).isEqualTo("in $yearDiff years")
+        assertThat(sut.formatRelativeDate(futureTime)).isEqualTo("in $yearDiff years")
     }
 
     @Test
@@ -52,7 +52,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(futureTime)).isEqualTo("in $monthDiff months")
+        assertThat(sut.formatRelativeDate(futureTime)).isEqualTo("in $monthDiff months")
     }
 
     @Test
@@ -64,7 +64,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(futureTime)).isEqualTo("in $dayDiff days")
+        assertThat(sut.formatRelativeDate(futureTime)).isEqualTo("in $dayDiff days")
     }
 
     @Test
@@ -76,7 +76,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(futureTime)).isEqualTo("in $hourDiff hours")
+        assertThat(sut.formatRelativeDate(futureTime)).isEqualTo("in $hourDiff hours")
     }
 
     @Test
@@ -88,7 +88,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(futureTime)).isEqualTo("in $minuteDiff minutes")
+        assertThat(sut.formatRelativeDate(futureTime)).isEqualTo("in $minuteDiff minutes")
     }
 
     @Test
@@ -100,7 +100,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(futureTime)).isEqualTo("in $secondDiff seconds")
+        assertThat(sut.formatRelativeDate(futureTime)).isEqualTo("in $secondDiff seconds")
     }
 
     @Test
@@ -112,7 +112,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(pastTime)).isEqualTo("$yearDiff years ago")
+        assertThat(sut.formatRelativeDate(pastTime)).isEqualTo("$yearDiff years ago")
     }
 
     @Test
@@ -124,7 +124,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(pastTime)).isEqualTo("$monthDiff months ago")
+        assertThat(sut.formatRelativeDate(pastTime)).isEqualTo("$monthDiff months ago")
     }
 
     @Test
@@ -136,7 +136,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(pastTime)).isEqualTo("$dayDiff days ago")
+        assertThat(sut.formatRelativeDate(pastTime)).isEqualTo("$dayDiff days ago")
     }
 
     @Test
@@ -148,7 +148,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(pastTime)).isEqualTo("$hourDiff hours ago")
+        assertThat(sut.formatRelativeDate(pastTime)).isEqualTo("$hourDiff hours ago")
     }
 
     @Test
@@ -160,7 +160,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(pastTime)).isEqualTo("$minuteDiff minutes ago")
+        assertThat(sut.formatRelativeDate(pastTime)).isEqualTo("$minuteDiff minutes ago")
     }
 
     @Test
@@ -172,7 +172,7 @@ internal class RelativeDateFormatterImplTest {
 
         every { timeProvider.getCurrentDateTime() } returns currentTime
 
-        assertThat(SUT.formatRelativeDate(pastTime)).isEqualTo("$secondDiff seconds ago")
+        assertThat(sut.formatRelativeDate(pastTime)).isEqualTo("$secondDiff seconds ago")
     }
 
     private class FakeStringProvider : StringProvider {

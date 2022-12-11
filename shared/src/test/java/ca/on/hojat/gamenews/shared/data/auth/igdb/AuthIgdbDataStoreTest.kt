@@ -1,18 +1,18 @@
 package ca.on.hojat.gamenews.shared.data.auth.igdb
 
-import ca.on.hojat.gamenews.api.igdb.auth.AuthEndpoint
-import ca.on.hojat.gamenews.api.igdb.auth.entities.ApiOauthCredentials
+import ca.on.hojat.gamenews.shared.api.igdb.auth.AuthEndpoint
+import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiOauthCredentials
+import ca.on.hojat.gamenews.shared.data.auth.datastores.igdb.AuthIgdbDataStore
+import ca.on.hojat.gamenews.shared.data.auth.datastores.igdb.IgdbAuthMapper
+import ca.on.hojat.gamenews.shared.data.common.ApiErrorMapper
+import ca.on.hojat.gamenews.shared.testing.API_ERROR_HTTP
+import ca.on.hojat.gamenews.shared.testing.API_ERROR_NETWORK
+import ca.on.hojat.gamenews.shared.testing.API_ERROR_UNKNOWN
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.shared.data.auth.datastores.igdb.AuthIgdbDataStore
-import ca.on.hojat.gamenews.shared.data.auth.datastores.igdb.IgdbAuthMapper
-import ca.on.hojat.gamenews.shared.data.common.ApiErrorMapper
-import com.paulrybitskyi.gamedge.common.testing.API_ERROR_HTTP
-import com.paulrybitskyi.gamedge.common.testing.API_ERROR_NETWORK
-import com.paulrybitskyi.gamedge.common.testing.API_ERROR_UNKNOWN
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -33,7 +33,7 @@ internal class AuthIgdbDataStoreTest {
 
     private lateinit var igdbAuthMapper: IgdbAuthMapper
     private lateinit var apiErrorMapper: ApiErrorMapper
-    private lateinit var SUT: AuthIgdbDataStore
+    private lateinit var sut: AuthIgdbDataStore
 
     @Before
     fun setup() {
@@ -41,7 +41,7 @@ internal class AuthIgdbDataStoreTest {
 
         igdbAuthMapper = IgdbAuthMapper()
         apiErrorMapper = ApiErrorMapper()
-        SUT = AuthIgdbDataStore(
+        sut = AuthIgdbDataStore(
             authEndpoint = authEndpoint,
             igdbAuthMapper = igdbAuthMapper,
             apiErrorMapper = apiErrorMapper,
@@ -53,7 +53,7 @@ internal class AuthIgdbDataStoreTest {
         runTest {
             coEvery { authEndpoint.getOauthCredentials() } returns Ok(API_OAUTH_CREDENTIALS)
 
-            val result = SUT.getOauthCredentials()
+            val result = sut.getOauthCredentials()
 
             assertThat(result.get())
                 .isEqualTo(igdbAuthMapper.mapToDomainOauthCredentials(API_OAUTH_CREDENTIALS))
@@ -65,7 +65,7 @@ internal class AuthIgdbDataStoreTest {
         runTest {
             coEvery { authEndpoint.getOauthCredentials() } returns Err(API_ERROR_HTTP)
 
-            val result = SUT.getOauthCredentials()
+            val result = sut.getOauthCredentials()
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_HTTP))
@@ -77,7 +77,7 @@ internal class AuthIgdbDataStoreTest {
         runTest {
             coEvery { authEndpoint.getOauthCredentials() } returns Err(API_ERROR_NETWORK)
 
-            val result = SUT.getOauthCredentials()
+            val result = sut.getOauthCredentials()
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_NETWORK))
@@ -89,7 +89,7 @@ internal class AuthIgdbDataStoreTest {
         runTest {
             coEvery { authEndpoint.getOauthCredentials() } returns Err(API_ERROR_UNKNOWN)
 
-            val result = SUT.getOauthCredentials()
+            val result = sut.getOauthCredentials()
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_UNKNOWN))

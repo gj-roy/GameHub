@@ -1,17 +1,17 @@
 package ca.on.hojat.gamenews.shared.data.games.database
 
 import app.cash.turbine.test
-import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.data.DOMAIN_COMPANY
-import com.paulrybitskyi.gamedge.common.data.FakeDiscoveryGamesReleaseDatesProvider
+import ca.on.hojat.gamenews.shared.data.DOMAIN_COMPANY
+import ca.on.hojat.gamenews.shared.data.FakeDiscoveryGamesReleaseDatesProvider
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.DbGameMapper
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.GamesDatabaseDataStore
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.mapToDatabaseGames
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAME
-import com.paulrybitskyi.gamedge.common.testing.domain.DOMAIN_GAMES
-import com.paulrybitskyi.gamedge.common.testing.domain.MainCoroutineRule
-import com.paulrybitskyi.gamedge.common.testing.domain.PAGINATION
-import com.paulrybitskyi.gamedge.database.games.tables.GamesTable
+import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
+import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
+import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
+import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
+import com.google.common.truth.Truth.assertThat
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -32,14 +32,14 @@ internal class GamesDatabaseDataStoreTest {
     private lateinit var gamesTable: GamesTable
 
     private lateinit var dbGameMapper: DbGameMapper
-    private lateinit var SUT: GamesDatabaseDataStore
+    private lateinit var sut: GamesDatabaseDataStore
 
     @Before
     fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
         dbGameMapper = DbGameMapper()
-        SUT = GamesDatabaseDataStore(
+        sut = GamesDatabaseDataStore(
             gamesTable = gamesTable,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             discoveryGamesReleaseDatesProvider = FakeDiscoveryGamesReleaseDatesProvider(),
@@ -50,7 +50,7 @@ internal class GamesDatabaseDataStoreTest {
     @Test
     fun `Saves games to table successfully`() {
         runTest {
-            SUT.saveGames(DOMAIN_GAMES)
+            sut.saveGames(DOMAIN_GAMES)
 
             coVerify { gamesTable.saveGames(dbGameMapper.mapToDatabaseGames(DOMAIN_GAMES)) }
         }
@@ -63,7 +63,7 @@ internal class GamesDatabaseDataStoreTest {
 
             coEvery { gamesTable.getGame(any()) } returns dbGame
 
-            assertThat(SUT.getGame(DOMAIN_GAME.id)).isEqualTo(DOMAIN_GAME)
+            assertThat(sut.getGame(DOMAIN_GAME.id)).isEqualTo(DOMAIN_GAME)
         }
     }
 
@@ -74,7 +74,7 @@ internal class GamesDatabaseDataStoreTest {
 
             coEvery { gamesTable.getGame(gameId) } returns null
 
-            assertThat(SUT.getGame(gameId)).isNull()
+            assertThat(sut.getGame(gameId)).isNull()
         }
     }
 
@@ -85,7 +85,7 @@ internal class GamesDatabaseDataStoreTest {
 
             coEvery { gamesTable.getGames(any(), any(), any()) } returns dbGames
 
-            assertThat(SUT.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION))
+            assertThat(sut.getCompanyDevelopedGames(DOMAIN_COMPANY, PAGINATION))
                 .isEqualTo(DOMAIN_GAMES)
         }
     }
@@ -97,7 +97,7 @@ internal class GamesDatabaseDataStoreTest {
 
             coEvery { gamesTable.getGames(any(), any(), any()) } returns dbGames
 
-            assertThat(SUT.getSimilarGames(DOMAIN_GAME, PAGINATION))
+            assertThat(sut.getSimilarGames(DOMAIN_GAME, PAGINATION))
                 .isEqualTo(DOMAIN_GAMES)
         }
     }
@@ -109,7 +109,7 @@ internal class GamesDatabaseDataStoreTest {
 
             coEvery { gamesTable.searchGames(any(), any(), any()) } returns dbGames
 
-            assertThat(SUT.searchGames("", PAGINATION)).isEqualTo(DOMAIN_GAMES)
+            assertThat(sut.searchGames("", PAGINATION)).isEqualTo(DOMAIN_GAMES)
         }
     }
 
@@ -120,7 +120,7 @@ internal class GamesDatabaseDataStoreTest {
 
             every { gamesTable.observePopularGames(any(), any(), any()) } returns flowOf(dbGames)
 
-            SUT.observePopularGames(PAGINATION).test {
+            sut.observePopularGames(PAGINATION).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }
@@ -141,7 +141,7 @@ internal class GamesDatabaseDataStoreTest {
                 )
             } returns flowOf(dbGames)
 
-            SUT.observeRecentlyReleasedGames(PAGINATION).test {
+            sut.observeRecentlyReleasedGames(PAGINATION).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }
@@ -155,7 +155,7 @@ internal class GamesDatabaseDataStoreTest {
 
             every { gamesTable.observeComingSoonGames(any(), any(), any()) } returns flowOf(dbGames)
 
-            SUT.observeComingSoonGames(PAGINATION).test {
+            sut.observeComingSoonGames(PAGINATION).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }
@@ -171,7 +171,7 @@ internal class GamesDatabaseDataStoreTest {
                 dbGames
             )
 
-            SUT.observeMostAnticipatedGames(PAGINATION).test {
+            sut.observeMostAnticipatedGames(PAGINATION).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }

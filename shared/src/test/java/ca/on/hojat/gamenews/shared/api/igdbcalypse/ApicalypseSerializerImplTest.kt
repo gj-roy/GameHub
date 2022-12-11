@@ -10,11 +10,11 @@ import org.junit.Test
 
 internal class ApicalypseSerializerImplTest {
 
-    private lateinit var SUT: ApicalypseSerializerImpl
+    private lateinit var sut: ApicalypseSerializerImpl
 
     @Before
     fun setup() {
-        SUT = ApicalypseSerializerImpl()
+        sut = ApicalypseSerializerImpl()
     }
 
     @Test
@@ -35,7 +35,7 @@ internal class ApicalypseSerializerImplTest {
             val field6: Float
         )
 
-        assertThat(SUT.serialize(Entity::class.java))
+        assertThat(sut.serialize(Entity::class.java))
             .isEqualTo("field1, field2, field3, field4, field5, field6")
     }
 
@@ -47,7 +47,7 @@ internal class ApicalypseSerializerImplTest {
         )
 
         assertThrows(IllegalArgumentException::class.java) {
-            SUT.serialize(Entity::class.java)
+            sut.serialize(Entity::class.java)
         }
     }
 
@@ -60,7 +60,7 @@ internal class ApicalypseSerializerImplTest {
         )
 
         assertThrows(IllegalArgumentException::class.java) {
-            SUT.serialize(Entity::class.java)
+            sut.serialize(Entity::class.java)
         }
     }
 
@@ -73,7 +73,7 @@ internal class ApicalypseSerializerImplTest {
         )
 
         assertThrows(IllegalArgumentException::class.java) {
-            SUT.serialize(Entity::class.java)
+            sut.serialize(Entity::class.java)
         }
     }
 
@@ -86,7 +86,7 @@ internal class ApicalypseSerializerImplTest {
             val field2: Float
         )
 
-        assertThat(SUT.serialize(Entity::class.java)).isEqualTo("field1")
+        assertThat(sut.serialize(Entity::class.java)).isEqualTo("field1")
     }
 
     @Test
@@ -127,7 +127,7 @@ internal class ApicalypseSerializerImplTest {
             val child3: Child3
         )
 
-        assertThat(SUT.serialize(Parent::class.java))
+        assertThat(sut.serialize(Parent::class.java))
             .isEqualTo(
                 "parent, child1.field1, child2.field1, child2.field2, child3.field1, child3.field2, " +
                         "child3.field3"
@@ -197,7 +197,7 @@ internal class ApicalypseSerializerImplTest {
             val child3: Child3
         )
 
-        assertThat(SUT.serialize(Parent::class.java))
+        assertThat(sut.serialize(Parent::class.java))
             .isEqualTo(
                 "parent, child1.kid1.field1, child2.kid1.field1, child2.kid2.field1, child2.kid2.field2, " +
                         "child3.kid1.field1, child3.kid2.field1, child3.kid2.field2, child3.kid3.field1, " +
@@ -215,7 +215,7 @@ internal class ApicalypseSerializerImplTest {
             val field2: List<String>
         )
 
-        assertThat(SUT.serialize(Entity::class.java)).isEqualTo("field1, field2")
+        assertThat(sut.serialize(Entity::class.java)).isEqualTo("field1, field2")
     }
 
     @Test
@@ -228,7 +228,7 @@ internal class ApicalypseSerializerImplTest {
             val field2: Set<String>
         )
 
-        assertThat(SUT.serialize(Entity::class.java)).isEqualTo("field1, field2")
+        assertThat(sut.serialize(Entity::class.java)).isEqualTo("field1, field2")
     }
 
     @Test
@@ -242,7 +242,7 @@ internal class ApicalypseSerializerImplTest {
         )
 
         assertThrows(IllegalStateException::class.java) {
-            SUT.serialize(Entity::class.java)
+            sut.serialize(Entity::class.java)
         }
     }
 }
