@@ -17,7 +17,7 @@ import com.paulrybitskyi.gamedge.feature_category.widgets.GamesCategory
 import com.paulrybitskyi.gamedge.feature_discovery.GamesDiscoveryRoute
 import com.paulrybitskyi.gamedge.feature_discovery.widgets.GamesDiscovery
 import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.GamingNews
-import com.paulrybitskyi.gamedge.feature.settings.presentation.Settings
+import com.paulrybitskyi.gamedge.feature_settings.presentation.Settings
 import com.paulrybitskyi.gamedge.feature_image_viewer.ImageViewer
 import com.paulrybitskyi.gamedge.feature_image_viewer.ImageViewerRoute
 import com.paulrybitskyi.gamedge.feature_info.presentation.GameInfoRoute

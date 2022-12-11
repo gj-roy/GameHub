@@ -64,7 +64,6 @@ object deps {
         const val database = ":database"
         const val commonData = ":common-data"
         const val shared = ":shared"
-        const val featureSettings = ":feature-settings"
     }
 
     object kotlin {

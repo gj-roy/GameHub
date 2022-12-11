@@ -1,6 +1,7 @@
 plugins {
     androidApplication()
     gamedgeAndroid()
+    gamedgeProtobuf()
     kotlinKapt()
     ksp()
     daggerHiltAndroid()
@@ -46,9 +47,9 @@ android {
 dependencies {
     implementation(project(deps.local.commonData))
     implementation(project(deps.local.database))
-    implementation(project(deps.local.featureSettings))
     implementation(project(deps.local.shared))
 
+    implementation(deps.androidX.protoDataStore)
     implementation(deps.androidX.splash)
 
     implementation(deps.compose.ui)

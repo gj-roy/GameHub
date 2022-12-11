@@ -22,9 +22,9 @@ import ca.on.hojat.gamenews.shared.ui.LocalTextSharer
 import ca.on.hojat.gamenews.shared.ui.LocalUrlOpener
 import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
 import com.paulrybitskyi.commons.ktx.intentFor
-import com.paulrybitskyi.gamedge.feature.settings.domain.entities.Settings
-import com.paulrybitskyi.gamedge.feature.settings.domain.entities.Theme
-import com.paulrybitskyi.gamedge.feature.settings.domain.usecases.ObserveThemeUseCase
+import com.paulrybitskyi.gamedge.feature_settings.domain.entities.Settings
+import com.paulrybitskyi.gamedge.feature_settings.domain.entities.Theme
+import com.paulrybitskyi.gamedge.feature_settings.domain.usecases.ObserveThemeUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.filterNotNull
 import javax.inject.Inject
