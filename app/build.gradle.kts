@@ -45,8 +45,6 @@ android {
 }
 
 dependencies {
-    implementation(project(deps.local.commonData))
-    implementation(project(deps.local.database))
     implementation(project(deps.local.shared))
 
     implementation(deps.androidX.protoDataStore)

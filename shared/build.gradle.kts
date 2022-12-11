@@ -4,6 +4,7 @@ import com.paulrybitskyi.gamedge.extensions.stringField
 plugins {
     androidLibrary()
     gamedgeAndroid()
+    gamedgeProtobuf()
     kotlinKapt()
     ksp()
     kotlinxSerialization()
@@ -33,10 +34,32 @@ android {
         stringField("TWITCH_APP_CLIENT_SECRET", property("TWITCH_APP_CLIENT_SECRET", ""))
         stringField("GAMESPOT_API_KEY", property("GAMESPOT_API_KEY", ""))
     }
+
+    sourceSets {
+        getByName("androidTest").assets.srcDirs("$projectDir/schemas")
+    }
+
+    lint {
+        // Fix an error "Error: EntityInsertionAdapter can only be accessed from within
+        // the same library group prefix (referenced groupId=androidx.room with prefix
+        // androidx from groupId=Gamedge) [RestrictedApi]
+        disable.add("RestrictedApi")
+    }
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 dependencies {
 
+    implementation(deps.androidX.prefsDataStore)
+    implementation(deps.androidX.protoDataStore)
+
+    implementation(deps.androidX.room)
+    implementation(deps.androidX.roomKtx)
+    ksp(deps.androidX.roomCompiler)
+    
     implementation(deps.kotlin.coroutines)
     implementation(deps.kotlin.serialization)
     implementation(deps.androidX.browser)
@@ -85,6 +108,12 @@ dependencies {
     androidTestImplementation(deps.testing.testRunner)
     androidTestImplementation(deps.testing.jUnitExt)
     androidTestImplementation(deps.testing.daggerHilt)
+    androidTestImplementation(deps.testing.truth)
+    androidTestImplementation(deps.testing.archCore)
+    androidTestImplementation(deps.testing.coroutines)
+    androidTestImplementation(deps.testing.turbine)
+    androidTestImplementation(deps.testing.room)
+
     kaptAndroidTest(deps.google.daggerHiltAndroidCompiler)
 
 }

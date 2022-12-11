@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.DomainResult
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import com.github.michaelbull.result.mapEither
-import com.paulrybitskyi.gamedge.common.data.common.ApiErrorMapper
+import ca.on.hojat.gamenews.shared.data.common.ApiErrorMapper
 import com.paulrybitskyi.gamedge.feature_news.domain.datastores.ArticlesRemoteDataStore
 import com.paulrybitskyi.gamedge.feature_news.domain.entities.Article
 import com.paulrybitskyi.hiltbinder.BindType

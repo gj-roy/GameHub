@@ -1,0 +1,36 @@
+package ca.on.hojat.gamenews.shared.data.auth.datastores.igdb
+
+import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiOauthCredentials
+import ca.on.hojat.gamenews.shared.api.igdb.common.CredentialsStore
+import ca.on.hojat.gamenews.shared.domain.auth.datastores.AuthLocalDataStore
+import ca.on.hojat.gamenews.shared.domain.auth.datastores.AuthRemoteDataStore
+import com.github.michaelbull.result.get
+import com.paulrybitskyi.hiltbinder.BindType
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+@BindType
+internal class CredentialsStoreImpl @Inject constructor(
+    private val authLocalDataStore: AuthLocalDataStore,
+    private val authRemoteDataStore: AuthRemoteDataStore,
+    private val igdbAuthMapper: IgdbAuthMapper,
+) : CredentialsStore {
+
+    override suspend fun saveOauthCredentials(oauthCredentials: ApiOauthCredentials) {
+        authLocalDataStore.saveOauthCredentials(
+            igdbAuthMapper.mapToDomainOauthCredentials(oauthCredentials),
+        )
+    }
+
+    override suspend fun getLocalOauthCredentials(): ApiOauthCredentials? {
+        return authLocalDataStore.getOauthCredentials()
+            ?.let(igdbAuthMapper::mapToApiOauthCredentials)
+    }
+
+    override suspend fun getRemoteOauthCredentials(): ApiOauthCredentials? {
+        return authRemoteDataStore.getOauthCredentials()
+            .get()
+            ?.let(igdbAuthMapper::mapToApiOauthCredentials)
+    }
+}

@@ -1,9 +1,9 @@
 package com.paulrybitskyi.gamedge.feature_news.data.datastores.database
 
+import ca.on.hojat.gamenews.shared.database.articles.DatabaseArticle
+import ca.on.hojat.gamenews.shared.database.articles.tables.ArticlesTable
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
-import com.paulrybitskyi.gamedge.database.articles.DatabaseArticle
-import com.paulrybitskyi.gamedge.database.articles.tables.ArticlesTable
 import com.paulrybitskyi.gamedge.feature_news.domain.datastores.ArticlesLocalDataStore
 import com.paulrybitskyi.gamedge.feature_news.domain.entities.Article
 import com.paulrybitskyi.hiltbinder.BindType

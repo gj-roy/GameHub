@@ -1,7 +1,7 @@
 package com.paulrybitskyi.gamedge.feature_news.data.datastores.database
 
-import com.paulrybitskyi.gamedge.database.articles.DatabaseArticle
-import com.paulrybitskyi.gamedge.database.articles.DatabaseImageType
+import ca.on.hojat.gamenews.shared.database.articles.DatabaseArticle
+import ca.on.hojat.gamenews.shared.database.articles.DatabaseImageType
 import com.paulrybitskyi.gamedge.feature_news.domain.DomainArticle
 import com.paulrybitskyi.gamedge.feature_news.domain.DomainImageType
 import javax.inject.Inject

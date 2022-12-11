@@ -8,6 +8,4 @@ pluginManagement {
 }
 
 include(":app")
-include(":common-data")
-include(":database")
 include(":shared")

@@ -12,7 +12,7 @@ import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.data.common.ApiErrorMapper
+import ca.on.hojat.gamenews.shared.data.common.ApiErrorMapper
 import com.paulrybitskyi.gamedge.feature_news.data.datastores.gamespot.ArticlePublicationDateMapper
 import com.paulrybitskyi.gamedge.feature_news.data.datastores.gamespot.ArticlesGamespotDataStore
 import com.paulrybitskyi.gamedge.feature_news.data.datastores.gamespot.GamespotArticleMapper

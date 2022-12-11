@@ -62,7 +62,6 @@ object deps {
     object local {
 
         const val database = ":database"
-        const val commonData = ":common-data"
         const val shared = ":shared"
     }
 
