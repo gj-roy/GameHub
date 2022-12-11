@@ -24,13 +24,13 @@ internal class ObserveThemeUseCaseImplTest {
     @MockK
     private lateinit var observeSettingsUseCase: ObserveSettingsUseCase
 
-    private lateinit var SUT: ObserveThemeUseCaseImpl
+    private lateinit var sut: ObserveThemeUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = ObserveThemeUseCaseImpl(
+        sut = ObserveThemeUseCaseImpl(
             observeSettingsUseCase = observeSettingsUseCase,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
@@ -41,7 +41,7 @@ internal class ObserveThemeUseCaseImplTest {
         runTest {
             every { observeSettingsUseCase.execute() } returns flowOf(DOMAIN_SETTINGS)
 
-            SUT.execute().test {
+            sut.execute().test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_SETTINGS.theme)
                 awaitComplete()
             }
@@ -56,7 +56,7 @@ internal class ObserveThemeUseCaseImplTest {
                 DOMAIN_SETTINGS
             )
 
-            SUT.execute().test {
+            sut.execute().test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_SETTINGS.theme)
                 awaitComplete()
             }

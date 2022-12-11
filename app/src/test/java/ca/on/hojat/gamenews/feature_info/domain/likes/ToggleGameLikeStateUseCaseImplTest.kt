@@ -24,12 +24,12 @@ internal class ToggleGameLikeStateUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     private lateinit var likedGamesLocalDataStore: FakeLikedGamesLocalDataStore
-    private lateinit var SUT: ToggleGameLikeStateUseCaseImpl
+    private lateinit var sut: ToggleGameLikeStateUseCaseImpl
 
     @Before
     fun setup() {
         likedGamesLocalDataStore = FakeLikedGamesLocalDataStore()
-        SUT = ToggleGameLikeStateUseCaseImpl(likedGamesLocalDataStore)
+        sut = ToggleGameLikeStateUseCaseImpl(likedGamesLocalDataStore)
     }
 
     @Test
@@ -37,7 +37,7 @@ internal class ToggleGameLikeStateUseCaseImplTest {
         runTest {
             assertThat(likedGamesLocalDataStore.isGameLiked(GAME_ID)).isFalse()
 
-            SUT.execute(USE_CASE_PARAMS)
+            sut.execute(USE_CASE_PARAMS)
 
             assertThat(likedGamesLocalDataStore.isGameLiked(GAME_ID)).isTrue()
         }
@@ -50,7 +50,7 @@ internal class ToggleGameLikeStateUseCaseImplTest {
 
             assertThat(likedGamesLocalDataStore.isGameLiked(GAME_ID)).isTrue()
 
-            SUT.execute(USE_CASE_PARAMS)
+            sut.execute(USE_CASE_PARAMS)
 
             assertThat(likedGamesLocalDataStore.isGameLiked(GAME_ID)).isFalse()
         }

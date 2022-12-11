@@ -294,7 +294,6 @@ private fun constructExpandedConstraintSet(): ConstraintSet {
     val coverMarginStart = GamedgeTheme.spaces.spacing_3_5
     val likeBtnMarginEnd = GamedgeTheme.spaces.spacing_2_5
     val titleMarginStart = GamedgeTheme.spaces.spacing_3_5
-    val firstTitleMarginTop = titleMarginStart
     val firstTitleMarginEnd = GamedgeTheme.spaces.spacing_1_0
     val secondTitleMarginEnd = GamedgeTheme.spaces.spacing_3_5
     val releaseDateMarginTop = GamedgeTheme.spaces.spacing_2_5
@@ -364,7 +363,7 @@ private fun constructExpandedConstraintSet(): ConstraintSet {
         }
         constrain(firstTitle) {
             width = Dimension.fillToConstraints
-            top.linkTo(artworks.bottom, firstTitleMarginTop)
+            top.linkTo(artworks.bottom, titleMarginStart)
             start.linkTo(cover.end, titleMarginStart)
             end.linkTo(likeButton.start, firstTitleMarginEnd)
         }

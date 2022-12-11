@@ -37,13 +37,13 @@ internal class GetGameImageUrlsUseCaseImplTest {
     @MockK
     private lateinit var gameUrlFactory: ImageViewerGameUrlFactory
 
-    private lateinit var SUT: GetGameImageUrlsUseCaseImpl
+    private lateinit var sut: GetGameImageUrlsUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = GetGameImageUrlsUseCaseImpl(
+        sut = GetGameImageUrlsUseCaseImpl(
             getGameUseCase = getGameUseCase,
             gameUrlFactory = gameUrlFactory,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
@@ -58,7 +58,7 @@ internal class GetGameImageUrlsUseCaseImplTest {
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAME))
             coEvery { gameUrlFactory.createCoverImageUrl(DOMAIN_GAME) } returns expectedImageUrl
 
-            SUT.execute(USE_CASE_PARAMS.copy(imageType = GameImageType.COVER)).test {
+            sut.execute(USE_CASE_PARAMS.copy(imageType = GameImageType.COVER)).test {
                 val actualImageUrl = awaitItem()
 
                 assertThat(actualImageUrl.get()).isNotNull()
@@ -74,7 +74,7 @@ internal class GetGameImageUrlsUseCaseImplTest {
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAME))
             coEvery { gameUrlFactory.createCoverImageUrl(DOMAIN_GAME) } returns null
 
-            SUT.execute(USE_CASE_PARAMS.copy(imageType = GameImageType.COVER)).test {
+            sut.execute(USE_CASE_PARAMS.copy(imageType = GameImageType.COVER)).test {
                 val errorResult = awaitItem()
 
                 assertThat(errorResult.getError()).isNotNull()
@@ -96,7 +96,7 @@ internal class GetGameImageUrlsUseCaseImplTest {
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAME))
             coEvery { gameUrlFactory.createArtworkImageUrls(DOMAIN_GAME) } returns expectedArtworkImageUrls
 
-            SUT.execute(USE_CASE_PARAMS.copy(imageType = GameImageType.ARTWORK)).test {
+            sut.execute(USE_CASE_PARAMS.copy(imageType = GameImageType.ARTWORK)).test {
                 val actualArtworkImageUrls = awaitItem()
 
                 assertThat(actualArtworkImageUrls.get()).isNotNull()
@@ -118,7 +118,7 @@ internal class GetGameImageUrlsUseCaseImplTest {
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAME))
             coEvery { gameUrlFactory.createScreenshotImageUrls(DOMAIN_GAME) } returns expectedScreenshotImageUrls
 
-            SUT.execute(USE_CASE_PARAMS.copy(imageType = GameImageType.SCREENSHOT)).test {
+            sut.execute(USE_CASE_PARAMS.copy(imageType = GameImageType.SCREENSHOT)).test {
                 val actualScreenshotImageUrls = awaitItem()
 
                 assertThat(actualScreenshotImageUrls.get()).isNotNull()

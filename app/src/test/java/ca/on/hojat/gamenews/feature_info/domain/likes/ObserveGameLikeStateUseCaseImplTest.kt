@@ -23,13 +23,13 @@ internal class ObserveGameLikeStateUseCaseImplTest {
     @MockK
     private lateinit var likedGamesLocalDataStore: LikedGamesLocalDataStore
 
-    private lateinit var SUT: ObserveGameLikeStateUseCaseImpl
+    private lateinit var sut: ObserveGameLikeStateUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = ObserveGameLikeStateUseCaseImpl(
+        sut = ObserveGameLikeStateUseCaseImpl(
             likedGamesLocalDataStore = likedGamesLocalDataStore,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
@@ -39,13 +39,13 @@ internal class ObserveGameLikeStateUseCaseImplTest {
     fun `Emits game like state successfully`() {
         runTest {
             every { likedGamesLocalDataStore.observeGameLikeState(any()) } returns flowOf(true)
-            SUT.execute(OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS).test {
+            sut.execute(OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS).test {
                 assertThat(awaitItem()).isTrue()
                 awaitComplete()
             }
 
             every { likedGamesLocalDataStore.observeGameLikeState(any()) } returns flowOf(false)
-            SUT.execute(OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS).test {
+            sut.execute(OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS).test {
                 assertThat(awaitItem()).isFalse()
                 awaitComplete()
             }

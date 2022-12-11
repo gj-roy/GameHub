@@ -45,12 +45,10 @@ internal class GameInfoOtherCompanyGamesUiModelMapperImpl @Inject constructor(
         val developerName = developerCompany?.name
             ?: stringProvider.getString(R.string.game_info_other_company_games_title_default_arg)
 
-        val title = stringProvider.getString(
+        return stringProvider.getString(
             R.string.game_info_other_company_games_title_template,
             developerName
         )
-
-        return title
     }
 
     private fun List<Game>.toRelatedGameUiModels(): List<GameInfoRelatedGameUiModel> {

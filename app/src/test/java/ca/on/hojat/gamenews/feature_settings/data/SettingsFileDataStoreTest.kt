@@ -25,13 +25,13 @@ internal class SettingsFileDataStoreTest {
     @MockK
     private lateinit var protoDataStore: DataStore<ProtoSettings>
 
-    private lateinit var SUT: SettingsFileDataStore
+    private lateinit var sut: SettingsFileDataStore
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = SettingsFileDataStore(
+        sut = SettingsFileDataStore(
             protoDataStore = protoDataStore,
             protoMapper = ProtoSettingsMapper(),
         )
@@ -42,7 +42,7 @@ internal class SettingsFileDataStoreTest {
         runTest {
             coEvery { protoDataStore.updateData(any()) } returns PROTO_SETTINGS
 
-            SUT.saveSettings(DOMAIN_SETTINGS)
+            sut.saveSettings(DOMAIN_SETTINGS)
 
             coVerify { protoDataStore.updateData(any()) }
         }
@@ -53,7 +53,7 @@ internal class SettingsFileDataStoreTest {
         runTest {
             coEvery { protoDataStore.data } returns flowOf(PROTO_SETTINGS)
 
-            assertThat(SUT.observeSettings().first()).isEqualTo(DOMAIN_SETTINGS)
+            assertThat(sut.observeSettings().first()).isEqualTo(DOMAIN_SETTINGS)
         }
     }
 }

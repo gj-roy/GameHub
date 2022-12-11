@@ -36,7 +36,7 @@ internal class SettingsViewModelTest {
     private val saveSettingsUseCase = mockk<SaveSettingsUseCase>(relaxed = true)
     private val observeSettingsUseCase = mockk<ObserveSettingsUseCase>(relaxed = true)
 
-    private val SUT by lazy {
+    private val sut by lazy {
         SettingsViewModel(
             saveSettingsUseCase = saveSettingsUseCase,
             observeSettingsUseCase = observeSettingsUseCase,
@@ -50,7 +50,7 @@ internal class SettingsViewModelTest {
         runTest {
             every { observeSettingsUseCase.execute() } returns flowOf(DOMAIN_SETTINGS)
 
-            SUT.uiState.test {
+            sut.uiState.test {
                 val loadingState = awaitItem()
                 val resultState = awaitItem()
 
@@ -65,8 +65,8 @@ internal class SettingsViewModelTest {
     @Test
     fun `Shows theme picker if theme setting is clicked`() {
         runTest {
-            SUT.uiState.test {
-                SUT.onSettingClicked(createSettingUiModel(SettingItem.THEME))
+            sut.uiState.test {
+                sut.onSettingClicked(createSettingUiModel(SettingItem.THEME))
 
                 val stateWithInvisiblePicker = awaitItem()
                 val stateWithVisiblePicker = awaitItem()
@@ -80,10 +80,10 @@ internal class SettingsViewModelTest {
     @Test
     fun `Hides theme picker when theme gets picked`() {
         runTest {
-            SUT.onSettingClicked(createSettingUiModel(SettingItem.THEME))
+            sut.onSettingClicked(createSettingUiModel(SettingItem.THEME))
 
-            SUT.uiState.test {
-                SUT.onThemePicked(Theme.LIGHT)
+            sut.uiState.test {
+                sut.onThemePicked(Theme.LIGHT)
 
                 val stateWithVisiblePicker = awaitItem()
                 val stateWithInvisiblePicker = awaitItem()
@@ -102,7 +102,7 @@ internal class SettingsViewModelTest {
 
             every { observeSettingsUseCase.execute() } returns flowOf(defaultSettings)
 
-            SUT.onThemePicked(newSettings.theme)
+            sut.onThemePicked(newSettings.theme)
 
             advanceUntilIdle()
 
@@ -113,10 +113,10 @@ internal class SettingsViewModelTest {
     @Test
     fun `Hides theme picker when picker gets dismissed`() {
         runTest {
-            SUT.onSettingClicked(createSettingUiModel(SettingItem.THEME))
+            sut.onSettingClicked(createSettingUiModel(SettingItem.THEME))
 
-            SUT.uiState.test {
-                SUT.onThemePickerDismissed()
+            sut.uiState.test {
+                sut.onThemePickerDismissed()
 
                 val stateWithVisiblePicker = awaitItem()
                 val stateWithInvisiblePicker = awaitItem()
@@ -130,8 +130,8 @@ internal class SettingsViewModelTest {
     @Test
     fun `Opens source code link if source code setting is clicked`() {
         runTest {
-            SUT.commandFlow.test {
-                SUT.onSettingClicked(createSettingUiModel(SettingItem.SOURCE_CODE))
+            sut.commandFlow.test {
+                sut.onSettingClicked(createSettingUiModel(SettingItem.SOURCE_CODE))
 
                 val command = awaitItem()
 

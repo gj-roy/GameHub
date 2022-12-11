@@ -29,13 +29,13 @@ internal class GetSimilarGamesUseCaseImplTest {
     @MockK
     private lateinit var gamesLocalDataStore: GamesLocalDataStore
 
-    private lateinit var SUT: GetSimilarGamesUseCaseImpl
+    private lateinit var sut: GetSimilarGamesUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = GetSimilarGamesUseCaseImpl(
+        sut = GetSimilarGamesUseCaseImpl(
             refreshSimilarGamesUseCase = refreshSimilarGamesUseCase,
             gamesLocalDataStore = gamesLocalDataStore,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
@@ -47,7 +47,7 @@ internal class GetSimilarGamesUseCaseImplTest {
         runTest {
             coEvery { refreshSimilarGamesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
 
-            SUT.execute(GET_SIMILAR_GAMES_USE_CASE_PARAMS).test {
+            sut.execute(GET_SIMILAR_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }
@@ -60,7 +60,7 @@ internal class GetSimilarGamesUseCaseImplTest {
             coEvery { refreshSimilarGamesUseCase.execute(any()) } returns flowOf()
             coEvery { gamesLocalDataStore.getSimilarGames(any(), any()) } returns DOMAIN_GAMES
 
-            SUT.execute(GET_SIMILAR_GAMES_USE_CASE_PARAMS).test {
+            sut.execute(GET_SIMILAR_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }

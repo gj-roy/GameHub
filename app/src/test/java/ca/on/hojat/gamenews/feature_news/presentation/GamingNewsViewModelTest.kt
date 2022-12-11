@@ -36,7 +36,7 @@ internal class GamingNewsViewModelTest {
     private val refreshArticlesUseCase = mockk<RefreshArticlesUseCase>(relaxed = true)
 
     private val logger = FakeLogger()
-    private val SUT by lazy {
+    private val sut by lazy {
         GamingNewsViewModel(
             observeArticlesUseCase = observeArticlesUseCase,
             refreshArticlesUseCase = refreshArticlesUseCase,
@@ -52,7 +52,7 @@ internal class GamingNewsViewModelTest {
         runTest {
             every { observeArticlesUseCase.execute(any()) } returns flowOf(DOMAIN_ARTICLES)
 
-            SUT.uiState.test {
+            sut.uiState.test {
                 val emptyState = awaitItem()
                 val loadingState = awaitItem()
                 val resultState = awaitItem()
@@ -74,7 +74,7 @@ internal class GamingNewsViewModelTest {
                 )
             }
 
-            SUT
+            sut
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -90,7 +90,7 @@ internal class GamingNewsViewModelTest {
                 )
             }
 
-            SUT.commandFlow.test {
+            sut.commandFlow.test {
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
         }
@@ -108,8 +108,8 @@ internal class GamingNewsViewModelTest {
                 siteDetailUrl = "site_detail_url",
             )
 
-            SUT.commandFlow.test {
-                SUT.onNewsItemClicked(itemModel)
+            sut.commandFlow.test {
+                sut.onNewsItemClicked(itemModel)
 
                 val command = awaitItem()
 
@@ -124,11 +124,11 @@ internal class GamingNewsViewModelTest {
         runTest {
             every { refreshArticlesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_ARTICLES))
 
-            SUT
+            sut
             advanceUntilIdle()
 
-            SUT.uiState.test {
-                SUT.onRefreshRequested()
+            sut.uiState.test {
+                sut.onRefreshRequested()
 
                 assertThat(awaitItem().isRefreshing).isFalse()
                 assertThat(awaitItem().isRefreshing).isTrue()

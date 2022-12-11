@@ -2,10 +2,10 @@ package ca.on.hojat.gamenews.feature_news.data
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_news.DOMAIN_ARTICLES
+import ca.on.hojat.gamenews.shared.database.articles.tables.ArticlesTable
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.database.articles.tables.ArticlesTable
 import com.paulrybitskyi.gamedge.feature_news.data.datastores.database.ArticlesDatabaseDataStore
 import com.paulrybitskyi.gamedge.feature_news.data.datastores.database.DbArticleMapper
 import com.paulrybitskyi.gamedge.feature_news.data.datastores.database.mapToDatabaseArticles
@@ -28,14 +28,14 @@ internal class ArticlesDatabaseDataStoreTest {
     private lateinit var articlesTable: ArticlesTable
 
     private lateinit var dbArticleMapper: DbArticleMapper
-    private lateinit var SUT: ArticlesDatabaseDataStore
+    private lateinit var sut: ArticlesDatabaseDataStore
 
     @Before
     fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
         dbArticleMapper = DbArticleMapper()
-        SUT = ArticlesDatabaseDataStore(
+        sut = ArticlesDatabaseDataStore(
             articlesTable = articlesTable,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             dbArticleMapper = dbArticleMapper,
@@ -45,7 +45,7 @@ internal class ArticlesDatabaseDataStoreTest {
     @Test
     fun `Saves articles to table successfully`() {
         runTest {
-            SUT.saveArticles(DOMAIN_ARTICLES)
+            sut.saveArticles(DOMAIN_ARTICLES)
 
             coVerify {
                 articlesTable.saveArticles(dbArticleMapper.mapToDatabaseArticles(DOMAIN_ARTICLES))
@@ -60,7 +60,7 @@ internal class ArticlesDatabaseDataStoreTest {
 
             every { articlesTable.observeArticles(any(), any()) } returns flowOf(databaseArticles)
 
-            SUT.observeArticles(PAGINATION).test {
+            sut.observeArticles(PAGINATION).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_ARTICLES)
                 awaitComplete()
             }

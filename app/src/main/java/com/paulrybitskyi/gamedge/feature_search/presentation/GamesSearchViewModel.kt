@@ -50,12 +50,12 @@ internal class GamesSearchViewModel @Inject constructor(
 
     private var currentSearchQuery by observeChanges("") { _, newQuery ->
         _uiState.update { it.copy(queryText = newQuery) }
-        savedStateHandle.set(KEY_CURRENT_SEARCH_QUERY, newQuery)
+        savedStateHandle[KEY_CURRENT_SEARCH_QUERY] = newQuery
     }
 
     private var confirmedSearchQuery by observeChanges("") { _, newQuery ->
         useCaseParams = useCaseParams.copy(searchQuery = newQuery)
-        savedStateHandle.set(KEY_CONFIRMED_SEARCH_QUERY, newQuery)
+        savedStateHandle[KEY_CONFIRMED_SEARCH_QUERY] = newQuery
     }
 
     private var pagination: Pagination
@@ -81,13 +81,13 @@ internal class GamesSearchViewModel @Inject constructor(
 
     private fun restoreState() {
         if (savedStateHandle.contains(KEY_CURRENT_SEARCH_QUERY)) {
-            currentSearchQuery = checkNotNull(savedStateHandle.get(KEY_CURRENT_SEARCH_QUERY))
+            currentSearchQuery = checkNotNull(savedStateHandle[KEY_CURRENT_SEARCH_QUERY])
         }
 
         val restoredConfirmedSearchQuery = savedStateHandle.get<String>(KEY_CONFIRMED_SEARCH_QUERY)
 
         if (restoredConfirmedSearchQuery == currentSearchQuery) {
-            onSearchConfirmed(checkNotNull(savedStateHandle.get(KEY_CONFIRMED_SEARCH_QUERY)))
+            onSearchConfirmed(checkNotNull(savedStateHandle[KEY_CONFIRMED_SEARCH_QUERY]))
         }
     }
 

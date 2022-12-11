@@ -38,7 +38,7 @@ internal class GamesDiscoveryViewModelTest {
     private val refreshPopularGamesUseCase = mockk<RefreshPopularGamesUseCase>(relaxed = true)
 
     private val logger = FakeLogger()
-    private val SUT by lazy {
+    private val sut by lazy {
         GamesDiscoveryViewModel(
             useCases = setupUseCases(),
             uiModelMapper = FakeGamesDiscoveryItemGameUiModelMapper(),
@@ -88,7 +88,7 @@ internal class GamesDiscoveryViewModelTest {
             }
             every { refreshPopularGamesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
 
-            SUT
+            sut
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -105,7 +105,7 @@ internal class GamesDiscoveryViewModelTest {
                 )
             }
 
-            SUT
+            sut
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -122,7 +122,7 @@ internal class GamesDiscoveryViewModelTest {
                 )
             }
 
-            SUT.commandFlow.test {
+            sut.commandFlow.test {
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
         }
@@ -131,8 +131,8 @@ internal class GamesDiscoveryViewModelTest {
     @Test
     fun `Routes to search screen when search button is clicked`() {
         runTest {
-            SUT.routeFlow.test {
-                SUT.onSearchButtonClicked()
+            sut.routeFlow.test {
+                sut.onSearchButtonClicked()
 
                 assertThat(awaitItem()).isInstanceOf(GamesDiscoveryRoute.Search::class.java)
             }
@@ -144,8 +144,8 @@ internal class GamesDiscoveryViewModelTest {
         runTest {
             val categoryName = GamesDiscoveryCategory.POPULAR.name
 
-            SUT.routeFlow.test {
-                SUT.onCategoryMoreButtonClicked(categoryName)
+            sut.routeFlow.test {
+                sut.onCategoryMoreButtonClicked(categoryName)
 
                 val route = awaitItem()
 
@@ -164,8 +164,8 @@ internal class GamesDiscoveryViewModelTest {
                 coverUrl = null
             )
 
-            SUT.routeFlow.test {
-                SUT.onCategoryGameClicked(item)
+            sut.routeFlow.test {
+                sut.onCategoryGameClicked(item)
 
                 val route = awaitItem()
 

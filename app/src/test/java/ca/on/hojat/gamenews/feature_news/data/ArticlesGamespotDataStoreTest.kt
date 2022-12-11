@@ -41,7 +41,7 @@ internal class ArticlesGamespotDataStoreTest {
 
     private lateinit var apiArticleMapper: GamespotArticleMapper
     private lateinit var apiErrorMapper: ApiErrorMapper
-    private lateinit var SUT: ArticlesGamespotDataStore
+    private lateinit var sut: ArticlesGamespotDataStore
 
     @Before
     fun setup() {
@@ -49,7 +49,7 @@ internal class ArticlesGamespotDataStoreTest {
 
         apiArticleMapper = GamespotArticleMapper(ArticlePublicationDateMapper())
         apiErrorMapper = ApiErrorMapper()
-        SUT = ArticlesGamespotDataStore(
+        sut = ArticlesGamespotDataStore(
             articlesEndpoint = articlesEndpoint,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             apiArticleMapper = apiArticleMapper,
@@ -62,7 +62,7 @@ internal class ArticlesGamespotDataStoreTest {
         runTest {
             coEvery { articlesEndpoint.getArticles(any(), any()) } returns Ok(API_ARTICLES)
 
-            val result = SUT.getArticles(PAGINATION)
+            val result = sut.getArticles(PAGINATION)
 
             assertThat(result.get())
                 .isEqualTo(apiArticleMapper.mapToDomainArticles(API_ARTICLES))
@@ -74,7 +74,7 @@ internal class ArticlesGamespotDataStoreTest {
         runTest {
             coEvery { articlesEndpoint.getArticles(any(), any()) } returns Err(API_ERROR_HTTP)
 
-            val result = SUT.getArticles(PAGINATION)
+            val result = sut.getArticles(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_HTTP))
@@ -86,7 +86,7 @@ internal class ArticlesGamespotDataStoreTest {
         runTest {
             coEvery { articlesEndpoint.getArticles(any(), any()) } returns Err(API_ERROR_NETWORK)
 
-            val result = SUT.getArticles(PAGINATION)
+            val result = sut.getArticles(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_NETWORK))
@@ -98,7 +98,7 @@ internal class ArticlesGamespotDataStoreTest {
         runTest {
             coEvery { articlesEndpoint.getArticles(any(), any()) } returns Err(API_ERROR_UNKNOWN)
 
-            val result = SUT.getArticles(PAGINATION)
+            val result = sut.getArticles(PAGINATION)
 
             assertThat(result.getError())
                 .isEqualTo(apiErrorMapper.mapToDomainError(API_ERROR_UNKNOWN))

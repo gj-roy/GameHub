@@ -24,13 +24,13 @@ internal class ObserveSettingsUseCaseImplTest {
     @MockK
     private lateinit var settingsLocalDataStore: SettingsLocalDataStore
 
-    private lateinit var SUT: ObserveSettingsUseCaseImpl
+    private lateinit var sut: ObserveSettingsUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = ObserveSettingsUseCaseImpl(
+        sut = ObserveSettingsUseCaseImpl(
             localDataStore = settingsLocalDataStore,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
@@ -41,7 +41,7 @@ internal class ObserveSettingsUseCaseImplTest {
         runTest {
             every { settingsLocalDataStore.observeSettings() } returns flowOf(DOMAIN_SETTINGS)
 
-            SUT.execute().test {
+            sut.execute().test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_SETTINGS)
                 awaitComplete()
             }

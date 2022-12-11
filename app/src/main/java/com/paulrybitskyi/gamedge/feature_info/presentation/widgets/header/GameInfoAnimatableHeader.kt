@@ -93,9 +93,9 @@ private val ArtworksHeightExpanded = 240.dp
 private val ArtworksHeightCollapsed = 56.dp
 
 private val PageIndicatorDeltaXCollapsed = 60.dp
-private val CoverDeltaXCollapsed = -130.dp
-private val CoverDeltaYCollapsed = -60.dp
-private val SecondaryTextDeltaXCollapsed = -8.dp
+private val CoverDeltaXCollapsed = (-130).dp
+private val CoverDeltaYCollapsed = (-60).dp
+private val SecondaryTextDeltaXCollapsed = (-8).dp
 
 private enum class State {
     Expanded,
@@ -398,7 +398,6 @@ private fun constructExpandedConstraintSet(
     val coverMarginStart = GamedgeTheme.spaces.spacing_3_5
     val likeBtnMarginEnd = GamedgeTheme.spaces.spacing_2_5
     val titleMarginStart = GamedgeTheme.spaces.spacing_3_5
-    val firstTitleMarginTop = titleMarginStart
     val firstTitleMarginEnd = GamedgeTheme.spaces.spacing_1_0
     val secondTitleMarginEnd = GamedgeTheme.spaces.spacing_3_5
     val releaseDateMarginTop = GamedgeTheme.spaces.spacing_2_5
@@ -475,7 +474,7 @@ private fun constructExpandedConstraintSet(
         }
         constrain(firstTitle) {
             width = Dimension.fillToConstraints
-            top.linkTo(artworks.bottom, firstTitleMarginTop)
+            top.linkTo(artworks.bottom, titleMarginStart)
             start.linkTo(cover.end, titleMarginStart)
             end.linkTo(likeButton.start, firstTitleMarginEnd)
         }

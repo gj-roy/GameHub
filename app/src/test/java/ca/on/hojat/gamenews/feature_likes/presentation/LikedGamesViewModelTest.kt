@@ -34,7 +34,7 @@ internal class LikedGamesViewModelTest {
     private val observeLikedGamesUseCase = mockk<ObserveLikedGamesUseCase>(relaxed = true)
 
     private val logger = FakeLogger()
-    private val SUT by lazy {
+    private val sut by lazy {
         LikedGamesViewModel(
             observeLikedGamesUseCase = observeLikedGamesUseCase,
             uiModelMapper = FakeGameUiModelMapper(),
@@ -50,7 +50,7 @@ internal class LikedGamesViewModelTest {
         runTest {
             every { observeLikedGamesUseCase.execute(any()) } returns flowOf(DOMAIN_GAMES)
 
-            SUT.uiState.test {
+            sut.uiState.test {
                 val emptyState = awaitItem()
                 val loadingState = awaitItem()
                 val resultState = awaitItem()
@@ -72,7 +72,7 @@ internal class LikedGamesViewModelTest {
                 )
             }
 
-            SUT
+            sut
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -88,7 +88,7 @@ internal class LikedGamesViewModelTest {
                 )
             }
 
-            SUT.commandFlow.test {
+            sut.commandFlow.test {
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
         }
@@ -97,8 +97,8 @@ internal class LikedGamesViewModelTest {
     @Test
     fun `Routes to search screen when search button is clicked`() {
         runTest {
-            SUT.routeFlow.test {
-                SUT.onSearchButtonClicked()
+            sut.routeFlow.test {
+                sut.onSearchButtonClicked()
 
                 assertThat(awaitItem()).isInstanceOf(LikedGamesRoute.Search::class.java)
             }
@@ -117,8 +117,8 @@ internal class LikedGamesViewModelTest {
                 description = null,
             )
 
-            SUT.routeFlow.test {
-                SUT.onGameClicked(game)
+            sut.routeFlow.test {
+                sut.onGameClicked(game)
 
                 val route = awaitItem()
 

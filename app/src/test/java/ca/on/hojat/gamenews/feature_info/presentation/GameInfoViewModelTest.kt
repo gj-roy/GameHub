@@ -45,7 +45,7 @@ internal class GameInfoViewModelTest {
     private val useCases = setupUseCases()
     private val logger = FakeLogger()
 
-    private val SUT by lazy {
+    private val sut by lazy {
         GameInfoViewModel(
             savedStateHandle = setupSavedStateHandle(),
             transitionAnimationDuration = 0L,
@@ -77,7 +77,7 @@ internal class GameInfoViewModelTest {
         runTest {
             coEvery { useCases.getGameInfoUseCase.execute(any()) } returns flowOf(GAME_INFO)
 
-            SUT.uiState.test {
+            sut.uiState.test {
                 assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Empty)
                 assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Loading)
                 assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Success)
@@ -92,7 +92,7 @@ internal class GameInfoViewModelTest {
                 useCases.getGameInfoUseCase.execute(any())
             } returns flow { throw IllegalStateException() }
 
-            SUT
+            sut
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -106,7 +106,7 @@ internal class GameInfoViewModelTest {
                 useCases.getGameInfoUseCase.execute(any())
             } returns flow { throw IllegalStateException() }
 
-            SUT.commandFlow.test {
+            sut.commandFlow.test {
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
         }
@@ -119,8 +119,8 @@ internal class GameInfoViewModelTest {
 
             val artworkIndex = 10
 
-            SUT.routeFlow.test {
-                SUT.onArtworkClicked(artworkIndex = artworkIndex)
+            sut.routeFlow.test {
+                sut.onArtworkClicked(artworkIndex = artworkIndex)
 
                 val route = awaitItem()
 
@@ -141,7 +141,7 @@ internal class GameInfoViewModelTest {
                 )
             )
 
-            SUT.onArtworkClicked(artworkIndex = 0)
+            sut.onArtworkClicked(artworkIndex = 0)
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -157,11 +157,11 @@ internal class GameInfoViewModelTest {
                 )
             )
 
-            SUT
+            sut
             advanceUntilIdle()
 
-            SUT.commandFlow.test {
-                SUT.onArtworkClicked(artworkIndex = 0)
+            sut.commandFlow.test {
+                sut.onArtworkClicked(artworkIndex = 0)
 
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
@@ -171,8 +171,8 @@ internal class GameInfoViewModelTest {
     @Test
     fun `Routes to previous screen when back button is clicked`() {
         runTest {
-            SUT.routeFlow.test {
-                SUT.onBackButtonClicked()
+            sut.routeFlow.test {
+                sut.onBackButtonClicked()
 
                 assertThat(awaitItem()).isInstanceOf(GameInfoRoute.Back::class.java)
             }
@@ -184,8 +184,8 @@ internal class GameInfoViewModelTest {
         runTest {
             coEvery { useCases.getGameImageUrlsUseCase.execute(any()) } returns flowOf(Ok(listOf()))
 
-            SUT.routeFlow.test {
-                SUT.onCoverClicked()
+            sut.routeFlow.test {
+                sut.onCoverClicked()
 
                 assertThat(awaitItem()).isInstanceOf(GameInfoRoute.ImageViewer::class.java)
             }
@@ -201,7 +201,7 @@ internal class GameInfoViewModelTest {
                 )
             )
 
-            SUT.onCoverClicked()
+            sut.onCoverClicked()
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -217,11 +217,11 @@ internal class GameInfoViewModelTest {
                 )
             )
 
-            SUT
+            sut
             advanceUntilIdle()
 
-            SUT.commandFlow.test {
-                SUT.onCoverClicked()
+            sut.commandFlow.test {
+                sut.onCoverClicked()
 
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
@@ -238,8 +238,8 @@ internal class GameInfoViewModelTest {
                 title = "title",
             )
 
-            SUT.commandFlow.test {
-                SUT.onVideoClicked(video)
+            sut.commandFlow.test {
+                sut.onVideoClicked(video)
 
                 val command = awaitItem()
 
@@ -256,8 +256,8 @@ internal class GameInfoViewModelTest {
 
             val screenshotIndex = 10
 
-            SUT.routeFlow.test {
-                SUT.onScreenshotClicked(screenshotIndex = screenshotIndex)
+            sut.routeFlow.test {
+                sut.onScreenshotClicked(screenshotIndex = screenshotIndex)
 
                 val route = awaitItem()
 
@@ -278,7 +278,7 @@ internal class GameInfoViewModelTest {
                 )
             )
 
-            SUT.onScreenshotClicked(screenshotIndex = 0)
+            sut.onScreenshotClicked(screenshotIndex = 0)
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -294,11 +294,11 @@ internal class GameInfoViewModelTest {
                 )
             )
 
-            SUT
+            sut
             advanceUntilIdle()
 
-            SUT.commandFlow.test {
-                SUT.onScreenshotClicked(screenshotIndex = 0)
+            sut.commandFlow.test {
+                sut.onScreenshotClicked(screenshotIndex = 0)
 
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
@@ -315,8 +315,8 @@ internal class GameInfoViewModelTest {
                 url = "url",
             )
 
-            SUT.commandFlow.test {
-                SUT.onLinkClicked(link)
+            sut.commandFlow.test {
+                sut.onLinkClicked(link)
 
                 val command = awaitItem()
 
@@ -339,8 +339,8 @@ internal class GameInfoViewModelTest {
                 roles = "",
             )
 
-            SUT.commandFlow.test {
-                SUT.onCompanyClicked(company)
+            sut.commandFlow.test {
+                sut.onCompanyClicked(company)
 
                 val command = awaitItem()
 
@@ -359,8 +359,8 @@ internal class GameInfoViewModelTest {
                 coverUrl = "url",
             )
 
-            SUT.routeFlow.test {
-                SUT.onRelatedGameClicked(relatedGame)
+            sut.routeFlow.test {
+                sut.onRelatedGameClicked(relatedGame)
 
                 val route = awaitItem()
 

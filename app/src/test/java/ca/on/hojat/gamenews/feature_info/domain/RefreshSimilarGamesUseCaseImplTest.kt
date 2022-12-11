@@ -39,13 +39,13 @@ internal class RefreshSimilarGamesUseCaseImplTest {
     @MockK
     private lateinit var throttler: GamesRefreshingThrottler
 
-    private lateinit var SUT: RefreshSimilarGamesUseCaseImpl
+    private lateinit var sut: RefreshSimilarGamesUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
-        SUT = RefreshSimilarGamesUseCaseImpl(
+        sut = RefreshSimilarGamesUseCaseImpl(
             gamesDataStores = GamesDataStores(
                 local = gamesLocalDataStore,
                 remote = gamesRemoteDataStore
@@ -64,7 +64,7 @@ internal class RefreshSimilarGamesUseCaseImplTest {
             coEvery { throttler.canRefreshSimilarGames(any()) } returns true
             coEvery { gamesRemoteDataStore.getSimilarGames(any(), any()) } returns Ok(DOMAIN_GAMES)
 
-            SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).test {
+            sut.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }
@@ -76,7 +76,7 @@ internal class RefreshSimilarGamesUseCaseImplTest {
         runTest {
             coEvery { throttler.canRefreshSimilarGames(any()) } returns false
 
-            SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).test {
+            sut.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).test {
                 awaitComplete()
             }
         }
@@ -88,7 +88,7 @@ internal class RefreshSimilarGamesUseCaseImplTest {
             coEvery { throttler.canRefreshSimilarGames(any()) } returns true
             coEvery { gamesRemoteDataStore.getSimilarGames(any(), any()) } returns Ok(DOMAIN_GAMES)
 
-            SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerify { gamesLocalDataStore.saveGames(DOMAIN_GAMES) }
         }
@@ -99,7 +99,7 @@ internal class RefreshSimilarGamesUseCaseImplTest {
         runTest {
             coEvery { throttler.canRefreshSimilarGames(any()) } returns false
 
-            SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { gamesLocalDataStore.saveGames(any()) }
         }
@@ -113,7 +113,7 @@ internal class RefreshSimilarGamesUseCaseImplTest {
                 DOMAIN_ERROR_UNKNOWN
             )
 
-            SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { gamesLocalDataStore.saveGames(any()) }
         }
@@ -125,7 +125,7 @@ internal class RefreshSimilarGamesUseCaseImplTest {
             coEvery { throttler.canRefreshSimilarGames(any()) } returns true
             coEvery { gamesRemoteDataStore.getSimilarGames(any(), any()) } returns Ok(DOMAIN_GAMES)
 
-            SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerify { throttler.updateGamesLastRefreshTime(any()) }
         }
@@ -136,7 +136,7 @@ internal class RefreshSimilarGamesUseCaseImplTest {
         runTest {
             coEvery { throttler.canRefreshSimilarGames(any()) } returns false
 
-            SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { throttler.updateGamesLastRefreshTime(any()) }
         }
@@ -150,7 +150,7 @@ internal class RefreshSimilarGamesUseCaseImplTest {
                 DOMAIN_ERROR_UNKNOWN
             )
 
-            SUT.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { throttler.updateGamesLastRefreshTime(any()) }
         }

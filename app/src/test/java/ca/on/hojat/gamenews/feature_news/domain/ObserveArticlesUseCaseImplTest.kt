@@ -27,13 +27,13 @@ internal class ObserveArticlesUseCaseImplTest {
     @MockK
     private lateinit var articlesLocalDataStore: ArticlesLocalDataStore
 
-    private lateinit var SUT: ObserveArticlesUseCaseImpl
+    private lateinit var sut: ObserveArticlesUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = ObserveArticlesUseCaseImpl(
+        sut = ObserveArticlesUseCaseImpl(
             articlesLocalDataStore = articlesLocalDataStore,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
@@ -44,7 +44,7 @@ internal class ObserveArticlesUseCaseImplTest {
         runTest {
             every { articlesLocalDataStore.observeArticles(any()) } returns flowOf(DOMAIN_ARTICLES)
 
-            SUT.execute(USE_CASE_PARAMS).test {
+            sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_ARTICLES)
                 awaitComplete()
             }

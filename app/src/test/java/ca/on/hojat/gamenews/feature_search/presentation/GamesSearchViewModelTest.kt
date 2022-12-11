@@ -38,7 +38,7 @@ internal class GamesSearchViewModelTest {
     private val searchGamesUseCase = mockk<SearchGamesUseCase>(relaxed = true)
 
     private val logger = FakeLogger()
-    private val SUT by lazy {
+    private val sut by lazy {
         GamesSearchViewModel(
             searchGamesUseCase = searchGamesUseCase,
             uiModelMapper = FakeGameUiModelMapper(),
@@ -59,8 +59,8 @@ internal class GamesSearchViewModelTest {
     @Test
     fun `Routes to previous screen when toolbar back button is clicked`() {
         runTest {
-            SUT.routeFlow.test {
-                SUT.onToolbarBackButtonClicked()
+            sut.routeFlow.test {
+                sut.onToolbarBackButtonClicked()
 
                 assertThat(awaitItem()).isInstanceOf(GamesSearchRoute.Back::class.java)
             }
@@ -72,10 +72,10 @@ internal class GamesSearchViewModelTest {
         runTest {
             val query = "query"
 
-            SUT.onQueryChanged(query)
+            sut.onQueryChanged(query)
 
-            SUT.uiState.test {
-                SUT.onToolbarClearButtonClicked()
+            sut.uiState.test {
+                sut.onToolbarClearButtonClicked()
 
                 assertThat(awaitItem().queryText).isEqualTo(query)
                 assertThat(awaitItem().queryText).isEmpty()
@@ -88,8 +88,8 @@ internal class GamesSearchViewModelTest {
         runTest {
             val query = "Shadow of the Colossus"
 
-            SUT.uiState.test {
-                SUT.onQueryChanged(query)
+            sut.uiState.test {
+                sut.onQueryChanged(query)
 
                 assertThat(awaitItem().queryText).isEmpty()
                 assertThat(awaitItem().queryText).isEqualTo(query)
@@ -102,8 +102,8 @@ internal class GamesSearchViewModelTest {
         runTest {
             coEvery { searchGamesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
 
-            SUT.uiState.test {
-                SUT.onSearchConfirmed("god of war")
+            sut.uiState.test {
+                sut.onSearchConfirmed("god of war")
 
                 val emptyState = awaitItem().gamesUiState
                 val loadingState = awaitItem().gamesUiState
@@ -120,8 +120,8 @@ internal class GamesSearchViewModelTest {
     @Test
     fun `Does not emit ui states when search query is empty`() {
         runTest {
-            SUT.uiState.test {
-                SUT.onSearchConfirmed("")
+            sut.uiState.test {
+                sut.onSearchConfirmed("")
 
                 assertThat(awaitItem().gamesUiState.finiteUiState).isEqualTo(FiniteUiState.Empty)
                 expectNoEvents()
@@ -136,11 +136,11 @@ internal class GamesSearchViewModelTest {
 
             val gameQuery = "god of war"
 
-            SUT.onSearchConfirmed(gameQuery)
+            sut.onSearchConfirmed(gameQuery)
             advanceUntilIdle()
 
-            SUT.uiState.test {
-                SUT.onSearchConfirmed(gameQuery)
+            sut.uiState.test {
+                sut.onSearchConfirmed(gameQuery)
 
                 assertThat(awaitItem().gamesUiState.finiteUiState).isEqualTo(FiniteUiState.Success)
                 expectNoEvents()
@@ -151,8 +151,8 @@ internal class GamesSearchViewModelTest {
     @Test
     fun `Emits empty ui state when blank search query is provided`() {
         runTest {
-            SUT.uiState.test {
-                SUT.onSearchConfirmed("   ")
+            sut.uiState.test {
+                sut.onSearchConfirmed("   ")
 
                 assertThat(awaitItem().gamesUiState.finiteUiState).isEqualTo(FiniteUiState.Empty)
                 expectNoEvents()
@@ -165,8 +165,8 @@ internal class GamesSearchViewModelTest {
         runTest {
             coEvery { searchGamesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
 
-            SUT.uiState.test {
-                SUT.onSearchConfirmed("god of war")
+            sut.uiState.test {
+                sut.onSearchConfirmed("god of war")
 
                 assertThat(awaitItem().gamesUiState.games).isEmpty()
                 cancelAndIgnoreRemainingEvents()
@@ -179,7 +179,7 @@ internal class GamesSearchViewModelTest {
         runTest {
             coEvery { searchGamesUseCase.execute(any()) } returns flowOf(Err(DOMAIN_ERROR_UNKNOWN))
 
-            SUT.onSearchConfirmed("god of war")
+            sut.onSearchConfirmed("god of war")
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -191,8 +191,8 @@ internal class GamesSearchViewModelTest {
         runTest {
             coEvery { searchGamesUseCase.execute(any()) } returns flowOf(Err(DOMAIN_ERROR_UNKNOWN))
 
-            SUT.commandFlow.test {
-                SUT.onSearchConfirmed("god of war")
+            sut.commandFlow.test {
+                sut.onSearchConfirmed("god of war")
 
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
@@ -211,8 +211,8 @@ internal class GamesSearchViewModelTest {
                 description = null,
             )
 
-            SUT.routeFlow.test {
-                SUT.onGameClicked(game)
+            sut.routeFlow.test {
+                sut.onGameClicked(game)
 
                 val route = awaitItem()
 

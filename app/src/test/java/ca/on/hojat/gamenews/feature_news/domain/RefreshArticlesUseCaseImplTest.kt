@@ -44,13 +44,13 @@ internal class RefreshArticlesUseCaseImplTest {
     @MockK
     private lateinit var keyProvider: ArticlesRefreshingThrottlerKeyProvider
 
-    private lateinit var SUT: RefreshArticlesUseCaseImpl
+    private lateinit var sut: RefreshArticlesUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
-        SUT = RefreshArticlesUseCaseImpl(
+        sut = RefreshArticlesUseCaseImpl(
             articlesDataStores = ArticlesDataStores(
                 local = articlesLocalDataStore,
                 remote = articlesRemoteDataStore
@@ -71,7 +71,7 @@ internal class RefreshArticlesUseCaseImplTest {
             coEvery { throttler.canRefreshArticles(any()) } returns true
             coEvery { articlesRemoteDataStore.getArticles(any()) } returns Ok(DOMAIN_ARTICLES)
 
-            SUT.execute(USE_CASE_PARAMS).test {
+            sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_ARTICLES)
                 awaitComplete()
             }
@@ -83,7 +83,7 @@ internal class RefreshArticlesUseCaseImplTest {
         runTest {
             coEvery { throttler.canRefreshArticles(any()) } returns false
 
-            SUT.execute(USE_CASE_PARAMS).test {
+            sut.execute(USE_CASE_PARAMS).test {
                 awaitComplete()
             }
         }
@@ -95,7 +95,7 @@ internal class RefreshArticlesUseCaseImplTest {
             coEvery { throttler.canRefreshArticles(any()) } returns true
             coEvery { articlesRemoteDataStore.getArticles(any()) } returns Ok(DOMAIN_ARTICLES)
 
-            SUT.execute(USE_CASE_PARAMS).firstOrNull()
+            sut.execute(USE_CASE_PARAMS).firstOrNull()
 
             coVerify { articlesLocalDataStore.saveArticles(DOMAIN_ARTICLES) }
         }
@@ -106,7 +106,7 @@ internal class RefreshArticlesUseCaseImplTest {
         runTest {
             coEvery { throttler.canRefreshArticles(any()) } returns false
 
-            SUT.execute(USE_CASE_PARAMS).firstOrNull()
+            sut.execute(USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { articlesLocalDataStore.saveArticles(any()) }
         }
@@ -118,7 +118,7 @@ internal class RefreshArticlesUseCaseImplTest {
             coEvery { throttler.canRefreshArticles(any()) } returns false
             coEvery { articlesRemoteDataStore.getArticles(any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
 
-            SUT.execute(USE_CASE_PARAMS).firstOrNull()
+            sut.execute(USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { articlesLocalDataStore.saveArticles(any()) }
         }
@@ -130,7 +130,7 @@ internal class RefreshArticlesUseCaseImplTest {
             coEvery { throttler.canRefreshArticles(any()) } returns true
             coEvery { articlesRemoteDataStore.getArticles(any()) } returns Ok(DOMAIN_ARTICLES)
 
-            SUT.execute(USE_CASE_PARAMS).firstOrNull()
+            sut.execute(USE_CASE_PARAMS).firstOrNull()
 
             coVerify { throttler.updateArticlesLastRefreshTime(any()) }
         }
@@ -141,7 +141,7 @@ internal class RefreshArticlesUseCaseImplTest {
         runTest {
             coEvery { throttler.canRefreshArticles(any()) } returns false
 
-            SUT.execute(USE_CASE_PARAMS).firstOrNull()
+            sut.execute(USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { throttler.updateArticlesLastRefreshTime(any()) }
         }
@@ -153,7 +153,7 @@ internal class RefreshArticlesUseCaseImplTest {
             coEvery { throttler.canRefreshArticles(any()) } returns false
             coEvery { articlesRemoteDataStore.getArticles(any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
 
-            SUT.execute(USE_CASE_PARAMS).firstOrNull()
+            sut.execute(USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { throttler.updateArticlesLastRefreshTime(any()) }
         }

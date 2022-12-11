@@ -9,29 +9,29 @@ import java.time.format.DateTimeParseException
 
 internal class ArticlePublicationDateMapperTest {
 
-    private lateinit var SUT: ArticlePublicationDateMapper
+    private lateinit var sut: ArticlePublicationDateMapper
 
     @Before
     fun setup() {
-        SUT = ArticlePublicationDateMapper()
+        sut = ArticlePublicationDateMapper()
     }
 
     @Test
     fun `Maps date successfully`() {
-        assertThat(SUT.mapToTimestamp("2020-03-02 14:30:16")).isEqualTo(1583188216000L)
+        assertThat(sut.mapToTimestamp("2020-03-02 14:30:16")).isEqualTo(1583188216000L)
     }
 
     @Test
     fun `Throws exception when providing empty date`() {
         assertThrows(DateTimeParseException::class.java) {
-            SUT.mapToTimestamp("")
+            sut.mapToTimestamp("")
         }
     }
 
     @Test
     fun `Throws exception when providing blank date`() {
         assertThrows(DateTimeParseException::class.java) {
-            SUT.mapToTimestamp("   ")
+            sut.mapToTimestamp("   ")
         }
     }
 }

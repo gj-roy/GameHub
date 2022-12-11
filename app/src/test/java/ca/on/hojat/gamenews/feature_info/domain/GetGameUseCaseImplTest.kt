@@ -25,13 +25,13 @@ internal class GetGameUseCaseImplTest {
     @MockK
     private lateinit var gamesLocalDataStore: GamesLocalDataStore
 
-    private lateinit var SUT: GetGameUseCaseImpl
+    private lateinit var sut: GetGameUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = GetGameUseCaseImpl(
+        sut = GetGameUseCaseImpl(
             gamesLocalDataStore = gamesLocalDataStore,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
@@ -42,7 +42,7 @@ internal class GetGameUseCaseImplTest {
         runTest {
             coEvery { gamesLocalDataStore.getGame(any()) } returns DOMAIN_GAME
 
-            SUT.execute(GET_GAME_USE_CASE_PARAMS).test {
+            sut.execute(GET_GAME_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAME)
                 awaitComplete()
             }
@@ -54,7 +54,7 @@ internal class GetGameUseCaseImplTest {
         runTest {
             coEvery { gamesLocalDataStore.getGame(any()) } returns null
 
-            SUT.execute(GET_GAME_USE_CASE_PARAMS).test {
+            sut.execute(GET_GAME_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().getError() is Error.NotFound).isTrue()
                 awaitComplete()
             }

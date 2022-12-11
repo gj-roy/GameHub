@@ -29,7 +29,8 @@ internal class ImageViewerViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
 ) : BaseViewModel() {
 
-    private val title: String
+    private val title: String = savedStateHandle.get<String>(PARAM_TITLE)
+        ?: stringProvider.getString(R.string.image_viewer_default_toolbar_title)
 
     private val _uiState = MutableStateFlow(createInitialUiState())
 
@@ -39,8 +40,6 @@ internal class ImageViewerViewModel @Inject constructor(
     val uiState: StateFlow<ImageViewerUiState> = _uiState.asStateFlow()
 
     init {
-        title = savedStateHandle.get<String>(PARAM_TITLE)
-            ?: stringProvider.getString(R.string.image_viewer_default_toolbar_title)
 
         _uiState.update {
             it.copy(
@@ -61,7 +60,7 @@ internal class ImageViewerViewModel @Inject constructor(
     }
 
     private fun getSelectedPosition(): Int {
-        return savedStateHandle.get(KEY_SELECTED_POSITION)
+        return savedStateHandle[KEY_SELECTED_POSITION]
             ?: checkNotNull(savedStateHandle.get<Int>(PARAM_INITIAL_POSITION))
     }
 
@@ -77,7 +76,7 @@ internal class ImageViewerViewModel @Inject constructor(
             .distinctUntilChanged()
             .onEach { selectedImageUrlIndex ->
                 _uiState.update { it.copy(toolbarTitle = updateToolbarTitle()) }
-                savedStateHandle.set(KEY_SELECTED_POSITION, selectedImageUrlIndex)
+                savedStateHandle[KEY_SELECTED_POSITION] = selectedImageUrlIndex
             }
             .launchIn(viewModelScope)
     }

@@ -21,12 +21,12 @@ internal class SaveSettingsUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     private lateinit var settingsLocalDataStore: SettingsLocalDataStore
-    private lateinit var SUT: SaveSettingsUseCaseImpl
+    private lateinit var sut: SaveSettingsUseCaseImpl
 
     @Before
     fun setup() {
         settingsLocalDataStore = FakeSettingsLocalDataStore()
-        SUT = SaveSettingsUseCaseImpl(
+        sut = SaveSettingsUseCaseImpl(
             localDataStore = settingsLocalDataStore,
         )
     }
@@ -36,7 +36,7 @@ internal class SaveSettingsUseCaseImplTest {
         runTest {
             val settings = DOMAIN_SETTINGS
 
-            SUT.execute(settings)
+            sut.execute(settings)
 
             assertThat(settingsLocalDataStore.observeSettings().first()).isEqualTo(settings)
         }

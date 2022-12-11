@@ -43,13 +43,13 @@ internal class GetGameInfoUseCaseImplTest {
     @MockK
     private lateinit var getSimilarGamesUseCase: GetSimilarGamesUseCase
 
-    private lateinit var SUT: GetGameInfoUseCaseImpl
+    private lateinit var sut: GetGameInfoUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        SUT = GetGameInfoUseCaseImpl(
+        sut = GetGameInfoUseCaseImpl(
             getGameUseCase = getGameUseCase,
             observeGameLikeStateUseCase = observeGameLikeStateUseCase,
             getCompanyDevelopedGamesUseCase = getCompanyDevelopedGamesUseCase,
@@ -76,7 +76,7 @@ internal class GetGameInfoUseCaseImplTest {
             )
             coEvery { getSimilarGamesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
 
-            SUT.execute(USE_CASE_PARAMS).test {
+            sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitItem()).isEqualTo(expectedGameInfo)
                 awaitComplete()
             }
@@ -88,7 +88,7 @@ internal class GetGameInfoUseCaseImplTest {
         runTest {
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Err(DOMAIN_ERROR_UNKNOWN))
 
-            SUT.execute(USE_CASE_PARAMS).test {
+            sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitError()).isInstanceOf(DomainException::class.java)
             }
         }
@@ -102,7 +102,7 @@ internal class GetGameInfoUseCaseImplTest {
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Ok(game))
             every { observeGameLikeStateUseCase.execute(any()) } returns flowOf(true)
 
-            SUT.execute(USE_CASE_PARAMS).test {
+            sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitItem().companyGames).isEmpty()
                 awaitComplete()
             }
@@ -117,7 +117,7 @@ internal class GetGameInfoUseCaseImplTest {
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Ok(game))
             every { observeGameLikeStateUseCase.execute(any()) } returns flowOf(true)
 
-            SUT.execute(USE_CASE_PARAMS).test {
+            sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitItem().similarGames).isEmpty()
                 awaitComplete()
             }

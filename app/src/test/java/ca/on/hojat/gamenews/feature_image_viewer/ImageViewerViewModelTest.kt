@@ -35,7 +35,7 @@ internal class ImageViewerViewModelTest {
         every { get<Int>(KEY_SELECTED_POSITION) } returns INITIAL_POSITION
     }
 
-    private val SUT by lazy {
+    private val sut by lazy {
         ImageViewerViewModel(
             stringProvider = FakeStringProvider(),
             savedStateHandle = savedStateHandle,
@@ -47,15 +47,15 @@ internal class ImageViewerViewModelTest {
         every { savedStateHandle.get<String>(PARAM_IMAGE_URLS) } returns null
 
         assertThrows(IllegalStateException::class.java) {
-            SUT
+            sut
         }
     }
 
     @Test
     fun `Dispatches text sharing command when toolbar right button is clicked`() {
         runTest {
-            SUT.commandFlow.test {
-                SUT.onToolbarRightButtonClicked()
+            sut.commandFlow.test {
+                sut.onToolbarRightButtonClicked()
 
                 assertThat(awaitItem()).isInstanceOf(ImageViewerCommand.ShareText::class.java)
             }
@@ -67,8 +67,8 @@ internal class ImageViewerViewModelTest {
         runTest {
             val selectedPosition = 10
 
-            SUT.uiState.test {
-                SUT.onImageChanged(selectedPosition)
+            sut.uiState.test {
+                sut.onImageChanged(selectedPosition)
 
                 assertThat(awaitItem().selectedImageUrlIndex).isEqualTo(INITIAL_POSITION)
                 assertThat(awaitItem().selectedImageUrlIndex).isEqualTo(selectedPosition)
@@ -79,10 +79,10 @@ internal class ImageViewerViewModelTest {
     @Test
     fun `Emits toolbar title when page is changed`() {
         runTest {
-            SUT.onImageChanged(10)
+            sut.onImageChanged(10)
             advanceUntilIdle()
 
-            SUT.uiState.test {
+            sut.uiState.test {
                 assertThat(awaitItem().toolbarTitle).isNotEmpty()
             }
         }
@@ -91,8 +91,8 @@ internal class ImageViewerViewModelTest {
     @Test
     fun `Routes to previous screen when back button is clicked`() {
         runTest {
-            SUT.routeFlow.test {
-                SUT.onBackPressed()
+            sut.routeFlow.test {
+                sut.onBackPressed()
 
                 assertThat(awaitItem()).isInstanceOf(ImageViewerRoute.Back::class.java)
             }

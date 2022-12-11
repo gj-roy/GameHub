@@ -44,13 +44,13 @@ internal class SearchGamesUseCaseImplTest {
     @MockK
     private lateinit var networkStateProvider: NetworkStateProvider
 
-    private lateinit var SUT: SearchGamesUseCaseImpl
+    private lateinit var sut: SearchGamesUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
-        SUT = SearchGamesUseCaseImpl(
+        sut = SearchGamesUseCaseImpl(
             gamesDataStores = GamesDataStores(
                 local = gamesLocalDataStore,
                 remote = gamesRemoteDataStore,
@@ -66,7 +66,7 @@ internal class SearchGamesUseCaseImplTest {
             every { networkStateProvider.isNetworkAvailable } returns true
             coEvery { gamesRemoteDataStore.searchGames(any(), any()) } returns Ok(DOMAIN_GAMES)
 
-            SUT.execute(SEARCH_GAMES_USE_CASE_PARAMS).test {
+            sut.execute(SEARCH_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }
@@ -79,7 +79,7 @@ internal class SearchGamesUseCaseImplTest {
             every { networkStateProvider.isNetworkAvailable } returns true
             coEvery { gamesRemoteDataStore.searchGames(any(), any()) } returns Ok(DOMAIN_GAMES)
 
-            SUT.execute(SEARCH_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(SEARCH_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerify { gamesLocalDataStore.saveGames(DOMAIN_GAMES) }
         }
@@ -93,7 +93,7 @@ internal class SearchGamesUseCaseImplTest {
                 DOMAIN_ERROR_UNKNOWN
             )
 
-            SUT.execute(SEARCH_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(SEARCH_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { gamesLocalDataStore.saveGames(any()) }
         }
@@ -105,7 +105,7 @@ internal class SearchGamesUseCaseImplTest {
             every { networkStateProvider.isNetworkAvailable } returns false
             coEvery { gamesLocalDataStore.searchGames(any(), any()) } returns DOMAIN_GAMES
 
-            SUT.execute(SEARCH_GAMES_USE_CASE_PARAMS).test {
+            sut.execute(SEARCH_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }

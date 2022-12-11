@@ -39,13 +39,13 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
     @MockK
     private lateinit var throttler: GamesRefreshingThrottler
 
-    private lateinit var SUT: RefreshCompanyDevelopedGamesUseCaseImpl
+    private lateinit var sut: RefreshCompanyDevelopedGamesUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
-        SUT = RefreshCompanyDevelopedGamesUseCaseImpl(
+        sut = RefreshCompanyDevelopedGamesUseCaseImpl(
             gamesDataStores = GamesDataStores(
                 local = gamesLocalDataStore,
                 remote = gamesRemoteDataStore
@@ -66,7 +66,7 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
                 DOMAIN_GAMES
             )
 
-            SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).test {
+            sut.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }
@@ -78,7 +78,7 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
         runTest {
             coEvery { throttler.canRefreshCompanyDevelopedGames(any()) } returns false
 
-            SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).test {
+            sut.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).test {
                 awaitComplete()
             }
         }
@@ -92,7 +92,7 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
                 DOMAIN_GAMES
             )
 
-            SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerify { gamesLocalDataStore.saveGames(DOMAIN_GAMES) }
         }
@@ -103,7 +103,7 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
         runTest {
             coEvery { throttler.canRefreshCompanyDevelopedGames(any()) } returns false
 
-            SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { gamesLocalDataStore.saveGames(any()) }
         }
@@ -117,7 +117,7 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
                 DOMAIN_ERROR_UNKNOWN
             )
 
-            SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { gamesLocalDataStore.saveGames(any()) }
         }
@@ -131,7 +131,7 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
                 DOMAIN_GAMES
             )
 
-            SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerify { throttler.updateGamesLastRefreshTime(any()) }
         }
@@ -142,7 +142,7 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
         runTest {
             coEvery { throttler.canRefreshCompanyDevelopedGames(any()) } returns false
 
-            SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { throttler.updateGamesLastRefreshTime(any()) }
         }
@@ -156,7 +156,7 @@ internal class RefreshCompanyDevelopedGamesUseCaseImplTest {
                 DOMAIN_ERROR_UNKNOWN
             )
 
-            SUT.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
+            sut.execute(REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS).firstOrNull()
 
             coVerifyNotCalled { throttler.updateGamesLastRefreshTime(any()) }
         }

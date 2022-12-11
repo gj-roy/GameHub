@@ -1,4 +1,3 @@
-
 package ca.on.hojat.gamenews.feature_category
 
 import androidx.lifecycle.SavedStateHandle
@@ -44,7 +43,7 @@ internal class GamesCategoryViewModelTest {
     private val refreshPopularGamesUseCase = mockk<RefreshPopularGamesUseCase>(relaxed = true)
 
     private val logger = FakeLogger()
-    private val SUT by lazy {
+    private val sut by lazy {
         GamesCategoryViewModel(
             savedStateHandle = setupSavedStateHandle(),
             stringProvider = FakeStringProvider(),
@@ -83,7 +82,7 @@ internal class GamesCategoryViewModelTest {
     @Test
     fun `Emits toolbar title when initialized`() {
         runTest {
-            SUT.uiState.test {
+            sut.uiState.test {
                 assertThat(awaitItem().title).isNotEmpty()
             }
         }
@@ -94,7 +93,7 @@ internal class GamesCategoryViewModelTest {
         runTest {
             every { observePopularGamesUseCase.execute(any()) } returns flowOf(DOMAIN_GAMES)
 
-            SUT.uiState.test {
+            sut.uiState.test {
                 assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Empty)
                 assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Success)
                 cancelAndIgnoreRemainingEvents()
@@ -105,10 +104,14 @@ internal class GamesCategoryViewModelTest {
     @Test
     fun `Logs error when games observing use case throws error`() {
         runTest {
-            every { observePopularGamesUseCase.execute(any()) } returns flow { throw IllegalStateException("error") }
+            every { observePopularGamesUseCase.execute(any()) } returns flow {
+                throw IllegalStateException(
+                    "error"
+                )
+            }
             every { refreshPopularGamesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
 
-            SUT
+            sut
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -118,10 +121,14 @@ internal class GamesCategoryViewModelTest {
     @Test
     fun `Dispatches toast showing command when games observing use case throws error`() {
         runTest {
-            every { observePopularGamesUseCase.execute(any()) } returns flow { throw IllegalStateException("error") }
+            every { observePopularGamesUseCase.execute(any()) } returns flow {
+                throw IllegalStateException(
+                    "error"
+                )
+            }
             every { refreshPopularGamesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
 
-            SUT.commandFlow.test {
+            sut.commandFlow.test {
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
         }
@@ -139,7 +146,7 @@ internal class GamesCategoryViewModelTest {
                 emit(Ok(DOMAIN_GAMES))
             }
 
-            SUT.uiState.test {
+            sut.uiState.test {
                 assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Empty)
                 assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Loading)
                 assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Empty)
@@ -152,9 +159,13 @@ internal class GamesCategoryViewModelTest {
     fun `Logs error when games refreshing use case throws error`() {
         runTest {
             every { observePopularGamesUseCase.execute(any()) } returns flowOf(DOMAIN_GAMES)
-            every { refreshPopularGamesUseCase.execute(any()) } returns flow { throw IllegalStateException("error") }
+            every { refreshPopularGamesUseCase.execute(any()) } returns flow {
+                throw IllegalStateException(
+                    "error"
+                )
+            }
 
-            SUT
+            sut
             advanceUntilIdle()
 
             assertThat(logger.errorMessage).isNotEmpty()
@@ -165,9 +176,13 @@ internal class GamesCategoryViewModelTest {
     fun `Dispatches toast showing command when games refreshing use case throws error`() {
         runTest {
             every { observePopularGamesUseCase.execute(any()) } returns flowOf(DOMAIN_GAMES)
-            every { refreshPopularGamesUseCase.execute(any()) } returns flow { throw IllegalStateException("error") }
+            every { refreshPopularGamesUseCase.execute(any()) } returns flow {
+                throw IllegalStateException(
+                    "error"
+                )
+            }
 
-            SUT.commandFlow.test {
+            sut.commandFlow.test {
                 assertThat(awaitItem()).isInstanceOf(GeneralCommand.ShowLongToast::class.java)
             }
         }
@@ -176,8 +191,8 @@ internal class GamesCategoryViewModelTest {
     @Test
     fun `Routes to previous screen when toolbar left button is clicked`() {
         runTest {
-            SUT.routeFlow.test {
-                SUT.onToolbarLeftButtonClicked()
+            sut.routeFlow.test {
+                sut.onToolbarLeftButtonClicked()
 
                 assertThat(awaitItem()).isInstanceOf(GamesCategoryRoute.Back::class.java)
             }
@@ -193,8 +208,8 @@ internal class GamesCategoryViewModelTest {
                 coverUrl = null
             )
 
-            SUT.routeFlow.test {
-                SUT.onGameClicked(game)
+            sut.routeFlow.test {
+                sut.onGameClicked(game)
 
                 val route = awaitItem()
 

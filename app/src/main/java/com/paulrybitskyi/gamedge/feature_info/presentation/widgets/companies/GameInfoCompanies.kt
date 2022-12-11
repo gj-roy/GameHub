@@ -110,11 +110,10 @@ private fun rememberLogoImageSize(company: GameInfoCompanyUiModel): IntSize {
             return@remember IntSize(adjustedWidth, logoMaxHeightInPx)
         }
 
-        val finalWidth = logoMaxWidthInPx
         val widthFraction = (logoMaxWidthInPx.toFloat() / adjustedWidth.toFloat())
         val finalHeight = (widthFraction * logoMaxHeightInPx).roundToInt()
 
-        return@remember IntSize(finalWidth, finalHeight)
+        return@remember IntSize(logoMaxWidthInPx, finalHeight)
     }
 }
 
