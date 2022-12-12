@@ -28,7 +28,7 @@ android {
     }
 
     defaultConfig {
-        testInstrumentationRunner = "com.paulrybitskyi.gamedge.common.testing.GamedgeTestRunner"
+        testInstrumentationRunner = "ca.on.hojat.gamenews.shared.testing.GamedgeTestRunner"
 
         stringField("TWITCH_APP_CLIENT_ID", property("TWITCH_APP_CLIENT_ID", ""))
         stringField("TWITCH_APP_CLIENT_SECRET", property("TWITCH_APP_CLIENT_SECRET", ""))
