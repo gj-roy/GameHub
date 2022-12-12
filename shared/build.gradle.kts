@@ -94,7 +94,6 @@ dependencies {
     implementation(deps.compose.constraintLayout)
     implementation(deps.compose.accompanist.swipeRefresh)
     implementation(deps.compose.accompanist.systemUi)
-
     implementation(deps.misc.coil)
 
 

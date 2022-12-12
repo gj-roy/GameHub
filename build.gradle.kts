@@ -70,7 +70,7 @@ subprojects {
 
     tasks.withType<KotlinCompile>().all {
         kotlinOptions {
-            freeCompilerArgs += listOf(
+            freeCompilerArgs = freeCompilerArgs + listOf(
                 "-opt-in=kotlinx.coroutines.FlowPreview",
                 "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                 "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
@@ -100,11 +100,5 @@ subprojects {
                 useVersion(deps.androidX.viewModel)
             }
         }
-    }
-}
-
-tasks {
-    val clean by registering(Delete::class) {
-        delete(buildDir)
     }
 }
