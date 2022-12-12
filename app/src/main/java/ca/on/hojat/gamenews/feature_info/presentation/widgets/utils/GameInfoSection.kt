@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 
 @Composable
 internal fun GameInfoSection(
@@ -22,7 +22,7 @@ internal fun GameInfoSection(
     titleBottomPadding: Dp = GamedgeTheme.spaces.spacing_2_5,
     content: @Composable ColumnScope.(PaddingValues) -> Unit,
 ) {
-    GamedgeCard(
+    GameNewsCard(
         modifier = Modifier
             .fillMaxWidth()
             .then(modifier),

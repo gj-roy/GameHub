@@ -27,7 +27,7 @@ import androidx.constraintlayout.compose.Dimension
 import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
 import ca.on.hojat.gamenews.shared.ui.widgets.Info
 
@@ -41,7 +41,7 @@ fun GamesCategoryPreview(
     isMoreButtonVisible: Boolean = true,
     onCategoryMoreButtonClicked: (() -> Unit)? = null,
 ) {
-    GamedgeCard(modifier = Modifier.fillMaxWidth()) {
+    GameNewsCard(modifier = Modifier.fillMaxWidth()) {
         ConstraintLayout(modifier = Modifier.fillMaxWidth()) {
             val titleRefMargin = GamedgeTheme.spaces.spacing_3_5
             val progressBarMarginEnd = GamedgeTheme.spaces.spacing_1_5

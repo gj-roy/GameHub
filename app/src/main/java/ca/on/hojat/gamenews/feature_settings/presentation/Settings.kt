@@ -34,7 +34,7 @@ import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
 import ca.on.hojat.gamenews.shared.ui.theme.subtitle3
 import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
 import ca.on.hojat.gamenews.shared.ui.widgets.dialogs.GamedgeDialog
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
@@ -155,7 +155,7 @@ private fun SettingsSection(
     section: SettingsSectionUiModel,
     onSettingClicked: (SettingsSectionItemUiModel) -> Unit,
 ) {
-    GamedgeCard(modifier = Modifier.fillMaxWidth()) {
+    GameNewsCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .padding(

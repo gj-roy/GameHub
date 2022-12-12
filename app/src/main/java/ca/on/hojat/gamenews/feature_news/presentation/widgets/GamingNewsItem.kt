@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
 import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
 
@@ -29,7 +29,7 @@ internal fun GamingNewsItem(
     model: GamingNewsItemUiModel,
     onClick: () -> Unit
 ) {
-    GamedgeCard(
+    GameNewsCard(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
     ) {
@@ -68,7 +68,7 @@ private fun Image(
     imageUrl: String,
     modifier: Modifier
 ) {
-    GamedgeCard(
+    GameNewsCard(
         modifier = Modifier
             .fillMaxWidth()
             .then(modifier),

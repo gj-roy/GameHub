@@ -17,7 +17,7 @@ import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
 private val DefaultElevation = 2.dp
 
 @Composable
-fun GamedgeCard(
+fun GameNewsCard(
     modifier: Modifier = Modifier,
     shape: Shape = RectangleShape,
     backgroundColor: Color = GamedgeTheme.colors.surface,
@@ -38,7 +38,7 @@ fun GamedgeCard(
 }
 
 @Composable
-fun GamedgeCard(
+fun GameNewsCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,

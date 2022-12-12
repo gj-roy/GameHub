@@ -32,7 +32,7 @@ import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
 import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
 import ca.on.hojat.gamenews.shared.ui.theme.darkScrim
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSectionWithInnerList
@@ -61,7 +61,7 @@ private fun Video(
     modifier: Modifier,
     onVideoClicked: () -> Unit,
 ) {
-    GamedgeCard(
+    GameNewsCard(
         onClick = onVideoClicked,
         modifier = modifier,
         shape = GamedgeTheme.shapes.medium,

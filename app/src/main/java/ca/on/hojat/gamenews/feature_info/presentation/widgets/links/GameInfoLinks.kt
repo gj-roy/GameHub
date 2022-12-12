@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.domain.games.entities.WebsiteCategory
 import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import com.google.accompanist.flowlayout.FlowRow
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSection
@@ -50,7 +50,7 @@ private fun Link(
     onLinkClicked: () -> Unit,
 ) {
     CompositionLocalProvider(LocalMinimumTouchTargetEnforcement provides false) {
-        GamedgeCard(
+        GameNewsCard(
             onClick = onLinkClicked,
             shape = GamedgeTheme.shapes.small,
             backgroundColor = GamedgeTheme.colors.primaryVariant,

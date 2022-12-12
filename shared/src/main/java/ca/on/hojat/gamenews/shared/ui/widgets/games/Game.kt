@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.TextUnit
 import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.DefaultCoverHeight
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeCard
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import kotlin.math.roundToInt
 
 @Composable
@@ -28,7 +28,7 @@ fun Game(
     game: GameUiModel,
     onClick: () -> Unit,
 ) {
-    GamedgeCard(
+    GameNewsCard(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
     ) {
