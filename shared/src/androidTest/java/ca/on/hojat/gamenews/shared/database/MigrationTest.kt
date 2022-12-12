@@ -20,11 +20,11 @@ internal class MigrationTest {
     @get:Rule(order = 1)
     val migrationTestHelper = MigrationTestHelper(
         InstrumentationRegistry.getInstrumentation(),
-        GamedgeDatabase::class.java,
+        GameNewsDatabase::class.java,
     )
 
     @Inject
-    lateinit var databaseProvider: Provider<GamedgeDatabase>
+    lateinit var databaseProvider: Provider<GameNewsDatabase>
 
     @Before
     fun setup() {

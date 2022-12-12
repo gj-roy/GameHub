@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.shared.database.tables
 
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import ca.on.hojat.gamenews.shared.database.GamedgeDatabase
+import ca.on.hojat.gamenews.shared.database.GameNewsDatabase
 import ca.on.hojat.gamenews.shared.database.common.MIGRATIONS
 import ca.on.hojat.gamenews.shared.database.common.RoomTypeConverter
 import ca.on.hojat.gamenews.shared.database.common.addTypeConverters
@@ -19,10 +19,10 @@ internal object TestDatabaseModule {
     @Singleton
     fun provideGamedgeDatabase(
         typeConverters: Set<@JvmSuppressWildcards RoomTypeConverter>
-    ): GamedgeDatabase {
+    ): GameNewsDatabase {
         return Room.inMemoryDatabaseBuilder(
             ApplicationProvider.getApplicationContext(),
-            GamedgeDatabase::class.java
+            GameNewsDatabase::class.java
         )
             .addTypeConverters(typeConverters)
             .addMigrations(*MIGRATIONS)

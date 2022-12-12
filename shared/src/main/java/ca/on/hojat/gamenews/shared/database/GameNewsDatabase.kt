@@ -27,7 +27,7 @@ import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
     GamesTypeConverter::class,
     ArticlesTypeConverter::class
 )
-internal abstract class GamedgeDatabase : RoomDatabase() {
+internal abstract class GameNewsDatabase : RoomDatabase() {
     abstract val gamesTable: GamesTable
     abstract val likedGamesTable: LikedGamesTable
     abstract val articlesTable: ArticlesTable
