@@ -28,7 +28,7 @@ import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.shared.ui.widgets.Info
 
 @Composable
@@ -109,7 +109,7 @@ private fun Title(
 
 @Composable
 private fun ProgressBar(modifier: Modifier) {
-    GamedgeProgressIndicator(
+    GameNewsProgressIndicator(
         modifier = modifier.size(16.dp),
         strokeWidth = 2.dp,
     )

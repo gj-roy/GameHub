@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.Dp
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 @Composable
-fun GamedgeProgressIndicator(
+fun GameNewsProgressIndicator(
     modifier: Modifier = Modifier,
     color: Color = GameNewsTheme.colors.secondary,
     strokeWidth: Dp = ProgressIndicatorDefaults.StrokeWidth,

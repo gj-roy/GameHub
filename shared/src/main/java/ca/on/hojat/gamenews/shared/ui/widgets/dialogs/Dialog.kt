@@ -12,7 +12,7 @@ import androidx.compose.ui.window.DialogProperties
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 @Composable
-fun GamedgeDialog(
+fun GameNewsDialog(
     onDialogDismissed: () -> Unit,
     properties: DialogProperties = DialogProperties(),
     content: @Composable ColumnScope.() -> Unit,

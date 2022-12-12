@@ -35,8 +35,8 @@ import ca.on.hojat.gamenews.shared.ui.theme.subtitle3
 import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
-import ca.on.hojat.gamenews.shared.ui.widgets.dialogs.GamedgeDialog
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsProgressIndicator
+import ca.on.hojat.gamenews.shared.ui.widgets.dialogs.GameNewsDialog
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
 import com.paulrybitskyi.commons.ktx.showShortToast
 import ca.on.hojat.gamenews.R
@@ -126,7 +126,7 @@ private fun Settings(
 
 @Composable
 private fun LoadingState(modifier: Modifier) {
-    GamedgeProgressIndicator(modifier = modifier)
+    GameNewsProgressIndicator(modifier = modifier)
 }
 
 @Composable
@@ -223,7 +223,7 @@ private fun ThemePickerDialog(
     onThemePicked: (Theme) -> Unit,
     onPickerDismissed: () -> Unit,
 ) {
-    GamedgeDialog(onDialogDismissed = onPickerDismissed) {
+    GameNewsDialog(onDialogDismissed = onPickerDismissed) {
         Text(
             text = stringResource(R.string.settings_item_theme_title),
             modifier = Modifier

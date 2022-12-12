@@ -32,7 +32,7 @@ import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
-import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
+import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.shared.ui.widgets.Info
 import ca.on.hojat.gamenews.shared.ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
@@ -109,7 +109,7 @@ private fun GamesCategory(
 
 @Composable
 private fun LoadingState(modifier: Modifier) {
-    GamedgeProgressIndicator(modifier = modifier)
+    GameNewsProgressIndicator(modifier = modifier)
 }
 
 @Composable
