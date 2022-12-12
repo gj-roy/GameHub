@@ -4,6 +4,7 @@ import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiOauthCredentials
 import ca.on.hojat.gamenews.shared.api.igdb.common.CredentialsStore
 import ca.on.hojat.gamenews.shared.api.igdb.games.GamesService
 import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiCategory
+import ca.on.hojat.gamenews.shared.api.common.Error
 import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame
 import ca.on.hojat.gamenews.shared.testing.startSafe
 import com.github.michaelbull.result.get
@@ -35,8 +36,10 @@ internal class GamesServiceTest {
 
     @Inject
     lateinit var mockWebServer: MockWebServer
+
     @Inject
     lateinit var credentialsStore: CredentialsStore
+
     @Inject
     lateinit var gamesService: GamesService
 

@@ -5,6 +5,7 @@ import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.shared.api.igdb.auth.AuthService
 import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiOauthCredentials
+import ca.on.hojat.gamenews.shared.api.common.Error
 import ca.on.hojat.gamenews.shared.testing.startSafe
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

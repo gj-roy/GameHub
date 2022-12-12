@@ -178,7 +178,6 @@
             "columnNames": [
               "hype_count"
             ],
-            "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_games_hype_count` ON `${TABLE_NAME}` (`hype_count`)"
           },
           {
@@ -187,7 +186,6 @@
             "columnNames": [
               "release_date"
             ],
-            "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_games_release_date` ON `${TABLE_NAME}` (`release_date`)"
           },
           {
@@ -196,7 +194,6 @@
             "columnNames": [
               "users_rating"
             ],
-            "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_games_users_rating` ON `${TABLE_NAME}` (`users_rating`)"
           },
           {
@@ -205,7 +202,6 @@
             "columnNames": [
               "total_rating"
             ],
-            "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_games_total_rating` ON `${TABLE_NAME}` (`total_rating`)"
           },
           {
@@ -214,7 +210,6 @@
             "columnNames": [
               "name"
             ],
-            "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_games_name` ON `${TABLE_NAME}` (`name`)"
           }
         ],
@@ -256,7 +251,6 @@
             "columnNames": [
               "game_id"
             ],
-            "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_liked_games_game_id` ON `${TABLE_NAME}` (`game_id`)"
           },
           {
@@ -265,7 +259,6 @@
             "columnNames": [
               "like_timestamp"
             ],
-            "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_liked_games_like_timestamp` ON `${TABLE_NAME}` (`like_timestamp`)"
           }
         ],
@@ -325,7 +318,6 @@
             "columnNames": [
               "publication_date"
             ],
-            "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_articles_publication_date` ON `${TABLE_NAME}` (`publication_date`)"
           }
         ],

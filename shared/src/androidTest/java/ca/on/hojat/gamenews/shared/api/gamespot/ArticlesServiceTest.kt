@@ -17,6 +17,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import javax.inject.Inject
+import ca.on.hojat.gamenews.shared.api.common.Error
 
 @HiltAndroidTest
 internal class ArticlesServiceTest {
@@ -26,6 +27,7 @@ internal class ArticlesServiceTest {
 
     @Inject
     lateinit var mockWebServer: MockWebServer
+
     @Inject
     lateinit var articlesService: ArticlesService
 
