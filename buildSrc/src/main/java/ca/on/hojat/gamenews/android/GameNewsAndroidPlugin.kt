@@ -9,7 +9,7 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import org.gradle.kotlin.dsl.findByType
 import java.util.Properties
 
-class GamedgeAndroidPlugin : Plugin<Project> {
+class GameNewsAndroidPlugin : Plugin<Project> {
 
     private companion object {
         const val BUILD_TYPE_DEBUG = "debug"

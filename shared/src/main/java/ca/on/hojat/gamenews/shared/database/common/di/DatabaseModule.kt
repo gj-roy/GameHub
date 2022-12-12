@@ -21,7 +21,7 @@ internal object DatabaseModule {
     @Provides
     @Singleton
     @Suppress("SpreadOperator")
-    fun provideGamedgeDatabase(
+    fun provideGameNewsDatabase(
         @ApplicationContext context: Context,
         typeConverters: Set<@JvmSuppressWildcards RoomTypeConverter>
     ): GameNewsDatabase {

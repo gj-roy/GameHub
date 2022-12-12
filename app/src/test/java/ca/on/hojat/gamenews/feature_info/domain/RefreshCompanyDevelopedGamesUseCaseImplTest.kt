@@ -2,6 +2,7 @@ package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_info.REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS
+import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCaseImpl
 import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottler
 import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottlerTools
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesDataStores
@@ -16,7 +17,6 @@ import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

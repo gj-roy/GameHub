@@ -17,7 +17,7 @@ internal object TestDatabaseModule {
 
     @Provides
     @Singleton
-    fun provideGamedgeDatabase(
+    fun provideGameNewsDatabase(
         typeConverters: Set<@JvmSuppressWildcards RoomTypeConverter>
     ): GameNewsDatabase {
         return Room.inMemoryDatabaseBuilder(

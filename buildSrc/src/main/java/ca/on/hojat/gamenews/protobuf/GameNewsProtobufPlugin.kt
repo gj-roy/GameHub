@@ -10,7 +10,7 @@ import com.google.protobuf.gradle.protoc
 import org.gradle.kotlin.dsl.invoke
 
 @Suppress("DEPRECATION")
-class GamedgeProtobufPlugin : Plugin<Project> {
+class GameNewsProtobufPlugin : Plugin<Project> {
 
     override fun apply(project: Project) = with(project) {
         setupPlugin()

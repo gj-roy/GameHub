@@ -1,4 +1,4 @@
-rootProject.name = "Gamedge"
+rootProject.name = "GameNews"
 
 pluginManagement {
     repositories {
