@@ -5,7 +5,7 @@ import android.content.Context
 import androidx.test.runner.AndroidJUnitRunner
 import dagger.hilt.android.testing.HiltTestApplication
 
-class GamedgeTestRunner : AndroidJUnitRunner() {
+class GameNewsTestRunner : AndroidJUnitRunner() {
 
     override fun newApplication(
         classLoader: ClassLoader,

@@ -12,7 +12,7 @@ interface Logger {
 }
 
 @BindType
-internal class GamedgeLogger @Inject constructor() : Logger {
+internal class GameNewsLogger @Inject constructor() : Logger {
 
     override fun info(tag: String, message: String, throwable: Throwable?) {
         Log.i(tag, message, throwable)

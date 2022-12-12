@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/GamedgeThemeSplash"
+        android:theme="@style/GameNewsThemeSplash"
         tools:ignore="Instantiatable">
 
         <!-- See this https://stackoverflow.com/a/68899786/7015881 why tools:ignore is needed above -->
