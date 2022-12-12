@@ -1,7 +1,7 @@
 plugins {
     androidApplication()
-    gamedgeAndroid()
-    gamedgeProtobuf()
+    gameNewsAndroid()
+    gameNewsProtobuf()
     kotlinKapt()
     ksp()
     daggerHiltAndroid()

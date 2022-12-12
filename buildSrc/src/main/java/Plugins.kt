@@ -2,8 +2,8 @@ import org.gradle.kotlin.dsl.version
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
-const val PLUGIN_GAMEDGE_ANDROID = "com.paulrybitskyi.gamedge.android"
-const val PLUGIN_GAMEDGE_PROTOBUF = "com.paulrybitskyi.gamedge.protobuf"
+const val PLUGIN_GAMENEWS_ANDROID = "com.paulrybitskyi.gamedge.android"
+const val PLUGIN_GAMENEWS_PROTOBUF = "com.paulrybitskyi.gamedge.protobuf"
 const val PLUGIN_GRADLE_VERSIONS = "com.github.ben-manes.versions"
 const val PLUGIN_ANDROID_APPLICATION = "com.android.application"
 const val PLUGIN_ANDROID_LIBRARY = "com.android.library"
@@ -17,12 +17,12 @@ const val PLUGIN_DETEKT = "io.gitlab.arturbosch.detekt"
 const val PLUGIN_KTLINT = "org.jlleitschuh.gradle.ktlint"
 const val PLUGIN_PROTOBUF = "com.google.protobuf"
 
-fun PluginDependenciesSpec.gamedgeAndroid(): PluginDependencySpec {
-    return id(PLUGIN_GAMEDGE_ANDROID)
+fun PluginDependenciesSpec.gameNewsAndroid(): PluginDependencySpec {
+    return id(PLUGIN_GAMENEWS_ANDROID)
 }
 
-fun PluginDependenciesSpec.gamedgeProtobuf(): PluginDependencySpec {
-    return id(PLUGIN_GAMEDGE_PROTOBUF)
+fun PluginDependenciesSpec.gameNewsProtobuf(): PluginDependencySpec {
+    return id(PLUGIN_GAMENEWS_PROTOBUF)
 }
 
 fun PluginDependenciesSpec.gradleVersions(): PluginDependencySpec {

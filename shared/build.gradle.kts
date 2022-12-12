@@ -3,8 +3,8 @@ import ca.on.hojat.gamenews.extensions.stringField
 
 plugins {
     androidLibrary()
-    gamedgeAndroid()
-    gamedgeProtobuf()
+    gameNewsAndroid()
+    gameNewsProtobuf()
     kotlinKapt()
     ksp()
     kotlinxSerialization()
