@@ -4,8 +4,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id(PLUGIN_GRADLE_VERSIONS) version versions.gradleVersionsPlugin
-    detekt()
-    ktlint()
+    id(PLUGIN_DETEKT) version versions.detektPlugin
+    id(PLUGIN_KTLINT) version versions.ktlintPlugin
 }
 
 buildscript {
