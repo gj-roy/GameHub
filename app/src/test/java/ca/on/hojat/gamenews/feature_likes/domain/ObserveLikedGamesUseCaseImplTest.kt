@@ -6,7 +6,6 @@ import ca.on.hojat.gamenews.shared.domain.games.datastores.LikedGamesLocalDataSt
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_likes.domain.ObserveLikedGamesUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

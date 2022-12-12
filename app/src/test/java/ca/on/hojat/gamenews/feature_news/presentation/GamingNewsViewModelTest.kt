@@ -2,6 +2,12 @@ package ca.on.hojat.gamenews.feature_news.presentation
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_news.DOMAIN_ARTICLES
+import ca.on.hojat.gamenews.feature_news.domain.DomainArticle
+import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase
+import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCase
+import ca.on.hojat.gamenews.feature_news.presentation.mapping.GamingNewsItemUiModelMapper
+import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiModel
+import ca.on.hojat.gamenews.feature_news.presentation.widgets.finiteUiState
 import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
 import ca.on.hojat.gamenews.shared.testing.FakeLogger
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
@@ -9,14 +15,6 @@ import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_news.domain.DomainArticle
-import com.paulrybitskyi.gamedge.feature_news.domain.usecases.ObserveArticlesUseCase
-import com.paulrybitskyi.gamedge.feature_news.domain.usecases.RefreshArticlesUseCase
-import com.paulrybitskyi.gamedge.feature_news.presentation.GamingNewsCommand
-import com.paulrybitskyi.gamedge.feature_news.presentation.GamingNewsViewModel
-import com.paulrybitskyi.gamedge.feature_news.presentation.mapping.GamingNewsItemUiModelMapper
-import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.GamingNewsItemUiModel
-import com.paulrybitskyi.gamedge.feature_news.presentation.widgets.finiteUiState
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flow

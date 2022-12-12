@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_settings
 
-import com.paulrybitskyi.gamedge.feature_settings.domain.DomainSettings
-import com.paulrybitskyi.gamedge.feature_settings.domain.DomainTheme
+import ca.on.hojat.gamenews.feature_settings.domain.DomainSettings
+import ca.on.hojat.gamenews.feature_settings.domain.DomainTheme
 
 internal val DOMAIN_SETTINGS = DomainSettings(
     theme = DomainTheme.DARK,

@@ -13,10 +13,10 @@ import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.shared.data.common.ApiErrorMapper
-import com.paulrybitskyi.gamedge.feature_news.data.datastores.gamespot.ArticlePublicationDateMapper
-import com.paulrybitskyi.gamedge.feature_news.data.datastores.gamespot.ArticlesGamespotDataStore
-import com.paulrybitskyi.gamedge.feature_news.data.datastores.gamespot.GamespotArticleMapper
-import com.paulrybitskyi.gamedge.feature_news.data.datastores.gamespot.mapToDomainArticles
+import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlePublicationDateMapper
+import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlesGamespotDataStore
+import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.GamespotArticleMapper
+import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.mapToDomainArticles
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK

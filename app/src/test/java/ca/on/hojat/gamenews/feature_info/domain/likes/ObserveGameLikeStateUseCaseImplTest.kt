@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.feature_info.OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS
 import ca.on.hojat.gamenews.shared.domain.games.datastores.LikedGamesLocalDataStore
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

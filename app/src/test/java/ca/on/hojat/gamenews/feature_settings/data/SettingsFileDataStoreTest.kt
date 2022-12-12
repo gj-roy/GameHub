@@ -2,10 +2,10 @@ package ca.on.hojat.gamenews.feature_settings.data
 
 import androidx.datastore.core.DataStore
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
+import ca.on.hojat.gamenews.feature_settings.data.datastores.ProtoSettings
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_settings.data.datastores.ProtoSettings
-import com.paulrybitskyi.gamedge.feature_settings.data.datastores.ProtoSettingsMapper
-import com.paulrybitskyi.gamedge.feature_settings.data.datastores.SettingsFileDataStore
+import ca.on.hojat.gamenews.feature_settings.data.datastores.ProtoSettingsMapper
+import ca.on.hojat.gamenews.feature_settings.data.datastores.SettingsFileDataStore
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

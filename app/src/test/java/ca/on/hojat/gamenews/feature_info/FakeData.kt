@@ -5,14 +5,14 @@ import ca.on.hojat.gamenews.shared.domain.games.entities.InvolvedCompany
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.RefreshSimilarGamesUseCase
-import com.paulrybitskyi.gamedge.feature_info.domain.entities.GameInfo
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCase
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetGameUseCase
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetSimilarGamesUseCase
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCase
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCase
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.likes.ToggleGameLikeStateUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshSimilarGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
+import ca.on.hojat.gamenews.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.GetSimilarGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleGameLikeStateUseCase
 
 private val COMPANY = Company(
     id = 1,

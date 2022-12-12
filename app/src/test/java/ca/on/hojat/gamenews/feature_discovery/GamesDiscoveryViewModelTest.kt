@@ -1,6 +1,9 @@
 package ca.on.hojat.gamenews.feature_discovery
 
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.feature_discovery.di.GamesDiscoveryKey
+import ca.on.hojat.gamenews.feature_discovery.mapping.GamesDiscoveryItemGameUiModelMapper
+import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemGameUiModel
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game
 import ca.on.hojat.gamenews.shared.domain.games.usecases.ObservePopularGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.usecases.RefreshPopularGamesUseCase
@@ -12,13 +15,6 @@ import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_discovery.di.GamesDiscoveryKey
-import com.paulrybitskyi.gamedge.feature_discovery.GamesDiscoveryCategory
-import com.paulrybitskyi.gamedge.feature_discovery.GamesDiscoveryRoute
-import com.paulrybitskyi.gamedge.feature_discovery.GamesDiscoveryUseCases
-import com.paulrybitskyi.gamedge.feature_discovery.GamesDiscoveryViewModel
-import com.paulrybitskyi.gamedge.feature_discovery.mapping.GamesDiscoveryItemGameUiModelMapper
-import com.paulrybitskyi.gamedge.feature_discovery.widgets.GamesDiscoveryItemGameUiModel
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flow

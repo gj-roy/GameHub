@@ -8,10 +8,10 @@ import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_info.domain.entities.GameImageType
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetGameImageUrlsUseCase
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetGameImageUrlsUseCaseImpl
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetGameUseCase
+import ca.on.hojat.gamenews.feature_info.domain.entities.GameImageType
+import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameImageUrlsUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameImageUrlsUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameUseCase
 import ca.on.hojat.gamenews.shared.domain.common.entities.Error
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery

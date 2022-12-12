@@ -1,11 +1,10 @@
 package ca.on.hojat.gamenews.feature_settings.domain
 
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
+import ca.on.hojat.gamenews.feature_settings.domain.datastores.SettingsLocalDataStore
+import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCaseImpl
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_settings.domain.DomainSettings
-import com.paulrybitskyi.gamedge.feature_settings.domain.datastores.SettingsLocalDataStore
-import com.paulrybitskyi.gamedge.feature_settings.domain.usecases.SaveSettingsUseCaseImpl
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first

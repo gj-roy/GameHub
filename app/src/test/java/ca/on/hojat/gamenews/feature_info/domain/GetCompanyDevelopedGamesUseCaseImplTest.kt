@@ -8,8 +8,8 @@ import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCaseImpl
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK

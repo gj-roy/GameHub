@@ -1,12 +1,11 @@
-package ca.on.hojat.gamenews.api
+package ca.on.hojat.gamenews.shared.api
 
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.common.testing.startSafe
-import com.paulrybitskyi.gamedge.igdb.api.auth.AuthService
-import com.paulrybitskyi.gamedge.igdb.api.auth.entities.ApiOauthCredentials
-import com.paulrybitskyi.gamedge.igdb.common.Error
+import ca.on.hojat.gamenews.shared.api.igdb.auth.AuthService
+import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiOauthCredentials
+import ca.on.hojat.gamenews.shared.testing.startSafe
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking

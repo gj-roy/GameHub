@@ -5,13 +5,6 @@ import app.cash.turbine.test
 import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_image_viewer.ImageViewerCommand
-import com.paulrybitskyi.gamedge.feature_image_viewer.ImageViewerRoute
-import com.paulrybitskyi.gamedge.feature_image_viewer.ImageViewerViewModel
-import com.paulrybitskyi.gamedge.feature_image_viewer.KEY_SELECTED_POSITION
-import com.paulrybitskyi.gamedge.feature_image_viewer.PARAM_IMAGE_URLS
-import com.paulrybitskyi.gamedge.feature_image_viewer.PARAM_INITIAL_POSITION
-import com.paulrybitskyi.gamedge.feature_image_viewer.PARAM_TITLE
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.StandardTestDispatcher

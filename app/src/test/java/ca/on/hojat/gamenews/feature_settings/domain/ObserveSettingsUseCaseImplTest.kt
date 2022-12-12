@@ -5,8 +5,8 @@ import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
 import ca.on.hojat.gamenews.shared.domain.common.extensions.execute
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_settings.domain.datastores.SettingsLocalDataStore
-import com.paulrybitskyi.gamedge.feature_settings.domain.usecases.ObserveSettingsUseCaseImpl
+import ca.on.hojat.gamenews.feature_settings.domain.datastores.SettingsLocalDataStore
+import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

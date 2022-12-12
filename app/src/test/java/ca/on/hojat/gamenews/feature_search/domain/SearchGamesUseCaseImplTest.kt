@@ -14,8 +14,6 @@ import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_search.domain.SearchGamesUseCase
-import com.paulrybitskyi.gamedge.feature_search.domain.SearchGamesUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

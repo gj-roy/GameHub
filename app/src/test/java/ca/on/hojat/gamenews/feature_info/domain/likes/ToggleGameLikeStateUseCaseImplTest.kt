@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.shared.domain.games.datastores.LikedGamesLocalDataSt
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_info.domain.usecases.likes.ToggleGameLikeStateUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleGameLikeStateUseCaseImpl
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest

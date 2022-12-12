@@ -1,5 +1,5 @@
-import com.paulrybitskyi.gamedge.extensions.property
-import com.paulrybitskyi.gamedge.extensions.stringField
+import ca.on.hojat.gamenews.extensions.property
+import ca.on.hojat.gamenews.extensions.stringField
 
 plugins {
     androidLibrary()

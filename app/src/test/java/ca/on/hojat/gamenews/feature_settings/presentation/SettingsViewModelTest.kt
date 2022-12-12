@@ -2,22 +2,15 @@ package ca.on.hojat.gamenews.feature_settings.presentation
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
+import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
+import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
+import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseCase
+import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCase
 import ca.on.hojat.gamenews.shared.core.Constants
 import ca.on.hojat.gamenews.shared.domain.common.extensions.execute
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_settings.presentation.SettingItem
-import com.paulrybitskyi.gamedge.feature_settings.presentation.SettingsCommand
-import com.paulrybitskyi.gamedge.feature_settings.presentation.SettingsSectionItemUiModel
-import com.paulrybitskyi.gamedge.feature_settings.presentation.SettingsSectionUiModel
-import com.paulrybitskyi.gamedge.feature_settings.presentation.SettingsUiModelMapper
-import com.paulrybitskyi.gamedge.feature_settings.presentation.SettingsViewModel
-import com.paulrybitskyi.gamedge.feature_settings.presentation.finiteUiState
-import com.paulrybitskyi.gamedge.feature_settings.domain.entities.Settings
-import com.paulrybitskyi.gamedge.feature_settings.domain.entities.Theme
-import com.paulrybitskyi.gamedge.feature_settings.domain.usecases.ObserveSettingsUseCase
-import com.paulrybitskyi.gamedge.feature_settings.domain.usecases.SaveSettingsUseCase
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk

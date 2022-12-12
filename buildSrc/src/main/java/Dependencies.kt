@@ -7,7 +7,7 @@ object appConfig {
     const val compileSdkVersion = 32
     const val targetSdkVersion = 32
     const val minSdkVersion = 21
-    const val applicationId = "com.paulrybitskyi.gamedge"
+    const val applicationId = "ca.on.hojat.gamenews"
     const val versionCode = 1
     const val versionName = "1.0.0"
 

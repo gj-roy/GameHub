@@ -2,6 +2,10 @@ package ca.on.hojat.gamenews.feature_category
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
+import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
+import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModelMapper
+import ca.on.hojat.gamenews.feature_category.widgets.finiteUiState
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game
 import ca.on.hojat.gamenews.shared.domain.games.usecases.ObservePopularGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.usecases.RefreshPopularGamesUseCase
@@ -14,14 +18,6 @@ import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_category.GamesCategory
-import com.paulrybitskyi.gamedge.feature_category.GamesCategoryRoute
-import com.paulrybitskyi.gamedge.feature_category.GamesCategoryUseCases
-import com.paulrybitskyi.gamedge.feature_category.GamesCategoryViewModel
-import com.paulrybitskyi.gamedge.feature_category.di.GamesCategoryKey
-import com.paulrybitskyi.gamedge.feature_category.widgets.GameCategoryUiModel
-import com.paulrybitskyi.gamedge.feature_category.widgets.GameCategoryUiModelMapper
-import com.paulrybitskyi.gamedge.feature_category.widgets.finiteUiState
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.delay

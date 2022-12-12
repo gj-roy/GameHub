@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_news.data
 
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_news.data.datastores.gamespot.ArticlePublicationDateMapper
+import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlePublicationDateMapper
 import org.junit.Assert.assertThrows
 import org.junit.Before
 import org.junit.Test

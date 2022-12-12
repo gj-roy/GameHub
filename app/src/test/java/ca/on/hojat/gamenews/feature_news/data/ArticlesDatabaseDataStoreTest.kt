@@ -6,9 +6,9 @@ import ca.on.hojat.gamenews.shared.database.articles.tables.ArticlesTable
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_news.data.datastores.database.ArticlesDatabaseDataStore
-import com.paulrybitskyi.gamedge.feature_news.data.datastores.database.DbArticleMapper
-import com.paulrybitskyi.gamedge.feature_news.data.datastores.database.mapToDatabaseArticles
+import ca.on.hojat.gamenews.feature_news.data.datastores.database.ArticlesDatabaseDataStore
+import ca.on.hojat.gamenews.feature_news.data.datastores.database.DbArticleMapper
+import ca.on.hojat.gamenews.feature_news.data.datastores.database.mapToDatabaseArticles
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify
 import io.mockk.every

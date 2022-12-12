@@ -1,6 +1,7 @@
 package ca.on.hojat.gamenews.feature_likes.presentation
 
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game
 import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
 import ca.on.hojat.gamenews.shared.testing.FakeLogger
@@ -13,9 +14,6 @@ import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModelMapper
 import ca.on.hojat.gamenews.shared.ui.widgets.games.finiteUiState
 import com.google.common.truth.Truth.assertThat
-import com.paulrybitskyi.gamedge.feature_likes.domain.ObserveLikedGamesUseCase
-import com.paulrybitskyi.gamedge.feature_likes.presentation.LikedGamesRoute
-import com.paulrybitskyi.gamedge.feature_likes.presentation.LikedGamesViewModel
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flow

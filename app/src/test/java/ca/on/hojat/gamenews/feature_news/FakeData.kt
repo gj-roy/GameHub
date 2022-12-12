@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.feature_news
 
-import com.paulrybitskyi.gamedge.feature_news.domain.DomainArticle
+import ca.on.hojat.gamenews.feature_news.domain.DomainArticle
 
 internal val DOMAIN_ARTICLE = DomainArticle(
     id = 1,
