@@ -17,6 +17,9 @@ object appConfig {
 
 object versions {
 
+     const val gradlePluginVersion = "7.2.2" // also in buildSrc build.gradle.kts file
+     const val protobufPluginVersion = "0.8.19" // also in buildSrc build.gradle.kts file
+
     const val kotlin = "1.7.0" // also in buildSrc build.gradle.kts file
     const val compose = "1.2.0"
     const val gradleVersionsPlugin = "0.42.0"
@@ -30,20 +33,6 @@ object versions {
 }
 
 object deps {
-
-    object plugins {
-
-        private const val gradlePluginVersion = "7.2.2" // also in buildSrc build.gradle.kts file
-        private const val protobufPluginVersion = "0.8.19" // also in buildSrc build.gradle.kts file
-
-        const val androidGradle = "com.android.tools.build:gradle:${gradlePluginVersion}"
-        const val kotlinGradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
-        const val daggerHiltGradle =
-            "com.google.dagger:hilt-android-gradle-plugin:${versions.daggerHilt}"
-        const val protobuf = "com.google.protobuf:protobuf-gradle-plugin:$protobufPluginVersion"
-        const val gradleVersions =
-            "com.github.ben-manes:gradle-versions-plugin:${versions.gradleVersionsPlugin}"
-    }
 
     object local {
         const val shared = ":shared"

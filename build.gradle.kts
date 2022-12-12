@@ -15,11 +15,11 @@ buildscript {
     }
 
     dependencies {
-        classpath(deps.plugins.androidGradle)
-        classpath(deps.plugins.kotlinGradle)
-        classpath(deps.plugins.daggerHiltGradle)
-        classpath(deps.plugins.protobuf)
-        classpath(deps.plugins.gradleVersions)
+        classpath("com.android.tools.build:gradle:${versions.gradlePluginVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:${versions.daggerHilt}")
+        classpath("com.google.protobuf:protobuf-gradle-plugin:${versions.protobufPluginVersion}")
+        classpath( "com.github.ben-manes:gradle-versions-plugin:${versions.gradleVersionsPlugin}")
     }
 }
 
