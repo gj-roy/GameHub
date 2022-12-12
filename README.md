@@ -1,4 +1,4 @@
-# Gamedge
+# `Game News` Android app
 
 #Hojat's changes:
 
@@ -12,8 +12,6 @@ https://trello.com/b/lG03zl6P/game-news-app
 
 ![Min API](https://img.shields.io/badge/API-21%2B-orange.svg?style=flat)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](http://developer.android.com/index.html)
-[![Build](https://github.com/mars885/gamedge/workflows/Build/badge.svg?branch=master)](https://github.com/mars885/gamedge/actions)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 An Android application for browsing video games and checking the latest gaming news from around the world.
 
@@ -124,10 +122,6 @@ You'll need to supply API/client keys for the various services that the app uses
 ### Gamespot
 
 [Gamespot](https://www.gamespot.com/) is a video gaming website that provides news, reviews, previews, downloads, and other information on video games. The app uses its API to solely retrieve the latest news in the gaming world.
-
-## Download
-
-Go to the [Releases](https://github.com/mars885/gamedge/releases) to download the latest APK.
 
 ## Questions
 
