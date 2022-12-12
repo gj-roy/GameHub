@@ -62,7 +62,7 @@ dependencies {
     implementation(deps.kotlin.coroutines)
     implementation(deps.kotlin.serialization)
     implementation(deps.androidX.browser)
-    implementation(deps.commons.core)
+    implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
     implementation(deps.commons.ktx)
     implementation(deps.commons.network)
     implementation(deps.commons.windowAnims)

@@ -16,10 +16,8 @@ object appConfig {
 }
 
 object versions {
-
-     const val gradlePluginVersion = "7.2.2" // also in buildSrc build.gradle.kts file
-     const val protobufPluginVersion = "0.8.19" // also in buildSrc build.gradle.kts file
-
+    const val gradlePluginVersion = "7.2.2" // also in buildSrc build.gradle.kts file
+    const val protobufPluginVersion = "0.8.19" // also in buildSrc build.gradle.kts file
     const val kotlin = "1.7.0" // also in buildSrc build.gradle.kts file
     const val compose = "1.2.0"
     const val gradleVersionsPlugin = "0.42.0"
@@ -33,10 +31,6 @@ object versions {
 }
 
 object deps {
-
-    object local {
-        const val shared = ":shared"
-    }
 
     object kotlin {
 
@@ -126,17 +120,10 @@ object deps {
     }
 
     object commons {
-
-        private const val coreVersion = "1.0.4"
-        private const val ktxVersion = "1.0.4"
-        private const val networkVersion = "1.0.3"
-        private const val windowAnimsVersion = "1.0.2"
-
-        const val core = "com.paulrybitskyi.commons:commons-core:${coreVersion}"
-        const val ktx = "com.paulrybitskyi.commons:commons-ktx:${ktxVersion}"
-        const val network = "com.paulrybitskyi.commons:commons-network:${networkVersion}"
-        const val windowAnims =
-            "com.paulrybitskyi.commons:commons-window-anims:${windowAnimsVersion}"
+        const val core = "com.paulrybitskyi.commons:commons-core:1.0.4"
+        const val ktx = "com.paulrybitskyi.commons:commons-ktx:1.0.4"
+        const val network = "com.paulrybitskyi.commons:commons-network:1.0.3"
+        const val windowAnims = "com.paulrybitskyi.commons:commons-window-anims:1.0.2"
     }
 
     object misc {

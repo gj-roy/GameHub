@@ -45,11 +45,15 @@ android {
 }
 
 dependencies {
-    implementation(project(deps.local.shared))
+    // local modules
+    implementation(project(":shared"))
 
+    // general androidX(jetpack) dependencies
     implementation(deps.androidX.protoDataStore)
     implementation(deps.androidX.splash)
+    implementation(deps.androidX.prefsDataStore)
 
+    // Jetpack compose
     implementation(deps.compose.ui)
     implementation(deps.compose.tooling)
     implementation(deps.compose.activity)
@@ -59,40 +63,35 @@ dependencies {
     implementation(deps.compose.navigation)
     implementation(deps.compose.animation)
     implementation(deps.compose.constraintLayout)
+    implementation(deps.compose.hilt)
+
+    // accompanist for compose
     implementation(deps.compose.accompanist.flowLayout)
     implementation(deps.compose.accompanist.pager)
     implementation(deps.compose.accompanist.navigationAnimations)
     implementation(deps.compose.accompanist.systemUi)
-    implementation(deps.compose.hilt)
 
-    implementation(deps.commons.core)
+
+
+    implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
     implementation(deps.commons.ktx)
-
     implementation(deps.google.daggerHiltAndroid)
     kapt(deps.google.daggerHiltAndroidCompiler)
-
     implementation(deps.misc.hiltBinder)
     ksp(deps.misc.hiltBinderCompiler)
-
     implementation(deps.kotlin.coroutines)
-
     implementation(deps.misc.kotlinResult)
     implementation(deps.misc.coil)
     implementation(deps.misc.zoomable)
-    implementation(deps.androidX.prefsDataStore)
 
     coreLibraryDesugaring(deps.misc.desugaredLibs)
-
     testImplementation(deps.testing.jUnit)
     testImplementation(deps.testing.truth)
     testImplementation(deps.testing.mockk)
     testImplementation(deps.testing.coroutines)
     testImplementation(deps.testing.turbine)
-
     androidTestImplementation(deps.testing.testRunner)
     androidTestImplementation(deps.testing.jUnitExt)
-
-
 }
 
 val installGitHook by tasks.registering(Copy::class) {
