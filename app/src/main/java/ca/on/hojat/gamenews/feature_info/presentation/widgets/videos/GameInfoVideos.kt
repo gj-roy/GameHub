@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.theme.darkScrim
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import coil.compose.AsyncImage
@@ -64,7 +64,7 @@ private fun Video(
     GameNewsCard(
         onClick = onVideoClicked,
         modifier = modifier,
-        shape = GamedgeTheme.shapes.medium,
+        shape = GameNewsTheme.shapes.medium,
         backgroundColor = Color.Transparent,
         contentColor = Color.White,
     ) {
@@ -94,24 +94,24 @@ private fun Video(
                             shape = CircleShape,
                         )
                         .background(
-                            color = GamedgeTheme.colors.darkScrim,
+                            color = GameNewsTheme.colors.darkScrim,
                             shape = CircleShape,
                         )
-                        .padding(GamedgeTheme.spaces.spacing_2_0),
+                        .padding(GameNewsTheme.spaces.spacing_2_0),
                 )
             }
 
             Surface(
                 modifier = Modifier.fillMaxWidth(),
-                color = GamedgeTheme.colors.primaryVariant,
-                contentColor = GamedgeTheme.colors.onSurface,
+                color = GameNewsTheme.colors.primaryVariant,
+                contentColor = GameNewsTheme.colors.onSurface,
             ) {
                 Text(
                     text = video.title,
-                    modifier = Modifier.padding(GamedgeTheme.spaces.spacing_2_5),
+                    modifier = Modifier.padding(GameNewsTheme.spaces.spacing_2_5),
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
-                    style = GamedgeTheme.typography.caption,
+                    style = GameNewsTheme.typography.caption,
                 )
             }
         }
@@ -122,7 +122,7 @@ private fun Video(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoVideosPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GameInfoVideos(
             videos = listOf(
                 GameInfoVideoUiModel(

@@ -25,7 +25,7 @@ import androidx.constraintlayout.compose.ConstraintLayoutBaseScope
 import androidx.constraintlayout.compose.ConstraintLayoutScope
 import androidx.constraintlayout.compose.Dimension
 import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
@@ -37,15 +37,15 @@ fun GamesCategoryPreview(
     isProgressBarVisible: Boolean,
     games: List<GamesCategoryPreviewItemUiModel>,
     onCategoryGameClicked: (GamesCategoryPreviewItemUiModel) -> Unit,
-    topBarMargin: Dp = GamedgeTheme.spaces.spacing_2_0,
+    topBarMargin: Dp = GameNewsTheme.spaces.spacing_2_0,
     isMoreButtonVisible: Boolean = true,
     onCategoryMoreButtonClicked: (() -> Unit)? = null,
 ) {
     GameNewsCard(modifier = Modifier.fillMaxWidth()) {
         ConstraintLayout(modifier = Modifier.fillMaxWidth()) {
-            val titleRefMargin = GamedgeTheme.spaces.spacing_3_5
-            val progressBarMarginEnd = GamedgeTheme.spaces.spacing_1_5
-            val moreBtnHorizontalMargin = GamedgeTheme.spaces.spacing_1_5
+            val titleRefMargin = GameNewsTheme.spaces.spacing_3_5
+            val progressBarMarginEnd = GameNewsTheme.spaces.spacing_1_5
+            val moreBtnHorizontalMargin = GameNewsTheme.spaces.spacing_1_5
             val refs = createRefs()
             val (titleRef, progressBarRef, moreBtnRef, itemsListRef, infoRef) = refs
             val topBarBarrier =
@@ -99,11 +99,11 @@ private fun Title(
     Text(
         text = title,
         modifier = modifier,
-        color = GamedgeTheme.colors.onPrimary,
+        color = GameNewsTheme.colors.onPrimary,
         textAlign = TextAlign.Start,
         overflow = TextOverflow.Ellipsis,
         maxLines = 1,
-        style = GamedgeTheme.typography.h6,
+        style = GameNewsTheme.typography.h6,
     )
 }
 
@@ -130,9 +130,9 @@ private fun MoreButton(
         text = stringResource(R.string.games_category_preview_more_button_text).uppercase(),
         modifier = modifier
             .then(clickableModifier)
-            .padding(GamedgeTheme.spaces.spacing_2_0),
-        color = GamedgeTheme.colors.secondary,
-        style = GamedgeTheme.typography.button,
+            .padding(GameNewsTheme.spaces.spacing_2_0),
+        color = GameNewsTheme.colors.secondary,
+        style = GameNewsTheme.typography.button,
     )
 }
 
@@ -145,8 +145,8 @@ private fun ConstraintLayoutScope.Content(
     onCategoryGameClicked: (GamesCategoryPreviewItemUiModel) -> Unit,
 ) {
     if (games.isEmpty()) {
-        val infoBottomMargin = GamedgeTheme.spaces.spacing_7_0
-        val infoHorizontalMargin = GamedgeTheme.spaces.spacing_7_5
+        val infoBottomMargin = GameNewsTheme.spaces.spacing_7_0
+        val infoHorizontalMargin = GameNewsTheme.spaces.spacing_7_5
 
         EmptyState(
             modifier = Modifier.constrainAs(infoRef) {
@@ -190,7 +190,7 @@ private fun SuccessState(
     modifier: Modifier,
     onCategoryGameClicked: (GamesCategoryPreviewItemUiModel) -> Unit,
 ) {
-    val padding = GamedgeTheme.spaces.spacing_3_5
+    val padding = GameNewsTheme.spaces.spacing_3_5
 
     LazyRow(
         modifier = modifier,
@@ -199,7 +199,7 @@ private fun SuccessState(
             end = padding,
             bottom = padding,
         ),
-        horizontalArrangement = Arrangement.spacedBy(GamedgeTheme.spaces.spacing_1_5),
+        horizontalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_1_5),
     ) {
         items(items = games, key = GamesCategoryPreviewItemUiModel::id) { item ->
             GameCover(
@@ -215,7 +215,7 @@ private fun SuccessState(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesCategoryPreviewSuccessStateWithMoreButtonPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GamesCategoryPreview(
             title = "Popular",
             isProgressBarVisible = false,
@@ -251,7 +251,7 @@ private fun GamesCategoryPreviewSuccessStateWithMoreButtonPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesCategoryPreviewSuccessStateWithoutMoreButtonPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GamesCategoryPreview(
             title = "Popular",
             isProgressBarVisible = false,
@@ -288,7 +288,7 @@ private fun GamesCategoryPreviewSuccessStateWithoutMoreButtonPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesCategoryPreviewEmptyStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GamesCategoryPreview(
             title = "Popular",
             isProgressBarVisible = false,

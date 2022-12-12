@@ -7,7 +7,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 private const val GRID_SPAN_COUNT = 3
 private const val ITEM_HEIGHT_TO_WIDTH_RATIO = 1.366f
@@ -24,7 +24,7 @@ internal data class GamesGridConfig(
 internal fun rememberGamesGridConfig(): GamesGridConfig {
     val density = LocalDensity.current
     val configuration = LocalConfiguration.current
-    val gridItemSpacingInDp = GamedgeTheme.spaces.spacing_0_5
+    val gridItemSpacingInDp = GameNewsTheme.spaces.spacing_0_5
 
     return remember(density, configuration) {
         val gridItemSpacingInPx = with(density) { gridItemSpacingInDp.toPx() }

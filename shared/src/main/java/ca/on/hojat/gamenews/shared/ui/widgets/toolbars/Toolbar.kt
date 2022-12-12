@@ -24,17 +24,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 @Composable
 fun Toolbar(
     title: String,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    backgroundColor: Color = GamedgeTheme.colors.primary,
+    backgroundColor: Color = GameNewsTheme.colors.primary,
     contentColor: Color = contentColorFor(backgroundColor),
     elevation: Dp = ToolbarElevation,
-    titleTextStyle: TextStyle = GamedgeTheme.typography.h5,
+    titleTextStyle: TextStyle = GameNewsTheme.typography.h5,
     leftButtonIcon: Painter? = null,
     rightButtonIcon: Painter? = null,
     onLeftButtonClick: (() -> Unit)? = null,
@@ -88,9 +88,9 @@ fun Toolbar(
 @Composable
 private fun getTitleHorizontalPadding(icon: Painter?): Dp {
     return if (icon != null) {
-        GamedgeTheme.spaces.spacing_4_0
+        GameNewsTheme.spaces.spacing_4_0
     } else {
-        GamedgeTheme.spaces.spacing_5_0
+        GameNewsTheme.spaces.spacing_5_0
     }
 }
 
@@ -114,7 +114,7 @@ private fun Button(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ToolbarPreviewWithTitle() {
-    GamedgeTheme {
+    GameNewsTheme {
         Toolbar(
             title = "Toolbar"
         )
@@ -125,7 +125,7 @@ private fun ToolbarPreviewWithTitle() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ToolbarPreviewWithLongTitle() {
-    GamedgeTheme {
+    GameNewsTheme {
         Toolbar(
             title = "Toolbar toolbar toolbar toolbar toolbar toolbar toolbar toolbar"
         )
@@ -136,7 +136,7 @@ private fun ToolbarPreviewWithLongTitle() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ToolbarPreviewWithBothIcons() {
-    GamedgeTheme {
+    GameNewsTheme {
         Toolbar(
             title = "Toolbar",
             leftButtonIcon = painterResource(R.drawable.arrow_left),
@@ -149,7 +149,7 @@ private fun ToolbarPreviewWithBothIcons() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ToolbarPreviewWithLeftIcon() {
-    GamedgeTheme {
+    GameNewsTheme {
         Toolbar(
             title = "Toolbar",
             leftButtonIcon = painterResource(R.drawable.arrow_left),
@@ -161,7 +161,7 @@ private fun ToolbarPreviewWithLeftIcon() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ToolbarPreviewWithRightIcon() {
-    GamedgeTheme {
+    GameNewsTheme {
         Toolbar(
             title = "Toolbar",
             rightButtonIcon = painterResource(R.drawable.magnify)

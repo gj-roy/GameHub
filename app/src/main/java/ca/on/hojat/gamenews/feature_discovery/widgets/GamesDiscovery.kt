@@ -28,7 +28,7 @@ import ca.on.hojat.gamenews.shared.ui.CommandsHandler
 import ca.on.hojat.gamenews.shared.ui.NavBarColorHandler
 import ca.on.hojat.gamenews.shared.ui.RoutesHandler
 import ca.on.hojat.gamenews.shared.ui.base.events.Route
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.shared.ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
@@ -130,7 +130,7 @@ private fun CategoryPreviewItems(
     onCategoryGameClicked: (GamesDiscoveryItemGameUiModel) -> Unit,
 ) {
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(GamedgeTheme.spaces.spacing_3_5),
+        verticalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_3_5),
     ) {
         items(items = items, key = GamesDiscoveryItemUiModel::id) { item ->
             val categoryGames = remember(item.games) {
@@ -172,7 +172,7 @@ private fun GamesDiscoverySuccessStatePreview() {
         )
     }
 
-    GamedgeTheme {
+    GameNewsTheme {
         GamesDiscovery(
             items = items,
             onSearchButtonClicked = {},
@@ -197,7 +197,7 @@ private fun GamesDiscoveryEmptyStatePreview() {
         )
     }
 
-    GamedgeTheme {
+    GameNewsTheme {
         GamesDiscovery(
             items = items,
             onSearchButtonClicked = {},

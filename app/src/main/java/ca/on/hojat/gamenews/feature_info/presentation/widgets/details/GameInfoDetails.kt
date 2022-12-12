@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.theme.subtitle3
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSection
@@ -17,7 +17,7 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSect
 internal fun GameInfoDetails(details: GameInfoDetailsUiModel) {
     GameInfoSection(
         title = stringResource(R.string.game_info_details_title),
-        titleBottomPadding = GamedgeTheme.spaces.spacing_1_0,
+        titleBottomPadding = GameNewsTheme.spaces.spacing_1_0,
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
             if (details.hasGenresText) {
@@ -62,14 +62,14 @@ internal fun GameInfoDetails(details: GameInfoDetailsUiModel) {
 private fun CategorySection(title: String, value: String) {
     Text(
         text = title,
-        modifier = Modifier.padding(top = GamedgeTheme.spaces.spacing_2_5),
-        color = GamedgeTheme.colors.onPrimary,
-        style = GamedgeTheme.typography.subtitle3,
+        modifier = Modifier.padding(top = GameNewsTheme.spaces.spacing_2_5),
+        color = GameNewsTheme.colors.onPrimary,
+        style = GameNewsTheme.typography.subtitle3,
     )
     Text(
         text = value,
-        modifier = Modifier.padding(top = GamedgeTheme.spaces.spacing_1_0),
-        style = GamedgeTheme.typography.body2,
+        modifier = Modifier.padding(top = GameNewsTheme.spaces.spacing_1_0),
+        style = GameNewsTheme.typography.body2,
     )
 }
 
@@ -77,7 +77,7 @@ private fun CategorySection(title: String, value: String) {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoDetailsPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GameInfoDetails(
             details = GameInfoDetailsUiModel(
                 genresText = "Adventure • Shooter • Role-playing (RPG)",

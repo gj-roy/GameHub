@@ -30,7 +30,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.shared.ui.CommandsHandler
 import ca.on.hojat.gamenews.shared.ui.LocalUrlOpener
 import ca.on.hojat.gamenews.shared.ui.NavBarColorHandler
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.theme.subtitle3
 import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
@@ -136,7 +136,7 @@ private fun SuccessState(
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(GamedgeTheme.spaces.spacing_3_5),
+        verticalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_3_5),
     ) {
         items(
             items = sections,
@@ -159,25 +159,25 @@ private fun SettingsSection(
         Column(
             modifier = Modifier
                 .padding(
-                    top = GamedgeTheme.spaces.spacing_4_0,
-                    bottom = GamedgeTheme.spaces.spacing_2_0,
+                    top = GameNewsTheme.spaces.spacing_4_0,
+                    bottom = GameNewsTheme.spaces.spacing_2_0,
                 ),
         ) {
             Text(
                 text = section.title,
                 modifier = Modifier
-                    .padding(horizontal = GamedgeTheme.spaces.spacing_4_0)
-                    .padding(bottom = GamedgeTheme.spaces.spacing_2_0),
-                color = GamedgeTheme.colors.secondary,
-                style = GamedgeTheme.typography.subtitle3,
+                    .padding(horizontal = GameNewsTheme.spaces.spacing_4_0)
+                    .padding(bottom = GameNewsTheme.spaces.spacing_2_0),
+                color = GameNewsTheme.colors.secondary,
+                style = GameNewsTheme.typography.subtitle3,
             )
 
             for (sectionItem in section.items) {
                 SettingsSectionItem(
                     sectionItem = sectionItem,
                     contentPadding = PaddingValues(
-                        vertical = GamedgeTheme.spaces.spacing_2_0,
-                        horizontal = GamedgeTheme.spaces.spacing_4_0,
+                        vertical = GameNewsTheme.spaces.spacing_2_0,
+                        horizontal = GameNewsTheme.spaces.spacing_4_0,
                     ),
                     onSettingClicked = onSettingClicked,
                 )
@@ -206,13 +206,13 @@ private fun SettingsSectionItem(
     ) {
         Text(
             text = sectionItem.title,
-            color = GamedgeTheme.colors.onPrimary,
-            style = GamedgeTheme.typography.subtitle3,
+            color = GameNewsTheme.colors.onPrimary,
+            style = GameNewsTheme.typography.subtitle3,
         )
         Text(
             text = sectionItem.description,
-            modifier = Modifier.padding(top = GamedgeTheme.spaces.spacing_0_5),
-            style = GamedgeTheme.typography.body2,
+            modifier = Modifier.padding(top = GameNewsTheme.spaces.spacing_0_5),
+            style = GameNewsTheme.typography.body2,
         )
     }
 }
@@ -227,10 +227,10 @@ private fun ThemePickerDialog(
         Text(
             text = stringResource(R.string.settings_item_theme_title),
             modifier = Modifier
-                .padding(horizontal = GamedgeTheme.spaces.spacing_6_0)
-                .padding(bottom = GamedgeTheme.spaces.spacing_2_0),
-            color = GamedgeTheme.colors.onPrimary,
-            style = GamedgeTheme.typography.h5,
+                .padding(horizontal = GameNewsTheme.spaces.spacing_6_0)
+                .padding(bottom = GameNewsTheme.spaces.spacing_2_0),
+            color = GameNewsTheme.colors.onPrimary,
+            style = GameNewsTheme.typography.h5,
         )
 
         for (theme in Theme.values()) {
@@ -254,8 +254,8 @@ private fun ThemePickerDialogOption(
             .fillMaxWidth()
             .clickable(onClick = onOptionClicked)
             .padding(
-                vertical = GamedgeTheme.spaces.spacing_3_0,
-                horizontal = GamedgeTheme.spaces.spacing_5_5,
+                vertical = GameNewsTheme.spaces.spacing_3_0,
+                horizontal = GameNewsTheme.spaces.spacing_5_5,
             ),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -263,15 +263,15 @@ private fun ThemePickerDialogOption(
             selected = isSelected,
             onClick = null,
             colors = RadioButtonDefaults.colors(
-                selectedColor = GamedgeTheme.colors.secondary,
-                unselectedColor = GamedgeTheme.colors.onSurface,
+                selectedColor = GameNewsTheme.colors.secondary,
+                unselectedColor = GameNewsTheme.colors.onSurface,
             ),
         )
 
         Text(
             text = themeTitle,
-            modifier = Modifier.padding(start = GamedgeTheme.spaces.spacing_4_0),
-            style = GamedgeTheme.typography.h6,
+            modifier = Modifier.padding(start = GameNewsTheme.spaces.spacing_4_0),
+            style = GameNewsTheme.typography.h6,
         )
     }
 }
@@ -280,7 +280,7 @@ private fun ThemePickerDialogOption(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun SettingsLoadingStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         Settings(
             uiState = SettingsUiState(
                 isLoading = false,
@@ -299,7 +299,7 @@ private fun SettingsLoadingStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun SettingsSuccessStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         Settings(
             uiState = SettingsUiState(
                 isLoading = false,

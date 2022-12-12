@@ -25,7 +25,7 @@ import ca.on.hojat.gamenews.shared.ui.NavBarColorHandler
 import ca.on.hojat.gamenews.shared.ui.OnLifecycleEvent
 import ca.on.hojat.gamenews.shared.ui.RoutesHandler
 import ca.on.hojat.gamenews.shared.ui.base.events.Route
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.shared.ui.widgets.games.Games
@@ -129,7 +129,7 @@ private fun GamesSearch(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesSearchSuccessStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GamesSearch(
             uiState = GamesSearchUiState(
                 queryText = "God of War",
@@ -182,7 +182,7 @@ private fun GamesSearchSuccessStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesSearchEmptyStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GamesSearch(
             uiState = GamesSearchUiState(
                 queryText = "God of War",
@@ -207,7 +207,7 @@ private fun GamesSearchEmptyStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesSearchLoadingStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GamesSearch(
             uiState = GamesSearchUiState(
                 queryText = "God of War",

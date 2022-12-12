@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.GamedgeProgressIndicator
@@ -65,7 +65,7 @@ private fun EmptyState(
     Info(
         icon = painterResource(uiState.infoIconId),
         title = uiState.infoTitle,
-        modifier = modifier.padding(horizontal = GamedgeTheme.spaces.spacing_7_0),
+        modifier = modifier.padding(horizontal = GameNewsTheme.spaces.spacing_7_0),
     )
 }
 
@@ -85,7 +85,7 @@ private fun SuccessState(
         val lastIndex = games.lastIndex
 
         LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(GamedgeTheme.spaces.spacing_3_5),
+            verticalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_3_5),
         ) {
             itemsIndexed(
                 items = games,
@@ -137,7 +137,7 @@ private fun GamesSuccessStatePreview() {
         )
     )
 
-    GamedgeTheme {
+    GameNewsTheme {
         Games(
             uiState = GamesUiState(
                 isLoading = false,
@@ -155,7 +155,7 @@ private fun GamesSuccessStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesEmptyStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         Games(
             uiState = GamesUiState(
                 isLoading = false,
@@ -173,7 +173,7 @@ private fun GamesEmptyStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesLoadingStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         Games(
             uiState = GamesUiState(
                 isLoading = true,

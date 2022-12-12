@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import coil.compose.rememberAsyncImagePainter
 import coil.size.Size
@@ -70,7 +70,7 @@ private fun Company(
 
     GameNewsCard(
         onClick = onCompanyClicked,
-        shape = GamedgeTheme.shapes.medium,
+        shape = GameNewsTheme.shapes.medium,
         backgroundColor = Color.Transparent,
     ) {
         Column {
@@ -158,21 +158,21 @@ private fun CompanyDetails(
 ) {
     Surface(
         modifier = Modifier.width(containerWidth),
-        color = GamedgeTheme.colors.primaryVariant,
-        contentColor = GamedgeTheme.colors.onSurface,
+        color = GameNewsTheme.colors.primaryVariant,
+        contentColor = GameNewsTheme.colors.onSurface,
     ) {
-        Column(modifier = Modifier.padding(GamedgeTheme.spaces.spacing_2_5)) {
+        Column(modifier = Modifier.padding(GameNewsTheme.spaces.spacing_2_5)) {
             Text(
                 text = name,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = GamedgeTheme.typography.caption,
+                style = GameNewsTheme.typography.caption,
             )
             Text(
                 text = roles,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = GamedgeTheme.typography.caption,
+                style = GameNewsTheme.typography.caption,
             )
         }
     }
@@ -236,7 +236,7 @@ private class LogoImageTransformation(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoCompaniesPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GameInfoCompanies(
             companies = listOf(
                 GameInfoCompanyUiModel(

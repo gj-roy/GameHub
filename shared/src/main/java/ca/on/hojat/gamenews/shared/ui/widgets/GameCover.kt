@@ -24,7 +24,7 @@ import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
 import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 val DefaultCoverWidth = 112.dp
 val DefaultCoverHeight = 153.dp
@@ -38,7 +38,7 @@ fun GameCover(
     onCoverClicked: (() -> Unit)? = null,
 ) {
     val cardModifier = modifier.size(width = DefaultCoverWidth, height = DefaultCoverHeight)
-    val shape = if (hasRoundedShape) GamedgeTheme.shapes.medium else RectangleShape
+    val shape = if (hasRoundedShape) GameNewsTheme.shapes.medium else RectangleShape
     val backgroundColor = Color.Transparent
     val content: @Composable () -> Unit = {
         Box {
@@ -67,10 +67,10 @@ fun GameCover(
                     text = checkNotNull(title),
                     modifier = Modifier
                         .align(Alignment.Center)
-                        .padding(horizontal = GamedgeTheme.spaces.spacing_4_0),
+                        .padding(horizontal = GameNewsTheme.spaces.spacing_4_0),
                     color = Color.White,
                     textAlign = TextAlign.Center,
-                    style = GamedgeTheme.typography.caption,
+                    style = GameNewsTheme.typography.caption,
                 )
             }
         }
@@ -98,7 +98,7 @@ fun GameCover(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameCoverWithTitlePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GameCover(
             title = "Ghost of Tsushima: Director's Cut",
             imageUrl = null,
@@ -111,7 +111,7 @@ private fun GameCoverWithTitlePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameCoverWithoutTitlePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GameCover(
             title = null,
             imageUrl = null,

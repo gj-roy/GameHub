@@ -21,7 +21,7 @@ import ca.on.hojat.gamenews.shared.domain.common.extensions.execute
 import ca.on.hojat.gamenews.shared.ui.LocalNetworkStateProvider
 import ca.on.hojat.gamenews.shared.ui.LocalTextSharer
 import ca.on.hojat.gamenews.shared.ui.LocalUrlOpener
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import com.paulrybitskyi.commons.ktx.intentFor
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
@@ -77,7 +77,7 @@ class MainActivity : ComponentActivity() {
             CompositionLocalProvider(LocalUrlOpener provides urlOpener) {
                 CompositionLocalProvider(LocalTextSharer provides textSharer) {
                     CompositionLocalProvider(LocalNetworkStateProvider provides networkStateProvider) {
-                        GamedgeTheme(useDarkTheme = shouldUseDarkTheme()) {
+                        GameNewsTheme(useDarkTheme = shouldUseDarkTheme()) {
                             MainScreen()
                         }
                     }

@@ -28,7 +28,7 @@ import ca.on.hojat.gamenews.shared.ui.CommandsHandler
 import ca.on.hojat.gamenews.shared.ui.NavBarColorHandler
 import ca.on.hojat.gamenews.shared.ui.RoutesHandler
 import ca.on.hojat.gamenews.shared.ui.base.events.Route
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
@@ -117,7 +117,7 @@ private fun EmptyState(modifier: Modifier) {
     Info(
         icon = painterResource(R.drawable.gamepad_variant_outline),
         title = stringResource(R.string.games_category_info_view_title),
-        modifier = modifier.padding(horizontal = GamedgeTheme.spaces.spacing_7_5),
+        modifier = modifier.padding(horizontal = GameNewsTheme.spaces.spacing_7_5),
     )
 }
 
@@ -202,7 +202,7 @@ private fun GamesCategorySuccessStatePreview() {
         }
     }
 
-    GamedgeTheme {
+    GameNewsTheme {
         GamesCategory(
             uiState = GamesCategoryUiState(
                 isLoading = false,
@@ -220,7 +220,7 @@ private fun GamesCategorySuccessStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesCategoryEmptyStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GamesCategory(
             uiState = GamesCategoryUiState(
                 isLoading = false,
@@ -238,7 +238,7 @@ private fun GamesCategoryEmptyStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesCategoryLoadingStatePreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GamesCategory(
             uiState = GamesCategoryUiState(
                 isLoading = true,

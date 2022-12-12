@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 @Composable
 fun GamedgeDialog(
@@ -23,10 +23,10 @@ fun GamedgeDialog(
     ) {
         Surface(
             modifier = Modifier.fillMaxWidth(),
-            shape = GamedgeTheme.shapes.medium,
+            shape = GameNewsTheme.shapes.medium,
         ) {
             Column(
-                modifier = Modifier.padding(vertical = GamedgeTheme.spaces.spacing_4_5),
+                modifier = Modifier.padding(vertical = GameNewsTheme.spaces.spacing_4_5),
                 content = content,
             )
         }

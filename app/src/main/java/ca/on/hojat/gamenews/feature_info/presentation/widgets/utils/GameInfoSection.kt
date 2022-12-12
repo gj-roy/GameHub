@@ -12,14 +12,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 
 @Composable
 internal fun GameInfoSection(
     title: String,
     modifier: Modifier = Modifier,
-    titleBottomPadding: Dp = GamedgeTheme.spaces.spacing_2_5,
+    titleBottomPadding: Dp = GameNewsTheme.spaces.spacing_2_5,
     content: @Composable ColumnScope.(PaddingValues) -> Unit,
 ) {
     GameNewsCard(
@@ -27,7 +27,7 @@ internal fun GameInfoSection(
             .fillMaxWidth()
             .then(modifier),
     ) {
-        val contentPadding = GamedgeTheme.spaces.spacing_3_5
+        val contentPadding = GameNewsTheme.spaces.spacing_3_5
 
         Column(
             modifier = Modifier
@@ -39,8 +39,8 @@ internal fun GameInfoSection(
                 modifier = Modifier
                     .padding(horizontal = contentPadding)
                     .padding(bottom = titleBottomPadding),
-                color = GamedgeTheme.colors.onPrimary,
-                style = GamedgeTheme.typography.h6,
+                color = GameNewsTheme.colors.onPrimary,
+                style = GameNewsTheme.typography.h6,
             )
 
             content(PaddingValues(horizontal = contentPadding))
@@ -56,7 +56,7 @@ internal fun GameInfoSectionWithInnerList(
     GameInfoSection(title = title) { paddingValues ->
         LazyRow(
             contentPadding = paddingValues,
-            horizontalArrangement = Arrangement.spacedBy(GamedgeTheme.spaces.spacing_1_5),
+            horizontalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_1_5),
             content = content,
         )
     }

@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.DefaultCoverHeight
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
@@ -35,7 +35,7 @@ fun Game(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(GamedgeTheme.spaces.spacing_3_5)
+                .padding(GameNewsTheme.spaces.spacing_3_5)
         ) {
             GameCover(
                 title = null,
@@ -64,28 +64,28 @@ private fun Details(
     Column(modifier = modifier) {
         Text(
             text = name,
-            modifier = Modifier.padding(start = GamedgeTheme.spaces.spacing_3_0),
-            color = GamedgeTheme.colors.onPrimary,
+            modifier = Modifier.padding(start = GameNewsTheme.spaces.spacing_3_0),
+            color = GameNewsTheme.colors.onPrimary,
             overflow = TextOverflow.Ellipsis,
             maxLines = 3,
-            style = GamedgeTheme.typography.subtitle2,
+            style = GameNewsTheme.typography.subtitle2,
         )
 
         Text(
             text = releaseDate,
             modifier = Modifier
                 .padding(
-                    top = GamedgeTheme.spaces.spacing_2_5,
-                    start = GamedgeTheme.spaces.spacing_3_0,
+                    top = GameNewsTheme.spaces.spacing_2_5,
+                    start = GameNewsTheme.spaces.spacing_3_0,
                 ),
-            style = GamedgeTheme.typography.caption,
+            style = GameNewsTheme.typography.caption,
         )
 
         if (developerName != null) {
             Text(
                 text = developerName,
-                modifier = Modifier.padding(start = GamedgeTheme.spaces.spacing_3_0),
-                style = GamedgeTheme.typography.caption,
+                modifier = Modifier.padding(start = GameNewsTheme.spaces.spacing_3_0),
+                style = GameNewsTheme.typography.caption,
             )
         }
 
@@ -104,8 +104,8 @@ private fun DetailsDescription(description: String) {
         modifier = Modifier
             .fillMaxHeight()
             .padding(
-                top = GamedgeTheme.spaces.spacing_2_5,
-                start = GamedgeTheme.spaces.spacing_3_0,
+                top = GameNewsTheme.spaces.spacing_2_5,
+                start = GameNewsTheme.spaces.spacing_3_0,
             ),
         overflow = TextOverflow.Ellipsis,
         maxLines = maxLines,
@@ -117,7 +117,7 @@ private fun DetailsDescription(description: String) {
                 maxLines = (textHeight / firstLineHeight).roundToInt()
             }
         },
-        style = GamedgeTheme.typography.body2.copy(
+        style = GameNewsTheme.typography.body2.copy(
             lineHeight = TextUnit.Unspecified,
         ),
     )
@@ -127,7 +127,7 @@ private fun DetailsDescription(description: String) {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameFullPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         Game(
             game = GameUiModel(
                 id = 1,
@@ -147,7 +147,7 @@ private fun GameFullPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameWithoutDeveloperPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         Game(
             game = GameUiModel(
                 id = 1,
@@ -167,7 +167,7 @@ private fun GameWithoutDeveloperPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameWithoutDescriptionPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         Game(
             game = GameUiModel(
                 id = 1,
@@ -186,7 +186,7 @@ private fun GameWithoutDescriptionPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameMinimalPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         Game(
             game = GameUiModel(
                 id = 1,

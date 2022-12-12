@@ -52,7 +52,7 @@ import androidx.constraintlayout.compose.ExperimentalMotionApi
 import androidx.constraintlayout.compose.MotionLayout
 import androidx.constraintlayout.compose.Transition
 import androidx.constraintlayout.compose.Visibility
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.theme.darkScrim
 import ca.on.hojat.gamenews.shared.ui.theme.lightScrim
 import ca.on.hojat.gamenews.shared.ui.theme.subtitle3
@@ -178,7 +178,7 @@ internal fun GameInfoAnimatableHeader(
         Box(
             modifier = Modifier
                 .layoutId(ConstraintIdArtworksScrim)
-                .background(GamedgeTheme.colors.darkScrim),
+                .background(GameNewsTheme.colors.darkScrim),
         )
 
         Icon(
@@ -195,13 +195,13 @@ internal fun GameInfoAnimatableHeader(
                     ),
                     onClick = onBackButtonClicked,
                 )
-                .padding(GamedgeTheme.spaces.spacing_2_5)
+                .padding(GameNewsTheme.spaces.spacing_2_5)
                 .background(
-                    color = GamedgeTheme.colors.lightScrim,
+                    color = GameNewsTheme.colors.lightScrim,
                     shape = CircleShape,
                 )
-                .padding(GamedgeTheme.spaces.spacing_1_5),
-            tint = GamedgeTheme.colors.onPrimary,
+                .padding(GameNewsTheme.spaces.spacing_1_5),
+            tint = GameNewsTheme.colors.onPrimary,
         )
 
         if (isPageIndicatorVisible) {
@@ -215,15 +215,15 @@ internal fun GameInfoAnimatableHeader(
                     .layoutId(ConstraintIdPageIndicator)
                     .statusBarsPadding()
                     .background(
-                        color = GamedgeTheme.colors.lightScrim,
+                        color = GameNewsTheme.colors.lightScrim,
                         shape = RoundedCornerShape(20.dp),
                     )
                     .padding(
-                        vertical = GamedgeTheme.spaces.spacing_1_5,
-                        horizontal = GamedgeTheme.spaces.spacing_2_0,
+                        vertical = GameNewsTheme.spaces.spacing_1_5,
+                        horizontal = GameNewsTheme.spaces.spacing_2_0,
                     ),
-                color = GamedgeTheme.colors.onPrimary,
-                style = GamedgeTheme.typography.subtitle3,
+                color = GameNewsTheme.colors.onPrimary,
+                style = GameNewsTheme.typography.subtitle3,
             )
         }
 
@@ -231,7 +231,7 @@ internal fun GameInfoAnimatableHeader(
             modifier = Modifier
                 .layoutId(ConstraintIdBackdrop)
                 .background(
-                    color = GamedgeTheme.colors.surface,
+                    color = GameNewsTheme.colors.surface,
                     shape = RectangleShape,
                 )
                 .clip(RectangleShape),
@@ -257,7 +257,7 @@ internal fun GameInfoAnimatableHeader(
             modifier = Modifier
                 .layoutId(ConstraintIdLikeButton)
                 .drawOnTop(),
-            backgroundColor = GamedgeTheme.colors.secondary,
+            backgroundColor = GameNewsTheme.colors.secondary,
         ) {
             // Animated selector drawables are not currently supported by the Jetpack Compose.
             // https://issuetracker.google.com/issues/212418566
@@ -272,7 +272,7 @@ internal fun GameInfoAnimatableHeader(
                 ),
                 contentDescription = null,
                 modifier = Modifier.size(52.dp),
-                tint = GamedgeTheme.colors.onSecondary,
+                tint = GameNewsTheme.colors.onSecondary,
             )
         }
 
@@ -281,7 +281,7 @@ internal fun GameInfoAnimatableHeader(
             modifier = Modifier
                 .layoutId(ConstraintIdFirstTitle)
                 .drawOnTop(),
-            color = GamedgeTheme.colors.onPrimary,
+            color = GameNewsTheme.colors.onPrimary,
             overflow = firstTitleOverflowMode,
             maxLines = 1,
             onTextLayout = { textLayoutResult ->
@@ -294,7 +294,7 @@ internal fun GameInfoAnimatableHeader(
                     secondTitleText = headerInfo.title.substring(firstTitleVisibleTextEndIndex)
                 }
             },
-            style = GamedgeTheme.typography.h6,
+            style = GameNewsTheme.typography.h6,
         )
 
         Box(
@@ -307,10 +307,10 @@ internal fun GameInfoAnimatableHeader(
                 // is implemented (includeFontPadding="false" in XML)
                 Text(
                     text = secondTitleText,
-                    color = GamedgeTheme.colors.onPrimary,
+                    color = GameNewsTheme.colors.onPrimary,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 2,
-                    style = GamedgeTheme.typography.h6,
+                    style = GameNewsTheme.typography.h6,
                 )
             }
         }
@@ -320,8 +320,8 @@ internal fun GameInfoAnimatableHeader(
             modifier = Modifier
                 .layoutId(ConstraintIdReleaseDate)
                 .drawOnTop(),
-            color = GamedgeTheme.colors.onSurface,
-            style = GamedgeTheme.typography.subtitle3,
+            color = GameNewsTheme.colors.onSurface,
+            style = GameNewsTheme.typography.subtitle3,
         )
 
         Box(
@@ -332,8 +332,8 @@ internal fun GameInfoAnimatableHeader(
             if (headerInfo.hasDeveloperName) {
                 Text(
                     text = checkNotNull(headerInfo.developerName),
-                    color = GamedgeTheme.colors.onSurface,
-                    style = GamedgeTheme.typography.subtitle3,
+                    color = GameNewsTheme.colors.onSurface,
+                    style = GameNewsTheme.typography.subtitle3,
                 )
             }
         }
@@ -353,7 +353,7 @@ internal fun GameInfoAnimatableHeader(
                     }
                 },
             iconSize = InfoIconSize,
-            titleTextStyle = GamedgeTheme.typography.caption,
+            titleTextStyle = GameNewsTheme.typography.caption,
         )
         Info(
             icon = painterResource(R.drawable.account_heart_outline),
@@ -362,7 +362,7 @@ internal fun GameInfoAnimatableHeader(
                 .layoutId(ConstraintIdLikeCount)
                 .drawOnTop(),
             iconSize = InfoIconSize,
-            titleTextStyle = GamedgeTheme.typography.caption,
+            titleTextStyle = GameNewsTheme.typography.caption,
         )
         Info(
             icon = painterResource(R.drawable.age_rating_outline),
@@ -371,7 +371,7 @@ internal fun GameInfoAnimatableHeader(
                 .layoutId(ConstraintIdAgeRating)
                 .drawOnTop(),
             iconSize = InfoIconSize,
-            titleTextStyle = GamedgeTheme.typography.caption,
+            titleTextStyle = GameNewsTheme.typography.caption,
         )
         Info(
             icon = painterResource(R.drawable.shape_outline),
@@ -380,7 +380,7 @@ internal fun GameInfoAnimatableHeader(
                 .layoutId(ConstraintIdGameCategory)
                 .drawOnTop(),
             iconSize = InfoIconSize,
-            titleTextStyle = GamedgeTheme.typography.caption,
+            titleTextStyle = GameNewsTheme.typography.caption,
         )
 
         content(Modifier.layoutId(ConstraintIdList))
@@ -392,19 +392,19 @@ private fun constructExpandedConstraintSet(
     hasDefaultPlaceholderArtwork: Boolean = false,
     isSecondTitleVisible: Boolean = false,
 ): ConstraintSet {
-    val pageIndicatorMargin = GamedgeTheme.spaces.spacing_2_5
-    val backdropElevation = GamedgeTheme.spaces.spacing_0_5
+    val pageIndicatorMargin = GameNewsTheme.spaces.spacing_2_5
+    val backdropElevation = GameNewsTheme.spaces.spacing_0_5
     val coverSpaceMargin = CoverSpace
-    val coverMarginStart = GamedgeTheme.spaces.spacing_3_5
-    val likeBtnMarginEnd = GamedgeTheme.spaces.spacing_2_5
-    val titleMarginStart = GamedgeTheme.spaces.spacing_3_5
-    val firstTitleMarginEnd = GamedgeTheme.spaces.spacing_1_0
-    val secondTitleMarginEnd = GamedgeTheme.spaces.spacing_3_5
-    val releaseDateMarginTop = GamedgeTheme.spaces.spacing_2_5
-    val releaseDateMarginHorizontal = GamedgeTheme.spaces.spacing_3_5
-    val developerNameMarginHorizontal = GamedgeTheme.spaces.spacing_3_5
-    val bottomBarrierMargin = GamedgeTheme.spaces.spacing_5_0
-    val infoItemMarginBottom = GamedgeTheme.spaces.spacing_3_5
+    val coverMarginStart = GameNewsTheme.spaces.spacing_3_5
+    val likeBtnMarginEnd = GameNewsTheme.spaces.spacing_2_5
+    val titleMarginStart = GameNewsTheme.spaces.spacing_3_5
+    val firstTitleMarginEnd = GameNewsTheme.spaces.spacing_1_0
+    val secondTitleMarginEnd = GameNewsTheme.spaces.spacing_3_5
+    val releaseDateMarginTop = GameNewsTheme.spaces.spacing_2_5
+    val releaseDateMarginHorizontal = GameNewsTheme.spaces.spacing_3_5
+    val developerNameMarginHorizontal = GameNewsTheme.spaces.spacing_3_5
+    val bottomBarrierMargin = GameNewsTheme.spaces.spacing_5_0
+    val infoItemMarginBottom = GameNewsTheme.spaces.spacing_3_5
 
     return ConstraintSet {
         val artworks = createRefFor(ConstraintIdArtworks)
@@ -538,19 +538,19 @@ private fun constructCollapsedConstraintSet(
 ): ConstraintSet {
     val artworksHeight = calculateArtworksHeightInCollapsedState()
     val statusBarHeight = calculateStatusBarHeightInDp()
-    val pageIndicatorMargin = GamedgeTheme.spaces.spacing_2_5
-    val backdropElevation = GamedgeTheme.spaces.spacing_1_0
+    val pageIndicatorMargin = GameNewsTheme.spaces.spacing_2_5
+    val backdropElevation = GameNewsTheme.spaces.spacing_1_0
     val coverSpaceMargin = CoverSpace
-    val coverMarginStart = GamedgeTheme.spaces.spacing_3_5
-    val likeBtnMarginEnd = GamedgeTheme.spaces.spacing_2_5
-    val titleMarginStart = GamedgeTheme.spaces.spacing_3_5
-    val firstTitleMarginStart = GamedgeTheme.spaces.spacing_7_5
-    val firstTitleMarginEnd = GamedgeTheme.spaces.spacing_6_0
-    val secondTitleMarginEnd = GamedgeTheme.spaces.spacing_3_5
-    val releaseDateMarginTop = GamedgeTheme.spaces.spacing_2_5
-    val releaseDateMarginHorizontal = GamedgeTheme.spaces.spacing_3_5
-    val developerNameMarginHorizontal = GamedgeTheme.spaces.spacing_3_5
-    val infoItemVerticalMargin = GamedgeTheme.spaces.spacing_3_5
+    val coverMarginStart = GameNewsTheme.spaces.spacing_3_5
+    val likeBtnMarginEnd = GameNewsTheme.spaces.spacing_2_5
+    val titleMarginStart = GameNewsTheme.spaces.spacing_3_5
+    val firstTitleMarginStart = GameNewsTheme.spaces.spacing_7_5
+    val firstTitleMarginEnd = GameNewsTheme.spaces.spacing_6_0
+    val secondTitleMarginEnd = GameNewsTheme.spaces.spacing_3_5
+    val releaseDateMarginTop = GameNewsTheme.spaces.spacing_2_5
+    val releaseDateMarginHorizontal = GameNewsTheme.spaces.spacing_3_5
+    val developerNameMarginHorizontal = GameNewsTheme.spaces.spacing_3_5
+    val infoItemVerticalMargin = GameNewsTheme.spaces.spacing_3_5
 
     return ConstraintSet {
         val artworks = createRefFor(ConstraintIdArtworks)
@@ -782,27 +782,27 @@ private fun constructJson(): String {
     val density = LocalDensity.current
 
     val scrimColorExpanded = Integer.toHexString(Color.Transparent.toArgb())
-    val pageIndicatorMargin = GamedgeTheme.spaces.spacing_2_5.value.toInt()
-    val backdropElevationExpanded = GamedgeTheme.spaces.spacing_0_5.value.toInt()
+    val pageIndicatorMargin = GameNewsTheme.spaces.spacing_2_5.value.toInt()
+    val backdropElevationExpanded = GameNewsTheme.spaces.spacing_0_5.value.toInt()
     val coverSpaceMargin = CoverSpace.value.toInt()
-    val coverMarginStart = GamedgeTheme.spaces.spacing_3_5.value.toInt()
-    val likeBtnMarginEnd = GamedgeTheme.spaces.spacing_2_5.value.toInt()
-    val titleMarginStart = GamedgeTheme.spaces.spacing_3_5.value.toInt()
+    val coverMarginStart = GameNewsTheme.spaces.spacing_3_5.value.toInt()
+    val likeBtnMarginEnd = GameNewsTheme.spaces.spacing_2_5.value.toInt()
+    val titleMarginStart = GameNewsTheme.spaces.spacing_3_5.value.toInt()
     val firstTitleMarginTop = titleMarginStart
-    val firstTitleMarginEnd = GamedgeTheme.spaces.spacing_1_0.value.toInt()
-    val secondTitleMarginEnd = GamedgeTheme.spaces.spacing_3_5.value.toInt()
-    val releaseDateMarginTop = GamedgeTheme.spaces.spacing_2_5.value.toInt()
-    val releaseDateMarginHorizontal = GamedgeTheme.spaces.spacing_3_5.value.toInt()
-    val developerNameMarginHorizontal = GamedgeTheme.spaces.spacing_3_5.value.toInt()
-    val bottomBarrierMargin = GamedgeTheme.spaces.spacing_5_0.value.toInt()
-    val infoItemMarginBottom = GamedgeTheme.spaces.spacing_3_5.value.toInt()
+    val firstTitleMarginEnd = GameNewsTheme.spaces.spacing_1_0.value.toInt()
+    val secondTitleMarginEnd = GameNewsTheme.spaces.spacing_3_5.value.toInt()
+    val releaseDateMarginTop = GameNewsTheme.spaces.spacing_2_5.value.toInt()
+    val releaseDateMarginHorizontal = GameNewsTheme.spaces.spacing_3_5.value.toInt()
+    val developerNameMarginHorizontal = GameNewsTheme.spaces.spacing_3_5.value.toInt()
+    val bottomBarrierMargin = GameNewsTheme.spaces.spacing_5_0.value.toInt()
+    val infoItemMarginBottom = GameNewsTheme.spaces.spacing_3_5.value.toInt()
 
-    val scrimColorCollapsed = Integer.toHexString(GamedgeTheme.colors.darkScrim.toArgb())
+    val scrimColorCollapsed = Integer.toHexString(GameNewsTheme.colors.darkScrim.toArgb())
     val artworksHeightCollapsed = calculateArtworksHeightInCollapsedState().value.toInt()
-    val backdropElevationCollapsed = GamedgeTheme.spaces.spacing_1_0.value.toInt()
-    val firstTitleMarginStartCollapsed = GamedgeTheme.spaces.spacing_7_5.value.toInt()
-    val firstTitleMarginEndCollapsed = GamedgeTheme.spaces.spacing_6_0.value.toInt()
-    val infoItemVerticalMarginCollapsed = GamedgeTheme.spaces.spacing_3_5.value.toInt()
+    val backdropElevationCollapsed = GameNewsTheme.spaces.spacing_1_0.value.toInt()
+    val firstTitleMarginStartCollapsed = GameNewsTheme.spaces.spacing_7_5.value.toInt()
+    val firstTitleMarginEndCollapsed = GameNewsTheme.spaces.spacing_6_0.value.toInt()
+    val infoItemVerticalMarginCollapsed = GameNewsTheme.spaces.spacing_3_5.value.toInt()
     val pageIndicatorDeltaXInPx = with(density) { PageIndicatorDeltaXCollapsed.roundToPx() }
     val coverDeltaXInPx = with(density) { CoverDeltaXCollapsed.roundToPx() }
     val coverDeltaYInPx = with(density) { CoverDeltaYCollapsed.roundToPx() }

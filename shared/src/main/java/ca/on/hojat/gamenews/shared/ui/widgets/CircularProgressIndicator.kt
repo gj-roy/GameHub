@@ -6,12 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 @Composable
 fun GamedgeProgressIndicator(
     modifier: Modifier = Modifier,
-    color: Color = GamedgeTheme.colors.secondary,
+    color: Color = GameNewsTheme.colors.secondary,
     strokeWidth: Dp = ProgressIndicatorDefaults.StrokeWidth,
 ) {
     CircularProgressIndicator(

@@ -43,7 +43,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 private const val ClearButtonAnimationDuration = 100
 
@@ -53,11 +53,11 @@ fun SearchToolbar(
     placeholderText: String,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    backgroundColor: Color = GamedgeTheme.colors.primary,
+    backgroundColor: Color = GameNewsTheme.colors.primary,
     contentColor: Color = contentColorFor(backgroundColor),
     elevation: Dp = ToolbarElevation,
-    titleTextStyle: TextStyle = GamedgeTheme.typography.h5,
-    cursorColor: Color = GamedgeTheme.colors.secondary,
+    titleTextStyle: TextStyle = GameNewsTheme.typography.h5,
+    cursorColor: Color = GameNewsTheme.colors.secondary,
     focusRequester: FocusRequester = remember { FocusRequester() },
     onQueryChanged: ((query: String) -> Unit)? = null,
     onSearchConfirmed: ((query: String) -> Unit)? = null,
@@ -157,7 +157,7 @@ private fun Input(
             }
         },
         modifier = modifier
-            .padding(horizontal = GamedgeTheme.spaces.spacing_4_0)
+            .padding(horizontal = GameNewsTheme.spaces.spacing_4_0)
             .focusRequester(focusRequester),
         textStyle = titleTextStyle.copy(color = LocalContentColor.current),
         keyboardOptions = KeyboardOptions(
@@ -211,7 +211,7 @@ private fun ClearButton(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun SearchToolbarWithQueryPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         SearchToolbar(
             queryText = "God of War",
             placeholderText = "Search games",
@@ -223,7 +223,7 @@ private fun SearchToolbarWithQueryPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun SearchToolbarWithoutQueryPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         SearchToolbar(
             queryText = "",
             placeholderText = "Search games",

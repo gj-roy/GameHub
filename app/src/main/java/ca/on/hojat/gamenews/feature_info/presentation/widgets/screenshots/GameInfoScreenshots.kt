@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
@@ -47,7 +47,7 @@ private fun Screenshot(
     GameNewsCard(
         onClick = onScreenshotClicked,
         modifier = modifier,
-        shape = GamedgeTheme.shapes.medium,
+        shape = GameNewsTheme.shapes.medium,
         backgroundColor = Color.Transparent,
     ) {
         AsyncImage(
@@ -65,7 +65,7 @@ private fun Screenshot(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoScreenshotsPreview() {
-    GamedgeTheme {
+    GameNewsTheme {
         GameInfoScreenshots(
             screenshots = listOf(
                 GameInfoScreenshotUiModel(

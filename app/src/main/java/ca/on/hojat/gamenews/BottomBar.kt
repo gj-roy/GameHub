@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
-import ca.on.hojat.gamenews.shared.ui.theme.GamedgeTheme
+import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 
 private const val BOTTOM_BAR_ANIMATION_DURATION = 300
@@ -63,7 +63,7 @@ private fun BottomBarNavigation(
 ) {
     BottomNavigation(
         modifier = Modifier.navigationBarsPadding(),
-        backgroundColor = GamedgeTheme.colors.primary,
+        backgroundColor = GameNewsTheme.colors.primary,
     ) {
         for (bottomNavigationItemModel in BottomNavigationItemModel.values()) {
             val itemScreen = bottomNavigationItemModel.screen
@@ -91,8 +91,8 @@ private fun BottomBarNavigation(
                 label = {
                     Text(text = stringResource(bottomNavigationItemModel.titleId))
                 },
-                selectedContentColor = GamedgeTheme.colors.secondary,
-                unselectedContentColor = GamedgeTheme.colors.onBackground,
+                selectedContentColor = GameNewsTheme.colors.secondary,
+                unselectedContentColor = GameNewsTheme.colors.onBackground,
             )
         }
     }
