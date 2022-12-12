@@ -17,18 +17,6 @@ const val PLUGIN_DETEKT = "io.gitlab.arturbosch.detekt"
 const val PLUGIN_KTLINT = "org.jlleitschuh.gradle.ktlint"
 const val PLUGIN_PROTOBUF = "com.google.protobuf"
 
-fun PluginDependenciesSpec.gameNewsAndroid(): PluginDependencySpec {
-    return id(PLUGIN_GAMENEWS_ANDROID)
-}
-
-fun PluginDependenciesSpec.gameNewsProtobuf(): PluginDependencySpec {
-    return id(PLUGIN_GAMENEWS_PROTOBUF)
-}
-
-fun PluginDependenciesSpec.gradleVersions(): PluginDependencySpec {
-    return (id(PLUGIN_GRADLE_VERSIONS) version versions.gradleVersionsPlugin)
-}
-
 fun PluginDependenciesSpec.androidApplication(): PluginDependencySpec {
     return id(PLUGIN_ANDROID_APPLICATION)
 }

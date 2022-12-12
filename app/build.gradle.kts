@@ -1,10 +1,10 @@
 plugins {
-    androidApplication()
-    gameNewsAndroid()
-    gameNewsProtobuf()
-    kotlinKapt()
-    ksp()
-    daggerHiltAndroid()
+    id(PLUGIN_ANDROID_APPLICATION)
+    id(PLUGIN_GAMENEWS_ANDROID)
+    id(PLUGIN_GAMENEWS_PROTOBUF)
+    id(PLUGIN_KOTLIN_KAPT)
+    id(PLUGIN_KSP) version versions.kspPlugin
+    id(PLUGIN_DAGGER_HILT_ANDROID)
 }
 
 android {

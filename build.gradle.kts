@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    gradleVersions()
+    id(PLUGIN_GRADLE_VERSIONS) version versions.gradleVersionsPlugin
     detekt()
     ktlint()
 }

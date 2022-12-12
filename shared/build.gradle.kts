@@ -2,13 +2,13 @@ import ca.on.hojat.gamenews.extensions.property
 import ca.on.hojat.gamenews.extensions.stringField
 
 plugins {
-    androidLibrary()
-    gameNewsAndroid()
-    gameNewsProtobuf()
-    kotlinKapt()
-    ksp()
-    kotlinxSerialization()
-    daggerHiltAndroid()
+    id(PLUGIN_ANDROID_LIBRARY)
+    id(PLUGIN_GAMENEWS_ANDROID)
+    id(PLUGIN_GAMENEWS_PROTOBUF)
+    id(PLUGIN_KOTLIN_KAPT)
+    id(PLUGIN_KSP) version versions.kspPlugin
+    id(PLUGIN_KOTLINX_SERIALIZATION) version versions.kotlin
+    id(PLUGIN_DAGGER_HILT_ANDROID)
 }
 
 android {
@@ -59,7 +59,6 @@ dependencies {
     implementation(deps.androidX.room)
     implementation(deps.androidX.roomKtx)
     ksp(deps.androidX.roomCompiler)
-    
     implementation(deps.kotlin.coroutines)
     implementation(deps.kotlin.serialization)
     implementation(deps.androidX.browser)
