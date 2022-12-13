@@ -25,7 +25,7 @@ class GameNewsProtobufPlugin : Plugin<Project> {
     private fun Project.configurePlugin() {
         protobuf {
             protoc {
-                artifact = deps.google.protobufCompiler
+                artifact = versions.protobufCompiler
             }
 
             generateProtoTasks {
@@ -41,6 +41,6 @@ class GameNewsProtobufPlugin : Plugin<Project> {
     }
 
     private fun Project.addProtobufDependency() {
-        dependencies.add("implementation", deps.google.protobuf)
+        dependencies.add("implementation", versions.protobuf)
     }
 }

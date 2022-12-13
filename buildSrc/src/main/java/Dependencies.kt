@@ -47,54 +47,52 @@ object versions {
     const val roomCompiler = "androidx.room:room-compiler:2.4.3"
     const val prefsDataStore = "androidx.datastore:datastore-preferences:${dataStoreVersion}"
     const val protoDataStore = "androidx.datastore:datastore:${dataStoreVersion}"
+
+    // compose
+
+    private const val navigationVersion = "2.5.1"
+    private const val constraintLayoutVersion = "1.1.0-alpha02"
+    private const val hiltVersion = "1.0.0"
+
+    const val ui = "androidx.compose.ui:ui:$compose"
+    const val tooling = "androidx.compose.ui:ui-tooling:$compose"
+    const val animation = "androidx.compose.animation:animation-graphics:$compose"
+    const val foundation = "androidx.compose.foundation:foundation:$compose"
+    const val activity = "androidx.activity:activity-compose:$compose"
+    const val material = "androidx.compose.material:material:$compose"
+    const val runtime = "androidx.compose.runtime:runtime:$compose"
+
+    const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout-compose:$constraintLayoutVersion"
+    const val hilt = "androidx.hilt:hilt-navigation-compose:$hiltVersion"
+
+    object accompanist {
+
+        private const val version = "0.25.0"
+
+        const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:$version"
+        const val flowLayout = "com.google.accompanist:accompanist-flowlayout:$version"
+        const val pager = "com.google.accompanist:accompanist-pager:$version"
+        const val systemUi = "com.google.accompanist:accompanist-systemuicontroller:$version"
+        const val navigationAnimations =
+            "com.google.accompanist:accompanist-navigation-animation:$version"
+    }
+
+    // google stuff
+    private const val protobufVersion = "3.21.4"
+
+    const val daggerHiltCore = "com.google.dagger:hilt-core:${versions.daggerHilt}"
+    const val daggerHiltCoreCompiler = "com.google.dagger:hilt-compiler:${versions.daggerHilt}"
+    const val daggerHiltAndroid = "com.google.dagger:hilt-android:${versions.daggerHilt}"
+    const val daggerHiltAndroidCompiler =
+        "com.google.dagger:hilt-android-compiler:${versions.daggerHilt}"
+    const val protobuf = "com.google.protobuf:protobuf-javalite:${protobufVersion}"
+    const val protobufCompiler = "com.google.protobuf:protoc:${protobufVersion}"
+
 }
 
 object deps {
-
-    object compose {
-
-        private const val navigationVersion = "2.5.1"
-        private const val constraintLayoutVersion = "1.1.0-alpha02"
-        private const val hiltVersion = "1.0.0"
-
-        const val ui = "androidx.compose.ui:ui:${versions.compose}"
-        const val tooling = "androidx.compose.ui:ui-tooling:${versions.compose}"
-        const val animation = "androidx.compose.animation:animation-graphics:${versions.compose}"
-        const val foundation = "androidx.compose.foundation:foundation:${versions.compose}"
-        const val activity = "androidx.activity:activity-compose:${versions.compose}"
-        const val material = "androidx.compose.material:material:${versions.compose}"
-        const val runtime = "androidx.compose.runtime:runtime:${versions.compose}"
-
-        const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
-        const val constraintLayout =
-            "androidx.constraintlayout:constraintlayout-compose:$constraintLayoutVersion"
-        const val hilt = "androidx.hilt:hilt-navigation-compose:$hiltVersion"
-
-        object accompanist {
-
-            private const val version = "0.25.0"
-
-            const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:$version"
-            const val flowLayout = "com.google.accompanist:accompanist-flowlayout:$version"
-            const val pager = "com.google.accompanist:accompanist-pager:$version"
-            const val systemUi = "com.google.accompanist:accompanist-systemuicontroller:$version"
-            const val navigationAnimations =
-                "com.google.accompanist:accompanist-navigation-animation:$version"
-        }
-    }
-
-    object google {
-
-        private const val protobufVersion = "3.21.4"
-
-        const val daggerHiltCore = "com.google.dagger:hilt-core:${versions.daggerHilt}"
-        const val daggerHiltCoreCompiler = "com.google.dagger:hilt-compiler:${versions.daggerHilt}"
-        const val daggerHiltAndroid = "com.google.dagger:hilt-android:${versions.daggerHilt}"
-        const val daggerHiltAndroidCompiler =
-            "com.google.dagger:hilt-android-compiler:${versions.daggerHilt}"
-        const val protobuf = "com.google.protobuf:protobuf-javalite:${protobufVersion}"
-        const val protobufCompiler = "com.google.protobuf:protoc:${protobufVersion}"
-    }
 
     object square {
 
