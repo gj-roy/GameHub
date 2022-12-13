@@ -119,13 +119,6 @@ object deps {
             "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitKotlinxSerializationConverterVersion"
     }
 
-    object commons {
-        const val core = "com.paulrybitskyi.commons:commons-core:1.0.4"
-        const val ktx = "com.paulrybitskyi.commons:commons-ktx:1.0.4"
-        const val network = "com.paulrybitskyi.commons:commons-network:1.0.3"
-        const val windowAnims = "com.paulrybitskyi.commons:commons-window-anims:1.0.2"
-    }
-
     object misc {
 
         private const val desugaredLibsVersion = "1.1.5"

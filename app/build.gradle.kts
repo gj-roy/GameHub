@@ -74,7 +74,7 @@ dependencies {
 
 
     implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
-    implementation(deps.commons.ktx)
+    implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
     implementation(deps.google.daggerHiltAndroid)
     kapt(deps.google.daggerHiltAndroidCompiler)
     implementation(deps.misc.hiltBinder)
