@@ -82,50 +82,45 @@ object versions {
     // google stuff
     private const val protobufVersion = "3.21.4"
 
-    const val daggerHiltCore = "com.google.dagger:hilt-core:${versions.daggerHilt}"
-    const val daggerHiltCoreCompiler = "com.google.dagger:hilt-compiler:${versions.daggerHilt}"
-    const val daggerHiltAndroid = "com.google.dagger:hilt-android:${versions.daggerHilt}"
+    const val daggerHiltCore = "com.google.dagger:hilt-core:$daggerHilt"
+    const val daggerHiltCoreCompiler = "com.google.dagger:hilt-compiler:$daggerHilt"
+    const val daggerHiltAndroid = "com.google.dagger:hilt-android:$daggerHilt"
     const val daggerHiltAndroidCompiler =
-        "com.google.dagger:hilt-android-compiler:${versions.daggerHilt}"
+        "com.google.dagger:hilt-android-compiler:$daggerHilt"
     const val protobuf = "com.google.protobuf:protobuf-javalite:${protobufVersion}"
     const val protobufCompiler = "com.google.protobuf:protoc:${protobufVersion}"
 
+
+    // square stuff
+    private const val okHttpVersion = "4.10.0"
+    private const val retrofitVersion = "2.9.0"
+    private const val retrofitKotlinxSerializationConverterVersion = "0.8.0"
+
+    const val okHttpLoggingInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    const val retrofitScalarsConverter =
+        "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
+    const val retrofitKotlinxSerializationConverter =
+        "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitKotlinxSerializationConverterVersion"
+
+    // misc
+    private const val desugaredLibsVersion = "1.1.5"
+    private const val kotlinResultVersion = "1.1.16"
+    private const val hiltBinderVersion = "1.1.2"
+    private const val coilVersion = "2.1.0"
+    private const val zoomableVersion = "1.5.1"
+
+    const val desugaredLibs = "com.android.tools:desugar_jdk_libs:${desugaredLibsVersion}"
+    const val kotlinResult =
+        "com.michael-bull.kotlin-result:kotlin-result:${kotlinResultVersion}"
+    const val hiltBinder = "com.paulrybitskyi:hilt-binder:$hiltBinderVersion"
+    const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:$hiltBinderVersion"
+    const val coil = "io.coil-kt:coil-compose:$coilVersion"
+    const val zoomable = "com.mxalbert.zoomable:zoomable:$zoomableVersion"
 }
 
 object deps {
-
-    object square {
-
-        private const val okHttpVersion = "4.10.0"
-        private const val retrofitVersion = "2.9.0"
-        private const val retrofitKotlinxSerializationConverterVersion = "0.8.0"
-
-        const val okHttpLoggingInterceptor =
-            "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
-        const val retrofit = "com.squareup.retrofit2:retrofit:${retrofitVersion}"
-        const val retrofitScalarsConverter =
-            "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
-        const val retrofitKotlinxSerializationConverter =
-            "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitKotlinxSerializationConverterVersion"
-    }
-
-    object misc {
-
-        private const val desugaredLibsVersion = "1.1.5"
-        private const val kotlinResultVersion = "1.1.16"
-        private const val hiltBinderVersion = "1.1.2"
-        private const val coilVersion = "2.1.0"
-        private const val zoomableVersion = "1.5.1"
-
-        const val desugaredLibs = "com.android.tools:desugar_jdk_libs:${desugaredLibsVersion}"
-        const val kotlinResult =
-            "com.michael-bull.kotlin-result:kotlin-result:${kotlinResultVersion}"
-        const val hiltBinder = "com.paulrybitskyi:hilt-binder:$hiltBinderVersion"
-        const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:$hiltBinderVersion"
-        const val coil = "io.coil-kt:coil-compose:$coilVersion"
-        const val zoomable = "com.mxalbert.zoomable:zoomable:$zoomableVersion"
-    }
-
     object testing {
 
         private const val jUnitVersion = "4.13.2"
