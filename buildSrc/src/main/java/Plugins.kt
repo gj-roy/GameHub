@@ -1,5 +1,5 @@
-const val PLUGIN_GAMENEWS_ANDROID = "com.paulrybitskyi.gamedge.android"
-const val PLUGIN_GAMENEWS_PROTOBUF = "com.paulrybitskyi.gamedge.protobuf"
+const val PLUGIN_GAMENEWS_ANDROID = "ca.on.hojat.gamenews.android"
+const val PLUGIN_GAMENEWS_PROTOBUF = "ca.on.hojat.gamenews.protobuf"
 const val PLUGIN_GRADLE_VERSIONS = "com.github.ben-manes.versions"
 const val PLUGIN_ANDROID_APPLICATION = "com.android.application"
 const val PLUGIN_ANDROID_LIBRARY = "com.android.library"
