@@ -67,7 +67,7 @@ dependencies {
     implementation("com.paulrybitskyi.commons:commons-network:1.0.3")
     implementation("com.paulrybitskyi.commons:commons-window-anims:1.0.2")
     implementation(versions.kotlinResult)
-    implementation(deps.testing.daggerHilt)
+    implementation(deps.testing.daggerHiltTest)
     implementation(versions.daggerHiltCore)
     implementation("androidx.test:runner:1.5.1")
     implementation("io.mockk:mockk:1.13.3")
@@ -104,7 +104,7 @@ dependencies {
 
     androidTestImplementation(deps.testing.testRunner)
     androidTestImplementation(deps.testing.jUnitExt)
-    androidTestImplementation(deps.testing.daggerHilt)
+    androidTestImplementation(deps.testing.daggerHiltTest)
     androidTestImplementation(deps.testing.truth)
     androidTestImplementation(deps.testing.archCore)
     androidTestImplementation(deps.testing.coroutinesTest)

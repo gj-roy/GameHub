@@ -144,7 +144,7 @@ object deps {
         const val turbine = "app.cash.turbine:turbine:$turbineVersion"
         const val testRunner = "androidx.test:runner:$testRunnerVersion"
         const val archCore = "androidx.arch.core:core-testing:$archCoreVersion"
-        const val daggerHilt = "com.google.dagger:hilt-android-testing:${versions.daggerHilt}"
+        const val daggerHiltTest = "com.google.dagger:hilt-android-testing:${versions.daggerHilt}"
         const val roomTest = "androidx.room:room-testing:2.4.3"
         const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
     }
