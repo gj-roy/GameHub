@@ -96,7 +96,7 @@ dependencies {
     implementation(versions.coil)
 
     testImplementation(deps.testing.turbine)
-    testImplementation(deps.testing.coroutines)
+    testImplementation(deps.testing.coroutinesTest)
     testImplementation(deps.testing.jUnit)
     testImplementation(deps.testing.truth)
     testImplementation(deps.testing.mockk)
@@ -107,9 +107,9 @@ dependencies {
     androidTestImplementation(deps.testing.daggerHilt)
     androidTestImplementation(deps.testing.truth)
     androidTestImplementation(deps.testing.archCore)
-    androidTestImplementation(deps.testing.coroutines)
+    androidTestImplementation(deps.testing.coroutinesTest)
     androidTestImplementation(deps.testing.turbine)
-    androidTestImplementation(deps.testing.room)
+    androidTestImplementation(deps.testing.roomTest)
 
     kaptAndroidTest(versions.daggerHiltAndroidCompiler)
 

@@ -118,6 +118,9 @@ object versions {
     const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:$hiltBinderVersion"
     const val coil = "io.coil-kt:coil-compose:$coilVersion"
     const val zoomable = "com.mxalbert.zoomable:zoomable:$zoomableVersion"
+
+    // testing
+
 }
 
 object deps {
@@ -136,13 +139,13 @@ object deps {
         const val jUnitExt = "androidx.test.ext:junit:$jUnitExtVersion"
         const val truth = "com.google.truth:truth:$truthVersion"
         const val mockk = "io.mockk:mockk:$mockkVersion"
-        const val coroutines =
+        const val coroutinesTest =
             "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
         const val turbine = "app.cash.turbine:turbine:$turbineVersion"
         const val testRunner = "androidx.test:runner:$testRunnerVersion"
         const val archCore = "androidx.arch.core:core-testing:$archCoreVersion"
         const val daggerHilt = "com.google.dagger:hilt-android-testing:${versions.daggerHilt}"
-        const val room = "androidx.room:room-testing:2.4.3"
+        const val roomTest = "androidx.room:room-testing:2.4.3"
         const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
     }
 }
