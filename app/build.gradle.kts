@@ -83,13 +83,13 @@ dependencies {
     implementation(versions.zoomable)
 
     coreLibraryDesugaring(versions.desugaredLibs)
-    testImplementation(deps.testing.jUnit)
-    testImplementation(deps.testing.truth)
-    testImplementation(deps.testing.mockk)
-    testImplementation(deps.testing.coroutinesTest)
-    testImplementation(deps.testing.turbine)
-    androidTestImplementation(deps.testing.testRunner)
-    androidTestImplementation(deps.testing.jUnitExt)
+    testImplementation(versions.jUnit)
+    testImplementation(versions.truth)
+    testImplementation(versions.mockk)
+    testImplementation(versions.coroutinesTest)
+    testImplementation(versions.turbine)
+    androidTestImplementation(versions.testRunner)
+    androidTestImplementation(versions.jUnitExt)
 }
 
 val installGitHook by tasks.registering(Copy::class) {

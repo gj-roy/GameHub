@@ -120,32 +120,25 @@ object versions {
     const val zoomable = "com.mxalbert.zoomable:zoomable:$zoomableVersion"
 
     // testing
+    private const val jUnitVersion = "4.13.2"
+    private const val jUnitExtVersion = "1.1.3"
+    private const val truthVersion = "1.1.3"
+    private const val mockkVersion = "1.13.3"
+    private const val turbineVersion = "0.9.0"
+    private const val testRunnerVersion = "1.4.0"
+    private const val archCoreVersion = "2.1.0"
+    private const val mockWebServerVersion = "4.10.0"
 
-}
-
-object deps {
-    object testing {
-
-        private const val jUnitVersion = "4.13.2"
-        private const val jUnitExtVersion = "1.1.3"
-        private const val truthVersion = "1.1.3"
-        private const val mockkVersion = "1.13.3"
-        private const val turbineVersion = "0.9.0"
-        private const val testRunnerVersion = "1.4.0"
-        private const val archCoreVersion = "2.1.0"
-        private const val mockWebServerVersion = "4.10.0"
-
-        const val jUnit = "junit:junit:$jUnitVersion"
-        const val jUnitExt = "androidx.test.ext:junit:$jUnitExtVersion"
-        const val truth = "com.google.truth:truth:$truthVersion"
-        const val mockk = "io.mockk:mockk:$mockkVersion"
-        const val coroutinesTest =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
-        const val turbine = "app.cash.turbine:turbine:$turbineVersion"
-        const val testRunner = "androidx.test:runner:$testRunnerVersion"
-        const val archCore = "androidx.arch.core:core-testing:$archCoreVersion"
-        const val daggerHiltTest = "com.google.dagger:hilt-android-testing:${versions.daggerHilt}"
-        const val roomTest = "androidx.room:room-testing:2.4.3"
-        const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
-    }
+    const val jUnit = "junit:junit:$jUnitVersion"
+    const val jUnitExt = "androidx.test.ext:junit:$jUnitExtVersion"
+    const val truth = "com.google.truth:truth:$truthVersion"
+    const val mockk = "io.mockk:mockk:$mockkVersion"
+    const val coroutinesTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    const val turbine = "app.cash.turbine:turbine:$turbineVersion"
+    const val testRunner = "androidx.test:runner:$testRunnerVersion"
+    const val archCore = "androidx.arch.core:core-testing:$archCoreVersion"
+    const val daggerHiltTest = "com.google.dagger:hilt-android-testing:$daggerHilt"
+    const val roomTest = "androidx.room:room-testing:2.4.3"
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
 }
