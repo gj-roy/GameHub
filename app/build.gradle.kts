@@ -49,9 +49,9 @@ dependencies {
     implementation(project(":shared"))
 
     // general androidX(jetpack) dependencies
-    implementation(deps.androidX.protoDataStore)
-    implementation(deps.androidX.splash)
-    implementation(deps.androidX.prefsDataStore)
+    implementation(versions.protoDataStore)
+    implementation(versions.splash)
+    implementation(versions.prefsDataStore)
 
     // Jetpack compose
     implementation(deps.compose.ui)
@@ -79,7 +79,7 @@ dependencies {
     kapt(deps.google.daggerHiltAndroidCompiler)
     implementation(deps.misc.hiltBinder)
     ksp(deps.misc.hiltBinderCompiler)
-    implementation(deps.kotlin.coroutines)
+    implementation(versions.coroutines)
     implementation(deps.misc.kotlinResult)
     implementation(deps.misc.coil)
     implementation(deps.misc.zoomable)

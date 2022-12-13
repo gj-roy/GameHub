@@ -10,7 +10,6 @@ object appConfig {
     const val applicationId = "ca.on.hojat.gamenews"
     const val versionCode = 1
     const val versionName = "1.0.0"
-
     val javaCompatibilityVersion = JavaVersion.VERSION_11
     val kotlinCompatibilityVersion = JavaVersion.VERSION_11
 }
@@ -26,38 +25,31 @@ object versions {
     const val detektPlugin = "1.21.0"
     const val ktlintPlugin = "10.3.0"
     const val ktlint = "0.45.2"
-    const val coroutines = "1.6.4"
-    const val room = "2.4.3"
+
+    // kotlin
+    private const val serializationVersion = "1.3.3"
+    const val stdLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin"
+    const val coroutines =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    const val serialization =
+        "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
+
+    // androidX
+    private const val splashVersion = "1.0.0"
+    const val viewModel = "2.5.1" // to be deleted when the linked issue at use site is fixed
+    private const val browserVersion = "1.4.0"
+    private const val dataStoreVersion = "1.0.0"
+
+    const val splash = "androidx.core:core-splashscreen:$splashVersion"
+    const val browser = "androidx.browser:browser:${browserVersion}"
+    const val room = "androidx.room:room-runtime:2.4.3"
+    const val roomKtx = "androidx.room:room-ktx:2.4.3"
+    const val roomCompiler = "androidx.room:room-compiler:2.4.3"
+    const val prefsDataStore = "androidx.datastore:datastore-preferences:${dataStoreVersion}"
+    const val protoDataStore = "androidx.datastore:datastore:${dataStoreVersion}"
 }
 
 object deps {
-
-    object kotlin {
-
-        private const val serializationVersion = "1.3.3"
-
-        const val stdLib = "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
-        const val coroutines =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
-        const val serialization =
-            "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
-    }
-
-    object androidX {
-
-        private const val splashVersion = "1.0.0"
-        const val viewModel = "2.5.1" // to be deleted when the linked issue at use site is fixed
-        private const val browserVersion = "1.4.0"
-        private const val dataStoreVersion = "1.0.0"
-
-        const val splash = "androidx.core:core-splashscreen:$splashVersion"
-        const val browser = "androidx.browser:browser:${browserVersion}"
-        const val room = "androidx.room:room-runtime:${versions.room}"
-        const val roomKtx = "androidx.room:room-ktx:${versions.room}"
-        const val roomCompiler = "androidx.room:room-compiler:${versions.room}"
-        const val prefsDataStore = "androidx.datastore:datastore-preferences:${dataStoreVersion}"
-        const val protoDataStore = "androidx.datastore:datastore:${dataStoreVersion}"
-    }
 
     object compose {
 
@@ -152,12 +144,12 @@ object deps {
         const val truth = "com.google.truth:truth:$truthVersion"
         const val mockk = "io.mockk:mockk:$mockkVersion"
         const val coroutines =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}"
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
         const val turbine = "app.cash.turbine:turbine:$turbineVersion"
         const val testRunner = "androidx.test:runner:$testRunnerVersion"
         const val archCore = "androidx.arch.core:core-testing:$archCoreVersion"
         const val daggerHilt = "com.google.dagger:hilt-android-testing:${versions.daggerHilt}"
-        const val room = "androidx.room:room-testing:${versions.room}"
+        const val room = "androidx.room:room-testing:2.4.3"
         const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
     }
 }

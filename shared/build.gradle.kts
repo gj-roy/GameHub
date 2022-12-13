@@ -53,15 +53,15 @@ ksp {
 
 dependencies {
 
-    implementation(deps.androidX.prefsDataStore)
-    implementation(deps.androidX.protoDataStore)
+    implementation(versions.prefsDataStore)
+    implementation(versions.protoDataStore)
 
-    implementation(deps.androidX.room)
-    implementation(deps.androidX.roomKtx)
-    ksp(deps.androidX.roomCompiler)
-    implementation(deps.kotlin.coroutines)
-    implementation(deps.kotlin.serialization)
-    implementation(deps.androidX.browser)
+    implementation(versions.room)
+    implementation(versions.roomKtx)
+    ksp(versions.roomCompiler)
+    implementation(versions.coroutines)
+    implementation(versions.serialization)
+    implementation(versions.browser)
     implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
     implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
     implementation("com.paulrybitskyi.commons:commons-network:1.0.3")
