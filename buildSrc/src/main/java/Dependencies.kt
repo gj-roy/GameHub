@@ -2,6 +2,9 @@
 
 import org.gradle.api.JavaVersion
 
+/**
+ * All the configurations we write in gradle scripts about app's main characteristics.
+ */
 object appConfig {
 
     const val compileSdkVersion = 32
@@ -15,9 +18,9 @@ object appConfig {
 }
 
 object versions {
-    const val gradlePluginVersion = "7.2.2" // also in buildSrc build.gradle.kts file
-    const val protobufPluginVersion = "0.8.19" // also in buildSrc build.gradle.kts file
-    const val kotlin = "1.7.0" // also in buildSrc build.gradle.kts file
+    const val gradlePluginVersion = "7.2.2"
+    const val protobufPluginVersion = "0.8.19"
+    const val kotlin = "1.7.0"
     const val compose = "1.2.0"
     const val gradleVersionsPlugin = "0.42.0"
     const val kspPlugin = "1.7.0-1.0.6"
