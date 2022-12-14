@@ -6,8 +6,8 @@ plugins {
     id(PLUGIN_GAMENEWS_ANDROID)
     id(PLUGIN_GAMENEWS_PROTOBUF)
     id(PLUGIN_KOTLIN_KAPT)
-    id(PLUGIN_KSP) version versions.kspPlugin
-    id(PLUGIN_KOTLINX_SERIALIZATION) version versions.kotlin
+    id(PLUGIN_KSP) version Tooling.kspPlugin
+    id(PLUGIN_KOTLINX_SERIALIZATION) version Tooling.kotlin
     id(PLUGIN_DAGGER_HILT_ANDROID)
 }
 
@@ -18,7 +18,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = versions.compose
+        kotlinCompilerExtensionVersion = Versions.compose
     }
 
     namespace = "ca.on.hojat.gamenews.shared"
@@ -53,64 +53,64 @@ ksp {
 
 dependencies {
 
-    implementation(versions.prefsDataStore)
-    implementation(versions.protoDataStore)
+    implementation(Versions.prefsDataStore)
+    implementation(Versions.protoDataStore)
 
-    implementation(versions.room)
-    implementation(versions.roomKtx)
-    ksp(versions.roomCompiler)
-    implementation(versions.coroutines)
-    implementation(versions.serialization)
-    implementation(versions.browser)
+    implementation(Versions.room)
+    implementation(Versions.roomKtx)
+    ksp(Versions.roomCompiler)
+    implementation(Versions.coroutines)
+    implementation(Tooling.serialization)
+    implementation(Versions.browser)
     implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
     implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
     implementation("com.paulrybitskyi.commons:commons-network:1.0.3")
     implementation("com.paulrybitskyi.commons:commons-window-anims:1.0.2")
-    implementation(versions.kotlinResult)
-    implementation(versions.daggerHiltTest)
-    implementation(versions.daggerHiltCore)
-    implementation(versions.testRunner)
-    implementation(versions.mockk)
-    implementation(versions.coroutinesTest)
-    kapt(versions.daggerHiltCoreCompiler)
-    implementation(versions.daggerHiltAndroid)
-    kapt(versions.daggerHiltAndroidCompiler)
-    implementation(versions.hiltBinder)
-    ksp(versions.hiltBinderCompiler)
-    coreLibraryDesugaring(versions.desugaredLibs)
-    implementation(versions.mockWebServer)
-    implementation(versions.okHttpLoggingInterceptor)
-    implementation(versions.retrofit)
-    implementation(versions.retrofitKotlinxSerializationConverter)
-    implementation(versions.retrofitScalarsConverter)
+    implementation(Versions.kotlinResult)
+    implementation(Versions.daggerHiltTest)
+    implementation(Versions.daggerHiltCore)
+    implementation(Versions.testRunner)
+    implementation(Versions.mockk)
+    implementation(Versions.coroutinesTest)
+    kapt(Versions.daggerHiltCoreCompiler)
+    implementation(Versions.daggerHiltAndroid)
+    kapt(Versions.daggerHiltAndroidCompiler)
+    implementation(Versions.hiltBinder)
+    ksp(Versions.hiltBinderCompiler)
+    coreLibraryDesugaring(Versions.desugaredLibs)
+    implementation(Versions.mockWebServer)
+    implementation(Versions.okHttpLoggingInterceptor)
+    implementation(Versions.retrofit)
+    implementation(Versions.retrofitKotlinxSerializationConverter)
+    implementation(Versions.retrofitScalarsConverter)
 
-    implementation(versions.ui)
-    implementation(versions.tooling)
-    implementation(versions.foundation)
-    implementation(versions.activity)
-    implementation(versions.runtime)
-    implementation(versions.material)
-    implementation(versions.constraintLayout)
-    implementation(versions.accompanist.swipeRefresh)
-    implementation(versions.accompanist.systemUi)
-    implementation(versions.coil)
+    implementation(Versions.ui)
+    implementation(Versions.tooling)
+    implementation(Versions.foundation)
+    implementation(Versions.activity)
+    implementation(Versions.runtime)
+    implementation(Versions.material)
+    implementation(Versions.constraintLayout)
+    implementation(Versions.accompanist.swipeRefresh)
+    implementation(Versions.accompanist.systemUi)
+    implementation(Versions.coil)
 
-    testImplementation(versions.turbine)
-    testImplementation(versions.coroutinesTest)
-    testImplementation(versions.jUnit)
-    testImplementation(versions.truth)
-    testImplementation(versions.mockk)
+    testImplementation(Versions.turbine)
+    testImplementation(Versions.coroutinesTest)
+    testImplementation(Versions.jUnit)
+    testImplementation(Versions.truth)
+    testImplementation(Versions.mockk)
     testImplementation("com.google.truth:truth:1.1.3")
 
-    androidTestImplementation(versions.testRunner)
-    androidTestImplementation(versions.jUnitExt)
-    androidTestImplementation(versions.daggerHiltTest)
-    androidTestImplementation(versions.truth)
-    androidTestImplementation(versions.archCore)
-    androidTestImplementation(versions.coroutinesTest)
-    androidTestImplementation(versions.turbine)
-    androidTestImplementation(versions.roomTest)
+    androidTestImplementation(Versions.testRunner)
+    androidTestImplementation(Versions.jUnitExt)
+    androidTestImplementation(Versions.daggerHiltTest)
+    androidTestImplementation(Versions.truth)
+    androidTestImplementation(Versions.archCore)
+    androidTestImplementation(Versions.coroutinesTest)
+    androidTestImplementation(Versions.turbine)
+    androidTestImplementation(Versions.roomTest)
 
-    kaptAndroidTest(versions.daggerHiltAndroidCompiler)
+    kaptAndroidTest(Versions.daggerHiltAndroidCompiler)
 
 }

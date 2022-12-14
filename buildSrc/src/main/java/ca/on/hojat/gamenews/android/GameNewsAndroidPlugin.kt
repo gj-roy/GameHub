@@ -34,13 +34,13 @@ class GameNewsAndroidPlugin : Plugin<Project> {
 
     private fun Project.configureAndroidCommonInfo() {
         extensions.findByType<BaseExtension>()?.run {
-            compileSdkVersion(appConfig.compileSdkVersion)
+            compileSdkVersion(AppConfig.compileSdkVersion)
 
             defaultConfig {
-                minSdk = appConfig.minSdkVersion
-                targetSdk = appConfig.targetSdkVersion
-                versionCode = appConfig.versionCode
-                versionName = appConfig.versionName
+                minSdk = AppConfig.minSdkVersion
+                targetSdk = AppConfig.targetSdkVersion
+                versionCode = AppConfig.versionCode
+                versionName = AppConfig.versionName
 
                 testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             }
@@ -80,8 +80,8 @@ class GameNewsAndroidPlugin : Plugin<Project> {
             }
 
             compileOptions {
-                sourceCompatibility = appConfig.javaCompatibilityVersion
-                targetCompatibility = appConfig.javaCompatibilityVersion
+                sourceCompatibility = Tooling.javaCompatibilityVersion
+                targetCompatibility = Tooling.javaCompatibilityVersion
             }
 
         }
@@ -91,7 +91,7 @@ class GameNewsAndroidPlugin : Plugin<Project> {
         plugins.withId(PLUGIN_ANDROID_APPLICATION) {
             extensions.findByType<BaseAppModuleExtension>()?.run {
                 defaultConfig {
-                    applicationId = appConfig.applicationId
+                    applicationId = AppConfig.applicationId
                 }
 
                 signingConfigs {

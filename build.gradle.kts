@@ -3,9 +3,9 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id(PLUGIN_GRADLE_VERSIONS) version versions.gradleVersionsPlugin
-    id(PLUGIN_DETEKT) version versions.detektPlugin
-    id(PLUGIN_KTLINT) version versions.ktlintPlugin
+    id(PLUGIN_GRADLE_VERSIONS) version Tooling.gradleVersionsPlugin
+    id(PLUGIN_DETEKT) version Versions.detektPlugin
+    id(PLUGIN_KTLINT) version Tooling.ktlintPlugin
 }
 
 buildscript {
@@ -15,11 +15,11 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:${versions.gradlePluginVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}")
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${versions.daggerHilt}")
-        classpath("com.google.protobuf:protobuf-gradle-plugin:${versions.protobufPluginVersion}")
-        classpath( "com.github.ben-manes:gradle-versions-plugin:${versions.gradleVersionsPlugin}")
+        classpath("com.android.tools.build:gradle:${Tooling.gradlePluginVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Tooling.kotlin}")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.daggerHilt}")
+        classpath("com.google.protobuf:protobuf-gradle-plugin:${Tooling.protobufPluginVersion}")
+        classpath( "com.github.ben-manes:gradle-versions-plugin:${Tooling.gradleVersionsPlugin}")
     }
 }
 
@@ -44,7 +44,7 @@ allprojects {
     }
 
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
-        version.set(versions.ktlint)
+        version.set(Tooling.ktlint)
         android.set(true)
         outputToConsole.set(true)
 
@@ -82,7 +82,7 @@ subprojects {
                 "-opt-in=com.google.accompanist.pager.ExperimentalPagerApi",
             )
 
-            jvmTarget = appConfig.kotlinCompatibilityVersion.toString()
+            jvmTarget = Tooling.kotlinCompatibilityVersion.toString()
         }
     }
 
@@ -97,7 +97,7 @@ subprojects {
     configurations.all {
         resolutionStrategy.eachDependency {
             if (requested.group == "androidx.lifecycle" && requested.name == "lifecycle-viewmodel-ktx") {
-                useVersion(versions.viewModel)
+                useVersion(Versions.viewModel)
             }
         }
     }

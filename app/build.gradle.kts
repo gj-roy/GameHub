@@ -3,7 +3,7 @@ plugins {
     id(PLUGIN_GAMENEWS_ANDROID)
     id(PLUGIN_GAMENEWS_PROTOBUF)
     id(PLUGIN_KOTLIN_KAPT)
-    id(PLUGIN_KSP) version versions.kspPlugin
+    id(PLUGIN_KSP) version Tooling.kspPlugin
     id(PLUGIN_DAGGER_HILT_ANDROID)
 }
 
@@ -17,7 +17,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = versions.compose
+        kotlinCompilerExtensionVersion = Versions.compose
     }
 
     // Without the below block, a build failure was happening when running ./gradlew connectedAndroidTest
@@ -49,47 +49,47 @@ dependencies {
     implementation(project(":shared"))
 
     // general androidX(jetpack) dependencies
-    implementation(versions.protoDataStore)
-    implementation(versions.splash)
-    implementation(versions.prefsDataStore)
+    implementation(Versions.protoDataStore)
+    implementation(Versions.splash)
+    implementation(Versions.prefsDataStore)
 
     // Jetpack compose
-    implementation(versions.ui)
-    implementation(versions.tooling)
-    implementation(versions.activity)
-    implementation(versions.foundation)
-    implementation(versions.material)
-    implementation(versions.runtime)
-    implementation(versions.navigation)
-    implementation(versions.animation)
-    implementation(versions.constraintLayout)
-    implementation(versions.hilt)
+    implementation(Versions.ui)
+    implementation(Versions.tooling)
+    implementation(Versions.activity)
+    implementation(Versions.foundation)
+    implementation(Versions.material)
+    implementation(Versions.runtime)
+    implementation(Versions.navigation)
+    implementation(Versions.animation)
+    implementation(Versions.constraintLayout)
+    implementation(Versions.hilt)
 
     // accompanist for compose
-    implementation(versions.accompanist.flowLayout)
-    implementation(versions.accompanist.pager)
-    implementation(versions.accompanist.navigationAnimations)
-    implementation(versions.accompanist.systemUi)
+    implementation(Versions.accompanist.flowLayout)
+    implementation(Versions.accompanist.pager)
+    implementation(Versions.accompanist.navigationAnimations)
+    implementation(Versions.accompanist.systemUi)
 
     implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
     implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
-    implementation(versions.daggerHiltAndroid)
-    kapt(versions.daggerHiltAndroidCompiler)
-    implementation(versions.hiltBinder)
-    ksp(versions.hiltBinderCompiler)
-    implementation(versions.coroutines)
-    implementation(versions.kotlinResult)
-    implementation(versions.coil)
-    implementation(versions.zoomable)
+    implementation(Versions.daggerHiltAndroid)
+    kapt(Versions.daggerHiltAndroidCompiler)
+    implementation(Versions.hiltBinder)
+    ksp(Versions.hiltBinderCompiler)
+    implementation(Versions.coroutines)
+    implementation(Versions.kotlinResult)
+    implementation(Versions.coil)
+    implementation(Versions.zoomable)
 
-    coreLibraryDesugaring(versions.desugaredLibs)
-    testImplementation(versions.jUnit)
-    testImplementation(versions.truth)
-    testImplementation(versions.mockk)
-    testImplementation(versions.coroutinesTest)
-    testImplementation(versions.turbine)
-    androidTestImplementation(versions.testRunner)
-    androidTestImplementation(versions.jUnitExt)
+    coreLibraryDesugaring(Versions.desugaredLibs)
+    testImplementation(Versions.jUnit)
+    testImplementation(Versions.truth)
+    testImplementation(Versions.mockk)
+    testImplementation(Versions.coroutinesTest)
+    testImplementation(Versions.turbine)
+    androidTestImplementation(Versions.testRunner)
+    androidTestImplementation(Versions.jUnitExt)
 }
 
 val installGitHook by tasks.registering(Copy::class) {

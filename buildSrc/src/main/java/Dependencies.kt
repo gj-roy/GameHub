@@ -5,37 +5,50 @@ import org.gradle.api.JavaVersion
 /**
  * All the configurations we write in gradle scripts about app's main characteristics.
  */
-object appConfig {
-
+object AppConfig {
+    // app itself
     const val compileSdkVersion = 32
     const val targetSdkVersion = 32
     const val minSdkVersion = 21
     const val applicationId = "ca.on.hojat.gamenews"
     const val versionCode = 1
     const val versionName = "1.0.0"
-    val javaCompatibilityVersion = JavaVersion.VERSION_11
-    val kotlinCompatibilityVersion = JavaVersion.VERSION_11
+
 }
 
-object versions {
-    const val gradlePluginVersion = "7.2.2"
-    const val protobufPluginVersion = "0.8.19"
+/**
+ * All the stuff that I don't have an idea how the fuck they're working; but I'm using them anyway.
+ */
+object Tooling {
+    // language
     const val kotlin = "1.7.0"
-    const val compose = "1.2.0"
-    const val gradleVersionsPlugin = "0.42.0"
-    const val kspPlugin = "1.7.0-1.0.6"
-    const val daggerHilt = "2.43.2"
-    const val detektPlugin = "1.21.0"
-    const val ktlintPlugin = "10.3.0"
-    const val ktlint = "0.45.2"
+    val javaCompatibilityVersion = JavaVersion.VERSION_11
+    val kotlinCompatibilityVersion = JavaVersion.VERSION_11
 
-    // kotlin
+    // build tools
+    const val gradlePluginVersion = "7.2.2"
+    const val gradleVersionsPlugin = "0.42.0"
+
+    // serializer
+    const val protobufPluginVersion = "0.8.19"
     private const val serializationVersion = "1.3.3"
-    const val stdLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin"
-    const val coroutines =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
     const val serialization =
         "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
+
+
+    const val kspPlugin = "1.7.0-1.0.6"
+    const val ktlintPlugin = "10.3.0"
+    const val ktlint = "0.45.2"
+}
+
+object Versions {
+    const val compose = "1.2.0"
+    const val daggerHilt = "2.43.2"
+    const val detektPlugin = "1.21.0"
+
+    const val coroutines =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
 
     // androidX
     private const val splashVersion = "1.0.0"
