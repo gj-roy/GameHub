@@ -132,16 +132,7 @@ object Network {
 
 }
 
-object Versions {
-
-
-    private const val hiltBinderVersion = "1.1.2"
-    const val desugaredLibs = "com.android.tools:desugar_jdk_libs:1.1.5"
-    const val kotlinResult = "com.michael-bull.kotlin-result:kotlin-result:1.1.16"
-    const val hiltBinder = "com.paulrybitskyi:hilt-binder:$hiltBinderVersion"
-    const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:$hiltBinderVersion"
-    const val coil = "io.coil-kt:coil-compose:2.1.0"
-    const val zoomable = "com.mxalbert.zoomable:zoomable:1.5.1"
+object Testing {
 
     // testing
     private const val jUnitVersion = "4.13.2"
@@ -161,4 +152,16 @@ object Versions {
     const val testRunner = "androidx.test:runner:$testRunnerVersion"
     const val archCore = "androidx.arch.core:core-testing:$archCoreVersion"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+}
+
+object Versions {
+    
+    private const val hiltBinderVersion = "1.1.2"
+    const val desugaredLibs = "com.android.tools:desugar_jdk_libs:1.1.5"
+    const val kotlinResult = "com.michael-bull.kotlin-result:kotlin-result:1.1.16"
+    const val hiltBinder = "com.paulrybitskyi:hilt-binder:$hiltBinderVersion"
+    const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:$hiltBinderVersion"
+    const val coil = "io.coil-kt:coil-compose:2.1.0"
+    const val zoomable = "com.mxalbert.zoomable:zoomable:1.5.1"
+
 }
