@@ -48,7 +48,7 @@ dependencies {
     // local modules
     implementation(project(":shared"))
 
-    // general androidX(jetpack) dependencies
+    // general jetpack libs
     implementation(AndroidX.protoDataStore)
     implementation(AndroidX.splash)
     implementation(AndroidX.prefsDataStore)
@@ -64,32 +64,37 @@ dependencies {
     implementation(Compose.animation)
     implementation(Compose.constraintLayout)
     implementation(Compose.hilt)
-
-    // accompanist for compose
     implementation(Compose.flowLayout)
     implementation(Compose.pager)
     implementation(Compose.navigationAnimations)
     implementation(Compose.systemUi)
 
-    implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
-    implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
+    // DI
     implementation(Hilt.daggerHiltAndroid)
     kapt(Hilt.daggerHiltAndroidCompiler)
+
+    // Needed tools
+    implementation(Tooling.coroutines)
+    coreLibraryDesugaring(Tooling.desugaredLibs)
+    testImplementation(Tooling.coroutinesTest)
+
+    // Test libs
+    testImplementation(Testing.jUnit)
+    testImplementation(Testing.truth)
+    testImplementation(Testing.mockk)
+    testImplementation(Testing.turbine)
+    androidTestImplementation(Testing.testRunner)
+    androidTestImplementation(Testing.jUnitExt)
+
     implementation(ThirdParties.hiltBinder)
     ksp(ThirdParties.hiltBinderCompiler)
-    implementation(Tooling.coroutines)
     implementation(ThirdParties.kotlinResult)
     implementation(ThirdParties.coil)
     implementation(ThirdParties.zoomable)
 
-    coreLibraryDesugaring(Tooling.desugaredLibs)
-    testImplementation(Testing.jUnit)
-    testImplementation(Testing.truth)
-    testImplementation(Testing.mockk)
-    testImplementation(Tooling.coroutinesTest)
-    testImplementation(Testing.turbine)
-    androidTestImplementation(Testing.testRunner)
-    androidTestImplementation(Testing.jUnitExt)
+    // To be localized
+    implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
+    implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
 }
 
 val installGitHook by tasks.registering(Copy::class) {

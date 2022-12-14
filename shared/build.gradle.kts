@@ -106,7 +106,6 @@ dependencies {
     androidTestImplementation(Testing.archCore)
     androidTestImplementation(Testing.turbine)
 
-
     // http client
     implementation(Network.okHttpLoggingInterceptor)
     implementation(Network.retrofit)
@@ -118,7 +117,7 @@ dependencies {
     ksp(ThirdParties.hiltBinderCompiler)
     implementation(ThirdParties.coil)
 
-    // to be localized
+    // To be localized
     implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
     implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
     implementation("com.paulrybitskyi.commons:commons-network:1.0.3")
