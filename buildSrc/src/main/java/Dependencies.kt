@@ -161,13 +161,14 @@ object Testing {
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
 }
 
+/**
+ * These libs are not my own and also are not from Android or google.
+ */
 object ThirdParties {
-
     private const val hiltBinderVersion = "1.1.2"
     const val kotlinResult = "com.michael-bull.kotlin-result:kotlin-result:1.1.16"
     const val hiltBinder = "com.paulrybitskyi:hilt-binder:$hiltBinderVersion"
     const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:$hiltBinderVersion"
     const val coil = "io.coil-kt:coil-compose:2.1.0"
     const val zoomable = "com.mxalbert.zoomable:zoomable:1.5.1"
-
 }

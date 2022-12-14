@@ -53,37 +53,26 @@ ksp {
 
 dependencies {
 
-    implementation(AndroidX.prefsDataStore)
-    implementation(AndroidX.protoDataStore)
-
+    // Room database
     implementation(AndroidX.room)
     implementation(AndroidX.roomKtx)
     ksp(AndroidX.roomCompiler)
+    androidTestImplementation(AndroidX.roomTest)
+
+    // General jetpack libs
+    implementation(AndroidX.prefsDataStore)
+    implementation(AndroidX.protoDataStore)
+    implementation(AndroidX.browser)
+
+    // Needed tools
     implementation(Tooling.coroutines)
     implementation(Tooling.serialization)
-    implementation(AndroidX.browser)
-    implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
-    implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
-    implementation("com.paulrybitskyi.commons:commons-network:1.0.3")
-    implementation("com.paulrybitskyi.commons:commons-window-anims:1.0.2")
-    implementation(ThirdParties.kotlinResult)
-    implementation(Hilt.daggerHiltTest)
-    implementation(Hilt.daggerHiltCore)
-    implementation(Testing.testRunner)
-    implementation(Testing.mockk)
     implementation(Tooling.coroutinesTest)
-    kapt(Hilt.daggerHiltCoreCompiler)
-    implementation(Hilt.daggerHiltAndroid)
-    kapt(Hilt.daggerHiltAndroidCompiler)
-    implementation(ThirdParties.hiltBinder)
-    ksp(ThirdParties.hiltBinderCompiler)
     coreLibraryDesugaring(Tooling.desugaredLibs)
-    implementation(Testing.mockWebServer)
-    implementation(Network.okHttpLoggingInterceptor)
-    implementation(Network.retrofit)
-    implementation(Network.retrofitKotlinxSerializationConverter)
-    implementation(Network.retrofitScalarsConverter)
+    testImplementation(Tooling.coroutinesTest)
+    androidTestImplementation(Tooling.coroutinesTest)
 
+    // Compose
     implementation(Compose.ui)
     implementation(Compose.tooling)
     implementation(Compose.foundation)
@@ -93,24 +82,45 @@ dependencies {
     implementation(Compose.constraintLayout)
     implementation(Compose.swipeRefresh)
     implementation(Compose.systemUi)
-    implementation(ThirdParties.coil)
 
+    // DI
+    implementation(Hilt.daggerHiltTest)
+    implementation(Hilt.daggerHiltCore)
+    kapt(Hilt.daggerHiltCoreCompiler)
+    implementation(Hilt.daggerHiltAndroid)
+    kapt(Hilt.daggerHiltAndroidCompiler)
+    androidTestImplementation(Hilt.daggerHiltTest)
+    kaptAndroidTest(Hilt.daggerHiltAndroidCompiler)
+
+    // Test libs
+    implementation(Testing.testRunner)
+    implementation(Testing.mockk)
+    implementation(Testing.mockWebServer)
     testImplementation(Testing.turbine)
-    testImplementation(Tooling.coroutinesTest)
     testImplementation(Testing.jUnit)
     testImplementation(Testing.truth)
     testImplementation(Testing.mockk)
-    testImplementation("com.google.truth:truth:1.1.3")
-
     androidTestImplementation(Testing.testRunner)
     androidTestImplementation(Testing.jUnitExt)
-    androidTestImplementation(Hilt.daggerHiltTest)
     androidTestImplementation(Testing.truth)
     androidTestImplementation(Testing.archCore)
-    androidTestImplementation(Tooling.coroutinesTest)
     androidTestImplementation(Testing.turbine)
-    androidTestImplementation(AndroidX.roomTest)
 
-    kaptAndroidTest(Hilt.daggerHiltAndroidCompiler)
 
+    // http client
+    implementation(Network.okHttpLoggingInterceptor)
+    implementation(Network.retrofit)
+    implementation(Network.retrofitKotlinxSerializationConverter)
+    implementation(Network.retrofitScalarsConverter)
+
+    implementation(ThirdParties.kotlinResult)
+    implementation(ThirdParties.hiltBinder)
+    ksp(ThirdParties.hiltBinderCompiler)
+    implementation(ThirdParties.coil)
+
+    // to be localized
+    implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
+    implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
+    implementation("com.paulrybitskyi.commons:commons-network:1.0.3")
+    implementation("com.paulrybitskyi.commons:commons-window-anims:1.0.2")
 }
