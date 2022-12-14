@@ -49,9 +49,9 @@ dependencies {
     implementation(project(":shared"))
 
     // general androidX(jetpack) dependencies
-    implementation(Versions.protoDataStore)
-    implementation(Versions.splash)
-    implementation(Versions.prefsDataStore)
+    implementation(AndroidX.protoDataStore)
+    implementation(AndroidX.splash)
+    implementation(AndroidX.prefsDataStore)
 
     // Jetpack compose
     implementation(Versions.ui)

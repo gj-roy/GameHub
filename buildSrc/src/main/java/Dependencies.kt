@@ -31,38 +31,49 @@ object Tooling {
 
     // serializer
     const val protobufPluginVersion = "0.8.19"
-    private const val serializationVersion = "1.3.3"
-    const val serialization =
-        "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
-
+    const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3"
 
     const val kspPlugin = "1.7.0-1.0.6"
+
+    // linters
     const val ktlintPlugin = "10.3.0"
     const val ktlint = "0.45.2"
+
+    // static code analyzer
+    const val detektPlugin = "1.21.0"
+}
+
+/**
+ * All the jetpack libraries other than compose.
+ */
+object AndroidX {
+
+    const val viewModel = "2.5.1" // to be deleted when the linked issue at use site is fixed.
+    private const val dataStoreVersion = "1.0.0"
+
+    // splash screen
+    const val splash = "androidx.core:core-splashscreen:1.0.0"
+
+    // browser
+    const val browser = "androidx.browser:browser:1.4.0"
+
+    // Room database
+    const val room = "androidx.room:room-runtime:2.4.3"
+    const val roomKtx = "androidx.room:room-ktx:2.4.3"
+    const val roomCompiler = "androidx.room:room-compiler:2.4.3"
+
+    // Datastore database
+    const val prefsDataStore = "androidx.datastore:datastore-preferences:${dataStoreVersion}"
+    const val protoDataStore = "androidx.datastore:datastore:${dataStoreVersion}"
+
+
 }
 
 object Versions {
     const val compose = "1.2.0"
     const val daggerHilt = "2.43.2"
-    const val detektPlugin = "1.21.0"
-
     const val coroutines =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
-
-
-    // androidX
-    private const val splashVersion = "1.0.0"
-    const val viewModel = "2.5.1" // to be deleted when the linked issue at use site is fixed
-    private const val browserVersion = "1.4.0"
-    private const val dataStoreVersion = "1.0.0"
-
-    const val splash = "androidx.core:core-splashscreen:$splashVersion"
-    const val browser = "androidx.browser:browser:${browserVersion}"
-    const val room = "androidx.room:room-runtime:2.4.3"
-    const val roomKtx = "androidx.room:room-ktx:2.4.3"
-    const val roomCompiler = "androidx.room:room-compiler:2.4.3"
-    const val prefsDataStore = "androidx.datastore:datastore-preferences:${dataStoreVersion}"
-    const val protoDataStore = "androidx.datastore:datastore:${dataStoreVersion}"
 
     // compose
 
@@ -85,14 +96,16 @@ object Versions {
 
     object accompanist {
 
-        private const val version = "0.25.0"
+        private const val accompanistVersion = "0.25.0"
 
-        const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:$version"
-        const val flowLayout = "com.google.accompanist:accompanist-flowlayout:$version"
-        const val pager = "com.google.accompanist:accompanist-pager:$version"
-        const val systemUi = "com.google.accompanist:accompanist-systemuicontroller:$version"
+        const val swipeRefresh =
+            "com.google.accompanist:accompanist-swiperefresh:$accompanistVersion"
+        const val flowLayout = "com.google.accompanist:accompanist-flowlayout:$accompanistVersion"
+        const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
+        const val systemUi =
+            "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
         const val navigationAnimations =
-            "com.google.accompanist:accompanist-navigation-animation:$version"
+            "com.google.accompanist:accompanist-navigation-animation:$accompanistVersion"
     }
 
     // google stuff

@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id(PLUGIN_GRADLE_VERSIONS) version Tooling.gradleVersionsPlugin
-    id(PLUGIN_DETEKT) version Versions.detektPlugin
+    id(PLUGIN_DETEKT) version Tooling.detektPlugin
     id(PLUGIN_KTLINT) version Tooling.ktlintPlugin
 }
 
@@ -97,7 +97,7 @@ subprojects {
     configurations.all {
         resolutionStrategy.eachDependency {
             if (requested.group == "androidx.lifecycle" && requested.name == "lifecycle-viewmodel-ktx") {
-                useVersion(Versions.viewModel)
+                useVersion(AndroidX.viewModel)
             }
         }
     }
