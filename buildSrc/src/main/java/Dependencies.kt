@@ -30,8 +30,12 @@ object Tooling {
     const val gradleVersionsPlugin = "0.42.0"
 
     // serializer
+    private const val protobufVersion = "3.21.4"
     const val protobufPluginVersion = "0.8.19"
+    const val protobuf = "com.google.protobuf:protobuf-javalite:${protobufVersion}"
+    const val protobufCompiler = "com.google.protobuf:protoc:${protobufVersion}"
     const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3"
+
 
     const val kspPlugin = "1.7.0-1.0.6"
 
@@ -41,6 +45,10 @@ object Tooling {
 
     // static code analyzer
     const val detektPlugin = "1.21.0"
+
+    // coroutines
+    const val coroutines =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 }
 
 /**
@@ -69,57 +77,44 @@ object AndroidX {
 
 }
 
-object Versions {
-    const val compose = "1.2.0"
-    const val daggerHilt = "2.43.2"
-    const val coroutines =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+object Compose {
 
-    // compose
+    const val composeVersion = "1.2.0"
+    private const val accompanistVersion = "0.25.0"
 
-    private const val navigationVersion = "2.5.1"
-    private const val constraintLayoutVersion = "1.1.0-alpha02"
-    private const val hiltVersion = "1.0.0"
-
-    const val ui = "androidx.compose.ui:ui:$compose"
-    const val tooling = "androidx.compose.ui:ui-tooling:$compose"
-    const val animation = "androidx.compose.animation:animation-graphics:$compose"
-    const val foundation = "androidx.compose.foundation:foundation:$compose"
-    const val activity = "androidx.activity:activity-compose:$compose"
-    const val material = "androidx.compose.material:material:$compose"
-    const val runtime = "androidx.compose.runtime:runtime:$compose"
-
-    const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
+    const val ui = "androidx.compose.ui:ui:$composeVersion"
+    const val tooling = "androidx.compose.ui:ui-tooling:$composeVersion"
+    const val animation = "androidx.compose.animation:animation-graphics:$composeVersion"
+    const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
+    const val activity = "androidx.activity:activity-compose:$composeVersion"
+    const val material = "androidx.compose.material:material:$composeVersion"
+    const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
+    const val navigation = "androidx.navigation:navigation-compose:2.5.1"
     const val constraintLayout =
-        "androidx.constraintlayout:constraintlayout-compose:$constraintLayoutVersion"
-    const val hilt = "androidx.hilt:hilt-navigation-compose:$hiltVersion"
+        "androidx.constraintlayout:constraintlayout-compose:1.1.0-alpha02"
+    const val hilt = "androidx.hilt:hilt-navigation-compose:1.0.0"
+    const val swipeRefresh =
+        "com.google.accompanist:accompanist-swiperefresh:$accompanistVersion"
+    const val flowLayout = "com.google.accompanist:accompanist-flowlayout:$accompanistVersion"
+    const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
+    const val systemUi =
+        "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
+    const val navigationAnimations =
+        "com.google.accompanist:accompanist-navigation-animation:$accompanistVersion"
+}
 
-    object accompanist {
+object Hilt {
+    const val coreHiltVersion = "2.43.2"
 
-        private const val accompanistVersion = "0.25.0"
-
-        const val swipeRefresh =
-            "com.google.accompanist:accompanist-swiperefresh:$accompanistVersion"
-        const val flowLayout = "com.google.accompanist:accompanist-flowlayout:$accompanistVersion"
-        const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
-        const val systemUi =
-            "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
-        const val navigationAnimations =
-            "com.google.accompanist:accompanist-navigation-animation:$accompanistVersion"
-    }
-
-    // google stuff
-    private const val protobufVersion = "3.21.4"
-
-    const val daggerHiltCore = "com.google.dagger:hilt-core:$daggerHilt"
-    const val daggerHiltCoreCompiler = "com.google.dagger:hilt-compiler:$daggerHilt"
-    const val daggerHiltAndroid = "com.google.dagger:hilt-android:$daggerHilt"
+    const val daggerHiltCore = "com.google.dagger:hilt-core:$coreHiltVersion"
+    const val daggerHiltCoreCompiler = "com.google.dagger:hilt-compiler:$coreHiltVersion"
+    const val daggerHiltAndroid = "com.google.dagger:hilt-android:$coreHiltVersion"
     const val daggerHiltAndroidCompiler =
-        "com.google.dagger:hilt-android-compiler:$daggerHilt"
-    const val protobuf = "com.google.protobuf:protobuf-javalite:${protobufVersion}"
-    const val protobufCompiler = "com.google.protobuf:protoc:${protobufVersion}"
+        "com.google.dagger:hilt-android-compiler:$coreHiltVersion"
+    const val daggerHiltTest = "com.google.dagger:hilt-android-testing:$coreHiltVersion"
+}
 
-
+object Versions {
     // square stuff
     private const val okHttpVersion = "4.10.0"
     private const val retrofitVersion = "2.9.0"
@@ -167,7 +162,7 @@ object Versions {
     const val turbine = "app.cash.turbine:turbine:$turbineVersion"
     const val testRunner = "androidx.test:runner:$testRunnerVersion"
     const val archCore = "androidx.arch.core:core-testing:$archCoreVersion"
-    const val daggerHiltTest = "com.google.dagger:hilt-android-testing:$daggerHilt"
+
     const val roomTest = "androidx.room:room-testing:2.4.3"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
 }

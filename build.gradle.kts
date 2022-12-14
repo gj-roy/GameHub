@@ -17,7 +17,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:${Tooling.gradlePluginVersion}")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Tooling.kotlin}")
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.daggerHilt}")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:${Hilt.coreHiltVersion}")
         classpath("com.google.protobuf:protobuf-gradle-plugin:${Tooling.protobufPluginVersion}")
         classpath( "com.github.ben-manes:gradle-versions-plugin:${Tooling.gradleVersionsPlugin}")
     }

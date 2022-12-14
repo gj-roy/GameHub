@@ -18,7 +18,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
+        kotlinCompilerExtensionVersion = Compose.composeVersion
     }
 
     namespace = "ca.on.hojat.gamenews.shared"
@@ -59,7 +59,7 @@ dependencies {
     implementation(AndroidX.room)
     implementation(AndroidX.roomKtx)
     ksp(AndroidX.roomCompiler)
-    implementation(Versions.coroutines)
+    implementation(Tooling.coroutines)
     implementation(Tooling.serialization)
     implementation(AndroidX.browser)
     implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
@@ -67,14 +67,14 @@ dependencies {
     implementation("com.paulrybitskyi.commons:commons-network:1.0.3")
     implementation("com.paulrybitskyi.commons:commons-window-anims:1.0.2")
     implementation(Versions.kotlinResult)
-    implementation(Versions.daggerHiltTest)
-    implementation(Versions.daggerHiltCore)
+    implementation(Hilt.daggerHiltTest)
+    implementation(Hilt.daggerHiltCore)
     implementation(Versions.testRunner)
     implementation(Versions.mockk)
     implementation(Versions.coroutinesTest)
-    kapt(Versions.daggerHiltCoreCompiler)
-    implementation(Versions.daggerHiltAndroid)
-    kapt(Versions.daggerHiltAndroidCompiler)
+    kapt(Hilt.daggerHiltCoreCompiler)
+    implementation(Hilt.daggerHiltAndroid)
+    kapt(Hilt.daggerHiltAndroidCompiler)
     implementation(Versions.hiltBinder)
     ksp(Versions.hiltBinderCompiler)
     coreLibraryDesugaring(Versions.desugaredLibs)
@@ -84,15 +84,15 @@ dependencies {
     implementation(Versions.retrofitKotlinxSerializationConverter)
     implementation(Versions.retrofitScalarsConverter)
 
-    implementation(Versions.ui)
-    implementation(Versions.tooling)
-    implementation(Versions.foundation)
-    implementation(Versions.activity)
-    implementation(Versions.runtime)
-    implementation(Versions.material)
-    implementation(Versions.constraintLayout)
-    implementation(Versions.accompanist.swipeRefresh)
-    implementation(Versions.accompanist.systemUi)
+    implementation(Compose.ui)
+    implementation(Compose.tooling)
+    implementation(Compose.foundation)
+    implementation(Compose.activity)
+    implementation(Compose.runtime)
+    implementation(Compose.material)
+    implementation(Compose.constraintLayout)
+    implementation(Compose.swipeRefresh)
+    implementation(Compose.systemUi)
     implementation(Versions.coil)
 
     testImplementation(Versions.turbine)
@@ -104,13 +104,13 @@ dependencies {
 
     androidTestImplementation(Versions.testRunner)
     androidTestImplementation(Versions.jUnitExt)
-    androidTestImplementation(Versions.daggerHiltTest)
+    androidTestImplementation(Hilt.daggerHiltTest)
     androidTestImplementation(Versions.truth)
     androidTestImplementation(Versions.archCore)
     androidTestImplementation(Versions.coroutinesTest)
     androidTestImplementation(Versions.turbine)
     androidTestImplementation(Versions.roomTest)
 
-    kaptAndroidTest(Versions.daggerHiltAndroidCompiler)
+    kaptAndroidTest(Hilt.daggerHiltAndroidCompiler)
 
 }

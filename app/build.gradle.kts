@@ -17,7 +17,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
+        kotlinCompilerExtensionVersion = Compose.composeVersion
     }
 
     // Without the below block, a build failure was happening when running ./gradlew connectedAndroidTest
@@ -54,30 +54,30 @@ dependencies {
     implementation(AndroidX.prefsDataStore)
 
     // Jetpack compose
-    implementation(Versions.ui)
-    implementation(Versions.tooling)
-    implementation(Versions.activity)
-    implementation(Versions.foundation)
-    implementation(Versions.material)
-    implementation(Versions.runtime)
-    implementation(Versions.navigation)
-    implementation(Versions.animation)
-    implementation(Versions.constraintLayout)
-    implementation(Versions.hilt)
+    implementation(Compose.ui)
+    implementation(Compose.tooling)
+    implementation(Compose.activity)
+    implementation(Compose.foundation)
+    implementation(Compose.material)
+    implementation(Compose.runtime)
+    implementation(Compose.navigation)
+    implementation(Compose.animation)
+    implementation(Compose.constraintLayout)
+    implementation(Compose.hilt)
 
     // accompanist for compose
-    implementation(Versions.accompanist.flowLayout)
-    implementation(Versions.accompanist.pager)
-    implementation(Versions.accompanist.navigationAnimations)
-    implementation(Versions.accompanist.systemUi)
+    implementation(Compose.flowLayout)
+    implementation(Compose.pager)
+    implementation(Compose.navigationAnimations)
+    implementation(Compose.systemUi)
 
     implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
     implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
-    implementation(Versions.daggerHiltAndroid)
-    kapt(Versions.daggerHiltAndroidCompiler)
+    implementation(Hilt.daggerHiltAndroid)
+    kapt(Hilt.daggerHiltAndroidCompiler)
     implementation(Versions.hiltBinder)
     ksp(Versions.hiltBinderCompiler)
-    implementation(Versions.coroutines)
+    implementation(Tooling.coroutines)
     implementation(Versions.kotlinResult)
     implementation(Versions.coil)
     implementation(Versions.zoomable)
