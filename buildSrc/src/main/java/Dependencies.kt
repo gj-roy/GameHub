@@ -25,6 +25,10 @@ object Tooling {
     val javaCompatibilityVersion = JavaVersion.VERSION_11
     val kotlinCompatibilityVersion = JavaVersion.VERSION_11
 
+    // https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md
+    // some libs from open JDK to access Java 8 and later
+    const val desugaredLibs = "com.android.tools:desugar_jdk_libs:1.1.5"
+
     // build tools
     const val gradlePluginVersion = "7.2.2"
     const val gradleVersionsPlugin = "0.42.0"
@@ -132,6 +136,9 @@ object Network {
 
 }
 
+/**
+ * General libs used for testing.
+ */
 object Testing {
 
     // testing
@@ -154,10 +161,9 @@ object Testing {
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
 }
 
-object Versions {
-    
+object ThirdParties {
+
     private const val hiltBinderVersion = "1.1.2"
-    const val desugaredLibs = "com.android.tools:desugar_jdk_libs:1.1.5"
     const val kotlinResult = "com.michael-bull.kotlin-result:kotlin-result:1.1.16"
     const val hiltBinder = "com.paulrybitskyi:hilt-binder:$hiltBinderVersion"
     const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:$hiltBinderVersion"
