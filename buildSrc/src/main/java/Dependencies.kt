@@ -36,7 +36,6 @@ object Tooling {
     const val protobufCompiler = "com.google.protobuf:protoc:${protobufVersion}"
     const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3"
 
-
     const val kspPlugin = "1.7.0-1.0.6"
 
     // linters
@@ -47,8 +46,9 @@ object Tooling {
     const val detektPlugin = "1.21.0"
 
     // coroutines
-    const val coroutines =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    private const val coroutinesVersion = "1.6.4"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 }
 
 /**
@@ -58,6 +58,7 @@ object AndroidX {
 
     const val viewModel = "2.5.1" // to be deleted when the linked issue at use site is fixed.
     private const val dataStoreVersion = "1.0.0"
+    private const val roomVersion = "2.4.3"
 
     // splash screen
     const val splash = "androidx.core:core-splashscreen:1.0.0"
@@ -66,9 +67,10 @@ object AndroidX {
     const val browser = "androidx.browser:browser:1.4.0"
 
     // Room database
-    const val room = "androidx.room:room-runtime:2.4.3"
-    const val roomKtx = "androidx.room:room-ktx:2.4.3"
-    const val roomCompiler = "androidx.room:room-compiler:2.4.3"
+    const val room = "androidx.room:room-runtime:$roomVersion"
+    const val roomKtx = "androidx.room:room-ktx:$roomVersion"
+    const val roomCompiler = "androidx.room:room-compiler:$roomVersion"
+    const val roomTest = "androidx.room:room-testing:$roomVersion"
 
     // Datastore database
     const val prefsDataStore = "androidx.datastore:datastore-preferences:${dataStoreVersion}"
@@ -114,34 +116,32 @@ object Hilt {
     const val daggerHiltTest = "com.google.dagger:hilt-android-testing:$coreHiltVersion"
 }
 
-object Versions {
-    // square stuff
-    private const val okHttpVersion = "4.10.0"
+/**
+ * Libraries used for connecting to the API and receiving data.
+ */
+object Network {
     private const val retrofitVersion = "2.9.0"
-    private const val retrofitKotlinxSerializationConverterVersion = "0.8.0"
 
     const val okHttpLoggingInterceptor =
-        "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
+        "com.squareup.okhttp3:logging-interceptor:4.10.0"
     const val retrofit = "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     const val retrofitScalarsConverter =
         "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
     const val retrofitKotlinxSerializationConverter =
-        "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitKotlinxSerializationConverterVersion"
+        "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
 
-    // misc
-    private const val desugaredLibsVersion = "1.1.5"
-    private const val kotlinResultVersion = "1.1.16"
+}
+
+object Versions {
+
+
     private const val hiltBinderVersion = "1.1.2"
-    private const val coilVersion = "2.1.0"
-    private const val zoomableVersion = "1.5.1"
-
-    const val desugaredLibs = "com.android.tools:desugar_jdk_libs:${desugaredLibsVersion}"
-    const val kotlinResult =
-        "com.michael-bull.kotlin-result:kotlin-result:${kotlinResultVersion}"
+    const val desugaredLibs = "com.android.tools:desugar_jdk_libs:1.1.5"
+    const val kotlinResult = "com.michael-bull.kotlin-result:kotlin-result:1.1.16"
     const val hiltBinder = "com.paulrybitskyi:hilt-binder:$hiltBinderVersion"
     const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:$hiltBinderVersion"
-    const val coil = "io.coil-kt:coil-compose:$coilVersion"
-    const val zoomable = "com.mxalbert.zoomable:zoomable:$zoomableVersion"
+    const val coil = "io.coil-kt:coil-compose:2.1.0"
+    const val zoomable = "com.mxalbert.zoomable:zoomable:1.5.1"
 
     // testing
     private const val jUnitVersion = "4.13.2"
@@ -157,12 +157,8 @@ object Versions {
     const val jUnitExt = "androidx.test.ext:junit:$jUnitExtVersion"
     const val truth = "com.google.truth:truth:$truthVersion"
     const val mockk = "io.mockk:mockk:$mockkVersion"
-    const val coroutinesTest =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
     const val turbine = "app.cash.turbine:turbine:$turbineVersion"
     const val testRunner = "androidx.test:runner:$testRunnerVersion"
     const val archCore = "androidx.arch.core:core-testing:$archCoreVersion"
-
-    const val roomTest = "androidx.room:room-testing:2.4.3"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
 }

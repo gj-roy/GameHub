@@ -86,7 +86,7 @@ dependencies {
     testImplementation(Versions.jUnit)
     testImplementation(Versions.truth)
     testImplementation(Versions.mockk)
-    testImplementation(Versions.coroutinesTest)
+    testImplementation(Tooling.coroutinesTest)
     testImplementation(Versions.turbine)
     androidTestImplementation(Versions.testRunner)
     androidTestImplementation(Versions.jUnitExt)
