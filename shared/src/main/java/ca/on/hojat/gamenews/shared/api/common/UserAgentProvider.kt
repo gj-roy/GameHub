@@ -7,6 +7,10 @@ import com.paulrybitskyi.hiltbinder.BindType
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
+/**
+ * As much as I found out, it just returns a String containing
+ * app's name and version.
+ */
 interface UserAgentProvider {
 
     fun getUserAgent(): String

@@ -10,6 +10,7 @@ internal class UserAgentInterceptor @Inject constructor(
     private val userAgentProvider: UserAgentProvider
 ) : Interceptor {
 
+    // Just a string containing app's name and version
     private val userAgent by lazy {
         userAgentProvider.getUserAgent()
     }

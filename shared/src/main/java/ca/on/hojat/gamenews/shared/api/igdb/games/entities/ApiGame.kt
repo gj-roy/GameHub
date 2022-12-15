@@ -5,6 +5,9 @@ import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.annotations.Api
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * This is all the data we get from IGDB for a specific video game.
+ */
 @ApicalypseClass
 @Serializable
 data class ApiGame(

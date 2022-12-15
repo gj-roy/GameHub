@@ -5,6 +5,9 @@ import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.annotations.Api
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * Some examples are Action, Fantasy, Historical, Open World, and so on...
+ */
 @ApicalypseClass
 @Serializable
 data class ApiTheme(

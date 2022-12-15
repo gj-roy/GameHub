@@ -5,6 +5,10 @@ import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.annotations.Api
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * The perspective that the player will have while playing the game.
+ * Such as 1st person, 3rd person, strategy, and so on...
+ */
 @ApicalypseClass
 @Serializable
 data class ApiPlayerPerspective(
