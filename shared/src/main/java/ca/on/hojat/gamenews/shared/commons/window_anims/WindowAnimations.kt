@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.commons.window_anims
 
-import com.paulrybitskyi.commons.window.anims.R
+import ca.on.hojat.gamenews.shared.R
 
 enum class WindowAnimations(
     val id: Int,

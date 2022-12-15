@@ -123,9 +123,4 @@ dependencies {
     ksp(ThirdParties.hiltBinderCompiler)
     implementation(ThirdParties.coil)
 
-    // To be localized
-    implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
-    implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
-    implementation("com.paulrybitskyi.commons:commons-network:1.0.3")
-    implementation("com.paulrybitskyi.commons:commons-window-anims:1.0.2")
 }

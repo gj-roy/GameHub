@@ -91,10 +91,6 @@ dependencies {
     implementation(ThirdParties.kotlinResult)
     implementation(ThirdParties.coil)
     implementation(ThirdParties.zoomable)
-
-    // To be localized
-    implementation("com.paulrybitskyi.commons:commons-core:1.0.4")
-    implementation("com.paulrybitskyi.commons:commons-ktx:1.0.4")
 }
 
 val installGitHook by tasks.registering(Copy::class) {
