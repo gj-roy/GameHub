@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.feature_settings.presentation
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.shared.core.Constants
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.common.extensions.execute
+import ca.on.hojat.gamenews.shared.domain.common.usecases.execute
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme

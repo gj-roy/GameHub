@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.domain.common.extensions
+package ca.on.hojat.gamenews.shared.extensions
 
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok

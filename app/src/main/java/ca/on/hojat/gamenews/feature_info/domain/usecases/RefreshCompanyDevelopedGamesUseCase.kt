@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.feature_info.domain.usecases
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.DomainResult
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
-import ca.on.hojat.gamenews.shared.domain.common.extensions.onEachSuccess
+import ca.on.hojat.gamenews.shared.extensions.onEachSuccess
 import ca.on.hojat.gamenews.shared.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottlerTools
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesDataStores

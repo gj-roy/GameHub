@@ -4,8 +4,8 @@ import ca.on.hojat.gamenews.shared.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.DomainResult
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
-import ca.on.hojat.gamenews.shared.domain.common.extensions.asSuccess
-import ca.on.hojat.gamenews.shared.domain.common.extensions.onSuccess
+import ca.on.hojat.gamenews.shared.extensions.asSuccess
+import ca.on.hojat.gamenews.shared.extensions.onSuccess
 import ca.on.hojat.gamenews.shared.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesDataStores
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game

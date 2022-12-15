@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.core.utils.onError
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
-import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
+import ca.on.hojat.gamenews.shared.extensions.resultOrError
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase

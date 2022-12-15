@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseCase
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCase
 import ca.on.hojat.gamenews.shared.core.Constants
-import ca.on.hojat.gamenews.shared.domain.common.extensions.execute
+import ca.on.hojat.gamenews.shared.domain.common.usecases.execute
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import com.google.common.truth.Truth.assertThat

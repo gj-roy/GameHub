@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_settings.domain.usecases
 
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.usecases.ObservableUseCase
-import ca.on.hojat.gamenews.shared.domain.common.extensions.execute
+import ca.on.hojat.gamenews.shared.domain.common.usecases.execute
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow

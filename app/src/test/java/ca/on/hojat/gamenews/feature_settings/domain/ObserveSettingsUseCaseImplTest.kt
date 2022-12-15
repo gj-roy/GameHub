@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_settings.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
-import ca.on.hojat.gamenews.shared.domain.common.extensions.execute
+import ca.on.hojat.gamenews.shared.domain.common.usecases.execute
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.feature_settings.domain.datastores.SettingsLocalDataStore

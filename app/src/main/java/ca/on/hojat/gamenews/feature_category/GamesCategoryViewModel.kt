@@ -11,7 +11,7 @@ import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.core.utils.onError
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
-import ca.on.hojat.gamenews.shared.domain.common.extensions.resultOrError
+import ca.on.hojat.gamenews.shared.extensions.resultOrError
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration
