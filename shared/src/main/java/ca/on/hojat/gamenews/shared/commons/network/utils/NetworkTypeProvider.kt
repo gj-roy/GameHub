@@ -13,7 +13,7 @@ import android.net.NetworkInfo
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.annotation.RequiresPermission
-import com.paulrybitskyi.commons.network.model.NetworkType
+import ca.on.hojat.gamenews.shared.commons.network.model.NetworkType
 
 interface NetworkTypeProvider {
     fun getActiveNetworkType(): NetworkType

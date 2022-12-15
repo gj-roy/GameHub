@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.commons.network.utils
 
-import com.paulrybitskyi.commons.network.model.NetworkType
+import ca.on.hojat.gamenews.shared.commons.network.model.NetworkType
 
 interface NetworkListener {
     fun onNetworkConnected(networkType: NetworkType)

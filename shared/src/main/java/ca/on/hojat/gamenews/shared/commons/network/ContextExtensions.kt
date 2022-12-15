@@ -12,8 +12,8 @@ import android.net.NetworkRequest
 import androidx.annotation.RequiresPermission
 import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
 import ca.on.hojat.gamenews.shared.commons.ktx.getSystemService
-import com.paulrybitskyi.commons.network.model.NetworkInfo
-import com.paulrybitskyi.commons.network.model.NetworkType
+import ca.on.hojat.gamenews.shared.commons.network.model.NetworkInfo
+import ca.on.hojat.gamenews.shared.commons.network.model.NetworkType
 import ca.on.hojat.gamenews.shared.commons.network.utils.LegacyNetworkTypeProvider
 import ca.on.hojat.gamenews.shared.commons.network.utils.NetworkCallback
 import ca.on.hojat.gamenews.shared.commons.network.utils.NetworkListener

@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.shared.commons.network.utils
 
 import android.net.ConnectivityManager
 import android.net.Network
-import com.paulrybitskyi.commons.network.model.NetworkType
+import ca.on.hojat.gamenews.shared.commons.network.model.NetworkType
 import java.util.concurrent.ConcurrentHashMap
 
 class NetworkCallback(
