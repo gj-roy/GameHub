@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.core.providers
 
 import android.content.Context
-import com.paulrybitskyi.commons.network.isConnectedToNetwork
+import ca.on.hojat.gamenews.shared.commons.network.isConnectedToNetwork
 import com.paulrybitskyi.hiltbinder.BindType
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject

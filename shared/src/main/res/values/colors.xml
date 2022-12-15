@@ -30,4 +30,13 @@
     <color name="colorStatusBar">@color/colorDarkScrim</color>
     <color name="colorLightScrim">#35000000</color>
     <color name="colorDarkScrim">#66000000</color>
+
+    <color name="toolbar_button_icon_color">#000000</color>
+    <color name="toolbar_title_text_color">#000000</color>
+    <color name="info_view_title_text_color">#000000</color>
+    <color name="info_view_description_text_color">#000000</color>
+    <color name="info_view_icon_color">#000000</color>
+    <color name="toolbar_background_color">@android:color/white</color>
+    <color name="toolbar_button_ripple_color">#10000000</color>
+
 </resources>

@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.shared.core.utils
 
 import android.content.Context
 import androidx.browser.customtabs.CustomTabsIntent
-import com.paulrybitskyi.commons.window.anims.WindowAnimations
+import ca.on.hojat.gamenews.shared.commons.window_anims.WindowAnimations
 
 internal fun CustomTabsIntent.Builder.setAnimations(
     context: Context,

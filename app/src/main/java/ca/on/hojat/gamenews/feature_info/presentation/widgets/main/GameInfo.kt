@@ -32,7 +32,7 @@ import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.shared.ui.widgets.Info
 import ca.on.hojat.gamenews.shared.ui.widgets.categorypreview.GamesCategoryPreview
-import com.paulrybitskyi.commons.ktx.showShortToast
+import ca.on.hojat.gamenews.shared.commons.ktx.showShortToast
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.feature_info.presentation.GameInfoCommand
 import ca.on.hojat.gamenews.feature_info.presentation.GameInfoViewModel

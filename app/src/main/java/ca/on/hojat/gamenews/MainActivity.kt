@@ -22,7 +22,7 @@ import ca.on.hojat.gamenews.shared.ui.LocalNetworkStateProvider
 import ca.on.hojat.gamenews.shared.ui.LocalTextSharer
 import ca.on.hojat.gamenews.shared.ui.LocalUrlOpener
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
-import com.paulrybitskyi.commons.ktx.intentFor
+import ca.on.hojat.gamenews.shared.commons.ktx.intentFor
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import dagger.hilt.android.AndroidEntryPoint

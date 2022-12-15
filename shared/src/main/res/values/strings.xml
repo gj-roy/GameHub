@@ -67,4 +67,7 @@
     <string name="games_category_preview_more_button_text">See All</string>
     <string name="games_category_preview_info_view_title">No Games Available</string>
 
+    <string name="font_family_medium" translatable="false">sans-serif-medium</string>
+    <string name="content_description_icon">The icon</string>
+
 </resources>

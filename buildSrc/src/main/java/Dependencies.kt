@@ -7,7 +7,7 @@ import org.gradle.api.JavaVersion
  */
 object AppConfig {
     // app itself
-    const val compileSdkVersion = 32
+    const val compileSdkVersion = 33
     const val targetSdkVersion = 32
     const val minSdkVersion = 21
     const val applicationId = "ca.on.hojat.gamenews"
@@ -63,6 +63,7 @@ object AndroidX {
     const val viewModel = "2.5.1" // to be deleted when the linked issue at use site is fixed.
     private const val dataStoreVersion = "1.0.0"
     private const val roomVersion = "2.4.3"
+    private const val navigationVersion ="2.5.3"
 
     // splash screen
     const val splash = "androidx.core:core-splashscreen:1.0.0"
@@ -79,6 +80,14 @@ object AndroidX {
     // Datastore database
     const val prefsDataStore = "androidx.datastore:datastore-preferences:${dataStoreVersion}"
     const val protoDataStore = "androidx.datastore:datastore:${dataStoreVersion}"
+    const val appCompat = "androidx.appcompat:appcompat:1.5.1"
+    const val viewPager2 = "androidx.viewpager2:viewpager2:1.0.0"
+    const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.2.0-alpha05"
+
+    // I know it's not specifically speaking an AndroidX lib but for me it's pretty much part of
+    // jetpack toolkit.
+    const val googleMaterial = "com.google.android.material:material:1.8.0-beta01"
+    const val navigationComponent = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
 
 
 }

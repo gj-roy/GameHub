@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.paulrybitskyi.commons.ktx.showLongToast
-import com.paulrybitskyi.commons.ktx.showShortToast
+import ca.on.hojat.gamenews.shared.commons.ktx.showLongToast
+import ca.on.hojat.gamenews.shared.commons.ktx.showShortToast
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.Command
 import ca.on.hojat.gamenews.shared.ui.base.events.Route

@@ -10,9 +10,9 @@ import ca.on.hojat.gamenews.shared.core.providers.CustomTabsProvider
 import ca.on.hojat.gamenews.shared.core.utils.attachNewTaskFlagIfNeeded
 import ca.on.hojat.gamenews.shared.core.utils.isDarkThemeEnabled
 import ca.on.hojat.gamenews.shared.core.utils.setAnimations
-import com.paulrybitskyi.commons.ktx.configuration
-import com.paulrybitskyi.commons.ktx.getCompatColor
-import com.paulrybitskyi.commons.window.anims.WindowAnimations
+import ca.on.hojat.gamenews.shared.commons.ktx.configuration
+import ca.on.hojat.gamenews.shared.commons.ktx.getCompatColor
+import ca.on.hojat.gamenews.shared.commons.window_anims.WindowAnimations
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

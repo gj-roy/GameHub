@@ -15,6 +15,7 @@ android {
 
     buildFeatures {
         compose = true
+        viewBinding = true
     }
 
     composeOptions {
@@ -60,9 +61,14 @@ dependencies {
     androidTestImplementation(AndroidX.roomTest)
 
     // General jetpack libs
+    implementation(AndroidX.appCompat)
     implementation(AndroidX.prefsDataStore)
     implementation(AndroidX.protoDataStore)
     implementation(AndroidX.browser)
+    implementation(AndroidX.viewPager2)
+    implementation(AndroidX.constraintLayout)
+    implementation(AndroidX.googleMaterial)
+    implementation(AndroidX.navigationComponent)
 
     // Needed tools
     implementation(Tooling.coroutines)
