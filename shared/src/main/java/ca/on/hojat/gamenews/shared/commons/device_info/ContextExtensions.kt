@@ -14,9 +14,9 @@ import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenMetric
 import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenScalingFactors
 import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenSizeCategory
 import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenSizeCategory.Companion.asScreenSizeCategory
-import ca.on.hojat.gamenews.shared.commons.ktx.configuration
-import ca.on.hojat.gamenews.shared.commons.ktx.displayMetrics
-import ca.on.hojat.gamenews.shared.commons.ktx.pxToDp
+import ca.on.hojat.gamenews.shared.extensions.configuration
+import ca.on.hojat.gamenews.shared.extensions.displayMetrics
+import ca.on.hojat.gamenews.shared.extensions.pxToDp
 
 val Context.deviceInfo: DeviceInfo
     get() = DeviceInfo(

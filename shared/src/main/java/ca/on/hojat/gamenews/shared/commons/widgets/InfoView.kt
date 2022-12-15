@@ -11,17 +11,17 @@ import androidx.annotation.ColorInt
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
 import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.commons.ktx.getColor
-import ca.on.hojat.gamenews.shared.commons.ktx.getDimensionPixelSize
-import ca.on.hojat.gamenews.shared.commons.ktx.getFont
-import ca.on.hojat.gamenews.shared.commons.ktx.getString
-import ca.on.hojat.gamenews.shared.commons.ktx.layoutInflater
-import ca.on.hojat.gamenews.shared.commons.ktx.setColor
-import ca.on.hojat.gamenews.shared.commons.ktx.setLayoutParamsSize
-import ca.on.hojat.gamenews.shared.commons.ktx.topMargin
-import ca.on.hojat.gamenews.shared.commons.ktx.views.setSingleLineTextEnabled
-import ca.on.hojat.gamenews.shared.commons.ktx.views.setTextSizeInPx
+import ca.on.hojat.gamenews.shared.extensions.getColor
+import ca.on.hojat.gamenews.shared.extensions.getDimensionPixelSize
+import ca.on.hojat.gamenews.shared.extensions.getString
+import ca.on.hojat.gamenews.shared.extensions.layoutInflater
+import ca.on.hojat.gamenews.shared.extensions.setColor
+import ca.on.hojat.gamenews.shared.extensions.setLayoutParamsSize
+import ca.on.hojat.gamenews.shared.extensions.topMargin
+import ca.on.hojat.gamenews.shared.extensions.setSingleLineTextEnabled
+import ca.on.hojat.gamenews.shared.extensions.setTextSizeInPx
 import ca.on.hojat.gamenews.shared.databinding.ViewInfoBinding
+import ca.on.hojat.gamenews.shared.extensions.getFont
 
 class InfoView @JvmOverloads constructor(
     context: Context,

@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.shared.commons.recyclerview.decorators.spacing
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import ca.on.hojat.gamenews.shared.commons.ktx.containsBits
+import ca.on.hojat.gamenews.shared.extensions.containsBits
 
 open class SpacingItemDecorator @JvmOverloads constructor(
     private val spacing: Int,

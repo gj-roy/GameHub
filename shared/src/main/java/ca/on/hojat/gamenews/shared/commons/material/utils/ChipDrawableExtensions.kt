@@ -4,7 +4,7 @@ package ca.on.hojat.gamenews.shared.commons.material.utils
 
 import androidx.annotation.ColorInt
 import com.google.android.material.chip.ChipDrawable
-import ca.on.hojat.gamenews.shared.commons.ktx.toColorStateList
+import ca.on.hojat.gamenews.shared.extensions.toColorStateList
 
 fun ChipDrawable.setChipBackgroundColor(@ColorInt color: Int) {
     chipBackgroundColor = color.toColorStateList()

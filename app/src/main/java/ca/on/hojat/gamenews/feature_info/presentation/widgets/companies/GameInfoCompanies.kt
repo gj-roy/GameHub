@@ -31,10 +31,10 @@ import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import coil.compose.rememberAsyncImagePainter
 import coil.size.Size
 import coil.transform.Transformation
-import ca.on.hojat.gamenews.shared.commons.ktx.centerX
-import ca.on.hojat.gamenews.shared.commons.ktx.centerY
-import ca.on.hojat.gamenews.shared.commons.ktx.hasTransparentPixels
-import ca.on.hojat.gamenews.shared.commons.ktx.isOpaque
+import ca.on.hojat.gamenews.shared.extensions.centerX
+import ca.on.hojat.gamenews.shared.extensions.centerY
+import ca.on.hojat.gamenews.shared.extensions.hasTransparentPixels
+import ca.on.hojat.gamenews.shared.extensions.isOpaque
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSectionWithInnerList
 import kotlin.math.roundToInt

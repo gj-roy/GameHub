@@ -11,7 +11,7 @@ import android.net.NetworkCapabilities.TRANSPORT_WIFI
 import android.net.NetworkRequest
 import androidx.annotation.RequiresPermission
 import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
-import ca.on.hojat.gamenews.shared.commons.ktx.getSystemService
+import ca.on.hojat.gamenews.shared.extensions.getSystemService
 import ca.on.hojat.gamenews.shared.commons.network.model.NetworkInfo
 import ca.on.hojat.gamenews.shared.commons.network.model.NetworkType
 import ca.on.hojat.gamenews.shared.commons.network.utils.LegacyNetworkTypeProvider

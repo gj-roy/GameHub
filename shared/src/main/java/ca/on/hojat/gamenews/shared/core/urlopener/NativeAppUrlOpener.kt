@@ -6,8 +6,8 @@ import android.content.Intent
 import android.net.Uri
 import ca.on.hojat.gamenews.shared.core.utils.attachNewTaskFlagIfNeeded
 import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
-import ca.on.hojat.gamenews.shared.commons.ktx.canUrlBeOpenedByNativeApp
-import ca.on.hojat.gamenews.shared.commons.ktx.getNativeAppPackageForUrl
+import ca.on.hojat.gamenews.shared.extensions.canUrlBeOpenedByNativeApp
+import ca.on.hojat.gamenews.shared.extensions.getNativeAppPackageForUrl
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

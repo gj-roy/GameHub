@@ -38,7 +38,7 @@ import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.shared.ui.widgets.dialogs.GameNewsDialog
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
-import ca.on.hojat.gamenews.shared.commons.ktx.showShortToast
+import ca.on.hojat.gamenews.shared.extensions.showShortToast
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 
