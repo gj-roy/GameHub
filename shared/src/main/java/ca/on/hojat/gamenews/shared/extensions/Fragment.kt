@@ -6,6 +6,7 @@ package ca.on.hojat.gamenews.shared.extensions
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.view.View
 import android.view.Window
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -17,6 +18,14 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.FontRes
 import androidx.annotation.IntegerRes
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+import androidx.viewbinding.ViewBinding
+import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KProperty
 
 @get:ColorInt
 var Fragment.statusBarColor: Int
@@ -123,4 +132,47 @@ fun Fragment.addOnBackPressCallback(
     return requireActivity()
         .onBackPressedDispatcher
         .addCallback(viewLifecycleOwner, onBackPressed = onBackPressed)
+}
+
+val Fragment.navController: NavController
+    get() = findNavController()
+
+fun <T : ViewBinding> Fragment.viewBinding(
+    viewBindingFactory: (View) -> T
+): FragmentViewBindingDelegate<T> {
+    return FragmentViewBindingDelegate(this, viewBindingFactory)
+}
+
+class FragmentViewBindingDelegate<T : ViewBinding>(
+    private val fragment: Fragment,
+    private val viewBindingFactory: (View) -> T
+) : ReadOnlyProperty<Fragment, T> {
+
+    private var binding: T? = null
+
+    init {
+        // Keeping a view reference up until Fragment's onDestroy is called
+        // to prevent its recreation when the back stack changes
+        fragment.lifecycle.addObserver(object : DefaultLifecycleObserver {
+
+            override fun onDestroy(owner: LifecycleOwner) {
+                binding = null
+            }
+        })
+    }
+
+    override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
+        if (binding != null) {
+            return checkNotNull(binding)
+        }
+
+        val lifecycle = fragment.viewLifecycleOwner.lifecycle
+
+        if (!lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
+            throw IllegalStateException("Could not retrieve a view binding when the fragment is not initialized.")
+        }
+
+        return viewBindingFactory(thisRef.requireView())
+            .also { binding = it }
+    }
 }

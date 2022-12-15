@@ -1,6 +1,4 @@
-@file:JvmName("NavControllerUtils")
-
-package ca.on.hojat.gamenews.shared.commons.navigation
+package ca.on.hojat.gamenews.shared.extensions
 
 import android.os.Bundle
 import androidx.annotation.IdRes
