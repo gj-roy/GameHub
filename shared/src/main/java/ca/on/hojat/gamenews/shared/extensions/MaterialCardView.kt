@@ -1,9 +1,14 @@
-@file:JvmName("MaterialCardViewUtils")
+package ca.on.hojat.gamenews.shared.extensions
 
-package ca.on.hojat.gamenews.shared.commons.material.utils
-
+import androidx.annotation.ColorInt
 import androidx.annotation.Px
 import com.google.android.material.card.MaterialCardView
+
+
+fun MaterialCardView.setRippleColor(@ColorInt color: Int) {
+    rippleColor = color.toColorStateList()
+}
+
 
 var MaterialCardView.contentLeftPadding: Int
     set(value) {

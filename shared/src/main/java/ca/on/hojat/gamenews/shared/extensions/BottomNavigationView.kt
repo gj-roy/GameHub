@@ -1,10 +1,9 @@
-@file:JvmName("BottomNavViewUtils")
-
-package ca.on.hojat.gamenews.shared.commons.material.utils
+package ca.on.hojat.gamenews.shared.extensions
 
 import android.content.res.ColorStateList
 import androidx.annotation.ColorInt
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 fun BottomNavigationView.setItemColors(
     @ColorInt unselectedStateColor: Int,

@@ -1,6 +1,4 @@
-@file:JvmName("TabLayoutUtils")
-
-package ca.on.hojat.gamenews.shared.commons.material.utils
+package ca.on.hojat.gamenews.shared.extensions
 
 import com.google.android.material.tabs.TabLayout
 

@@ -1,10 +1,8 @@
-@file:JvmName("ChipDrawableUtils")
-
-package ca.on.hojat.gamenews.shared.commons.material.utils
+package ca.on.hojat.gamenews.shared.extensions
 
 import androidx.annotation.ColorInt
 import com.google.android.material.chip.ChipDrawable
-import ca.on.hojat.gamenews.shared.extensions.toColorStateList
+
 
 fun ChipDrawable.setChipBackgroundColor(@ColorInt color: Int) {
     chipBackgroundColor = color.toColorStateList()
