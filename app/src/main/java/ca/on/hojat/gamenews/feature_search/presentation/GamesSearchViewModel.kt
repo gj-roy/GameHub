@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.shared.core.ErrorMapper
 import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.core.providers.StringProvider
-import ca.on.hojat.gamenews.shared.core.utils.onError
+import ca.on.hojat.gamenews.shared.extensions.onError
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset

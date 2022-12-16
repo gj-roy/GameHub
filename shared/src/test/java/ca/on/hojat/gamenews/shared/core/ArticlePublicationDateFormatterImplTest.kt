@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.shared.core.formatters.RelativeDateFormatter
 import ca.on.hojat.gamenews.shared.core.providers.TimeFormat
 import ca.on.hojat.gamenews.shared.core.providers.TimeFormatProvider
 import ca.on.hojat.gamenews.shared.core.providers.TimeProvider
-import ca.on.hojat.gamenews.shared.core.utils.toMillis
+import ca.on.hojat.gamenews.shared.extensions.toMillis
 import com.google.common.truth.Truth.assertThat
 import io.mockk.MockKAnnotations
 import io.mockk.every

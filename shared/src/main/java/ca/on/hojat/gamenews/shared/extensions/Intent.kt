@@ -3,9 +3,11 @@
 
 package ca.on.hojat.gamenews.shared.extensions
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
+import androidx.activity.ComponentActivity
 
 fun Intent.getStringExtra(key: String, default: String): String {
     return (getStringExtra(key) ?: default)
@@ -65,4 +67,11 @@ fun Intent.clearTop(): Intent = apply {
 
 fun Intent.clearTask(): Intent = apply {
     addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+}
+
+
+fun Intent.attachNewTaskFlagIfNeeded(context: Context) {
+    if (context !is ComponentActivity) {
+        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    }
 }

@@ -8,7 +8,6 @@ import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
-import ca.on.hojat.gamenews.shared.core.utils.onError
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
 import ca.on.hojat.gamenews.shared.extensions.resultOrError
@@ -41,6 +40,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModelMapper
+import ca.on.hojat.gamenews.shared.extensions.onError
 
 private const val PARAM_GAMES_CATEGORY = "category"
 

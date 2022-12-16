@@ -6,13 +6,13 @@ import androidx.annotation.ColorRes
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import ca.on.hojat.gamenews.shared.R
+import ca.on.hojat.gamenews.shared.commons.window_anims.WindowAnimations
 import ca.on.hojat.gamenews.shared.core.providers.CustomTabsProvider
-import ca.on.hojat.gamenews.shared.core.utils.attachNewTaskFlagIfNeeded
-import ca.on.hojat.gamenews.shared.core.utils.isDarkThemeEnabled
-import ca.on.hojat.gamenews.shared.core.utils.setAnimations
+import ca.on.hojat.gamenews.shared.extensions.attachNewTaskFlagIfNeeded
 import ca.on.hojat.gamenews.shared.extensions.configuration
 import ca.on.hojat.gamenews.shared.extensions.getCompatColor
-import ca.on.hojat.gamenews.shared.commons.window_anims.WindowAnimations
+import ca.on.hojat.gamenews.shared.extensions.isDarkThemeEnabled
+import ca.on.hojat.gamenews.shared.extensions.setAnimations
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

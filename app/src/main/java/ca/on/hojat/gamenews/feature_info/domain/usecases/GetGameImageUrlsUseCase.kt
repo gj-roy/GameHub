@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_info.domain.usecases
 
 import ca.on.hojat.gamenews.shared.core.factories.ImageViewerGameUrlFactory
-import ca.on.hojat.gamenews.shared.core.utils.onError
+import ca.on.hojat.gamenews.shared.extensions.onError
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.DomainResult
 import ca.on.hojat.gamenews.shared.extensions.mapSuccess

@@ -44,3 +44,9 @@ fun String.capitalize(locale: Locale): String {
 
     return substring(0, 1).uppercase(locale) + substring(1)
 }
+
+private const val SEPARATOR = ","
+
+fun String.fromCsv(): List<String> {
+    return split(SEPARATOR)
+}

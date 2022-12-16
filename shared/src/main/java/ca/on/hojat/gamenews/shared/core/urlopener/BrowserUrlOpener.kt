@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.shared.core.urlopener
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import ca.on.hojat.gamenews.shared.core.utils.attachNewTaskFlagIfNeeded
+import ca.on.hojat.gamenews.shared.extensions.attachNewTaskFlagIfNeeded
 import ca.on.hojat.gamenews.shared.extensions.canIntentBeHandled
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject

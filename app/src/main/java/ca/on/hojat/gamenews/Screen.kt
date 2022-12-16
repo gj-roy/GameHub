@@ -8,7 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.navigation.NavController
-import ca.on.hojat.gamenews.shared.core.utils.toCsv
+import ca.on.hojat.gamenews.shared.extensions.toCsv
 import java.net.URLEncoder
 
 internal val START_SCREEN = Screen.Discover
