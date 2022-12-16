@@ -14,18 +14,6 @@ class AdvancedEditText @JvmOverloads constructor(
 
     private val listeners = mutableListOf<TextWatcher>()
 
-    fun setInputType(type: Int, shouldNotifyListeners: Boolean = true) {
-        performAction(shouldNotifyListeners) {
-            super.setInputType(type)
-        }
-    }
-
-    fun setText(text: CharSequence, shouldNotifyListeners: Boolean = true) {
-        performAction(shouldNotifyListeners) {
-            super.setText(text)
-        }
-    }
-
     override fun addTextChangedListener(listener: TextWatcher) {
         listeners.add(listener)
 
@@ -42,32 +30,4 @@ class AdvancedEditText @JvmOverloads constructor(
         super.removeTextChangedListener(listener)
     }
 
-    fun clearTextChangedListeners() {
-        if (listeners.isEmpty()) return
-
-        for (listener in listeners) {
-            super.removeTextChangedListener(listener)
-        }
-
-        listeners.clear()
-    }
-
-    private fun performAction(
-        shouldNotifyListeners: Boolean,
-        action: (() -> Unit)
-    ) {
-        if (shouldNotifyListeners || listeners.isEmpty()) {
-            action()
-            return
-        }
-
-        val listenersCopy = listeners.toMutableList()
-
-        clearTextChangedListeners()
-        action()
-
-        for (listener in listenersCopy) {
-            addTextChangedListener(listener)
-        }
-    }
 }

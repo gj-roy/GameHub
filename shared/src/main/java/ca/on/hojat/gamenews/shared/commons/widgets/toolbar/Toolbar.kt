@@ -5,34 +5,31 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.Gravity
-import android.view.View
-import android.view.ViewPropertyAnimator
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
 import ca.on.hojat.gamenews.shared.R
+import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.TitleGravity.Companion.asTitleGravity
+import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.configs.ButtonConfig
+import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.configs.TitleConfig
 import ca.on.hojat.gamenews.shared.core.utils.observeChanges
+import ca.on.hojat.gamenews.shared.databinding.ViewToolbarBinding
 import ca.on.hojat.gamenews.shared.extensions.clearEndMargin
 import ca.on.hojat.gamenews.shared.extensions.endMargin
 import ca.on.hojat.gamenews.shared.extensions.getColor
 import ca.on.hojat.gamenews.shared.extensions.getDimension
 import ca.on.hojat.gamenews.shared.extensions.getDimensionPixelSize
+import ca.on.hojat.gamenews.shared.extensions.getFont
 import ca.on.hojat.gamenews.shared.extensions.getString
 import ca.on.hojat.gamenews.shared.extensions.layoutInflater
-import ca.on.hojat.gamenews.shared.extensions.onClick
 import ca.on.hojat.gamenews.shared.extensions.setColor
 import ca.on.hojat.gamenews.shared.extensions.setHorizontalPadding
 import ca.on.hojat.gamenews.shared.extensions.setLayoutParamsSize
+import ca.on.hojat.gamenews.shared.extensions.setTextSizeInPx
 import ca.on.hojat.gamenews.shared.extensions.updatePadding
 import ca.on.hojat.gamenews.shared.extensions.verticalPadding
-import ca.on.hojat.gamenews.shared.extensions.setTextSizeInPx
-import ca.on.hojat.gamenews.shared.databinding.ViewToolbarBinding
-import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.TitleGravity.Companion.asTitleGravity
-import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.configs.ButtonConfig
-import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.configs.TitleConfig
-import ca.on.hojat.gamenews.shared.extensions.getFont
 import kotlin.math.max
 
 class Toolbar @JvmOverloads constructor(
@@ -55,21 +52,21 @@ class Toolbar @JvmOverloads constructor(
 
     private val binding = ViewToolbarBinding.inflate(context.layoutInflater, this)
 
-    var isLeftButtonVisible: Boolean
+    private var isLeftButtonVisible: Boolean
         set(value) {
             binding.leftBtnContainer.isVisible = value
             onLeftButtonVisibilityChanged()
         }
         get() = binding.leftBtnContainer.isVisible
 
-    var isRightButtonVisible: Boolean
+    private var isRightButtonVisible: Boolean
         set(value) {
             binding.rightBtnContainer.isVisible = value
             onRightButtonVisibilityChanged()
         }
         get() = binding.rightBtnContainer.isVisible
 
-    var isExtraRightButtonVisible: Boolean
+    private var isExtraRightButtonVisible: Boolean
         set(value) {
             binding.extraRightBtnContainer.isVisible = value
             onRightButtonVisibilityChanged()
@@ -104,7 +101,7 @@ class Toolbar @JvmOverloads constructor(
             binding.titleTv.setTextColor(value)
         }
 
-    var titleTextSize: Float
+    private var titleTextSize: Float
         set(value) {
             binding.titleTv.setTextSizeInPx(value)
         }
@@ -118,84 +115,55 @@ class Toolbar @JvmOverloads constructor(
      *
      * @see TitleGravity
      */
-    var titleTextGravity by observeChanges(TitleGravity.CENTER) { _, newValue ->
+    private var titleTextGravity by observeChanges(TitleGravity.CENTER) { _, newValue ->
         checkNewTitleGravity(newValue)
         binding.titleTv.gravity = (newValue.gravity or Gravity.CENTER_VERTICAL)
         updateTitleHorizontalPadding()
     }
 
-    var titleTextTypeface: Typeface
+    private var titleTextTypeface: Typeface
         set(value) {
             binding.titleTv.typeface = value
         }
         get() = binding.titleTv.typeface
 
-    var titleText: CharSequence
+    private var titleText: CharSequence
         set(value) {
             binding.titleTv.text = value
         }
         get() = binding.titleTv.text
 
-    var leftButtonIcon: Drawable?
+    private var leftButtonIcon: Drawable?
         set(value) {
             binding.leftBtnIv.setImageDrawable(value?.setColor(buttonIconColor))
             isLeftButtonVisible = (value != null)
         }
         get() = binding.leftBtnIv.drawable
 
-    var rightButtonIcon: Drawable?
+    private var rightButtonIcon: Drawable?
         set(value) {
             binding.rightBtnIv.setImageDrawable(value?.setColor(buttonIconColor))
             isRightButtonVisible = (value != null)
         }
         get() = binding.rightBtnIv.drawable
 
-    var extraRightButtonIcon: Drawable?
+    private var extraRightButtonIcon: Drawable?
         set(value) {
             binding.extraRightBtnIv.setImageDrawable(value?.setColor(buttonIconColor))
             isExtraRightButtonVisible = (value != null)
         }
         get() = binding.extraRightBtnIv.drawable
 
-    val leftButtonAnimator: ViewPropertyAnimator
-        get() = binding.extraRightBtnIv.animate()
 
-    val rightButtonAnimator: ViewPropertyAnimator
-        get() = binding.rightBtnIv.animate()
-
-    val extraRightButtonAnimator: ViewPropertyAnimator
-        get() = binding.rightBtnIv.animate()
-
-    val titleAnimator: ViewPropertyAnimator
-        get() = binding.titleTv.animate()
-
-    var buttonConfig by observeChanges(defaultButtonConfig) { _, newValue ->
+    private var buttonConfig by observeChanges(defaultButtonConfig) { _, newValue ->
         onButtonConfigChanged(newValue)
     }
 
-    var titleConfig by observeChanges(defaultTitleConfig) { _, _ ->
+    private var titleConfig by observeChanges(defaultTitleConfig) { _, _ ->
         onTitleConfigChanged()
     }
 
     private val buttonInfos = mutableListOf<ButtonInfo>()
-
-    var onLeftButtonClickListener: ((View) -> Unit)? = null
-        set(value) {
-            field = value
-            binding.leftBtnContainer.onClick { field?.invoke(it) }
-        }
-
-    var onRightButtonClickListener: ((View) -> Unit)? = null
-        set(value) {
-            field = value
-            binding.rightBtnContainer.onClick { field?.invoke(it) }
-        }
-
-    var onExtraRightButtonClickListener: ((View) -> Unit)? = null
-        set(value) {
-            field = value
-            binding.extraRightBtnContainer.onClick { field?.invoke(it) }
-        }
 
     init {
         elevation = getDimension(R.dimen.toolbar_elevation)

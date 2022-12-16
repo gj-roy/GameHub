@@ -17,18 +17,7 @@ open class SpacingItemDecorator @JvmOverloads constructor(
         const val SIDE_TOP = 0b0010
         const val SIDE_RIGHT = 0b0100
         const val SIDE_BOTTOM = 0b1000
-        const val SIDE_ALL = 0b1111
     }
-
-    constructor(
-        spacing: Int,
-        sideFlags: Int,
-        itemExclusionPolicy: ItemExclusionPolicy
-    ) : this(
-        spacing = spacing,
-        sideFlags = sideFlags,
-        itemExclusionPolicies = listOf(itemExclusionPolicy)
-    )
 
     override fun getItemOffsets(
         outRect: Rect,

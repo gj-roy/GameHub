@@ -3,7 +3,6 @@ package ca.on.hojat.gamenews.shared.commons.widgets
 import android.content.Context
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.LinearLayout
@@ -11,17 +10,16 @@ import androidx.annotation.ColorInt
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
 import ca.on.hojat.gamenews.shared.R
+import ca.on.hojat.gamenews.shared.databinding.ViewInfoBinding
 import ca.on.hojat.gamenews.shared.extensions.getColor
 import ca.on.hojat.gamenews.shared.extensions.getDimensionPixelSize
+import ca.on.hojat.gamenews.shared.extensions.getFont
 import ca.on.hojat.gamenews.shared.extensions.getString
 import ca.on.hojat.gamenews.shared.extensions.layoutInflater
 import ca.on.hojat.gamenews.shared.extensions.setColor
 import ca.on.hojat.gamenews.shared.extensions.setLayoutParamsSize
-import ca.on.hojat.gamenews.shared.extensions.topMargin
-import ca.on.hojat.gamenews.shared.extensions.setSingleLineTextEnabled
 import ca.on.hojat.gamenews.shared.extensions.setTextSizeInPx
-import ca.on.hojat.gamenews.shared.databinding.ViewInfoBinding
-import ca.on.hojat.gamenews.shared.extensions.getFont
+import ca.on.hojat.gamenews.shared.extensions.topMargin
 
 class InfoView @JvmOverloads constructor(
     context: Context,
@@ -31,39 +29,25 @@ class InfoView @JvmOverloads constructor(
 
     private val binding = ViewInfoBinding.inflate(context.layoutInflater, this)
 
-    var isTitleTextOneLiner: Boolean = false
-        set(value) {
-            field = value
-            binding.titleTv.setSingleLineTextEnabled(value)
-            binding.titleTv.ellipsize = TextUtils.TruncateAt.END
-        }
-
-    var isDescriptionTextOneLiner: Boolean = false
-        set(value) {
-            field = value
-            binding.descriptionTv.setSingleLineTextEnabled(value)
-            binding.descriptionTv.ellipsize = TextUtils.TruncateAt.END
-        }
-
-    var isDescriptionTextVisible: Boolean
+    private var isDescriptionTextVisible: Boolean
         set(value) {
             binding.descriptionTv.isVisible = value
         }
         get() = binding.descriptionTv.isVisible
 
-    var iconSize: Int = getDimensionPixelSize(R.dimen.info_view_icon_size)
+    private var iconSize: Int = getDimensionPixelSize(R.dimen.info_view_icon_size)
         set(value) {
             field = value
             binding.iconIv.setLayoutParamsSize(value)
         }
 
-    var titleTextTopMargin: Int
+    private var titleTextTopMargin: Int
         set(value) {
             binding.titleTv.topMargin = value
         }
         get() = binding.titleTv.topMargin
 
-    var descriptionTextTopMargin: Int
+    private var descriptionTextTopMargin: Int
         set(value) {
             binding.descriptionTv.topMargin = value
         }
@@ -90,37 +74,37 @@ class InfoView @JvmOverloads constructor(
         }
         get() = binding.descriptionTv.currentTextColor
 
-    var titleTextSize: Float
+    private var titleTextSize: Float
         set(value) {
             binding.titleTv.setTextSizeInPx(value)
         }
         get() = binding.titleTv.textSize
 
-    var descriptionTextSize: Float
+    private var descriptionTextSize: Float
         set(value) {
             binding.descriptionTv.setTextSizeInPx(value)
         }
         get() = binding.descriptionTv.textSize
 
-    var titleTextTypeface: Typeface
+    private var titleTextTypeface: Typeface
         set(value) {
             binding.titleTv.typeface = value
         }
         get() = binding.titleTv.typeface
 
-    var descriptionTextTypeface: Typeface
+    private var descriptionTextTypeface: Typeface
         set(value) {
             binding.descriptionTv.typeface = value
         }
         get() = binding.descriptionTv.typeface
 
-    var titleText: CharSequence
+    private var titleText: CharSequence
         set(value) {
             binding.titleTv.text = value
         }
         get() = binding.titleTv.text
 
-    var descriptionText: CharSequence
+    private var descriptionText: CharSequence
         set(value) {
             isDescriptionTextVisible = value.isNotBlank()
             binding.descriptionTv.text = value

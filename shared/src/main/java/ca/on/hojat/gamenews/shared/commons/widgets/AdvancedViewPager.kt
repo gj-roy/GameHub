@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.shared.commons.widgets
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -10,16 +11,9 @@ class AdvancedViewPager @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : ViewPager(context, attrs) {
 
-    var isSwipingEnabled = true
+    private var isSwipingEnabled = true
 
-    fun enableSwiping() {
-        isSwipingEnabled = true
-    }
-
-    fun disableSwiping() {
-        isSwipingEnabled = false
-    }
-
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return (isSwipingEnabled && super.onTouchEvent(event))
     }
