@@ -6,8 +6,6 @@ import com.github.michaelbull.result.Result
 
 fun <T> T.asSuccess(): Ok<T> = Ok(this)
 
-fun <T> T.asFailure(): Err<T> = Err(this)
-
 suspend fun <V, E> Result<V, E>.onSuccess(action: suspend (V) -> Unit): Result<V, E> {
     if (this is Ok) {
         action(value)
