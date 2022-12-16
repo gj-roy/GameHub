@@ -7,12 +7,9 @@ import ca.on.hojat.gamenews.shared.database.games.entities.DbGame
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.shared.database.common.di.DatabaseModule
 import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
-import dagger.Module
-import dagger.hilt.InstallIn
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
-import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
@@ -30,11 +27,7 @@ internal class GamesTableTest {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     @Inject
-    lateinit var SUT: GamesTable
-
-    @Module(includes = [TestDatabaseModule::class])
-    @InstallIn(SingletonComponent::class)
-    class TestModule
+    lateinit var sut: GamesTable
 
     @Before
     fun setup() {
@@ -44,30 +37,30 @@ internal class GamesTableTest {
     @Test
     fun saves_games_and_gets_game_by_ID() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             val expectedGame = DB_GAMES.first()
 
-            assertThat(SUT.getGame(expectedGame.id)).isEqualTo(expectedGame)
+            assertThat(sut.getGame(expectedGame.id)).isEqualTo(expectedGame)
         }
     }
 
     @Test
     fun saves_games_and_gets_null_for_non_existent_game_ID() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
-            assertThat(SUT.getGame(id = 500)).isNull()
+            assertThat(sut.getGame(id = 500)).isNull()
         }
     }
 
     @Test
     fun saves_games_and_gets_games_by_IDs() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             assertThat(
-                SUT.getGames(
+                sut.getGames(
                     ids = DB_GAMES.map(DbGame::id),
                     offset = 0,
                     limit = DB_GAMES.size
@@ -79,10 +72,10 @@ internal class GamesTableTest {
     @Test
     fun saves_games_and_gets_empty_game_list_for_non_existent_game_IDs() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             assertThat(
-                SUT.getGames(
+                sut.getGames(
                     ids = listOf(100, 200, 300),
                     offset = 0,
                     limit = DB_GAMES.size
@@ -94,12 +87,12 @@ internal class GamesTableTest {
     @Test
     fun saves_games_and_gets_some_games_for_some_game_IDs() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             val expectedGames = listOf(DB_GAMES.first(), DB_GAMES.last())
 
             assertThat(
-                SUT.getGames(
+                sut.getGames(
                     ids = expectedGames.map(DbGame::id),
                     offset = 0,
                     limit = expectedGames.size
@@ -111,13 +104,13 @@ internal class GamesTableTest {
     @Test
     fun saves_games_and_gets_sorted_games_by_searching_with_upper_case_game_name() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             val expectedGames = DB_GAMES
                 .sortedByDescending(DbGame::totalRating)
 
             assertThat(
-                SUT.searchGames(
+                sut.searchGames(
                     searchQuery = "Game",
                     offset = 0,
                     limit = DB_GAMES.size
@@ -129,13 +122,13 @@ internal class GamesTableTest {
     @Test
     fun saves_games_and_gets_sorted_games_by_searching_with_lower_case_game_name() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             val expectedGames = DB_GAMES
                 .sortedByDescending(DbGame::totalRating)
 
             assertThat(
-                SUT.searchGames(
+                sut.searchGames(
                     searchQuery = "game",
                     offset = 0,
                     limit = DB_GAMES.size
@@ -147,10 +140,10 @@ internal class GamesTableTest {
     @Test
     fun saves_games_and_gets_empty_game_list_by_searching_with_not_available_game_name() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             assertThat(
-                SUT.searchGames(
+                sut.searchGames(
                     searchQuery = "shadow of the colossus",
                     offset = 0,
                     limit = DB_GAMES.size
@@ -162,10 +155,10 @@ internal class GamesTableTest {
     @Test
     fun saves_games_and_gets_empty_game_list_by_searching_with_word_that_ends_with_target_game_name() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             assertThat(
-                SUT.searchGames(
+                sut.searchGames(
                     searchQuery = "endgame",
                     offset = 0,
                     limit = DB_GAMES.size
@@ -185,7 +178,7 @@ internal class GamesTableTest {
                 DB_GAMES[4],
             )
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave.sortedWith(
                 compareByDescending(DbGame::totalRating)
@@ -193,7 +186,7 @@ internal class GamesTableTest {
             )
 
             assertThat(
-                SUT.searchGames(
+                sut.searchGames(
                     searchQuery = "Game",
                     offset = 0,
                     limit = DB_GAMES.size
@@ -205,12 +198,12 @@ internal class GamesTableTest {
     @Test
     fun saves_popular_games_and_observes_popular_games() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             val expectedGames = DB_GAMES
                 .sortedByDescending(DbGame::totalRating)
 
-            SUT.observePopularGames(
+            sut.observePopularGames(
                 minReleaseDateTimestamp = 50L,
                 offset = 0,
                 limit = DB_GAMES.size
@@ -228,13 +221,13 @@ internal class GamesTableTest {
                 addAll(DB_GAMES.drop(1))
             }
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.usersRating != null }
                 .sortedByDescending(DbGame::totalRating)
 
-            SUT.observePopularGames(
+            sut.observePopularGames(
                 minReleaseDateTimestamp = 50L,
                 offset = 0,
                 limit = gamesToSave.size
@@ -253,14 +246,14 @@ internal class GamesTableTest {
                 addAll(DB_GAMES.drop(2))
             }
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.usersRating != null }
                 .filter { it.releaseDate != null }
                 .sortedByDescending(DbGame::totalRating)
 
-            SUT.observePopularGames(
+            sut.observePopularGames(
                 minReleaseDateTimestamp = 50L,
                 offset = 0,
                 limit = gamesToSave.size
@@ -280,7 +273,7 @@ internal class GamesTableTest {
             }
             val minReleaseDateTimestamp = 300L
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.usersRating != null }
@@ -288,7 +281,7 @@ internal class GamesTableTest {
                 .filter { it.releaseDate != null && it.releaseDate!! > minReleaseDateTimestamp }
                 .sortedByDescending(DbGame::totalRating)
 
-            SUT.observePopularGames(
+            sut.observePopularGames(
                 minReleaseDateTimestamp = minReleaseDateTimestamp,
                 offset = 0,
                 limit = gamesToSave.size
@@ -301,12 +294,12 @@ internal class GamesTableTest {
     @Test
     fun saves_recently_released_games_and_observes_recently_released_games() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             val expectedGames = DB_GAMES
                 .sortedByDescending(DbGame::releaseDate)
 
-            SUT.observeRecentlyReleasedGames(
+            sut.observeRecentlyReleasedGames(
                 minReleaseDateTimestamp = 50L,
                 maxReleaseDateTimestamp = 1000L,
                 offset = 0,
@@ -325,13 +318,13 @@ internal class GamesTableTest {
                 addAll(DB_GAMES.drop(1))
             }
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.releaseDate != null }
                 .sortedByDescending(DbGame::releaseDate)
 
-            SUT.observeRecentlyReleasedGames(
+            sut.observeRecentlyReleasedGames(
                 minReleaseDateTimestamp = 50L,
                 maxReleaseDateTimestamp = 1000L,
                 offset = 0,
@@ -351,14 +344,14 @@ internal class GamesTableTest {
             }
             val minReleaseDateTimestamp = 300L
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.releaseDate != null }
                 .filter { it.releaseDate != null && it.releaseDate!! > minReleaseDateTimestamp }
                 .sortedByDescending(DbGame::releaseDate)
 
-            SUT.observeRecentlyReleasedGames(
+            sut.observeRecentlyReleasedGames(
                 minReleaseDateTimestamp = minReleaseDateTimestamp,
                 maxReleaseDateTimestamp = 1000L,
                 offset = 0,
@@ -379,7 +372,7 @@ internal class GamesTableTest {
             val minReleaseDateTimestamp = 200L
             val maxReleaseDateTimestamp = 400L
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.releaseDate != null }
@@ -387,7 +380,7 @@ internal class GamesTableTest {
                 .filter { it.releaseDate != null && it.releaseDate!! < maxReleaseDateTimestamp }
                 .sortedByDescending(DbGame::releaseDate)
 
-            SUT.observeRecentlyReleasedGames(
+            sut.observeRecentlyReleasedGames(
                 minReleaseDateTimestamp = minReleaseDateTimestamp,
                 maxReleaseDateTimestamp = maxReleaseDateTimestamp,
                 offset = 0,
@@ -401,11 +394,11 @@ internal class GamesTableTest {
     @Test
     fun saves_coming_soon_games_and_observes_coming_soon_games() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             val expectedGames = DB_GAMES.sortedBy(DbGame::releaseDate)
 
-            SUT.observeComingSoonGames(
+            sut.observeComingSoonGames(
                 minReleaseDateTimestamp = 50L,
                 offset = 0,
                 limit = DB_GAMES.size
@@ -423,13 +416,13 @@ internal class GamesTableTest {
                 addAll(DB_GAMES.drop(1))
             }
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.releaseDate != null }
                 .sortedBy(DbGame::releaseDate)
 
-            SUT.observeComingSoonGames(
+            sut.observeComingSoonGames(
                 minReleaseDateTimestamp = 50L,
                 offset = 0,
                 limit = gamesToSave.size
@@ -448,14 +441,14 @@ internal class GamesTableTest {
             }
             val minReleaseDateTimestamp = 300L
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.releaseDate != null }
                 .filter { it.releaseDate != null && it.releaseDate!! > minReleaseDateTimestamp }
                 .sortedBy(DbGame::releaseDate)
 
-            SUT.observeComingSoonGames(
+            sut.observeComingSoonGames(
                 minReleaseDateTimestamp = minReleaseDateTimestamp,
                 offset = 0,
                 limit = gamesToSave.size
@@ -468,12 +461,12 @@ internal class GamesTableTest {
     @Test
     fun saves_most_anticipated_games_and_observes_most_anticipated_games() {
         runTest {
-            SUT.saveGames(DB_GAMES)
+            sut.saveGames(DB_GAMES)
 
             val expectedGames = DB_GAMES
                 .sortedByDescending(DbGame::hypeCount)
 
-            SUT.observeMostAnticipatedGames(
+            sut.observeMostAnticipatedGames(
                 minReleaseDateTimestamp = 50L,
                 offset = 0,
                 limit = DB_GAMES.size
@@ -491,13 +484,13 @@ internal class GamesTableTest {
                 addAll(DB_GAMES.drop(1))
             }
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.releaseDate != null }
                 .sortedByDescending(DbGame::hypeCount)
 
-            SUT.observeMostAnticipatedGames(
+            sut.observeMostAnticipatedGames(
                 minReleaseDateTimestamp = 50L,
                 offset = 0,
                 limit = gamesToSave.size
@@ -516,14 +509,14 @@ internal class GamesTableTest {
             }
             val minReleaseDateTimestamp = 300L
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.releaseDate != null }
                 .filter { it.releaseDate != null && it.releaseDate!! > minReleaseDateTimestamp }
                 .sortedByDescending(DbGame::hypeCount)
 
-            SUT.observeMostAnticipatedGames(
+            sut.observeMostAnticipatedGames(
                 minReleaseDateTimestamp = minReleaseDateTimestamp,
                 offset = 0,
                 limit = gamesToSave.size
@@ -543,7 +536,7 @@ internal class GamesTableTest {
             }
             val minReleaseDateTimestamp = 300L
 
-            SUT.saveGames(gamesToSave)
+            sut.saveGames(gamesToSave)
 
             val expectedGames = gamesToSave
                 .filter { it.releaseDate != null }
@@ -551,7 +544,7 @@ internal class GamesTableTest {
                 .filter { it.hypeCount != null }
                 .sortedByDescending(DbGame::hypeCount)
 
-            SUT.observeMostAnticipatedGames(
+            sut.observeMostAnticipatedGames(
                 minReleaseDateTimestamp = minReleaseDateTimestamp,
                 offset = 0,
                 limit = gamesToSave.size

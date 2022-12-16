@@ -11,10 +11,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 
-//import androidx.compose.animation.slideInHorizontally
-//import androidx.compose.animation.slideOutHorizontally
-//import kotlin.math.roundToInt
-
 sealed interface TransitionAnimations {
 
     companion object {

@@ -1,7 +1,6 @@
 package ca.on.hojat.gamenews.shared.ui
 
 import android.annotation.SuppressLint
-import androidx.annotation.DimenRes
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -12,20 +11,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.TextUnit
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-
-@Composable
-fun textSizeResource(@DimenRes id: Int): TextUnit {
-    return with(LocalDensity.current) {
-        dimensionResource(id).toSp()
-    }
-}
 
 @Composable
 fun OnLifecycleEvent(

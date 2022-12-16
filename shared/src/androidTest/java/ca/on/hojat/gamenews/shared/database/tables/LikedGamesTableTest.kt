@@ -9,12 +9,9 @@ import ca.on.hojat.gamenews.shared.database.common.di.DatabaseModule
 import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
 import com.google.common.truth.Truth.assertThat
-import dagger.Module
-import dagger.hilt.InstallIn
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
-import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
@@ -34,11 +31,7 @@ internal class LikedGamesTableTest {
     @Inject
     lateinit var gamesTable: GamesTable
     @Inject
-    lateinit var SUT: LikedGamesTable
-
-    @Module(includes = [TestDatabaseModule::class])
-    @InstallIn(SingletonComponent::class)
-    class TestModule
+    lateinit var sut: LikedGamesTable
 
     @Before
     fun setup() {
@@ -48,35 +41,35 @@ internal class LikedGamesTableTest {
     @Test
     fun likes_game_and_verifies_that_it_is_liked() {
         runTest {
-            SUT.saveLikedGame(DB_LIKED_GAME)
+            sut.saveLikedGame(DB_LIKED_GAME)
 
-            assertThat(SUT.isGameLiked(DB_LIKED_GAME.gameId)).isTrue()
+            assertThat(sut.isGameLiked(DB_LIKED_GAME.gameId)).isTrue()
         }
     }
 
     @Test
     fun likes_game_unlikes_it_and_verifies_that_it_is_unliked_by_checking() {
         runTest {
-            SUT.saveLikedGame(DB_LIKED_GAME)
-            SUT.deleteLikedGame(DB_LIKED_GAME.gameId)
+            sut.saveLikedGame(DB_LIKED_GAME)
+            sut.deleteLikedGame(DB_LIKED_GAME.gameId)
 
-            assertThat(SUT.isGameLiked(DB_LIKED_GAME.gameId)).isFalse()
+            assertThat(sut.isGameLiked(DB_LIKED_GAME.gameId)).isFalse()
         }
     }
 
     @Test
     fun verifies_that_unliked_game_is_unliked() {
         runTest {
-            assertThat(SUT.isGameLiked(100)).isFalse()
+            assertThat(sut.isGameLiked(100)).isFalse()
         }
     }
 
     @Test
     fun likes_game_and_observes_that_it_is_liked() {
         runTest {
-            SUT.saveLikedGame(DB_LIKED_GAME)
+            sut.saveLikedGame(DB_LIKED_GAME)
 
-            SUT.observeGameLikeState(DB_LIKED_GAME.gameId).test {
+            sut.observeGameLikeState(DB_LIKED_GAME.gameId).test {
                 assertThat(awaitItem()).isTrue()
             }
         }
@@ -85,10 +78,10 @@ internal class LikedGamesTableTest {
     @Test
     fun likes_game_unlikes_it_and_verifies_that_it_is_unliked_by_observing() {
         runTest {
-            SUT.saveLikedGame(DB_LIKED_GAME)
-            SUT.deleteLikedGame(DB_LIKED_GAME.gameId)
+            sut.saveLikedGame(DB_LIKED_GAME)
+            sut.deleteLikedGame(DB_LIKED_GAME.gameId)
 
-            SUT.observeGameLikeState(DB_LIKED_GAME.gameId).test {
+            sut.observeGameLikeState(DB_LIKED_GAME.gameId).test {
                 assertThat(awaitItem()).isFalse()
             }
         }
@@ -97,7 +90,7 @@ internal class LikedGamesTableTest {
     @Test
     fun likes_games_and_observes_liked_games() {
         runTest {
-            DB_LIKED_GAMES.forEach { SUT.saveLikedGame(it) }
+            DB_LIKED_GAMES.forEach { sut.saveLikedGame(it) }
             gamesTable.saveGames(DB_GAMES)
 
             val expectedGames = DB_GAMES
@@ -107,7 +100,7 @@ internal class LikedGamesTableTest {
                         .likeTimestamp
                 }
 
-            SUT.observeLikedGames(offset = 0, limit = expectedGames.size)
+            sut.observeLikedGames(offset = 0, limit = expectedGames.size)
                 .test {
                     assertThat(awaitItem()).isEqualTo(expectedGames)
                 }
