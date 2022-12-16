@@ -36,26 +36,6 @@ fun TextView.updateCompoundDrawable(
     setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom)
 }
 
-fun TextView.enableMultilineText() {
-    minLines = 0
-    maxLines = Integer.MAX_VALUE
-    isSingleLine = false
-}
-
-fun TextView.disableMultilineText() {
-    minLines = 1
-    maxLines = 1
-    isSingleLine = true
-}
-
-fun TextView.setSingleLineTextEnabled(isSingleLineTextEnabled: Boolean) {
-    if (isSingleLineTextEnabled) {
-        disableMultilineText()
-    } else {
-        enableMultilineText()
-    }
-}
-
 fun TextView.setTextSizeInPx(size: Float) {
     setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
 }

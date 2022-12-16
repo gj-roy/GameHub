@@ -159,6 +159,3 @@ fun View.onClick(action: (View) -> Unit) {
     setOnClickListener(action)
 }
 
-fun View.postAction(action: () -> Unit) {
-    post(action)
-}
