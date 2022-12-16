@@ -1,6 +1,6 @@
 @file:JvmName("BitmapUtils")
 
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import android.graphics.Bitmap
 import android.graphics.Color
