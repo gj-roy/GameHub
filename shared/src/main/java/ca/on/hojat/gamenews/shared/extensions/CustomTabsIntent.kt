@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.browser.customtabs.CustomTabsIntent
 import ca.on.hojat.gamenews.shared.commons.window_anims.WindowAnimations
 
-
 internal fun CustomTabsIntent.Builder.setAnimations(
     context: Context,
     windowAnimations: WindowAnimations
