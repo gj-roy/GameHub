@@ -53,6 +53,8 @@ ksp {
 }
 
 dependencies {
+    // Local modules
+    implementation(project(":core"))
 
     // Room database
     implementation(AndroidX.room)

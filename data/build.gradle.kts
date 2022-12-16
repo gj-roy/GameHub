@@ -5,15 +5,11 @@ plugins {
 
 android {
     namespace = "ca.on.hojat.gamenews.data"
-
-
-    defaultConfig {
-
-    }
-
+    defaultConfig {}
 }
 
 dependencies {
+    implementation(project(":core"))
 
 
 }
