@@ -10,7 +10,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import androidx.annotation.StyleableRes
 import androidx.core.content.res.ResourcesCompat
-import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
+import ca.on.hojat.gamenews.shared.core.SdkInfo
 
 fun TypedArray.getString(@StyleableRes index: Int, default: CharSequence = ""): CharSequence {
     return (getString(index) ?: default)

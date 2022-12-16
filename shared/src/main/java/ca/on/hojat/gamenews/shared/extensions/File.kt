@@ -3,7 +3,7 @@
 package ca.on.hojat.gamenews.shared.extensions
 
 import android.os.FileObserver
-import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
+import ca.on.hojat.gamenews.shared.core.SdkInfo
 import java.io.File
 
 @Suppress("DEPRECATION")

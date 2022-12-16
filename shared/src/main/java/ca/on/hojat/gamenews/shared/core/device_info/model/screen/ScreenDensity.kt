@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.commons.device_info.model.screen
+package ca.on.hojat.gamenews.shared.core.device_info.model.screen
 
 enum class ScreenDensity(
     val dpi: Int,

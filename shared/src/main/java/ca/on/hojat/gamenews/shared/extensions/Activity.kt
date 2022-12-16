@@ -8,7 +8,7 @@ import android.app.ActivityManager
 import android.graphics.BitmapFactory
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
-import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
+import ca.on.hojat.gamenews.shared.core.SdkInfo
 import ca.on.hojat.gamenews.shared.commons.window_anims.WindowAnimations
 
 @get:ColorInt

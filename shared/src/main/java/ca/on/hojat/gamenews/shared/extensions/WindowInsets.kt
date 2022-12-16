@@ -4,7 +4,7 @@ package ca.on.hojat.gamenews.shared.extensions
 
 import android.annotation.SuppressLint
 import android.view.WindowInsets
-import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
+import ca.on.hojat.gamenews.shared.core.SdkInfo
 
 @Suppress("DEPRECATION")
 @SuppressLint("NewApi")

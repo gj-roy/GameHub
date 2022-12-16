@@ -31,15 +31,15 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.content.res.use
 import androidx.core.hardware.fingerprint.FingerprintManagerCompat
-import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
-import ca.on.hojat.gamenews.shared.commons.device_info.model.DeviceInfo
-import ca.on.hojat.gamenews.shared.commons.device_info.model.ProductInfo
-import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenDensity.Companion.asScreenDensity
-import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenDimension
-import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenMetrics
-import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenScalingFactors
-import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenSizeCategory
-import ca.on.hojat.gamenews.shared.commons.device_info.model.screen.ScreenSizeCategory.Companion.asScreenSizeCategory
+import ca.on.hojat.gamenews.shared.core.SdkInfo
+import ca.on.hojat.gamenews.shared.core.device_info.model.DeviceInfo
+import ca.on.hojat.gamenews.shared.core.device_info.model.ProductInfo
+import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenDensity.Companion.asScreenDensity
+import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenDimension
+import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenMetrics
+import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenScalingFactors
+import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenSizeCategory
+import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenSizeCategory.Companion.asScreenSizeCategory
 import java.util.Locale
 
 val Context.actionBarSize: Int

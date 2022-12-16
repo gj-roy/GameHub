@@ -28,7 +28,7 @@ import androidx.core.view.marginEnd
 import androidx.core.view.marginStart
 import androidx.core.view.marginTop
 import androidx.core.view.updateLayoutParams
-import ca.on.hojat.gamenews.shared.commons.core.utils.observeChanges
+import ca.on.hojat.gamenews.shared.core.utils.observeChanges
 import kotlin.properties.ReadWriteProperty
 
 val View.hasLayoutParams: Boolean

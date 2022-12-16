@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.commons.device_info.model
+package ca.on.hojat.gamenews.shared.core.device_info.model
 
 data class ProductInfo(
     val modelName: String,

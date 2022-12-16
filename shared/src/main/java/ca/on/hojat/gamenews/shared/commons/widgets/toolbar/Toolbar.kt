@@ -13,7 +13,7 @@ import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
 import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.commons.core.utils.observeChanges
+import ca.on.hojat.gamenews.shared.core.utils.observeChanges
 import ca.on.hojat.gamenews.shared.extensions.clearEndMargin
 import ca.on.hojat.gamenews.shared.extensions.endMargin
 import ca.on.hojat.gamenews.shared.extensions.getColor

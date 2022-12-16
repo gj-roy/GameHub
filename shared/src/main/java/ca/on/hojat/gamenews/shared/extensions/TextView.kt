@@ -11,7 +11,7 @@ import android.util.TypedValue
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.StyleRes
-import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
+import ca.on.hojat.gamenews.shared.core.SdkInfo
 
 private const val COMPOUND_DRAWABLE_INDEX_LEFT = 0
 private const val COMPOUND_DRAWABLE_INDEX_TOP = 1

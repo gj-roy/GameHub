@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.commons.core
+package ca.on.hojat.gamenews.shared.core
 
 import android.os.Build
 

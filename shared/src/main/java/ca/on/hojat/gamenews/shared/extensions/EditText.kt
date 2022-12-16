@@ -8,7 +8,8 @@ import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
-import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
+import ca.on.hojat.gamenews.shared.commons.listeners.QueryListener
+import ca.on.hojat.gamenews.shared.core.SdkInfo
 
 val EditText.isEmpty: Boolean
     get() = content.isEmpty()
@@ -65,4 +66,18 @@ inline fun EditText.onTextChanged(crossinline callback: (String) -> Unit): TextW
     return doOnTextChanged { text, _, _, _ ->
         callback(text.toString())
     }
+}
+
+
+inline fun EditText.addQueryListener(
+    crossinline onQueryEntered: (String) -> Unit = {},
+    crossinline onQueryRemoved: () -> Unit = {}
+): TextWatcher {
+    val callback = object : QueryListener.Callback {
+
+        override fun onQueryEntered(query: String) = onQueryEntered(query)
+        override fun onQueryRemoved() = onQueryRemoved()
+    }
+
+    return QueryListener(callback)
 }

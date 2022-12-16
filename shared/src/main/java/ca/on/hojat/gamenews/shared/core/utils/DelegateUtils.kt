@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.commons.core.utils
+package ca.on.hojat.gamenews.shared.core.utils
 
 import kotlin.properties.Delegates
 import kotlin.properties.ReadWriteProperty

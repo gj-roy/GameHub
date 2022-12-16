@@ -6,7 +6,7 @@ import android.annotation.SuppressLint
 import android.graphics.Canvas
 import android.graphics.Path
 import android.graphics.Region
-import ca.on.hojat.gamenews.shared.commons.core.SdkInfo
+import ca.on.hojat.gamenews.shared.core.SdkInfo
 
 @Suppress("DEPRECATION")
 @SuppressLint("NewApi")

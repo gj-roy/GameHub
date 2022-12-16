@@ -10,7 +10,7 @@ import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
 import ca.on.hojat.gamenews.shared.extensions.resultOrError
-import ca.on.hojat.gamenews.shared.commons.core.utils.observeChanges
+import ca.on.hojat.gamenews.shared.core.utils.observeChanges
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
