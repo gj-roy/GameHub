@@ -7,60 +7,19 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.graphics.drawable.GradientDrawable
 import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.net.NetworkRequest
-import android.os.Build
 import android.util.DisplayMetrics
-import android.util.TypedValue
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
-import androidx.annotation.FontRes
-import androidx.annotation.IntegerRes
-import androidx.annotation.LayoutRes
 import androidx.annotation.RequiresPermission
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
-import androidx.core.content.res.use
-import androidx.core.hardware.fingerprint.FingerprintManagerCompat
-import ca.on.hojat.gamenews.shared.commons.network.model.NetworkInfo
-import ca.on.hojat.gamenews.shared.commons.network.model.NetworkType
-import ca.on.hojat.gamenews.shared.commons.network.utils.LegacyNetworkTypeProvider
-import ca.on.hojat.gamenews.shared.commons.network.utils.NetworkCallback
-import ca.on.hojat.gamenews.shared.commons.network.utils.NetworkListener
-import ca.on.hojat.gamenews.shared.commons.network.utils.NetworkTypeProvider
-import ca.on.hojat.gamenews.shared.commons.network.utils.NewNetworkTypeProvider
-import ca.on.hojat.gamenews.shared.core.SdkInfo
-import ca.on.hojat.gamenews.shared.core.device_info.model.DeviceInfo
-import ca.on.hojat.gamenews.shared.core.device_info.model.ProductInfo
-import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenDensity.Companion.asScreenDensity
-import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenDimension
-import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenMetrics
-import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenScalingFactors
-import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenSizeCategory
-import ca.on.hojat.gamenews.shared.core.device_info.model.screen.ScreenSizeCategory.Companion.asScreenSizeCategory
-import java.util.Locale
-
-val Context.actionBarSize: Int
-    get() = getDimensionPixelSize(
-        getResourceIdFromAttributes(
-            attributes = intArrayOf(android.R.attr.actionBarSize),
-            index = 0
-        )
-    )
 
 val Context.statusBarHeight: Int
     @SuppressLint("InternalInsetResource", "DiscouragedApi")
@@ -74,50 +33,14 @@ val Context.statusBarHeight: Int
         )
     }
 
-val Context.navigationBarHeight: Int
-    @SuppressLint("InternalInsetResource", "DiscouragedApi")
-    get() = resources.run {
-        getDimensionPixelSize(
-            getIdentifier(
-                "navigation_bar_height",
-                "dimen",
-                "android"
-            )
-        )
-    }
-
-val Context.selectableItemBackground: Drawable?
-    get() = getAttributeDrawable(android.R.attr.selectableItemBackground)
-
-val Context.selectableItemBackgroundBorderless: Drawable?
-    get() = getAttributeDrawable(android.R.attr.selectableItemBackgroundBorderless)
-
 val Context.displayMetrics: DisplayMetrics
     get() = resources.displayMetrics
-
-@get:Suppress("DEPRECATION")
-@get:SuppressLint("NewApi")
-val Context.locale: Locale
-    get() = with(resources.configuration) {
-        if (SdkInfo.IS_AT_LEAST_NOUGAT) {
-            locales[0]
-        } else {
-            locale
-        }
-    }
 
 val Context.configuration: Configuration
     get() = resources.configuration
 
 val Context.layoutInflater: LayoutInflater
     get() = LayoutInflater.from(this)
-
-val Context.notificationManager: NotificationManagerCompat
-    get() = NotificationManagerCompat.from(this)
-
-@Suppress("DEPRECATION")
-val Context.fingerprintManager: FingerprintManagerCompat
-    get() = FingerprintManagerCompat.from(this)
 
 fun Context.getCompatColor(@ColorRes colorId: Int): Int {
     return ContextCompat.getColor(this, colorId)
@@ -127,22 +50,8 @@ fun Context.getDimensionPixelSize(@DimenRes dimenId: Int): Int {
     return resources.getDimensionPixelSize(dimenId)
 }
 
-fun Context.getInteger(@IntegerRes intId: Int): Int {
-    return resources.getInteger(intId)
-}
-
 fun Context.getDimension(@DimenRes dimenId: Int): Float {
     return resources.getDimension(dimenId)
-}
-
-fun Context.getFloat(@IntegerRes floatId: Int): Float {
-    return TypedValue()
-        .also { resources.getValue(floatId, it, true) }
-        .let(TypedValue::getFloat)
-}
-
-fun Context.getFont(@FontRes fontId: Int): Typeface? {
-    return ResourcesCompat.getFont(this, fontId)
 }
 
 fun Context.getCompatDrawable(@DrawableRes drawableId: Int): Drawable? {
@@ -151,40 +60,6 @@ fun Context.getCompatDrawable(@DrawableRes drawableId: Int): Drawable? {
 
 fun Context.getColoredDrawable(@DrawableRes drawableId: Int, @ColorInt color: Int): Drawable? {
     return getCompatDrawable(drawableId)?.setColor(color)
-}
-
-fun Context.getColoredStrokeDrawable(
-    @DrawableRes drawableId: Int,
-    @ColorInt strokeColor: Int,
-    strokeWidth: Int
-): Drawable? {
-    return getCompatDrawable(drawableId)
-        ?.run { mutate() as? GradientDrawable }
-        ?.apply { setStroke(strokeWidth, strokeColor) }
-}
-
-fun Context.getResourceIdFromAttributes(attributes: IntArray, index: Int): Int {
-    return obtainStyledAttributes(attributes).use {
-        it.getResourceId(index, 0)
-    }
-}
-
-fun Context.getAttributeDrawable(resId: Int): Drawable? {
-    return TypedValue()
-        .also { theme.resolveAttribute(resId, it, true) }
-        .let { getCompatDrawable(it.resourceId) }
-}
-
-fun Context.inflateView(
-    @LayoutRes layoutResourceId: Int,
-    root: ViewGroup?,
-    attachToRoot: Boolean = true
-): View {
-    return layoutInflater.inflate(
-        layoutResourceId,
-        root,
-        attachToRoot
-    )
 }
 
 fun Context.showShortToast(message: CharSequence): Toast {
@@ -200,24 +75,6 @@ fun Context.showToast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT)
         .apply { show() }
 }
 
-fun Context.isPermissionGranted(permission: String): Boolean {
-    return (ContextCompat.checkSelfPermission(
-        this,
-        permission
-    ) == PackageManager.PERMISSION_GRANTED)
-}
-
-fun Context.isPermissionDenied(permission: String): Boolean {
-    return (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_DENIED)
-}
-
-fun Context.arePermissionsGranted(permissions: Set<String>): Boolean {
-    return permissions.all { isPermissionGranted(it) }
-}
-
-fun Context.arePermissionsDenied(permissions: Set<String>): Boolean {
-    return permissions.all { isPermissionDenied(it) }
-}
 
 /**
  * Checks whether the intent can be handled by some activity
@@ -252,131 +109,8 @@ inline fun <reified T : Any> Context.getSystemService(): T {
 }
 
 
-val Context.deviceInfo: DeviceInfo
-    get() = DeviceInfo(
-        productInfo = productInfo,
-        screenMetrics = screenMetrics
-    )
-
-val Context.productInfo: ProductInfo
-    get() = ProductInfo(
-        modelName = Build.MODEL,
-        productName = Build.PRODUCT,
-        manufacturerName = Build.MANUFACTURER
-    )
-
-val Context.screenMetrics: ScreenMetrics
-    get() = ScreenMetrics(
-        width = displayMetrics.getScreenWidth(this),
-        height = displayMetrics.getScreenHeight(this),
-        sizeCategory = configuration.getScreenSizeCategory(),
-        density = displayMetrics.densityDpi.asScreenDensity(),
-        scalingFactors = displayMetrics.getScreenScalingFactors(),
-        smallestWidthInDp = configuration.smallestScreenWidthDp
-    )
-
-private fun DisplayMetrics.getScreenWidth(context: Context): ScreenDimension {
-    return ScreenDimension(
-        sizeInPixels = widthPixels,
-        sizeInDp = widthPixels.toFloat().pxToDp(context)
-    )
-}
-
-private fun DisplayMetrics.getScreenHeight(context: Context): ScreenDimension {
-    return ScreenDimension(
-        sizeInPixels = heightPixels,
-        sizeInDp = heightPixels.toFloat().pxToDp(context)
-    )
-}
-
-private fun DisplayMetrics.getScreenScalingFactors(): ScreenScalingFactors {
-    return ScreenScalingFactors(
-        pixelScalingFactor = density,
-        textPixelScalingFactor = scaledDensity
-    )
-}
-
-private fun Configuration.getScreenSizeCategory(): ScreenSizeCategory {
-    return (screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK).asScreenSizeCategory()
-}
-
 @get:Suppress("DEPRECATION")
 @get:RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
 val Context.isConnectedToNetwork: Boolean
     get() = (getSystemService<ConnectivityManager>().activeNetworkInfo?.isConnected == true)
 
-@get:RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
-val Context.isNetworkConnectionMetered: Boolean
-    get() = getSystemService<ConnectivityManager>().isActiveNetworkMetered
-
-@get:RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
-val Context.activeNetworkType: NetworkType
-    get() = when {
-        !isConnectedToNetwork -> NetworkType.UNDEFINED
-        else -> networkTypeProvider.getActiveNetworkType()
-    }
-
-@get:RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
-val Context.networkTypeProvider: NetworkTypeProvider
-    get() = getSystemService<ConnectivityManager>()
-        .let { connectivityManager ->
-            if (SdkInfo.IS_AT_LEAST_MARSHMALLOW) {
-                NewNetworkTypeProvider(connectivityManager)
-            } else {
-                LegacyNetworkTypeProvider(connectivityManager)
-            }
-        }
-
-@get:RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
-val Context.networkInfo: NetworkInfo
-    get() = NetworkInfo(
-        isConnectedToNetwork = isConnectedToNetwork,
-        isNetworkConnectionMetered = isNetworkConnectionMetered,
-        activeNetworkType = activeNetworkType
-    )
-
-@RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
-fun Context.registerNetworkListener(
-    networkListener: NetworkListener
-): ConnectivityManager.NetworkCallback {
-    return registerNetworkListener(
-        networkRequest = buildDefaultNetworkRequest(),
-        networkListener = networkListener
-    )
-}
-
-@RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
-fun Context.registerNetworkListener(
-    networkRequest: NetworkRequest,
-    networkListener: NetworkListener
-): ConnectivityManager.NetworkCallback {
-    val networkCallback = NetworkCallback(
-        networkTypeProvider = networkTypeProvider,
-        listener = networkListener
-    )
-
-    return getSystemService<ConnectivityManager>()
-        .apply { registerNetworkCallback(networkRequest, networkCallback) }
-        .let { networkCallback }
-}
-
-@RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
-inline fun Context.registerNetworkListener(
-    crossinline onNetworkConnected: (NetworkType) -> Unit = {},
-    crossinline onNetworkDisconnected: (NetworkType) -> Unit = {}
-): ConnectivityManager.NetworkCallback {
-    return object : NetworkListener {
-        override fun onNetworkConnected(networkType: NetworkType) = onNetworkConnected(networkType)
-        override fun onNetworkDisconnected(networkType: NetworkType) =
-            onNetworkDisconnected(networkType)
-    }
-        .let(::registerNetworkListener)
-}
-
-private fun buildDefaultNetworkRequest(): NetworkRequest {
-    return NetworkRequest.Builder()
-        .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-        .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
-        .addTransportType(NetworkCapabilities.TRANSPORT_ETHERNET)
-        .build()
-}
