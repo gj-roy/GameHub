@@ -1,7 +1,5 @@
 package ca.on.hojat.gamenews
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,6 +11,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.snapshotFlow
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
+import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveThemeUseCase
 import ca.on.hojat.gamenews.shared.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.shared.core.sharers.TextSharer
@@ -22,22 +22,12 @@ import ca.on.hojat.gamenews.shared.ui.LocalNetworkStateProvider
 import ca.on.hojat.gamenews.shared.ui.LocalTextSharer
 import ca.on.hojat.gamenews.shared.ui.LocalUrlOpener
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.shared.extensions.intentFor
-import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
-import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.filterNotNull
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    companion object {
-
-        fun newIntent(context: Context): Intent {
-            return context.intentFor<MainActivity>()
-        }
-    }
 
     @Inject
     lateinit var urlOpener: UrlOpener
