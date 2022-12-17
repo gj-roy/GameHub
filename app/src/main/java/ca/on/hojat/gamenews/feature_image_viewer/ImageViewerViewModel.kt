@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.shared.extensions.fromCsv
+import ca.on.hojat.gamenews.core.extensions.fromCsv
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

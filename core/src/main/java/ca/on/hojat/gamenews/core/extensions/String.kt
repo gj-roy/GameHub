@@ -1,6 +1,6 @@
 @file:JvmName("StringUtils")
 
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 private const val SEPARATOR = ","
 
