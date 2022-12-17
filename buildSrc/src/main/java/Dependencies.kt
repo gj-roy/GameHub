@@ -63,7 +63,7 @@ object AndroidX {
     const val viewModel = "2.5.1" // to be deleted when the linked issue at use site is fixed.
     private const val dataStoreVersion = "1.0.0"
     private const val roomVersion = "2.4.3"
-    private const val navigationVersion ="2.5.3"
+    private const val navigationVersion = "2.5.3"
 
     // splash screen
     const val splash = "androidx.core:core-splashscreen:1.0.0"
@@ -80,6 +80,9 @@ object AndroidX {
     // Datastore database
     const val prefsDataStore = "androidx.datastore:datastore-preferences:${dataStoreVersion}"
     const val protoDataStore = "androidx.datastore:datastore:${dataStoreVersion}"
+
+    // appCompat contains all androidX annotations so, as long as you have it,
+    // you shouldn't add androidX as a dependency to your module.
     const val appCompat = "androidx.appcompat:appcompat:1.5.1"
     const val viewPager2 = "androidx.viewpager2:viewpager2:1.0.0"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.2.0-alpha05"

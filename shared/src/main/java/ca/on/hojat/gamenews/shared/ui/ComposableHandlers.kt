@@ -3,9 +3,9 @@ package ca.on.hojat.gamenews.shared.ui
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
+import ca.on.hojat.gamenews.core.extensions.showLongToast
+import ca.on.hojat.gamenews.core.extensions.showShortToast
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import ca.on.hojat.gamenews.shared.extensions.showLongToast
-import ca.on.hojat.gamenews.shared.extensions.showShortToast
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.Command
 import ca.on.hojat.gamenews.shared.ui.base.events.Route

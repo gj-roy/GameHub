@@ -14,6 +14,7 @@ android {
 }
 
 dependencies {
-
+    // General jetpack libs
+    implementation(AndroidX.appCompat)
    
 }
