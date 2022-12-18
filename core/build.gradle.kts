@@ -1,6 +1,8 @@
 plugins {
     id(PLUGIN_ANDROID_LIBRARY)
     id(PLUGIN_GAMENEWS_ANDROID)
+    id(PLUGIN_KOTLINX_SERIALIZATION) version Tooling.kotlin
+
 }
 
 android {
@@ -20,6 +22,9 @@ dependencies {
 
     // kotlin Result
     implementation(ThirdParties.kotlinResult)
+
+    // Needed tools
+    implementation(Tooling.serialization)
 
 
 }

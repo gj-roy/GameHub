@@ -1,6 +1,7 @@
 package ca.on.hojat.gamenews.shared.core
 
-import ca.on.hojat.gamenews.shared.extensions.decodeFromStringOrNull
+
+import ca.on.hojat.gamenews.core.extensions.decodeFromStringOrNull
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import javax.inject.Inject

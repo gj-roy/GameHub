@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
