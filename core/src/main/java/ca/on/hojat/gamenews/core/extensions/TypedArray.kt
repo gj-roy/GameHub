@@ -1,6 +1,6 @@
 @file:JvmName("TypedArrayUtils")
 
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -24,8 +24,8 @@ import ca.on.hojat.gamenews.shared.extensions.endMargin
 import ca.on.hojat.gamenews.shared.extensions.getColor
 import ca.on.hojat.gamenews.shared.extensions.getDimension
 import ca.on.hojat.gamenews.shared.extensions.getDimensionPixelSize
-import ca.on.hojat.gamenews.shared.extensions.getFont
-import ca.on.hojat.gamenews.shared.extensions.getString
+import ca.on.hojat.gamenews.core.extensions.getFont
+import ca.on.hojat.gamenews.core.extensions.getString
 import ca.on.hojat.gamenews.shared.extensions.setHorizontalPadding
 import ca.on.hojat.gamenews.shared.extensions.setLayoutParamsSize
 import ca.on.hojat.gamenews.shared.extensions.updatePadding

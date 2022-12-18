@@ -16,8 +16,8 @@ import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.shared.databinding.ViewInfoBinding
 import ca.on.hojat.gamenews.shared.extensions.getColor
 import ca.on.hojat.gamenews.shared.extensions.getDimensionPixelSize
-import ca.on.hojat.gamenews.shared.extensions.getFont
-import ca.on.hojat.gamenews.shared.extensions.getString
+import ca.on.hojat.gamenews.core.extensions.getFont
+import ca.on.hojat.gamenews.core.extensions.getString
 import ca.on.hojat.gamenews.shared.extensions.setLayoutParamsSize
 import ca.on.hojat.gamenews.shared.extensions.topMargin
 
