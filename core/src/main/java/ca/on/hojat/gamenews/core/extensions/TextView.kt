@@ -1,6 +1,6 @@
 @file:JvmName("TextViewUtils")
 
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import android.graphics.drawable.Drawable
 import android.util.TypedValue
