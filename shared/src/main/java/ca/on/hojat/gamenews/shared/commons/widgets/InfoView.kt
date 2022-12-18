@@ -10,13 +10,13 @@ import androidx.annotation.ColorInt
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
 import ca.on.hojat.gamenews.core.extensions.layoutInflater
+import ca.on.hojat.gamenews.core.extensions.setColor
 import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.shared.databinding.ViewInfoBinding
 import ca.on.hojat.gamenews.shared.extensions.getColor
 import ca.on.hojat.gamenews.shared.extensions.getDimensionPixelSize
 import ca.on.hojat.gamenews.shared.extensions.getFont
 import ca.on.hojat.gamenews.shared.extensions.getString
-import ca.on.hojat.gamenews.shared.extensions.setColor
 import ca.on.hojat.gamenews.shared.extensions.setLayoutParamsSize
 import ca.on.hojat.gamenews.shared.extensions.setTextSizeInPx
 import ca.on.hojat.gamenews.shared.extensions.topMargin

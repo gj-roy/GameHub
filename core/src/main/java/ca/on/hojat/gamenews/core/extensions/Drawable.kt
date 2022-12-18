@@ -1,6 +1,6 @@
 @file:JvmName("DrawableUtils")
 
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff

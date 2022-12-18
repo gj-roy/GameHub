@@ -11,6 +11,7 @@ import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
 import ca.on.hojat.gamenews.core.extensions.layoutInflater
+import ca.on.hojat.gamenews.core.extensions.setColor
 import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.TitleGravity.Companion.asTitleGravity
 import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.configs.ButtonConfig
@@ -24,7 +25,6 @@ import ca.on.hojat.gamenews.shared.extensions.getDimension
 import ca.on.hojat.gamenews.shared.extensions.getDimensionPixelSize
 import ca.on.hojat.gamenews.shared.extensions.getFont
 import ca.on.hojat.gamenews.shared.extensions.getString
-import ca.on.hojat.gamenews.shared.extensions.setColor
 import ca.on.hojat.gamenews.shared.extensions.setHorizontalPadding
 import ca.on.hojat.gamenews.shared.extensions.setLayoutParamsSize
 import ca.on.hojat.gamenews.shared.extensions.setTextSizeInPx
