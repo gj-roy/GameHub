@@ -15,10 +15,6 @@ import androidx.core.view.marginEnd
 import androidx.core.view.marginStart
 import androidx.core.view.marginTop
 import androidx.core.view.updateLayoutParams
-import ca.on.hojat.gamenews.core.extensions.getCompatColor
-import ca.on.hojat.gamenews.core.extensions.getDimension
-import ca.on.hojat.gamenews.core.extensions.getDimensionPixelSize
-import ca.on.hojat.gamenews.core.extensions.showLongToast
 
 val View.hasLayoutParams: Boolean
     get() = (layoutParams != null)
@@ -159,7 +155,5 @@ fun View.showLongToast(message: CharSequence): Toast {
     return context.showLongToast(message)
 }
 
-fun View.onClick(action: (View) -> Unit) {
-    setOnClickListener(action)
-}
+
 
