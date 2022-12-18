@@ -1,10 +1,10 @@
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import android.content.Context
 import androidx.browser.customtabs.CustomTabsIntent
-import ca.on.hojat.gamenews.shared.commons.window_anims.WindowAnimations
+import ca.on.hojat.gamenews.core.animations.WindowAnimations
 
-internal fun CustomTabsIntent.Builder.setAnimations(
+fun CustomTabsIntent.Builder.setAnimations(
     context: Context,
     windowAnimations: WindowAnimations
 ): CustomTabsIntent.Builder {
