@@ -1,7 +1,7 @@
 @file:JvmName("IntentUtils")
 @file:Suppress("UNCHECKED_CAST")
 
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import android.content.Context
 import android.content.Intent

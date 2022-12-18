@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import ca.on.hojat.gamenews.core.extensions.attachNewTaskFlagIfNeeded
 import ca.on.hojat.gamenews.shared.core.SdkInfo
-import ca.on.hojat.gamenews.shared.extensions.attachNewTaskFlagIfNeeded
 import ca.on.hojat.gamenews.shared.extensions.canUrlBeOpenedByNativeApp
 import ca.on.hojat.gamenews.shared.extensions.getNativeAppPackageForUrl
 import com.paulrybitskyi.hiltbinder.BindType
