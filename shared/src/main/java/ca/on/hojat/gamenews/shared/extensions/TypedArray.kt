@@ -8,7 +8,8 @@ import android.content.res.TypedArray
 import android.graphics.Typeface
 import androidx.annotation.StyleableRes
 import androidx.core.content.res.ResourcesCompat
-import ca.on.hojat.gamenews.shared.core.SdkInfo
+import ca.on.hojat.gamenews.core.SdkInfo
+
 
 fun TypedArray.getString(@StyleableRes index: Int, default: CharSequence = ""): CharSequence {
     return (getString(index) ?: default)

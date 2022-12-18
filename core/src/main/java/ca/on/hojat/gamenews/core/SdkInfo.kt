@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core
+package ca.on.hojat.gamenews.core
 
 import android.os.Build
 import androidx.annotation.ChecksSdkIntAtLeast
