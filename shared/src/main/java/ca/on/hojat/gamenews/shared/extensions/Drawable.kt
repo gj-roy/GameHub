@@ -2,6 +2,7 @@
 
 package ca.on.hojat.gamenews.shared.extensions
 
+import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.graphics.drawable.Drawable
@@ -11,7 +12,11 @@ import androidx.annotation.ColorInt
 
 fun Drawable.setColor(@ColorInt color: Int): Drawable {
     return when (val newDrawable = mutate()) {
-        is RippleDrawable -> newDrawable.apply { setColor(color.toColorStateList()) }
+        is RippleDrawable -> newDrawable.apply {
+            setColor(
+                ColorStateList.valueOf(color)
+            )
+        }
         is GradientDrawable -> newDrawable.apply { setColor(color) }
 
         else -> newDrawable.apply {

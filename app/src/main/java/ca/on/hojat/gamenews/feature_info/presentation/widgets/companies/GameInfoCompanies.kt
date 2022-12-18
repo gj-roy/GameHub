@@ -24,6 +24,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.extensions.centerX
+import ca.on.hojat.gamenews.core.extensions.centerY
+import ca.on.hojat.gamenews.core.extensions.hasTransparentPixels
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSectionWithInnerList
 import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
@@ -31,16 +36,11 @@ import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import coil.compose.rememberAsyncImagePainter
 import coil.size.Size
 import coil.transform.Transformation
-import ca.on.hojat.gamenews.shared.extensions.isOpaque
-import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.core.extensions.centerX
-import ca.on.hojat.gamenews.core.extensions.centerY
-import ca.on.hojat.gamenews.core.extensions.hasTransparentPixels
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSectionWithInnerList
 import kotlin.math.roundToInt
 
 private val LogoMaxWidth = 268.dp
 private val LogoMaxHeight = 150.dp
+private const val COLOR_ALPHA_MAX = 255
 
 @Composable
 internal fun GameInfoCompanies(
@@ -224,7 +224,7 @@ private class LogoImageTransformation(
             for (y in FILL_COLOR_CALCULATION_PIXEL_OFFSET..centerY.toInt()) {
                 pixelColor = getPixel(x, y)
 
-                if (pixelColor.isOpaque) return pixelColor
+                if (android.graphics.Color.alpha(pixelColor) == COLOR_ALPHA_MAX) return pixelColor
             }
         }
 
