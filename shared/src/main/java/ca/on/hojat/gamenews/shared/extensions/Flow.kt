@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.shared.extensions
 
+import ca.on.hojat.gamenews.core.extensions.onSuccess
 import ca.on.hojat.gamenews.shared.domain.common.DomainException
 import ca.on.hojat.gamenews.shared.domain.common.DomainResult
 import com.github.michaelbull.result.Err

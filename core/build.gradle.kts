@@ -18,4 +18,8 @@ dependencies {
     implementation(AndroidX.appCompat)
     implementation(AndroidX.browser)
 
+    // kotlin Result
+    implementation(ThirdParties.kotlinResult)
+
+
 }

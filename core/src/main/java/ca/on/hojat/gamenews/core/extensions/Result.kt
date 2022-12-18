@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
