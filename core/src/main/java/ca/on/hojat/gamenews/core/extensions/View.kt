@@ -1,7 +1,7 @@
 @file:JvmName("ViewUtils")
 @file:Suppress("UNCHECKED_CAST", "TooManyFunctions")
 
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import android.view.View
 import android.view.ViewGroup

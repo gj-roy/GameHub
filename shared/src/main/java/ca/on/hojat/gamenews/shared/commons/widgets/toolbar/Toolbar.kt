@@ -10,6 +10,11 @@ import androidx.annotation.ColorInt
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
+import ca.on.hojat.gamenews.core.extensions.clearEndMargin
+import ca.on.hojat.gamenews.core.extensions.endMargin
+import ca.on.hojat.gamenews.core.extensions.getColor
+import ca.on.hojat.gamenews.core.extensions.getDimension
+import ca.on.hojat.gamenews.core.extensions.getDimensionPixelSize
 import ca.on.hojat.gamenews.core.extensions.layoutInflater
 import ca.on.hojat.gamenews.core.extensions.setColor
 import ca.on.hojat.gamenews.core.extensions.setTextSizeInPx
@@ -19,17 +24,12 @@ import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.configs.ButtonConfig
 import ca.on.hojat.gamenews.shared.commons.widgets.toolbar.configs.TitleConfig
 import ca.on.hojat.gamenews.shared.core.utils.observeChanges
 import ca.on.hojat.gamenews.shared.databinding.ViewToolbarBinding
-import ca.on.hojat.gamenews.shared.extensions.clearEndMargin
-import ca.on.hojat.gamenews.shared.extensions.endMargin
-import ca.on.hojat.gamenews.shared.extensions.getColor
-import ca.on.hojat.gamenews.shared.extensions.getDimension
-import ca.on.hojat.gamenews.shared.extensions.getDimensionPixelSize
 import ca.on.hojat.gamenews.core.extensions.getFont
 import ca.on.hojat.gamenews.core.extensions.getString
-import ca.on.hojat.gamenews.shared.extensions.setHorizontalPadding
-import ca.on.hojat.gamenews.shared.extensions.setLayoutParamsSize
-import ca.on.hojat.gamenews.shared.extensions.updatePadding
-import ca.on.hojat.gamenews.shared.extensions.verticalPadding
+import ca.on.hojat.gamenews.core.extensions.setHorizontalPadding
+import ca.on.hojat.gamenews.core.extensions.setLayoutParamsSize
+import ca.on.hojat.gamenews.core.extensions.updatePadding
+import ca.on.hojat.gamenews.core.extensions.verticalPadding
 import kotlin.math.max
 
 class Toolbar @JvmOverloads constructor(
