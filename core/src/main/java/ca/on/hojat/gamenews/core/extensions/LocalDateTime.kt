@@ -1,8 +1,11 @@
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import java.time.LocalDateTime
 import java.time.ZoneId
 
+@RequiresApi(Build.VERSION_CODES.O)
 fun LocalDateTime.toMillis(zoneId: ZoneId = ZoneId.systemDefault()): Long {
     return atZone(zoneId).toInstant().toEpochMilli()
 }
