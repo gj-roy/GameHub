@@ -12,7 +12,7 @@ import ca.on.hojat.gamenews.feature_info.domain.entities.GameImageType
 import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameImageUrlsUseCase
 import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameImageUrlsUseCaseImpl
 import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameUseCase
-import ca.on.hojat.gamenews.shared.domain.common.entities.Error
+import ca.on.hojat.gamenews.core.domain.entities.Error
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK

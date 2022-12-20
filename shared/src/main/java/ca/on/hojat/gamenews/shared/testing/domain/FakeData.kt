@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.testing.domain
 
-import ca.on.hojat.gamenews.shared.domain.common.entities.Error
+import ca.on.hojat.gamenews.core.domain.entities.Error
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.games.entities.Category
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game

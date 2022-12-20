@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.data.common
 
-import ca.on.hojat.gamenews.shared.domain.common.entities.Error
+import ca.on.hojat.gamenews.core.domain.entities.Error
 import ca.on.hojat.gamenews.shared.api.common.httpErrorMessage
 import ca.on.hojat.gamenews.shared.api.common.isHttpError
 import ca.on.hojat.gamenews.shared.api.common.isNetworkError

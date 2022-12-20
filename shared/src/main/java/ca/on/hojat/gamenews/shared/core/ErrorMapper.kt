@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.shared.core
 import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.domain.common.DomainException
-import ca.on.hojat.gamenews.shared.domain.common.entities.Error
+import ca.on.hojat.gamenews.core.domain.entities.Error
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
