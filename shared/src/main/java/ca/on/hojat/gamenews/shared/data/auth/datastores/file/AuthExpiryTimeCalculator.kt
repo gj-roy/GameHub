@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.data.auth.datastores.file
 
-import ca.on.hojat.gamenews.shared.core.providers.TimestampProvider
+import ca.on.hojat.gamenews.core.providers.TimestampProvider
 import ca.on.hojat.gamenews.shared.domain.auth.entities.OauthCredentials
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject

@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_search.domain
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.shared.core.providers.NetworkStateProvider
+import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesDataStores
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesRemoteDataStore

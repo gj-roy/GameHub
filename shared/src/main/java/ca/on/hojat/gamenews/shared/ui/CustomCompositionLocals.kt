@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.ui
 
 import androidx.compose.runtime.staticCompositionLocalOf
-import ca.on.hojat.gamenews.shared.core.providers.NetworkStateProvider
+import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.shared.core.sharers.TextSharer
 import ca.on.hojat.gamenews.shared.core.urlopener.UrlOpener
 

@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.data.auth.file
 
-import ca.on.hojat.gamenews.shared.core.providers.TimestampProvider
+import ca.on.hojat.gamenews.core.providers.TimestampProvider
 import ca.on.hojat.gamenews.shared.data.DOMAIN_OAUTH_CREDENTIALS
 import ca.on.hojat.gamenews.shared.data.auth.datastores.file.AUTH_TOKEN_TTL_DEDUCTION
 import ca.on.hojat.gamenews.shared.data.auth.datastores.file.AuthExpiryTimeCalculator

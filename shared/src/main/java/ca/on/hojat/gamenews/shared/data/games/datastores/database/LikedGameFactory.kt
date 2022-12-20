@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.data.games.datastores.database
 
-import ca.on.hojat.gamenews.shared.core.providers.TimestampProvider
+import ca.on.hojat.gamenews.core.providers.TimestampProvider
 import ca.on.hojat.gamenews.shared.database.games.entities.DbLikedGame
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject

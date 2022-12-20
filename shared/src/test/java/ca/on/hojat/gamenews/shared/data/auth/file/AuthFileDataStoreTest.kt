@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.data.auth.file
 
 import androidx.datastore.core.DataStore
-import ca.on.hojat.gamenews.shared.core.providers.TimestampProvider
+import ca.on.hojat.gamenews.core.providers.TimestampProvider
 import ca.on.hojat.gamenews.shared.data.DOMAIN_OAUTH_CREDENTIALS
 import ca.on.hojat.gamenews.shared.data.auth.datastores.file.AuthExpiryTimeCalculator
 import ca.on.hojat.gamenews.shared.data.auth.datastores.file.AuthFileDataStore

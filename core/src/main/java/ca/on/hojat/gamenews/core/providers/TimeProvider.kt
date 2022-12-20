@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core.providers
+package ca.on.hojat.gamenews.core.providers
 
 import com.paulrybitskyi.hiltbinder.BindType
 import java.time.LocalDateTime

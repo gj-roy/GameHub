@@ -11,8 +11,8 @@ import ca.on.hojat.gamenews.core.extensions.configuration
 import ca.on.hojat.gamenews.core.extensions.getCompatColor
 import ca.on.hojat.gamenews.core.extensions.isDarkThemeEnabled
 import ca.on.hojat.gamenews.core.extensions.setAnimations
+import ca.on.hojat.gamenews.core.providers.CustomTabsProvider
 import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.core.providers.CustomTabsProvider
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core.providers
+package ca.on.hojat.gamenews.core.providers
 
 import android.content.Context
 import ca.on.hojat.gamenews.core.extensions.isConnectedToNetwork

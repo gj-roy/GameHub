@@ -11,10 +11,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.snapshotFlow
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveThemeUseCase
-import ca.on.hojat.gamenews.shared.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.shared.core.sharers.TextSharer
 import ca.on.hojat.gamenews.shared.core.urlopener.UrlOpener
 import ca.on.hojat.gamenews.shared.domain.common.usecases.execute
