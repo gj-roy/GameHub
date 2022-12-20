@@ -3,6 +3,8 @@ package ca.on.hojat.gamenews.feature_info.presentation
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.extensions.onError
+import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameImageType
@@ -20,8 +22,6 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameI
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
 import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.extensions.onError
-import ca.on.hojat.gamenews.shared.extensions.resultOrError
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration

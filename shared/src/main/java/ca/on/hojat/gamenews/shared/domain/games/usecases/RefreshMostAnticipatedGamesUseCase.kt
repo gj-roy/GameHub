@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.shared.domain.games.usecases
 
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.DomainResult
-import ca.on.hojat.gamenews.shared.extensions.onEachSuccess
+import ca.on.hojat.gamenews.core.extensions.onEachSuccess
 import ca.on.hojat.gamenews.shared.domain.games.RefreshableGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottlerTools

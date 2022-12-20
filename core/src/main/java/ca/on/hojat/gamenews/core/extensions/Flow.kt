@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.extensions
+package ca.on.hojat.gamenews.core.extensions
 
 import ca.on.hojat.gamenews.core.extensions.onSuccess
 import ca.on.hojat.gamenews.core.domain.DomainResult

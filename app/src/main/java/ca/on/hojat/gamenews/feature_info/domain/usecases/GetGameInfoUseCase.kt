@@ -1,14 +1,14 @@
 package ca.on.hojat.gamenews.feature_info.domain.usecases
 
+import ca.on.hojat.gamenews.core.extensions.combine
+import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.shared.domain.games.entities.Company
 import ca.on.hojat.gamenews.shared.domain.games.entities.Game
-import ca.on.hojat.gamenews.shared.extensions.resultOrError
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
 import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCase
-import ca.on.hojat.gamenews.shared.extensions.combine
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapConcat
