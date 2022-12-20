@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.shared.api.common.ApiResult
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.ArticlesEndpoint
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.common.DomainResult
+import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import com.github.michaelbull.result.mapEither
 import ca.on.hojat.gamenews.shared.data.common.ApiErrorMapper

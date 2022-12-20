@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_info.domain.usecases
 
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.common.DomainResult
+import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore

@@ -10,7 +10,7 @@ import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetPopularGamesReques
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetRecentlyReleasedGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.SearchGamesRequest
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.common.DomainResult
+import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesRemoteDataStore
 import ca.on.hojat.gamenews.shared.domain.games.entities.Company

@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.shared.extensions
 
 import ca.on.hojat.gamenews.core.extensions.onSuccess
 import ca.on.hojat.gamenews.shared.domain.common.DomainException
-import ca.on.hojat.gamenews.shared.domain.common.DomainResult
+import ca.on.hojat.gamenews.core.domain.DomainResult
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
