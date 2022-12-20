@@ -2,26 +2,28 @@ package ca.on.hojat.gamenews.feature_category
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import ca.on.hojat.gamenews.shared.core.ErrorMapper
+import ca.on.hojat.gamenews.core.mappers.ErrorMapper
+import ca.on.hojat.gamenews.core.providers.StringProvider
+import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
+import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
+import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModelMapper
+import ca.on.hojat.gamenews.feature_category.widgets.GamesCategoryUiState
+import ca.on.hojat.gamenews.feature_category.widgets.disableLoading
+import ca.on.hojat.gamenews.feature_category.widgets.enableLoading
+import ca.on.hojat.gamenews.feature_category.widgets.mapToUiModels
+import ca.on.hojat.gamenews.feature_category.widgets.toEmptyState
+import ca.on.hojat.gamenews.feature_category.widgets.toSuccessState
 import ca.on.hojat.gamenews.shared.core.Logger
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
-import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
+import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
+import ca.on.hojat.gamenews.shared.extensions.onError
 import ca.on.hojat.gamenews.shared.extensions.resultOrError
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration
-import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
-import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
-import ca.on.hojat.gamenews.feature_category.widgets.GamesCategoryUiState
-import ca.on.hojat.gamenews.feature_category.widgets.disableLoading
-import ca.on.hojat.gamenews.feature_category.widgets.mapToUiModels
-import ca.on.hojat.gamenews.feature_category.widgets.toEmptyState
-import ca.on.hojat.gamenews.feature_category.widgets.enableLoading
-import ca.on.hojat.gamenews.feature_category.widgets.toSuccessState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin
@@ -38,9 +40,6 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModelMapper
-import ca.on.hojat.gamenews.shared.extensions.onError
 
 private const val PARAM_GAMES_CATEGORY = "category"
 

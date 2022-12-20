@@ -1,9 +1,9 @@
-package ca.on.hojat.gamenews.shared.core
+package ca.on.hojat.gamenews.core.mappers
 
-import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
-import ca.on.hojat.gamenews.shared.domain.common.DomainException
+import ca.on.hojat.gamenews.core.R
+import ca.on.hojat.gamenews.core.domain.entities.DomainException
 import ca.on.hojat.gamenews.core.domain.entities.Error
+import ca.on.hojat.gamenews.core.providers.StringProvider
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
@@ -25,7 +25,6 @@ internal class ErrorMapperImpl @Inject constructor(
     private fun DomainException.toMessage(): String {
         return when (error) {
             is Error.ApiError -> error.toMessage()
-
             is Error.NotFound,
             is Error.Unknown -> stringProvider.getString(R.string.error_unknown_message)
         }

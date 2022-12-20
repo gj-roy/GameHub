@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.shared.core.sharers
 import android.content.Context
 import android.content.Intent
 import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
+import ca.on.hojat.gamenews.core.providers.StringProvider
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

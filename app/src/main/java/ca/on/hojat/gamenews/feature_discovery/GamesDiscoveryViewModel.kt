@@ -1,17 +1,8 @@
 package ca.on.hojat.gamenews.feature_discovery
 
 import androidx.lifecycle.viewModelScope
-import ca.on.hojat.gamenews.shared.core.ErrorMapper
-import ca.on.hojat.gamenews.shared.core.Logger
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
-import ca.on.hojat.gamenews.shared.extensions.onError
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.extensions.resultOrError
-import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
-import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
-import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
-import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
+import ca.on.hojat.gamenews.core.mappers.ErrorMapper
+import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_discovery.mapping.GamesDiscoveryItemGameUiModelMapper
 import ca.on.hojat.gamenews.feature_discovery.mapping.mapToUiModels
 import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemGameUiModel
@@ -19,6 +10,15 @@ import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemUiModel
 import ca.on.hojat.gamenews.feature_discovery.widgets.hideProgressBar
 import ca.on.hojat.gamenews.feature_discovery.widgets.showProgressBar
 import ca.on.hojat.gamenews.feature_discovery.widgets.toSuccessState
+import ca.on.hojat.gamenews.shared.core.Logger
+import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
+import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.shared.extensions.onError
+import ca.on.hojat.gamenews.shared.extensions.resultOrError
+import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
+import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

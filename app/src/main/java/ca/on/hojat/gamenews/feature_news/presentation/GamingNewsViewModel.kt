@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_news.presentation
 
 import androidx.lifecycle.viewModelScope
-import ca.on.hojat.gamenews.shared.core.ErrorMapper
+import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.extensions.onError
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider

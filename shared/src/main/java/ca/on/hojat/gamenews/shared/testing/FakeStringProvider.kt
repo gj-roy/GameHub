@@ -1,6 +1,7 @@
 package ca.on.hojat.gamenews.shared.testing
 
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
+import ca.on.hojat.gamenews.core.providers.StringProvider
+
 
 class FakeStringProvider : StringProvider {
 

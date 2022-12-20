@@ -1,9 +1,9 @@
 package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.core.domain.entities.DomainException
 import ca.on.hojat.gamenews.feature_info.GAME_INFO
 import ca.on.hojat.gamenews.feature_info.INVOLVED_COMPANY
-import ca.on.hojat.gamenews.shared.domain.common.DomainException
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES

@@ -2,15 +2,17 @@ package ca.on.hojat.gamenews.feature_search.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import ca.on.hojat.gamenews.shared.core.ErrorMapper
+import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.mappers.ErrorMapper
+import ca.on.hojat.gamenews.core.providers.StringProvider
+import ca.on.hojat.gamenews.feature_search.domain.SearchGamesUseCase
 import ca.on.hojat.gamenews.shared.core.Logger
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
-import ca.on.hojat.gamenews.shared.extensions.onError
+import ca.on.hojat.gamenews.shared.core.utils.observeChanges
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
+import ca.on.hojat.gamenews.shared.extensions.onError
 import ca.on.hojat.gamenews.shared.extensions.resultOrError
-import ca.on.hojat.gamenews.shared.core.utils.observeChanges
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
@@ -18,8 +20,6 @@ import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModelMapper
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GamesUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.games.mapToUiModels
 import ca.on.hojat.gamenews.shared.ui.widgets.games.toSuccessState
-import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.feature_search.domain.SearchGamesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

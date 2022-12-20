@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.core
 
+import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.core.formatters.GameAgeRatingFormatterImpl
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRating
 import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRatingCategory

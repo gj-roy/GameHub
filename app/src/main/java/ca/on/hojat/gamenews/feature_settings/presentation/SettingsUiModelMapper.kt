@@ -1,9 +1,9 @@
 package ca.on.hojat.gamenews.feature_settings.presentation
 
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
-import ca.on.hojat.gamenews.shared.core.providers.VersionNameProvider
+import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
+import ca.on.hojat.gamenews.shared.core.providers.VersionNameProvider
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

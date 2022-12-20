@@ -2,6 +2,10 @@ plugins {
     id(PLUGIN_ANDROID_LIBRARY)
     id(PLUGIN_GAMENEWS_ANDROID)
     id(PLUGIN_KOTLINX_SERIALIZATION) version Tooling.kotlin
+    id(PLUGIN_KSP) version Tooling.kspPlugin
+    id(PLUGIN_DAGGER_HILT_ANDROID)
+    id(PLUGIN_KOTLIN_KAPT)
+
 
 }
 
@@ -26,5 +30,17 @@ dependencies {
     // Needed tools
     implementation(Tooling.serialization)
 
+    // DI
+    implementation(ThirdParties.hiltBinder)
+    ksp(ThirdParties.hiltBinderCompiler)
+
+    // DI
+    implementation(Hilt.daggerHiltTest)
+    implementation(Hilt.daggerHiltCore)
+    kapt(Hilt.daggerHiltCoreCompiler)
+    implementation(Hilt.daggerHiltAndroid)
+    kapt(Hilt.daggerHiltAndroidCompiler)
+    androidTestImplementation(Hilt.daggerHiltTest)
+    kaptAndroidTest(Hilt.daggerHiltAndroidCompiler)
 
 }

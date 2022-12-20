@@ -1,14 +1,16 @@
 package ca.on.hojat.gamenews.feature_likes.presentation
 
 import androidx.lifecycle.viewModelScope
-import ca.on.hojat.gamenews.shared.core.ErrorMapper
+import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.mappers.ErrorMapper
+import ca.on.hojat.gamenews.core.providers.StringProvider
+import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
 import ca.on.hojat.gamenews.shared.core.Logger
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
-import ca.on.hojat.gamenews.shared.extensions.onError
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.hasDefaultLimit
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
 import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.shared.extensions.onError
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
@@ -18,8 +20,6 @@ import ca.on.hojat.gamenews.shared.ui.widgets.games.mapToUiModels
 import ca.on.hojat.gamenews.shared.ui.widgets.games.toEmptyState
 import ca.on.hojat.gamenews.shared.ui.widgets.games.toLoadingState
 import ca.on.hojat.gamenews.shared.ui.widgets.games.toSuccessState
-import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin

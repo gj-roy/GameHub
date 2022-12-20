@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.core
 
 import ca.on.hojat.gamenews.shared.core.formatters.RelativeDateFormatterImpl
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
+import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.core.providers.TimeProvider
 import com.google.common.truth.Truth.assertThat
 import io.mockk.MockKAnnotations

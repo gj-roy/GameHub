@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.testing
 
-import ca.on.hojat.gamenews.shared.core.ErrorMapper
+import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 
 class FakeErrorMapper : ErrorMapper {
 

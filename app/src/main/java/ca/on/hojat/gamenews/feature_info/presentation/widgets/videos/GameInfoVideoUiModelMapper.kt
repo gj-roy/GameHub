@@ -1,10 +1,10 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.videos
 
+import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.core.factories.YoutubeMediaUrlFactory
 import ca.on.hojat.gamenews.shared.core.factories.YoutubeThumbnailSize
-import ca.on.hojat.gamenews.shared.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.domain.games.entities.Video
-import ca.on.hojat.gamenews.R
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

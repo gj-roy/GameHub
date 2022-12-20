@@ -1,6 +1,4 @@
-package ca.on.hojat.gamenews.shared.domain.common
-
-import ca.on.hojat.gamenews.core.domain.entities.Error
+package ca.on.hojat.gamenews.core.domain.entities
 
 class DomainException(
     val error: Error,
