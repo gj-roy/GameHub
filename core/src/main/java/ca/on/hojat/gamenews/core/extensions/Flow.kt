@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.core.extensions
 
-import ca.on.hojat.gamenews.core.extensions.onSuccess
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.entities.DomainException
 import com.github.michaelbull.result.Err
