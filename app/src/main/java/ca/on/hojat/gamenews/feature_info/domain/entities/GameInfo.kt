@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.feature_info.domain.entities
 
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Game
 
 data class GameInfo(
     val game: Game,

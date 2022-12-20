@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.shared.domain.games.RefreshableGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottlerTools
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesDataStores
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn

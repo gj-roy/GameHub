@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.entities.Error
 import ca.on.hojat.gamenews.shared.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameUseCase.Params

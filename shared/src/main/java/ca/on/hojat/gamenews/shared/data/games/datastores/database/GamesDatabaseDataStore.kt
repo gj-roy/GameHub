@@ -5,8 +5,8 @@ import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
-import ca.on.hojat.gamenews.shared.domain.games.entities.Company
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Company
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.shared.data.games.common.DiscoveryGamesReleaseDatesProvider
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow

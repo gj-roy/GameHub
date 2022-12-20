@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
 import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
 import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModelMapper
 import ca.on.hojat.gamenews.feature_category.widgets.finiteUiState
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.shared.domain.games.usecases.ObservePopularGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.usecases.RefreshPopularGamesUseCase
 import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper

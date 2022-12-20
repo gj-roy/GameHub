@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_likes.presentation
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
 import ca.on.hojat.gamenews.shared.testing.FakeLogger
 import ca.on.hojat.gamenews.shared.testing.FakeStringProvider

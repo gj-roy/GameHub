@@ -1,11 +1,11 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.details
 
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
-import ca.on.hojat.gamenews.shared.domain.games.entities.Genre
-import ca.on.hojat.gamenews.shared.domain.games.entities.Mode
-import ca.on.hojat.gamenews.shared.domain.games.entities.Platform
-import ca.on.hojat.gamenews.shared.domain.games.entities.PlayerPerspective
-import ca.on.hojat.gamenews.shared.domain.games.entities.Theme
+import ca.on.hojat.gamenews.core.domain.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Genre
+import ca.on.hojat.gamenews.core.domain.entities.Mode
+import ca.on.hojat.gamenews.core.domain.entities.Platform
+import ca.on.hojat.gamenews.core.domain.entities.PlayerPerspective
+import ca.on.hojat.gamenews.core.domain.entities.Theme
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

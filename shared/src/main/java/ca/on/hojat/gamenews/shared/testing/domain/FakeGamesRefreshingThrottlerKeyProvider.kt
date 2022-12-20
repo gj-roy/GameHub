@@ -2,8 +2,8 @@ package ca.on.hojat.gamenews.shared.testing.domain
 
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottlerKeyProvider
-import ca.on.hojat.gamenews.shared.domain.games.entities.Company
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Company
+import ca.on.hojat.gamenews.core.domain.entities.Game
 
 class FakeGamesRefreshingThrottlerKeyProvider : GamesRefreshingThrottlerKeyProvider {
 

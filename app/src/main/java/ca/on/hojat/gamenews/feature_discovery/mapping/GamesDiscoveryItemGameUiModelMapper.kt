@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_discovery.mapping
 
 import ca.on.hojat.gamenews.shared.core.factories.IgdbImageSize
 import ca.on.hojat.gamenews.shared.core.factories.IgdbImageUrlFactory
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemGameUiModel
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject

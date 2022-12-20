@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.games.ObservableGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject

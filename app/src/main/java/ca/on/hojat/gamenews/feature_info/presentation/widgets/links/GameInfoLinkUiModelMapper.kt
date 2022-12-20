@@ -2,8 +2,8 @@ package ca.on.hojat.gamenews.feature_info.presentation.widgets.links
 
 import ca.on.hojat.gamenews.shared.core.providers.WebsiteIconProvider
 import ca.on.hojat.gamenews.shared.core.providers.WebsiteNameProvider
-import ca.on.hojat.gamenews.shared.domain.games.entities.Website
-import ca.on.hojat.gamenews.shared.domain.games.entities.WebsiteCategory
+import ca.on.hojat.gamenews.core.domain.entities.Website
+import ca.on.hojat.gamenews.core.domain.entities.WebsiteCategory
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.main
 
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.GameInfoCompanyUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.mapToUiModels

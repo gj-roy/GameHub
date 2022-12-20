@@ -1,8 +1,8 @@
 package ca.on.hojat.gamenews.shared.domain.games.common.throttling
 
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
-import ca.on.hojat.gamenews.shared.domain.games.entities.Company
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Company
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.shared.core.factories.IgdbImageSize
 import ca.on.hojat.gamenews.shared.core.factories.IgdbImageUrlFactory
 import ca.on.hojat.gamenews.shared.core.factories.IgdbImageUrlFactoryImpl
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.shared.domain.games.entities.Image
+import ca.on.hojat.gamenews.core.domain.entities.Image
 import org.junit.Before
 import org.junit.Test
 import java.util.Locale

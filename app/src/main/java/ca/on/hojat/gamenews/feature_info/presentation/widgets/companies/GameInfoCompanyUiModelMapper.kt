@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.core.factories.IgdbImageExtension
 import ca.on.hojat.gamenews.shared.core.factories.IgdbImageSize
 import ca.on.hojat.gamenews.shared.core.factories.IgdbImageUrlFactory
-import ca.on.hojat.gamenews.shared.domain.games.entities.InvolvedCompany
+import ca.on.hojat.gamenews.core.domain.entities.InvolvedCompany
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

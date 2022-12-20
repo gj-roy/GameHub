@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.shared.core.formatters
 
 import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.core.providers.StringProvider
-import ca.on.hojat.gamenews.shared.domain.games.entities.Category
+import ca.on.hojat.gamenews.core.domain.entities.Category
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

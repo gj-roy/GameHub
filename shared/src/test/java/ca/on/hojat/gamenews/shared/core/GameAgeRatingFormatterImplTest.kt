@@ -3,9 +3,9 @@ package ca.on.hojat.gamenews.shared.core
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.shared.core.formatters.GameAgeRatingFormatterImpl
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRating
-import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRatingCategory
-import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRatingType
+import ca.on.hojat.gamenews.core.domain.entities.AgeRating
+import ca.on.hojat.gamenews.core.domain.entities.AgeRatingCategory
+import ca.on.hojat.gamenews.core.domain.entities.AgeRatingType
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import org.junit.Before
 import org.junit.Test

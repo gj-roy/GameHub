@@ -16,7 +16,7 @@ import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import dagger.hilt.android.lifecycle.HiltViewModel

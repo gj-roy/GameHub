@@ -5,8 +5,8 @@ import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
-import ca.on.hojat.gamenews.shared.domain.games.entities.Company
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Company
+import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.github.michaelbull.result.Ok
 import ca.on.hojat.gamenews.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType

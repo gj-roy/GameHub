@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.shared.data.games.datastores.database
 
+import ca.on.hojat.gamenews.core.domain.entities.AgeRating
 import ca.on.hojat.gamenews.shared.database.games.entities.DbAgeRating
 import ca.on.hojat.gamenews.shared.database.games.entities.DbAgeRatingCategory
 import ca.on.hojat.gamenews.shared.database.games.entities.DbAgeRatingType
@@ -19,25 +20,24 @@ import ca.on.hojat.gamenews.shared.database.games.entities.DbTheme
 import ca.on.hojat.gamenews.shared.database.games.entities.DbVideo
 import ca.on.hojat.gamenews.shared.database.games.entities.DbWebsite
 import ca.on.hojat.gamenews.shared.database.games.entities.DbWebsiteCategory
-import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRating
-import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRatingCategory
-import ca.on.hojat.gamenews.shared.domain.games.entities.AgeRatingType
-import ca.on.hojat.gamenews.shared.domain.games.entities.Category
-import ca.on.hojat.gamenews.shared.domain.games.entities.Company
-import ca.on.hojat.gamenews.shared.domain.games.entities.Game
-import ca.on.hojat.gamenews.shared.domain.games.entities.Genre
-import ca.on.hojat.gamenews.shared.domain.games.entities.Image
-import ca.on.hojat.gamenews.shared.domain.games.entities.InvolvedCompany
-import ca.on.hojat.gamenews.shared.domain.games.entities.Keyword
-import ca.on.hojat.gamenews.shared.domain.games.entities.Mode
-import ca.on.hojat.gamenews.shared.domain.games.entities.Platform
-import ca.on.hojat.gamenews.shared.domain.games.entities.PlayerPerspective
-import ca.on.hojat.gamenews.shared.domain.games.entities.ReleaseDate
-import ca.on.hojat.gamenews.shared.domain.games.entities.ReleaseDateCategory
-import ca.on.hojat.gamenews.shared.domain.games.entities.Theme
-import ca.on.hojat.gamenews.shared.domain.games.entities.Video
-import ca.on.hojat.gamenews.shared.domain.games.entities.Website
-import ca.on.hojat.gamenews.shared.domain.games.entities.WebsiteCategory
+import ca.on.hojat.gamenews.core.domain.entities.AgeRatingCategory
+import ca.on.hojat.gamenews.core.domain.entities.AgeRatingType
+import ca.on.hojat.gamenews.core.domain.entities.Category
+import ca.on.hojat.gamenews.core.domain.entities.Company
+import ca.on.hojat.gamenews.core.domain.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Genre
+import ca.on.hojat.gamenews.core.domain.entities.Image
+import ca.on.hojat.gamenews.core.domain.entities.InvolvedCompany
+import ca.on.hojat.gamenews.core.domain.entities.Keyword
+import ca.on.hojat.gamenews.core.domain.entities.Mode
+import ca.on.hojat.gamenews.core.domain.entities.Platform
+import ca.on.hojat.gamenews.core.domain.entities.PlayerPerspective
+import ca.on.hojat.gamenews.core.domain.entities.ReleaseDate
+import ca.on.hojat.gamenews.core.domain.entities.ReleaseDateCategory
+import ca.on.hojat.gamenews.core.domain.entities.Theme
+import ca.on.hojat.gamenews.core.domain.entities.Video
+import ca.on.hojat.gamenews.core.domain.entities.Website
+import ca.on.hojat.gamenews.core.domain.entities.WebsiteCategory
 import javax.inject.Inject
 
 internal class DbGameMapper @Inject constructor() {
