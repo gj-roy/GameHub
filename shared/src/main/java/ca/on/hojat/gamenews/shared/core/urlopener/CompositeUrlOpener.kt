@@ -1,6 +1,7 @@
 package ca.on.hojat.gamenews.shared.core.urlopener
 
 import android.content.Context
+import ca.on.hojat.gamenews.core.urlopeners.UrlOpener
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

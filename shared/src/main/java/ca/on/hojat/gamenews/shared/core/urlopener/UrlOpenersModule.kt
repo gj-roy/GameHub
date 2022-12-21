@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.shared.core.urlopener
 
+import ca.on.hojat.gamenews.core.urlopeners.UrlOpener
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

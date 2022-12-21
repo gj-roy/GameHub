@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import ca.on.hojat.gamenews.core.extensions.attachNewTaskFlagIfNeeded
 import ca.on.hojat.gamenews.core.extensions.canIntentBeHandled
+import ca.on.hojat.gamenews.core.urlopeners.UrlOpener
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

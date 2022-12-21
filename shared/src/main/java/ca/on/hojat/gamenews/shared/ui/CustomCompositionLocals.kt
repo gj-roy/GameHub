@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.shared.ui
 import androidx.compose.runtime.staticCompositionLocalOf
 import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.core.sharers.TextSharer
-import ca.on.hojat.gamenews.shared.core.urlopener.UrlOpener
+import ca.on.hojat.gamenews.core.urlopeners.UrlOpener
 
 val LocalUrlOpener = staticCompositionLocalOf<UrlOpener> {
     error("UrlOpener not provided.")
