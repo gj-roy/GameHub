@@ -10,10 +10,7 @@
     <string name="artwork">Artwork</string>
     <string name="cover">Cover</string>
     <string name="screenshot">Screenshot</string>
-    <string name="version_name_template">v%s</string>
-
     <string name="action_share_via">Share via…</string>
-
     <string name="year_quarter_first">Q1</string>
     <string name="year_quarter_second">Q2</string>
     <string name="year_quarter_third">Q3</string>

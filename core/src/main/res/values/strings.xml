@@ -5,5 +5,6 @@
     <string name="error_api_server_message">The server is not responding! Please try again later.</string>
     <string name="error_no_network_message">Please check your network connection.</string>
     <string name="error_api_unknown_message">Could not perform the request! Please try again later.</string>
+    <string name="version_name_template">v%s</string>
 
 </resources>
