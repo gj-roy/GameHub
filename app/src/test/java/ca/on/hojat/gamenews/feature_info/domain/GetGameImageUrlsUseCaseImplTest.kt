@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.shared.core.factories.ImageViewerGameUrlFactory
+import ca.on.hojat.gamenews.core.factories.ImageViewerGameUrlFactory
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.github.michaelbull.result.Ok

@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.ui.widgets.games
 
-import ca.on.hojat.gamenews.shared.core.factories.IgdbImageSize
-import ca.on.hojat.gamenews.shared.core.factories.IgdbImageUrlFactory
+import ca.on.hojat.gamenews.core.factories.IgdbImageSize
+import ca.on.hojat.gamenews.core.factories.IgdbImageUrlFactory
 import ca.on.hojat.gamenews.shared.core.formatters.GameReleaseDateFormatter
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType

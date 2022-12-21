@@ -1,9 +1,7 @@
-package ca.on.hojat.gamenews.shared.core
+package ca.on.hojat.gamenews.core.factories
 
-import ca.on.hojat.gamenews.shared.core.factories.YoutubeMediaUrlFactoryImpl
-import ca.on.hojat.gamenews.shared.core.factories.YoutubeThumbnailSize
-import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.core.domain.entities.Video
+import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Test
 

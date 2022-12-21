@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots
 
-import ca.on.hojat.gamenews.shared.core.factories.IgdbImageSize
-import ca.on.hojat.gamenews.shared.core.factories.IgdbImageUrlFactory
+import ca.on.hojat.gamenews.core.factories.IgdbImageSize
+import ca.on.hojat.gamenews.core.factories.IgdbImageUrlFactory
 import ca.on.hojat.gamenews.core.domain.entities.Image
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject

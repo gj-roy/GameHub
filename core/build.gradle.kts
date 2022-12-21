@@ -43,4 +43,9 @@ dependencies {
     androidTestImplementation(Hilt.daggerHiltTest)
     kaptAndroidTest(Hilt.daggerHiltAndroidCompiler)
 
+    // Test libs
+    testImplementation(Testing.truth)
+    androidTestImplementation(Testing.truth)
+
+
 }

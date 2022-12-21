@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core.factories
+package ca.on.hojat.gamenews.core.factories
 
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType

@@ -1,8 +1,8 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.header
 
 import ca.on.hojat.gamenews.shared.core.GameLikeCountCalculator
-import ca.on.hojat.gamenews.shared.core.factories.IgdbImageSize
-import ca.on.hojat.gamenews.shared.core.factories.IgdbImageUrlFactory
+import ca.on.hojat.gamenews.core.factories.IgdbImageSize
+import ca.on.hojat.gamenews.core.factories.IgdbImageUrlFactory
 import ca.on.hojat.gamenews.shared.core.formatters.GameAgeRatingFormatter
 import ca.on.hojat.gamenews.shared.core.formatters.GameCategoryFormatter
 import ca.on.hojat.gamenews.shared.core.formatters.GameRatingFormatter
