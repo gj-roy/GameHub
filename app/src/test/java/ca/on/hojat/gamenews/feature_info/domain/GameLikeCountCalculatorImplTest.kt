@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core
+package ca.on.hojat.gamenews.feature_info.domain
 
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME

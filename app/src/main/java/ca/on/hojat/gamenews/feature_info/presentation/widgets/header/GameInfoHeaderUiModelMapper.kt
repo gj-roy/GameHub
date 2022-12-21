@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.header
 
-import ca.on.hojat.gamenews.shared.core.GameLikeCountCalculator
 import ca.on.hojat.gamenews.core.factories.IgdbImageSize
 import ca.on.hojat.gamenews.core.factories.IgdbImageUrlFactory
 import ca.on.hojat.gamenews.core.formatters.GameAgeRatingFormatter
@@ -8,6 +7,7 @@ import ca.on.hojat.gamenews.core.formatters.GameCategoryFormatter
 import ca.on.hojat.gamenews.core.formatters.GameRatingFormatter
 import ca.on.hojat.gamenews.core.formatters.GameReleaseDateFormatter
 import ca.on.hojat.gamenews.core.domain.entities.Game
+import ca.on.hojat.gamenews.feature_info.domain.GameLikeCountCalculator
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.mapToUiModels
