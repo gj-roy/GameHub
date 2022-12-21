@@ -1,6 +1,6 @@
-package ca.on.hojat.gamenews.shared.core.providers
+package ca.on.hojat.gamenews.core.providers
 
-import ca.on.hojat.gamenews.shared.R
+import ca.on.hojat.gamenews.core.R
 import ca.on.hojat.gamenews.core.domain.entities.Website
 import ca.on.hojat.gamenews.core.domain.entities.WebsiteCategory
 import com.paulrybitskyi.hiltbinder.BindType
@@ -28,7 +28,6 @@ internal class WebsiteIconProviderImpl @Inject constructor() : WebsiteIconProvid
             WebsiteCategory.SUBREDDIT -> R.drawable.reddit
             WebsiteCategory.GOG -> R.drawable.gog
             WebsiteCategory.DISCORD -> R.drawable.discord
-
             WebsiteCategory.UNKNOWN,
             WebsiteCategory.OFFICIAL,
             WebsiteCategory.WIKIA,
