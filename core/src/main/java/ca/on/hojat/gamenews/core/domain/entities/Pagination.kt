@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.domain.common.entities
+package ca.on.hojat.gamenews.core.domain.entities
 
 private const val DEFAULT_PAGE_SIZE = 20
 

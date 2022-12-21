@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.shared.data.games.datastores.database
 import ca.on.hojat.gamenews.shared.database.games.entities.DbGame
 import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
+import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.games.datastores.LikedGamesLocalDataStore
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType
