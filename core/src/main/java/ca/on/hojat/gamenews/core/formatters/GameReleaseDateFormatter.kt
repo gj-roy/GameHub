@@ -1,10 +1,10 @@
-package ca.on.hojat.gamenews.shared.core.formatters
+package ca.on.hojat.gamenews.core.formatters
 
-import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.core.providers.StringProvider
+import ca.on.hojat.gamenews.core.R
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.entities.ReleaseDate
 import ca.on.hojat.gamenews.core.domain.entities.ReleaseDateCategory
+import ca.on.hojat.gamenews.core.providers.StringProvider
 import com.paulrybitskyi.hiltbinder.BindType
 import java.time.Instant
 import java.time.LocalDateTime

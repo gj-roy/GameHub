@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core.formatters
+package ca.on.hojat.gamenews.core.formatters
 
 import ca.on.hojat.gamenews.core.providers.TimeFormat
 import ca.on.hojat.gamenews.core.providers.TimeFormatProvider

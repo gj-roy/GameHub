@@ -46,6 +46,8 @@ dependencies {
     // Test libs
     testImplementation(Testing.truth)
     androidTestImplementation(Testing.truth)
+    implementation(Testing.mockk)
+
 
 
 }

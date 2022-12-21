@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.feature_news.presentation.mapping
 
-import ca.on.hojat.gamenews.shared.core.formatters.ArticlePublicationDateFormatter
+import ca.on.hojat.gamenews.core.formatters.ArticlePublicationDateFormatter
 import ca.on.hojat.gamenews.feature_news.domain.entities.Article
 import ca.on.hojat.gamenews.feature_news.domain.entities.ImageType
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiModel

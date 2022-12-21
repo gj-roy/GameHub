@@ -1,6 +1,5 @@
-package ca.on.hojat.gamenews.shared.core
+package ca.on.hojat.gamenews.core.formatters
 
-import ca.on.hojat.gamenews.shared.core.formatters.GameRatingFormatterImpl
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import com.google.common.truth.Truth.assertThat
 import org.junit.Before

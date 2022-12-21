@@ -3,21 +3,13 @@
     <string name="app_name" translatable="false">Game News</string>
 
     <string name="text_font_family_medium" translatable="false">sans-serif-medium</string>
-    <string name="unknown">Unknown</string>
-    <string name="not_available_abbr">N/A</string>
     <string name="url_opener_not_found">No app was found capable of opening the URL!</string>
     <string name="image">image</string>
     <string name="artwork">Artwork</string>
     <string name="cover">Cover</string>
     <string name="screenshot">Screenshot</string>
-    <string name="year_quarter_first">Q1</string>
-    <string name="year_quarter_second">Q2</string>
-    <string name="year_quarter_third">Q3</string>
-    <string name="year_quarter_fourth">Q4</string>
 
-    <string name="year_with_quarter_template">%1$d (%2$s)</string>
-    <string name="rating_template">%d%%</string>
-    <string name='age_rating_template'>%1$s-%2$s</string>
+
     <string name="text_sharing_message_template">Hey, check out this %1$s - %2$s</string>
 
     <string name="company_role_developer">Main Developer</string>
@@ -27,12 +19,6 @@
 
 
 
-    <string name="game_category_main">Main</string>
-    <string name="game_category_dlc">DLC</string>
-    <string name="game_category_bundle">Bundle</string>
-    <string name="game_category_mod">Mod</string>
-    <string name="game_category_episode">Episode</string>
-    <string name="game_category_season">Season</string>
 
     <string name="error_no_network_message">Please check your network connection.</string>
     <string name="error_unknown_message">Oops! Something went wrong.</string>

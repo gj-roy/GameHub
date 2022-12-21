@@ -1,7 +1,7 @@
-package ca.on.hojat.gamenews.shared.core.formatters
+package ca.on.hojat.gamenews.core.formatters
 
+import ca.on.hojat.gamenews.core.R
 import ca.on.hojat.gamenews.core.providers.StringProvider
-import ca.on.hojat.gamenews.shared.R
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 import kotlin.math.roundToInt
