@@ -9,7 +9,6 @@ import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_search.domain.SearchGamesUseCase
 import ca.on.hojat.gamenews.shared.core.Logger
-import ca.on.hojat.gamenews.shared.core.utils.observeChanges
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
@@ -31,6 +30,8 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.properties.Delegates
+import kotlin.properties.ReadWriteProperty
 
 private const val KEY_CURRENT_SEARCH_QUERY = "current_search_query"
 private const val KEY_CONFIRMED_SEARCH_QUERY = "confirmed_search_query"
@@ -238,4 +239,15 @@ internal class GamesSearchViewModel @Inject constructor(
         pagination = pagination.nextOffset()
         searchGames()
     }
+
+    private fun <T> observeChanges(
+        initialValue: T,
+        onChange: (oldValue: T, newValue: T) -> Unit
+    ): ReadWriteProperty<Any, T> {
+        return Delegates.observable(initialValue) { _, oldValue, newValue ->
+            onChange(oldValue, newValue)
+        }
+    }
+
+
 }
