@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.feature_category
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.core.extensions.onError
@@ -15,7 +16,6 @@ import ca.on.hojat.gamenews.feature_category.widgets.enableLoading
 import ca.on.hojat.gamenews.feature_category.widgets.mapToUiModels
 import ca.on.hojat.gamenews.feature_category.widgets.toEmptyState
 import ca.on.hojat.gamenews.feature_category.widgets.toSuccessState
-import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
@@ -52,8 +52,7 @@ internal class GamesCategoryViewModel @Inject constructor(
     private val useCases: GamesCategoryUseCases,
     private val uiModelMapper: GameCategoryUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
-    private val errorMapper: ErrorMapper,
-    private val logger: Logger
+    private val errorMapper: ErrorMapper
 ) : BaseViewModel() {
 
     private var isObservingGames = false
@@ -106,7 +105,7 @@ internal class GamesCategoryViewModel @Inject constructor(
             .flowOn(dispatcherProvider.computation)
             .map { games -> currentUiState.toSuccessState(games) }
             .onError {
-                logger.error(logTag, "Failed to observe ${gamesCategory.name} games.", it)
+                Log.e(logTag, "Failed to observe ${gamesCategory.name} games.", it)
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }
@@ -143,7 +142,7 @@ internal class GamesCategoryViewModel @Inject constructor(
             .resultOrError()
             .map { currentUiState }
             .onError {
-                logger.error(logTag, "Failed to refresh ${gamesCategory.name} games.", it)
+                Log.e(logTag, "Failed to refresh ${gamesCategory.name} games.", it)
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
             }
             .onStart {

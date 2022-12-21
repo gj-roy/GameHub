@@ -1,12 +1,12 @@
 package ca.on.hojat.gamenews.feature_likes.presentation
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
-import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.hasDefaultLimit
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
@@ -45,8 +45,7 @@ internal class LikedGamesViewModel @Inject constructor(
     private val uiModelMapper: GameUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val stringProvider: StringProvider,
-    private val errorMapper: ErrorMapper,
-    private val logger: Logger
+    private val errorMapper: ErrorMapper
 ) : BaseViewModel() {
 
     private var isObservingGames = false
@@ -84,7 +83,7 @@ internal class LikedGamesViewModel @Inject constructor(
             .flowOn(dispatcherProvider.computation)
             .map { games -> currentUiState.toSuccessState(games) }
             .onError {
-                logger.error(logTag, "Failed to load liked games.", it)
+                Log.e(logTag, "Failed to load liked games.", it)
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }

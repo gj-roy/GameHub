@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.feature_discovery
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
@@ -12,7 +13,6 @@ import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemUiModel
 import ca.on.hojat.gamenews.feature_discovery.widgets.hideProgressBar
 import ca.on.hojat.gamenews.feature_discovery.widgets.showProgressBar
 import ca.on.hojat.gamenews.feature_discovery.widgets.toSuccessState
-import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.domain.games.common.RefreshGamesUseCaseParams
@@ -40,8 +40,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
     private val uiModelMapper: GamesDiscoveryItemGameUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val stringProvider: StringProvider,
-    private val errorMapper: ErrorMapper,
-    private val logger: Logger
+    private val errorMapper: ErrorMapper
 ) : BaseViewModel() {
 
     private var isObservingGames = false
@@ -85,7 +84,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
             transform = { it.toList() }
         )
             .map { games -> currentItems.toSuccessState(games) }
-            .onError { logger.error(logTag, "Failed to observe games.", it) }
+            .onError { Log.e(logTag, "Failed to observe games.", it) }
             .onStart { isObservingGames = true }
             .onCompletion { isObservingGames = false }
             .onEach { emittedItems -> _items.update { emittedItems } }
@@ -108,7 +107,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
         )
             .map { currentItems }
             .onError {
-                logger.error(logTag, "Failed to refresh games.", it)
+                Log.e(logTag, "Failed to refresh games.", it)
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
             }
             .onStart {

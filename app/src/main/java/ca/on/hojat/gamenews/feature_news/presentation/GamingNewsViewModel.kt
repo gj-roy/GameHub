@@ -1,10 +1,10 @@
 package ca.on.hojat.gamenews.feature_news.presentation
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
-import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
@@ -44,8 +44,7 @@ internal class GamingNewsViewModel @Inject constructor(
     private val refreshArticlesUseCase: RefreshArticlesUseCase,
     private val uiModelMapper: GamingNewsItemUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
-    private val errorMapper: ErrorMapper,
-    private val logger: Logger
+    private val errorMapper: ErrorMapper
 ) : BaseViewModel() {
 
     private var isObservingArticles = false
@@ -81,7 +80,7 @@ internal class GamingNewsViewModel @Inject constructor(
             .flowOn(dispatcherProvider.computation)
             .map { news -> currentUiState.toSuccessState(news) }
             .onError {
-                logger.error(logTag, "Failed to load articles.", it)
+                Log.e(logTag, "Failed to load articles.", it)
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }
@@ -109,7 +108,7 @@ internal class GamingNewsViewModel @Inject constructor(
             .resultOrError()
             .map { currentUiState }
             .onError {
-                logger.error(logTag, "Failed to refresh articles.", it)
+                Log.e(logTag, "Failed to refresh articles.", it)
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
             }
             .onStart {

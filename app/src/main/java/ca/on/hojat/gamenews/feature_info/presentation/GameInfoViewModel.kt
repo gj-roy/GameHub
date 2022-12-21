@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.feature_info.presentation
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
@@ -20,7 +21,6 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toLoadingStat
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toSuccessState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
-import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
@@ -50,8 +50,7 @@ internal class GameInfoViewModel @Inject constructor(
     private val uiModelMapper: GameInfoUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val stringProvider: StringProvider,
-    private val errorMapper: ErrorMapper,
-    private val logger: Logger
+    private val errorMapper: ErrorMapper
 ) : BaseViewModel() {
 
     private var isObservingGameData = false
@@ -83,7 +82,7 @@ internal class GameInfoViewModel @Inject constructor(
             .flowOn(dispatcherProvider.computation)
             .map { game -> currentUiState.toSuccessState(game) }
             .onError {
-                logger.error(logTag, "Failed to load game info data.", it)
+                Log.e(logTag, "Failed to load game info data.", it)
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }
@@ -118,7 +117,7 @@ internal class GameInfoViewModel @Inject constructor(
             )
                 .resultOrError()
                 .onError {
-                    logger.error(logTag, "Failed to get the image urls of type = $imageType.", it)
+                    Log.e(logTag, "Failed to get the image urls of type = $imageType.", it)
                     dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 }
                 .collect { imageUrls ->

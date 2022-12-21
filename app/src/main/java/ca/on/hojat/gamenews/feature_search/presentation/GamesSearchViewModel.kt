@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.feature_search.presentation
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
@@ -8,7 +9,6 @@ import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_search.domain.SearchGamesUseCase
-import ca.on.hojat.gamenews.shared.core.Logger
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.domain.common.entities.Pagination
 import ca.on.hojat.gamenews.shared.domain.common.entities.nextOffset
@@ -43,7 +43,6 @@ internal class GamesSearchViewModel @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val stringProvider: StringProvider,
     private val errorMapper: ErrorMapper,
-    private val logger: Logger,
     private val savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
 
@@ -160,7 +159,7 @@ internal class GamesSearchViewModel @Inject constructor(
                     )
                 }
                 .onError {
-                    logger.error(logTag, "Failed to search games.", it)
+                    Log.e(logTag, "Failed to search games.", it)
                     dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                     emit(createGamesEmptyUiState())
                 }

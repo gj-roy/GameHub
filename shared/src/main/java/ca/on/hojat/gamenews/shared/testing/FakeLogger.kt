@@ -1,27 +1,15 @@
 package ca.on.hojat.gamenews.shared.testing
 
-import ca.on.hojat.gamenews.shared.core.Logger
-
-class FakeLogger : Logger {
+class FakeLogger {
 
     private var infoMessage = ""
-    private var debugMessage = ""
-    private var warningMessage = ""
     var errorMessage = ""
 
-    override fun info(tag: String, message: String, throwable: Throwable?) {
+    fun info(message: String) {
         infoMessage = message
     }
 
-    override fun debug(tag: String, message: String, throwable: Throwable?) {
-        debugMessage = message
-    }
-
-    override fun warning(tag: String, message: String, throwable: Throwable?) {
-        warningMessage = message
-    }
-
-    override fun error(tag: String, message: String, throwable: Throwable?) {
+    fun error(message: String) {
         errorMessage = message
     }
 }
