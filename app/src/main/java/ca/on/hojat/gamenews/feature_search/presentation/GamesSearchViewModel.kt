@@ -49,12 +49,12 @@ internal class GamesSearchViewModel @Inject constructor(
 
     private var hasMoreGamesToLoad = false
 
-    private var currentSearchQuery by observeChanges("") { _, newQuery ->
+    private var currentSearchQuery by observeChanges { _, newQuery ->
         _uiState.update { it.copy(queryText = newQuery) }
         savedStateHandle[KEY_CURRENT_SEARCH_QUERY] = newQuery
     }
 
-    private var confirmedSearchQuery by observeChanges("") { _, newQuery ->
+    private var confirmedSearchQuery by observeChanges { _, newQuery ->
         useCaseParams = useCaseParams.copy(searchQuery = newQuery)
         savedStateHandle[KEY_CONFIRMED_SEARCH_QUERY] = newQuery
     }
@@ -240,11 +240,10 @@ internal class GamesSearchViewModel @Inject constructor(
         searchGames()
     }
 
-    private fun <T> observeChanges(
-        initialValue: T,
-        onChange: (oldValue: T, newValue: T) -> Unit
-    ): ReadWriteProperty<Any, T> {
-        return Delegates.observable(initialValue) { _, oldValue, newValue ->
+    private fun observeChanges(
+        onChange: (oldValue: String, newValue: String) -> Unit
+    ): ReadWriteProperty<Any, String> {
+        return Delegates.observable("") { _, oldValue, newValue ->
             onChange(oldValue, newValue)
         }
     }
