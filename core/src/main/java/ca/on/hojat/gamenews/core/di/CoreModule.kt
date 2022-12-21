@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core.di
+package ca.on.hojat.gamenews.core.di
 
 import dagger.Module
 import dagger.Provides
