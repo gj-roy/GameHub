@@ -23,4 +23,7 @@
     <string name="website_wikipedia" translatable="false">Wikipedia</string>
     <string name="website_wikia" translatable="false">Wikia</string>
     <string name="website_discord" translatable="false">Discord</string>
+
+    <string name="action_share_via">Share via…</string>
+
 </resources>

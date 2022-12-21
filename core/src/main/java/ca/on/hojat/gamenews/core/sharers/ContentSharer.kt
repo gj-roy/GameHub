@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core.sharers
+package ca.on.hojat.gamenews.core.sharers
 
 import android.content.Context
 

@@ -15,7 +15,7 @@ import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveThemeUseCase
-import ca.on.hojat.gamenews.shared.core.sharers.TextSharer
+import ca.on.hojat.gamenews.core.sharers.TextSharer
 import ca.on.hojat.gamenews.shared.core.urlopener.UrlOpener
 import ca.on.hojat.gamenews.shared.domain.common.usecases.execute
 import ca.on.hojat.gamenews.shared.ui.LocalNetworkStateProvider
