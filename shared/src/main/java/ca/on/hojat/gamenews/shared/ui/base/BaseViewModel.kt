@@ -1,16 +1,15 @@
 package ca.on.hojat.gamenews.shared.ui.base
 
 import androidx.lifecycle.ViewModel
-import ca.on.hojat.gamenews.shared.core.markers.Loggable
 import ca.on.hojat.gamenews.shared.ui.base.events.Command
 import ca.on.hojat.gamenews.shared.ui.base.events.Route
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 
-abstract class BaseViewModel : ViewModel(), Loggable {
+abstract class BaseViewModel : ViewModel() {
 
-    override val logTag: String = javaClass.simpleName
+     val logTag: String = javaClass.simpleName
 
     private val _commandChannel = Channel<Command>(Channel.BUFFERED)
     private val _routeChannel = Channel<Route>(Channel.BUFFERED)
