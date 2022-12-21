@@ -1,12 +1,12 @@
 package ca.on.hojat.gamenews.feature_settings.presentation
 
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.feature_settings.Constants
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseCase
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCase
-import ca.on.hojat.gamenews.shared.core.Constants
 import ca.on.hojat.gamenews.shared.domain.common.usecases.execute
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
