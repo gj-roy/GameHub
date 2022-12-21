@@ -8,8 +8,6 @@ import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
 import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.common.entities.hasDefaultLimit
-import ca.on.hojat.gamenews.shared.domain.common.entities.nextLimit
 import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
