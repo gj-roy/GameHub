@@ -1,10 +1,11 @@
-package ca.on.hojat.gamenews.shared.core.urlopener
+package ca.on.hojat.gamenews.core.urlopeners
 
 import android.content.Context
 import android.net.Uri
 import androidx.annotation.ColorRes
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
+import ca.on.hojat.gamenews.core.R
 import ca.on.hojat.gamenews.core.animations.WindowAnimations
 import ca.on.hojat.gamenews.core.extensions.attachNewTaskFlagIfNeeded
 import ca.on.hojat.gamenews.core.extensions.configuration
@@ -12,8 +13,6 @@ import ca.on.hojat.gamenews.core.extensions.getCompatColor
 import ca.on.hojat.gamenews.core.extensions.isDarkThemeEnabled
 import ca.on.hojat.gamenews.core.extensions.setAnimations
 import ca.on.hojat.gamenews.core.providers.CustomTabsProvider
-import ca.on.hojat.gamenews.core.urlopeners.UrlOpener
-import ca.on.hojat.gamenews.shared.R
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

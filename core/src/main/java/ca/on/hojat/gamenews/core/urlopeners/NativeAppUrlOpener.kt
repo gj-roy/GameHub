@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core.urlopener
+package ca.on.hojat.gamenews.core.urlopeners
 
 import android.annotation.SuppressLint
 import android.content.Context

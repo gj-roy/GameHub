@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core.urlopener
+package ca.on.hojat.gamenews.core.urlopeners
 
 import android.content.Context
 import ca.on.hojat.gamenews.core.urlopeners.UrlOpener

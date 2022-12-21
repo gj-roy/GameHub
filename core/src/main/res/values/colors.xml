@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_colorPrimary">#2B303C</color>
+    <color name="dark_colorSurface">#222630</color>
+    <color name="dark_colorNavigationBar">#282d38</color>
+    <color name="light_colorPrimary">#ffffff</color>
+    <color name="light_colorSurface">#FEFEFA</color>
+    <!--
+           Has to be darker by default since android:windowLightNavigationBar
+           is allowed only from API Level 27.
+       -->
+    <color name="light_colorNavigationBar">#A1A1A1</color>
+
+</resources>

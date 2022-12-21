@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.core.urlopener
+package ca.on.hojat.gamenews.core.urlopeners
 
 import javax.inject.Qualifier
 
@@ -10,7 +10,7 @@ import javax.inject.Qualifier
     AnnotationTarget.FUNCTION,
     AnnotationTarget.VALUE_PARAMETER
 )
-internal annotation class UrlOpenerKey(val type: Type) {
+annotation class UrlOpenerKey(val type: Type) {
 
     enum class Type {
         NATIVE_APP,
