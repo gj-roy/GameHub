@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.shared.database.games
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import ca.on.hojat.gamenews.shared.core.JsonConverter
+import ca.on.hojat.gamenews.core.data.JsonConverter
 import ca.on.hojat.gamenews.shared.database.common.RoomTypeConverter
 import ca.on.hojat.gamenews.shared.database.games.entities.DbAgeRating
 import ca.on.hojat.gamenews.shared.database.games.entities.DbAgeRatingCategory

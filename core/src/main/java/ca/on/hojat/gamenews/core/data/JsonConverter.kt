@@ -1,5 +1,4 @@
-package ca.on.hojat.gamenews.shared.core
-
+package ca.on.hojat.gamenews.core.data
 
 import ca.on.hojat.gamenews.core.extensions.decodeFromStringOrNull
 import kotlinx.serialization.encodeToString
