@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.common
+package ca.on.hojat.gamenews.core.data.api.common
 
 object HttpHeaders {
     const val AUTHORIZATION = "Authorization"
