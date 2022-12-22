@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.gamespot.common.di
 
-import ca.on.hojat.gamenews.shared.api.common.ErrorMessageExtractor
+import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.shared.api.common.addInterceptorAsFirstInChain
 import ca.on.hojat.gamenews.shared.api.common.calladapter.ApiResultCallAdapterFactory
 import ca.on.hojat.gamenews.shared.api.gamespot.common.GamespotConstantsProvider

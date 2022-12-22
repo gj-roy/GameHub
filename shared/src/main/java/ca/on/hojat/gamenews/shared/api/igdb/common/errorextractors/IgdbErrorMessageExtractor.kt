@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.igdb.common.errorextractors
 
-import ca.on.hojat.gamenews.shared.api.common.ErrorMessageExtractor
+import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers.ErrorMessageExtractorKey
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.serialization.json.Json

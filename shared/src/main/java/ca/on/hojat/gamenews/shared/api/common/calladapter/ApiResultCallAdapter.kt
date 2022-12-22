@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.common.calladapter
 
+import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.shared.api.common.ApiResult
-import ca.on.hojat.gamenews.shared.api.common.ErrorMessageExtractor
 import retrofit2.Call
 import retrofit2.CallAdapter
 import java.lang.reflect.Type
