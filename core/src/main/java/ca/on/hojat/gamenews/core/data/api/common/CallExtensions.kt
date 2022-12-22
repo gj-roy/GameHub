@@ -1,10 +1,10 @@
-package ca.on.hojat.gamenews.shared.api.common
+package ca.on.hojat.gamenews.core.data.api.common
 
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-internal inline fun <T> Call<T>.enqueue(
+inline fun <T> Call<T>.enqueue(
     crossinline onResponse: (Call<T>, Response<T>) -> Unit = { _, _ -> },
     crossinline onFailure: (Call<T>, Throwable) -> Unit = { _, _ -> }
 ): Callback<T> {
