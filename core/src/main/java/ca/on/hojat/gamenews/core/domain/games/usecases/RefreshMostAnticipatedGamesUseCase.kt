@@ -17,7 +17,7 @@ import javax.inject.Singleton
 interface RefreshMostAnticipatedGamesUseCase : RefreshableGamesUseCase
 
 @Singleton
-internal class RefreshMostAnticipatedGamesUseCaseImpl @Inject constructor(
+class RefreshMostAnticipatedGamesUseCaseImpl @Inject constructor(
     private val gamesDataStores: GamesDataStores,
     private val throttlerTools: GamesRefreshingThrottlerTools,
     private val dispatcherProvider: DispatcherProvider,

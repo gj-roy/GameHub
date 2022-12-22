@@ -13,7 +13,7 @@ import javax.inject.Singleton
 interface ObservePopularGamesUseCase : ObservableGamesUseCase
 
 @Singleton
-internal class ObservePopularGamesUseCaseImpl @Inject constructor(
+class ObservePopularGamesUseCaseImpl @Inject constructor(
     private val gamesLocalDataStore: GamesLocalDataStore,
     private val dispatcherProvider: DispatcherProvider,
 ) : ObservePopularGamesUseCase {

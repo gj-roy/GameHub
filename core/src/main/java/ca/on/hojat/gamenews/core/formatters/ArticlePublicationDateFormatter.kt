@@ -16,7 +16,7 @@ interface ArticlePublicationDateFormatter {
 }
 
 @BindType
-internal class ArticlePublicationDateFormatterImpl @Inject constructor(
+class ArticlePublicationDateFormatterImpl @Inject constructor(
     private val relativeDateFormatter: RelativeDateFormatter,
     private val timeProvider: TimeProvider,
     private val timeFormatProvider: TimeFormatProvider
