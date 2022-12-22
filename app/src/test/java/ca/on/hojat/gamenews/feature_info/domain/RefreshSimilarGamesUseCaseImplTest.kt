@@ -2,11 +2,11 @@ package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_info.REFRESH_SIMILAR_GAMES_USE_CASE_PARAMS
-import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottler
-import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottlerTools
-import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesDataStores
-import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
-import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesRemoteDataStore
+import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottler
+import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottlerTools
+import ca.on.hojat.gamenews.core.domain.games.datastores.GamesDataStores
+import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.datastores.GamesRemoteDataStore
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.FakeGamesRefreshingThrottlerKeyProvider

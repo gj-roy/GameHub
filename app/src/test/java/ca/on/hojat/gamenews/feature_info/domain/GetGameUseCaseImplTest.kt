@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_info.GET_GAME_USE_CASE_PARAMS
-import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.github.michaelbull.result.get

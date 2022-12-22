@@ -21,7 +21,7 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toLoadingStat
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toSuccessState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration

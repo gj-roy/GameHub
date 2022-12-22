@@ -1,8 +1,8 @@
 package ca.on.hojat.gamenews.feature_info.domain.usecases.likes
 
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.common.usecases.ObservableUseCase
-import ca.on.hojat.gamenews.shared.domain.games.datastores.LikedGamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.common.usecases.ObservableUseCase
+import ca.on.hojat.gamenews.core.domain.games.datastores.LikedGamesLocalDataStore
 import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow

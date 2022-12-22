@@ -1,9 +1,9 @@
 package ca.on.hojat.gamenews.shared.domain.games
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.shared.domain.games.common.ObserveGamesUseCaseParams
-import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
-import ca.on.hojat.gamenews.shared.domain.games.usecases.ObserveRecentlyReleasedGamesUseCaseImpl
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.usecases.ObserveRecentlyReleasedGamesUseCaseImpl
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat

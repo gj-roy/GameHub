@@ -2,8 +2,8 @@ package ca.on.hojat.gamenews.shared.data.auth.datastores.igdb
 
 import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiOauthCredentials
 import ca.on.hojat.gamenews.shared.api.igdb.common.CredentialsStore
-import ca.on.hojat.gamenews.shared.domain.auth.datastores.AuthLocalDataStore
-import ca.on.hojat.gamenews.shared.domain.auth.datastores.AuthRemoteDataStore
+import ca.on.hojat.gamenews.core.domain.auth.datastores.AuthLocalDataStore
+import ca.on.hojat.gamenews.core.domain.auth.datastores.AuthRemoteDataStore
 import com.github.michaelbull.result.get
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject

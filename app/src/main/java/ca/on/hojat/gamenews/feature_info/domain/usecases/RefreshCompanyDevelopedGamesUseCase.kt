@@ -1,12 +1,12 @@
 package ca.on.hojat.gamenews.feature_info.domain.usecases
 
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.extensions.onEachSuccess
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.shared.domain.common.usecases.UseCase
-import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottlerTools
-import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesDataStores
+import ca.on.hojat.gamenews.core.domain.common.usecases.UseCase
+import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottlerTools
+import ca.on.hojat.gamenews.core.domain.games.datastores.GamesDataStores
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCase.Params

@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_discovery
 
-import ca.on.hojat.gamenews.shared.domain.games.ObservableGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.RefreshableGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.ObservableGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.RefreshableGamesUseCase
 import ca.on.hojat.gamenews.feature_discovery.di.GamesDiscoveryKey.Type
 import javax.inject.Inject
 

@@ -2,9 +2,9 @@ package ca.on.hojat.gamenews.shared.data.games.datastores.database
 
 import ca.on.hojat.gamenews.shared.database.games.entities.DbGame
 import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.shared.data.games.common.DiscoveryGamesReleaseDatesProvider

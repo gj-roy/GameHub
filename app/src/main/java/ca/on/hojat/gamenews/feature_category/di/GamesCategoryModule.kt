@@ -1,15 +1,15 @@
 package ca.on.hojat.gamenews.feature_category.di
 
-import ca.on.hojat.gamenews.shared.domain.games.ObservableGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.RefreshableGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.usecases.ObserveComingSoonGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.usecases.ObserveMostAnticipatedGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.usecases.ObservePopularGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.usecases.ObserveRecentlyReleasedGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.usecases.RefreshComingSoonGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.usecases.RefreshMostAnticipatedGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.usecases.RefreshPopularGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.usecases.RefreshRecentlyReleasedGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.ObservableGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.RefreshableGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.ObserveComingSoonGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.ObserveMostAnticipatedGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.ObserveRecentlyReleasedGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshComingSoonGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshMostAnticipatedGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshRecentlyReleasedGamesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

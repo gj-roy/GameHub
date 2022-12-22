@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_category
 
-import ca.on.hojat.gamenews.shared.domain.games.ObservableGamesUseCase
-import ca.on.hojat.gamenews.shared.domain.games.RefreshableGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.ObservableGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.RefreshableGamesUseCase
 import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey.Type
 import javax.inject.Inject
 import javax.inject.Provider

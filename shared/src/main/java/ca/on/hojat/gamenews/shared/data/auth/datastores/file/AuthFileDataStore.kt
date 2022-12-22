@@ -1,8 +1,8 @@
 package ca.on.hojat.gamenews.shared.data.auth.datastores.file
 
 import androidx.datastore.core.DataStore
-import ca.on.hojat.gamenews.shared.domain.auth.datastores.AuthLocalDataStore
-import ca.on.hojat.gamenews.shared.domain.auth.entities.OauthCredentials
+import ca.on.hojat.gamenews.core.domain.auth.datastores.AuthLocalDataStore
+import ca.on.hojat.gamenews.core.domain.auth.entities.OauthCredentials
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.firstOrNull
 import javax.inject.Inject

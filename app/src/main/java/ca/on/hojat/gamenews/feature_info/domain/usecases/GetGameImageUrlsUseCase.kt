@@ -1,9 +1,9 @@
 package ca.on.hojat.gamenews.feature_info.domain.usecases
 
 import ca.on.hojat.gamenews.core.factories.ImageViewerGameUrlFactory
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.DomainResult
-import ca.on.hojat.gamenews.shared.domain.common.usecases.UseCase
+import ca.on.hojat.gamenews.core.domain.common.usecases.UseCase
 import com.github.michaelbull.result.Err
 import ca.on.hojat.gamenews.core.domain.entities.Error
 import ca.on.hojat.gamenews.core.extensions.mapSuccess

@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_settings.domain.usecases
 
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.shared.domain.common.usecases.ObservableUseCase
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.common.usecases.ObservableUseCase
 import ca.on.hojat.gamenews.feature_settings.domain.datastores.SettingsLocalDataStore
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import com.paulrybitskyi.hiltbinder.BindType

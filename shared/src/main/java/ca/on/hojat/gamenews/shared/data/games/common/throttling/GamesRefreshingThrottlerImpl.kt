@@ -5,7 +5,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.longPreferencesKey
 import ca.on.hojat.gamenews.core.providers.TimestampProvider
-import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottler
+import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottler
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map

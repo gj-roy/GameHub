@@ -9,10 +9,10 @@ import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetMostAnticipatedGam
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetPopularGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetRecentlyReleasedGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.SearchGamesRequest
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.shared.domain.games.datastores.GamesRemoteDataStore
+import ca.on.hojat.gamenews.core.domain.games.datastores.GamesRemoteDataStore
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.github.michaelbull.result.mapEither

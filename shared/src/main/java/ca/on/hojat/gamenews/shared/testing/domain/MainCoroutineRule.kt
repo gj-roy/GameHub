@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.testing.domain
 
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher

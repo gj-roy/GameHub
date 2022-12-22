@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.testing.domain
 
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.shared.domain.games.common.throttling.GamesRefreshingThrottlerKeyProvider
+import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottlerKeyProvider
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 

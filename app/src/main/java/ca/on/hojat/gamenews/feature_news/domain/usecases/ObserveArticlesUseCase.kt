@@ -1,8 +1,8 @@
 package ca.on.hojat.gamenews.feature_news.domain.usecases
 
-import ca.on.hojat.gamenews.shared.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.shared.domain.common.usecases.ObservableUseCase
+import ca.on.hojat.gamenews.core.domain.common.usecases.ObservableUseCase
 import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataStore
 import ca.on.hojat.gamenews.feature_news.domain.entities.Article
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase.Params
