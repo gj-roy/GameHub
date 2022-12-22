@@ -5,8 +5,6 @@ plugins {
     id(PLUGIN_KSP) version Tooling.kspPlugin
     id(PLUGIN_DAGGER_HILT_ANDROID)
     id(PLUGIN_KOTLIN_KAPT)
-
-
 }
 
 android {
@@ -48,6 +46,10 @@ dependencies {
     androidTestImplementation(Testing.truth)
     implementation(Testing.mockk)
 
-
+    // http client
+    implementation(Network.okHttpLoggingInterceptor)
+    implementation(Network.retrofit)
+    implementation(Network.retrofitKotlinxSerializationConverter)
+    implementation(Network.retrofitScalarsConverter)
 
 }
