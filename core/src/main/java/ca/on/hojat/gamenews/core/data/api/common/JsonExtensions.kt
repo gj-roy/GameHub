@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.common
+package ca.on.hojat.gamenews.core.data.api.common
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json

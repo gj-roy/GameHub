@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.igdb.common.di
 
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
-import ca.on.hojat.gamenews.shared.api.common.addInterceptorAsFirstInChain
+import ca.on.hojat.gamenews.core.data.api.common.addInterceptorAsFirstInChain
 import ca.on.hojat.gamenews.shared.api.common.calladapter.ApiResultCallAdapterFactory
 import ca.on.hojat.gamenews.shared.api.igdb.auth.Authorizer
 import ca.on.hojat.gamenews.shared.api.igdb.common.AuthorizationInterceptor
