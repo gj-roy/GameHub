@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.common
+package ca.on.hojat.gamenews.shared.api
 
 import ca.on.hojat.gamenews.core.domain.entities.Error
 import ca.on.hojat.gamenews.shared.api.common.httpErrorMessage

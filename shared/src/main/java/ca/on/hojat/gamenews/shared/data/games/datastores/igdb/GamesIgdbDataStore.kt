@@ -1,5 +1,12 @@
 package ca.on.hojat.gamenews.shared.data.games.datastores.igdb
 
+import ca.on.hojat.gamenews.core.domain.DomainResult
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.entities.Company
+import ca.on.hojat.gamenews.core.domain.entities.Game
+import ca.on.hojat.gamenews.core.domain.entities.Pagination
+import ca.on.hojat.gamenews.core.domain.games.datastores.GamesRemoteDataStore
+import ca.on.hojat.gamenews.shared.api.ApiErrorMapper
 import ca.on.hojat.gamenews.shared.api.common.ApiResult
 import ca.on.hojat.gamenews.shared.api.igdb.games.GamesEndpoint
 import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame
@@ -9,15 +16,8 @@ import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetMostAnticipatedGam
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetPopularGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetRecentlyReleasedGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.SearchGamesRequest
-import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.core.domain.DomainResult
-import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesRemoteDataStore
-import ca.on.hojat.gamenews.core.domain.entities.Company
-import ca.on.hojat.gamenews.core.domain.entities.Game
-import com.github.michaelbull.result.mapEither
-import ca.on.hojat.gamenews.shared.data.common.ApiErrorMapper
 import ca.on.hojat.gamenews.shared.data.games.common.DiscoveryGamesReleaseDatesProvider
+import com.github.michaelbull.result.mapEither
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
