@@ -1,6 +1,6 @@
-package ca.on.hojat.gamenews.shared.api.igdbcalypse
+package ca.on.hojat.gamenews.core.data.api.igdbcalypse
 
-internal object Constants {
+object Constants {
     const val HIERARCHICAL_FIELD_SEPARATOR = "."
     const val FIELD_SEPARATOR = ", "
 }

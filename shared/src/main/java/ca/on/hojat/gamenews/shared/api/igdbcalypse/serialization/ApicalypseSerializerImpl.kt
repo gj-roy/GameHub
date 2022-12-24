@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization
 
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.Constants
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.Constants
 import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.annotations.Apicalypse
 import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.annotations.ApicalypseClass
 import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.fieldserializers.FieldSerializer
