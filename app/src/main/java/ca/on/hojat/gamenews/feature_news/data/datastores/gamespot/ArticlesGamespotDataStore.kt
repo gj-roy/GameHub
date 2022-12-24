@@ -1,11 +1,11 @@
 package ca.on.hojat.gamenews.feature_news.data.datastores.gamespot
 
+import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesRemoteDataStore
 import ca.on.hojat.gamenews.feature_news.domain.entities.Article
-import ca.on.hojat.gamenews.shared.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.ArticlesEndpoint
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle

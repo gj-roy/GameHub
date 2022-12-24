@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.shared.data.auth.datastores.igdb
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.auth.datastores.AuthRemoteDataStore
 import ca.on.hojat.gamenews.core.domain.auth.entities.OauthCredentials
-import ca.on.hojat.gamenews.shared.api.ApiErrorMapper
+import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.shared.api.igdb.auth.AuthEndpoint
 import com.github.michaelbull.result.mapEither
 import com.paulrybitskyi.hiltbinder.BindType

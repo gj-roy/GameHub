@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlePublica
 import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlesGamespotDataStore
 import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.GamespotArticleMapper
 import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.mapToDomainArticles
-import ca.on.hojat.gamenews.shared.api.ApiErrorMapper
+import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.ArticlesEndpoint
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle
 import ca.on.hojat.gamenews.shared.testing.API_ERROR_HTTP

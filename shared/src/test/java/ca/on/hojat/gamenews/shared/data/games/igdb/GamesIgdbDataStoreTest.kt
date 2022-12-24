@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.data.games.igdb
 
-import ca.on.hojat.gamenews.shared.api.ApiErrorMapper
+import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.shared.api.igdb.games.GamesEndpoint
 import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame
 import ca.on.hojat.gamenews.shared.data.DOMAIN_COMPANY

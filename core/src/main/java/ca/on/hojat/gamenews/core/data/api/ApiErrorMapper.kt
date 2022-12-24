@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api
+package ca.on.hojat.gamenews.core.data.api
 
 import ca.on.hojat.gamenews.core.domain.entities.Error
 import javax.inject.Inject
