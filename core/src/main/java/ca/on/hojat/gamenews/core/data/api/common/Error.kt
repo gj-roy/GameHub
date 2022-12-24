@@ -1,6 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.common
-
-import ca.on.hojat.gamenews.core.data.api.common.HttpCodes
+package ca.on.hojat.gamenews.core.data.api.common
 
 sealed class Error {
     data class HttpError(val code: Int, val message: String) : Error()

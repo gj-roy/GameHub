@@ -2,7 +2,7 @@
 
 package ca.on.hojat.gamenews.shared.testing
 
-import ca.on.hojat.gamenews.shared.api.common.Error as ApiError
+import ca.on.hojat.gamenews.core.data.api.common.Error as ApiError
 
 val API_ERROR_HTTP = ApiError.HttpError(code = 10, message = "message")
 val API_ERROR_NETWORK = ApiError.NetworkError(Exception("message"))

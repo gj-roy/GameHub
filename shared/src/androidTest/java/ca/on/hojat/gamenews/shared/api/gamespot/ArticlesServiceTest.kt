@@ -17,7 +17,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import javax.inject.Inject
-import ca.on.hojat.gamenews.shared.api.common.Error
+import ca.on.hojat.gamenews.core.data.api.common.Error
 
 @HiltAndroidTest
 internal class ArticlesServiceTest {

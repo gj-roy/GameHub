@@ -7,6 +7,7 @@ import ca.on.hojat.gamenews.shared.api.gamespot.common.QUERY_PARAM_LIMIT
 import ca.on.hojat.gamenews.shared.api.gamespot.common.QUERY_PARAM_OFFSET
 import ca.on.hojat.gamenews.shared.api.gamespot.common.Response
 import com.github.michaelbull.result.map
+import ca.on.hojat.gamenews.core.data.api.common.Error
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 import javax.inject.Singleton

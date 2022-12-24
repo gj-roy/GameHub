@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 import com.github.michaelbull.result.Result as ApiResult
-import ca.on.hojat.gamenews.shared.api.common.Error as ApiError
+import ca.on.hojat.gamenews.core.data.api.common.Error as ApiError
 
 private const val PARAM_UPPER_BOUND_INDEX_API_RESULT = 0
 private const val PARAM_UPPER_BOUND_INDEX_SUCCESS = 0

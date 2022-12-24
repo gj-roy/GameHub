@@ -13,7 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
 import java.lang.reflect.Type
-import ca.on.hojat.gamenews.shared.api.common.Error as ApiError
+import ca.on.hojat.gamenews.core.data.api.common.Error as ApiError
 
 class ApiResultCall<T>(
     private val delegate: Call<T>,

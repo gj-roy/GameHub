@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.core.domain.entities.Error
 import javax.inject.Inject
 import kotlin.IllegalStateException
 import kotlin.with
-import ca.on.hojat.gamenews.shared.api.common.Error as ApiError
+import ca.on.hojat.gamenews.core.data.api.common.Error as ApiError
 
 class ApiErrorMapper @Inject constructor() {
 
