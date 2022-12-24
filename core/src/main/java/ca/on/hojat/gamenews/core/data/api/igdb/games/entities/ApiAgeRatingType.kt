@@ -1,6 +1,6 @@
-package ca.on.hojat.gamenews.shared.api.igdb.games.entities
+package ca.on.hojat.gamenews.core.data.api.igdb.games.entities
 
-import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiAgeRatingType.Companion.asAgeRatingType
+import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiAgeRatingType.Companion.asAgeRatingType
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.descriptors.PrimitiveKind

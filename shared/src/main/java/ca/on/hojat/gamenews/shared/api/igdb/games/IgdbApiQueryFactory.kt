@@ -1,12 +1,12 @@
 package ca.on.hojat.gamenews.shared.api.igdb.games
 
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.ApicalypseQueryBuilderFactory
-import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame
-import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame.Schema.HYPE_COUNT
-import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame.Schema.ID
-import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame.Schema.RELEASE_DATE
-import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame.Schema.TOTAL_RATING
-import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame.Schema.USERS_RATING
+import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame
+import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame.Schema.HYPE_COUNT
+import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame.Schema.ID
+import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame.Schema.RELEASE_DATE
+import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame.Schema.TOTAL_RATING
+import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame.Schema.USERS_RATING
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetComingSoonGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetMostAnticipatedGamesRequest

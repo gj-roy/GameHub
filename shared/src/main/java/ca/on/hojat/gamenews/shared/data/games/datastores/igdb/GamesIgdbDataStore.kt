@@ -8,8 +8,8 @@ import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.games.datastores.GamesRemoteDataStore
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
+import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame
 import ca.on.hojat.gamenews.shared.api.igdb.games.GamesEndpoint
-import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetComingSoonGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetMostAnticipatedGamesRequest

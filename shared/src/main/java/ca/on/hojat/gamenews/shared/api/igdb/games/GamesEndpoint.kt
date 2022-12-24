@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.igdb.games
 
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
-import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame
+import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetComingSoonGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetMostAnticipatedGamesRequest
