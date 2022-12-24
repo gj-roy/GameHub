@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.common.calladapter
 
-import ca.on.hojat.gamenews.shared.api.common.ApiResult
+import ca.on.hojat.gamenews.core.data.api.common.ApiResult
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.core.data.api.common.enqueue
 import com.github.michaelbull.result.Err

@@ -1,6 +1,6 @@
  package ca.on.hojat.gamenews.shared.api.igdb.auth
 
-import ca.on.hojat.gamenews.shared.api.common.ApiResult
+import ca.on.hojat.gamenews.core.data.api.common.ApiResult
 import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiGrantType
 import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiOauthCredentials
 

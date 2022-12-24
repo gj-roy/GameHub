@@ -1,13 +1,12 @@
 package ca.on.hojat.gamenews.shared.api.gamespot.articles
 
-import ca.on.hojat.gamenews.shared.api.common.ApiResult
+import ca.on.hojat.gamenews.core.data.api.common.ApiResult
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle
 import ca.on.hojat.gamenews.shared.api.gamespot.common.GamespotQueryParamsFactory
 import ca.on.hojat.gamenews.shared.api.gamespot.common.QUERY_PARAM_LIMIT
 import ca.on.hojat.gamenews.shared.api.gamespot.common.QUERY_PARAM_OFFSET
 import ca.on.hojat.gamenews.shared.api.gamespot.common.Response
 import com.github.michaelbull.result.map
-import ca.on.hojat.gamenews.core.data.api.common.Error
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 import javax.inject.Singleton
