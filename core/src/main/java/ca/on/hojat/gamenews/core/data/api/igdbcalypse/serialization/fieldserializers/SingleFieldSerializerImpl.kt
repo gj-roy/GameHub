@@ -1,8 +1,8 @@
-package ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.fieldserializers
+package ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.fieldserializers
 
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.Constants
 
-internal class SingleFieldSerializerImpl(
+class SingleFieldSerializerImpl(
     private val fieldChain: List<String>
 ) : FieldSerializer {
 

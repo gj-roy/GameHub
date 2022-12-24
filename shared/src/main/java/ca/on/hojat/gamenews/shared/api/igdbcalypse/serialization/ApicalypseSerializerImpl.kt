@@ -3,8 +3,8 @@ package ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.Constants
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.annotations.Apicalypse
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.annotations.ApicalypseClass
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.fieldserializers.FieldSerializer
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.fieldserializers.FieldSerializerFactory
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.fieldserializers.FieldSerializer
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.fieldserializers.FieldSerializerFactory
 import java.lang.reflect.Field
 import java.lang.reflect.ParameterizedType
 

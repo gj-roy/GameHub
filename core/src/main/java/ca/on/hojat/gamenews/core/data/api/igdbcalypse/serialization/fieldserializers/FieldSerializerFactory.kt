@@ -1,6 +1,6 @@
-package ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.fieldserializers
+package ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.fieldserializers
 
-internal object FieldSerializerFactory {
+object FieldSerializerFactory {
 
     fun create(
         fieldChain: List<String>,
