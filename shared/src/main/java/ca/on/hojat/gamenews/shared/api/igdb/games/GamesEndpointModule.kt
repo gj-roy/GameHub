@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.igdb.games
 
 import ca.on.hojat.gamenews.core.data.api.common.asConverterFactory
-import ca.on.hojat.gamenews.shared.api.common.calladapter.ApiResultCallAdapterFactory
+import ca.on.hojat.gamenews.core.data.api.common.calladapter.ApiResultCallAdapterFactory
 import ca.on.hojat.gamenews.shared.api.igdb.common.IgdbConstantsProvider
 import ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers.Endpoint
 import ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers.IgdbApi

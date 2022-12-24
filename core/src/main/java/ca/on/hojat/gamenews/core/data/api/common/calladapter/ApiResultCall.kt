@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.common.calladapter
+package ca.on.hojat.gamenews.core.data.api.common.calladapter
 
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
