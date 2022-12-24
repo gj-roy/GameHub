@@ -1,8 +1,9 @@
-package ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.whereclause.conditions
+package ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.whereclause.conditions
 
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.whereclause.WhereClauseBuilderFactory
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.whereclause.WhereClauseBuilderFactory
 
-internal object ConditionBuilderFactory {
+
+object ConditionBuilderFactory {
 
     fun newBuilder(conditionType: ConditionType): ConditionBuilder {
         return ConditionBuilderImpl(

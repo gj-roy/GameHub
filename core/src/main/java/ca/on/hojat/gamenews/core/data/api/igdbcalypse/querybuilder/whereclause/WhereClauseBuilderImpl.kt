@@ -1,9 +1,9 @@
-package ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.whereclause
+package ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.whereclause
 
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.whereclause.conditions.ConditionBuilderFactory
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.whereclause.conditions.ConditionType
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.whereclause.conditions.ConditionBuilderFactory
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.whereclause.conditions.ConditionType
 
-internal class WhereClauseBuilderImpl(
+ class WhereClauseBuilderImpl(
     private val conditionBuilderFactory: ConditionBuilderFactory
 ) : WhereClauseBuilder {
 

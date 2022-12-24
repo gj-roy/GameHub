@@ -1,6 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder
 
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.whereclause.WhereClauseBuilder
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.whereclause.WhereClauseBuilder
+
 
 interface ApicalypseQueryBuilder {
     fun search(query: String): ApicalypseQueryBuilder
