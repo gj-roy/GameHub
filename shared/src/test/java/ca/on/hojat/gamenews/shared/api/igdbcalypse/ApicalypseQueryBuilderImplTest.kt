@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.igdbcalypse
 
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.ApicalypseQueryBuilderImpl
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.ApicalypseQueryBuilderImpl
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.whereclause.WhereClauseBuilderFactory
 import com.google.common.truth.Truth.assertThat
 import org.junit.Before

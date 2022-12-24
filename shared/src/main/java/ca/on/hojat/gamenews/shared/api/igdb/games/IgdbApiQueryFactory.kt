@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.igdb.games
 
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.ApicalypseQueryBuilderFactory
 import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame
 import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame.Schema.HYPE_COUNT
 import ca.on.hojat.gamenews.shared.api.igdb.games.entities.ApiGame.Schema.ID
@@ -12,7 +13,6 @@ import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetMostAnticipatedGam
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetPopularGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetRecentlyReleasedGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.SearchGamesRequest
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.ApicalypseQueryBuilderFactory
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializer
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
