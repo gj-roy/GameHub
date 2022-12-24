@@ -1,6 +1,6 @@
-package ca.on.hojat.gamenews.shared.api.common
+package ca.on.hojat.gamenews.core.data.api.common
 
-import ca.on.hojat.gamenews.shared.BuildConfig
+import ca.on.hojat.gamenews.core.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
