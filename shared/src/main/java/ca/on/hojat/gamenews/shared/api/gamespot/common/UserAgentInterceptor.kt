@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.gamespot.common
 
 import ca.on.hojat.gamenews.core.data.api.common.HttpHeaders
-import ca.on.hojat.gamenews.shared.api.common.UserAgentProvider
+import ca.on.hojat.gamenews.core.data.api.common.UserAgentProvider
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject

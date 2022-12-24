@@ -1,8 +1,8 @@
-package ca.on.hojat.gamenews.shared.api.common
+package ca.on.hojat.gamenews.core.data.api.common
 
 import android.content.Context
+import ca.on.hojat.gamenews.core.R
 import ca.on.hojat.gamenews.core.providers.StringProvider
-import ca.on.hojat.gamenews.shared.R
 import com.paulrybitskyi.hiltbinder.BindType
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
