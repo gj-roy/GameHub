@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization
+package ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization
 
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.Constants
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.annotations.Apicalypse
@@ -8,7 +8,7 @@ import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.fieldseriali
 import java.lang.reflect.Field
 import java.lang.reflect.ParameterizedType
 
-internal class ApicalypseSerializerImpl : ApicalypseSerializer {
+ class ApicalypseSerializerImpl : ApicalypseSerializer {
 
     override fun serialize(clazz: Class<*>): String {
         checkIfMarkerAnnotationIsPresent(clazz)

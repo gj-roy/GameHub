@@ -13,7 +13,7 @@ import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetPopularGamesReques
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.GetRecentlyReleasedGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdb.games.requests.SearchGamesRequest
 import ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.ApicalypseQueryBuilderFactory
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.ApicalypseSerializer
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializer
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

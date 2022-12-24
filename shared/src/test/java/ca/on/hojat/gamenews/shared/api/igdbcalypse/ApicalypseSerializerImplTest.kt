@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.igdbcalypse
 
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.ApicalypseSerializerImpl
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializerImpl
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.annotations.Apicalypse
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.annotations.ApicalypseClass
 import com.google.common.truth.Truth.assertThat

@@ -2,12 +2,12 @@ package ca.on.hojat.gamenews.shared.api.igdb.games
 
 import ca.on.hojat.gamenews.core.data.api.common.asConverterFactory
 import ca.on.hojat.gamenews.core.data.api.common.calladapter.ApiResultCallAdapterFactory
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializer
+import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializerFactory
 import ca.on.hojat.gamenews.shared.api.igdb.common.IgdbConstantsProvider
 import ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers.Endpoint
 import ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers.IgdbApi
 import ca.on.hojat.gamenews.shared.api.igdbcalypse.querybuilder.ApicalypseQueryBuilderFactory
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.ApicalypseSerializer
-import ca.on.hojat.gamenews.shared.api.igdbcalypse.serialization.ApicalypseSerializerFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
