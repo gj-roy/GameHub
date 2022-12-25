@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.core.data.api.common.calladapter.ApiResultCallAdapte
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.Authorizer
 import ca.on.hojat.gamenews.shared.api.igdb.common.AuthorizationInterceptor
 import ca.on.hojat.gamenews.shared.api.igdb.common.CredentialsStore
-import ca.on.hojat.gamenews.shared.api.igdb.common.TwitchConstantsProvider
+import ca.on.hojat.gamenews.core.data.api.igdb.common.TwitchConstantsProvider
 import ca.on.hojat.gamenews.core.data.api.igdb.common.di.qualifiers.IgdbApi
 import dagger.Module
 import dagger.Provides
