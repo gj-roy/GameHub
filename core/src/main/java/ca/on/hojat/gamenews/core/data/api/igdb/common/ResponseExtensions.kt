@@ -1,8 +1,8 @@
-package ca.on.hojat.gamenews.shared.api.igdb.common
+package ca.on.hojat.gamenews.core.data.api.igdb.common
 
 import okhttp3.Response
 
-internal val Response.responseCount: Int
+val Response.responseCount: Int
     get() {
         var result = 1
         var response: Response? = priorResponse

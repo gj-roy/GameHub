@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.utils
 
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
-import ca.on.hojat.gamenews.shared.api.igdb.common.CredentialsStore
+import ca.on.hojat.gamenews.core.data.api.igdb.common.CredentialsStore
 import javax.inject.Inject
 import javax.inject.Singleton
 

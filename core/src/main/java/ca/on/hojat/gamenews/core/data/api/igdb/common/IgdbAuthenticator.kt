@@ -1,10 +1,11 @@
-package ca.on.hojat.gamenews.shared.api.igdb.common
+package ca.on.hojat.gamenews.core.data.api.igdb.common
 
 import ca.on.hojat.gamenews.core.data.api.common.HttpHeaders
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.AuthHeaderParser
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.Authorizer
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiAuthorizationType
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
+import ca.on.hojat.gamenews.core.data.api.igdb.common.responseCount
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
@@ -18,7 +19,7 @@ import javax.inject.Inject
 private const val MAX_AUTH_RESPONSE_COUNT = 3
 
 @BindType
-internal class IgdbAuthenticator @Inject constructor(
+class IgdbAuthenticator @Inject constructor(
     private val credentialsStore: CredentialsStore,
     private val authHeaderParser: AuthHeaderParser,
     private val authorizer: Authorizer,

@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdb.common
+package ca.on.hojat.gamenews.core.data.api.igdb.common
 
 import ca.on.hojat.gamenews.core.data.api.common.HttpHeaders
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.Authorizer
@@ -7,7 +7,7 @@ import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response
 
-internal class AuthorizationInterceptor(
+class AuthorizationInterceptor(
     private val credentialsStore: CredentialsStore,
     private val authorizer: Authorizer,
     private val clientId: String,

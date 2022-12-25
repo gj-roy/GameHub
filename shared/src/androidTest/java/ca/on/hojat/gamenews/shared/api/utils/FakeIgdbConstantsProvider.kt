@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.utils
 
-import ca.on.hojat.gamenews.shared.api.igdb.common.IgdbConstantsProvider
+import ca.on.hojat.gamenews.core.data.api.igdb.common.IgdbConstantsProvider
 import okhttp3.mockwebserver.MockWebServer
 import javax.inject.Inject
 
