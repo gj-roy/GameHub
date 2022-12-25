@@ -2,6 +2,7 @@ package ca.on.hojat.gamenews.shared.api.igdb.games
 
 import ca.on.hojat.gamenews.core.data.api.common.asConverterFactory
 import ca.on.hojat.gamenews.core.data.api.common.calladapter.ApiResultCallAdapterFactory
+import ca.on.hojat.gamenews.core.data.api.igdb.games.GamesService
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.ApicalypseQueryBuilderFactory
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializer
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializerFactory

@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdb.games
+package ca.on.hojat.gamenews.core.data.api.igdb.games
 
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.ApicalypseQueryBuilderFactory
 import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame
@@ -17,7 +17,7 @@ import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSe
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface IgdbApiQueryFactory {
+interface IgdbApiQueryFactory {
     fun createGamesSearchingQuery(request: SearchGamesRequest): String
     fun createPopularGamesRetrievalQuery(request: GetPopularGamesRequest): String
     fun createRecentlyReleasedGamesRetrievalQuery(request: GetRecentlyReleasedGamesRequest): String
@@ -27,7 +27,7 @@ internal interface IgdbApiQueryFactory {
 }
 
 @BindType
-internal class IgdbApiQueryFactoryImpl @Inject constructor(
+class IgdbApiQueryFactoryImpl @Inject constructor(
     private val apicalypseQueryBuilderFactory: ApicalypseQueryBuilderFactory,
     private val apicalypseSerializer: ApicalypseSerializer,
 ) : IgdbApiQueryFactory {

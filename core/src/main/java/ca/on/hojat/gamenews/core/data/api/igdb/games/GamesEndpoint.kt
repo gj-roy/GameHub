@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdb.games
+package ca.on.hojat.gamenews.core.data.api.igdb.games
 
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
 import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame
@@ -23,7 +23,7 @@ interface GamesEndpoint {
 
 @Singleton
 @BindType
-internal class GamesEndpointImpl @Inject constructor(
+ class GamesEndpointImpl @Inject constructor(
     private val gamesService: GamesService,
     private val igdbApiQueryFactory: IgdbApiQueryFactory,
 ) : GamesEndpoint {
