@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdb.common.errorextractors
+package ca.on.hojat.gamenews.core.data.api.igdb.common.errorextractors
 
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.core.data.api.igdb.common.di.qualifiers.ErrorMessageExtractorKey
@@ -13,7 +13,7 @@ private const val ERROR_MESSAGE_NAME = "title"
 
 @BindType(withQualifier = true)
 @ErrorMessageExtractorKey(ErrorMessageExtractorKey.Type.IGDB)
-internal class IgdbErrorMessageExtractor @Inject constructor(
+class IgdbErrorMessageExtractor @Inject constructor(
     private val json: Json
 ) : ErrorMessageExtractor {
 

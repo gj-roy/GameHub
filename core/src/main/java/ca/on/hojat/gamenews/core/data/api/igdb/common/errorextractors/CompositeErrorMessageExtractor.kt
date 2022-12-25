@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdb.common.errorextractors
+package ca.on.hojat.gamenews.core.data.api.igdb.common.errorextractors
 
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.core.data.api.igdb.common.di.qualifiers.IgdbApi
@@ -9,7 +9,7 @@ private const val UNKNOWN_ERROR_TEMPLATE = "Unknown Error: %s"
 
 @BindType(withQualifier = true)
 @IgdbApi
-internal class CompositeErrorMessageExtractor @Inject constructor(
+class CompositeErrorMessageExtractor @Inject constructor(
     private val errorMessageExtractors: Set<@JvmSuppressWildcards ErrorMessageExtractor>
 ) : ErrorMessageExtractor {
 

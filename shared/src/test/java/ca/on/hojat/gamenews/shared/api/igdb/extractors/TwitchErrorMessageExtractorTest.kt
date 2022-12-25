@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.igdb.extractors
 
-import ca.on.hojat.gamenews.shared.api.igdb.common.errorextractors.TwitchErrorMessageExtractor
+import ca.on.hojat.gamenews.core.data.api.igdb.common.errorextractors.TwitchErrorMessageExtractor
 import com.google.common.truth.Truth.assertThat
 import kotlinx.serialization.json.Json
 import org.junit.Assert.assertThrows

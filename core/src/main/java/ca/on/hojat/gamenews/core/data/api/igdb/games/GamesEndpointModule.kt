@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdb.games
+package ca.on.hojat.gamenews.core.data.api.igdb.games
 
 import ca.on.hojat.gamenews.core.data.api.common.asConverterFactory
 import ca.on.hojat.gamenews.core.data.api.common.calladapter.ApiResultCallAdapterFactory
@@ -20,7 +20,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object GamesEndpointModule {
+object GamesEndpointModule {
 
     @Provides
     fun provideGamesService(@Endpoint(Endpoint.Type.GAMES) retrofit: Retrofit): GamesService {
