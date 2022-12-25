@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdb.common.di
+package ca.on.hojat.gamenews.core.data.api.igdb.common.di
 
 import ca.on.hojat.gamenews.core.data.api.igdb.common.ProdTwitchConstantsProvider
 import ca.on.hojat.gamenews.core.data.api.igdb.common.TwitchConstantsProvider
@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal interface TwitchConstantsModule {
+interface TwitchConstantsModule {
 
     @Binds
     fun bindTwitchConstantsProvider(binding: ProdTwitchConstantsProvider): TwitchConstantsProvider
