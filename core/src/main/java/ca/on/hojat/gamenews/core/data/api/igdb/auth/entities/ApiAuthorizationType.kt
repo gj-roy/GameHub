@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdb.auth.entities
+package ca.on.hojat.gamenews.core.data.api.igdb.auth.entities
 
 enum class ApiAuthorizationType(val rawType: String) {
     BASIC("Basic"),

@@ -1,10 +1,10 @@
 package ca.on.hojat.gamenews.shared.api
 
 import ca.on.hojat.gamenews.core.data.api.common.Error
+import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
 import ca.on.hojat.gamenews.core.data.api.igdb.games.GamesService
 import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiCategory
 import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame
-import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiOauthCredentials
 import ca.on.hojat.gamenews.shared.api.igdb.common.CredentialsStore
 import ca.on.hojat.gamenews.shared.testing.startSafe
 import com.github.michaelbull.result.get

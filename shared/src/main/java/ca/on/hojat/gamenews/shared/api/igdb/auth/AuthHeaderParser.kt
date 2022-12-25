@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.igdb.auth
 
-import ca.on.hojat.gamenews.shared.api.igdb.auth.entities.ApiAuthorizationType
+import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiAuthorizationType
 import javax.inject.Inject
 
 internal class AuthHeaderParser @Inject constructor() {
