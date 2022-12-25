@@ -1,9 +1,9 @@
-package ca.on.hojat.gamenews.shared.api.igdb.auth
+package ca.on.hojat.gamenews.core.data.api.igdb.auth
 
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiAuthorizationType
 import javax.inject.Inject
 
-internal class Authorizer @Inject constructor() {
+class Authorizer @Inject constructor() {
 
     fun buildAuthorizationHeader(type: ApiAuthorizationType, token: String): String {
         return buildString {

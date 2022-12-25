@@ -1,14 +1,15 @@
- package ca.on.hojat.gamenews.shared.api.igdb.auth
+package ca.on.hojat.gamenews.core.data.api.igdb.auth
 
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
+import ca.on.hojat.gamenews.core.data.api.igdb.auth.AuthService
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiGrantType
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
 
- interface AuthEndpoint {
+interface AuthEndpoint {
     suspend fun getOauthCredentials(): ApiResult<ApiOauthCredentials>
 }
 
-internal class AuthEndpointImpl(
+class AuthEndpointImpl(
     private val authService: AuthService,
     private val clientId: String,
     private val clientSecret: String

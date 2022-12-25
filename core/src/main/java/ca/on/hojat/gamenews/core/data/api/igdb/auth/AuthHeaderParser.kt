@@ -1,9 +1,9 @@
-package ca.on.hojat.gamenews.shared.api.igdb.auth
+package ca.on.hojat.gamenews.core.data.api.igdb.auth
 
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiAuthorizationType
 import javax.inject.Inject
 
-internal class AuthHeaderParser @Inject constructor() {
+class AuthHeaderParser @Inject constructor() {
 
     private companion object {
         const val SEPARATOR = ' '
@@ -24,7 +24,7 @@ internal class AuthHeaderParser @Inject constructor() {
     }
 }
 
-internal data class AuthHeaderParsingResult(
+data class AuthHeaderParsingResult(
     val type: ApiAuthorizationType,
     val token: String?,
 )

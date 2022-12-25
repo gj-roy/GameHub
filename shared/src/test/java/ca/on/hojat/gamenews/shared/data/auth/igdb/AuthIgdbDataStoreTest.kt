@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.shared.data.auth.igdb
 
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
-import ca.on.hojat.gamenews.shared.api.igdb.auth.AuthEndpoint
+import ca.on.hojat.gamenews.core.data.api.igdb.auth.AuthEndpoint
 import ca.on.hojat.gamenews.shared.data.auth.datastores.igdb.AuthIgdbDataStore
 import ca.on.hojat.gamenews.shared.data.auth.datastores.igdb.IgdbAuthMapper
 import ca.on.hojat.gamenews.shared.testing.API_ERROR_HTTP

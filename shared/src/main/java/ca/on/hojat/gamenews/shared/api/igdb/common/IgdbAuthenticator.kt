@@ -1,10 +1,10 @@
 package ca.on.hojat.gamenews.shared.api.igdb.common
 
 import ca.on.hojat.gamenews.core.data.api.common.HttpHeaders
+import ca.on.hojat.gamenews.core.data.api.igdb.auth.AuthHeaderParser
+import ca.on.hojat.gamenews.core.data.api.igdb.auth.Authorizer
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiAuthorizationType
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
-import ca.on.hojat.gamenews.shared.api.igdb.auth.AuthHeaderParser
-import ca.on.hojat.gamenews.shared.api.igdb.auth.Authorizer
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex

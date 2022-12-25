@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.igdb
 
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiAuthorizationType
-import ca.on.hojat.gamenews.shared.api.igdb.auth.AuthHeaderParser
+import ca.on.hojat.gamenews.core.data.api.igdb.auth.AuthHeaderParser
 import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Test

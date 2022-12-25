@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.shared.api.igdb.common.di
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.core.data.api.common.addInterceptorAsFirstInChain
 import ca.on.hojat.gamenews.core.data.api.common.calladapter.ApiResultCallAdapterFactory
-import ca.on.hojat.gamenews.shared.api.igdb.auth.Authorizer
+import ca.on.hojat.gamenews.core.data.api.igdb.auth.Authorizer
 import ca.on.hojat.gamenews.shared.api.igdb.common.AuthorizationInterceptor
 import ca.on.hojat.gamenews.shared.api.igdb.common.CredentialsStore
 import ca.on.hojat.gamenews.shared.api.igdb.common.TwitchConstantsProvider
