@@ -7,8 +7,8 @@ import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.ApicalypseQue
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializer
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializerFactory
 import ca.on.hojat.gamenews.shared.api.igdb.common.IgdbConstantsProvider
-import ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers.Endpoint
-import ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers.IgdbApi
+import ca.on.hojat.gamenews.core.data.api.igdb.common.di.qualifiers.Endpoint
+import ca.on.hojat.gamenews.core.data.api.igdb.common.di.qualifiers.IgdbApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

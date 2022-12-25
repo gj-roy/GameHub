@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.igdb.common.di
 
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
-import ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers.ErrorMessageExtractorKey
+import ca.on.hojat.gamenews.core.data.api.igdb.common.di.qualifiers.ErrorMessageExtractorKey
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

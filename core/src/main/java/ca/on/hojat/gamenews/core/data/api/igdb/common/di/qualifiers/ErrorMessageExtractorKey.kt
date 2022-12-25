@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers
+package ca.on.hojat.gamenews.core.data.api.igdb.common.di.qualifiers
 
 import javax.inject.Qualifier
 
@@ -10,7 +10,7 @@ import javax.inject.Qualifier
     AnnotationTarget.FUNCTION,
     AnnotationTarget.VALUE_PARAMETER
 )
-internal annotation class ErrorMessageExtractorKey(val type: Type) {
+annotation class ErrorMessageExtractorKey(val type: Type) {
 
     enum class Type {
         TWITCH,

@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.igdb.common.errorextractors
 
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
-import ca.on.hojat.gamenews.shared.api.igdb.common.di.qualifiers.IgdbApi
+import ca.on.hojat.gamenews.core.data.api.igdb.common.di.qualifiers.IgdbApi
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
