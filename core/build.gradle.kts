@@ -1,3 +1,6 @@
+import ca.on.hojat.gamenews.extensions.property
+import ca.on.hojat.gamenews.extensions.stringField
+
 plugins {
     id(PLUGIN_ANDROID_LIBRARY)
     id(PLUGIN_GAMENEWS_ANDROID)
@@ -12,7 +15,9 @@ android {
 
 
     defaultConfig {
-
+        stringField("TWITCH_APP_CLIENT_ID", property("TWITCH_APP_CLIENT_ID", ""))
+        stringField("TWITCH_APP_CLIENT_SECRET", property("TWITCH_APP_CLIENT_SECRET", ""))
+        stringField("GAMESPOT_API_KEY", property("GAMESPOT_API_KEY", ""))
     }
 
 }
