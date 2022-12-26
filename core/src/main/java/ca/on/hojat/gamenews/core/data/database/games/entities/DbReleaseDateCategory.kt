@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.database.games.entities
+package ca.on.hojat.gamenews.core.data.database.games.entities
 
 enum class DbReleaseDateCategory {
     UNKNOWN,

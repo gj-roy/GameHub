@@ -12,15 +12,15 @@ import ca.on.hojat.gamenews.shared.database.games.entities.DbGenre
 import ca.on.hojat.gamenews.shared.database.games.entities.DbImage
 import ca.on.hojat.gamenews.shared.database.games.entities.DbInvolvedCompany
 import ca.on.hojat.gamenews.shared.database.games.entities.DbKeyword
-import ca.on.hojat.gamenews.shared.database.games.entities.DbMode
-import ca.on.hojat.gamenews.shared.database.games.entities.DbPlatform
-import ca.on.hojat.gamenews.shared.database.games.entities.DbPlayerPerspective
-import ca.on.hojat.gamenews.shared.database.games.entities.DbReleaseDate
-import ca.on.hojat.gamenews.shared.database.games.entities.DbReleaseDateCategory
-import ca.on.hojat.gamenews.shared.database.games.entities.DbTheme
-import ca.on.hojat.gamenews.shared.database.games.entities.DbVideo
-import ca.on.hojat.gamenews.shared.database.games.entities.DbWebsite
-import ca.on.hojat.gamenews.shared.database.games.entities.DbWebsiteCategory
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbMode
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbPlatform
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbPlayerPerspective
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbReleaseDate
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbReleaseDateCategory
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbTheme
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbVideo
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbWebsite
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbWebsiteCategory
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
