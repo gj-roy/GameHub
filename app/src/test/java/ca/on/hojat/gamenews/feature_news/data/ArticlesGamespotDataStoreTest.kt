@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.GamespotArticl
 import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.mapToDomainArticles
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.shared.api.gamespot.articles.ArticlesEndpoint
-import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle
+import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiArticle
 import ca.on.hojat.gamenews.shared.testing.API_ERROR_HTTP
 import ca.on.hojat.gamenews.shared.testing.API_ERROR_NETWORK
 import ca.on.hojat.gamenews.shared.testing.API_ERROR_UNKNOWN

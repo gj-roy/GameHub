@@ -1,16 +1,16 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.common
+package ca.on.hojat.gamenews.core.data.api.gamespot.common
 
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.serialization.GamespotFieldsSerializer
-import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle
+import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiArticle
 
-internal interface GamespotQueryParamsFactory {
+interface GamespotQueryParamsFactory {
 
     fun createArticlesQueryParams(
         action: MutableMap<String, String>.() -> Unit
     ): Map<String, String>
 }
 
-internal class GamespotQueryParamsFactoryImpl(
+class GamespotQueryParamsFactoryImpl(
     private val gamespotFieldsSerializer: GamespotFieldsSerializer,
     private val apiKey: String
 ) : GamespotQueryParamsFactory {

@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.shared.testing.startSafe
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiArticle
+import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiArticle
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking

@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.articles.entities
+package ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities
 
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.serialization.Gamespot
 import kotlinx.serialization.SerialName

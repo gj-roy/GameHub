@@ -1,6 +1,6 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.articles.entities
+package ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities
 
-import ca.on.hojat.gamenews.shared.api.gamespot.articles.entities.ApiImageType.Companion.asImageType
+import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiImageType.Companion.asImageType
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.descriptors.PrimitiveKind
@@ -24,7 +24,7 @@ enum class ApiImageType(val rawType: String) {
     }
 }
 
-internal object ImageTypeSerializer : KSerializer<ApiImageType> {
+object ImageTypeSerializer : KSerializer<ApiImageType> {
 
     override val descriptor = PrimitiveSerialDescriptor(
         checkNotNull(ImageTypeSerializer::class.qualifiedName),
