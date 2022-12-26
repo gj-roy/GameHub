@@ -8,6 +8,7 @@ plugins {
     id(PLUGIN_KSP) version Tooling.kspPlugin
     id(PLUGIN_DAGGER_HILT_ANDROID)
     id(PLUGIN_KOTLIN_KAPT)
+    id(PLUGIN_GAMENEWS_PROTOBUF)
 }
 
 android {
@@ -26,6 +27,8 @@ dependencies {
     // General jetpack libs
     implementation(AndroidX.appCompat)
     implementation(AndroidX.browser)
+    implementation(AndroidX.prefsDataStore)
+    implementation(AndroidX.protoDataStore)
 
     // kotlin Result
     implementation(ThirdParties.kotlinResult)
