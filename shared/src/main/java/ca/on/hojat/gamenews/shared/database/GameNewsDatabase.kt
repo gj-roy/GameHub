@@ -3,12 +3,12 @@ package ca.on.hojat.gamenews.shared.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbLikedGame
 import ca.on.hojat.gamenews.shared.database.articles.ArticlesTypeConverter
 import ca.on.hojat.gamenews.shared.database.articles.entities.DbArticle
 import ca.on.hojat.gamenews.shared.database.articles.tables.ArticlesTable
 import ca.on.hojat.gamenews.shared.database.games.GamesTypeConverter
-import ca.on.hojat.gamenews.shared.database.games.entities.DbGame
-import ca.on.hojat.gamenews.shared.database.games.entities.DbLikedGame
 import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
 

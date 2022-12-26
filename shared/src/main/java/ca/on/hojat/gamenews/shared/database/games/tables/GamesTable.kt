@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ca.on.hojat.gamenews.shared.database.games.entities.DbGame
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -40,6 +40,12 @@ dependencies {
     implementation(ThirdParties.hiltBinder)
     ksp(ThirdParties.hiltBinderCompiler)
 
+    // Room database
+    implementation(AndroidX.room)
+    implementation(AndroidX.roomKtx)
+    ksp(AndroidX.roomCompiler)
+    androidTestImplementation(AndroidX.roomTest)
+
     // DI
     implementation(Hilt.daggerHiltTest)
     implementation(Hilt.daggerHiltCore)

@@ -2,8 +2,8 @@ package ca.on.hojat.gamenews.shared.database.tables
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
 import ca.on.hojat.gamenews.shared.database.DB_GAMES
-import ca.on.hojat.gamenews.shared.database.games.entities.DbGame
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.shared.database.common.di.DatabaseModule
 import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable

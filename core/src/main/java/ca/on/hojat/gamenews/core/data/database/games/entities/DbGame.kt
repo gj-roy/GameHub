@@ -1,15 +1,8 @@
-package ca.on.hojat.gamenews.shared.database.games.entities
+package ca.on.hojat.gamenews.core.data.database.games.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbMode
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbPlatform
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbPlayerPerspective
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbReleaseDate
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbTheme
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbVideo
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbWebsite
 
 @Entity(
     tableName = DbGame.Schema.TABLE_NAME,

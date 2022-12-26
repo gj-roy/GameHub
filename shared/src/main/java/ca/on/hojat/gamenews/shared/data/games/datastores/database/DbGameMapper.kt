@@ -1,5 +1,15 @@
 package ca.on.hojat.gamenews.shared.data.games.datastores.database
 
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbAgeRating
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbAgeRatingCategory
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbAgeRatingType
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbCategory
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbCompany
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbGenre
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbImage
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbInvolvedCompany
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbKeyword
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbMode
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbPlatform
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbPlayerPerspective
@@ -10,17 +20,7 @@ import ca.on.hojat.gamenews.core.data.database.games.entities.DbVideo
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbWebsite
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbWebsiteCategory
 import ca.on.hojat.gamenews.core.domain.entities.AgeRating
-import ca.on.hojat.gamenews.shared.database.games.entities.DbAgeRating
-import ca.on.hojat.gamenews.shared.database.games.entities.DbAgeRatingCategory
-import ca.on.hojat.gamenews.shared.database.games.entities.DbAgeRatingType
-import ca.on.hojat.gamenews.shared.database.games.entities.DbCategory
-import ca.on.hojat.gamenews.shared.database.games.entities.DbCompany
-import ca.on.hojat.gamenews.shared.database.games.entities.DbGame
-import ca.on.hojat.gamenews.shared.database.games.entities.DbGenre
-import ca.on.hojat.gamenews.shared.database.games.entities.DbImage
-import ca.on.hojat.gamenews.shared.database.games.entities.DbInvolvedCompany
-import ca.on.hojat.gamenews.shared.database.games.entities.DbKeyword
-import ca.on.hojat.gamenews.core.domain.entities.AgeRatingCategory
+ import ca.on.hojat.gamenews.core.domain.entities.AgeRatingCategory
 import ca.on.hojat.gamenews.core.domain.entities.AgeRatingType
 import ca.on.hojat.gamenews.core.domain.entities.Category
 import ca.on.hojat.gamenews.core.domain.entities.Company

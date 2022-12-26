@@ -1,9 +1,9 @@
 package ca.on.hojat.gamenews.shared.database
 
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbCategory
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbLikedGame
 import ca.on.hojat.gamenews.shared.database.articles.DatabaseArticle
-import ca.on.hojat.gamenews.shared.database.games.entities.DbCategory
-import ca.on.hojat.gamenews.shared.database.games.entities.DbGame
-import ca.on.hojat.gamenews.shared.database.games.entities.DbLikedGame
 
 internal val DB_ARTICLE = DatabaseArticle(
     id = 1,
