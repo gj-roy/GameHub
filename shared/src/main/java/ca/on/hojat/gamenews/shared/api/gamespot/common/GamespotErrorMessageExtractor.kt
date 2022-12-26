@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.api.gamespot.common
 
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
-import ca.on.hojat.gamenews.shared.api.gamespot.common.di.GamespotApi
+import ca.on.hojat.gamenews.core.data.api.gamespot.common.di.GamespotApi
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject

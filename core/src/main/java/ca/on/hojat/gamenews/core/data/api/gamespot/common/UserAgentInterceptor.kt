@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.common
+package ca.on.hojat.gamenews.core.data.api.gamespot.common
 
 import ca.on.hojat.gamenews.core.data.api.common.HttpHeaders
 import ca.on.hojat.gamenews.core.data.api.common.UserAgentProvider
@@ -6,7 +6,7 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
 
-internal class UserAgentInterceptor @Inject constructor(
+class UserAgentInterceptor @Inject constructor(
     private val userAgentProvider: UserAgentProvider
 ) : Interceptor {
 

@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.common.di
+package ca.on.hojat.gamenews.core.data.api.gamespot.common.di
 
 import javax.inject.Qualifier
 
@@ -10,7 +10,7 @@ import javax.inject.Qualifier
     AnnotationTarget.FUNCTION,
     AnnotationTarget.VALUE_PARAMETER
 )
-internal annotation class Endpoint(val type: Type) {
+annotation class Endpoint(val type: Type) {
 
     enum class Type {
         ARTICLES

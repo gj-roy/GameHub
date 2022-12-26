@@ -3,10 +3,11 @@ package ca.on.hojat.gamenews.shared.api.gamespot.common.di
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.core.data.api.common.addInterceptorAsFirstInChain
 import ca.on.hojat.gamenews.core.data.api.common.calladapter.ApiResultCallAdapterFactory
-import ca.on.hojat.gamenews.shared.api.gamespot.common.GamespotConstantsProvider
+import ca.on.hojat.gamenews.core.data.api.gamespot.common.GamespotConstantsProvider
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.GamespotQueryParamsFactory
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.GamespotQueryParamsFactoryImpl
-import ca.on.hojat.gamenews.shared.api.gamespot.common.UserAgentInterceptor
+import ca.on.hojat.gamenews.core.data.api.gamespot.common.UserAgentInterceptor
+import ca.on.hojat.gamenews.core.data.api.gamespot.common.di.GamespotApi
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.serialization.GamespotFieldsSerializer
 import dagger.Module
 import dagger.Provides
