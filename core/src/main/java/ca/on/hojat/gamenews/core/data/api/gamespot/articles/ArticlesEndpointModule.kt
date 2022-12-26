@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.articles
+package ca.on.hojat.gamenews.core.data.api.gamespot.articles
 
 import ca.on.hojat.gamenews.core.data.api.common.asConverterFactory
 import ca.on.hojat.gamenews.core.data.api.common.calladapter.ApiResultCallAdapterFactory
@@ -15,7 +15,7 @@ import retrofit2.Retrofit
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object ArticlesEndpointModule {
+object ArticlesEndpointModule {
 
     @Provides
     fun provideArticlesService(@Endpoint(Endpoint.Type.ARTICLES) retrofit: Retrofit): ArticlesService {

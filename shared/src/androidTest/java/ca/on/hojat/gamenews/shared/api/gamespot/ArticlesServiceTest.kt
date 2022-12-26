@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.shared.api.gamespot
 
-import ca.on.hojat.gamenews.shared.api.gamespot.articles.ArticlesService
 import ca.on.hojat.gamenews.shared.testing.startSafe
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
@@ -18,6 +17,7 @@ import org.junit.Rule
 import org.junit.Test
 import javax.inject.Inject
 import ca.on.hojat.gamenews.core.data.api.common.Error
+import ca.on.hojat.gamenews.core.data.api.gamespot.articles.ArticlesService
 
 @HiltAndroidTest
 internal class ArticlesServiceTest {

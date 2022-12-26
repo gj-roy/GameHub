@@ -7,8 +7,8 @@ import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesRemoteDataStore
 import ca.on.hojat.gamenews.feature_news.domain.entities.Article
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
+import ca.on.hojat.gamenews.core.data.api.gamespot.articles.ArticlesEndpoint
 import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiArticle
-import ca.on.hojat.gamenews.shared.api.gamespot.articles.ArticlesEndpoint
 import com.github.michaelbull.result.mapEither
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.withContext

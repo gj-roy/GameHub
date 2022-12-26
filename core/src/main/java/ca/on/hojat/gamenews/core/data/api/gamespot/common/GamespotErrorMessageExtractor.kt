@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.common
+package ca.on.hojat.gamenews.core.data.api.gamespot.common
 
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.di.GamespotApi
@@ -12,7 +12,7 @@ private const val ERROR_MESSAGE_NAME = "error"
 
 @BindType(withQualifier = true)
 @GamespotApi
-internal class GamespotErrorMessageExtractor @Inject constructor(
+class GamespotErrorMessageExtractor @Inject constructor(
     private val json: Json
 ) : ErrorMessageExtractor {
 

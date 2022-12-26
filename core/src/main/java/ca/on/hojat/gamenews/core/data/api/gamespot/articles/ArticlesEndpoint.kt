@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.articles
+package ca.on.hojat.gamenews.core.data.api.gamespot.articles
 
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
 import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiArticle
@@ -17,7 +17,7 @@ interface ArticlesEndpoint {
 
 @Singleton
 @BindType
-internal class ArticlesEndpointImpl @Inject constructor(
+class ArticlesEndpointImpl @Inject constructor(
     private val articlesService: ArticlesService,
     private val queryParamsFactory: GamespotQueryParamsFactory
 ) : ArticlesEndpoint {

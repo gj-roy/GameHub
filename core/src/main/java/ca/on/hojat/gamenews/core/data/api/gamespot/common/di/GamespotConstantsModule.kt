@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.common.di
+package ca.on.hojat.gamenews.core.data.api.gamespot.common.di
 
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.GamespotConstantsProvider
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.ProdGamespotConstantsProvider
@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal interface GamespotConstantsModule {
+interface GamespotConstantsModule {
 
     @Binds
     fun bindGamespotConstantsProvider(binding: ProdGamespotConstantsProvider): GamespotConstantsProvider

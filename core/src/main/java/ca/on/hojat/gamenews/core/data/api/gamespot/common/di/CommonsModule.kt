@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.common.di
+package ca.on.hojat.gamenews.core.data.api.gamespot.common.di
 
 import ca.on.hojat.gamenews.core.data.api.common.ErrorMessageExtractor
 import ca.on.hojat.gamenews.core.data.api.common.addInterceptorAsFirstInChain
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object CommonsModule {
+object CommonsModule {
 
     @Provides
     @Singleton
