@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.database.games
+package ca.on.hojat.gamenews.core.data.database.games
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
@@ -27,7 +27,7 @@ import javax.inject.Inject
 @ProvidedTypeConverter
 @BindType(contributesTo = BindType.Collection.SET)
 @Suppress("TooManyFunctions")
-internal class GamesTypeConverter @Inject constructor(
+class GamesTypeConverter @Inject constructor(
     private val jsonConverter: JsonConverter
 ) : RoomTypeConverter {
 

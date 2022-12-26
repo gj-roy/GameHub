@@ -6,8 +6,8 @@ import ca.on.hojat.gamenews.shared.database.DB_GAMES
 import ca.on.hojat.gamenews.shared.database.DB_LIKED_GAME
 import ca.on.hojat.gamenews.shared.database.DB_LIKED_GAMES
 import ca.on.hojat.gamenews.shared.database.common.di.DatabaseModule
-import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
-import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
+import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
+import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

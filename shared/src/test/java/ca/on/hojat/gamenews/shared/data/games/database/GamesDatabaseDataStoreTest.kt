@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.shared.data.FakeDiscoveryGamesReleaseDatesProvider
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.DbGameMapper
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.GamesDatabaseDataStore
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.mapToDatabaseGames
-import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
+import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule

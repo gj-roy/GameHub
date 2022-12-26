@@ -8,10 +8,10 @@ import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbLikedGame
 import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTypeConverter
-import ca.on.hojat.gamenews.shared.database.games.GamesTypeConverter
-import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
-import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
+import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
+import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
 import ca.on.hojat.gamenews.core.data.database.Constants
+import ca.on.hojat.gamenews.core.data.database.games.GamesTypeConverter
 
 
 @Database(

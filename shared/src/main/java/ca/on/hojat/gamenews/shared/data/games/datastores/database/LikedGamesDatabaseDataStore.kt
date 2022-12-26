@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.data.games.datastores.database
 
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
-import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
+import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.games.datastores.LikedGamesLocalDataStore

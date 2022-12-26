@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.shared.data.games.datastores.database.DbGameMapper
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.LikedGameFactory
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.LikedGamesDatabaseDataStore
 import ca.on.hojat.gamenews.shared.data.games.datastores.database.mapToDatabaseGames
-import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
+import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION

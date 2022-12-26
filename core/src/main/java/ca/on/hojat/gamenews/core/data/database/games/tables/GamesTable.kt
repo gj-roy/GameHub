@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.database.games.tables
+package ca.on.hojat.gamenews.core.data.database.games.tables
 
 import androidx.room.Dao
 import androidx.room.Insert
