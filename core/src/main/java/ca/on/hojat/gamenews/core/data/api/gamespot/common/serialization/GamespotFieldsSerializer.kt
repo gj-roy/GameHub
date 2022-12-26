@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot.common.serialization
+package ca.on.hojat.gamenews.core.data.api.gamespot.common.serialization
 
 import com.paulrybitskyi.hiltbinder.BindType
 import java.lang.reflect.Field
@@ -6,12 +6,12 @@ import javax.inject.Inject
 
 private const val FIELD_SEPARATOR = ","
 
-internal interface GamespotFieldsSerializer {
+interface GamespotFieldsSerializer {
     fun serializeFields(clazz: Class<*>): String
 }
 
 @BindType
-internal class GamespotFieldsSerializerImpl @Inject constructor() : GamespotFieldsSerializer {
+class GamespotFieldsSerializerImpl @Inject constructor() : GamespotFieldsSerializer {
 
     override fun serializeFields(clazz: Class<*>): String {
         return clazz.getGamespotFieldNames().joinToString(FIELD_SEPARATOR)
