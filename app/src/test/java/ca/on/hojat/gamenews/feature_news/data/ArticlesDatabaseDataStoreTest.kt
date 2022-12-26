@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_news.data
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_news.DOMAIN_ARTICLES
-import ca.on.hojat.gamenews.shared.database.articles.tables.ArticlesTable
+import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
 import com.google.common.truth.Truth.assertThat

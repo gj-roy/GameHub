@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.database.common
+package ca.on.hojat.gamenews.core.data.database.common
 
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -34,6 +34,6 @@ private val MIGRATION_FROM_1_TO_2 = object : Migration(1, 2) {
     }
 }
 
-internal val MIGRATIONS = arrayOf<Migration>(
+val MIGRATIONS = arrayOf<Migration>(
     MIGRATION_FROM_1_TO_2
 )

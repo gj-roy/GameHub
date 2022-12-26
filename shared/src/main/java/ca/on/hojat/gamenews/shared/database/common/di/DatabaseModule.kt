@@ -2,11 +2,11 @@ package ca.on.hojat.gamenews.shared.database.common.di
 
 import android.content.Context
 import androidx.room.Room
+import ca.on.hojat.gamenews.core.data.database.common.MIGRATIONS
 import ca.on.hojat.gamenews.shared.database.Constants
 import ca.on.hojat.gamenews.shared.database.GameNewsDatabase
-import ca.on.hojat.gamenews.shared.database.common.MIGRATIONS
-import ca.on.hojat.gamenews.shared.database.common.RoomTypeConverter
-import ca.on.hojat.gamenews.shared.database.common.addTypeConverters
+import ca.on.hojat.gamenews.core.data.database.common.RoomTypeConverter
+import ca.on.hojat.gamenews.core.data.database.common.addTypeConverters
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

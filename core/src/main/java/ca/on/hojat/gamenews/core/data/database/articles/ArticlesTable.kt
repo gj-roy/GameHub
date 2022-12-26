@@ -1,10 +1,10 @@
-package ca.on.hojat.gamenews.shared.database.articles.tables
+package ca.on.hojat.gamenews.core.data.database.articles
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ca.on.hojat.gamenews.shared.database.articles.entities.DbArticle
+import ca.on.hojat.gamenews.core.data.database.articles.DbArticle
 import kotlinx.coroutines.flow.Flow
 
 @Dao

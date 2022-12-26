@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.database.articles.entities
+package ca.on.hojat.gamenews.core.data.database.articles
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

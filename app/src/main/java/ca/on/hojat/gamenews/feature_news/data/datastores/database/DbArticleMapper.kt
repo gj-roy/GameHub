@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_news.data.datastores.database
 
-import ca.on.hojat.gamenews.shared.database.articles.DatabaseArticle
-import ca.on.hojat.gamenews.shared.database.articles.DatabaseImageType
+import ca.on.hojat.gamenews.core.data.database.articles.DatabaseArticle
+import ca.on.hojat.gamenews.core.data.database.articles.DatabaseImageType
 import ca.on.hojat.gamenews.feature_news.domain.DomainArticle
 import ca.on.hojat.gamenews.feature_news.domain.DomainImageType
 import javax.inject.Inject

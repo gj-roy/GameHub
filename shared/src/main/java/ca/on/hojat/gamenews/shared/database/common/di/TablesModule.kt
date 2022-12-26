@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.shared.database.common.di
 
 import ca.on.hojat.gamenews.shared.database.GameNewsDatabase
-import ca.on.hojat.gamenews.shared.database.articles.tables.ArticlesTable
+import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
 import dagger.Module
