@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.games.common
+package ca.on.hojat.gamenews.core.data.games.common
 
 import ca.on.hojat.gamenews.core.providers.TimestampProvider
 import com.paulrybitskyi.hiltbinder.BindType
@@ -11,7 +11,7 @@ private val POPULAR_GAMES_MIN_RELEASE_DATE_DURATION =
 private val RECENTLY_RELEASED_GAMES_MIN_RELEASE_DATE_DURATION =
     TimeUnit.DAYS.toSeconds(@Suppress("MagicNumber") 30L)
 
-internal interface DiscoveryGamesReleaseDatesProvider {
+interface DiscoveryGamesReleaseDatesProvider {
     fun getPopularGamesMinReleaseDate(): Long
     fun getRecentlyReleasedGamesMinReleaseDate(): Long
     fun getRecentlyReleasedGamesMaxReleaseDate(): Long
@@ -21,7 +21,7 @@ internal interface DiscoveryGamesReleaseDatesProvider {
 
 @Singleton
 @BindType
-internal class DiscoveryGamesReleaseDatesProviderImpl @Inject constructor(
+class DiscoveryGamesReleaseDatesProviderImpl @Inject constructor(
     private val timestampProvider: TimestampProvider,
 ) : DiscoveryGamesReleaseDatesProvider {
 

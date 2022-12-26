@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.games.common.throttling
+package ca.on.hojat.gamenews.core.data.games.common
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-internal class GamesRefreshingThrottlerImpl @Inject constructor(
+class GamesRefreshingThrottlerImpl @Inject constructor(
     private val gamesPreferences: DataStore<Preferences>,
     private val timestampProvider: TimestampProvider
 ) : GamesRefreshingThrottler {

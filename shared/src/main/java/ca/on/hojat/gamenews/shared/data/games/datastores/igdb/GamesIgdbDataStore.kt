@@ -16,7 +16,7 @@ import ca.on.hojat.gamenews.core.data.api.igdb.games.requests.GetMostAnticipated
 import ca.on.hojat.gamenews.core.data.api.igdb.games.requests.GetPopularGamesRequest
 import ca.on.hojat.gamenews.core.data.api.igdb.games.requests.GetRecentlyReleasedGamesRequest
 import ca.on.hojat.gamenews.core.data.api.igdb.games.requests.SearchGamesRequest
-import ca.on.hojat.gamenews.shared.data.games.common.DiscoveryGamesReleaseDatesProvider
+import ca.on.hojat.gamenews.core.data.games.common.DiscoveryGamesReleaseDatesProvider
 import com.github.michaelbull.result.mapEither
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.withContext

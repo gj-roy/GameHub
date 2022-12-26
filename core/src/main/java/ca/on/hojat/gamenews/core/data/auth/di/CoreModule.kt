@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.auth.di
+package ca.on.hojat.gamenews.core.data.auth.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -20,7 +20,7 @@ private val Context.authProtoDataStore by dataStore(
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object CoreModule {
+object CoreModule {
 
     @Provides
     fun provideAuthProtoDataStore(
