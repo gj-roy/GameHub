@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.games.datastores.igdb
+package ca.on.hojat.gamenews.core.data.games.datastores
 
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
@@ -25,7 +25,7 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-internal class GamesIgdbDataStore @Inject constructor(
+class GamesIgdbDataStore @Inject constructor(
     private val gamesEndpoint: GamesEndpoint,
     private val releaseDatesProvider: DiscoveryGamesReleaseDatesProvider,
     private val dispatcherProvider: DispatcherProvider,

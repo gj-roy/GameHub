@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.games.di
+package ca.on.hojat.gamenews.core.data.games.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -16,7 +16,7 @@ private val Context.gamesPreferences by preferencesDataStore(GAMES_PREFERENCES_N
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object CoreModule {
+object CoreModule {
 
     @Provides
     fun provideGamesPreferences(@ApplicationContext context: Context): DataStore<Preferences> {

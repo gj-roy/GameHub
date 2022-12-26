@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.games.datastores.igdb
+package ca.on.hojat.gamenews.core.data.games.datastores
 
 import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiAgeRating
 import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiCategory
@@ -36,7 +36,7 @@ import ca.on.hojat.gamenews.core.domain.entities.Website
 import ca.on.hojat.gamenews.core.domain.entities.WebsiteCategory
 import javax.inject.Inject
 
-internal class IgdbGameMapper @Inject constructor() {
+class IgdbGameMapper @Inject constructor() {
 
     fun mapToDomainGame(apiGame: ApiGame): Game {
         return Game(
@@ -195,6 +195,6 @@ internal class IgdbGameMapper @Inject constructor() {
     }
 }
 
-internal fun IgdbGameMapper.mapToDomainGames(apiGames: List<ApiGame>): List<Game> {
+fun IgdbGameMapper.mapToDomainGames(apiGames: List<ApiGame>): List<Game> {
     return apiGames.map(::mapToDomainGame)
 }
