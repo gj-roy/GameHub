@@ -11,6 +11,8 @@ import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTypeConverter
 import ca.on.hojat.gamenews.shared.database.games.GamesTypeConverter
 import ca.on.hojat.gamenews.shared.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.shared.database.games.tables.LikedGamesTable
+import ca.on.hojat.gamenews.core.data.database.Constants
+
 
 @Database(
     entities = [
