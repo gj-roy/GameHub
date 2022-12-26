@@ -1,10 +1,10 @@
-package ca.on.hojat.gamenews.shared.data.auth.datastores.igdb
+package ca.on.hojat.gamenews.core.data.auth.datastores.igdb
 
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
 import ca.on.hojat.gamenews.core.domain.auth.entities.OauthCredentials
 import javax.inject.Inject
 
-internal class IgdbAuthMapper @Inject constructor() {
+class IgdbAuthMapper @Inject constructor() {
 
     fun mapToApiOauthCredentials(oauthCredentials: OauthCredentials): ApiOauthCredentials {
         return ApiOauthCredentials(

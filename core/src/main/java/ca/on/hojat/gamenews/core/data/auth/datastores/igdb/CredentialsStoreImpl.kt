@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.auth.datastores.igdb
+package ca.on.hojat.gamenews.core.data.auth.datastores.igdb
 
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
 import ca.on.hojat.gamenews.core.data.api.igdb.common.CredentialsStore
@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-internal class CredentialsStoreImpl @Inject constructor(
+class CredentialsStoreImpl @Inject constructor(
     private val authLocalDataStore: AuthLocalDataStore,
     private val authRemoteDataStore: AuthRemoteDataStore,
     private val igdbAuthMapper: IgdbAuthMapper,

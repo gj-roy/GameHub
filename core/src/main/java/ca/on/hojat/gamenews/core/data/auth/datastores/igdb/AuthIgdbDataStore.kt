@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.auth.datastores.igdb
+package ca.on.hojat.gamenews.core.data.auth.datastores.igdb
 
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.auth.datastores.AuthRemoteDataStore
@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-internal class AuthIgdbDataStore @Inject constructor(
+class AuthIgdbDataStore @Inject constructor(
     private val authEndpoint: AuthEndpoint,
     private val igdbAuthMapper: IgdbAuthMapper,
     private val apiErrorMapper: ApiErrorMapper,
