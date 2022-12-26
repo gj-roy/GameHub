@@ -1,14 +1,14 @@
-package ca.on.hojat.gamenews.shared.data.auth.datastores.file
+package ca.on.hojat.gamenews.core.data.auth.datastores.file
 
 import ca.on.hojat.gamenews.core.domain.auth.entities.OauthCredentials
 import javax.inject.Inject
 
-internal class ProtoAuthMapper @Inject constructor(
+class ProtoAuthMapper @Inject constructor(
     private val authExpiryTimeCalculator: AuthExpiryTimeCalculator
 ) {
 
-    fun mapToProtoOauthCredentials(oauthCredentials: OauthCredentials): ProtoOauthCredentials {
-        return ProtoOauthCredentials.newBuilder()
+    fun mapToProtoOauthCredentials(oauthCredentials: OauthCredentials): NewProtoOauthCredentials {
+        return NewProtoOauthCredentials.newBuilder()
             .setAccessToken(oauthCredentials.accessToken)
             .setTokenType(oauthCredentials.tokenType)
             .setTokenTtl(oauthCredentials.tokenTtl)
@@ -16,7 +16,7 @@ internal class ProtoAuthMapper @Inject constructor(
             .build()
     }
 
-    fun mapToDomainOauthCredentials(oauthCredentials: ProtoOauthCredentials): OauthCredentials {
+    fun mapToDomainOauthCredentials(oauthCredentials: NewProtoOauthCredentials): OauthCredentials {
         return OauthCredentials(
             accessToken = oauthCredentials.accessToken,
             tokenType = oauthCredentials.tokenType,

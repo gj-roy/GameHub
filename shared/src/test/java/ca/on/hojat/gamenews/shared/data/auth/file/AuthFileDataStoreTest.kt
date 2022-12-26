@@ -1,12 +1,12 @@
 package ca.on.hojat.gamenews.shared.data.auth.file
 
 import androidx.datastore.core.DataStore
+import ca.on.hojat.gamenews.core.data.auth.datastores.file.ProtoAuthMapper
 import ca.on.hojat.gamenews.core.providers.TimestampProvider
 import ca.on.hojat.gamenews.shared.data.DOMAIN_OAUTH_CREDENTIALS
-import ca.on.hojat.gamenews.shared.data.auth.datastores.file.AuthExpiryTimeCalculator
-import ca.on.hojat.gamenews.shared.data.auth.datastores.file.AuthFileDataStore
-import ca.on.hojat.gamenews.shared.data.auth.datastores.file.ProtoAuthMapper
-import ca.on.hojat.gamenews.shared.data.auth.datastores.file.ProtoOauthCredentials
+import ca.on.hojat.gamenews.core.data.auth.datastores.file.AuthExpiryTimeCalculator
+import ca.on.hojat.gamenews.core.data.auth.datastores.file.AuthFileDataStore
+import ca.on.hojat.gamenews.core.data.auth.datastores.file.NewProtoOauthCredentials
 import com.google.common.truth.Truth.assertThat
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -18,7 +18,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 
-private val PROTO_OAUTH_CREDENTIALS = ProtoOauthCredentials.newBuilder()
+private val PROTO_OAUTH_CREDENTIALS = NewProtoOauthCredentials.newBuilder()
     .setAccessToken("access_token")
     .setTokenType("token_type")
     .setTokenTtl(5000L)
@@ -28,7 +28,7 @@ private val PROTO_OAUTH_CREDENTIALS = ProtoOauthCredentials.newBuilder()
 internal class AuthFileDataStoreTest {
 
     @MockK
-    private lateinit var protoDataStore: DataStore<ProtoOauthCredentials>
+    private lateinit var protoDataStore: DataStore<NewProtoOauthCredentials>
     @MockK
     private lateinit var timestampProvider: TimestampProvider
 

@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.auth.datastores.file
+package ca.on.hojat.gamenews.core.data.auth.datastores.file
 
 import androidx.datastore.core.DataStore
 import ca.on.hojat.gamenews.core.domain.auth.datastores.AuthLocalDataStore
@@ -10,8 +10,8 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-internal class AuthFileDataStore @Inject constructor(
-    private val protoDataStore: DataStore<ProtoOauthCredentials>,
+class AuthFileDataStore @Inject constructor(
+    private val protoDataStore: DataStore<NewProtoOauthCredentials>,
     private val protoAuthMapper: ProtoAuthMapper,
 ) : AuthLocalDataStore {
 
@@ -30,7 +30,7 @@ internal class AuthFileDataStore @Inject constructor(
 
         return protoDataStore.data
             .firstOrNull()
-            ?.takeIf(ProtoOauthCredentials::isNotEmpty)
+            ?.takeIf(NewProtoOauthCredentials::isNotEmpty)
             ?.let(protoAuthMapper::mapToDomainOauthCredentials)
     }
 }
