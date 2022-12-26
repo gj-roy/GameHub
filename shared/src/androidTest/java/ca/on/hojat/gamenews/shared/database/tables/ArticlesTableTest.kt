@@ -5,7 +5,7 @@ import app.cash.turbine.test
 import ca.on.hojat.gamenews.shared.database.DB_ARTICLES
 import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.core.data.database.articles.DatabaseArticle
-import ca.on.hojat.gamenews.shared.database.common.di.DatabaseModule
+import ca.on.hojat.gamenews.core.data.database.common.di.DatabaseModule
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

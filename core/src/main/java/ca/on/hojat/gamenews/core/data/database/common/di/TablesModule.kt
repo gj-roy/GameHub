@@ -1,6 +1,6 @@
-package ca.on.hojat.gamenews.shared.database.common.di
+package ca.on.hojat.gamenews.core.data.database.common.di
 
-import ca.on.hojat.gamenews.shared.database.GameNewsDatabase
+import ca.on.hojat.gamenews.core.data.database.GameNewsDatabase
 import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object TablesModule {
+object TablesModule {
 
     @Provides
     @Singleton

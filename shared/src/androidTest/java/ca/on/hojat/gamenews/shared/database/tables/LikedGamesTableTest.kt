@@ -5,7 +5,7 @@ import app.cash.turbine.test
 import ca.on.hojat.gamenews.shared.database.DB_GAMES
 import ca.on.hojat.gamenews.shared.database.DB_LIKED_GAME
 import ca.on.hojat.gamenews.shared.database.DB_LIKED_GAMES
-import ca.on.hojat.gamenews.shared.database.common.di.DatabaseModule
+import ca.on.hojat.gamenews.core.data.database.common.di.DatabaseModule
 import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
 import com.google.common.truth.Truth.assertThat

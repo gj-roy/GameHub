@@ -1,10 +1,10 @@
-package ca.on.hojat.gamenews.shared.database.common.di
+package ca.on.hojat.gamenews.core.data.database.common.di
 
 import android.content.Context
 import androidx.room.Room
 import ca.on.hojat.gamenews.core.data.database.Constants
+import ca.on.hojat.gamenews.core.data.database.GameNewsDatabase
 import ca.on.hojat.gamenews.core.data.database.common.MIGRATIONS
-import ca.on.hojat.gamenews.shared.database.GameNewsDatabase
 import ca.on.hojat.gamenews.core.data.database.common.RoomTypeConverter
 import ca.on.hojat.gamenews.core.data.database.common.addTypeConverters
 import dagger.Module
@@ -16,7 +16,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object DatabaseModule {
+object DatabaseModule {
 
     @Provides
     @Singleton

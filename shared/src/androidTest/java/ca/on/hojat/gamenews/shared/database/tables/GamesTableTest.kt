@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
 import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.shared.database.DB_GAMES
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.shared.database.common.di.DatabaseModule
+import ca.on.hojat.gamenews.core.data.database.common.di.DatabaseModule
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
