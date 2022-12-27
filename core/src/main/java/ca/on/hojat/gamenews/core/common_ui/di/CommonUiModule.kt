@@ -1,7 +1,6 @@
-package ca.on.hojat.gamenews.shared.ui.di
+package ca.on.hojat.gamenews.core.common_ui.di
 
-import ca.on.hojat.gamenews.shared.ui.TransitionAnimations
-import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration
+import ca.on.hojat.gamenews.core.common_ui.TransitionAnimations
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,7 +9,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object CommonUiModule {
+object CommonUiModule {
 
     @Provides
     @Singleton

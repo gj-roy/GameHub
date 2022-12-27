@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui
+package ca.on.hojat.gamenews.core.common_ui
 
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.EnterTransition

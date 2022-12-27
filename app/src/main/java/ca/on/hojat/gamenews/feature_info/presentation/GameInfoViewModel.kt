@@ -24,7 +24,7 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVid
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
-import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration
+import ca.on.hojat.gamenews.core.common_ui.di.TransitionAnimationDuration
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

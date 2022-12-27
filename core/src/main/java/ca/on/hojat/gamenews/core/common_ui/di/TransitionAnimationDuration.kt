@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.di.qualifiers
+package ca.on.hojat.gamenews.core.common_ui.di
 
 import javax.inject.Qualifier
 
