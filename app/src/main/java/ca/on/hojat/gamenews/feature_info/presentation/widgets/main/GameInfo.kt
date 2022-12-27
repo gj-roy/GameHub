@@ -22,7 +22,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.shared.ui.CommandsHandler
-import ca.on.hojat.gamenews.shared.ui.LocalUrlOpener
 import ca.on.hojat.gamenews.shared.ui.NavBarColorHandler
 import ca.on.hojat.gamenews.shared.ui.RoutesHandler
 import ca.on.hojat.gamenews.shared.ui.base.events.Route
@@ -33,6 +32,7 @@ import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.shared.ui.widgets.Info
 import ca.on.hojat.gamenews.shared.ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.common_ui.LocalUrlOpener
 import ca.on.hojat.gamenews.core.extensions.showShortToast
 import ca.on.hojat.gamenews.feature_info.presentation.GameInfoCommand
 import ca.on.hojat.gamenews.feature_info.presentation.GameInfoViewModel

@@ -32,8 +32,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.shared.ui.CommandsHandler
-import ca.on.hojat.gamenews.shared.ui.LocalNetworkStateProvider
-import ca.on.hojat.gamenews.shared.ui.LocalTextSharer
 import ca.on.hojat.gamenews.shared.ui.RoutesHandler
 import ca.on.hojat.gamenews.shared.ui.base.events.Route
 import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
@@ -52,6 +50,8 @@ import com.mxalbert.zoomable.OverZoomConfig
 import com.mxalbert.zoomable.Zoomable
 import com.mxalbert.zoomable.rememberZoomableState
 import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.common_ui.LocalNetworkStateProvider
+import ca.on.hojat.gamenews.core.common_ui.LocalTextSharer
 
 private const val ZoomScaleMin = 0.5f
 private const val ZoomScaleMax = 5f

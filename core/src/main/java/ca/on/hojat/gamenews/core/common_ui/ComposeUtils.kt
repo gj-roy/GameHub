@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui
+package ca.on.hojat.gamenews.core.common_ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Indication

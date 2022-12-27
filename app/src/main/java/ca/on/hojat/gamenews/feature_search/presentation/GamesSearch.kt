@@ -22,7 +22,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.shared.ui.CommandsHandler
 import ca.on.hojat.gamenews.shared.ui.NavBarColorHandler
-import ca.on.hojat.gamenews.shared.ui.OnLifecycleEvent
 import ca.on.hojat.gamenews.shared.ui.RoutesHandler
 import ca.on.hojat.gamenews.shared.ui.base.events.Route
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
@@ -33,6 +32,7 @@ import ca.on.hojat.gamenews.shared.ui.widgets.games.GamesUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.SearchToolbar
 import ca.on.hojat.gamenews.shared.ui.widgets.games.finiteUiState
 import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.common_ui.OnLifecycleEvent
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
