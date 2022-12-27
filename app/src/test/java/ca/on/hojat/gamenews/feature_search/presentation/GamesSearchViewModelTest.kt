@@ -10,7 +10,7 @@ import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
+import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModelMapper

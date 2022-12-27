@@ -9,7 +9,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.core.common_ui.base.events.Command
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
-import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
+import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.theme.navBar
 

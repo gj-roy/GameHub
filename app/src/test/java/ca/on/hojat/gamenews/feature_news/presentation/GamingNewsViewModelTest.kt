@@ -11,7 +11,7 @@ import ca.on.hojat.gamenews.feature_news.presentation.widgets.finiteUiState
 import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
 import ca.on.hojat.gamenews.shared.testing.FakeLogger
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.shared.ui.base.events.common.GeneralCommand
+import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
