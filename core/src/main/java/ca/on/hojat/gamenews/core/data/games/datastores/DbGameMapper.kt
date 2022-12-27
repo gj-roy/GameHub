@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.games.datastores.database
+package ca.on.hojat.gamenews.core.data.games.datastores
 
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbAgeRating
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbAgeRatingCategory
@@ -20,7 +20,7 @@ import ca.on.hojat.gamenews.core.data.database.games.entities.DbVideo
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbWebsite
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbWebsiteCategory
 import ca.on.hojat.gamenews.core.domain.entities.AgeRating
- import ca.on.hojat.gamenews.core.domain.entities.AgeRatingCategory
+import ca.on.hojat.gamenews.core.domain.entities.AgeRatingCategory
 import ca.on.hojat.gamenews.core.domain.entities.AgeRatingType
 import ca.on.hojat.gamenews.core.domain.entities.Category
 import ca.on.hojat.gamenews.core.domain.entities.Company
@@ -40,7 +40,7 @@ import ca.on.hojat.gamenews.core.domain.entities.Website
 import ca.on.hojat.gamenews.core.domain.entities.WebsiteCategory
 import javax.inject.Inject
 
-internal class DbGameMapper @Inject constructor() {
+class DbGameMapper @Inject constructor() {
 
     fun mapToDomainGame(dbGame: DbGame): Game {
         return Game(
@@ -355,10 +355,10 @@ internal class DbGameMapper @Inject constructor() {
     }
 }
 
-internal fun DbGameMapper.mapToDomainGames(dbGames: List<DbGame>): List<Game> {
+fun DbGameMapper.mapToDomainGames(dbGames: List<DbGame>): List<Game> {
     return dbGames.map(::mapToDomainGame)
 }
 
-internal fun DbGameMapper.mapToDatabaseGames(domainGames: List<Game>): List<DbGame> {
+fun DbGameMapper.mapToDatabaseGames(domainGames: List<Game>): List<DbGame> {
     return domainGames.map(::mapToDatabaseGame)
 }

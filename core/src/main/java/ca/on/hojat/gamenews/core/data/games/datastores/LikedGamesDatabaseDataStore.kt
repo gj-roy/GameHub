@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.games.datastores.database
+package ca.on.hojat.gamenews.core.data.games.datastores
 
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
 import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
@@ -16,7 +16,7 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-internal class LikedGamesDatabaseDataStore @Inject constructor(
+class LikedGamesDatabaseDataStore @Inject constructor(
     private val likedGamesTable: LikedGamesTable,
     private val likedGameFactory: LikedGameFactory,
     private val dispatcherProvider: DispatcherProvider,

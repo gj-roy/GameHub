@@ -3,10 +3,10 @@ package ca.on.hojat.gamenews.shared.data.games.database
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.shared.data.DOMAIN_COMPANY
 import ca.on.hojat.gamenews.shared.data.FakeDiscoveryGamesReleaseDatesProvider
-import ca.on.hojat.gamenews.shared.data.games.datastores.database.DbGameMapper
-import ca.on.hojat.gamenews.shared.data.games.datastores.database.GamesDatabaseDataStore
-import ca.on.hojat.gamenews.shared.data.games.datastores.database.mapToDatabaseGames
 import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
+import ca.on.hojat.gamenews.core.data.games.datastores.DbGameMapper
+import ca.on.hojat.gamenews.core.data.games.datastores.GamesDatabaseDataStore
+import ca.on.hojat.gamenews.core.data.games.datastores.mapToDatabaseGames
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule

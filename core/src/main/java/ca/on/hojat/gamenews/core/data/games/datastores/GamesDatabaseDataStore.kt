@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.data.games.datastores.database
+package ca.on.hojat.gamenews.core.data.games.datastores
 
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
 import ca.on.hojat.gamenews.core.data.games.common.DiscoveryGamesReleaseDatesProvider
@@ -19,7 +19,7 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-internal class GamesDatabaseDataStore @Inject constructor(
+class GamesDatabaseDataStore @Inject constructor(
     private val gamesTable: GamesTable,
     private val dispatcherProvider: DispatcherProvider,
     private val discoveryGamesReleaseDatesProvider: DiscoveryGamesReleaseDatesProvider,
