@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 
 @Composable
 fun RefreshableContent(

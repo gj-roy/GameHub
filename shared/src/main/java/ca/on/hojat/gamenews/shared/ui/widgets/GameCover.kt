@@ -24,7 +24,7 @@ import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
 import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.core.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 
 val DefaultCoverWidth = 112.dp
 val DefaultCoverHeight = 153.dp

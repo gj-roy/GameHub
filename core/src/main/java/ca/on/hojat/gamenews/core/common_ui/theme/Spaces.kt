@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.theme
+package ca.on.hojat.gamenews.core.common_ui.theme
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -79,6 +79,6 @@ class Spaces(
     }
 }
 
-internal val LocalSpaces = staticCompositionLocalOf {
+val LocalSpaces = staticCompositionLocalOf {
     Spaces()
 }

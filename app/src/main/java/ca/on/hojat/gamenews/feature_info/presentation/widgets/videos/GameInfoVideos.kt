@@ -30,8 +30,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.core.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.shared.ui.theme.darkScrim
+import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.core.common_ui.theme.darkScrim
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R

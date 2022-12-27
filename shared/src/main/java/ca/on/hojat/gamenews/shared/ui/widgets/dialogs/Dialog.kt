@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 
 @Composable
 fun GameNewsDialog(

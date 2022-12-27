@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
-import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.DefaultCoverHeight
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard

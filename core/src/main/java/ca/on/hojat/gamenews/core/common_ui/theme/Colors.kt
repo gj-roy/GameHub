@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package ca.on.hojat.gamenews.shared.ui.theme
+package ca.on.hojat.gamenews.core.common_ui.theme
 
 import androidx.compose.material.Colors
 import androidx.compose.material.darkColors
@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import ca.on.hojat.gamenews.shared.R
+import ca.on.hojat.gamenews.core.R
 
 @Composable
 fun lightColors(): Colors {

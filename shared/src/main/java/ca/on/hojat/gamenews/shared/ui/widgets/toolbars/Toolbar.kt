@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.R
-import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 
 @Composable
 fun Toolbar(

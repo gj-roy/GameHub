@@ -12,7 +12,7 @@ import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.common_ui.clickable
 import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.core.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 import coil.compose.AsyncImage
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState

@@ -42,9 +42,9 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
-import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.shared.ui.theme.lightScrim
-import ca.on.hojat.gamenews.shared.ui.theme.subtitle3
+import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.core.common_ui.theme.lightScrim
+import ca.on.hojat.gamenews.core.common_ui.theme.subtitle3
 import ca.on.hojat.gamenews.shared.ui.widgets.GameCover
 import ca.on.hojat.gamenews.shared.ui.widgets.Info
 import ca.on.hojat.gamenews.R

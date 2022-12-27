@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.theme
+package ca.on.hojat.gamenews.core.common_ui.theme
 
 import androidx.compose.foundation.LocalOverscrollConfiguration
 import androidx.compose.foundation.isSystemInDarkTheme

@@ -34,9 +34,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.shared.ui.CommandsHandler
 import ca.on.hojat.gamenews.shared.ui.RoutesHandler
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
-import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.shared.ui.theme.navBar
-import ca.on.hojat.gamenews.shared.ui.theme.statusBar
+import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.core.common_ui.theme.navBar
+import ca.on.hojat.gamenews.core.common_ui.theme.statusBar
 import ca.on.hojat.gamenews.shared.ui.widgets.Info
 import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
 import coil.compose.AsyncImage
