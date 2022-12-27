@@ -25,12 +25,12 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.common_ui.images.secondaryImage
 import ca.on.hojat.gamenews.core.extensions.centerX
 import ca.on.hojat.gamenews.core.extensions.centerY
 import ca.on.hojat.gamenews.core.extensions.hasTransparentPixels
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSectionWithInnerList
-import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
-import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
+import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsCard
 import coil.compose.rememberAsyncImagePainter

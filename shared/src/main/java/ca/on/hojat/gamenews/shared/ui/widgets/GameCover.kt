@@ -22,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.shared.R
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
-import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
-import ca.on.hojat.gamenews.shared.ui.images.secondaryImage
+import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
+import ca.on.hojat.gamenews.core.common_ui.images.secondaryImage
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 
 val DefaultCoverWidth = 112.dp

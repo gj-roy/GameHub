@@ -88,4 +88,6 @@ dependencies {
     implementation(Network.retrofitKotlinxSerializationConverter)
     implementation(Network.retrofitScalarsConverter)
 
+    implementation(ThirdParties.coil)
+
 }

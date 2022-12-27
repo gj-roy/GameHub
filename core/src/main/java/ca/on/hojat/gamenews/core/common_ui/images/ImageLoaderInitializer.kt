@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.images
+package ca.on.hojat.gamenews.core.common_ui.images
 
 import android.content.Context
 import coil.Coil
@@ -13,7 +13,7 @@ interface ImageLoaderInitializer {
 }
 
 @BindType
-internal class CoilInitializer @Inject constructor(
+class CoilInitializer @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : ImageLoaderInitializer {
 

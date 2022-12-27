@@ -34,7 +34,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.shared.ui.CommandsHandler
 import ca.on.hojat.gamenews.shared.ui.RoutesHandler
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
-import ca.on.hojat.gamenews.shared.ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.theme.navBar
 import ca.on.hojat.gamenews.shared.ui.theme.statusBar
@@ -52,6 +51,7 @@ import com.mxalbert.zoomable.rememberZoomableState
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.common_ui.LocalNetworkStateProvider
 import ca.on.hojat.gamenews.core.common_ui.LocalTextSharer
+import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
 
 private const val ZoomScaleMin = 0.5f
 private const val ZoomScaleMax = 5f

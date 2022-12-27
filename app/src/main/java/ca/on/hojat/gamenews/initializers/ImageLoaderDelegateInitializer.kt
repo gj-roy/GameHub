@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.initializers
 
-import ca.on.hojat.gamenews.shared.ui.images.ImageLoaderInitializer
+import ca.on.hojat.gamenews.core.common_ui.images.ImageLoaderInitializer
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
