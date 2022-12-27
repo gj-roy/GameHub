@@ -9,7 +9,7 @@ import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseC
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCase
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coVerify
 import io.mockk.every

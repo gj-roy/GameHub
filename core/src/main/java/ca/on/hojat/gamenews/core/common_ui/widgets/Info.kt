@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.widgets
+package ca.on.hojat.gamenews.core.common_ui.widgets
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
@@ -18,7 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.shared.R
+import ca.on.hojat.gamenews.core.R
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 
 @Composable

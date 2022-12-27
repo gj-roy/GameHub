@@ -26,10 +26,10 @@ import ca.on.hojat.gamenews.core.common_ui.NavBarColorHandler
 import ca.on.hojat.gamenews.core.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
-import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsProgressIndicator
-import ca.on.hojat.gamenews.shared.ui.widgets.Info
+import ca.on.hojat.gamenews.core.common_ui.widgets.AnimatedContentContainer
+import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.core.common_ui.widgets.GameNewsProgressIndicator
+import ca.on.hojat.gamenews.core.common_ui.widgets.Info
 import ca.on.hojat.gamenews.shared.ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.common_ui.LocalUrlOpener

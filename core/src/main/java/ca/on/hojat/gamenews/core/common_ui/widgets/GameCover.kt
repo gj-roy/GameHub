@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.widgets
+package ca.on.hojat.gamenews.core.common_ui.widgets
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
@@ -19,12 +19,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.shared.R
-import coil.compose.AsyncImage
-import coil.compose.AsyncImagePainter.State
+import ca.on.hojat.gamenews.core.R
 import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.core.common_ui.images.secondaryImage
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
+import coil.compose.AsyncImage
+import coil.compose.AsyncImagePainter.State
 
 val DefaultCoverWidth = 112.dp
 val DefaultCoverHeight = 153.dp

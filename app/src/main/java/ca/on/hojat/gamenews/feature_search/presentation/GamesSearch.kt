@@ -25,7 +25,7 @@ import ca.on.hojat.gamenews.core.common_ui.NavBarColorHandler
 import ca.on.hojat.gamenews.core.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.shared.ui.widgets.games.Games
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GamesUiState

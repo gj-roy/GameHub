@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.widgets
+package ca.on.hojat.gamenews.core.common_ui.widgets
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource

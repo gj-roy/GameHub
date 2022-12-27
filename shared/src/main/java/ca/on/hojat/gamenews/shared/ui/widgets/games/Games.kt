@@ -13,11 +13,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import ca.on.hojat.gamenews.shared.R
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.shared.ui.widgets.AnimatedContentContainer
-import ca.on.hojat.gamenews.shared.ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.shared.ui.widgets.GameNewsProgressIndicator
-import ca.on.hojat.gamenews.shared.ui.widgets.Info
-import ca.on.hojat.gamenews.shared.ui.widgets.RefreshableContent
+import ca.on.hojat.gamenews.core.common_ui.widgets.AnimatedContentContainer
+import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.core.common_ui.widgets.GameNewsProgressIndicator
+import ca.on.hojat.gamenews.core.common_ui.widgets.Info
+import ca.on.hojat.gamenews.core.common_ui.widgets.RefreshableContent
 
 @Composable
 fun Games(
