@@ -29,10 +29,10 @@ import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.shared.ui.widgets.games.Games
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GamesUiState
-import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.SearchToolbar
 import ca.on.hojat.gamenews.shared.ui.widgets.games.finiteUiState
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.common_ui.OnLifecycleEvent
+import ca.on.hojat.gamenews.core.common_ui.widgets.toolbars.SearchToolbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

@@ -27,7 +27,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.core.common_ui.NavBarColorHandler
 import ca.on.hojat.gamenews.core.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
@@ -37,6 +36,7 @@ import ca.on.hojat.gamenews.core.common_ui.widgets.GameCover
 import ca.on.hojat.gamenews.core.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.core.common_ui.widgets.Info
 import ca.on.hojat.gamenews.core.common_ui.widgets.RefreshableContent
+import ca.on.hojat.gamenews.core.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.feature_category.GamesCategoryViewModel
 
 @Composable

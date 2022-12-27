@@ -23,7 +23,7 @@ import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.shared.ui.widgets.games.Games
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GamesUiState
-import ca.on.hojat.gamenews.shared.ui.widgets.toolbars.Toolbar
+import ca.on.hojat.gamenews.core.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.R
 
 @Composable
