@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.base
+package ca.on.hojat.gamenews.core.common_ui.base
 
 import androidx.lifecycle.ViewModel
 import ca.on.hojat.gamenews.core.common_ui.base.events.Command

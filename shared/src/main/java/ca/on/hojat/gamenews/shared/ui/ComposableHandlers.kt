@@ -6,7 +6,7 @@ import androidx.compose.ui.platform.LocalContext
 import ca.on.hojat.gamenews.core.extensions.showLongToast
 import ca.on.hojat.gamenews.core.extensions.showShortToast
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
+import ca.on.hojat.gamenews.core.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.core.common_ui.base.events.Command
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand

@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.base.navigation
+package ca.on.hojat.gamenews.core.common_ui.base.navigation
 
 import javax.inject.Inject
 

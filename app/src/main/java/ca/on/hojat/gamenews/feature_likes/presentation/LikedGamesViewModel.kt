@@ -9,7 +9,7 @@ import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
-import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
+import ca.on.hojat.gamenews.core.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModelMapper

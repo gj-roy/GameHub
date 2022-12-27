@@ -3,6 +3,7 @@ package ca.on.hojat.gamenews.feature_category
 import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
+import ca.on.hojat.gamenews.core.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
@@ -20,7 +21,6 @@ import ca.on.hojat.gamenews.feature_category.widgets.toSuccessState
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.common.RefreshGamesUseCaseParams
-import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
 import ca.on.hojat.gamenews.shared.ui.di.qualifiers.TransitionAnimationDuration
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job

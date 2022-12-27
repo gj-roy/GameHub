@@ -17,7 +17,7 @@ import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.common.RefreshGamesUseCaseParams
 import ca.on.hojat.gamenews.core.domain.entities.Game
-import ca.on.hojat.gamenews.shared.ui.base.BaseViewModel
+import ca.on.hojat.gamenews.core.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
