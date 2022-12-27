@@ -1,18 +1,18 @@
 package ca.on.hojat.gamenews.feature_likes.presentation
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
+import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.core.common_ui.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.core.common_ui.widgets.games.GameUiModelMapper
+import ca.on.hojat.gamenews.core.common_ui.widgets.games.finiteUiState
 import ca.on.hojat.gamenews.core.domain.entities.Game
+import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
 import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
 import ca.on.hojat.gamenews.shared.testing.FakeLogger
 import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
 import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
-import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
-import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModelMapper
-import ca.on.hojat.gamenews.shared.ui.widgets.games.finiteUiState
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk

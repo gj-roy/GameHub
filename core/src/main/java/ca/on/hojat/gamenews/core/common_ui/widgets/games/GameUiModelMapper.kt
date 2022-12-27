@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.widgets.games
+package ca.on.hojat.gamenews.core.common_ui.widgets.games
 
 import ca.on.hojat.gamenews.core.factories.IgdbImageSize
 import ca.on.hojat.gamenews.core.factories.IgdbImageUrlFactory
@@ -12,7 +12,7 @@ interface GameUiModelMapper {
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameUiModelMapperImpl @Inject constructor(
+class GameUiModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
     private val gameReleaseDateFormatter: GameReleaseDateFormatter
 ) : GameUiModelMapper {

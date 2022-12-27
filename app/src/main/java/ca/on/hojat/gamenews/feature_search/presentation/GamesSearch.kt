@@ -26,12 +26,12 @@ import ca.on.hojat.gamenews.core.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.shared.ui.widgets.games.GameUiModel
-import ca.on.hojat.gamenews.shared.ui.widgets.games.Games
-import ca.on.hojat.gamenews.shared.ui.widgets.games.GamesUiState
-import ca.on.hojat.gamenews.shared.ui.widgets.games.finiteUiState
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.common_ui.OnLifecycleEvent
+import ca.on.hojat.gamenews.core.common_ui.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.core.common_ui.widgets.games.Games
+import ca.on.hojat.gamenews.core.common_ui.widgets.games.GamesUiState
+import ca.on.hojat.gamenews.core.common_ui.widgets.games.finiteUiState
 import ca.on.hojat.gamenews.core.common_ui.widgets.toolbars.SearchToolbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
