@@ -2,7 +2,7 @@
 
 package ca.on.hojat.gamenews.feature_discovery
 
-import ca.on.hojat.gamenews.shared.ui.base.events.Route
+import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 
 sealed class GamesDiscoveryRoute : Route {
     object Search : GamesDiscoveryRoute()

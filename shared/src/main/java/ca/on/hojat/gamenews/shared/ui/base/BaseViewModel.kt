@@ -1,8 +1,8 @@
 package ca.on.hojat.gamenews.shared.ui.base
 
 import androidx.lifecycle.ViewModel
-import ca.on.hojat.gamenews.shared.ui.base.events.Command
-import ca.on.hojat.gamenews.shared.ui.base.events.Route
+import ca.on.hojat.gamenews.core.common_ui.base.events.Command
+import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow

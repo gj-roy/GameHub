@@ -27,7 +27,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.shared.ui.CommandsHandler
 import ca.on.hojat.gamenews.shared.ui.NavBarColorHandler
 import ca.on.hojat.gamenews.shared.ui.RoutesHandler
-import ca.on.hojat.gamenews.shared.ui.base.events.Route
+import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 import ca.on.hojat.gamenews.shared.ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.shared.ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.shared.ui.widgets.categorypreview.GamesCategoryPreview

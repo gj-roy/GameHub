@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_info.presentation
 
-import ca.on.hojat.gamenews.shared.ui.base.events.Command
-import ca.on.hojat.gamenews.shared.ui.base.events.Route
+import ca.on.hojat.gamenews.core.common_ui.base.events.Command
+import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 
 internal sealed class GameInfoCommand : Command {
     data class OpenUrl(val url: String) : GameInfoCommand()

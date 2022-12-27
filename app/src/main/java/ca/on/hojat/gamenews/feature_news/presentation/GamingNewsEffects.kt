@@ -2,7 +2,7 @@
 
 package ca.on.hojat.gamenews.feature_news.presentation
 
-import ca.on.hojat.gamenews.shared.ui.base.events.Command
+import ca.on.hojat.gamenews.core.common_ui.base.events.Command
 
 internal sealed class GamingNewsCommand : Command {
     data class OpenUrl(val url: String) : GamingNewsCommand()
