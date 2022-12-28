@@ -5,8 +5,6 @@ import androidx.room.TypeConverter
 import ca.on.hojat.gamenews.core.data.JsonConverter
 import ca.on.hojat.gamenews.core.data.database.common.RoomTypeConverter
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbAgeRating
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbAgeRatingCategory
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbAgeRatingType
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbCategory
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbGenre
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbImage
@@ -16,11 +14,9 @@ import ca.on.hojat.gamenews.core.data.database.games.entities.DbMode
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbPlatform
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbPlayerPerspective
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbReleaseDate
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbReleaseDateCategory
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbTheme
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbVideo
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbWebsite
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbWebsiteCategory
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
@@ -72,16 +68,6 @@ class GamesTypeConverter @Inject constructor(
     }
 
     @TypeConverter
-    fun fromReleaseDateCategory(category: DbReleaseDateCategory): String {
-        return jsonConverter.toJson(category)
-    }
-
-    @TypeConverter
-    fun toReleaseDateCategory(json: String): DbReleaseDateCategory {
-        return (jsonConverter.fromJson(json) ?: DbReleaseDateCategory.UNKNOWN)
-    }
-
-    @TypeConverter
     fun fromAgeRatings(ageRatings: List<DbAgeRating>): String {
         return jsonConverter.toJson(ageRatings)
     }
@@ -89,26 +75,6 @@ class GamesTypeConverter @Inject constructor(
     @TypeConverter
     fun toAgeRatings(json: String): List<DbAgeRating> {
         return (jsonConverter.fromJson(json) ?: emptyList())
-    }
-
-    @TypeConverter
-    fun fromAgeRatingCategory(category: DbAgeRatingCategory): String {
-        return jsonConverter.toJson(category)
-    }
-
-    @TypeConverter
-    fun toAgeRatingCategory(json: String): DbAgeRatingCategory {
-        return (jsonConverter.fromJson(json) ?: DbAgeRatingCategory.UNKNOWN)
-    }
-
-    @TypeConverter
-    fun fromAgeRatingType(type: DbAgeRatingType): String {
-        return jsonConverter.toJson(type)
-    }
-
-    @TypeConverter
-    fun toAgeRatingType(json: String): DbAgeRatingType {
-        return (jsonConverter.fromJson(json) ?: DbAgeRatingType.UNKNOWN)
     }
 
     @TypeConverter
@@ -199,16 +165,6 @@ class GamesTypeConverter @Inject constructor(
     @TypeConverter
     fun toWebsites(json: String): List<DbWebsite> {
         return (jsonConverter.fromJson(json) ?: emptyList())
-    }
-
-    @TypeConverter
-    fun fromWebsiteCategory(category: DbWebsiteCategory): String {
-        return jsonConverter.toJson(category)
-    }
-
-    @TypeConverter
-    fun toWebsiteCategory(json: String): DbWebsiteCategory {
-        return (jsonConverter.fromJson(json) ?: DbWebsiteCategory.UNKNOWN)
     }
 
     @TypeConverter
