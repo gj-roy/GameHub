@@ -8,11 +8,11 @@ import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingT
 import ca.on.hojat.gamenews.core.domain.games.datastores.GamesDataStores
 import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
 import ca.on.hojat.gamenews.core.domain.games.datastores.GamesRemoteDataStore
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_ERROR_UNKNOWN
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
-import ca.on.hojat.gamenews.shared.testing.domain.FakeGamesRefreshingThrottlerKeyProvider
-import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.shared.testing.domain.coVerifyNotCalled
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
+import ca.on.hojat.gamenews.core.common_testing.domain.FakeGamesRefreshingThrottlerKeyProvider
+import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.core.common_testing.domain.coVerifyNotCalled
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get

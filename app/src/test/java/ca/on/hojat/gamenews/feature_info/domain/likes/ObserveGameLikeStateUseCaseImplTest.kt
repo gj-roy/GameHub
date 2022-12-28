@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.feature_info.domain.likes
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_info.OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS
 import ca.on.hojat.gamenews.core.domain.games.datastores.LikedGamesLocalDataStore
-import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCaseImpl
 import io.mockk.MockKAnnotations

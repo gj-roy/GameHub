@@ -2,9 +2,9 @@ package ca.on.hojat.gamenews.feature_info
 
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.InvolvedCompany
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
-import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAME
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
+import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
 import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshSimilarGamesUseCase
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
 import ca.on.hojat.gamenews.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCase

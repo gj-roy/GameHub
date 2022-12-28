@@ -11,8 +11,8 @@ import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
 import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
 import ca.on.hojat.gamenews.shared.testing.FakeLogger
 import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
-import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
+import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk

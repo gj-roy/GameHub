@@ -43,6 +43,7 @@ dependencies {
 
     // kotlin Result
     implementation(ThirdParties.kotlinResult)
+    implementation(Tooling.coroutinesTest)
 
     // Needed tools
     implementation(Tooling.serialization)
@@ -78,9 +79,18 @@ dependencies {
     implementation(Compose.systemUi)
 
     // Test libs
-    testImplementation(Testing.truth)
-    androidTestImplementation(Testing.truth)
+    implementation(Testing.testRunner)
     implementation(Testing.mockk)
+    implementation(Testing.mockWebServer)
+    testImplementation(Testing.turbine)
+    testImplementation(Testing.jUnit)
+    testImplementation(Testing.truth)
+    testImplementation(Testing.mockk)
+    androidTestImplementation(Testing.testRunner)
+    androidTestImplementation(Testing.jUnitExt)
+    androidTestImplementation(Testing.truth)
+    androidTestImplementation(Testing.archCore)
+    androidTestImplementation(Testing.turbine)
 
     // http client
     implementation(Network.okHttpLoggingInterceptor)

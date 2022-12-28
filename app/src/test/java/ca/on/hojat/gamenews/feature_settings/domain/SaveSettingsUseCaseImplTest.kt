@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.feature_settings.domain
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
 import ca.on.hojat.gamenews.feature_settings.domain.datastores.SettingsLocalDataStore
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCaseImpl
-import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow

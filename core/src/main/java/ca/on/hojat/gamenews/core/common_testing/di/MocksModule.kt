@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.testing.di
+package ca.on.hojat.gamenews.core.common_testing.di
 
 import dagger.Module
 import dagger.Provides

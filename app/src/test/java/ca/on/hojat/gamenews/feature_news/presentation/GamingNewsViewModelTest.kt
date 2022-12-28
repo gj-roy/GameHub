@@ -10,7 +10,7 @@ import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiMo
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.finiteUiState
 import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
 import ca.on.hojat.gamenews.shared.testing.FakeLogger
-import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import com.github.michaelbull.result.Ok

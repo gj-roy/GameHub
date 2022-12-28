@@ -3,8 +3,8 @@ package ca.on.hojat.gamenews.feature_news.data
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_news.DOMAIN_ARTICLES
 import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
-import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.shared.testing.domain.PAGINATION
+import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.feature_news.data.datastores.database.ArticlesDatabaseDataStore
 import ca.on.hojat.gamenews.feature_news.data.datastores.database.DbArticleMapper

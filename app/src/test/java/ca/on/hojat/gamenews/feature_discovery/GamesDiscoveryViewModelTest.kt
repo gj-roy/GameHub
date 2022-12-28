@@ -10,8 +10,8 @@ import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCas
 import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
 import ca.on.hojat.gamenews.shared.testing.FakeLogger
 import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
-import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
+import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat

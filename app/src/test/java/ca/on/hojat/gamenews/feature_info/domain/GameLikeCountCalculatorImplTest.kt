@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_info.domain
 
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAME
 import org.junit.Before
 import org.junit.Test
 

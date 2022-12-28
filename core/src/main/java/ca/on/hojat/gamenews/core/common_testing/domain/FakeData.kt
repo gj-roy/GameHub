@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.testing.domain
+package ca.on.hojat.gamenews.core.common_testing.domain
 
 import ca.on.hojat.gamenews.core.domain.entities.Error
 import ca.on.hojat.gamenews.core.domain.entities.Pagination

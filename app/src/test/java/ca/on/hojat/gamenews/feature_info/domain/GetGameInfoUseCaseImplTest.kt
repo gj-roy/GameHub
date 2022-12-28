@@ -4,10 +4,10 @@ import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.domain.entities.DomainException
 import ca.on.hojat.gamenews.feature_info.GAME_INFO
 import ca.on.hojat.gamenews.feature_info.INVOLVED_COMPANY
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_ERROR_UNKNOWN
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAME
-import ca.on.hojat.gamenews.shared.testing.domain.DOMAIN_GAMES
-import ca.on.hojat.gamenews.shared.testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAME
+import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
+import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat

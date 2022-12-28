@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.testing.domain
+package ca.on.hojat.gamenews.core.common_testing.domain
 
 import io.mockk.MockKVerificationScope
 import io.mockk.Ordering
