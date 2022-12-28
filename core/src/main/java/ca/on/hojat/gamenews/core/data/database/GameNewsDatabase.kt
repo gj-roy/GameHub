@@ -12,6 +12,7 @@ import ca.on.hojat.gamenews.core.data.database.games.entities.DbLikedGame
 import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
 
+private const val VERSION = 2
 
 @Database(
     entities = [
@@ -19,7 +20,7 @@ import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
         DbLikedGame::class,
         DbArticle::class
     ],
-    version = Constants.VERSION,
+    version = VERSION,
     exportSchema = true,
 )
 // Seems really strange that I have to specify this annotation here
