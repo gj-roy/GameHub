@@ -353,12 +353,12 @@ class DbGameMapper @Inject constructor() {
             )
         }
     }
-}
 
-fun DbGameMapper.mapToDomainGames(dbGames: List<DbGame>): List<Game> {
-    return dbGames.map(::mapToDomainGame)
-}
+    fun mapToDomainGames(dbGames: List<DbGame>): List<Game> {
+        return dbGames.map(::mapToDomainGame)
+    }
 
-fun DbGameMapper.mapToDatabaseGames(domainGames: List<Game>): List<DbGame> {
-    return domainGames.map(::mapToDatabaseGame)
+    fun mapToDatabaseGames(domainGames: List<Game>): List<DbGame> {
+        return domainGames.map(::mapToDatabaseGame)
+    }
 }

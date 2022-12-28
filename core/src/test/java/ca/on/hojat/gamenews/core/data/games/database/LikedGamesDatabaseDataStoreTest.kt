@@ -1,16 +1,15 @@
 package ca.on.hojat.gamenews.core.data.games.database
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
-import ca.on.hojat.gamenews.core.data.database.games.entities.DbLikedGame
-import ca.on.hojat.gamenews.core.data.games.datastores.DbGameMapper
-import ca.on.hojat.gamenews.core.data.games.datastores.mapToDatabaseGames
-import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
-import ca.on.hojat.gamenews.core.data.games.datastores.LikedGameFactory
-import ca.on.hojat.gamenews.core.data.games.datastores.LikedGamesDatabaseDataStore
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
+import ca.on.hojat.gamenews.core.data.database.games.entities.DbLikedGame
+import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
+import ca.on.hojat.gamenews.core.data.games.datastores.DbGameMapper
+import ca.on.hojat.gamenews.core.data.games.datastores.LikedGameFactory
+import ca.on.hojat.gamenews.core.data.games.datastores.LikedGamesDatabaseDataStore
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
