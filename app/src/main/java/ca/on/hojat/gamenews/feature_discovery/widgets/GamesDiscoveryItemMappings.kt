@@ -1,6 +1,7 @@
 package ca.on.hojat.gamenews.feature_discovery.widgets
 
-import ca.on.hojat.gamenews.shared.ui.widgets.categorypreview.GamesCategoryPreviewItemUiModel
+import ca.on.hojat.gamenews.core.common_ui.widgets.categorypreview.GamesCategoryPreviewItemUiModel
+
 
 internal fun List<GamesDiscoveryItemGameUiModel>.mapToCategoryUiModels(): List<GamesCategoryPreviewItemUiModel> {
     return map {

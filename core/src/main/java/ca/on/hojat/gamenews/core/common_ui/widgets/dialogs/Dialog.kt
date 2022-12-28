@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.ui.widgets.dialogs
+package ca.on.hojat.gamenews.core.common_ui.widgets.dialogs
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope

@@ -30,9 +30,9 @@ import ca.on.hojat.gamenews.core.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.core.common_ui.widgets.RefreshableContent
-import ca.on.hojat.gamenews.shared.ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.core.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.core.common_ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.feature_discovery.GamesDiscoveryCategory
 import ca.on.hojat.gamenews.feature_discovery.GamesDiscoveryViewModel
 import ca.on.hojat.gamenews.feature_discovery.titleId

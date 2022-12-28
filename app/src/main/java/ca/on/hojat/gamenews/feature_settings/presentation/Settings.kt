@@ -35,10 +35,10 @@ import ca.on.hojat.gamenews.core.common_ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.core.common_ui.widgets.GameNewsCard
 import ca.on.hojat.gamenews.core.common_ui.widgets.GameNewsProgressIndicator
-import ca.on.hojat.gamenews.shared.ui.widgets.dialogs.GameNewsDialog
 import ca.on.hojat.gamenews.core.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.common_ui.LocalUrlOpener
+import ca.on.hojat.gamenews.core.common_ui.widgets.dialogs.GameNewsDialog
 import ca.on.hojat.gamenews.core.extensions.showShortToast
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 
