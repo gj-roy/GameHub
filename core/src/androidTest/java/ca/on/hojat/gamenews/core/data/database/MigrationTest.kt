@@ -2,9 +2,8 @@ package ca.on.hojat.gamenews.core.data.database
 
 import androidx.room.testing.MigrationTestHelper
 import androidx.test.platform.app.InstrumentationRegistry
+import ca.on.hojat.gamenews.core.data.database.common.di.DATABASE_NAME
 import dagger.hilt.android.testing.HiltAndroidRule
-import ca.on.hojat.gamenews.core.data.database.Constants
-import ca.on.hojat.gamenews.core.data.database.GameNewsDatabase
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
 import org.junit.Rule
@@ -35,7 +34,7 @@ internal class MigrationTest {
 
     @Test
     fun run_all_migrations() {
-        migrationTestHelper.createDatabase(Constants.DATABASE_NAME, 1).close()
+        migrationTestHelper.createDatabase(DATABASE_NAME, 1).close()
 
         databaseProvider.get().apply {
             openHelper.writableDatabase

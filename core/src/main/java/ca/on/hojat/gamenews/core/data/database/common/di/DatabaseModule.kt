@@ -2,7 +2,6 @@ package ca.on.hojat.gamenews.core.data.database.common.di
 
 import android.content.Context
 import androidx.room.Room
-import ca.on.hojat.gamenews.core.data.database.Constants
 import ca.on.hojat.gamenews.core.data.database.GameNewsDatabase
 import ca.on.hojat.gamenews.core.data.database.common.MIGRATIONS
 import ca.on.hojat.gamenews.core.data.database.common.RoomTypeConverter
@@ -13,6 +12,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
+
+const val DATABASE_NAME = "gamenews.db"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -28,7 +29,7 @@ object DatabaseModule {
         return Room.databaseBuilder(
             context,
             GameNewsDatabase::class.java,
-            Constants.DATABASE_NAME
+            DATABASE_NAME
         )
             .addTypeConverters(typeConverters)
             .addMigrations(*MIGRATIONS)
