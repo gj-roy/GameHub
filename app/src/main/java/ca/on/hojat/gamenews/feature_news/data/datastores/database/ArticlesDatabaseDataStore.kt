@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_news.data.datastores.database
 
 import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
-import ca.on.hojat.gamenews.core.data.database.articles.DatabaseArticle
+import ca.on.hojat.gamenews.core.data.database.articles.DbArticle
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataStore
@@ -39,7 +39,7 @@ internal class ArticlesDatabaseDataStore @Inject constructor(
             .toDataArticlesFlow()
     }
 
-    private fun Flow<List<DatabaseArticle>>.toDataArticlesFlow(): Flow<List<Article>> {
+    private fun Flow<List<DbArticle>>.toDataArticlesFlow(): Flow<List<Article>> {
         return distinctUntilChanged()
             .map(dbArticleMapper::mapToDomainArticles)
             .flowOn(dispatcherProvider.computation)

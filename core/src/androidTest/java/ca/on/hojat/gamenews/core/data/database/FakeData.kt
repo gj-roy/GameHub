@@ -1,11 +1,11 @@
 package ca.on.hojat.gamenews.core.data.database
 
-import ca.on.hojat.gamenews.core.data.database.articles.DatabaseArticle
+import ca.on.hojat.gamenews.core.data.database.articles.DbArticle
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbCategory
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbLikedGame
 
-internal val DB_ARTICLE = DatabaseArticle(
+internal val DB_ARTICLE = DbArticle(
     id = 1,
     title = "title",
     lede = "lede",

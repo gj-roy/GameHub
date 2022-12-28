@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.data.database.DB_ARTICLES
 import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
-import ca.on.hojat.gamenews.core.data.database.articles.DatabaseArticle
+import ca.on.hojat.gamenews.core.data.database.articles.DbArticle
 import ca.on.hojat.gamenews.core.data.database.common.di.DatabaseModule
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -40,7 +40,7 @@ ArticlesTableTest {
         runTest {
             sut.saveArticles(DB_ARTICLES)
 
-            val expectedArticles = DB_ARTICLES.sortedByDescending(DatabaseArticle::publicationDate)
+            val expectedArticles = DB_ARTICLES.sortedByDescending(DbArticle::publicationDate)
 
             sut.observeArticles(offset = 0, limit = DB_ARTICLES.size).test {
                 assertThat(awaitItem()).isEqualTo(expectedArticles)
