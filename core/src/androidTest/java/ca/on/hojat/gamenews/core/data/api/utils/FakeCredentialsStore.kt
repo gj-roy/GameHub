@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.utils
+package ca.on.hojat.gamenews.core.data.api.utils
 
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
 import ca.on.hojat.gamenews.core.data.api.igdb.common.CredentialsStore

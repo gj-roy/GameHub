@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.database
+package ca.on.hojat.gamenews.core.data.database
 
 import ca.on.hojat.gamenews.core.data.database.articles.DatabaseArticle
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbCategory

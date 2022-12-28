@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.database
+package ca.on.hojat.gamenews.core.data.database
 
 import androidx.room.testing.MigrationTestHelper
 import androidx.test.platform.app.InstrumentationRegistry

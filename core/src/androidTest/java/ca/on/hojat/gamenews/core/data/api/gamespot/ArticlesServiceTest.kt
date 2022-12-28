@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.api.gamespot
+package ca.on.hojat.gamenews.core.data.api.gamespot
 
 import ca.on.hojat.gamenews.core.common_testing.startSafe
 import com.github.michaelbull.result.get
