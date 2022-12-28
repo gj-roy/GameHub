@@ -12,9 +12,9 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiMod
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.finiteUiState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
-import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
-import ca.on.hojat.gamenews.shared.testing.FakeLogger
-import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
+import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
+import ca.on.hojat.gamenews.core.common_testing.FakeLogger
+import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand

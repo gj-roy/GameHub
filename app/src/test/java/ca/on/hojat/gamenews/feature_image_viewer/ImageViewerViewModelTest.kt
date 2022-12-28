@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_image_viewer
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
+import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every

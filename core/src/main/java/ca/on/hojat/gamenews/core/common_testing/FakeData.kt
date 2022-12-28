@@ -1,6 +1,6 @@
 @file:Suppress("MagicNumber")
 
-package ca.on.hojat.gamenews.shared.testing
+package ca.on.hojat.gamenews.core.common_testing
 
 import ca.on.hojat.gamenews.core.data.api.common.Error as ApiError
 

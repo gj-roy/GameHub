@@ -8,9 +8,9 @@ import ca.on.hojat.gamenews.core.data.games.datastores.IgdbGameMapper
 import ca.on.hojat.gamenews.shared.data.DOMAIN_COMPANY
 import ca.on.hojat.gamenews.shared.data.FakeDiscoveryGamesReleaseDatesProvider
 import ca.on.hojat.gamenews.core.data.games.datastores.mapToDomainGames
-import ca.on.hojat.gamenews.shared.testing.API_ERROR_HTTP
-import ca.on.hojat.gamenews.shared.testing.API_ERROR_NETWORK
-import ca.on.hojat.gamenews.shared.testing.API_ERROR_UNKNOWN
+import ca.on.hojat.gamenews.core.common_testing.API_ERROR_HTTP
+import ca.on.hojat.gamenews.core.common_testing.API_ERROR_NETWORK
+import ca.on.hojat.gamenews.core.common_testing.API_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION

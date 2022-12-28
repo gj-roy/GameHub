@@ -7,9 +7,9 @@ import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemGameUiMo
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
 import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
-import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
-import ca.on.hojat.gamenews.shared.testing.FakeLogger
-import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
+import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
+import ca.on.hojat.gamenews.core.common_testing.FakeLogger
+import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand

@@ -6,7 +6,7 @@ import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.core.data.api.common.Error
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.AuthService
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
-import ca.on.hojat.gamenews.shared.testing.startSafe
+import ca.on.hojat.gamenews.core.common_testing.startSafe
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking

@@ -9,9 +9,9 @@ import ca.on.hojat.gamenews.core.common_ui.widgets.games.GameUiModelMapper
 import ca.on.hojat.gamenews.core.common_ui.widgets.games.finiteUiState
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_search.domain.SearchGamesUseCase
-import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
-import ca.on.hojat.gamenews.shared.testing.FakeLogger
-import ca.on.hojat.gamenews.shared.testing.FakeStringProvider
+import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
+import ca.on.hojat.gamenews.core.common_testing.FakeLogger
+import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule

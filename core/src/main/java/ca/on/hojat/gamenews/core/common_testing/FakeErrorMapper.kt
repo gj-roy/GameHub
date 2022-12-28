@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.shared.testing
+package ca.on.hojat.gamenews.core.common_testing
 
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 

@@ -7,9 +7,9 @@ import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.mapToDomainArt
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.data.api.gamespot.articles.ArticlesEndpoint
 import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiArticle
-import ca.on.hojat.gamenews.shared.testing.API_ERROR_HTTP
-import ca.on.hojat.gamenews.shared.testing.API_ERROR_NETWORK
-import ca.on.hojat.gamenews.shared.testing.API_ERROR_UNKNOWN
+import ca.on.hojat.gamenews.core.common_testing.API_ERROR_HTTP
+import ca.on.hojat.gamenews.core.common_testing.API_ERROR_NETWORK
+import ca.on.hojat.gamenews.core.common_testing.API_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
 import com.github.michaelbull.result.Err

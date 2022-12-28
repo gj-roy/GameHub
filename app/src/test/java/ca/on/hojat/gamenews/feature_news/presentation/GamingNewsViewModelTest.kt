@@ -8,8 +8,8 @@ import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.presentation.mapping.GamingNewsItemUiModelMapper
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiModel
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.finiteUiState
-import ca.on.hojat.gamenews.shared.testing.FakeErrorMapper
-import ca.on.hojat.gamenews.shared.testing.FakeLogger
+import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
+import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState

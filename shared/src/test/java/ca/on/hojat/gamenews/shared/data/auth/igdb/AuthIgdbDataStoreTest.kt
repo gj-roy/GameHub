@@ -5,9 +5,9 @@ import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.AuthEndpoint
 import ca.on.hojat.gamenews.core.data.auth.datastores.igdb.AuthIgdbDataStore
 import ca.on.hojat.gamenews.core.data.auth.datastores.igdb.IgdbAuthMapper
-import ca.on.hojat.gamenews.shared.testing.API_ERROR_HTTP
-import ca.on.hojat.gamenews.shared.testing.API_ERROR_NETWORK
-import ca.on.hojat.gamenews.shared.testing.API_ERROR_UNKNOWN
+import ca.on.hojat.gamenews.core.common_testing.API_ERROR_HTTP
+import ca.on.hojat.gamenews.core.common_testing.API_ERROR_NETWORK
+import ca.on.hojat.gamenews.core.common_testing.API_ERROR_UNKNOWN
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get

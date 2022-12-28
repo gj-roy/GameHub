@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.shared.api.gamespot
 
-import ca.on.hojat.gamenews.shared.testing.startSafe
+import ca.on.hojat.gamenews.core.common_testing.startSafe
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
