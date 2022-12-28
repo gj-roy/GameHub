@@ -57,4 +57,22 @@
     <string name="settings_item_source_code_title">Source Code</string>
     <string name="settings_item_source_code_description">View the source code of the app</string>
     <string name="settings_item_version_title">Version</string>
+
+    <string name="games_category_popular">Popular</string>
+    <string name="games_category_recently_released">Recently Released</string>
+    <string name="games_category_coming_soon">Coming Soon</string>
+    <string name="games_category_most_anticipated">Most Anticipated</string>
+
+    <string name="company_role_developer">Main Developer</string>
+    <string name="company_role_publisher">Publisher</string>
+    <string name="company_role_porter">Porting Developer</string>
+    <string name="company_role_supporting">Supporting Developer</string>
+    <string name="url_opener_not_found">No app was found capable of opening the URL!</string>
+
+    <string name="artwork">Artwork</string>
+    <string name="cover">Cover</string>
+    <string name="screenshot">Screenshot</string>
+    <string name="text_sharing_message_template">Hey, check out this %1$s - %2$s</string>
+    <string name="image">image</string>
+
 </resources>
