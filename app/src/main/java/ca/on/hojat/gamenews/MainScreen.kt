@@ -5,8 +5,10 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
+@Preview
 @Composable
 internal fun MainScreen() {
     val navController = rememberAnimatedNavController()

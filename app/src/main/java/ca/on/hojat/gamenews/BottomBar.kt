@@ -20,7 +20,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 
-
 private const val BOTTOM_BAR_ANIMATION_DURATION = 300
 
 @Composable
