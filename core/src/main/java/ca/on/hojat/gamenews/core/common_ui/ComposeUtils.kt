@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.core.common_ui
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -54,7 +53,6 @@ fun OnLifecycleEvent(
     }
 }
 
-@SuppressLint("UnnecessaryComposedModifier")
 fun Modifier.clickable(
     indication: Indication?,
     onClick: () -> Unit,
