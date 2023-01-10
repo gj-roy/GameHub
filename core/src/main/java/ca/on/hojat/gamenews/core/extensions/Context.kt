@@ -9,7 +9,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.ConnectivityManager
-import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
@@ -18,9 +17,6 @@ import androidx.core.content.ContextCompat
 
 val Context.configuration: Configuration
     get() = resources.configuration
-
-val Context.layoutInflater: LayoutInflater
-    get() = LayoutInflater.from(this)
 
 fun Context.getCompatColor(@ColorRes colorId: Int): Int {
     return ContextCompat.getColor(this, colorId)
