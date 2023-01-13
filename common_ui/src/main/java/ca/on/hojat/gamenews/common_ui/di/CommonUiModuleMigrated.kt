@@ -1,6 +1,7 @@
-package ca.on.hojat.gamenews.core.common_ui.di
+package ca.on.hojat.gamenews.common_ui.di
 
 import ca.on.hojat.gamenews.core.common_ui.TransitionAnimations
+import ca.on.hojat.gamenews.core.common_ui.di.TransitionAnimationDuration
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
