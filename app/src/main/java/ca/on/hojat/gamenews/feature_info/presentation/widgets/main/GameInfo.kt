@@ -31,7 +31,7 @@ import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.core.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.core.common_ui.widgets.Info
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.core.common_ui.LocalUrlOpener
+import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
 import ca.on.hojat.gamenews.core.common_ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.core.extensions.showShortToast
 import ca.on.hojat.gamenews.feature_info.presentation.GameInfoCommand
