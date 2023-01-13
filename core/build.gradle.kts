@@ -15,13 +15,11 @@ android {
     namespace = "ca.on.hojat.gamenews.core"
 
     buildFeatures {
-        compose = true
+
         viewBinding = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = Compose.composeVersion
-    }
+
 
     defaultConfig {
         stringField("TWITCH_APP_CLIENT_ID", property("TWITCH_APP_CLIENT_ID", ""))
@@ -66,18 +64,7 @@ dependencies {
     kapt(Hilt.daggerHiltAndroidCompiler)
     androidTestImplementation(Hilt.daggerHiltTest)
     kaptAndroidTest(Hilt.daggerHiltAndroidCompiler)
-
-    // Compose
-    implementation(Compose.ui)
-    implementation(Compose.tooling)
-    implementation(Compose.foundation)
-    implementation(Compose.activity)
-    implementation(Compose.runtime)
-    implementation(Compose.material)
-    implementation(Compose.constraintLayout)
-    implementation(Compose.swipeRefresh)
-    implementation(Compose.systemUi)
-
+    
     // Test libs
     implementation(Testing.testRunner)
     implementation(Testing.mockk)
