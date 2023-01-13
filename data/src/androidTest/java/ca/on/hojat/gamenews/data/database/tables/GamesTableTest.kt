@@ -1,10 +1,10 @@
-package ca.on.hojat.gamenews.core.data.database.tables
+package ca.on.hojat.gamenews.data.database.tables
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
 import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
-import ca.on.hojat.gamenews.core.data.database.DB_GAMES
+import ca.on.hojat.gamenews.data.database.DB_GAMES
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.core.data.database.common.di.DatabaseModule
 import dagger.hilt.android.testing.HiltAndroidRule

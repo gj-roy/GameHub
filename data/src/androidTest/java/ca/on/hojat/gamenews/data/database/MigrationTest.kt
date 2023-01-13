@@ -1,7 +1,8 @@
-package ca.on.hojat.gamenews.core.data.database
+package ca.on.hojat.gamenews.data.database
 
 import androidx.room.testing.MigrationTestHelper
 import androidx.test.platform.app.InstrumentationRegistry
+import ca.on.hojat.gamenews.core.data.database.GameNewsDatabase
 import ca.on.hojat.gamenews.core.data.database.common.di.DATABASE_NAME
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

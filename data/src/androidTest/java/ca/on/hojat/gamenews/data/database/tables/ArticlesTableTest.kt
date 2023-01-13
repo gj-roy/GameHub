@@ -1,8 +1,8 @@
-package ca.on.hojat.gamenews.core.data.database.tables
+package ca.on.hojat.gamenews.data.database.tables
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.core.data.database.DB_ARTICLES
+import ca.on.hojat.gamenews.data.database.DB_ARTICLES
 import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.core.data.database.articles.DbArticle
 import ca.on.hojat.gamenews.core.data.database.common.di.DatabaseModule

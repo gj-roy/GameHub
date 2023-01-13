@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.data.api
+package ca.on.hojat.gamenews.data.api
 
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
