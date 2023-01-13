@@ -31,8 +31,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import ca.on.hojat.gamenews.core.common_ui.CommandsHandler
-import ca.on.hojat.gamenews.core.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.core.common_ui.theme.navBar
@@ -49,8 +47,10 @@ import com.mxalbert.zoomable.OverZoomConfig
 import com.mxalbert.zoomable.Zoomable
 import com.mxalbert.zoomable.rememberZoomableState
 import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.LocalNetworkStateProvider
 import ca.on.hojat.gamenews.common_ui.LocalTextSharer
+import ca.on.hojat.gamenews.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
 
 private const val ZoomScaleMin = 0.5f

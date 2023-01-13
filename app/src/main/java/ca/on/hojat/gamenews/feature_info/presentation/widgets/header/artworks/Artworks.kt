@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.core.common_ui.clickable
+import ca.on.hojat.gamenews.common_ui.clickable
 import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.core.common_ui.images.secondaryImage
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme

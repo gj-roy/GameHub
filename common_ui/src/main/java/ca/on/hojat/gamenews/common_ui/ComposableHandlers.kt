@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.common_ui
+package ca.on.hojat.gamenews.common_ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
