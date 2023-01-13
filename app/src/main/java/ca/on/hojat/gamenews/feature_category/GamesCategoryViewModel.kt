@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.common_ui.di.TransitionAnimationDuration
-import ca.on.hojat.gamenews.core.common_ui.base.BaseViewModel
-import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.common.RefreshGamesUseCaseParams

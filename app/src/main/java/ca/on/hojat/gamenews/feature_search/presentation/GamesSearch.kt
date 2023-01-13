@@ -30,7 +30,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.common_ui.widgets.games.Games
 import ca.on.hojat.gamenews.common_ui.widgets.games.GamesUiState
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.SearchToolbar
-import ca.on.hojat.gamenews.core.common_ui.base.events.Route
+import ca.on.hojat.gamenews.common_ui.base.events.Route
 import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

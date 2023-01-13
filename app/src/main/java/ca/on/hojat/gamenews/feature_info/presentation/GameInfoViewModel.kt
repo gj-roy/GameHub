@@ -23,8 +23,8 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toSuccessStat
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.core.common_ui.base.BaseViewModel
-import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

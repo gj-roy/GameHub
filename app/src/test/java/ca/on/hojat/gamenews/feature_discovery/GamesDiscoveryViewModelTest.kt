@@ -12,7 +12,7 @@ import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every

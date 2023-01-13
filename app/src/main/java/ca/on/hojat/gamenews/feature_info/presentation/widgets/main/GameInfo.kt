@@ -21,7 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import ca.on.hojat.gamenews.core.common_ui.base.events.Route
+import ca.on.hojat.gamenews.common_ui.base.events.Route
 import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler

@@ -9,7 +9,7 @@ import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_likes.domain.ObserveLikedGamesUseCase
 import com.google.common.truth.Truth.assertThat

@@ -8,8 +8,8 @@ import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModelMapper
 import ca.on.hojat.gamenews.common_ui.widgets.games.GamesUiState
 import ca.on.hojat.gamenews.common_ui.widgets.games.mapToUiModels
-import ca.on.hojat.gamenews.core.common_ui.base.BaseViewModel
-import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.extensions.onError
