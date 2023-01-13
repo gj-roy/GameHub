@@ -32,9 +32,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
-import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.core.common_ui.theme.navBar
-import ca.on.hojat.gamenews.core.common_ui.theme.statusBar
+import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.navBar
+import ca.on.hojat.gamenews.common_ui.theme.statusBar
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
 import coil.size.Size

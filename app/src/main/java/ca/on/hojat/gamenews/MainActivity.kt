@@ -14,7 +14,7 @@ import androidx.core.view.WindowCompat
 import ca.on.hojat.gamenews.common_ui.LocalNetworkStateProvider
 import ca.on.hojat.gamenews.common_ui.LocalTextSharer
 import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
-import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme

@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package ca.on.hojat.gamenews.core.common_ui.theme
+package ca.on.hojat.gamenews.common_ui.theme
 
 import androidx.compose.material.Colors
 import androidx.compose.material.darkColors

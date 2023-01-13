@@ -24,7 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSection
 

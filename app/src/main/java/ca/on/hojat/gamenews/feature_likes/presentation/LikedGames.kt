@@ -24,7 +24,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.games.Games
 import ca.on.hojat.gamenews.common_ui.widgets.games.GamesUiState
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.core.common_ui.base.events.Route
-import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 
 @Composable
 fun LikedGames(

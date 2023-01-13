@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.TextUnit
 import ca.on.hojat.gamenews.common_ui.widgets.DefaultCoverHeight
 import ca.on.hojat.gamenews.common_ui.widgets.GameCover
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
-import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 import kotlin.math.roundToInt
 
 @Composable

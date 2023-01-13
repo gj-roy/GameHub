@@ -29,7 +29,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.core.R
-import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 
 @Composable
 fun GamesCategoryPreview(

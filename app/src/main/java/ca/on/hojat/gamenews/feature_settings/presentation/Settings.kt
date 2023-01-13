@@ -27,8 +27,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.core.common_ui.theme.subtitle3
+import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.subtitle3
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
