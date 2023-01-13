@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.common_ui.widgets
+package ca.on.hojat.gamenews.common_ui.widgets
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.EnterTransition

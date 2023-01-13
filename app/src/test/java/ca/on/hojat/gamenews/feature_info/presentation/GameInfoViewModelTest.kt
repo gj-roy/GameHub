@@ -2,6 +2,7 @@ package ca.on.hojat.gamenews.feature_info.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.feature_info.GAME_INFO
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.GameInfoCompanyUiModel
@@ -18,7 +19,6 @@ import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
-import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
@@ -50,7 +50,6 @@ internal class GameInfoViewModelTest {
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             stringProvider = FakeStringProvider(),
             errorMapper = FakeErrorMapper(),
-            logger = logger,
         )
     }
 

@@ -40,8 +40,7 @@ internal class GamesDiscoveryViewModelTest {
             uiModelMapper = FakeGamesDiscoveryItemGameUiModelMapper(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             stringProvider = FakeStringProvider(),
-            errorMapper = FakeErrorMapper(),
-            logger = logger
+            errorMapper = FakeErrorMapper()
         )
     }
 

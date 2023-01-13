@@ -2,6 +2,7 @@ package ca.on.hojat.gamenews.feature_category
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
 import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
 import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModelMapper
@@ -15,7 +16,6 @@ import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
-import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
@@ -47,8 +47,7 @@ internal class GamesCategoryViewModelTest {
             useCases = setupUseCases(),
             uiModelMapper = FakeGameCategoryUiModelMapper(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
-            errorMapper = FakeErrorMapper(),
-            logger = logger,
+            errorMapper = FakeErrorMapper()
         )
     }
 

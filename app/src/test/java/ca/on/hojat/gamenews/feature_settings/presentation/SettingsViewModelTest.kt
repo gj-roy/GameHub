@@ -1,6 +1,7 @@
 package ca.on.hojat.gamenews.feature_settings.presentation
 
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.feature_settings.Constants
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
@@ -9,7 +10,6 @@ import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseC
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCase
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coVerify
 import io.mockk.every

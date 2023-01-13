@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.common_ui.widgets.games
+package ca.on.hojat.gamenews.common_ui.widgets.games
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
@@ -11,13 +11,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import ca.on.hojat.gamenews.common_ui.widgets.AnimatedContentContainer
+import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
+import ca.on.hojat.gamenews.common_ui.widgets.Info
+import ca.on.hojat.gamenews.common_ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.core.R
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.core.common_ui.widgets.AnimatedContentContainer
-import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.core.common_ui.widgets.GameNewsProgressIndicator
-import ca.on.hojat.gamenews.core.common_ui.widgets.Info
-import ca.on.hojat.gamenews.core.common_ui.widgets.RefreshableContent
+
 
 @Composable
 fun Games(

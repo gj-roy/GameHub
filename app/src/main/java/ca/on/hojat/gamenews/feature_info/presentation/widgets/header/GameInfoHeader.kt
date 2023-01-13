@@ -45,10 +45,10 @@ import androidx.constraintlayout.compose.Dimension
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.core.common_ui.theme.lightScrim
 import ca.on.hojat.gamenews.core.common_ui.theme.subtitle3
-import ca.on.hojat.gamenews.core.common_ui.widgets.Info
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.clickable
-import ca.on.hojat.gamenews.core.common_ui.widgets.GameCover
+import ca.on.hojat.gamenews.common_ui.widgets.GameCover
+import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.Artworks
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModel
 

@@ -35,8 +35,6 @@ import ca.on.hojat.gamenews.core.common_ui.base.events.Route
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.core.common_ui.theme.navBar
 import ca.on.hojat.gamenews.core.common_ui.theme.statusBar
-import ca.on.hojat.gamenews.core.common_ui.widgets.Info
-import ca.on.hojat.gamenews.core.common_ui.widgets.toolbars.Toolbar
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
 import coil.size.Size
@@ -51,6 +49,8 @@ import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.LocalNetworkStateProvider
 import ca.on.hojat.gamenews.common_ui.LocalTextSharer
 import ca.on.hojat.gamenews.common_ui.RoutesHandler
+import ca.on.hojat.gamenews.common_ui.widgets.Info
+import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
 
 private const val ZoomScaleMin = 0.5f

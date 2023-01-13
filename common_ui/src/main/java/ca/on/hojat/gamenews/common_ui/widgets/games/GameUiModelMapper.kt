@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.common_ui.widgets.games
+package ca.on.hojat.gamenews.common_ui.widgets.games
 
 import ca.on.hojat.gamenews.core.factories.IgdbImageSize
 import ca.on.hojat.gamenews.core.factories.IgdbImageUrlFactory

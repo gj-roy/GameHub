@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.common_ui.widgets
+package ca.on.hojat.gamenews.common_ui.widgets
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column

@@ -1,6 +1,7 @@
 package ca.on.hojat.gamenews.feature_news.presentation
 
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.feature_news.DOMAIN_ARTICLES
 import ca.on.hojat.gamenews.feature_news.domain.DomainArticle
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase
@@ -12,7 +13,6 @@ import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
-import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
@@ -41,7 +41,6 @@ internal class GamingNewsViewModelTest {
             uiModelMapper = FakeGamingNewsItemUiModelMapper(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             errorMapper = FakeErrorMapper(),
-            logger = logger,
         )
     }
 

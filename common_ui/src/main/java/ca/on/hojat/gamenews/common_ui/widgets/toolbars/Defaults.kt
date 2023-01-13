@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.common_ui.widgets.toolbars
+package ca.on.hojat.gamenews.common_ui.widgets.toolbars
 
 import androidx.compose.ui.unit.dp
 

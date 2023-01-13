@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.common_ui.widgets.games
+package ca.on.hojat.gamenews.common_ui.widgets.games
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
@@ -17,10 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
+import ca.on.hojat.gamenews.common_ui.widgets.DefaultCoverHeight
+import ca.on.hojat.gamenews.common_ui.widgets.GameCover
+import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
 import ca.on.hojat.gamenews.core.common_ui.theme.GameNewsTheme
-import ca.on.hojat.gamenews.core.common_ui.widgets.DefaultCoverHeight
-import ca.on.hojat.gamenews.core.common_ui.widgets.GameCover
-import ca.on.hojat.gamenews.core.common_ui.widgets.GameNewsCard
 import kotlin.math.roundToInt
 
 @Composable

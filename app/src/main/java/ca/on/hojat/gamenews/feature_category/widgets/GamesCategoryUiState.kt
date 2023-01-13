@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_category.widgets
 
 import androidx.compose.runtime.Immutable
-import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 
 @Immutable
 internal data class GamesCategoryUiState(

@@ -47,4 +47,10 @@ dependencies {
     kapt(Hilt.daggerHiltAndroidCompiler)
     androidTestImplementation(Hilt.daggerHiltTest)
     kaptAndroidTest(Hilt.daggerHiltAndroidCompiler)
+
+    // Coil
+    implementation(ThirdParties.coil)
+
+
+
 }

@@ -1,7 +1,7 @@
-package ca.on.hojat.gamenews.core.common_ui.widgets.games
+package ca.on.hojat.gamenews.common_ui.widgets.games
 
 import androidx.compose.runtime.Immutable
-import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 
 @Immutable
 data class GamesUiState(

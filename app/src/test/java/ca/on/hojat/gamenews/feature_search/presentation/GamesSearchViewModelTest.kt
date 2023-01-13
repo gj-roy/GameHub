@@ -2,6 +2,9 @@ package ca.on.hojat.gamenews.feature_search.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModelMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
@@ -9,9 +12,6 @@ import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_ui.base.events.GeneralCommand
-import ca.on.hojat.gamenews.core.common_ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.core.common_ui.widgets.games.GameUiModel
-import ca.on.hojat.gamenews.core.common_ui.widgets.games.GameUiModelMapper
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_search.domain.SearchGamesUseCase
 import com.github.michaelbull.result.Err
@@ -42,7 +42,6 @@ internal class GamesSearchViewModelTest {
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             stringProvider = FakeStringProvider(),
             errorMapper = FakeErrorMapper(),
-            logger = logger,
             savedStateHandle = setupSavedStateHandle(),
         )
     }
