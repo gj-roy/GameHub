@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.common_ui.images
+package ca.on.hojat.gamenews.common_ui.images
 
 import android.content.Context
 import coil.Coil

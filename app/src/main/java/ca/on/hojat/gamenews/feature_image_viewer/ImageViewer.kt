@@ -51,7 +51,7 @@ import ca.on.hojat.gamenews.common_ui.LocalTextSharer
 import ca.on.hojat.gamenews.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
-import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
+import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
 
 private const val ZoomScaleMin = 0.5f
 private const val ZoomScaleMax = 5f

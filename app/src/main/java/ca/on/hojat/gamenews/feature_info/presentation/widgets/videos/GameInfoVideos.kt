@@ -28,8 +28,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.core.common_ui.images.defaultImageRequest
-import ca.on.hojat.gamenews.core.common_ui.images.secondaryImage
+import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
+import ca.on.hojat.gamenews.common_ui.images.secondaryImage
 import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 import ca.on.hojat.gamenews.common_ui.theme.darkScrim
 import coil.compose.AsyncImage
