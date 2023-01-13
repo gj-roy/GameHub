@@ -32,7 +32,7 @@ import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
 import ca.on.hojat.gamenews.common_ui.NavBarColorHandler
 import ca.on.hojat.gamenews.common_ui.RoutesHandler
-import ca.on.hojat.gamenews.core.common_ui.widgets.categorypreview.GamesCategoryPreview
+import ca.on.hojat.gamenews.common_ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.core.extensions.showShortToast
 import ca.on.hojat.gamenews.feature_info.presentation.GameInfoCommand
 import ca.on.hojat.gamenews.feature_info.presentation.GameInfoViewModel

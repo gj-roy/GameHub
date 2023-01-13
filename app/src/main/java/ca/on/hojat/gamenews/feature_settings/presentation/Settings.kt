@@ -38,7 +38,7 @@ import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
 import ca.on.hojat.gamenews.common_ui.NavBarColorHandler
-import ca.on.hojat.gamenews.core.common_ui.widgets.dialogs.GameNewsDialog
+import ca.on.hojat.gamenews.common_ui.widgets.dialogs.GameNewsDialog
 import ca.on.hojat.gamenews.core.extensions.showShortToast
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 

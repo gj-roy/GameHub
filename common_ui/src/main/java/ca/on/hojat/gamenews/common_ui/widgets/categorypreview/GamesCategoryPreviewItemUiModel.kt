@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.common_ui.widgets.categorypreview
+package ca.on.hojat.gamenews.common_ui.widgets.categorypreview
 
 import androidx.compose.runtime.Immutable
 

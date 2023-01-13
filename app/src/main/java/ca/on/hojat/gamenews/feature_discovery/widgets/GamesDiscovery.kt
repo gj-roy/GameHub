@@ -32,7 +32,7 @@ import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.NavBarColorHandler
 import ca.on.hojat.gamenews.common_ui.RoutesHandler
-import ca.on.hojat.gamenews.core.common_ui.widgets.categorypreview.GamesCategoryPreview
+import ca.on.hojat.gamenews.common_ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.feature_discovery.GamesDiscoveryCategory
 import ca.on.hojat.gamenews.feature_discovery.GamesDiscoveryViewModel
 import ca.on.hojat.gamenews.feature_discovery.titleId
