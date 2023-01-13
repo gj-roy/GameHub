@@ -16,9 +16,6 @@ object AppConfig {
 
 }
 
-/**
- * All the stuff that I don't have an idea how the fuck they're working; but I'm using them anyway.
- */
 object Tooling {
     // language
     const val kotlin = "1.7.0"
