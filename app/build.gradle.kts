@@ -55,7 +55,7 @@ dependencies {
     implementation(AndroidX.splash)
     implementation(AndroidX.prefsDataStore)
 
-    // Jetpack compose
+    // Jetpack compose + Accompanist
     implementation(Compose.ui)
     implementation(Compose.tooling)
     implementation(Compose.activity)
@@ -70,6 +70,8 @@ dependencies {
     implementation(Compose.pager)
     implementation(Compose.navigationAnimations)
     implementation(Compose.systemUi)
+    implementation(Compose.swipeRefresh)
+
 
     // DI
     implementation(Hilt.daggerHiltAndroid)
