@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.data.data.games.database
+package ca.on.hojat.gamenews.data.games.database
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES

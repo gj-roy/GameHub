@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.data.data.api.igdb.extractors
+package ca.on.hojat.gamenews.data.api.igdb.extractors
 
 import ca.on.hojat.gamenews.core.data.api.igdb.common.errorextractors.IgdbErrorMessageExtractor
 import com.google.common.truth.Truth.assertThat
