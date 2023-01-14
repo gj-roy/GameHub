@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.data
+package ca.on.hojat.gamenews.data.data
 
 import ca.on.hojat.gamenews.core.data.games.common.DiscoveryGamesReleaseDatesProvider
 

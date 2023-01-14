@@ -1,6 +1,7 @@
 plugins {
     id(PLUGIN_ANDROID_LIBRARY)
     id(PLUGIN_GAMENEWS_ANDROID)
+    id(PLUGIN_KOTLINX_SERIALIZATION) version Tooling.kotlin
 }
 
 android {
@@ -10,6 +11,9 @@ android {
 
 dependencies {
     implementation(project(":core"))
+
+    // Needed tools
+    implementation(Tooling.serialization)
 
     // kotlin Result
     implementation(ThirdParties.kotlinResult)
@@ -29,4 +33,6 @@ dependencies {
     implementation(Tooling.coroutinesTest)
     androidTestImplementation(Testing.archCore)
     implementation(Testing.mockWebServer)
+    implementation(Testing.mockk)
+    testImplementation(Testing.mockk)
 }

@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.data.api.igdb
+package ca.on.hojat.gamenews.data.data.api.igdb
 
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiAuthorizationType
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.AuthHeaderParser
