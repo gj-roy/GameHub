@@ -10,4 +10,3 @@ pluginManagement {
 include(":app")
 include(":core")
 include(":data")
-include(":common_ui")
