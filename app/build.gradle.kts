@@ -1,9 +1,13 @@
+import ca.on.hojat.gamenews.extensions.property
+import ca.on.hojat.gamenews.extensions.stringField
+
 plugins {
     id(PLUGIN_ANDROID_APPLICATION)
     id(PLUGIN_GAMENEWS_ANDROID)
     id(PLUGIN_GAMENEWS_PROTOBUF)
     id(PLUGIN_KOTLIN_KAPT)
     id(PLUGIN_KSP) version Tooling.kspPlugin
+    id(PLUGIN_KOTLINX_SERIALIZATION) version Tooling.kotlin
     id(PLUGIN_DAGGER_HILT_ANDROID)
 }
 
@@ -14,6 +18,13 @@ android {
 
     buildFeatures {
         compose = true
+        viewBinding = true
+    }
+
+    defaultConfig {
+        stringField("TWITCH_APP_CLIENT_ID", property("TWITCH_APP_CLIENT_ID", ""))
+        stringField("TWITCH_APP_CLIENT_SECRET", property("TWITCH_APP_CLIENT_SECRET", ""))
+        stringField("GAMESPOT_API_KEY", property("GAMESPOT_API_KEY", ""))
     }
 
     composeOptions {
@@ -53,6 +64,7 @@ dependencies {
     implementation(AndroidX.protoDataStore)
     implementation(AndroidX.splash)
     implementation(AndroidX.prefsDataStore)
+    implementation(AndroidX.browser)
 
     // Jetpack compose + Accompanist
     implementation(Compose.ui)
@@ -71,15 +83,27 @@ dependencies {
     implementation(Compose.systemUi)
     implementation(Compose.swipeRefresh)
 
-
     // DI
     implementation(Hilt.daggerHiltAndroid)
     kapt(Hilt.daggerHiltAndroidCompiler)
 
     // Needed tools
     implementation(Tooling.coroutines)
+    implementation(Tooling.serialization)
     coreLibraryDesugaring(Tooling.desugaredLibs)
-    testImplementation(Tooling.coroutinesTest)
+    implementation(Tooling.coroutinesTest)
+
+    // http client
+    implementation(Network.okHttpLoggingInterceptor)
+    implementation(Network.retrofit)
+    implementation(Network.retrofitKotlinxSerializationConverter)
+    implementation(Network.retrofitScalarsConverter)
+
+    // Room database
+    implementation(AndroidX.room)
+    implementation(AndroidX.roomKtx)
+    ksp(AndroidX.roomCompiler)
+    androidTestImplementation(AndroidX.roomTest)
 
     // Test libs
     testImplementation(Testing.jUnit)
@@ -88,6 +112,8 @@ dependencies {
     testImplementation(Testing.turbine)
     androidTestImplementation(Testing.testRunner)
     androidTestImplementation(Testing.jUnitExt)
+    implementation(Testing.mockWebServer)
+    implementation(Testing.mockk)
 
     implementation(ThirdParties.hiltBinder)
     ksp(ThirdParties.hiltBinderCompiler)
