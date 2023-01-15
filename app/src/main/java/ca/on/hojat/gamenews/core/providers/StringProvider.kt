@@ -5,6 +5,10 @@ import com.paulrybitskyi.hiltbinder.BindType
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
+/**
+ * You just give it a resource ID and it will return the corresponding [String] for you.
+ * The [Context] has already been injected into it.
+ */
 interface StringProvider {
 
     fun getString(id: Int, vararg args: Any): String

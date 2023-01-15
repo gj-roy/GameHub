@@ -16,6 +16,9 @@ internal class ErrorMapperImpl @Inject constructor(
     private val stringProvider: StringProvider
 ) : ErrorMapper {
 
+    /**
+     * Just give it your [Throwable] and it will return a suitable message for it.
+     */
     override fun mapToMessage(error: Throwable): String {
         if (error is DomainException) return error.toMessage()
 
