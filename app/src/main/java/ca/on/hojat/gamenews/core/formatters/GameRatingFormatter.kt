@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.core.formatters
 
-import ca.on.hojat.gamenews.core.R
+import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject

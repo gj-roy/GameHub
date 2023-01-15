@@ -18,7 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.core.R
+import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 
 @Composable

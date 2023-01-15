@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.core.mappers
 
-import ca.on.hojat.gamenews.core.R
+import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.domain.entities.DomainException
 import ca.on.hojat.gamenews.core.domain.entities.Error
 import ca.on.hojat.gamenews.core.providers.StringProvider

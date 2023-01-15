@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.core.formatters
 
-import ca.on.hojat.gamenews.core.R
+import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.entities.ReleaseDate
 import ca.on.hojat.gamenews.core.domain.entities.ReleaseDateCategory

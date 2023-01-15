@@ -24,11 +24,11 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintLayoutBaseScope
 import androidx.constraintlayout.compose.ConstraintLayoutScope
 import androidx.constraintlayout.compose.Dimension
+import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.widgets.GameCover
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.common_ui.widgets.Info
-import ca.on.hojat.gamenews.core.R
 import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 
 @Composable

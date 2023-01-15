@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.core.formatters
 
-import ca.on.hojat.gamenews.core.R
+import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.core.providers.TimeProvider
 import com.paulrybitskyi.hiltbinder.BindType

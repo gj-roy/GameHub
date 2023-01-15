@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.core.animations
 
-import ca.on.hojat.gamenews.core.R
+import ca.on.hojat.gamenews.R
 
 enum class WindowAnimations(
     val id: Int,
