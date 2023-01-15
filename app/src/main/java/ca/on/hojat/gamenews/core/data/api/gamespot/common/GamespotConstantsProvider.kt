@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.core.data.api.gamespot.common
 
-import ca.on.hojat.gamenews.core.BuildConfig
+import ca.on.hojat.gamenews.BuildConfig
 import javax.inject.Inject
 
 interface GamespotConstantsProvider {
