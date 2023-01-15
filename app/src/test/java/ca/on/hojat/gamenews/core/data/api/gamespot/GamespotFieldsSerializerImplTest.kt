@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.data.api.gamespot
+package ca.on.hojat.gamenews.core.data.api.gamespot
 
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.serialization.Gamespot
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.serialization.GamespotFieldsSerializer

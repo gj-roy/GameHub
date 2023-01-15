@@ -1,12 +1,12 @@
-package ca.on.hojat.gamenews.data.games.igdb
+package ca.on.hojat.gamenews.core.data.games.igdb
 
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame
 import ca.on.hojat.gamenews.core.data.api.igdb.games.GamesEndpoint
 import ca.on.hojat.gamenews.core.data.games.datastores.GamesIgdbDataStore
 import ca.on.hojat.gamenews.core.data.games.datastores.IgdbGameMapper
-import ca.on.hojat.gamenews.data.DOMAIN_COMPANY
-import ca.on.hojat.gamenews.data.FakeDiscoveryGamesReleaseDatesProvider
+import ca.on.hojat.gamenews.core.data.DOMAIN_COMPANY
+import ca.on.hojat.gamenews.core.data.FakeDiscoveryGamesReleaseDatesProvider
 import ca.on.hojat.gamenews.core.data.games.datastores.mapToDomainGames
 import ca.on.hojat.gamenews.core.common_testing.API_ERROR_HTTP
 import ca.on.hojat.gamenews.core.common_testing.API_ERROR_NETWORK

@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.data.auth.file
 import ca.on.hojat.gamenews.core.data.auth.datastores.file.AUTH_TOKEN_TTL_DEDUCTION
 import ca.on.hojat.gamenews.core.data.auth.datastores.file.AuthExpiryTimeCalculator
 import ca.on.hojat.gamenews.core.providers.TimestampProvider
-import ca.on.hojat.gamenews.data.DOMAIN_OAUTH_CREDENTIALS
+import ca.on.hojat.gamenews.core.data.DOMAIN_OAUTH_CREDENTIALS
 import com.google.common.truth.Truth.assertThat
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -32,7 +32,7 @@ internal class AuthExpiryTimeCalculatorTest {
 
     @Test
     fun `Calculates expiry time successfully`() {
-        val credentials = DOMAIN_OAUTH_CREDENTIALS
+        val credentials = ca.on.hojat.gamenews.core.data.DOMAIN_OAUTH_CREDENTIALS
         val expiryTime = sut.calculateExpiryTime(credentials)
         val expected =
             (CURRENT_TIMESTAMP + TimeUnit.SECONDS.toMillis(credentials.tokenTtl) - AUTH_TOKEN_TTL_DEDUCTION)

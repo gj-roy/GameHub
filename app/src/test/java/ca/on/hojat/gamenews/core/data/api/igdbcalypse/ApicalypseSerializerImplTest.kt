@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.data.api.igdbcalypse
+package ca.on.hojat.gamenews.core.data.api.igdbcalypse
 
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.ApicalypseSerializerImpl
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.serialization.annotations.Apicalypse
