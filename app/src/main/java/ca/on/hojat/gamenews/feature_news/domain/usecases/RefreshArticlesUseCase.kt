@@ -16,6 +16,9 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * You give it an object of type [Params] and will receive a [Flow<DomainResult<List<Article>>>].
+ */
 internal interface RefreshArticlesUseCase : ObservableUseCase<Params, DomainResult<List<Article>>> {
 
     data class Params(val pagination: Pagination = Pagination())

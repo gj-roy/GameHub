@@ -7,6 +7,7 @@ import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiMo
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
+
 internal interface GamingNewsItemUiModelMapper {
     fun mapToUiModel(article: Article): GamingNewsItemUiModel
 }
@@ -32,6 +33,10 @@ internal class GamingNewsItemUiModelMapperImpl @Inject constructor(
     }
 }
 
+/**
+ * Just maps from the [Article] in our domain, to [GamingNewsItemUiModel] in UI layer.
+ * we do this to make the data ready to be shown in composables.
+ */
 internal fun GamingNewsItemUiModelMapper.mapToUiModels(
     articles: List<Article>,
 ): List<GamingNewsItemUiModel> {
