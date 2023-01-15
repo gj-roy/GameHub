@@ -58,7 +58,6 @@ android {
 dependencies {
     // local modules
     implementation(project(":core"))
-    implementation(project(":data"))
 
     // general jetpack libs
     implementation(AndroidX.protoDataStore)
