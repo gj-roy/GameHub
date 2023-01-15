@@ -12,6 +12,9 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * You'll give it  an object of type [Params] and will receive a [Flow<List<Articles>>].
+ */
 internal interface ObserveArticlesUseCase : ObservableUseCase<Params, List<Article>> {
 
     data class Params(
