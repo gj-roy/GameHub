@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.data.auth.igdb
+package ca.on.hojat.gamenews.core.data.auth.igdb
 
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials

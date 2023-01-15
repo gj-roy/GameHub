@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.data.auth.file
+package ca.on.hojat.gamenews.core.data.auth.file
 
 import ca.on.hojat.gamenews.core.data.auth.datastores.file.AUTH_TOKEN_TTL_DEDUCTION
 import ca.on.hojat.gamenews.core.data.auth.datastores.file.AuthExpiryTimeCalculator

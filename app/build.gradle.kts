@@ -85,6 +85,7 @@ dependencies {
 
     // DI
     implementation(Hilt.daggerHiltAndroid)
+    androidTestImplementation(Hilt.daggerHiltTest)
     kapt(Hilt.daggerHiltAndroidCompiler)
 
     // Needed tools
@@ -108,12 +109,16 @@ dependencies {
     // Test libs
     testImplementation(Testing.jUnit)
     testImplementation(Testing.truth)
+    androidTestImplementation(Testing.truth)
     testImplementation(Testing.mockk)
     testImplementation(Testing.turbine)
+    androidTestImplementation(Testing.turbine)
     androidTestImplementation(Testing.testRunner)
     androidTestImplementation(Testing.jUnitExt)
     implementation(Testing.mockWebServer)
     implementation(Testing.mockk)
+    androidTestImplementation(Testing.archCore)
+
 
     implementation(ThirdParties.hiltBinder)
     ksp(ThirdParties.hiltBinderCompiler)
