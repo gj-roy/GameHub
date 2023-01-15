@@ -2,6 +2,7 @@ package ca.on.hojat.gamenews.core.formatters
 
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import com.google.common.truth.Truth.assertThat
+import ca.on.hojat.gamenews.R
 import org.junit.Before
 import org.junit.Test
 
