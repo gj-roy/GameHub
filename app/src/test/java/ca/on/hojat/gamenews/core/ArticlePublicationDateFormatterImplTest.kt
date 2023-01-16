@@ -22,8 +22,10 @@ internal class ArticlePublicationDateFormatterImplTest {
 
     @MockK
     private lateinit var relativeDateFormatter: RelativeDateFormatter
+
     @MockK
     private lateinit var timeProvider: TimeProvider
+
     @MockK
     private lateinit var timeFormatProvider: TimeFormatProvider
 
