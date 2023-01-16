@@ -39,10 +39,6 @@ object Tooling {
 
     const val kspPlugin = "1.7.0-1.0.6"
 
-    // linters
-    const val ktlintPlugin = "10.3.0"
-    const val ktlint = "0.45.2"
-
     // coroutines
     private const val coroutinesVersion = "1.6.4"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"

@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id(PLUGIN_GRADLE_VERSIONS) version Tooling.gradleVersionsPlugin
-    id(PLUGIN_KTLINT) version Tooling.ktlintPlugin
 }
 
 buildscript {
@@ -22,27 +21,11 @@ buildscript {
 }
 
 allprojects {
-    apply(plugin = PLUGIN_KTLINT)
 
     repositories {
         mavenCentral()
         google()
         maven { setUrl("https://jitpack.io") }
-    }
-
-    configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
-        version.set(Tooling.ktlint)
-        android.set(true)
-        outputToConsole.set(true)
-
-        filter {
-            // https://github.com/JLLeitschuh/ktlint-gradle/issues/266#issuecomment-529527697
-            exclude { fileTreeElement -> fileTreeElement.file.path.contains("generated/") }
-        }
-
-        reporters {
-            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.HTML)
-        }
     }
 
     // Without the below block, a build failure was happening when

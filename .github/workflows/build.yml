@@ -41,7 +41,7 @@ jobs:
 
 
       - name: Run Static Analysis Tools
-        run: ./gradlew lint ktlintCheck --continue
+        run: ./gradlew lint --continue
 
       - name: Build with Gradle
         run: ./gradlew build

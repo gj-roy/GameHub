@@ -112,8 +112,6 @@ https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-
   automatically generates Dagger Hilt's `@Binds` methods.
 - [Kotlin Result](https://github.com/michaelbull/kotlin-result) - A multiplatform Result monad for
   modelling success or failure operations.
-- [Ktlint](https://github.com/pinterest/ktlint) - A library for formatting Kotlin code according to
-  official guidelines.
 - [Testing](https://developer.android.com/training/testing) - The app is currently covered with unit
   tests and instrumentation tests.
     - [JUnit](https://junit.org/junit5) - JUnit is a unit testing framework for the Java programming
