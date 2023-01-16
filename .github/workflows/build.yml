@@ -39,8 +39,18 @@ jobs:
             cache-gradle-${{ runner.os }}-
             cache-gradle-
 
+
       - name: Run Static Analysis Tools
         run: ./gradlew lint detekt ktlintCheck --continue
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2.1.4
+        with:
+          name: app
+          path: app/build/outputs/apk/debug/app-debug.apk
 
   unit-test:
     name: Unit Tests
