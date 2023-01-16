@@ -1,11 +1,8 @@
-# `Game News` Android app
+# `Game Hub` Android app
 
-# Hojat's changes:
-
-This code base has too many unnecessary modules and I prefer to consolidate them all to related
-modules. Moreover, I'm trying to add functionalities such as accounts and messaging to it. I will
-make my own back end for this project as well. Furthermore, I need to rename the package name to
-something of my own.
+This is an Android client for <a href="https://www.igdb.com/">IGDB</a>
+and <a href="https://dev.twitch.tv/">Twitch</a> APIs for all the latest news and information about
+video games.
 
 My trello board of this project is shared in here:
 https://trello.com/b/lG03zl6P/game-news-app
@@ -126,18 +123,18 @@ https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-
       Java and Android.
     - [MockK](https://github.com/mockk/mockk) - MockK is a mocking library for Kotlin.
     - [Coroutines Test](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-test)
-      - A library for testing Kotlin coroutines.
+        - A library for testing Kotlin coroutines.
     - [Turbine](https://github.com/cashapp/turbine) - A testing library for Kotlin Flows.
     - [Dagger Hilt Test](https://developer.android.com/training/dependency-injection/hilt-testing) -
       A testing library for modifying the Dagger bindings in instrumented tests.
     - [Room Testing](https://developer.android.com/training/data-storage/room/migrating-db-versions#test)
-      - A library for testing Room migrations.
+        - A library for testing Room migrations.
     - [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) - A scriptable web
       server for testing HTTP clients.
 - [Gradle's Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - Gradle’s Kotlin
   DSL is an alternative syntax to the Groovy DSL with an enhanced editing experience.
 - [buildSrc](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources)
-  - A special module within the project to manage dependencies and whatnot.
+    - A special module within the project to manage dependencies and whatnot.
 
 For more information about used dependencies, see [this](/buildSrc/src/main/java/Dependencies.kt)
 file.
