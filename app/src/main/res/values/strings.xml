@@ -2,7 +2,7 @@
 
 <resources>
 
-    <string name="app_name" translatable="false">Game News</string>
+    <string name="app_name" translatable="false">Game Hub</string>
 
     <!--    feature search -->
     <string name="games_search_toolbar_hint">Search games</string>
