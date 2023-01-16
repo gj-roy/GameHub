@@ -1,10 +1,8 @@
-import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id(PLUGIN_GRADLE_VERSIONS) version Tooling.gradleVersionsPlugin
-    id(PLUGIN_DETEKT) version Tooling.detektPlugin
     id(PLUGIN_KTLINT) version Tooling.ktlintPlugin
 }
 
@@ -23,18 +21,7 @@ buildscript {
     }
 }
 
-detekt {
-    parallel = true
-    buildUponDefaultConfig = true
-    config = files("config/detekt/detekt.yml")
-}
-
-tasks.withType<Detekt>().configureEach {
-    reports.html.required.set(true)
-}
-
 allprojects {
-    apply(plugin = PLUGIN_DETEKT)
     apply(plugin = PLUGIN_KTLINT)
 
     repositories {

@@ -43,9 +43,6 @@ object Tooling {
     const val ktlintPlugin = "10.3.0"
     const val ktlint = "0.45.2"
 
-    // static code analyzer
-    const val detektPlugin = "1.21.0"
-
     // coroutines
     private const val coroutinesVersion = "1.6.4"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
