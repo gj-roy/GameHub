@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ Hojat_Main_Branch ]
   pull_request:
-    branches: [ master ]
+    branches: [ Hojat_Main_Branch ]
 
 jobs:
   static-analysis:
@@ -44,7 +44,7 @@ jobs:
 
   unit-test:
     name: Unit Tests
-    runs-on: [ubuntu-latest]
+    runs-on: [ ubuntu-latest ]
     if: ${{ !contains(github.event.head_commit.message, '[ci skip]') }}
 
     steps:
@@ -79,7 +79,7 @@ jobs:
 
   instrumentation-test:
     name: Instrumentation Tests
-    runs-on: [macos-latest]
+    runs-on: [ macos-latest ]
     if: ${{ !contains(github.event.head_commit.message, '[ci skip]') }}
 
     steps:
@@ -118,7 +118,7 @@ jobs:
 
   assemble:
     name: App Assembling
-    runs-on: [ubuntu-latest]
+    runs-on: [ ubuntu-latest ]
     if: ${{ !contains(github.event.head_commit.message, '[ci skip]') }}
 
     steps:
