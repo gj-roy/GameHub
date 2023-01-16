@@ -245,5 +245,4 @@ internal class GamesSearchViewModel @Inject constructor(
         }
     }
 
-
 }

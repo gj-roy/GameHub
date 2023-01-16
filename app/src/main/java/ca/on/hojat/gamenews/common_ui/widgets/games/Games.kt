@@ -19,7 +19,6 @@ import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
 
-
 @Composable
 fun Games(
     uiState: GamesUiState,

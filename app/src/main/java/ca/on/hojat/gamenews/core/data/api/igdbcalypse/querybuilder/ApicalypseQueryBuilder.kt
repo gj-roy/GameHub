@@ -2,7 +2,6 @@ package ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder
 
 import ca.on.hojat.gamenews.core.data.api.igdbcalypse.querybuilder.whereclause.WhereClauseBuilder
 
-
 interface ApicalypseQueryBuilder {
     fun search(query: String): ApicalypseQueryBuilder
     fun select(fields: String): ApicalypseQueryBuilder

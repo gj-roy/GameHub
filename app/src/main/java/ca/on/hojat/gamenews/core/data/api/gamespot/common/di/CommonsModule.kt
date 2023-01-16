@@ -7,7 +7,6 @@ import ca.on.hojat.gamenews.core.data.api.gamespot.common.GamespotConstantsProvi
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.GamespotQueryParamsFactory
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.GamespotQueryParamsFactoryImpl
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.UserAgentInterceptor
-import ca.on.hojat.gamenews.core.data.api.gamespot.common.di.GamespotApi
 import ca.on.hojat.gamenews.core.data.api.gamespot.common.serialization.GamespotFieldsSerializer
 import dagger.Module
 import dagger.Provides

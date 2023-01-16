@@ -42,5 +42,4 @@ data class GamesUiState(
     fun toSuccessState(games: List<GameUiModel>): GamesUiState {
         return copy(isLoading = false, games = games)
     }
-
 }

@@ -5,7 +5,6 @@ import ca.on.hojat.gamenews.core.data.api.igdb.auth.AuthHeaderParser
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.Authorizer
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiAuthorizationType
 import ca.on.hojat.gamenews.core.data.api.igdb.auth.entities.ApiOauthCredentials
-import ca.on.hojat.gamenews.core.data.api.igdb.common.responseCount
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex

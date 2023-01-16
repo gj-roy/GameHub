@@ -116,7 +116,6 @@ dependencies {
     implementation(Testing.mockk)
     androidTestImplementation(Testing.archCore)
 
-
     implementation(ThirdParties.hiltBinder)
     ksp(ThirdParties.hiltBinderCompiler)
     implementation(ThirdParties.kotlinResult)
