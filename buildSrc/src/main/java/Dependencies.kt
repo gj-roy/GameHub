@@ -8,7 +8,12 @@ import org.gradle.api.JavaVersion
 object AppConfig {
     // app itself
     const val compileSdkVersion = 33
-    const val targetSdkVersion = 32
+
+    /**
+     * TODO: decreasing the target SDK version to below 30 has fixed the problem with
+     * opening the intents for now, but I need to find a real answer for it.
+     */
+    const val targetSdkVersion = 29
     const val minSdkVersion = 21
     const val applicationId = "ca.on.hojat.gamenews"
     const val versionCode = 1
