@@ -8,7 +8,6 @@ import ca.on.hojat.gamenews.core.SdkInfo
 import ca.on.hojat.gamenews.core.extensions.attachNewTaskFlagIfNeeded
 import ca.on.hojat.gamenews.core.extensions.canUrlBeOpenedByNativeApp
 import ca.on.hojat.gamenews.core.extensions.getNativeAppPackageForUrl
-import ca.on.hojat.gamenews.core.urlopeners.UrlOpener
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
