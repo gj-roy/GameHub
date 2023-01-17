@@ -84,6 +84,10 @@ class GameNewsAndroidPlugin : Plugin<Project> {
                 targetCompatibility = Tooling.javaCompatibilityVersion
             }
 
+            lintOptions {
+                baseline(file("lint-baseline.xml"))
+            }
+
         }
     }
 
