@@ -9,6 +9,12 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 internal object UrlOpenersModule {
 
+    /**
+     * This function provides a list of all the url openers; they will be handed over to
+     * [CompositeUrlOpener] to be used for opening any kind of Url.
+     * Im this list of url openers, the priority is like this: 1- native app url openers
+     * 2- custom tab url openers 3- browser on device.
+     */
     @Provides
     fun provideUrlOpeners(
         @UrlOpenerKey(UrlOpenerKey.Type.NATIVE_APP) nativeAppUrlOpener: UrlOpener,
