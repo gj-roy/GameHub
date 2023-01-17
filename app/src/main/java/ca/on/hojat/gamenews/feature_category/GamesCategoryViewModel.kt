@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.feature_category
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.common_ui.di.TransitionAnimationDuration
@@ -37,6 +36,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 private const val PARAM_GAMES_CATEGORY = "category"
@@ -103,7 +103,7 @@ internal class GamesCategoryViewModel @Inject constructor(
             .flowOn(dispatcherProvider.computation)
             .map { games -> currentUiState.toSuccessState(games) }
             .onError {
-                Log.e(logTag, "Failed to observe ${gamesCategory.name} games.", it)
+                Timber.e(it, "Failed to observe ${gamesCategory.name} games.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }
@@ -140,7 +140,7 @@ internal class GamesCategoryViewModel @Inject constructor(
             .resultOrError()
             .map { currentUiState }
             .onError {
-                Log.e(logTag, "Failed to refresh ${gamesCategory.name} games.", it)
+                Timber.e(it, "Failed to refresh ${gamesCategory.name} games.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
             }
             .onStart {

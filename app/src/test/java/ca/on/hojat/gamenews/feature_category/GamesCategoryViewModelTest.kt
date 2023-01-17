@@ -97,23 +97,6 @@ internal class GamesCategoryViewModelTest {
     }
 
     @Test
-    fun `Logs error when games observing use case throws error`() {
-        runTest {
-            every { observePopularGamesUseCase.execute(any()) } returns flow {
-                throw IllegalStateException(
-                    "error"
-                )
-            }
-            every { refreshPopularGamesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
-
-            sut
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
-        }
-    }
-
-    @Test
     fun `Dispatches toast showing command when games observing use case throws error`() {
         runTest {
             every { observePopularGamesUseCase.execute(any()) } returns flow {
@@ -147,23 +130,6 @@ internal class GamesCategoryViewModelTest {
                 assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Empty)
                 cancelAndIgnoreRemainingEvents()
             }
-        }
-    }
-
-    @Test
-    fun `Logs error when games refreshing use case throws error`() {
-        runTest {
-            every { observePopularGamesUseCase.execute(any()) } returns flowOf(DOMAIN_GAMES)
-            every { refreshPopularGamesUseCase.execute(any()) } returns flow {
-                throw IllegalStateException(
-                    "error"
-                )
-            }
-
-            sut
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
         }
     }
 
