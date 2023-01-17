@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.feature_discovery
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
@@ -32,6 +31,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -84,7 +84,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
             transform = { it.toList() }
         )
             .map { games -> currentItems.toSuccessState(games) }
-            .onError { Log.e(logTag, "Failed to observe games.", it) }
+            .onError { Timber.e(it, "Failed to observe games.") }
             .onStart { isObservingGames = true }
             .onCompletion { isObservingGames = false }
             .onEach { emittedItems -> _items.update { emittedItems } }
@@ -107,7 +107,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
         )
             .map { currentItems }
             .onError {
-                Log.e(logTag, "Failed to refresh games.", it)
+                Timber.e(it, "Failed to refresh games.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
             }
             .onStart {

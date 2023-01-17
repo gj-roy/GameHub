@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.feature_info.presentation
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
@@ -36,6 +35,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 private const val PARAM_GAME_ID = "game-id"
@@ -82,7 +82,7 @@ internal class GameInfoViewModel @Inject constructor(
             .flowOn(dispatcherProvider.computation)
             .map { game -> currentUiState.toSuccessState(game) }
             .onError {
-                Log.e(logTag, "Failed to load game info data.", it)
+                Timber.e(it, "Failed to load game info data.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }
@@ -117,7 +117,7 @@ internal class GameInfoViewModel @Inject constructor(
             )
                 .resultOrError()
                 .onError {
-                    Log.e(logTag, "Failed to get the image urls of type = $imageType.", it)
+                    Timber.e(it, "Failed to get the image urls of type = $imageType.")
                     dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 }
                 .collect { imageUrls ->

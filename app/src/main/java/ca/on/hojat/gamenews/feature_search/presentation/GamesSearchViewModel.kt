@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.feature_search.presentation
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
@@ -27,6 +26,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 import kotlin.properties.Delegates
 import kotlin.properties.ReadWriteProperty
@@ -157,7 +157,7 @@ internal class GamesSearchViewModel @Inject constructor(
                     )
                 }
                 .onError {
-                    Log.e(logTag, "Failed to search games.", it)
+                    Timber.e(it, "Failed to search games.")
                     dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                     emit(createGamesEmptyUiState())
                 }

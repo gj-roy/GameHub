@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.feature_news.presentation
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
@@ -32,6 +31,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
+import timber.log.Timber
 import javax.inject.Inject
 
 private const val MAX_ARTICLE_COUNT = 100
@@ -80,7 +80,7 @@ internal class GamingNewsViewModel @Inject constructor(
             .flowOn(dispatcherProvider.computation)
             .map { news -> currentUiState.toSuccessState(news) }
             .onError {
-                Log.e(logTag, "Failed to load articles.", it)
+                Timber.e(it, "Failed to load articles.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }
@@ -108,7 +108,7 @@ internal class GamingNewsViewModel @Inject constructor(
             .resultOrError()
             .map { currentUiState }
             .onError {
-                Log.e(logTag, "Failed to refresh articles.", it)
+                Timber.e(it, "Failed to refresh articles.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
             }
             .onStart {

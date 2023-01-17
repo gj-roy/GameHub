@@ -60,22 +60,6 @@ internal class LikedGamesViewModelTest {
     }
 
     @Test
-    fun `Logs error when liked games loading fails`() {
-        runTest {
-            every { observeLikedGamesUseCase.execute(any()) } returns flow {
-                throw IllegalStateException(
-                    "error"
-                )
-            }
-
-            sut
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
-        }
-    }
-
-    @Test
     fun `Dispatches toast showing command when liked games loading fails`() {
         runTest {
             every { observeLikedGamesUseCase.execute(any()) } returns flow {

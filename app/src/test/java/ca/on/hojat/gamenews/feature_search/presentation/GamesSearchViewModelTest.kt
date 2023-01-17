@@ -6,7 +6,6 @@ import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModelMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
-import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
@@ -34,7 +33,6 @@ internal class GamesSearchViewModelTest {
 
     private val searchGamesUseCase = mockk<SearchGamesUseCase>(relaxed = true)
 
-    private val logger = FakeLogger()
     private val sut by lazy {
         GamesSearchViewModel(
             searchGamesUseCase = searchGamesUseCase,
@@ -167,18 +165,6 @@ internal class GamesSearchViewModelTest {
                 assertThat(awaitItem().gamesUiState.games).isEmpty()
                 cancelAndIgnoreRemainingEvents()
             }
-        }
-    }
-
-    @Test
-    fun `Logs error when searching games use case throws error`() {
-        runTest {
-            coEvery { searchGamesUseCase.execute(any()) } returns flowOf(Err(DOMAIN_ERROR_UNKNOWN))
-
-            sut.onSearchConfirmed("god of war")
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
         }
     }
 

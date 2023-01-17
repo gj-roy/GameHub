@@ -8,7 +8,6 @@ import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
 import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
-import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
@@ -20,7 +19,6 @@ import io.mockk.mockk
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
@@ -33,7 +31,6 @@ internal class GamesDiscoveryViewModelTest {
     private val observePopularGamesUseCase = mockk<ObservePopularGamesUseCase>(relaxed = true)
     private val refreshPopularGamesUseCase = mockk<RefreshPopularGamesUseCase>(relaxed = true)
 
-    private val logger = FakeLogger()
     private val sut by lazy {
         GamesDiscoveryViewModel(
             useCases = setupUseCases(),
@@ -71,40 +68,6 @@ internal class GamesDiscoveryViewModelTest {
                 }
             )
         )
-    }
-
-    @Test
-    fun `Logs error when games observing use case throws error`() {
-        runTest {
-            every { observePopularGamesUseCase.execute(any()) } returns flow {
-                throw IllegalStateException(
-                    "error"
-                )
-            }
-            every { refreshPopularGamesUseCase.execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
-
-            sut
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
-        }
-    }
-
-    @Test
-    fun `Logs error when games refreshing use case throws error`() {
-        runTest {
-            every { observePopularGamesUseCase.execute(any()) } returns flowOf(DOMAIN_GAMES)
-            every { refreshPopularGamesUseCase.execute(any()) } returns flow {
-                throw IllegalStateException(
-                    "error"
-                )
-            }
-
-            sut
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
-        }
     }
 
     @Test

@@ -14,7 +14,6 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.finiteUiState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
-import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
@@ -39,7 +38,6 @@ internal class GameInfoViewModelTest {
     val mainCoroutineRule = MainCoroutineRule(StandardTestDispatcher())
 
     private val useCases = setupUseCases()
-    private val logger = FakeLogger()
 
     private val sut by lazy {
         GameInfoViewModel(
@@ -81,20 +79,6 @@ internal class GameInfoViewModelTest {
     }
 
     @Test
-    fun `Logs error when game fetching use case throws error`() {
-        runTest {
-            coEvery {
-                useCases.getGameInfoUseCase.execute(any())
-            } returns flow { throw IllegalStateException() }
-
-            sut
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
-        }
-    }
-
-    @Test
     fun `Dispatches toast showing command when game fetching use case throws error`() {
         runTest {
             coEvery {
@@ -124,22 +108,6 @@ internal class GameInfoViewModelTest {
                     artworkIndex
                 )
             }
-        }
-    }
-
-    @Test
-    fun `Logs error when artwork is clicked and image url use case throws error when`() {
-        runTest {
-            coEvery { useCases.getGameImageUrlsUseCase.execute(any()) } returns flowOf(
-                Err(
-                    DOMAIN_ERROR_UNKNOWN
-                )
-            )
-
-            sut.onArtworkClicked(artworkIndex = 0)
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
         }
     }
 
@@ -184,22 +152,6 @@ internal class GameInfoViewModelTest {
 
                 assertThat(awaitItem()).isInstanceOf(GameInfoRoute.ImageViewer::class.java)
             }
-        }
-    }
-
-    @Test
-    fun `Logs error when cover is clicked and image url use case throws error when`() {
-        runTest {
-            coEvery { useCases.getGameImageUrlsUseCase.execute(any()) } returns flowOf(
-                Err(
-                    DOMAIN_ERROR_UNKNOWN
-                )
-            )
-
-            sut.onCoverClicked()
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
         }
     }
 
@@ -261,22 +213,6 @@ internal class GameInfoViewModelTest {
                     screenshotIndex
                 )
             }
-        }
-    }
-
-    @Test
-    fun `Logs error when screenshot is clicked and image url use case throws error when`() {
-        runTest {
-            coEvery { useCases.getGameImageUrlsUseCase.execute(any()) } returns flowOf(
-                Err(
-                    DOMAIN_ERROR_UNKNOWN
-                )
-            )
-
-            sut.onScreenshotClicked(screenshotIndex = 0)
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
         }
     }
 

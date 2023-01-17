@@ -10,7 +10,6 @@ import ca.on.hojat.gamenews.feature_news.presentation.mapping.GamingNewsItemUiMo
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiModel
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.finiteUiState
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
-import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import com.github.michaelbull.result.Ok
@@ -33,7 +32,6 @@ internal class GamingNewsViewModelTest {
     private val observeArticlesUseCase = mockk<ObserveArticlesUseCase>(relaxed = true)
     private val refreshArticlesUseCase = mockk<RefreshArticlesUseCase>(relaxed = true)
 
-    private val logger = FakeLogger()
     private val sut by lazy {
         GamingNewsViewModel(
             observeArticlesUseCase = observeArticlesUseCase,
@@ -59,22 +57,6 @@ internal class GamingNewsViewModelTest {
                 assertThat(resultState.finiteUiState).isEqualTo(FiniteUiState.Success)
                 assertThat(resultState.news).hasSize(DOMAIN_ARTICLES.size)
             }
-        }
-    }
-
-    @Test
-    fun `Logs error when articles observing use case throws error`() {
-        runTest {
-            every { observeArticlesUseCase.execute(any()) } returns flow {
-                throw IllegalStateException(
-                    "error"
-                )
-            }
-
-            sut
-            advanceUntilIdle()
-
-            assertThat(logger.errorMessage).isNotEmpty()
         }
     }
 

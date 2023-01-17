@@ -1,6 +1,5 @@
 package ca.on.hojat.gamenews.feature_likes.presentation
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModel
@@ -30,6 +29,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 private const val SUBSEQUENT_EMISSION_DELAY = 500L
@@ -78,7 +78,7 @@ internal class LikedGamesViewModel @Inject constructor(
             .flowOn(dispatcherProvider.computation)
             .map { games -> currentUiState.toSuccessState(games) }
             .onError {
-                Log.e(logTag, "Failed to load liked games.", it)
+                Timber.e(it, "Failed to load liked games.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }
