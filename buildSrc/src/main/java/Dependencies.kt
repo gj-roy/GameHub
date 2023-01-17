@@ -55,7 +55,6 @@ object AndroidX {
     const val viewModel = "2.5.1" // to be deleted when the linked issue at use site is fixed.
     private const val dataStoreVersion = "1.0.0"
     private const val roomVersion = "2.4.3"
-    private const val navigationVersion = "2.5.3"
 
     // splash screen
     const val splash = "androidx.core:core-splashscreen:1.0.0"
@@ -73,22 +72,13 @@ object AndroidX {
     const val prefsDataStore = "androidx.datastore:datastore-preferences:${dataStoreVersion}"
     const val protoDataStore = "androidx.datastore:datastore:${dataStoreVersion}"
 
-    // appCompat contains all androidX annotations so, as long as you have it,
-    // you shouldn't add androidX as a dependency to your module.
-    const val appCompat = "androidx.appcompat:appcompat:1.5.1"
-    const val viewPager2 = "androidx.viewpager2:viewpager2:1.0.0"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.2.0-alpha05"
-
-    // I know it's not specifically speaking an AndroidX lib but for me it's pretty much part of
-    // jetpack toolkit.
-    const val googleMaterial = "com.google.android.material:material:1.8.0-beta01"
-    const val navigationComponent = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-
 
 }
 
 object Compose {
 
+    // don't make this private
     const val composeVersion = "1.2.0"
     private const val accompanistVersion = "0.25.0"
 
@@ -114,10 +104,9 @@ object Compose {
 }
 
 object Hilt {
+    // don't make this private
     const val coreHiltVersion = "2.43.2"
 
-    const val daggerHiltCore = "com.google.dagger:hilt-core:$coreHiltVersion"
-    const val daggerHiltCoreCompiler = "com.google.dagger:hilt-compiler:$coreHiltVersion"
     const val daggerHiltAndroid = "com.google.dagger:hilt-android:$coreHiltVersion"
     const val daggerHiltAndroidCompiler =
         "com.google.dagger:hilt-android-compiler:$coreHiltVersion"
