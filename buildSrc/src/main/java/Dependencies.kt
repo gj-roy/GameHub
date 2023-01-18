@@ -27,6 +27,9 @@ object Tooling {
     val javaCompatibilityVersion = JavaVersion.VERSION_11
     val kotlinCompatibilityVersion = JavaVersion.VERSION_11
 
+    // Google Play Services
+    const val googleServicesVersion = "4.3.14"
+
     // https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md
     // some libs from open JDK to access Java 8 and later
     const val desugaredLibs = "com.android.tools:desugar_jdk_libs:1.1.5"
@@ -106,6 +109,15 @@ object Compose {
         "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
     const val navigationAnimations =
         "com.google.accompanist:accompanist-navigation-animation:$accompanistVersion"
+}
+
+object Firebase {
+    private const val firebaseBomVersion = "31.1.1"
+    const val firebaseBom = "com.google.firebase:firebase-bom:$firebaseBomVersion"
+    const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx"
+    const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
+
+
 }
 
 object Hilt {

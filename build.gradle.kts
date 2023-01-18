@@ -7,8 +7,8 @@ plugins {
 
 buildscript {
     repositories {
-        mavenCentral()
         google()
+        mavenCentral()
     }
 
     dependencies {
@@ -17,14 +17,15 @@ buildscript {
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Hilt.coreHiltVersion}")
         classpath("com.google.protobuf:protobuf-gradle-plugin:${Tooling.protobufPluginVersion}")
         classpath("com.github.ben-manes:gradle-versions-plugin:${Tooling.gradleVersionsPlugin}")
+        classpath("com.google.gms:google-services:${Tooling.googleServicesVersion}")
     }
 }
 
 allprojects {
 
     repositories {
-        mavenCentral()
         google()
+        mavenCentral()
         maven { setUrl("https://jitpack.io") }
     }
 

@@ -9,6 +9,7 @@ plugins {
     id(PLUGIN_KSP) version Tooling.kspPlugin
     id(PLUGIN_KOTLINX_SERIALIZATION) version Tooling.kotlin
     id(PLUGIN_DAGGER_HILT_ANDROID)
+    id(PLUGIN_GOOGLE_SERVICES)
 }
 
 android {
@@ -82,6 +83,10 @@ dependencies {
     implementation(Compose.navigationAnimations)
     implementation(Compose.systemUi)
     implementation(Compose.swipeRefresh)
+
+    // Firebase
+    implementation(platform(Firebase.firebaseBom))
+    implementation(Firebase.firebaseAnalytics)
 
     // DI
     implementation(Hilt.daggerHiltAndroid)
