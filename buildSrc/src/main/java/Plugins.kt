@@ -10,3 +10,4 @@ const val PLUGIN_KOTLINX_SERIALIZATION = "org.jetbrains.kotlin.plugin.serializat
 const val PLUGIN_DAGGER_HILT_ANDROID = "dagger.hilt.android.plugin"
 const val PLUGIN_PROTOBUF = "com.google.protobuf"
 const val PLUGIN_GOOGLE_SERVICES = "com.google.gms.google-services"
+const val PLUGIN_FIREBASE_CRASHLYTICS = "com.google.firebase.crashlytics"

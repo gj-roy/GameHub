@@ -30,6 +30,9 @@ object Tooling {
     // Google Play Services
     const val googleServicesVersion = "4.3.14"
 
+    // Firebase Crashlytics
+    const val crashlyticsVersion = "2.9.2"
+
     // https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md
     // some libs from open JDK to access Java 8 and later
     const val desugaredLibs = "com.android.tools:desugar_jdk_libs:1.1.5"

@@ -10,6 +10,7 @@ plugins {
     id(PLUGIN_KOTLINX_SERIALIZATION) version Tooling.kotlin
     id(PLUGIN_DAGGER_HILT_ANDROID)
     id(PLUGIN_GOOGLE_SERVICES)
+    id(PLUGIN_FIREBASE_CRASHLYTICS)
 }
 
 android {
@@ -87,6 +88,7 @@ dependencies {
     // Firebase
     implementation(platform(Firebase.firebaseBom))
     implementation(Firebase.firebaseAnalytics)
+    implementation(Firebase.crashlytics)
 
     // DI
     implementation(Hilt.daggerHiltAndroid)
