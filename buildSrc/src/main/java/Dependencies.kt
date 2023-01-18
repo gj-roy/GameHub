@@ -119,8 +119,6 @@ object Firebase {
     const val firebaseBom = "com.google.firebase:firebase-bom:$firebaseBomVersion"
     const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx"
     const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
-
-
 }
 
 object Hilt {

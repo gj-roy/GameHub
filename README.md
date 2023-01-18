@@ -4,19 +4,13 @@ This is an Android client for <a href="https://www.igdb.com/">IGDB</a>
 and <a href="https://dev.twitch.tv/">Twitch</a> APIs for all the latest news and information about
 video games.
 
-My trello board of this project is shared in here:
+The trello board I use for keeping track of all the tickets of this project is shared in here:
 https://trello.com/b/lG03zl6P/game-news-app
 
 ![Min API](https://img.shields.io/badge/API-21%2B-orange.svg?style=flat)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](http://developer.android.com/index.html)
 
-An Android application for browsing video games and checking the latest gaming news from around the
-world.
-
-Built entirely using the Jetpack Compose.
-
-The aim of this project is to showcase the latest trends in Android development by utilizing the
-best practices, libraries, and tools to develop a fully-fledged Android application.
+App's UI and presentation layer are built entirely using the Jetpack Compose.
 
 ## Contents
 
@@ -31,7 +25,6 @@ best practices, libraries, and tools to develop a fully-fledged Android applicat
 * [Download](#download)
 * [Contribution](#contribution)
 * [Questions](#questions)
-* [License](#license)
 
 ## Demonstration
 
@@ -119,19 +112,23 @@ https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-
     - [Truth](https://github.com/google/truth) - Truth is a library providing fluent assertions for
       Java and Android.
     - [MockK](https://github.com/mockk/mockk) - MockK is a mocking library for Kotlin.
-    - [Coroutines Test](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-test)
-        - A library for testing Kotlin coroutines.
+    - [Coroutines Test](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-test) - A library
+      for testing Kotlin coroutines.
     - [Turbine](https://github.com/cashapp/turbine) - A testing library for Kotlin Flows.
     - [Dagger Hilt Test](https://developer.android.com/training/dependency-injection/hilt-testing) -
       A testing library for modifying the Dagger bindings in instrumented tests.
-    - [Room Testing](https://developer.android.com/training/data-storage/room/migrating-db-versions#test)
-        - A library for testing Room migrations.
+    - [Room Testing](https://developer.android.com/training/data-storage/room/migrating-db-versions#test) - A library
+      for testing Room migrations.
     - [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) - A scriptable web
       server for testing HTTP clients.
 - [Gradle's Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - Gradle’s Kotlin
   DSL is an alternative syntax to the Groovy DSL with an enhanced editing experience.
-- [buildSrc](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources)
-    - A special module within the project to manage dependencies and whatnot.
+- [buildSrc](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources) - A special
+  module within the project to manage dependencies and whatnot.
+- [Firebase](https://firebase.google.com/)
+    - [Firebase Analytics](https://firebase.google.com/docs/analytics) - An app measurement tool for getting insights on
+      app usage and user engagement.
+    - [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics) - A realtime crash reporter.
 
 For more information about used dependencies, see [this](/buildSrc/src/main/java/Dependencies.kt)
 file.
@@ -159,6 +156,6 @@ the latest news in the gaming world.
 
 ## Questions
 
-If you have any questions regarding the codebase, hit me up
-on [Twitter](https://twitter.com/PRybitskyi).
+If you have any questions regarding the codebase or have found an issue, please open up an issue on GitHub repository.
+I'll answer to all opened issues as fast as I can.
 
