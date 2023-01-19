@@ -1,5 +1,5 @@
 package ca.on.hojat.gamenews.initializers
 
-internal interface Initializer {
+interface Initializer {
     fun init()
 }

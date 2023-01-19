@@ -7,7 +7,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltAndroidApp
-internal class GameNewsApplication : Application() {
+class GameNewsApplication : Application() {
 
     @Inject
     lateinit var initializer: Initializer
