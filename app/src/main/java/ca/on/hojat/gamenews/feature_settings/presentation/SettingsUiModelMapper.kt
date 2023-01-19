@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.feature_settings.presentation
 
+import ca.on.hojat.gamenews.BuildConfig
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.core.providers.VersionNameProvider
@@ -51,7 +52,11 @@ internal class SettingsUiModelMapperImpl @Inject constructor(
                 SettingsSectionItemUiModel(
                     id = SettingItem.VERSION.id,
                     title = stringProvider.getString(R.string.settings_item_version_title),
-                    description = versionNameProvider.getVersionName(),
+                    description = versionNameProvider.getVersionName() + if (BuildConfig.DEBUG) {
+                        " debug"
+                    } else {
+                        " release"
+                    },
                     isClickable = false,
                 )
             )
