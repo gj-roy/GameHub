@@ -64,7 +64,7 @@ internal class ArticlePublicationDateFormatterImplTest {
         every { timeProvider.getCurrentDateTime() } returns currentTime
         every { timeFormatProvider.getTimeFormat() } returns TimeFormat.TWENTY_FOUR_HOURS
 
-        assertThat(sut.formatPublicationDate(timestamp)).isEqualTo("Mar. 2, 1:15")
+        assertThat(sut.formatPublicationDate(timestamp)).isEqualTo("Mar 2, 1:15")
     }
 
     @Test
@@ -76,7 +76,7 @@ internal class ArticlePublicationDateFormatterImplTest {
         every { timeProvider.getCurrentDateTime() } returns currentTime
         every { timeFormatProvider.getTimeFormat() } returns TimeFormat.TWENTY_FOUR_HOURS
 
-        assertThat(sut.formatPublicationDate(timestamp)).isEqualTo("Mar. 4, 2020, 1:15")
+        assertThat(sut.formatPublicationDate(timestamp)).isEqualTo("Mar 4, 2020, 1:15")
     }
 
     @Test
@@ -88,7 +88,7 @@ internal class ArticlePublicationDateFormatterImplTest {
         every { timeProvider.getCurrentDateTime() } returns currentTime
         every { timeFormatProvider.getTimeFormat() } returns TimeFormat.TWELVE_HOURS
 
-        assertThat(sut.formatPublicationDate(timestamp)).isEqualTo("Mar. 2, 1:15 a.m.")
+        assertThat(sut.formatPublicationDate(timestamp)).isEqualTo("Mar 2, 1:15 AM")
     }
 
     @Test
@@ -100,6 +100,6 @@ internal class ArticlePublicationDateFormatterImplTest {
         every { timeProvider.getCurrentDateTime() } returns currentTime
         every { timeFormatProvider.getTimeFormat() } returns TimeFormat.TWELVE_HOURS
 
-        assertThat(sut.formatPublicationDate(timestamp)).isEqualTo("Mar. 4, 2020, 1:15 a.m.")
+        assertThat(sut.formatPublicationDate(timestamp)).isEqualTo("Mar 4, 2020, 1:15 AM")
     }
 }
