@@ -4,7 +4,7 @@
 
     <style name="GameNewsThemeSplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/light_colorPrimary</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_dark</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
         <item name="postSplashScreenTheme">@style/GameNewsTheme</item>
     </style>
 
