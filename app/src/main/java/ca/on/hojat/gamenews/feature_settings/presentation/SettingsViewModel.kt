@@ -73,6 +73,7 @@ internal class SettingsViewModel @Inject constructor(
         when (item.id) {
             SettingItem.THEME.id -> onThemeSettingClicked()
             SettingItem.SOURCE_CODE.id -> onSourceCodeSettingClicked()
+            SettingItem.PRIVACY_POLICY.id -> onPrivacyPolicyClicked()
         }
     }
 
@@ -103,5 +104,9 @@ internal class SettingsViewModel @Inject constructor(
 
     private fun onSourceCodeSettingClicked() {
         dispatchCommand(SettingsCommand.OpenUrl(Constants.SOURCE_CODE_LINK))
+    }
+
+    private fun onPrivacyPolicyClicked() {
+        dispatchCommand(SettingsCommand.OpenUrl(Constants.PRIVACY_POLICY_LINK))
     }
 }

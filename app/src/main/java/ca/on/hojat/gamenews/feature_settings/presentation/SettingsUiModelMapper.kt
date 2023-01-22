@@ -25,6 +25,9 @@ internal class SettingsUiModelMapperImpl @Inject constructor(
         )
     }
 
+    /**
+     * The "Appearance" section of the settings page.
+     */
     private fun createAppearanceSection(settings: Settings): SettingsSectionUiModel {
         return SettingsSectionUiModel(
             id = SettingSection.APPEARANCE.id,
@@ -39,6 +42,9 @@ internal class SettingsUiModelMapperImpl @Inject constructor(
         )
     }
 
+    /**
+     * The "About" section of the settings page.
+     */
     private fun createAboutSection(): SettingsSectionUiModel {
         return SettingsSectionUiModel(
             id = SettingSection.ABOUT.id,
@@ -58,6 +64,11 @@ internal class SettingsUiModelMapperImpl @Inject constructor(
                         " release"
                     },
                     isClickable = false,
+                ),
+                SettingsSectionItemUiModel(
+                    id = SettingItem.PRIVACY_POLICY.id,
+                    title = stringProvider.getString(R.string.settings_item_privacy_policy_title),
+                    description = stringProvider.getString(R.string.settings_item_privacy_policy_description),
                 )
             )
         )

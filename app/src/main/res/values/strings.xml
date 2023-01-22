@@ -55,8 +55,10 @@
     <string name="settings_item_theme_option_system_default">System Default</string>
     <string name="settings_section_about_title">About</string>
     <string name="settings_item_source_code_title">Source Code</string>
-    <string name="settings_item_source_code_description">View the source code of the app</string>
+    <string name="settings_item_source_code_description">View GameHub\'s source code</string>
+    <string name="settings_item_privacy_policy_description">View GameHub\'s privacy policies</string>
     <string name="settings_item_version_title">Version</string>
+    <string name="settings_item_privacy_policy_title">Privacy Policy</string>
 
     <string name="games_category_popular">Popular</string>
     <string name="games_category_recently_released">Recently Released</string>

@@ -63,4 +63,5 @@ internal enum class SettingItem(val id: Int) {
     THEME(id = 1),
     SOURCE_CODE(id = 2),
     VERSION(id = 3),
+    PRIVACY_POLICY(id = 4)
 }
