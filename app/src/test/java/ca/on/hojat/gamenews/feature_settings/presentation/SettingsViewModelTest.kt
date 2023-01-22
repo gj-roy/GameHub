@@ -9,6 +9,7 @@ import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseC
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCase
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.feature_settings.presentation.SettingsViewModel.Companion.PRIVACY_POLICY_LINK
 import ca.on.hojat.gamenews.feature_settings.presentation.SettingsViewModel.Companion.SOURCE_CODE_LINK
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coVerify
@@ -128,11 +129,28 @@ internal class SettingsViewModelTest {
 
                 val command = awaitItem()
 
+                // Asserting that the command we got from this Flow was an "OpenUrl".
                 assertThat(command).isInstanceOf(SettingsCommand.OpenUrl::class.java)
+                // Asserting that the url that was supposed to be opened was source code of GameHub.
                 assertThat((command as SettingsCommand.OpenUrl).url).isEqualTo(SOURCE_CODE_LINK)
             }
         }
     }
+
+    @Test
+    fun `Opens privacy policy link if privacy policy settings is clicked`() {
+        runTest {
+            sut.commandFlow.test {
+                sut.onSettingClicked(createSettingUiModel(SettingItem.PRIVACY_POLICY))
+
+                val command = awaitItem()
+
+                assertThat(command).isInstanceOf(SettingsCommand.OpenUrl::class.java)
+                assertThat((command as SettingsCommand.OpenUrl).url).isEqualTo(PRIVACY_POLICY_LINK)
+            }
+        }
+    }
+
 
     private fun createSettingUiModel(setting: SettingItem): SettingsSectionItemUiModel {
         return SettingsSectionItemUiModel(

@@ -9,8 +9,6 @@ import kotlinx.coroutines.flow.receiveAsFlow
 
 abstract class BaseViewModel : ViewModel() {
 
-     val logTag: String = javaClass.simpleName
-
     private val _commandChannel = Channel<Command>(Channel.BUFFERED)
     private val _routeChannel = Channel<Route>(Channel.BUFFERED)
 
