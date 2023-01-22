@@ -2,7 +2,6 @@ package ca.on.hojat.gamenews.feature_settings.presentation
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.feature_settings.Constants
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
@@ -10,6 +9,7 @@ import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseC
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCase
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
+import ca.on.hojat.gamenews.feature_settings.presentation.SettingsViewModel.Companion.SOURCE_CODE_LINK
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coVerify
 import io.mockk.every
@@ -129,7 +129,7 @@ internal class SettingsViewModelTest {
                 val command = awaitItem()
 
                 assertThat(command).isInstanceOf(SettingsCommand.OpenUrl::class.java)
-                assertThat((command as SettingsCommand.OpenUrl).url).isEqualTo(Constants.SOURCE_CODE_LINK)
+                assertThat((command as SettingsCommand.OpenUrl).url).isEqualTo(SOURCE_CODE_LINK)
             }
         }
     }

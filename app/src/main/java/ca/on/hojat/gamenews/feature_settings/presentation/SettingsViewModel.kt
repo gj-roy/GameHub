@@ -1,7 +1,6 @@
 package ca.on.hojat.gamenews.feature_settings.presentation
 
 import androidx.lifecycle.viewModelScope
-import ca.on.hojat.gamenews.feature_settings.Constants
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
 import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
@@ -103,10 +102,16 @@ internal class SettingsViewModel @Inject constructor(
     }
 
     private fun onSourceCodeSettingClicked() {
-        dispatchCommand(SettingsCommand.OpenUrl(Constants.SOURCE_CODE_LINK))
+        dispatchCommand(SettingsCommand.OpenUrl(SOURCE_CODE_LINK))
     }
 
     private fun onPrivacyPolicyClicked() {
-        dispatchCommand(SettingsCommand.OpenUrl(Constants.PRIVACY_POLICY_LINK))
+        dispatchCommand(SettingsCommand.OpenUrl(PRIVACY_POLICY_LINK))
+    }
+
+    companion object {
+        const val SOURCE_CODE_LINK = "https://github.com/hojat72elect/Game_News"
+        const val PRIVACY_POLICY_LINK =
+            "https://www.privacypolicies.com/live/bc0f3dcd-c684-4f08-aae3-d48ce4945b8d"
     }
 }
