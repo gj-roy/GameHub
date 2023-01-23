@@ -59,6 +59,8 @@ android {
 
 dependencies {
 
+    implementation(files("libs/YouTubeAndroidPlayerApi.jar"))
+
     // general jetpack libs
     implementation(AndroidX.protoDataStore)
     implementation(AndroidX.splash)
