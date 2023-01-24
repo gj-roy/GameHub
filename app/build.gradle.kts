@@ -55,6 +55,27 @@ android {
         resources.pickFirsts.add("win32-x86-64/attach_hotspot_windows.dll")
         resources.pickFirsts.add("win32-x86/attach_hotspot_windows.dll")
     }
+
+    buildTypes {
+        getByName("debug") {
+            isDebuggable = true
+            isMinifyEnabled = false
+        }
+
+        getByName("release") {
+            isDebuggable = false
+            isMinifyEnabled = true
+        }
+    }
+
+    signingConfigs {
+        getByName("release") {
+            storeFile = file("/Users/hojat.ghasemi/Documents/Android/key/upload-keystore.jks")
+            keyPassword = "j@va1android"
+            storePassword = "j@va1android"
+            keyAlias = "uploadkey"
+        }
+    }
 }
 
 dependencies {
