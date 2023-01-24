@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import ca.on.hojat.gamenews.core.extensions.attachNewTaskFlagIfNeeded
-import ca.on.hojat.gamenews.core.extensions.canIntentBeHandled
 import com.paulrybitskyi.hiltbinder.BindType
+import timber.log.Timber
 import javax.inject.Inject
 
 @BindType(withQualifier = true)
@@ -15,12 +15,14 @@ internal class BrowserUrlOpener @Inject constructor() : UrlOpener {
     override fun openUrl(url: String, context: Context): Boolean {
         val intent = createIntent(url, context)
 
-        return if (context.canIntentBeHandled(intent)) {
+        return try {
             context.startActivity(intent)
             true
-        } else {
+        } catch (e: Exception) {
+            Timber.e(e)
             false
         }
+
     }
 
     private fun createIntent(url: String, context: Context): Intent {
