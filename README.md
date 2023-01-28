@@ -112,23 +112,28 @@ https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-
     - [Truth](https://github.com/google/truth) - Truth is a library providing fluent assertions for
       Java and Android.
     - [MockK](https://github.com/mockk/mockk) - MockK is a mocking library for Kotlin.
-    - [Coroutines Test](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-test) - A library
-      for testing Kotlin coroutines.
+    - [Coroutines Test](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-test)
+        - A library
+          for testing Kotlin coroutines.
     - [Turbine](https://github.com/cashapp/turbine) - A testing library for Kotlin Flows.
     - [Dagger Hilt Test](https://developer.android.com/training/dependency-injection/hilt-testing) -
       A testing library for modifying the Dagger bindings in instrumented tests.
-    - [Room Testing](https://developer.android.com/training/data-storage/room/migrating-db-versions#test) - A library
-      for testing Room migrations.
+    - [Room Testing](https://developer.android.com/training/data-storage/room/migrating-db-versions#test)
+        - A library
+          for testing Room migrations.
     - [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) - A scriptable web
       server for testing HTTP clients.
 - [Gradle's Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - Gradle’s Kotlin
   DSL is an alternative syntax to the Groovy DSL with an enhanced editing experience.
-- [buildSrc](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources) - A special
-  module within the project to manage dependencies and whatnot.
+- [buildSrc](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources)
+    - A special
+      module within the project to manage dependencies and whatnot.
 - [Firebase](https://firebase.google.com/)
-    - [Firebase Analytics](https://firebase.google.com/docs/analytics) - An app measurement tool for getting insights on
+    - [Firebase Analytics](https://firebase.google.com/docs/analytics) - An app measurement tool for
+      getting insights on
       app usage and user engagement.
-    - [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics) - A realtime crash reporter.
+    - [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics) - A realtime crash
+      reporter.
 
 For more information about used dependencies, see [this](/buildSrc/src/main/java/Dependencies.kt)
 file.
@@ -156,6 +161,11 @@ the latest news in the gaming world.
 
 ## Questions
 
-If you have any questions regarding the codebase or have found an issue, please open up an issue on GitHub repository.
+If you have any questions regarding the codebase or have found an issue, please open up an issue on
+GitHub repository.
 I'll answer to all opened issues as fast as I can.
 
+### Contributors
+
+Developer: [Hojat Ghasemi](mailto:hojat72elect@gmail.com)
+App icon designer: [Grace Peterson](mailto:gracepeterson2@outlook.com)
