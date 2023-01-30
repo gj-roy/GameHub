@@ -21,9 +21,12 @@ interface GamesEndpoint {
     suspend fun getGames(request: GetGamesRequest): ApiResult<List<ApiGame>>
 }
 
+/**
+ * This Singleton object will provide all the IGDB related API responses.
+ */
 @Singleton
 @BindType
- class GamesEndpointImpl @Inject constructor(
+class GamesEndpointImpl @Inject constructor(
     private val gamesService: GamesService,
     private val igdbApiQueryFactory: IgdbApiQueryFactory,
 ) : GamesEndpoint {

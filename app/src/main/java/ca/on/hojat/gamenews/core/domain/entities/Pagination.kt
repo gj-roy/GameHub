@@ -2,6 +2,9 @@ package ca.on.hojat.gamenews.core.domain.entities
 
 private const val DEFAULT_PAGE_SIZE = 20
 
+/**
+ * This is to comply with pagination requirements of the server; not the pagination library of Android.
+ */
 data class Pagination(
     val offset: Int = 0,
     val limit: Int = DEFAULT_PAGE_SIZE

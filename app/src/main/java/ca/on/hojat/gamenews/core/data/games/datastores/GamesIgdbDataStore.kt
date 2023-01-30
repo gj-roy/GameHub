@@ -101,14 +101,13 @@ class GamesIgdbDataStore @Inject constructor(
         company: Company,
         pagination: Pagination
     ): DomainResult<List<Game>> {
-        return gamesEndpoint
-            .getGames(
-                GetGamesRequest(
-                    gameIds = company.developedGames,
-                    offset = pagination.offset,
-                    limit = pagination.limit,
-                )
+        return gamesEndpoint.getGames(
+            GetGamesRequest(
+                gameIds = company.developedGames,
+                offset = pagination.offset,
+                limit = pagination.limit,
             )
+        )
             .toDataStoreResult()
     }
 
