@@ -168,4 +168,5 @@ I'll answer to all opened issues as fast as I can.
 ### Contributors
 
 Developer: [Hojat Ghasemi](mailto:hojat72elect@gmail.com)
+<br/>
 App icon designer: [Grace Peterson](mailto:gracepeterson2@outlook.com)
