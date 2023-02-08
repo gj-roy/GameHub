@@ -22,8 +22,7 @@ App's UI and presentation layer are built entirely using the Jetpack Compose.
 * [Development Setup](#development-setup)
     * [IGDB](#igdb)
     * [Gamespot](#gamespot)
-* [Download](#download)
-* [Contribution](#contribution)
+* [Contributors](#Contributors)
 * [Questions](#questions)
 
 ## Demonstration
@@ -128,12 +127,6 @@ https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-
 - [buildSrc](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources)
     - A special
       module within the project to manage dependencies and whatnot.
-- [Firebase](https://firebase.google.com/)
-    - [Firebase Analytics](https://firebase.google.com/docs/analytics) - An app measurement tool for
-      getting insights on
-      app usage and user engagement.
-    - [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics) - A realtime crash
-      reporter.
 
 For more information about used dependencies, see [this](/buildSrc/src/main/java/Dependencies.kt)
 file.

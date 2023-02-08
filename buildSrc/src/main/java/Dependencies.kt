@@ -109,13 +109,6 @@ object Compose {
         "com.google.accompanist:accompanist-navigation-animation:$accompanistVersion"
 }
 
-object Firebase {
-    private const val firebaseBomVersion = "31.1.1"
-    const val firebaseBom = "com.google.firebase:firebase-bom:$firebaseBomVersion"
-    const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx"
-    const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
-}
-
 object Hilt {
     // don't make this private
     const val coreHiltVersion = "2.43.2"
