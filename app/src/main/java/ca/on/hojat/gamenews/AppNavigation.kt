@@ -64,16 +64,16 @@ private fun NavGraphBuilder.discoverScreen(
         enterTransition = { null },
         exitTransition = {
             when (Screen.forRoute(targetState.destination.requireRoute())) {
-                Screen.GamesSearch -> OvershootScaling.exit()
-                Screen.GamesCategory,
+                Screen.Search -> OvershootScaling.exit()
+                Screen.DiscoveryCategory,
                 Screen.GameInfo -> HorizontalSliding.exit()
                 else -> null
             }
         },
         popEnterTransition = {
             when (Screen.forRoute(initialState.destination.requireRoute())) {
-                Screen.GamesSearch -> OvershootScaling.popEnter()
-                Screen.GamesCategory,
+                Screen.Search -> OvershootScaling.popEnter()
+                Screen.DiscoveryCategory,
                 Screen.GameInfo -> HorizontalSliding.popEnter()
                 else -> null
             }
@@ -83,10 +83,10 @@ private fun NavGraphBuilder.discoverScreen(
         GamesDiscovery(modifier) { route ->
             when (route) {
                 is GamesDiscoveryRoute.Search -> {
-                    navController.navigate(Screen.GamesSearch.route)
+                    navController.navigate(Screen.Search.route)
                 }
                 is GamesDiscoveryRoute.Category -> {
-                    navController.navigate(Screen.GamesCategory.createLink(route.category))
+                    navController.navigate(Screen.DiscoveryCategory.createLink(route.category))
                 }
                 is GamesDiscoveryRoute.Info -> {
                     navController.navigate(Screen.GameInfo.createLink(route.gameId))
@@ -105,14 +105,14 @@ private fun NavGraphBuilder.likesScreen(
         enterTransition = { null },
         exitTransition = {
             when (Screen.forRoute(targetState.destination.requireRoute())) {
-                Screen.GamesSearch -> OvershootScaling.exit()
+                Screen.Search -> OvershootScaling.exit()
                 Screen.GameInfo -> HorizontalSliding.exit()
                 else -> null
             }
         },
         popEnterTransition = {
             when (Screen.forRoute(initialState.destination.requireRoute())) {
-                Screen.GamesSearch -> OvershootScaling.popEnter()
+                Screen.Search -> OvershootScaling.popEnter()
                 Screen.GameInfo -> HorizontalSliding.popEnter()
                 else -> null
             }
@@ -122,7 +122,7 @@ private fun NavGraphBuilder.likesScreen(
         LikedGames(modifier) { route ->
             when (route) {
                 is LikedGamesRoute.Search -> {
-                    navController.navigate(Screen.GamesSearch.route)
+                    navController.navigate(Screen.Search.route)
                 }
                 is LikedGamesRoute.Info -> {
                     navController.navigate(Screen.GameInfo.createLink(route.gameId))
@@ -150,7 +150,7 @@ private fun NavGraphBuilder.settingsScreen(modifier: Modifier) {
 
 private fun NavGraphBuilder.gamesSearchScreen(navController: NavHostController) {
     composable(
-        route = Screen.GamesSearch.route,
+        route = Screen.Search.route,
         enterTransition = {
             when (Screen.forRoute(initialState.destination.requireRoute())) {
                 Screen.News,
@@ -195,9 +195,9 @@ private fun NavGraphBuilder.gamesSearchScreen(navController: NavHostController) 
 
 private fun NavGraphBuilder.gamesCategoryScreen(navController: NavHostController) {
     composable(
-        route = Screen.GamesCategory.route,
+        route = Screen.DiscoveryCategory.route,
         arguments = listOf(
-            navArgument(Screen.GamesCategory.Parameters.CATEGORY) { type = NavType.StringType },
+            navArgument(Screen.DiscoveryCategory.Parameters.CATEGORY) { type = NavType.StringType },
         ),
         enterTransition = {
             when (Screen.forRoute(initialState.destination.requireRoute())) {
@@ -247,8 +247,8 @@ private fun NavGraphBuilder.gameInfoScreen(navController: NavHostController) {
             when (Screen.forRoute(initialState.destination.requireRoute())) {
                 Screen.Discover,
                 Screen.Likes,
-                Screen.GamesSearch,
-                Screen.GamesCategory,
+                Screen.Search,
+                Screen.DiscoveryCategory,
                 Screen.GameInfo -> HorizontalSliding.enter()
                 else -> null
             }
@@ -271,8 +271,8 @@ private fun NavGraphBuilder.gameInfoScreen(navController: NavHostController) {
             when (Screen.forRoute(targetState.destination.requireRoute())) {
                 Screen.Discover,
                 Screen.Likes,
-                Screen.GamesSearch,
-                Screen.GamesCategory,
+                Screen.Search,
+                Screen.DiscoveryCategory,
                 Screen.GameInfo -> HorizontalSliding.popExit()
                 else -> null
             }

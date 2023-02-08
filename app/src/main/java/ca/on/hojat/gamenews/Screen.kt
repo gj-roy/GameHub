@@ -18,15 +18,18 @@ internal sealed class Screen(val route: String) {
     object Likes : Screen("likes")
     object News : Screen("news")
     object Settings : Screen("settings")
-    object GamesSearch : Screen("games-search")
+    object Search : Screen("games-search")
 
-    object GamesCategory : Screen("games-category/{${Parameters.CATEGORY}}") {
+    /**
+     * Each one of the different categories that you can see in "Discover" page of the app.
+     */
+    object DiscoveryCategory : Screen("discovery-category/{${Parameters.CATEGORY}}") {
         object Parameters {
             const val CATEGORY = "category"
         }
 
         fun createLink(category: String): String {
-            return "games-category/$category"
+            return "discovery-category/$category"
         }
     }
 
@@ -87,8 +90,8 @@ internal sealed class Screen(val route: String) {
                 Likes.route -> Likes
                 News.route -> News
                 Settings.route -> Settings
-                GamesSearch.route -> GamesSearch
-                GamesCategory.route -> GamesCategory
+                Search.route -> Search
+                DiscoveryCategory.route -> DiscoveryCategory
                 GameInfo.route -> GameInfo
                 ImageViewer.route -> ImageViewer
                 else -> error("Cannot find screen for the route: $route.")

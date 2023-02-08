@@ -26,7 +26,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 
-internal class GamesSearchViewModelTest {
+internal class SearchViewModelTest {
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule(StandardTestDispatcher())
