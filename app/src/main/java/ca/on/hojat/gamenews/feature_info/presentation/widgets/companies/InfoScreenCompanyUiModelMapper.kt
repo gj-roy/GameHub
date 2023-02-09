@@ -9,15 +9,30 @@ import ca.on.hojat.gamenews.core.domain.entities.InvolvedCompany
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface InfoScreenCompanyUiModelMapper {
-    fun mapToUiModel(company: InvolvedCompany): InfoScreenCompanyUiModel
+abstract class InfoScreenCompanyUiModelMapper {
+    internal abstract fun mapToUiModel(company: InvolvedCompany): InfoScreenCompanyUiModel
+
+    internal fun mapToUiModels(
+        companies: List<InvolvedCompany>,
+    ): List<InfoScreenCompanyUiModel> {
+        if (companies.isEmpty()) return emptyList()
+
+        val comparator = compareByDescending(InvolvedCompany::isDeveloper)
+            .thenByDescending(InvolvedCompany::isPublisher)
+            .thenByDescending(InvolvedCompany::isPorter)
+            .thenByDescending { it.company.hasLogo }
+
+        return companies
+            .sortedWith(comparator)
+            .map(::mapToUiModel)
+    }
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
 internal class InfoScreenCompanyUiModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
     private val stringProvider: StringProvider,
-) : InfoScreenCompanyUiModelMapper {
+) : InfoScreenCompanyUiModelMapper() {
 
     private companion object {
         private const val COMPANY_ROLE_SEPARATOR = ", "
@@ -56,19 +71,4 @@ internal class InfoScreenCompanyUiModelMapperImpl @Inject constructor(
                 transform = stringProvider::getString
             )
     }
-}
-
-internal fun InfoScreenCompanyUiModelMapper.mapToUiModels(
-    companies: List<InvolvedCompany>,
-): List<InfoScreenCompanyUiModel> {
-    if (companies.isEmpty()) return emptyList()
-
-    val comparator = compareByDescending(InvolvedCompany::isDeveloper)
-        .thenByDescending(InvolvedCompany::isPublisher)
-        .thenByDescending(InvolvedCompany::isPorter)
-        .thenByDescending { it.company.hasLogo }
-
-    return companies
-        .sortedWith(comparator)
-        .map(::mapToUiModel)
 }

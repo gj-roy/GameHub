@@ -3,7 +3,6 @@ package ca.on.hojat.gamenews.feature_info.presentation.widgets.main
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.mapToUiModels
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetailsUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModelMapper
