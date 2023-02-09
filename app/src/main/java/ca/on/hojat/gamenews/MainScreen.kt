@@ -12,13 +12,13 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 @Composable
 internal fun MainScreen() {
     val navController = rememberAnimatedNavController()
-    val currentScreen by navController.currentScreenAsState()
+    val currentScreen by navController.currentDestinationAsState()
 
     Scaffold(
         bottomBar = {
             BottomBar(
                 navController = navController,
-                currentScreen = currentScreen,
+                currentDestination = currentScreen,
             )
         },
         content = { paddingValues ->

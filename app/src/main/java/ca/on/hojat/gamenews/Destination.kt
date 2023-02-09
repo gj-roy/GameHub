@@ -11,39 +11,47 @@ import androidx.navigation.NavController
 import ca.on.hojat.gamenews.core.extensions.toCsv
 import java.net.URLEncoder
 
-internal val START_SCREEN = Screen.Discover
+internal val START_DESTINATION = Destination.Discover
 
-internal sealed class Screen(val route: String) {
-    object Discover : Screen("discover")
-    object Likes : Screen("likes")
-    object News : Screen("news")
-    object Settings : Screen("settings")
-    object Search : Screen("games-search")
+internal sealed class Destination(val route: String) {
+    object Discover : Destination("discover")
+    object Likes : Destination("likes")
+    object News : Destination("news")
+    object Settings : Destination("settings")
+    object Search : Destination("search")
 
     /**
-     * Each one of the different categories that you can see in "Discover" page of the app.
+     * The page that user will head to if they click on "SEE ALL" section
+     * of each of categories in "Discover" page.
      */
-    object DiscoveryCategory : Screen("discovery-category/{${Parameters.CATEGORY}}") {
+    object Category : Destination("discover/{${Parameters.CATEGORY}}") {
         object Parameters {
             const val CATEGORY = "category"
         }
 
         fun createLink(category: String): String {
-            return "discovery-category/$category"
+            return "discover/$category"
         }
     }
 
-    object GameInfo : Screen("game-info/{${Parameters.GAME_ID}}") {
+    /**
+     * The page that user will end up in when they click on each
+     * one of the items in "Likes" or "Discover" pages.
+     */
+    object InfoPage : Destination("info-page/{${Parameters.GAME_ID}}") {
         object Parameters {
             const val GAME_ID = "game-id"
         }
 
         fun createLink(gameId: Int): String {
-            return "game-info/$gameId"
+            return "info-page/$gameId"
         }
     }
 
-    object ImageViewer : Screen(
+    /**
+     * if in the [InfoPage] you click on any images, you will go here.
+     */
+    object ImageViewer : Destination(
         "image-viewer?" +
                 "${Parameters.TITLE}={${Parameters.TITLE}}&" +
                 "${Parameters.INITIAL_POSITION}={${Parameters.INITIAL_POSITION}}&" +
@@ -84,15 +92,15 @@ internal sealed class Screen(val route: String) {
             restore = Companion::forRoute,
         )
 
-        fun forRoute(route: String): Screen {
+        fun forRoute(route: String): Destination {
             return when (route) {
                 Discover.route -> Discover
                 Likes.route -> Likes
                 News.route -> News
                 Settings.route -> Settings
                 Search.route -> Search
-                DiscoveryCategory.route -> DiscoveryCategory
-                GameInfo.route -> GameInfo
+                Category.route -> Category
+                InfoPage.route -> InfoPage
                 ImageViewer.route -> ImageViewer
                 else -> error("Cannot find screen for the route: $route.")
             }
@@ -102,14 +110,15 @@ internal sealed class Screen(val route: String) {
 
 @Stable
 @Composable
-internal fun NavController.currentScreenAsState(): State<Screen> {
-    val selectedScreen = rememberSaveable(stateSaver = Screen.Saver) {
-        mutableStateOf(START_SCREEN)
+internal fun NavController.currentDestinationAsState(): State<Destination> {
+    val selectedDestination = rememberSaveable(stateSaver = Destination.Saver) {
+        mutableStateOf(START_DESTINATION)
     }
 
     DisposableEffect(this) {
         val listener = NavController.OnDestinationChangedListener { _, destination, _ ->
-            selectedScreen.value = Screen.forRoute(checkNotNull(destination.requireRoute()))
+            selectedDestination.value =
+                Destination.forRoute(checkNotNull(destination.requireRoute()))
         }
         addOnDestinationChangedListener(listener)
 
@@ -118,5 +127,5 @@ internal fun NavController.currentScreenAsState(): State<Screen> {
         }
     }
 
-    return selectedScreen
+    return selectedDestination
 }

@@ -25,12 +25,12 @@ private const val BOTTOM_BAR_ANIMATION_DURATION = 300
 @Composable
 internal fun BottomBar(
     navController: NavHostController,
-    currentScreen: Screen,
+    currentDestination: Destination,
 ) {
-    val isBottomBarScreenDisplayed = remember(currentScreen) {
+    val isBottomBarScreenDisplayed = remember(currentDestination) {
         BottomNavigationItemModel
             .values()
-            .any { itemModel -> itemModel.screen == currentScreen }
+            .any { itemModel -> itemModel.destination == currentDestination }
     }
 
     LaunchedEffect(isBottomBarScreenDisplayed) {
@@ -50,7 +50,7 @@ internal fun BottomBar(
     ) {
         BottomBarNavigation(
             navController = navController,
-            currentScreen = currentScreen,
+            currentDestination = currentDestination,
         )
     }
 }
@@ -58,17 +58,17 @@ internal fun BottomBar(
 @Composable
 private fun BottomBarNavigation(
     navController: NavHostController,
-    currentScreen: Screen,
+    currentDestination: Destination,
 ) {
     BottomNavigation(
         modifier = Modifier.navigationBarsPadding(),
         backgroundColor = GameNewsTheme.colors.primary,
     ) {
         for (bottomNavigationItemModel in BottomNavigationItemModel.values()) {
-            val itemScreen = bottomNavigationItemModel.screen
+            val itemScreen = bottomNavigationItemModel.destination
 
             BottomNavigationItem(
-                selected = currentScreen == itemScreen,
+                selected = currentDestination == itemScreen,
                 onClick = {
                     navController.navigate(itemScreen.route) {
                         navController.graph.startDestinationRoute?.let { route ->
@@ -102,26 +102,26 @@ private enum class BottomNavigationItemModel(
     val iconId: Int,
     @StringRes
     val titleId: Int,
-    val screen: Screen,
+    val destination: Destination,
 ) {
     DISCOVER(
         iconId = R.drawable.compass_rose,
         titleId = R.string.games_discovery_toolbar_title,
-        screen = Screen.Discover,
+        destination = Destination.Discover,
     ),
     LIKES(
         iconId = R.drawable.heart,
         titleId = R.string.liked_games_toolbar_title,
-        screen = Screen.Likes,
+        destination = Destination.Likes,
     ),
     NEWS(
         iconId = R.drawable.newspaper,
         titleId = R.string.gaming_news_toolbar_title,
-        screen = Screen.News,
+        destination = Destination.News,
     ),
     SETTINGS(
         iconId = R.drawable.cog_outline,
         titleId = R.string.settings_toolbar_title,
-        screen = Screen.Settings,
+        destination = Destination.Settings,
     ),
 }
