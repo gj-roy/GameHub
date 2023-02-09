@@ -46,6 +46,10 @@ internal data class CategoryUiState(
     ): CategoryUiState {
         return copy(isLoading = false, items = games)
     }
+
+    internal fun hasLoadedNewGames(): Boolean {
+        return (!isLoading && items.isNotEmpty())
+    }
 }
 
 @Immutable

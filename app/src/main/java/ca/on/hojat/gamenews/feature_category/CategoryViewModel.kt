@@ -48,9 +48,9 @@ internal class CategoryViewModel @Inject constructor(
     private val errorMapper: ErrorMapper
 ) : BaseViewModel() {
 
-    private var isObservingGames = false
-    private var isRefreshingGames = false
-    private var hasMoreGamesToLoad = false
+    private var isObservingItems = false
+    private var isRefreshingItems = false
+    private var hasMoreItemsToLoad = false
 
     private var observeUseCaseParams = ObserveUseCaseParams()
     private var refreshUseCaseParams = RefreshUseCaseParams()
@@ -58,8 +58,8 @@ internal class CategoryViewModel @Inject constructor(
     private val categoryType: CategoryType
     private val categoryKeyType: CategoryKey.Type
 
-    private var gamesObservingJob: Job? = null
-    private var gamesRefreshingJob: Job? = null
+    private var observingJob: Job? = null
+    private var refreshingJob: Job? = null
 
     private val _uiState = MutableStateFlow(createEmptyUiState())
 
@@ -77,8 +77,8 @@ internal class CategoryViewModel @Inject constructor(
             it.copy(title = stringProvider.getString(categoryType.titleId))
         }
 
-        observeGames(resultEmissionDelay = transitionAnimationDuration)
-        refreshGames(resultEmissionDelay = transitionAnimationDuration)
+        observeItems(resultEmissionDelay = transitionAnimationDuration)
+        refreshItems(resultEmissionDelay = transitionAnimationDuration)
     }
 
     private fun createEmptyUiState(): CategoryUiState {
@@ -89,24 +89,24 @@ internal class CategoryViewModel @Inject constructor(
         )
     }
 
-    private fun observeGames(resultEmissionDelay: Long = 0L) {
-        if (isObservingGames) return
+    private fun observeItems(resultEmissionDelay: Long = 0L) {
+        if (isObservingItems) return
 
-        gamesObservingJob = useCases.getObservableGamesUseCase(categoryKeyType)
+        observingJob = useCases.getObservableGamesUseCase(categoryKeyType)
             .execute(observeUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
             .flowOn(dispatcherProvider.computation)
-            .map { games -> currentUiState.toSuccessState(games) }
+            .map { items -> currentUiState.toSuccessState(items) }
             .onError {
-                Timber.e(it, "Failed to observe ${categoryType.name} games.")
+                Timber.e(it, "Failed to observe ${categoryType.name} items.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }
             .onStart {
-                isObservingGames = true
+                isObservingItems = true
                 delay(resultEmissionDelay)
             }
-            .onCompletion { isObservingGames = false }
+            .onCompletion { isObservingItems = false }
             .onEach { emittedUiState ->
                 configureNextLoad(emittedUiState)
                 _uiState.update { emittedUiState }
@@ -118,19 +118,15 @@ internal class CategoryViewModel @Inject constructor(
         if (!uiState.hasLoadedNewGames()) return
 
         val paginationLimit = observeUseCaseParams.pagination.limit
-        val gameCount = uiState.items.size
+        val itemsCount = uiState.items.size
 
-        hasMoreGamesToLoad = (paginationLimit == gameCount)
+        hasMoreItemsToLoad = (paginationLimit == itemsCount)
     }
 
-    private fun CategoryUiState.hasLoadedNewGames(): Boolean {
-        return (!isLoading && items.isNotEmpty())
-    }
+    private fun refreshItems(resultEmissionDelay: Long = 0L) {
+        if (isRefreshingItems) return
 
-    private fun refreshGames(resultEmissionDelay: Long = 0L) {
-        if (isRefreshingGames) return
-
-        gamesRefreshingJob = useCases.getRefreshableGamesUseCase(categoryKeyType)
+        refreshingJob = useCases.getRefreshableGamesUseCase(categoryKeyType)
             .execute(refreshUseCaseParams)
             .resultOrError()
             .map { currentUiState }
@@ -139,13 +135,13 @@ internal class CategoryViewModel @Inject constructor(
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
             }
             .onStart {
-                isRefreshingGames = true
+                isRefreshingItems = true
                 emit(currentUiState.enableLoading())
                 // Show loading state for some time since it can be too quick
                 delay(resultEmissionDelay)
             }
             .onCompletion {
-                isRefreshingGames = false
+                isRefreshingItems = false
                 // Delay disabling loading to avoid quick state changes like
                 // empty, loading, empty, success
                 delay(resultEmissionDelay)
@@ -159,39 +155,39 @@ internal class CategoryViewModel @Inject constructor(
         route(CategoryScreenRoute.Back)
     }
 
-    fun onGameClicked(game: CategoryUiModel) {
-        route(CategoryScreenRoute.Info(game.id))
+    fun onItemClicked(item: CategoryUiModel) {
+        route(CategoryScreenRoute.Info(item.id))
     }
 
     fun onBottomReached() {
-        loadMoreGames()
+        loadMoreItems()
     }
 
-    private fun loadMoreGames() {
-        if (!hasMoreGamesToLoad) return
+    private fun loadMoreItems() {
+        if (!hasMoreItemsToLoad) return
 
         viewModelScope.launch {
-            fetchNextGamesBatch()
-            observeNewGamesBatch()
+            fetchNextBatch()
+            observeNewBatch()
         }
     }
 
-    private suspend fun fetchNextGamesBatch() {
+    private suspend fun fetchNextBatch() {
         refreshUseCaseParams = refreshUseCaseParams.copy(
-            refreshUseCaseParams.pagination.nextOffset()
+            pagination = refreshUseCaseParams.pagination.nextOffset()
         )
 
-        gamesRefreshingJob?.cancelAndJoin()
-        refreshGames()
-        gamesRefreshingJob?.join()
+        refreshingJob?.cancelAndJoin()
+        refreshItems()
+        refreshingJob?.join()
     }
 
-    private suspend fun observeNewGamesBatch() {
+    private suspend fun observeNewBatch() {
         observeUseCaseParams = observeUseCaseParams.copy(
             observeUseCaseParams.pagination.nextLimit()
         )
 
-        gamesObservingJob?.cancelAndJoin()
-        observeGames()
+        observingJob?.cancelAndJoin()
+        observeItems()
     }
 }

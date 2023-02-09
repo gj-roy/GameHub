@@ -58,7 +58,7 @@ private fun CategoryScreen(
     CategoryScreen(
         uiState = viewModel.uiState.collectAsState().value,
         onBackButtonClicked = viewModel::onToolbarLeftButtonClicked,
-        onItemClicked = viewModel::onGameClicked,
+        onItemClicked = viewModel::onItemClicked,
         onBottomReached = viewModel::onBottomReached,
     )
 }

@@ -168,7 +168,7 @@ internal class CategoryViewModelTest {
             )
 
             sut.routeFlow.test {
-                sut.onGameClicked(game)
+                sut.onItemClicked(game)
 
                 val route = awaitItem()
 
