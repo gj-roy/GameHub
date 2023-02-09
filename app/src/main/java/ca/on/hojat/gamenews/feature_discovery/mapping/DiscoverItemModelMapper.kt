@@ -7,8 +7,7 @@ import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-
-abstract class HojatDiscoverItemModelMapper {
+abstract class DiscoverItemModelMapper {
 
     /**
      * You give it a [Game] and it will be converted to the normal data we use
@@ -29,7 +28,7 @@ abstract class HojatDiscoverItemModelMapper {
 @BindType(installIn = BindType.Component.VIEW_MODEL)
 internal class DiscoverItemModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory
-) : HojatDiscoverItemModelMapper() {
+) : DiscoverItemModelMapper() {
 
     override fun mapToUiModel(game: Game): DiscoverScreenItemData {
         return DiscoverScreenItemData(
@@ -44,5 +43,3 @@ internal class DiscoverItemModelMapperImpl @Inject constructor(
         )
     }
 }
-
-

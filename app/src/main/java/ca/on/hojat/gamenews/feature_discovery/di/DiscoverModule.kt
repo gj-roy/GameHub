@@ -16,9 +16,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityRetainedComponent
 import dagger.multibindings.IntoMap
 
+/**
+ * This is the main DI module for discover feature of the app.
+ */
 @Module
 @InstallIn(ActivityRetainedComponent::class)
-internal object GamesDiscoveryModule {
+internal object DiscoverModule {
 
     @Provides
     @IntoMap

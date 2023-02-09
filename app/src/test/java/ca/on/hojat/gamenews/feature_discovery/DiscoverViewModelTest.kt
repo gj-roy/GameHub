@@ -10,7 +10,7 @@ import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
 import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
 import ca.on.hojat.gamenews.feature_discovery.di.DiscoverKey
-import ca.on.hojat.gamenews.feature_discovery.mapping.HojatDiscoverItemModelMapper
+import ca.on.hojat.gamenews.feature_discovery.mapping.DiscoverItemModelMapper
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
@@ -133,7 +133,7 @@ internal class DiscoverViewModelTest {
         }
     }
 
-    private class FakeDiscoverItemModelMapper : HojatDiscoverItemModelMapper() {
+    private class FakeDiscoverItemModelMapper : DiscoverItemModelMapper() {
 
         override fun mapToUiModel(game: Game): DiscoverScreenItemData {
             return DiscoverScreenItemData(
