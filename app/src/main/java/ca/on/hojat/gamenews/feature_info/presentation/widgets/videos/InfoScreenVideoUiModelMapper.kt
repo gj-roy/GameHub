@@ -8,15 +8,15 @@ import ca.on.hojat.gamenews.core.domain.entities.Video
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GameInfoVideoUiModelMapper {
+internal interface InfoScreenVideoUiModelMapper {
     fun mapToUiModel(video: Video): GameInfoVideoUiModel?
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameInfoVideoUiModelMapperImpl @Inject constructor(
+internal class InfoScreenVideoUiModelMapperImpl @Inject constructor(
     private val youtubeMediaUrlFactory: YoutubeMediaUrlFactory,
     private val stringProvider: StringProvider,
-) : GameInfoVideoUiModelMapper {
+) : InfoScreenVideoUiModelMapper {
 
     override fun mapToUiModel(video: Video): GameInfoVideoUiModel? {
         val thumbnailUrl = youtubeMediaUrlFactory.createThumbnailUrl(
@@ -39,7 +39,7 @@ internal class GameInfoVideoUiModelMapperImpl @Inject constructor(
     }
 }
 
-internal fun GameInfoVideoUiModelMapper.mapToUiModels(
+internal fun InfoScreenVideoUiModelMapper.mapToUiModels(
     videos: List<Video>,
 ): List<GameInfoVideoUiModel> {
     if (videos.isEmpty()) return emptyList()

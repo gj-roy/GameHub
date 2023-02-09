@@ -36,7 +36,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.categorypreview.GamesCategoryPrevi
 import ca.on.hojat.gamenews.core.extensions.showShortToast
 import ca.on.hojat.gamenews.feature_info.presentation.InfoScreenCommand
 import ca.on.hojat.gamenews.feature_info.presentation.InfoScreenViewModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.GameInfoSummary
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.InfoScreenSummary
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanies
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetails
@@ -317,7 +317,7 @@ private fun LazyListScope.screenshotsItem(
 
 private fun LazyListScope.summaryItem(model: String) {
     gameInfoItem(item = GameInfoItem.Summary) {
-        GameInfoSummary(summary = model)
+        InfoScreenSummary(summary = model)
     }
 }
 

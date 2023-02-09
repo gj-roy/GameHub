@@ -11,7 +11,7 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mappe
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mappers.GameInfoSimilarGamesUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.GameInfoScreenshotUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.mapToUiModels
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModelMapper
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.mapToUiModels
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
@@ -25,7 +25,7 @@ internal interface GameInfoUiModelMapper {
 @Suppress("LongParameterList")
 internal class GameInfoUiModelMapperImpl @Inject constructor(
     private val headerModelMapper: GameInfoHeaderUiModelMapper,
-    private val videoModelMapper: GameInfoVideoUiModelMapper,
+    private val videoModelMapper: InfoScreenVideoUiModelMapper,
     private val screenshotModelMapper: GameInfoScreenshotUiModelMapper,
     private val detailsModelMapper: GameInfoDetailsUiModelMapper,
     private val linkModelMapper: GameInfoLinkUiModelMapper,

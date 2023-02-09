@@ -32,7 +32,7 @@ private const val AnimationDuration = 300
 private const val ContentMaxLines = 4
 
 @Composable
-internal fun GameInfoSummary(summary: String) {
+internal fun InfoScreenSummary(summary: String) {
     var hasTextBeenLaidOut by rememberSaveable { mutableStateOf(false) }
     var collapsedHeight by rememberSaveable { mutableStateOf(0) }
     var isExpanded by rememberSaveable { mutableStateOf(false) }
@@ -97,9 +97,9 @@ internal fun GameInfoSummary(summary: String) {
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GameInfoSummaryCollapsedPreview() {
+private fun InfoScreenSummaryCollapsedPreview() {
     GameHubTheme {
-        GameInfoSummary(
+        InfoScreenSummary(
             summary = "Elden Ring is an action-RPG open world game with RPG " +
                     "elements such as stats, weapons and spells.",
         )
