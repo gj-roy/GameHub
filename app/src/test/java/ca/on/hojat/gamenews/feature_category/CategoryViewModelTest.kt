@@ -24,13 +24,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 import javax.inject.Provider
 
-internal class GamesCategoryViewModelTest {
+internal class CategoryViewModelTest {
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule(StandardTestDispatcher())
@@ -53,7 +52,7 @@ internal class GamesCategoryViewModelTest {
 
     private fun setupSavedStateHandle(): SavedStateHandle {
         return mockk(relaxed = true) {
-            every { get<String>(any()) } returns GamesCategory.POPULAR.name
+            every { get<String>(any()) } returns CategoryType.POPULAR.name
         }
     }
 

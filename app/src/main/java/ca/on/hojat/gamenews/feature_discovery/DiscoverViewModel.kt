@@ -67,7 +67,7 @@ internal class  DiscoverViewModel @Inject constructor(
 
     private fun initDiscoveryItemsData() {
         _items.update {
-            DiscoverCategoryType.values().map { category ->
+            DiscoverType.values().map { category ->
                 GamesDiscoveryItemUiModel(
                     id = category.id,
                     categoryName = category.name,
@@ -83,7 +83,7 @@ internal class  DiscoverViewModel @Inject constructor(
         if (isObservingGames) return
 
         combine(
-            flows = DiscoverCategoryType.values().map(::observeGames),
+            flows = DiscoverType.values().map(::observeGames),
             transform = { it.toList() }
         )
             .map { games -> currentItems.toSuccessState(games) }
@@ -94,7 +94,7 @@ internal class  DiscoverViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    private fun observeGames(category: DiscoverCategoryType): Flow<List<DiscoverScreenItemData>> {
+    private fun observeGames(category: DiscoverType): Flow<List<DiscoverScreenItemData>> {
         return useCases.getObservableUseCase(category.toKeyType())
             .execute(observeGamesUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
@@ -105,7 +105,7 @@ internal class  DiscoverViewModel @Inject constructor(
         if (isRefreshingGames) return
 
         combine(
-            flows = DiscoverCategoryType.values().map(::refreshGames),
+            flows = DiscoverType.values().map(::refreshGames),
             transform = { it.toList() }
         )
             .map { currentItems }
@@ -125,7 +125,7 @@ internal class  DiscoverViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    private fun refreshGames(category: DiscoverCategoryType): Flow<List<Game>> {
+    private fun refreshGames(category: DiscoverType): Flow<List<Game>> {
         return useCases.getRefreshableUseCase(category.toKeyType())
             .execute(refreshGamesUseCaseParams)
             .resultOrError()

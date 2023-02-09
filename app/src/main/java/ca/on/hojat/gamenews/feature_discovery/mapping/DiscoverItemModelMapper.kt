@@ -7,6 +7,10 @@ import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
+/**
+ * This the mapper that converts Domain entities to stuff we can use
+ * in the UI layer of "discover" feature.
+ */
 abstract class DiscoverItemModelMapper {
 
     /**

@@ -60,7 +60,7 @@ internal class GamesCategoryViewModel @Inject constructor(
     private var observeGamesUseCaseParams = ObserveGamesUseCaseParams()
     private var refreshGamesUseCaseParams = RefreshGamesUseCaseParams()
 
-    private val gamesCategory: GamesCategory
+    private val categoryType: CategoryType
     private val gamesCategoryKeyType: GamesCategoryKey.Type
 
     private var gamesObservingJob: Job? = null
@@ -74,12 +74,12 @@ internal class GamesCategoryViewModel @Inject constructor(
     val uiState: StateFlow<GamesCategoryUiState> = _uiState.asStateFlow()
 
     init {
-        gamesCategory =
-            GamesCategory.valueOf(checkNotNull(savedStateHandle.get<String>(PARAM_GAMES_CATEGORY)))
-        gamesCategoryKeyType = gamesCategory.toKeyType()
+        categoryType =
+            CategoryType.valueOf(checkNotNull(savedStateHandle.get<String>(PARAM_GAMES_CATEGORY)))
+        gamesCategoryKeyType = categoryType.toKeyType()
 
         _uiState.update {
-            it.copy(title = stringProvider.getString(gamesCategory.titleId))
+            it.copy(title = stringProvider.getString(categoryType.titleId))
         }
 
         observeGames(resultEmissionDelay = transitionAnimationDuration)
@@ -103,7 +103,7 @@ internal class GamesCategoryViewModel @Inject constructor(
             .flowOn(dispatcherProvider.computation)
             .map { games -> currentUiState.toSuccessState(games) }
             .onError {
-                Timber.e(it, "Failed to observe ${gamesCategory.name} games.")
+                Timber.e(it, "Failed to observe ${categoryType.name} games.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 emit(currentUiState.toEmptyState())
             }
@@ -140,7 +140,7 @@ internal class GamesCategoryViewModel @Inject constructor(
             .resultOrError()
             .map { currentUiState }
             .onError {
-                Timber.e(it, "Failed to refresh ${gamesCategory.name} games.")
+                Timber.e(it, "Failed to refresh ${categoryType.name} games.")
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
             }
             .onStart {

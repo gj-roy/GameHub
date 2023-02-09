@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.feature_category
 
-internal enum class GamesCategory {
+internal enum class CategoryType {
     POPULAR,
     RECENTLY_RELEASED,
     COMING_SOON,

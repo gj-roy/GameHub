@@ -100,7 +100,7 @@ internal class DiscoverViewModelTest {
     @Test
     fun `Routes to games category screen when more button is clicked`() {
         runTest {
-            val categoryName = DiscoverCategoryType.POPULAR.name
+            val categoryName = DiscoverType.POPULAR.name
 
             sut.routeFlow.test {
                 sut.onCategoryMoreButtonClicked(categoryName)
