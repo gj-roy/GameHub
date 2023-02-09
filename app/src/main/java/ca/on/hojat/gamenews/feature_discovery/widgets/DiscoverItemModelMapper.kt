@@ -1,9 +1,8 @@
-package ca.on.hojat.gamenews.feature_discovery.mapping
+package ca.on.hojat.gamenews.feature_discovery.widgets
 
 import ca.on.hojat.gamenews.core.factories.IgdbImageSize
 import ca.on.hojat.gamenews.core.factories.IgdbImageUrlFactory
 import ca.on.hojat.gamenews.core.domain.entities.Game
-import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

@@ -2,20 +2,20 @@ package ca.on.hojat.gamenews.feature_category
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
-import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
-import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModelMapper
-import ca.on.hojat.gamenews.feature_category.widgets.finiteUiState
-import ca.on.hojat.gamenews.core.domain.entities.Game
-import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
-import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeLogger
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.core.domain.entities.Game
+import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
+import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
+import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
+import ca.on.hojat.gamenews.feature_category.widgets.CategoryItemModelMapper
+import ca.on.hojat.gamenews.feature_category.widgets.finiteUiState
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
@@ -44,7 +44,7 @@ internal class CategoryViewModelTest {
             stringProvider = FakeStringProvider(),
             transitionAnimationDuration = 0L,
             useCases = setupUseCases(),
-            uiModelMapper = FakeGameCategoryUiModelMapper(),
+            uiModelMapper = FakeCategoryItemModelMapper(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             errorMapper = FakeErrorMapper()
         )
@@ -179,7 +179,7 @@ internal class CategoryViewModelTest {
         }
     }
 
-    private class FakeGameCategoryUiModelMapper : GameCategoryUiModelMapper {
+    private class FakeCategoryItemModelMapper : CategoryItemModelMapper() {
 
         override fun mapToUiModel(game: Game): GameCategoryUiModel {
             return GameCategoryUiModel(

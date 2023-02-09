@@ -6,15 +6,20 @@ import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GameCategoryUiModelMapper {
-    fun mapToUiModel(game: Game): GameCategoryUiModel
+abstract class CategoryItemModelMapper {
+    internal abstract fun mapToUiModel(game: Game): GameCategoryUiModel
+
+    internal fun mapToUiModels(
+        games: List<Game>,
+    ): List<GameCategoryUiModel> {
+        return games.map(::mapToUiModel)
+    }
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameCategoryUiModelMapperImpl @Inject constructor(
+internal class CategoryItemModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
-) : GameCategoryUiModelMapper {
-
+) : CategoryItemModelMapper() {
     override fun mapToUiModel(game: Game): GameCategoryUiModel {
         return GameCategoryUiModel(
             id = game.id,
@@ -27,10 +32,4 @@ internal class GameCategoryUiModelMapperImpl @Inject constructor(
             }
         )
     }
-}
-
-internal fun GameCategoryUiModelMapper.mapToUiModels(
-    games: List<Game>,
-): List<GameCategoryUiModel> {
-    return games.map(::mapToUiModel)
 }

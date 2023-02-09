@@ -2,9 +2,9 @@ package ca.on.hojat.gamenews.feature_category
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import ca.on.hojat.gamenews.common_ui.di.TransitionAnimationDuration
 import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.common_ui.di.TransitionAnimationDuration
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.common.RefreshGamesUseCaseParams
@@ -14,11 +14,10 @@ import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
 import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
-import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModelMapper
 import ca.on.hojat.gamenews.feature_category.widgets.GamesCategoryUiState
+import ca.on.hojat.gamenews.feature_category.widgets.CategoryItemModelMapper
 import ca.on.hojat.gamenews.feature_category.widgets.disableLoading
 import ca.on.hojat.gamenews.feature_category.widgets.enableLoading
-import ca.on.hojat.gamenews.feature_category.widgets.mapToUiModels
 import ca.on.hojat.gamenews.feature_category.widgets.toEmptyState
 import ca.on.hojat.gamenews.feature_category.widgets.toSuccessState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -39,7 +38,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
-private const val PARAM_GAMES_CATEGORY = "category"
+private const val PARAM_CATEGORY = "category"
 
 @HiltViewModel
 internal class CategoryViewModel @Inject constructor(
@@ -48,7 +47,7 @@ internal class CategoryViewModel @Inject constructor(
     @TransitionAnimationDuration
     transitionAnimationDuration: Long,
     private val useCases: CategoryUseCases,
-    private val uiModelMapper: GameCategoryUiModelMapper,
+    private val uiModelMapper: CategoryItemModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val errorMapper: ErrorMapper
 ) : BaseViewModel() {
@@ -75,7 +74,7 @@ internal class CategoryViewModel @Inject constructor(
 
     init {
         categoryType =
-            CategoryType.valueOf(checkNotNull(savedStateHandle.get<String>(PARAM_GAMES_CATEGORY)))
+            CategoryType.valueOf(checkNotNull(savedStateHandle.get<String>(PARAM_CATEGORY)))
         gamesCategoryKeyType = categoryType.toKeyType()
 
         _uiState.update {

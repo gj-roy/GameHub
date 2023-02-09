@@ -11,7 +11,7 @@ import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
-import ca.on.hojat.gamenews.feature_discovery.mapping.DiscoverItemModelMapper
+import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverItemModelMapper
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreen
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemUiModel
