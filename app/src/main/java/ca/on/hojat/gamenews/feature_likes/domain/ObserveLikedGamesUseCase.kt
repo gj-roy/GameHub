@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_likes.domain
 
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.datastores.LikedGamesLocalDataStore
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.games.ObservableGamesUseCase
@@ -20,7 +20,7 @@ internal class ObserveLikedGamesUseCaseImpl @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) : ObserveLikedGamesUseCase {
 
-    override fun execute(params: ObserveGamesUseCaseParams): Flow<List<Game>> {
+    override fun execute(params: ObserveUseCaseParams): Flow<List<Game>> {
         return likedGamesLocalDataStore.observeLikedGames(params.pagination)
             .flowOn(dispatcherProvider.main)
     }

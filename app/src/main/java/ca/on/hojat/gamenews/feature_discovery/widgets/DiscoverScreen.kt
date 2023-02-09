@@ -70,7 +70,7 @@ private fun DiscoverScreen(
         items = viewModel.items.collectAsState().value,
         onCategoryMoreButtonClicked = viewModel::onCategoryMoreButtonClicked,
         onSearchButtonClicked = viewModel::onSearchButtonClicked,
-        onCategoryGameClicked = viewModel::onCategoryGameClicked,
+        onCategoryGameClicked = viewModel::onCategoryItemClicked,
         onRefreshRequested = viewModel::onRefreshRequested,
         modifier = modifier,
     )

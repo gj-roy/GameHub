@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.core.domain.games.usecases
 
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.games.ObservableGamesUseCase
-import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import kotlinx.coroutines.flow.Flow
@@ -18,7 +18,7 @@ class ObserveComingSoonGamesUseCaseImpl @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) : ObserveComingSoonGamesUseCase {
 
-    override fun execute(params: ObserveGamesUseCaseParams): Flow<List<Game>> {
+    override fun execute(params: ObserveUseCaseParams): Flow<List<Game>> {
         return gamesLocalDataStore.observeComingSoonGames(params.pagination)
             .flowOn(dispatcherProvider.main)
     }

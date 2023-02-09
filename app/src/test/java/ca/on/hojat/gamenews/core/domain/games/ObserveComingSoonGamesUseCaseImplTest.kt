@@ -4,7 +4,7 @@ import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObserveComingSoonGamesUseCaseImpl
 import io.mockk.MockKAnnotations
@@ -41,7 +41,7 @@ internal class ObserveComingSoonGamesUseCaseImplTest {
         runTest {
             every { gamesLocalDataStore.observeComingSoonGames(any()) } returns flowOf(DOMAIN_GAMES)
 
-            sut.execute(ObserveGamesUseCaseParams()).test {
+            sut.execute(ObserveUseCaseParams()).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }

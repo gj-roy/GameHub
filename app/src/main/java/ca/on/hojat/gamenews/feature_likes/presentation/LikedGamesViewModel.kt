@@ -9,7 +9,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.games.mapToUiModels
 import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
@@ -46,7 +46,7 @@ internal class LikedGamesViewModel @Inject constructor(
     private var isObservingGames = false
     private var hasMoreGamesToLoad = false
 
-    private var observeGamesUseCaseParams = ObserveGamesUseCaseParams()
+    private var observeUseCaseParams = ObserveUseCaseParams()
 
     private var gamesObservingJob: Job? = null
 
@@ -73,7 +73,7 @@ internal class LikedGamesViewModel @Inject constructor(
     private fun observeGames() {
         if (isObservingGames) return
 
-        gamesObservingJob = observeLikedGamesUseCase.execute(observeGamesUseCaseParams)
+        gamesObservingJob = observeLikedGamesUseCase.execute(observeUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
             .flowOn(dispatcherProvider.computation)
             .map { games -> currentUiState.toSuccessState(games) }
@@ -99,13 +99,13 @@ internal class LikedGamesViewModel @Inject constructor(
     }
 
     private fun isSubsequentEmission(): Boolean {
-        return !observeGamesUseCaseParams.pagination.hasDefaultLimit()
+        return !observeUseCaseParams.pagination.hasDefaultLimit()
     }
 
     private fun configureNextLoad(uiState: GamesUiState) {
         if (!uiState.hasLoadedNewGames()) return
 
-        val paginationLimit = observeGamesUseCaseParams.pagination.limit
+        val paginationLimit = observeUseCaseParams.pagination.limit
         val itemCount = uiState.games.size
 
         hasMoreGamesToLoad = (paginationLimit == itemCount)
@@ -130,8 +130,8 @@ internal class LikedGamesViewModel @Inject constructor(
     private fun observeNewGamesBatch() {
         if (!hasMoreGamesToLoad) return
 
-        observeGamesUseCaseParams = observeGamesUseCaseParams.copy(
-            observeGamesUseCaseParams.pagination.nextLimit()
+        observeUseCaseParams = observeUseCaseParams.copy(
+            observeUseCaseParams.pagination.nextLimit()
         )
 
         viewModelScope.launch {

@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.core.domain.games
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObserveMostAnticipatedGamesUseCaseImpl
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
@@ -43,7 +43,7 @@ internal class ObserveMostAnticipatedGamesUseCaseImplTest {
                 DOMAIN_GAMES
             )
 
-            sut.execute(ObserveGamesUseCaseParams()).test {
+            sut.execute(ObserveUseCaseParams()).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)
                 awaitComplete()
             }

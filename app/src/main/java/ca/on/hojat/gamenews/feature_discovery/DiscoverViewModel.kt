@@ -5,8 +5,8 @@ import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Game
-import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
-import ca.on.hojat.gamenews.core.domain.games.common.RefreshGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.RefreshUseCaseParams
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
@@ -46,11 +46,11 @@ internal class DiscoverViewModel @Inject constructor(
     private val errorMapper: ErrorMapper
 ) : BaseViewModel() {
 
-    private var isObservingGames = false
-    private var isRefreshingGames = false
+    private var isObservingItems = false
+    private var isRefreshingItems = false
 
-    private var observeGamesUseCaseParams = ObserveGamesUseCaseParams()
-    private var refreshGamesUseCaseParams = RefreshGamesUseCaseParams()
+    private var observeUseCaseParams = ObserveUseCaseParams()
+    private var refreshUseCaseParams = RefreshUseCaseParams()
 
     private val _items = MutableStateFlow<List<DiscoverScreenUiModel>>(listOf())
 
@@ -61,8 +61,8 @@ internal class DiscoverViewModel @Inject constructor(
 
     init {
         initDiscoveryItemsData()
-        observeGames()
-        refreshGames()
+        observeItems()
+        refresh()
     }
 
     private fun initDiscoveryItemsData() {
@@ -79,30 +79,34 @@ internal class DiscoverViewModel @Inject constructor(
         }
     }
 
-    private fun observeGames() {
-        if (isObservingGames) return
+    private fun observeItems() {
+        if (isObservingItems) return
 
         combine(
-            flows = DiscoverType.values().map(::observeGames),
+            flows = DiscoverType.values().map(::observeItems),
             transform = { it.toList() }
         )
-            .map { games -> currentItems.toSuccessState(games) }
+            .map { listOfItems -> currentItems.toSuccessState(listOfItems) }
             .onError { Timber.e(it, "Failed to observe games.") }
-            .onStart { isObservingGames = true }
-            .onCompletion { isObservingGames = false }
+            .onStart { isObservingItems = true }
+            .onCompletion { isObservingItems = false }
             .onEach { emittedItems -> _items.update { emittedItems } }
             .launchIn(viewModelScope)
     }
 
-    private fun observeGames(category: DiscoverType): Flow<List<DiscoverScreenItemData>> {
+    private fun observeItems(category: DiscoverType): Flow<List<DiscoverScreenItemData>> {
         return useCases.getObservableGamesUseCase(category.toKeyType())
-            .execute(observeGamesUseCaseParams)
+            .execute(observeUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
             .flowOn(dispatcherProvider.computation)
     }
 
-    private fun refreshGames() {
-        if (isRefreshingGames) return
+    /**
+     * This function refreshes the whole screen items
+     * (no matter what entity they are).
+     */
+    private fun refresh() {
+        if (isRefreshingItems) return
 
         combine(
             flows = DiscoverType.values().map(::refreshGames),
@@ -114,20 +118,24 @@ internal class DiscoverViewModel @Inject constructor(
                 dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
             }
             .onStart {
-                isRefreshingGames = true
+                isRefreshingItems = true
                 emit(currentItems.showProgressBar())
             }
             .onCompletion {
-                isRefreshingGames = false
+                isRefreshingItems = false
                 emit(currentItems.hideProgressBar())
             }
             .onEach { emittedItems -> _items.update { emittedItems } }
             .launchIn(viewModelScope)
     }
 
+    /**
+     * Returns a Flow<List<Game>> which technically refreshes the
+     * games that are shown in the discover screen.
+     */
     private fun refreshGames(category: DiscoverType): Flow<List<Game>> {
         return useCases.getRefreshableGamesUseCase(category.toKeyType())
-            .execute(refreshGamesUseCaseParams)
+            .execute(refreshUseCaseParams)
             .resultOrError()
     }
 
@@ -139,11 +147,11 @@ internal class DiscoverViewModel @Inject constructor(
         route(DiscoverScreenRoute.Category(category))
     }
 
-    fun onCategoryGameClicked(item: DiscoverScreenItemData) {
-        route(DiscoverScreenRoute.Info(gameId = item.id))
+    fun onCategoryItemClicked(item: DiscoverScreenItemData) {
+        route(DiscoverScreenRoute.Info(itemId = item.id))
     }
 
     fun onRefreshRequested() {
-        refreshGames()
+        refresh()
     }
 }

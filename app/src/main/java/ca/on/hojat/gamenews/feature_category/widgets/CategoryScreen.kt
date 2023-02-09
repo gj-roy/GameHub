@@ -58,7 +58,7 @@ private fun CategoryScreen(
     CategoryScreen(
         uiState = viewModel.uiState.collectAsState().value,
         onBackButtonClicked = viewModel::onToolbarLeftButtonClicked,
-        onGameClicked = viewModel::onGameClicked,
+        onItemClicked = viewModel::onGameClicked,
         onBottomReached = viewModel::onBottomReached,
     )
 }
@@ -67,7 +67,7 @@ private fun CategoryScreen(
 private fun CategoryScreen(
     uiState: CategoryUiState,
     onBackButtonClicked: () -> Unit,
-    onGameClicked: (CategoryUiModel) -> Unit,
+    onItemClicked: (CategoryUiModel) -> Unit,
     onBottomReached: () -> Unit,
 ) {
     Scaffold(
@@ -98,7 +98,7 @@ private fun CategoryScreen(
                     SuccessState(
                         uiState = uiState,
                         modifier = Modifier.matchParentSize(),
-                        onGameClicked = onGameClicked,
+                        onItemClicked = onItemClicked,
                         onBottomReached = onBottomReached,
                     )
                 }
@@ -125,7 +125,7 @@ private fun EmptyState(modifier: Modifier) {
 private fun SuccessState(
     uiState: CategoryUiState,
     modifier: Modifier,
-    onGameClicked: (CategoryUiModel) -> Unit,
+    onItemClicked: (CategoryUiModel) -> Unit,
     onBottomReached: () -> Unit,
 ) {
     RefreshableContent(
@@ -135,7 +135,7 @@ private fun SuccessState(
     ) {
         VerticalGrid(
             games = uiState.items,
-            onGameClicked = onGameClicked,
+            onItemClicked = onItemClicked,
             onBottomReached = onBottomReached,
         )
     }
@@ -144,7 +144,7 @@ private fun SuccessState(
 @Composable
 private fun VerticalGrid(
     games: List<CategoryUiModel>,
-    onGameClicked: (CategoryUiModel) -> Unit,
+    onItemClicked: (CategoryUiModel) -> Unit,
     onBottomReached: () -> Unit,
 ) {
     val gridConfig = rememberGridConfig()
@@ -180,7 +180,7 @@ private fun VerticalGrid(
                     )
                     .padding(paddingValues),
                 hasRoundedShape = false,
-                onCoverClicked = { onGameClicked(game) },
+                onCoverClicked = { onItemClicked(game) },
             )
         }
     }
@@ -190,7 +190,7 @@ private fun VerticalGrid(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun CategorySuccessStatePreview() {
-    val games = buildList {
+    val items = buildList {
         repeat(15) { index ->
             add(
                 CategoryUiModel(
@@ -207,10 +207,10 @@ private fun CategorySuccessStatePreview() {
             uiState = CategoryUiState(
                 isLoading = false,
                 title = "Popular",
-                items = games,
+                items = items,
             ),
             onBackButtonClicked = {},
-            onGameClicked = {},
+            onItemClicked = {},
             onBottomReached = {},
         )
     }
@@ -228,7 +228,7 @@ private fun CategoryEmptyStatePreview() {
                 items = emptyList(),
             ),
             onBackButtonClicked = {},
-            onGameClicked = {},
+            onItemClicked = {},
             onBottomReached = {},
         )
     }
@@ -246,7 +246,7 @@ private fun CategoryLoadingStatePreview() {
                 items = emptyList(),
             ),
             onBackButtonClicked = {},
-            onGameClicked = {},
+            onItemClicked = {},
             onBottomReached = {},
         )
     }

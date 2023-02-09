@@ -123,12 +123,12 @@ internal class DiscoverViewModelTest {
             )
 
             sut.routeFlow.test {
-                sut.onCategoryGameClicked(item)
+                sut.onCategoryItemClicked(item)
 
                 val route = awaitItem()
 
                 assertThat(route).isInstanceOf(DiscoverScreenRoute.Info::class.java)
-                assertThat((route as DiscoverScreenRoute.Info).gameId).isEqualTo(item.id)
+                assertThat((route as DiscoverScreenRoute.Info).itemId).isEqualTo(item.id)
             }
         }
     }

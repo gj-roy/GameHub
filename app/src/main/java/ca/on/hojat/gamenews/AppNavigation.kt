@@ -89,7 +89,7 @@ private fun NavGraphBuilder.discoverScreen(
                     navController.navigate(Destination.Category.createLink(route.category))
                 }
                 is DiscoverScreenRoute.Info -> {
-                    navController.navigate(Destination.InfoPage.createLink(route.gameId))
+                    navController.navigate(Destination.InfoPage.createLink(route.itemId))
                 }
             }
         }

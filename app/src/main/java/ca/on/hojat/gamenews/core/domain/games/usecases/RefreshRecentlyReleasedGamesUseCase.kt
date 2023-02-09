@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.extensions.onEachSuccess
 import ca.on.hojat.gamenews.core.domain.games.RefreshableGamesUseCase
-import ca.on.hojat.gamenews.core.domain.games.common.RefreshGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.RefreshUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottlerTools
 import ca.on.hojat.gamenews.core.domain.games.datastores.GamesDataStores
 import ca.on.hojat.gamenews.core.domain.entities.Game
@@ -23,7 +23,7 @@ class RefreshRecentlyReleasedGamesUseCaseImpl @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) : RefreshRecentlyReleasedGamesUseCase {
 
-    override fun execute(params: RefreshGamesUseCaseParams): Flow<DomainResult<List<Game>>> {
+    override fun execute(params: RefreshUseCaseParams): Flow<DomainResult<List<Game>>> {
         val throttlerKey =
             throttlerTools.keyProvider.provideRecentlyReleasedGamesKey(params.pagination)
 

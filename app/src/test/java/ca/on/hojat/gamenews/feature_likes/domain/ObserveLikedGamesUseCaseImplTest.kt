@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_likes.domain
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.datastores.LikedGamesLocalDataStore
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
@@ -15,7 +15,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-private val OBSERVE_GAMES_USE_CASE_PARAMS = ObserveGamesUseCaseParams()
+private val OBSERVE_GAMES_USE_CASE_PARAMS = ObserveUseCaseParams()
 
 internal class ObserveLikedGamesUseCaseImplTest {
 

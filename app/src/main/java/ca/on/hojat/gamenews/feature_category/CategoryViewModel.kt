@@ -6,8 +6,8 @@ import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.common_ui.di.TransitionAnimationDuration
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
-import ca.on.hojat.gamenews.core.domain.games.common.RefreshGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.RefreshUseCaseParams
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
@@ -52,8 +52,8 @@ internal class CategoryViewModel @Inject constructor(
     private var isRefreshingGames = false
     private var hasMoreGamesToLoad = false
 
-    private var observeGamesUseCaseParams = ObserveGamesUseCaseParams()
-    private var refreshGamesUseCaseParams = RefreshGamesUseCaseParams()
+    private var observeUseCaseParams = ObserveUseCaseParams()
+    private var refreshUseCaseParams = RefreshUseCaseParams()
 
     private val categoryType: CategoryType
     private val categoryKeyType: CategoryKey.Type
@@ -93,7 +93,7 @@ internal class CategoryViewModel @Inject constructor(
         if (isObservingGames) return
 
         gamesObservingJob = useCases.getObservableGamesUseCase(categoryKeyType)
-            .execute(observeGamesUseCaseParams)
+            .execute(observeUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
             .flowOn(dispatcherProvider.computation)
             .map { games -> currentUiState.toSuccessState(games) }
@@ -117,7 +117,7 @@ internal class CategoryViewModel @Inject constructor(
     private fun configureNextLoad(uiState: CategoryUiState) {
         if (!uiState.hasLoadedNewGames()) return
 
-        val paginationLimit = observeGamesUseCaseParams.pagination.limit
+        val paginationLimit = observeUseCaseParams.pagination.limit
         val gameCount = uiState.items.size
 
         hasMoreGamesToLoad = (paginationLimit == gameCount)
@@ -131,7 +131,7 @@ internal class CategoryViewModel @Inject constructor(
         if (isRefreshingGames) return
 
         gamesRefreshingJob = useCases.getRefreshableGamesUseCase(categoryKeyType)
-            .execute(refreshGamesUseCaseParams)
+            .execute(refreshUseCaseParams)
             .resultOrError()
             .map { currentUiState }
             .onError {
@@ -177,8 +177,8 @@ internal class CategoryViewModel @Inject constructor(
     }
 
     private suspend fun fetchNextGamesBatch() {
-        refreshGamesUseCaseParams = refreshGamesUseCaseParams.copy(
-            refreshGamesUseCaseParams.pagination.nextOffset()
+        refreshUseCaseParams = refreshUseCaseParams.copy(
+            refreshUseCaseParams.pagination.nextOffset()
         )
 
         gamesRefreshingJob?.cancelAndJoin()
@@ -187,8 +187,8 @@ internal class CategoryViewModel @Inject constructor(
     }
 
     private suspend fun observeNewGamesBatch() {
-        observeGamesUseCaseParams = observeGamesUseCaseParams.copy(
-            observeGamesUseCaseParams.pagination.nextLimit()
+        observeUseCaseParams = observeUseCaseParams.copy(
+            observeUseCaseParams.pagination.nextLimit()
         )
 
         gamesObservingJob?.cancelAndJoin()
