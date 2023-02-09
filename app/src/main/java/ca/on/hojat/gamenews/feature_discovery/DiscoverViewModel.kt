@@ -1,24 +1,23 @@
 package ca.on.hojat.gamenews.feature_discovery
 
 import androidx.lifecycle.viewModelScope
+import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.entities.Game
+import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
+import ca.on.hojat.gamenews.core.domain.games.common.RefreshGamesUseCaseParams
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
+import ca.on.hojat.gamenews.feature_discovery.mapping.HojatDiscoverItemModelMapper
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreen
-import ca.on.hojat.gamenews.feature_discovery.mapping.DiscoverItemModelMapper
-import ca.on.hojat.gamenews.feature_discovery.mapping.mapToUiModels
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemUiModel
 import ca.on.hojat.gamenews.feature_discovery.widgets.hideProgressBar
 import ca.on.hojat.gamenews.feature_discovery.widgets.showProgressBar
 import ca.on.hojat.gamenews.feature_discovery.widgets.toSuccessState
-import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.core.domain.games.common.ObserveGamesUseCaseParams
-import ca.on.hojat.gamenews.core.domain.games.common.RefreshGamesUseCaseParams
-import ca.on.hojat.gamenews.core.domain.entities.Game
-import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -41,7 +40,7 @@ import javax.inject.Inject
 @HiltViewModel
 internal class  DiscoverViewModel @Inject constructor(
     private val useCases: DiscoverUseCases,
-    private val uiModelMapper: DiscoverItemModelMapper,
+    private val uiModelMapper: HojatDiscoverItemModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val stringProvider: StringProvider,
     private val errorMapper: ErrorMapper

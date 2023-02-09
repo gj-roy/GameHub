@@ -1,17 +1,17 @@
 package ca.on.hojat.gamenews.feature_discovery
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.feature_discovery.di.DiscoverKey
-import ca.on.hojat.gamenews.feature_discovery.mapping.DiscoverItemModelMapper
-import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
-import ca.on.hojat.gamenews.core.domain.entities.Game
-import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
-import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.core.domain.entities.Game
+import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
+import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
+import ca.on.hojat.gamenews.feature_discovery.di.DiscoverKey
+import ca.on.hojat.gamenews.feature_discovery.mapping.HojatDiscoverItemModelMapper
+import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
@@ -133,7 +133,7 @@ internal class DiscoverViewModelTest {
         }
     }
 
-    private class FakeDiscoverItemModelMapper : DiscoverItemModelMapper {
+    private class FakeDiscoverItemModelMapper : HojatDiscoverItemModelMapper() {
 
         override fun mapToUiModel(game: Game): DiscoverScreenItemData {
             return DiscoverScreenItemData(
