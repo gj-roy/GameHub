@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 internal data class GamesCategoryUiState(
     val isLoading: Boolean,
     val title: String,
-    val games: List<GameCategoryUiModel>,
+    val games: List<CategoryUiModel>,
 ) {
     internal val finiteUiState: FiniteUiState
         get() = when {
@@ -42,14 +42,14 @@ internal data class GamesCategoryUiState(
     }
 
     internal fun toSuccessState(
-        games: List<GameCategoryUiModel>
+        games: List<CategoryUiModel>
     ): GamesCategoryUiState {
         return copy(isLoading = false, games = games)
     }
 }
 
 @Immutable
-internal data class GameCategoryUiModel(
+internal data class CategoryUiModel(
     val id: Int,
     val title: String,
     val coverUrl: String?,

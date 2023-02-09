@@ -78,7 +78,7 @@ private fun DiscoverScreen(
 
 @Composable
 private fun DiscoverScreen(
-    items: List<GamesDiscoveryItemUiModel>,
+    items: List<DiscoverScreenUiModel>,
     onSearchButtonClicked: () -> Unit,
     onCategoryMoreButtonClicked: (category: String) -> Unit,
     onCategoryGameClicked: (DiscoverScreenItemData) -> Unit,
@@ -127,16 +127,16 @@ private fun DiscoverScreen(
 
 @Composable
 private fun CategoryPreviewItems(
-    items: List<GamesDiscoveryItemUiModel>,
+    items: List<DiscoverScreenUiModel>,
     onCategoryMoreButtonClicked: (category: String) -> Unit,
     onCategoryGameClicked: (DiscoverScreenItemData) -> Unit,
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_3_5),
     ) {
-        items(items = items, key = GamesDiscoveryItemUiModel::id) { item ->
-            val categoryGames = remember(item.games) {
-                item.games.mapToCategoryUiModels()
+        items(items = items, key = DiscoverScreenUiModel::id) { item ->
+            val categoryGames = remember(item.items) {
+                item.items.mapToCategoryUiModels()
             }
 
             GamesCategoryPreview(
@@ -165,12 +165,12 @@ private fun GamesDiscoverySuccessStatePreview() {
         }
 
     val items = DiscoverType.values().map { category ->
-        GamesDiscoveryItemUiModel(
+        DiscoverScreenUiModel(
             id = category.id,
             categoryName = category.name,
             title = stringResource(category.titleId),
             isProgressBarVisible = true,
-            games = games,
+            items = games,
         )
     }
 
@@ -190,12 +190,12 @@ private fun GamesDiscoverySuccessStatePreview() {
 @Composable
 private fun GamesDiscoveryEmptyStatePreview() {
     val items = DiscoverType.values().map { category ->
-        GamesDiscoveryItemUiModel(
+        DiscoverScreenUiModel(
             id = category.id,
             categoryName = category.name,
             title = stringResource(category.titleId),
             isProgressBarVisible = true,
-            games = emptyList(),
+            items = emptyList(),
         )
     }
 

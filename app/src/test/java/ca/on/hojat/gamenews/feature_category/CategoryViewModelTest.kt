@@ -13,9 +13,8 @@ import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
 import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
 import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
-import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
+import ca.on.hojat.gamenews.feature_category.widgets.CategoryUiModel
 import ca.on.hojat.gamenews.feature_category.widgets.CategoryItemModelMapper
-import ca.on.hojat.gamenews.feature_category.widgets.finiteUiState
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
@@ -162,7 +161,7 @@ internal class CategoryViewModelTest {
     @Test
     fun `Routes to game info screen when game is clicked`() {
         runTest {
-            val game = GameCategoryUiModel(
+            val game = CategoryUiModel(
                 id = 1,
                 title = "title",
                 coverUrl = null
@@ -181,8 +180,8 @@ internal class CategoryViewModelTest {
 
     private class FakeCategoryItemModelMapper : CategoryItemModelMapper() {
 
-        override fun mapToUiModel(game: Game): GameCategoryUiModel {
-            return GameCategoryUiModel(
+        override fun mapToUiModel(game: Game): CategoryUiModel {
+            return CategoryUiModel(
                 id = game.id,
                 title = game.name,
                 coverUrl = null,

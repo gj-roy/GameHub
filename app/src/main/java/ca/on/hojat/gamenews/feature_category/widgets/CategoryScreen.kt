@@ -40,22 +40,22 @@ import ca.on.hojat.gamenews.common_ui.base.events.Route
 import ca.on.hojat.gamenews.feature_category.CategoryViewModel
 
 @Composable
-fun GamesCategory(onRoute: (Route) -> Unit) {
-    GamesCategory(
+fun CategoryScreen(onRoute: (Route) -> Unit) {
+    CategoryScreen(
         viewModel = hiltViewModel(),
         onRoute = onRoute,
     )
 }
 
 @Composable
-private fun GamesCategory(
+private fun CategoryScreen(
     viewModel: CategoryViewModel,
     onRoute: (Route) -> Unit,
 ) {
     NavBarColorHandler()
     CommandsHandler(viewModel = viewModel)
     RoutesHandler(viewModel = viewModel, onRoute = onRoute)
-    GamesCategory(
+    CategoryScreen(
         uiState = viewModel.uiState.collectAsState().value,
         onBackButtonClicked = viewModel::onToolbarLeftButtonClicked,
         onGameClicked = viewModel::onGameClicked,
@@ -64,10 +64,10 @@ private fun GamesCategory(
 }
 
 @Composable
-private fun GamesCategory(
+private fun CategoryScreen(
     uiState: GamesCategoryUiState,
     onBackButtonClicked: () -> Unit,
-    onGameClicked: (GameCategoryUiModel) -> Unit,
+    onGameClicked: (CategoryUiModel) -> Unit,
     onBottomReached: () -> Unit,
 ) {
     Scaffold(
@@ -125,7 +125,7 @@ private fun EmptyState(modifier: Modifier) {
 private fun SuccessState(
     uiState: GamesCategoryUiState,
     modifier: Modifier,
-    onGameClicked: (GameCategoryUiModel) -> Unit,
+    onGameClicked: (CategoryUiModel) -> Unit,
     onBottomReached: () -> Unit,
 ) {
     RefreshableContent(
@@ -143,8 +143,8 @@ private fun SuccessState(
 
 @Composable
 private fun VerticalGrid(
-    games: List<GameCategoryUiModel>,
-    onGameClicked: (GameCategoryUiModel) -> Unit,
+    games: List<CategoryUiModel>,
+    onGameClicked: (CategoryUiModel) -> Unit,
     onBottomReached: () -> Unit,
 ) {
     val gridConfig = rememberGamesGridConfig()
@@ -189,11 +189,11 @@ private fun VerticalGrid(
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GamesCategorySuccessStatePreview() {
+private fun CategorySuccessStatePreview() {
     val games = buildList {
         repeat(15) { index ->
             add(
-                GameCategoryUiModel(
+                CategoryUiModel(
                     id = index + 1,
                     title = "Popular Game",
                     coverUrl = null,
@@ -203,7 +203,7 @@ private fun GamesCategorySuccessStatePreview() {
     }
 
     GameNewsTheme {
-        GamesCategory(
+        CategoryScreen(
             uiState = GamesCategoryUiState(
                 isLoading = false,
                 title = "Popular",
@@ -219,9 +219,9 @@ private fun GamesCategorySuccessStatePreview() {
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GamesCategoryEmptyStatePreview() {
+private fun CategoryEmptyStatePreview() {
     GameNewsTheme {
-        GamesCategory(
+        CategoryScreen(
             uiState = GamesCategoryUiState(
                 isLoading = false,
                 title = "Popular",
@@ -237,9 +237,9 @@ private fun GamesCategoryEmptyStatePreview() {
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GamesCategoryLoadingStatePreview() {
+private fun CategoryLoadingStatePreview() {
     GameNewsTheme {
-        GamesCategory(
+        CategoryScreen(
             uiState = GamesCategoryUiState(
                 isLoading = true,
                 title = "Popular",

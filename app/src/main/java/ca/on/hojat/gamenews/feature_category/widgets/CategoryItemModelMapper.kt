@@ -7,11 +7,11 @@ import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
 abstract class CategoryItemModelMapper {
-    internal abstract fun mapToUiModel(game: Game): GameCategoryUiModel
+    internal abstract fun mapToUiModel(game: Game): CategoryUiModel
 
     internal fun mapToUiModels(
         games: List<Game>,
-    ): List<GameCategoryUiModel> {
+    ): List<CategoryUiModel> {
         return games.map(::mapToUiModel)
     }
 }
@@ -20,8 +20,8 @@ abstract class CategoryItemModelMapper {
 internal class CategoryItemModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
 ) : CategoryItemModelMapper() {
-    override fun mapToUiModel(game: Game): GameCategoryUiModel {
-        return GameCategoryUiModel(
+    override fun mapToUiModel(game: Game): CategoryUiModel {
+        return CategoryUiModel(
             id = game.id,
             title = game.name,
             coverUrl = game.cover?.let { cover ->

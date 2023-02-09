@@ -14,7 +14,7 @@ import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverItemModelMapper
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreen
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
-import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemUiModel
+import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenUiModel
 import ca.on.hojat.gamenews.feature_discovery.widgets.hideProgressBar
 import ca.on.hojat.gamenews.feature_discovery.widgets.showProgressBar
 import ca.on.hojat.gamenews.feature_discovery.widgets.toSuccessState
@@ -52,12 +52,12 @@ internal class DiscoverViewModel @Inject constructor(
     private var observeGamesUseCaseParams = ObserveGamesUseCaseParams()
     private var refreshGamesUseCaseParams = RefreshGamesUseCaseParams()
 
-    private val _items = MutableStateFlow<List<GamesDiscoveryItemUiModel>>(listOf())
+    private val _items = MutableStateFlow<List<DiscoverScreenUiModel>>(listOf())
 
-    private val currentItems: List<GamesDiscoveryItemUiModel>
+    private val currentItems: List<DiscoverScreenUiModel>
         get() = _items.value
 
-    val items: StateFlow<List<GamesDiscoveryItemUiModel>> = _items.asStateFlow()
+    val items: StateFlow<List<DiscoverScreenUiModel>> = _items.asStateFlow()
 
     init {
         initDiscoveryItemsData()
@@ -68,12 +68,12 @@ internal class DiscoverViewModel @Inject constructor(
     private fun initDiscoveryItemsData() {
         _items.update {
             DiscoverType.values().map { category ->
-                GamesDiscoveryItemUiModel(
+                DiscoverScreenUiModel(
                     id = category.id,
                     categoryName = category.name,
                     title = stringProvider.getString(category.titleId),
                     isProgressBarVisible = false,
-                    games = emptyList(),
+                    items = emptyList(),
                 )
             }
         }

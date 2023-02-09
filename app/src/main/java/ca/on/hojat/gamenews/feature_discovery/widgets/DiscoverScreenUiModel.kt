@@ -3,26 +3,26 @@ package ca.on.hojat.gamenews.feature_discovery.widgets
 import androidx.compose.runtime.Immutable
 
 @Immutable
-internal data class GamesDiscoveryItemUiModel(
+internal data class DiscoverScreenUiModel(
     val id: Int,
     val categoryName: String,
     val title: String,
     val isProgressBarVisible: Boolean,
-    val games: List<DiscoverScreenItemData>,
+    val items: List<DiscoverScreenItemData>,
 )
 
-internal fun List<GamesDiscoveryItemUiModel>.toSuccessState(
+internal fun List<DiscoverScreenUiModel>.toSuccessState(
     games: List<List<DiscoverScreenItemData>>,
-): List<GamesDiscoveryItemUiModel> {
+): List<DiscoverScreenUiModel> {
     return mapIndexed { index, itemModel ->
-        itemModel.copy(games = games[index])
+        itemModel.copy(items = games[index])
     }
 }
 
-internal fun List<GamesDiscoveryItemUiModel>.showProgressBar(): List<GamesDiscoveryItemUiModel> {
+internal fun List<DiscoverScreenUiModel>.showProgressBar(): List<DiscoverScreenUiModel> {
     return map { itemModel -> itemModel.copy(isProgressBarVisible = true) }
 }
 
-internal fun List<GamesDiscoveryItemUiModel>.hideProgressBar(): List<GamesDiscoveryItemUiModel> {
+internal fun List<DiscoverScreenUiModel>.hideProgressBar(): List<DiscoverScreenUiModel> {
     return map { itemModel -> itemModel.copy(isProgressBarVisible = false) }
 }

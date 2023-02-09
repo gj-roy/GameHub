@@ -14,7 +14,7 @@ import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
 import ca.on.hojat.gamenews.feature_category.widgets.CategoryItemModelMapper
-import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
+import ca.on.hojat.gamenews.feature_category.widgets.CategoryUiModel
 import ca.on.hojat.gamenews.feature_category.widgets.GamesCategoryUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -159,7 +159,7 @@ internal class CategoryViewModel @Inject constructor(
         route(CategoryScreenRoute.Back)
     }
 
-    fun onGameClicked(game: GameCategoryUiModel) {
+    fun onGameClicked(game: CategoryUiModel) {
         route(CategoryScreenRoute.Info(game.id))
     }
 
