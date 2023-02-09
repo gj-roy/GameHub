@@ -17,7 +17,7 @@ import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 private val DefaultElevation = 2.dp
 
 @Composable
-fun GameNewsCard(
+fun GameHubCard(
     modifier: Modifier = Modifier,
     shape: Shape = RectangleShape,
     backgroundColor: Color = GameHubTheme.colors.surface,
@@ -38,7 +38,7 @@ fun GameNewsCard(
 }
 
 @Composable
-fun GameNewsCard(
+fun GameHubCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,

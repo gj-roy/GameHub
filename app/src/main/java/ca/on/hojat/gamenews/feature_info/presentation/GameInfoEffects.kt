@@ -3,18 +3,18 @@ package ca.on.hojat.gamenews.feature_info.presentation
 import ca.on.hojat.gamenews.common_ui.base.events.Command
 import ca.on.hojat.gamenews.common_ui.base.events.Route
 
-internal sealed class GameInfoCommand : Command {
-    data class OpenUrl(val url: String) : GameInfoCommand()
+internal sealed class InfoScreenCommand : Command {
+    data class OpenUrl(val url: String) : InfoScreenCommand()
 }
 
-sealed class GameInfoRoute : Route {
-    data class Info(val gameId: Int) : GameInfoRoute()
+sealed class InfoScreenRoute : Route {
+    data class InfoScreen(val id: Int) : InfoScreenRoute()
 
     data class ImageViewer(
         val title: String?,
         val initialPosition: Int,
         val imageUrls: List<String>
-    ) : GameInfoRoute()
+    ) : InfoScreenRoute()
 
-    object Back : GameInfoRoute()
+    object Back : InfoScreenRoute()
 }

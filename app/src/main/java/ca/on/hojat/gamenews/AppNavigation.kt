@@ -20,8 +20,8 @@ import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNews
 import ca.on.hojat.gamenews.feature_settings.presentation.Settings
 import ca.on.hojat.gamenews.feature_image_viewer.ImageViewer
 import ca.on.hojat.gamenews.feature_image_viewer.ImageViewerRoute
-import ca.on.hojat.gamenews.feature_info.presentation.GameInfoRoute
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfo
+import ca.on.hojat.gamenews.feature_info.presentation.InfoScreenRoute
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreen
 import ca.on.hojat.gamenews.feature_likes.presentation.LikedGames
 import ca.on.hojat.gamenews.feature_likes.presentation.LikedGamesRoute
 import ca.on.hojat.gamenews.feature_search.presentation.GamesSearch
@@ -278,9 +278,9 @@ private fun NavGraphBuilder.gameInfoScreen(navController: NavHostController) {
             }
         },
     ) {
-        GameInfo { route ->
+        InfoScreen { route ->
             when (route) {
-                is GameInfoRoute.ImageViewer -> {
+                is InfoScreenRoute.ImageViewer -> {
                     navController.navigate(
                         Destination.ImageViewer.createLink(
                             title = route.title,
@@ -289,10 +289,10 @@ private fun NavGraphBuilder.gameInfoScreen(navController: NavHostController) {
                         )
                     )
                 }
-                is GameInfoRoute.Info -> {
-                    navController.navigate(Destination.InfoPage.createLink(route.gameId))
+                is InfoScreenRoute.InfoScreen -> {
+                    navController.navigate(Destination.InfoPage.createLink(route.id))
                 }
-                is GameInfoRoute.Back -> {
+                is InfoScreenRoute.Back -> {
                     navController.popBackStack()
                 }
             }

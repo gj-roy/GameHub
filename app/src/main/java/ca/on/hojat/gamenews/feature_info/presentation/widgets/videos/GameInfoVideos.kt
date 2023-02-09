@@ -34,15 +34,15 @@ import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.theme.darkScrim
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSectionWithInnerList
+import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSectionWithInnerList
 
 @Composable
 internal fun GameInfoVideos(
     videos: List<GameInfoVideoUiModel>,
     onVideClicked: (GameInfoVideoUiModel) -> Unit,
 ) {
-    GameInfoSectionWithInnerList(title = stringResource(R.string.game_info_videos_title)) {
+    InfoScreenSectionWithInnerList(title = stringResource(R.string.game_info_videos_title)) {
         items(items = videos, key = GameInfoVideoUiModel::id) { video ->
             Video(
                 video = video,
@@ -61,7 +61,7 @@ private fun Video(
     modifier: Modifier,
     onVideoClicked: () -> Unit,
 ) {
-    GameNewsCard(
+    GameHubCard(
         onClick = onVideoClicked,
         modifier = modifier,
         shape = GameHubTheme.shapes.medium,

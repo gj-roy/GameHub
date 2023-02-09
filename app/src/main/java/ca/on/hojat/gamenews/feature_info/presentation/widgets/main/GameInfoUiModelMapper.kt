@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_info.presentation.widgets.main
 
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.GameInfoCompanyUiModelMapper
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.mapToUiModels
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetailsUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModelMapper
@@ -30,7 +30,7 @@ internal class GameInfoUiModelMapperImpl @Inject constructor(
     private val screenshotModelMapper: GameInfoScreenshotUiModelMapper,
     private val detailsModelMapper: GameInfoDetailsUiModelMapper,
     private val linkModelMapper: GameInfoLinkUiModelMapper,
-    private val companyModelMapper: GameInfoCompanyUiModelMapper,
+    private val companyModelMapper: InfoScreenCompanyUiModelMapper,
     private val otherCompanyGamesModelMapper: GameInfoOtherCompanyGamesUiModelMapper,
     private val similarGamesModelMapper: GameInfoSimilarGamesUiModelMapper,
 ) : GameInfoUiModelMapper {

@@ -34,11 +34,11 @@ import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.core.extensions.showShortToast
-import ca.on.hojat.gamenews.feature_info.presentation.GameInfoCommand
-import ca.on.hojat.gamenews.feature_info.presentation.GameInfoViewModel
+import ca.on.hojat.gamenews.feature_info.presentation.InfoScreenCommand
+import ca.on.hojat.gamenews.feature_info.presentation.InfoScreenViewModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.GameInfoSummary
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.GameInfoCompanies
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.GameInfoCompanyUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanies
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetails
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetailsUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeader
@@ -57,16 +57,16 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVid
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideos
 
 @Composable
-fun GameInfo(onRoute: (Route) -> Unit) {
-    GameInfo(
+fun InfoScreen(onRoute: (Route) -> Unit) {
+    InfoScreen(
         viewModel = hiltViewModel(),
         onRoute = onRoute,
     )
 }
 
 @Composable
-private fun GameInfo(
-    viewModel: GameInfoViewModel,
+private fun InfoScreen(
+    viewModel: InfoScreenViewModel,
     onRoute: (Route) -> Unit,
 ) {
     val urlOpener = LocalUrlOpener.current
@@ -75,7 +75,7 @@ private fun GameInfo(
     NavBarColorHandler()
     CommandsHandler(viewModel = viewModel) { command ->
         when (command) {
-            is GameInfoCommand.OpenUrl -> {
+            is InfoScreenCommand.OpenUrl -> {
                 if (!urlOpener.openUrl(command.url, context)) {
                     context.showShortToast(context.getString(R.string.url_opener_not_found))
                 }
@@ -83,7 +83,7 @@ private fun GameInfo(
         }
     }
     RoutesHandler(viewModel = viewModel, onRoute = onRoute)
-    GameInfo(
+    InfoScreen(
         uiState = viewModel.uiState.collectAsState().value,
         onArtworkClicked = viewModel::onArtworkClicked,
         onBackButtonClicked = viewModel::onBackButtonClicked,
@@ -98,7 +98,7 @@ private fun GameInfo(
 }
 
 @Composable
-private fun GameInfo(
+private fun InfoScreen(
     uiState: GameInfoUiState,
     onArtworkClicked: (artworkIndex: Int) -> Unit,
     onBackButtonClicked: () -> Unit,
@@ -107,7 +107,7 @@ private fun GameInfo(
     onVideoClicked: (GameInfoVideoUiModel) -> Unit,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
     onLinkClicked: (GameInfoLinkUiModel) -> Unit,
-    onCompanyClicked: (GameInfoCompanyUiModel) -> Unit,
+    onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
     onRelatedGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
 ) {
     Scaffold { paddingValues ->
@@ -175,7 +175,7 @@ private fun SuccessState(
     onVideoClicked: (GameInfoVideoUiModel) -> Unit,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
     onLinkClicked: (GameInfoLinkUiModel) -> Unit,
-    onCompanyClicked: (GameInfoCompanyUiModel) -> Unit,
+    onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
     onRelatedGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -206,7 +206,7 @@ private fun Content(
     onVideoClicked: (GameInfoVideoUiModel) -> Unit,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
     onLinkClicked: (GameInfoLinkUiModel) -> Unit,
-    onCompanyClicked: (GameInfoCompanyUiModel) -> Unit,
+    onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
     onRelatedGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
 ) {
     LazyColumn(
@@ -340,11 +340,11 @@ private fun LazyListScope.linksItem(
 }
 
 private fun LazyListScope.companiesItem(
-    model: List<GameInfoCompanyUiModel>,
-    onCompanyClicked: (GameInfoCompanyUiModel) -> Unit,
+    model: List<InfoScreenCompanyUiModel>,
+    onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
 ) {
     gameInfoItem(item = GameInfoItem.Companies) {
-        GameInfoCompanies(
+        InfoScreenCompanies(
             companies = model,
             onCompanyClicked = onCompanyClicked,
         )
@@ -415,7 +415,7 @@ private enum class GameInfoItem(
 @Composable
 private fun GameInfoSuccessStateWithMaxUiElementsPreview() {
     GameHubTheme {
-        GameInfo(
+        InfoScreen(
             uiState = GameInfoUiState(
                 isLoading = false,
                 game = buildFakeGameModel(),
@@ -455,7 +455,7 @@ private fun GameInfoSuccessStateWithMinUiElementsPreview() {
     )
 
     GameHubTheme {
-        GameInfo(
+        InfoScreen(
             uiState = GameInfoUiState(
                 isLoading = false,
                 game = strippedGame,
@@ -478,7 +478,7 @@ private fun GameInfoSuccessStateWithMinUiElementsPreview() {
 @Composable
 private fun GameInfoEmptyStatePreview() {
     GameHubTheme {
-        GameInfo(
+        InfoScreen(
             uiState = GameInfoUiState(
                 isLoading = false,
                 game = null,
@@ -501,7 +501,7 @@ private fun GameInfoEmptyStatePreview() {
 @Composable
 private fun GameInfoLoadingStatePreview() {
     GameHubTheme {
-        GameInfo(
+        InfoScreen(
             uiState = GameInfoUiState(
                 isLoading = true,
                 game = null,
@@ -608,7 +608,7 @@ private fun buildFakeGameModel(): GameInfoUiModel {
             ),
         ),
         companyModels = listOf(
-            GameInfoCompanyUiModel(
+            InfoScreenCompanyUiModel(
                 id = 1,
                 logoUrl = null,
                 logoWidth = 1400,
@@ -617,7 +617,7 @@ private fun buildFakeGameModel(): GameInfoUiModel {
                 name = "FromSoftware",
                 roles = "Main Developer",
             ),
-            GameInfoCompanyUiModel(
+            InfoScreenCompanyUiModel(
                 id = 2,
                 logoUrl = null,
                 logoWidth = 500,

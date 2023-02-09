@@ -16,15 +16,15 @@ import ca.on.hojat.gamenews.common_ui.images.secondaryImage
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSectionWithInnerList
+import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSectionWithInnerList
 
 @Composable
 internal fun GameInfoScreenshots(
     screenshots: List<GameInfoScreenshotUiModel>,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
 ) {
-    GameInfoSectionWithInnerList(title = stringResource(R.string.game_info_screenshots_title)) {
+    InfoScreenSectionWithInnerList(title = stringResource(R.string.game_info_screenshots_title)) {
         itemsIndexed(
             items = screenshots,
             key = { _, screenshot -> screenshot.id },
@@ -44,7 +44,7 @@ private fun Screenshot(
     modifier: Modifier,
     onScreenshotClicked: () -> Unit,
 ) {
-    GameNewsCard(
+    GameHubCard(
         onClick = onScreenshotClicked,
         modifier = modifier,
         shape = GameHubTheme.shapes.medium,

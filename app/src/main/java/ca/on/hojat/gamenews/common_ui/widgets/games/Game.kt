@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import ca.on.hojat.gamenews.common_ui.widgets.DefaultCoverHeight
 import ca.on.hojat.gamenews.common_ui.widgets.GameCover
-import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
+import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import kotlin.math.roundToInt
 
@@ -28,7 +28,7 @@ fun Game(
     game: GameUiModel,
     onClick: () -> Unit,
 ) {
-    GameNewsCard(
+    GameHubCard(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
     ) {

@@ -5,7 +5,7 @@ import app.cash.turbine.test
 import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.feature_info.GAME_INFO
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.GameInfoCompanyUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiModel
@@ -32,7 +32,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 
-internal class GameInfoViewModelTest {
+internal class InfoScreenViewModelTest {
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule(StandardTestDispatcher())
@@ -40,7 +40,7 @@ internal class GameInfoViewModelTest {
     private val useCases = setupUseCases()
 
     private val sut by lazy {
-        GameInfoViewModel(
+        InfoScreenViewModel(
             savedStateHandle = setupSavedStateHandle(),
             transitionAnimationDuration = 0L,
             useCases = useCases,
@@ -103,8 +103,8 @@ internal class GameInfoViewModelTest {
 
                 val route = awaitItem()
 
-                assertThat(route).isInstanceOf(GameInfoRoute.ImageViewer::class.java)
-                assertThat((route as GameInfoRoute.ImageViewer).initialPosition).isEqualTo(
+                assertThat(route).isInstanceOf(InfoScreenRoute.ImageViewer::class.java)
+                assertThat((route as InfoScreenRoute.ImageViewer).initialPosition).isEqualTo(
                     artworkIndex
                 )
             }
@@ -137,7 +137,7 @@ internal class GameInfoViewModelTest {
             sut.routeFlow.test {
                 sut.onBackButtonClicked()
 
-                assertThat(awaitItem()).isInstanceOf(GameInfoRoute.Back::class.java)
+                assertThat(awaitItem()).isInstanceOf(InfoScreenRoute.Back::class.java)
             }
         }
     }
@@ -150,7 +150,7 @@ internal class GameInfoViewModelTest {
             sut.routeFlow.test {
                 sut.onCoverClicked()
 
-                assertThat(awaitItem()).isInstanceOf(GameInfoRoute.ImageViewer::class.java)
+                assertThat(awaitItem()).isInstanceOf(InfoScreenRoute.ImageViewer::class.java)
             }
         }
     }
@@ -190,8 +190,8 @@ internal class GameInfoViewModelTest {
 
                 val command = awaitItem()
 
-                assertThat(command).isInstanceOf(GameInfoCommand.OpenUrl::class.java)
-                assertThat((command as GameInfoCommand.OpenUrl).url).isEqualTo(video.videoUrl)
+                assertThat(command).isInstanceOf(InfoScreenCommand.OpenUrl::class.java)
+                assertThat((command as InfoScreenCommand.OpenUrl).url).isEqualTo(video.videoUrl)
             }
         }
     }
@@ -208,8 +208,8 @@ internal class GameInfoViewModelTest {
 
                 val route = awaitItem()
 
-                assertThat(route).isInstanceOf(GameInfoRoute.ImageViewer::class.java)
-                assertThat((route as GameInfoRoute.ImageViewer).initialPosition).isEqualTo(
+                assertThat(route).isInstanceOf(InfoScreenRoute.ImageViewer::class.java)
+                assertThat((route as InfoScreenRoute.ImageViewer).initialPosition).isEqualTo(
                     screenshotIndex
                 )
             }
@@ -251,8 +251,8 @@ internal class GameInfoViewModelTest {
 
                 val command = awaitItem()
 
-                assertThat(command).isInstanceOf(GameInfoCommand.OpenUrl::class.java)
-                assertThat((command as GameInfoCommand.OpenUrl).url).isEqualTo(link.url)
+                assertThat(command).isInstanceOf(InfoScreenCommand.OpenUrl::class.java)
+                assertThat((command as InfoScreenCommand.OpenUrl).url).isEqualTo(link.url)
             }
         }
     }
@@ -260,7 +260,7 @@ internal class GameInfoViewModelTest {
     @Test
     fun `Dispatches url opening command when company is clicked`() {
         runTest {
-            val company = GameInfoCompanyUiModel(
+            val company = InfoScreenCompanyUiModel(
                 id = 1,
                 logoWidth = null,
                 logoHeight = null,
@@ -275,8 +275,8 @@ internal class GameInfoViewModelTest {
 
                 val command = awaitItem()
 
-                assertThat(command).isInstanceOf(GameInfoCommand.OpenUrl::class.java)
-                assertThat((command as GameInfoCommand.OpenUrl).url).isEqualTo(company.websiteUrl)
+                assertThat(command).isInstanceOf(InfoScreenCommand.OpenUrl::class.java)
+                assertThat((command as InfoScreenCommand.OpenUrl).url).isEqualTo(company.websiteUrl)
             }
         }
     }
@@ -295,8 +295,8 @@ internal class GameInfoViewModelTest {
 
                 val route = awaitItem()
 
-                assertThat(route).isInstanceOf(GameInfoRoute.Info::class.java)
-                assertThat((route as GameInfoRoute.Info).gameId).isEqualTo(relatedGame.id)
+                assertThat(route).isInstanceOf(InfoScreenRoute.InfoScreen::class.java)
+                assertThat((route as InfoScreenRoute.InfoScreen).id).isEqualTo(relatedGame.id)
             }
         }
     }

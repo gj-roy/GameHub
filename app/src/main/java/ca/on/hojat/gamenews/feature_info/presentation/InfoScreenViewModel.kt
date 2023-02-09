@@ -12,7 +12,7 @@ import ca.on.hojat.gamenews.feature_info.domain.entities.GameImageType
 import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameImageUrlsUseCase
 import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameInfoUseCase
 import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleLikeStateUseCase
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.GameInfoCompanyUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiState
@@ -42,7 +42,7 @@ private const val PARAM_GAME_ID = "game-id"
 
 @HiltViewModel
 @Suppress("LongParameterList")
-internal class GameInfoViewModel @Inject constructor(
+internal class InfoScreenViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     @TransitionAnimationDuration
     transitionAnimationDuration: Long,
@@ -121,13 +121,13 @@ internal class GameInfoViewModel @Inject constructor(
                     dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 }
                 .collect { imageUrls ->
-                    route(GameInfoRoute.ImageViewer(title, initialPosition, imageUrls))
+                    route(InfoScreenRoute.ImageViewer(title, initialPosition, imageUrls))
                 }
         }
     }
 
     fun onBackButtonClicked() {
-        route(GameInfoRoute.Back)
+        route(InfoScreenRoute.Back)
     }
 
     fun onCoverClicked() {
@@ -160,15 +160,15 @@ internal class GameInfoViewModel @Inject constructor(
         openUrl(link.url)
     }
 
-    fun onCompanyClicked(company: GameInfoCompanyUiModel) {
+    fun onCompanyClicked(company: InfoScreenCompanyUiModel) {
         openUrl(company.websiteUrl)
     }
 
     private fun openUrl(url: String) {
-        dispatchCommand(GameInfoCommand.OpenUrl(url))
+        dispatchCommand(InfoScreenCommand.OpenUrl(url))
     }
 
     fun onRelatedGameClicked(game: GameInfoRelatedGameUiModel) {
-        route(GameInfoRoute.Info(gameId = game.id))
+        route(InfoScreenRoute.InfoScreen(id = game.id))
     }
 }

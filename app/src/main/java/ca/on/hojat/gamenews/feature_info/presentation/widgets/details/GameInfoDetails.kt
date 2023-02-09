@@ -11,11 +11,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.theme.subtitle3
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSection
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSection
 
 @Composable
 internal fun GameInfoDetails(details: GameInfoDetailsUiModel) {
-    GameInfoSection(
+    InfoScreenSection(
         title = stringResource(R.string.game_info_details_title),
         titleBottomPadding = GameHubTheme.spaces.spacing_1_0,
     ) { paddingValues ->

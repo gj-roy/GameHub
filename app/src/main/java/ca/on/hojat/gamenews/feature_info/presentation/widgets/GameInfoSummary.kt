@@ -26,7 +26,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSection
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSection
 
 private const val AnimationDuration = 300
 private const val ContentMaxLines = 4
@@ -49,7 +49,7 @@ internal fun GameInfoSummary(summary: String) {
         }
     }
 
-    GameInfoSection(
+    InfoScreenSection(
         title = stringResource(R.string.game_info_summary_title),
         modifier = cardClickableModifier,
     ) { paddingValues ->

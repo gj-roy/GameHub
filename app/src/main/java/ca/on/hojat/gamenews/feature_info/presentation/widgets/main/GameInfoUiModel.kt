@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.main
 
 import androidx.compose.runtime.Immutable
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.GameInfoCompanyUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetailsUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
@@ -18,7 +18,7 @@ internal data class GameInfoUiModel(
     val summary: String?,
     val detailsModel: GameInfoDetailsUiModel?,
     val linkModels: List<GameInfoLinkUiModel>,
-    val companyModels: List<GameInfoCompanyUiModel>,
+    val companyModels: List<InfoScreenCompanyUiModel>,
     val otherCompanyGames: GameInfoRelatedGamesUiModel?,
     val similarGames: GameInfoRelatedGamesUiModel?,
 ) {

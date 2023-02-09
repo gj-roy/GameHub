@@ -22,14 +22,14 @@ import ca.on.hojat.gamenews.common_ui.images.secondaryImage
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
+import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
 
 @Composable
 internal fun GamingNewsItem(
     model: GamingNewsItemUiModel,
     onClick: () -> Unit
 ) {
-    GameNewsCard(
+    GameHubCard(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
     ) {
@@ -68,7 +68,7 @@ private fun Image(
     imageUrl: String,
     modifier: Modifier
 ) {
-    GameNewsCard(
+    GameHubCard(
         modifier = Modifier
             .fillMaxWidth()
             .then(modifier),

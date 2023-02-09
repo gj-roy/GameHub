@@ -9,22 +9,22 @@ import ca.on.hojat.gamenews.core.domain.entities.InvolvedCompany
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GameInfoCompanyUiModelMapper {
-    fun mapToUiModel(company: InvolvedCompany): GameInfoCompanyUiModel
+internal interface InfoScreenCompanyUiModelMapper {
+    fun mapToUiModel(company: InvolvedCompany): InfoScreenCompanyUiModel
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameInfoCompanyUiModelMapperImpl @Inject constructor(
+internal class InfoScreenCompanyUiModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
     private val stringProvider: StringProvider,
-) : GameInfoCompanyUiModelMapper {
+) : InfoScreenCompanyUiModelMapper {
 
     private companion object {
         private const val COMPANY_ROLE_SEPARATOR = ", "
     }
 
-    override fun mapToUiModel(company: InvolvedCompany): GameInfoCompanyUiModel {
-        return GameInfoCompanyUiModel(
+    override fun mapToUiModel(company: InvolvedCompany): InfoScreenCompanyUiModel {
+        return InfoScreenCompanyUiModel(
             id = company.company.id,
             logoUrl = company.createLogoUrl(),
             logoWidth = company.company.logo?.width,
@@ -58,9 +58,9 @@ internal class GameInfoCompanyUiModelMapperImpl @Inject constructor(
     }
 }
 
-internal fun GameInfoCompanyUiModelMapper.mapToUiModels(
+internal fun InfoScreenCompanyUiModelMapper.mapToUiModels(
     companies: List<InvolvedCompany>,
-): List<GameInfoCompanyUiModel> {
+): List<InfoScreenCompanyUiModel> {
     if (companies.isEmpty()) return emptyList()
 
     val comparator = compareByDescending(InvolvedCompany::isDeveloper)

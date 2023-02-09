@@ -35,7 +35,7 @@ import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
 import ca.on.hojat.gamenews.common_ui.NavBarColorHandler
 import ca.on.hojat.gamenews.common_ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
+import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.common_ui.widgets.dialogs.GameNewsDialog
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
@@ -155,7 +155,7 @@ private fun SettingsSection(
     section: SettingsSectionUiModel,
     onSettingClicked: (SettingsSectionItemUiModel) -> Unit,
 ) {
-    GameNewsCard(modifier = Modifier.fillMaxWidth()) {
+    GameHubCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .padding(

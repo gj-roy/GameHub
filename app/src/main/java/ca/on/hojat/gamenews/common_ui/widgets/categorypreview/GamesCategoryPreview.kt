@@ -26,7 +26,7 @@ import androidx.constraintlayout.compose.ConstraintLayoutScope
 import androidx.constraintlayout.compose.Dimension
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.widgets.GameCover
-import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
+import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
@@ -41,7 +41,7 @@ fun GamesCategoryPreview(
     isMoreButtonVisible: Boolean = true,
     onCategoryMoreButtonClicked: (() -> Unit)? = null,
 ) {
-    GameNewsCard(modifier = Modifier.fillMaxWidth()) {
+    GameHubCard(modifier = Modifier.fillMaxWidth()) {
         ConstraintLayout(modifier = Modifier.fillMaxWidth()) {
             val titleRefMargin = GameHubTheme.spaces.spacing_3_5
             val progressBarMarginEnd = GameHubTheme.spaces.spacing_1_5

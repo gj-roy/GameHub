@@ -25,30 +25,31 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
+import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
 import ca.on.hojat.gamenews.common_ui.images.secondaryImage
 import ca.on.hojat.gamenews.core.extensions.centerX
 import ca.on.hojat.gamenews.core.extensions.centerY
 import ca.on.hojat.gamenews.core.extensions.hasTransparentPixels
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSectionWithInnerList
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSectionWithInnerList
 import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import coil.compose.rememberAsyncImagePainter
 import coil.size.Size
 import coil.transform.Transformation
 import kotlin.math.roundToInt
+import android.graphics.Color.WHITE
 
 private val LogoMaxWidth = 268.dp
 private val LogoMaxHeight = 150.dp
 private const val COLOR_ALPHA_MAX = 255
 
 @Composable
-internal fun GameInfoCompanies(
-    companies: List<GameInfoCompanyUiModel>,
-    onCompanyClicked: (GameInfoCompanyUiModel) -> Unit,
+internal fun InfoScreenCompanies(
+    companies: List<InfoScreenCompanyUiModel>,
+    onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
 ) {
-    GameInfoSectionWithInnerList(title = stringResource(R.string.game_info_companies_title)) {
-        items(items = companies, key = GameInfoCompanyUiModel::id) { company ->
+    InfoScreenSectionWithInnerList(title = stringResource(R.string.game_info_companies_title)) {
+        items(items = companies, key = InfoScreenCompanyUiModel::id) { company ->
             Company(
                 company = company,
                 onCompanyClicked = { onCompanyClicked(company) },
@@ -59,7 +60,7 @@ internal fun GameInfoCompanies(
 
 @Composable
 private fun Company(
-    company: GameInfoCompanyUiModel,
+    company: InfoScreenCompanyUiModel,
     onCompanyClicked: () -> Unit,
 ) {
     val logoImageSize = rememberLogoImageSize(company)
@@ -68,7 +69,7 @@ private fun Company(
         height = LogoMaxHeight,
     )
 
-    GameNewsCard(
+    GameHubCard(
         onClick = onCompanyClicked,
         shape = GameHubTheme.shapes.medium,
         backgroundColor = Color.Transparent,
@@ -90,7 +91,7 @@ private fun Company(
 }
 
 @Composable
-private fun rememberLogoImageSize(company: GameInfoCompanyUiModel): IntSize {
+private fun rememberLogoImageSize(company: InfoScreenCompanyUiModel): IntSize {
     val density = LocalDensity.current
 
     return remember(company.logoWidth, company.logoHeight) {
@@ -216,7 +217,7 @@ private class LogoImageTransformation(
     }
 
     private fun Bitmap.calculateFillColor(): Int {
-        if (hasTransparentPixels()) return android.graphics.Color.WHITE
+        if (hasTransparentPixels()) return WHITE
 
         var pixelColor: Int
 
@@ -228,18 +229,18 @@ private class LogoImageTransformation(
             }
         }
 
-        return android.graphics.Color.WHITE
+        return WHITE
     }
 }
 
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GameInfoCompaniesPreview() {
+private fun InfoScreenCompaniesPreview() {
     GameHubTheme {
-        GameInfoCompanies(
+        InfoScreenCompanies(
             companies = listOf(
-                GameInfoCompanyUiModel(
+                InfoScreenCompanyUiModel(
                     id = 1,
                     logoUrl = null,
                     logoWidth = 1400,
@@ -248,7 +249,7 @@ private fun GameInfoCompaniesPreview() {
                     name = "FromSoftware",
                     roles = "Main Developer",
                 ),
-                GameInfoCompanyUiModel(
+                InfoScreenCompanyUiModel(
                     id = 2,
                     logoUrl = null,
                     logoWidth = 500,

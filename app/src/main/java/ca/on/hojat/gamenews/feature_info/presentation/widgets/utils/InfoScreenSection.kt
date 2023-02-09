@@ -12,17 +12,17 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
+import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 
 @Composable
-internal fun GameInfoSection(
+internal fun InfoScreenSection(
     title: String,
     modifier: Modifier = Modifier,
     titleBottomPadding: Dp = GameHubTheme.spaces.spacing_2_5,
     content: @Composable ColumnScope.(PaddingValues) -> Unit,
 ) {
-    GameNewsCard(
+    GameHubCard(
         modifier = Modifier
             .fillMaxWidth()
             .then(modifier),
@@ -49,11 +49,11 @@ internal fun GameInfoSection(
 }
 
 @Composable
-internal fun GameInfoSectionWithInnerList(
+internal fun InfoScreenSectionWithInnerList(
     title: String,
     content: LazyListScope.() -> Unit,
 ) {
-    GameInfoSection(title = title) { paddingValues ->
+    InfoScreenSection(title = title) { paddingValues ->
         LazyRow(
             contentPadding = paddingValues,
             horizontalArrangement = Arrangement.spacedBy(GameHubTheme.spaces.spacing_1_5),

@@ -19,8 +19,8 @@ import ca.on.hojat.gamenews.core.domain.entities.WebsiteCategory
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import com.google.accompanist.flowlayout.FlowRow
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSection
+import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSection
 import java.util.Locale
 
 @Composable
@@ -28,7 +28,7 @@ internal fun GameInfoLinks(
     links: List<GameInfoLinkUiModel>,
     onLinkClicked: (GameInfoLinkUiModel) -> Unit,
 ) {
-    GameInfoSection(title = stringResource(R.string.game_info_links_title)) { paddingValues ->
+    InfoScreenSection(title = stringResource(R.string.game_info_links_title)) { paddingValues ->
         FlowRow(
             modifier = Modifier.padding(paddingValues),
             mainAxisSpacing = GameHubTheme.spaces.spacing_2_0,
@@ -50,7 +50,7 @@ private fun Link(
     onLinkClicked: () -> Unit,
 ) {
     CompositionLocalProvider(LocalMinimumTouchTargetEnforcement provides false) {
-        GameNewsCard(
+        GameHubCard(
             onClick = onLinkClicked,
             shape = GameHubTheme.shapes.small,
             backgroundColor = GameHubTheme.colors.primaryVariant,

@@ -77,7 +77,7 @@ fun GameCover(
     }
 
     if (onCoverClicked != null) {
-        GameNewsCard(
+        GameHubCard(
             onClick = onCoverClicked,
             modifier = cardModifier,
             shape = shape,
@@ -85,7 +85,7 @@ fun GameCover(
             content = content,
         )
     } else {
-        GameNewsCard(
+        GameHubCard(
             modifier = cardModifier,
             shape = shape,
             backgroundColor = backgroundColor,
