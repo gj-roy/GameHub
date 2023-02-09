@@ -12,10 +12,10 @@ internal data class DiscoverScreenUiModel(
 )
 
 internal fun List<DiscoverScreenUiModel>.toSuccessState(
-    games: List<List<DiscoverScreenItemData>>,
+    items: List<List<DiscoverScreenItemData>>,
 ): List<DiscoverScreenUiModel> {
     return mapIndexed { index, itemModel ->
-        itemModel.copy(items = games[index])
+        itemModel.copy(items = items[index])
     }
 }
 

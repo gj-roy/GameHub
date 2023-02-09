@@ -31,7 +31,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.games.Games
 import ca.on.hojat.gamenews.common_ui.widgets.games.GamesUiState
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.SearchToolbar
 import ca.on.hojat.gamenews.common_ui.base.events.Route
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -128,7 +128,7 @@ private fun GamesSearch(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesSearchSuccessStatePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GamesSearch(
             uiState = GamesSearchUiState(
                 queryText = "God of War",
@@ -181,7 +181,7 @@ private fun GamesSearchSuccessStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesSearchEmptyStatePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GamesSearch(
             uiState = GamesSearchUiState(
                 queryText = "God of War",
@@ -206,7 +206,7 @@ private fun GamesSearchEmptyStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamesSearchLoadingStatePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GamesSearch(
             uiState = GamesSearchUiState(
                 queryText = "God of War",

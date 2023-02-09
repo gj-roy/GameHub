@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 
 private val DefaultElevation = 2.dp
 
@@ -20,7 +20,7 @@ private val DefaultElevation = 2.dp
 fun GameNewsCard(
     modifier: Modifier = Modifier,
     shape: Shape = RectangleShape,
-    backgroundColor: Color = GameNewsTheme.colors.surface,
+    backgroundColor: Color = GameHubTheme.colors.surface,
     contentColor: Color = contentColorFor(backgroundColor),
     border: BorderStroke? = null,
     elevation: Dp = DefaultElevation,
@@ -43,7 +43,7 @@ fun GameNewsCard(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     shape: Shape = RectangleShape,
-    backgroundColor: Color = GameNewsTheme.colors.surface,
+    backgroundColor: Color = GameHubTheme.colors.surface,
     contentColor: Color = contentColorFor(backgroundColor),
     border: BorderStroke? = null,
     elevation: Dp = DefaultElevation,

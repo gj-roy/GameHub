@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
@@ -33,28 +33,28 @@ internal fun GamingNewsItem(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
     ) {
-        Column(modifier = Modifier.padding(GameNewsTheme.spaces.spacing_4_0)) {
+        Column(modifier = Modifier.padding(GameHubTheme.spaces.spacing_4_0)) {
             if (model.hasImageUrl) {
                 Image(
                     imageUrl = checkNotNull(model.imageUrl),
                     modifier = Modifier
                         .height(168.dp)
-                        .padding(bottom = GameNewsTheme.spaces.spacing_3_5)
+                        .padding(bottom = GameHubTheme.spaces.spacing_3_5)
                 )
             }
 
             Text(
                 text = model.title,
                 modifier = Modifier.fillMaxWidth(),
-                color = GameNewsTheme.colors.onPrimary,
-                style = GameNewsTheme.typography.subtitle2,
+                color = GameHubTheme.colors.onPrimary,
+                style = GameHubTheme.typography.subtitle2,
             )
             Text(
                 text = model.lede,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = GameNewsTheme.spaces.spacing_1_5),
-                style = GameNewsTheme.typography.body2.copy(
+                    .padding(top = GameHubTheme.spaces.spacing_1_5),
+                style = GameHubTheme.typography.body2.copy(
                     lineHeight = TextUnit.Unspecified,
                 ),
             )
@@ -72,7 +72,7 @@ private fun Image(
         modifier = Modifier
             .fillMaxWidth()
             .then(modifier),
-        shape = GameNewsTheme.shapes.medium,
+        shape = GameHubTheme.shapes.medium,
         backgroundColor = Color.Transparent,
     ) {
         AsyncImage(
@@ -88,17 +88,17 @@ private fun Image(
 @Composable
 private fun Timestamp(publicationDate: String) {
     Row(
-        modifier = Modifier.padding(top = GameNewsTheme.spaces.spacing_2_5),
+        modifier = Modifier.padding(top = GameHubTheme.spaces.spacing_2_5),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
             painter = painterResource(R.drawable.clock_outline_16dp),
             contentDescription = null,
-            modifier = Modifier.padding(end = GameNewsTheme.spaces.spacing_1_0),
+            modifier = Modifier.padding(end = GameHubTheme.spaces.spacing_1_0),
         )
         Text(
             text = publicationDate,
-            style = GameNewsTheme.typography.caption,
+            style = GameHubTheme.typography.caption,
         )
     }
 }
@@ -107,7 +107,7 @@ private fun Timestamp(publicationDate: String) {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamingNewsItemWithImagePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GamingNewsItem(
             model = GamingNewsItemUiModel(
                 id = 1,
@@ -126,7 +126,7 @@ private fun GamingNewsItemWithImagePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamingNewsItemWithoutImagePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GamingNewsItem(
             model = GamingNewsItemUiModel(
                 id = 1,

@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.TextUnit
 import ca.on.hojat.gamenews.common_ui.widgets.DefaultCoverHeight
 import ca.on.hojat.gamenews.common_ui.widgets.GameCover
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import kotlin.math.roundToInt
 
 @Composable
@@ -35,7 +35,7 @@ fun Game(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(GameNewsTheme.spaces.spacing_3_5)
+                .padding(GameHubTheme.spaces.spacing_3_5)
         ) {
             GameCover(
                 title = null,
@@ -64,28 +64,28 @@ private fun Details(
     Column(modifier = modifier) {
         Text(
             text = name,
-            modifier = Modifier.padding(start = GameNewsTheme.spaces.spacing_3_0),
-            color = GameNewsTheme.colors.onPrimary,
+            modifier = Modifier.padding(start = GameHubTheme.spaces.spacing_3_0),
+            color = GameHubTheme.colors.onPrimary,
             overflow = TextOverflow.Ellipsis,
             maxLines = 3,
-            style = GameNewsTheme.typography.subtitle2,
+            style = GameHubTheme.typography.subtitle2,
         )
 
         Text(
             text = releaseDate,
             modifier = Modifier
                 .padding(
-                    top = GameNewsTheme.spaces.spacing_2_5,
-                    start = GameNewsTheme.spaces.spacing_3_0,
+                    top = GameHubTheme.spaces.spacing_2_5,
+                    start = GameHubTheme.spaces.spacing_3_0,
                 ),
-            style = GameNewsTheme.typography.caption,
+            style = GameHubTheme.typography.caption,
         )
 
         if (developerName != null) {
             Text(
                 text = developerName,
-                modifier = Modifier.padding(start = GameNewsTheme.spaces.spacing_3_0),
-                style = GameNewsTheme.typography.caption,
+                modifier = Modifier.padding(start = GameHubTheme.spaces.spacing_3_0),
+                style = GameHubTheme.typography.caption,
             )
         }
 
@@ -104,8 +104,8 @@ private fun DetailsDescription(description: String) {
         modifier = Modifier
             .fillMaxHeight()
             .padding(
-                top = GameNewsTheme.spaces.spacing_2_5,
-                start = GameNewsTheme.spaces.spacing_3_0,
+                top = GameHubTheme.spaces.spacing_2_5,
+                start = GameHubTheme.spaces.spacing_3_0,
             ),
         overflow = TextOverflow.Ellipsis,
         maxLines = maxLines,
@@ -117,7 +117,7 @@ private fun DetailsDescription(description: String) {
                 maxLines = (textHeight / firstLineHeight).roundToInt()
             }
         },
-        style = GameNewsTheme.typography.body2.copy(
+        style = GameHubTheme.typography.body2.copy(
             lineHeight = TextUnit.Unspecified,
         ),
     )
@@ -127,7 +127,7 @@ private fun DetailsDescription(description: String) {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameFullPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         Game(
             game = GameUiModel(
                 id = 1,
@@ -147,7 +147,7 @@ private fun GameFullPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameWithoutDeveloperPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         Game(
             game = GameUiModel(
                 id = 1,
@@ -167,7 +167,7 @@ private fun GameWithoutDeveloperPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameWithoutDescriptionPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         Game(
             game = GameUiModel(
                 id = 1,
@@ -186,7 +186,7 @@ private fun GameWithoutDescriptionPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameMinimalPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         Game(
             game = GameUiModel(
                 id = 1,

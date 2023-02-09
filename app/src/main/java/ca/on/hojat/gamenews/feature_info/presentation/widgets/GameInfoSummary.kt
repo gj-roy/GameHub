@@ -24,7 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSection
 
@@ -78,7 +78,7 @@ internal fun GameInfoSummary(summary: String) {
         ) { isInExpandedState ->
             Text(
                 text = summary,
-                color = GameNewsTheme.colors.onSurface,
+                color = GameHubTheme.colors.onSurface,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = if (isInExpandedState) Int.MAX_VALUE else ContentMaxLines,
                 onTextLayout = { textLayoutResult ->
@@ -88,7 +88,7 @@ internal fun GameInfoSummary(summary: String) {
                         isExpandable = textLayoutResult.didOverflowHeight
                     }
                 },
-                style = GameNewsTheme.typography.body1,
+                style = GameHubTheme.typography.body1,
             )
         }
     }
@@ -98,7 +98,7 @@ internal fun GameInfoSummary(summary: String) {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoSummaryCollapsedPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GameInfoSummary(
             summary = "Elden Ring is an action-RPG open world game with RPG " +
                     "elements such as stats, weapons and spells.",

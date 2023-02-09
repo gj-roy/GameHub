@@ -12,7 +12,7 @@ import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.clickable
 import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import coil.compose.AsyncImage
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -76,7 +76,7 @@ private fun Artwork(
 @Preview(heightDp = 240, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ArtworksPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         Artworks(
             artworks = listOf(
                 GameInfoArtworkUiModel.DefaultImage,

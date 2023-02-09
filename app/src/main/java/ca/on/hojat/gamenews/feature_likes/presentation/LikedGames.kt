@@ -24,7 +24,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.games.Games
 import ca.on.hojat.gamenews.common_ui.widgets.games.GamesUiState
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.common_ui.base.events.Route
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 
 @Composable
 fun LikedGames(
@@ -90,7 +90,7 @@ private fun LikedGames(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun LikedGamesPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         LikedGames(
             uiState = GamesUiState(
                 isLoading = false,

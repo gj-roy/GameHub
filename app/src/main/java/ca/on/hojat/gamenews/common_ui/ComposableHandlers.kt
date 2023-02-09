@@ -10,7 +10,7 @@ import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.common_ui.base.events.Command
 import ca.on.hojat.gamenews.common_ui.base.events.Route
 import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.theme.navBar
 
 @Composable
@@ -45,7 +45,7 @@ fun RoutesHandler(
 @Composable
 fun NavBarColorHandler() {
     val systemUiController = rememberSystemUiController()
-    val navBarColor = GameNewsTheme.colors.navBar
+    val navBarColor = GameHubTheme.colors.navBar
 
     LaunchedEffect(navBarColor) {
         systemUiController.setNavigationBarColor(navBarColor)

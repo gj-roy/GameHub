@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 
 private const val DefaultContentAlpha = 1f
 
-object GameNewsTheme {
+object GameHubTheme {
 
     val colors: Colors
         @Composable
@@ -42,7 +42,7 @@ object GameNewsTheme {
 }
 
 @Composable
-fun GameNewsTheme(
+fun GameHubTheme(
     useDarkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
@@ -53,7 +53,7 @@ fun GameNewsTheme(
                 typography = typography,
                 shapes = shapes,
             ) {
-                CompositionLocalProvider(LocalRippleTheme provides GameNewsRippleTheme) {
+                CompositionLocalProvider(LocalRippleTheme provides GameHubRippleTheme) {
                     CompositionLocalProvider(LocalContentAlpha provides DefaultContentAlpha) {
                         content()
                     }
@@ -64,7 +64,7 @@ fun GameNewsTheme(
 }
 
 @Immutable
-private object GameNewsRippleTheme : RippleTheme {
+private object GameHubRippleTheme : RippleTheme {
 
     @Composable
     override fun defaultColor() = RippleTheme.defaultRippleColor(

@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.theme.darkScrim
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
@@ -64,7 +64,7 @@ private fun Video(
     GameNewsCard(
         onClick = onVideoClicked,
         modifier = modifier,
-        shape = GameNewsTheme.shapes.medium,
+        shape = GameHubTheme.shapes.medium,
         backgroundColor = Color.Transparent,
         contentColor = Color.White,
     ) {
@@ -94,24 +94,24 @@ private fun Video(
                             shape = CircleShape,
                         )
                         .background(
-                            color = GameNewsTheme.colors.darkScrim,
+                            color = GameHubTheme.colors.darkScrim,
                             shape = CircleShape,
                         )
-                        .padding(GameNewsTheme.spaces.spacing_2_0),
+                        .padding(GameHubTheme.spaces.spacing_2_0),
                 )
             }
 
             Surface(
                 modifier = Modifier.fillMaxWidth(),
-                color = GameNewsTheme.colors.primaryVariant,
-                contentColor = GameNewsTheme.colors.onSurface,
+                color = GameHubTheme.colors.primaryVariant,
+                contentColor = GameHubTheme.colors.onSurface,
             ) {
                 Text(
                     text = video.title,
-                    modifier = Modifier.padding(GameNewsTheme.spaces.spacing_2_5),
+                    modifier = Modifier.padding(GameHubTheme.spaces.spacing_2_5),
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
-                    style = GameNewsTheme.typography.caption,
+                    style = GameHubTheme.typography.caption,
                 )
             }
         }
@@ -122,7 +122,7 @@ private fun Video(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoVideosPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GameInfoVideos(
             videos = listOf(
                 GameInfoVideoUiModel(

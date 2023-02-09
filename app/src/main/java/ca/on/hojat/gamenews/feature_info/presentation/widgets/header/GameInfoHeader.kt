@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.theme.lightScrim
 import ca.on.hojat.gamenews.common_ui.theme.subtitle3
 import ca.on.hojat.gamenews.R
@@ -124,12 +124,12 @@ internal fun GameInfoHeader(
                     ),
                     onClick = onBackButtonClicked,
                 )
-                .padding(GameNewsTheme.spaces.spacing_2_5)
+                .padding(GameHubTheme.spaces.spacing_2_5)
                 .background(
-                    color = GameNewsTheme.colors.lightScrim,
+                    color = GameHubTheme.colors.lightScrim,
                     shape = CircleShape,
                 )
-                .padding(GameNewsTheme.spaces.spacing_1_5),
+                .padding(GameHubTheme.spaces.spacing_1_5),
             tint = Color.White,
         )
 
@@ -144,15 +144,15 @@ internal fun GameInfoHeader(
                     .layoutId(ConstraintIdPageIndicator)
                     .statusBarsPadding()
                     .background(
-                        color = GameNewsTheme.colors.lightScrim,
+                        color = GameHubTheme.colors.lightScrim,
                         shape = RoundedCornerShape(20.dp),
                     )
                     .padding(
-                        vertical = GameNewsTheme.spaces.spacing_1_5,
-                        horizontal = GameNewsTheme.spaces.spacing_2_0,
+                        vertical = GameHubTheme.spaces.spacing_1_5,
+                        horizontal = GameHubTheme.spaces.spacing_2_0,
                     ),
                 color = Color.White,
-                style = GameNewsTheme.typography.subtitle3,
+                style = GameHubTheme.typography.subtitle3,
             )
         }
 
@@ -160,12 +160,12 @@ internal fun GameInfoHeader(
             modifier = Modifier
                 .layoutId(ConstraintIdBackdrop)
                 .shadow(
-                    elevation = GameNewsTheme.spaces.spacing_0_5,
+                    elevation = GameHubTheme.spaces.spacing_0_5,
                     shape = RectangleShape,
                     clip = false,
                 )
                 .background(
-                    color = GameNewsTheme.colors.surface,
+                    color = GameHubTheme.colors.surface,
                     shape = RectangleShape,
                 )
                 .clip(RectangleShape),
@@ -187,7 +187,7 @@ internal fun GameInfoHeader(
         FloatingActionButton(
             onClick = onLikeButtonClicked,
             modifier = Modifier.layoutId(ConstraintIdLikeButton),
-            backgroundColor = GameNewsTheme.colors.secondary,
+            backgroundColor = GameHubTheme.colors.secondary,
         ) {
             // Animated selector drawables are not currently supported by the Jetpack Compose.
             // https://issuetracker.google.com/issues/212418566
@@ -202,14 +202,14 @@ internal fun GameInfoHeader(
                 ),
                 contentDescription = null,
                 modifier = Modifier.size(52.dp),
-                tint = GameNewsTheme.colors.onSecondary,
+                tint = GameHubTheme.colors.onSecondary,
             )
         }
 
         Text(
             text = headerInfo.title,
             modifier = Modifier.layoutId(ConstraintIdFirstTitle),
-            color = GameNewsTheme.colors.onPrimary,
+            color = GameHubTheme.colors.onPrimary,
             maxLines = 1,
             onTextLayout = { textLayoutResult ->
                 if (textLayoutResult.hasVisualOverflow) {
@@ -221,7 +221,7 @@ internal fun GameInfoHeader(
                     secondTitleText = headerInfo.title.substring(firstTitleVisibleTextEndIndex)
                 }
             },
-            style = GameNewsTheme.typography.h6,
+            style = GameHubTheme.typography.h6,
         )
 
         Box(modifier = Modifier.layoutId(ConstraintIdSecondTitle)) {
@@ -230,10 +230,10 @@ internal fun GameInfoHeader(
                 // is implemented (includeFontPadding="false" in XML)
                 Text(
                     text = secondTitleText,
-                    color = GameNewsTheme.colors.onPrimary,
+                    color = GameHubTheme.colors.onPrimary,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
-                    style = GameNewsTheme.typography.h6,
+                    style = GameHubTheme.typography.h6,
                 )
             }
         }
@@ -241,16 +241,16 @@ internal fun GameInfoHeader(
         Text(
             text = headerInfo.releaseDate,
             modifier = Modifier.layoutId(ConstraintIdReleaseDate),
-            color = GameNewsTheme.colors.onSurface,
-            style = GameNewsTheme.typography.subtitle3,
+            color = GameHubTheme.colors.onSurface,
+            style = GameHubTheme.typography.subtitle3,
         )
 
         Box(modifier = Modifier.layoutId(ConstraintIdDeveloperName)) {
             if (headerInfo.hasDeveloperName) {
                 Text(
                     text = checkNotNull(headerInfo.developerName),
-                    color = GameNewsTheme.colors.onSurface,
-                    style = GameNewsTheme.typography.subtitle3,
+                    color = GameHubTheme.colors.onSurface,
+                    style = GameHubTheme.typography.subtitle3,
                 )
             }
         }
@@ -260,28 +260,28 @@ internal fun GameInfoHeader(
             title = headerInfo.rating,
             modifier = Modifier.layoutId(ConstraintIdRating),
             iconSize = InfoIconSize,
-            titleTextStyle = GameNewsTheme.typography.caption,
+            titleTextStyle = GameHubTheme.typography.caption,
         )
         Info(
             icon = painterResource(R.drawable.account_heart_outline),
             title = headerInfo.likeCount,
             modifier = Modifier.layoutId(ConstraintIdLikeCount),
             iconSize = InfoIconSize,
-            titleTextStyle = GameNewsTheme.typography.caption,
+            titleTextStyle = GameHubTheme.typography.caption,
         )
         Info(
             icon = painterResource(R.drawable.age_rating_outline),
             title = headerInfo.ageRating,
             modifier = Modifier.layoutId(ConstraintIdAgeRating),
             iconSize = InfoIconSize,
-            titleTextStyle = GameNewsTheme.typography.caption,
+            titleTextStyle = GameHubTheme.typography.caption,
         )
         Info(
             icon = painterResource(R.drawable.shape_outline),
             title = headerInfo.gameCategory,
             modifier = Modifier.layoutId(ConstraintIdGameCategory),
             iconSize = InfoIconSize,
-            titleTextStyle = GameNewsTheme.typography.caption,
+            titleTextStyle = GameHubTheme.typography.caption,
         )
     }
 }
@@ -289,18 +289,18 @@ internal fun GameInfoHeader(
 @Composable
 private fun constructExpandedConstraintSet(): ConstraintSet {
     val artworksHeight = 240.dp
-    val pageIndicatorMargin = GameNewsTheme.spaces.spacing_2_5
+    val pageIndicatorMargin = GameHubTheme.spaces.spacing_2_5
     val coverSpaceMargin = CoverSpace
-    val coverMarginStart = GameNewsTheme.spaces.spacing_3_5
-    val likeBtnMarginEnd = GameNewsTheme.spaces.spacing_2_5
-    val titleMarginStart = GameNewsTheme.spaces.spacing_3_5
-    val firstTitleMarginEnd = GameNewsTheme.spaces.spacing_1_0
-    val secondTitleMarginEnd = GameNewsTheme.spaces.spacing_3_5
-    val releaseDateMarginTop = GameNewsTheme.spaces.spacing_2_5
-    val releaseDateMarginHorizontal = GameNewsTheme.spaces.spacing_3_5
-    val developerNameMarginHorizontal = GameNewsTheme.spaces.spacing_3_5
-    val bottomBarrierMargin = GameNewsTheme.spaces.spacing_5_0
-    val infoItemMarginBottom = GameNewsTheme.spaces.spacing_3_5
+    val coverMarginStart = GameHubTheme.spaces.spacing_3_5
+    val likeBtnMarginEnd = GameHubTheme.spaces.spacing_2_5
+    val titleMarginStart = GameHubTheme.spaces.spacing_3_5
+    val firstTitleMarginEnd = GameHubTheme.spaces.spacing_1_0
+    val secondTitleMarginEnd = GameHubTheme.spaces.spacing_3_5
+    val releaseDateMarginTop = GameHubTheme.spaces.spacing_2_5
+    val releaseDateMarginHorizontal = GameHubTheme.spaces.spacing_3_5
+    val developerNameMarginHorizontal = GameHubTheme.spaces.spacing_3_5
+    val bottomBarrierMargin = GameHubTheme.spaces.spacing_5_0
+    val infoItemMarginBottom = GameHubTheme.spaces.spacing_3_5
 
     return ConstraintSet {
         val artworks = createRefFor(ConstraintIdArtworks)
@@ -416,7 +416,7 @@ private fun constructExpandedConstraintSet(): ConstraintSet {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoHeaderPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GameInfoHeader(
             headerInfo = GameInfoHeaderUiModel(
                 artworks = listOf(GameInfoArtworkUiModel.DefaultImage),

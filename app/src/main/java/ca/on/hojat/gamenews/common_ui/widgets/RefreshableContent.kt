@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 
 @Composable
 fun RefreshableContent(
@@ -24,8 +24,8 @@ fun RefreshableContent(
             SwipeRefreshIndicator(
                 state = state,
                 refreshTriggerDistance = refreshTrigger,
-                contentColor = GameNewsTheme.colors.secondary,
-                refreshingOffset = GameNewsTheme.spaces.spacing_6_0,
+                contentColor = GameHubTheme.colors.secondary,
+                refreshingOffset = GameHubTheme.spaces.spacing_6_0,
             )
         },
         content = content,

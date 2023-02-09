@@ -29,7 +29,7 @@ import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.NavBarColorHandler
 import ca.on.hojat.gamenews.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.common_ui.base.events.Route
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.common_ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
@@ -132,7 +132,7 @@ private fun CategoryPreviewItems(
     onCategoryGameClicked: (DiscoverScreenItemData) -> Unit,
 ) {
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_3_5),
+        verticalArrangement = Arrangement.spacedBy(GameHubTheme.spaces.spacing_3_5),
     ) {
         items(items = items, key = DiscoverScreenUiModel::id) { item ->
             val categoryGames = remember(item.items) {
@@ -174,7 +174,7 @@ private fun GamesDiscoverySuccessStatePreview() {
         )
     }
 
-    GameNewsTheme {
+    GameHubTheme {
         DiscoverScreen(
             items = items,
             onSearchButtonClicked = {},
@@ -199,7 +199,7 @@ private fun GamesDiscoveryEmptyStatePreview() {
         )
     }
 
-    GameNewsTheme {
+    GameHubTheme {
         DiscoverScreen(
             items = items,
             onSearchButtonClicked = {},

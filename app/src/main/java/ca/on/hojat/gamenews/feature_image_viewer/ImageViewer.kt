@@ -32,7 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.common_ui.base.events.Route
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.theme.navBar
 import ca.on.hojat.gamenews.common_ui.theme.statusBar
 import coil.compose.AsyncImage
@@ -120,7 +120,7 @@ private fun ImageViewer(
                 contentPadding = WindowInsets.statusBars
                     .only(WindowInsetsSides.Vertical + WindowInsetsSides.Horizontal)
                     .asPaddingValues(),
-                backgroundColor = GameNewsTheme.colors.statusBar,
+                backgroundColor = GameHubTheme.colors.statusBar,
                 contentColor = LocalContentColor.current,
                 elevation = 0.dp,
                 leftButtonIcon = painterResource(R.drawable.arrow_left),
@@ -135,8 +135,8 @@ private fun ImageViewer(
 @Composable
 private fun SystemBarsColorHandler() {
     val systemUiController = rememberSystemUiController()
-    val defaultStatusBarColor = GameNewsTheme.colors.statusBar
-    val defaultNavigationBarColor = GameNewsTheme.colors.navBar
+    val defaultStatusBarColor = GameHubTheme.colors.statusBar
+    val defaultNavigationBarColor = GameHubTheme.colors.navBar
 
     DisposableEffect(defaultStatusBarColor, defaultNavigationBarColor) {
         // We want to make the system bars translucent when viewing images
@@ -176,7 +176,7 @@ private fun Pager(
         count = uiState.imageUrls.size,
         modifier = modifier,
         state = pagerState,
-        itemSpacing = GameNewsTheme.spaces.spacing_2_0,
+        itemSpacing = GameHubTheme.spaces.spacing_2_0,
     ) { pageIndex ->
         ImageItem(
             imageUrl = uiState.imageUrls[pageIndex],
@@ -213,7 +213,7 @@ private fun ImageItem(
                 ),
                 modifier = Modifier
                     .align(Alignment.Center)
-                    .padding(horizontal = GameNewsTheme.spaces.spacing_7_5),
+                    .padding(horizontal = GameHubTheme.spaces.spacing_7_5),
             )
         }
 
@@ -255,7 +255,7 @@ private fun ImageItem(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ImageViewerPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         ImageViewer(
             uiState = ImageViewerUiState(
                 toolbarTitle = "Image",

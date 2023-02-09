@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
@@ -47,7 +47,7 @@ private fun Screenshot(
     GameNewsCard(
         onClick = onScreenshotClicked,
         modifier = modifier,
-        shape = GameNewsTheme.shapes.medium,
+        shape = GameHubTheme.shapes.medium,
         backgroundColor = Color.Transparent,
     ) {
         AsyncImage(
@@ -65,7 +65,7 @@ private fun Screenshot(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoScreenshotsPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GameInfoScreenshots(
             screenshots = listOf(
                 GameInfoScreenshotUiModel(

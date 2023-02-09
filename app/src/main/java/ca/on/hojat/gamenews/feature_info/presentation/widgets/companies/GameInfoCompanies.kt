@@ -32,7 +32,7 @@ import ca.on.hojat.gamenews.core.extensions.centerY
 import ca.on.hojat.gamenews.core.extensions.hasTransparentPixels
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.GameInfoSectionWithInnerList
 import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import coil.compose.rememberAsyncImagePainter
 import coil.size.Size
 import coil.transform.Transformation
@@ -70,7 +70,7 @@ private fun Company(
 
     GameNewsCard(
         onClick = onCompanyClicked,
-        shape = GameNewsTheme.shapes.medium,
+        shape = GameHubTheme.shapes.medium,
         backgroundColor = Color.Transparent,
     ) {
         Column {
@@ -158,21 +158,21 @@ private fun CompanyDetails(
 ) {
     Surface(
         modifier = Modifier.width(containerWidth),
-        color = GameNewsTheme.colors.primaryVariant,
-        contentColor = GameNewsTheme.colors.onSurface,
+        color = GameHubTheme.colors.primaryVariant,
+        contentColor = GameHubTheme.colors.onSurface,
     ) {
-        Column(modifier = Modifier.padding(GameNewsTheme.spaces.spacing_2_5)) {
+        Column(modifier = Modifier.padding(GameHubTheme.spaces.spacing_2_5)) {
             Text(
                 text = name,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = GameNewsTheme.typography.caption,
+                style = GameHubTheme.typography.caption,
             )
             Text(
                 text = roles,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = GameNewsTheme.typography.caption,
+                style = GameHubTheme.typography.caption,
             )
         }
     }
@@ -236,7 +236,7 @@ private class LogoImageTransformation(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoCompaniesPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GameInfoCompanies(
             companies = listOf(
                 GameInfoCompanyUiModel(

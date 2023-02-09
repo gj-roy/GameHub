@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.core.domain.entities.WebsiteCategory
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import com.google.accompanist.flowlayout.FlowRow
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsCard
@@ -31,8 +31,8 @@ internal fun GameInfoLinks(
     GameInfoSection(title = stringResource(R.string.game_info_links_title)) { paddingValues ->
         FlowRow(
             modifier = Modifier.padding(paddingValues),
-            mainAxisSpacing = GameNewsTheme.spaces.spacing_2_0,
-            crossAxisSpacing = GameNewsTheme.spaces.spacing_3_0,
+            mainAxisSpacing = GameHubTheme.spaces.spacing_2_0,
+            crossAxisSpacing = GameHubTheme.spaces.spacing_3_0,
         ) {
             for (link in links) {
                 Link(
@@ -52,16 +52,16 @@ private fun Link(
     CompositionLocalProvider(LocalMinimumTouchTargetEnforcement provides false) {
         GameNewsCard(
             onClick = onLinkClicked,
-            shape = GameNewsTheme.shapes.small,
-            backgroundColor = GameNewsTheme.colors.primaryVariant,
-            contentColor = GameNewsTheme.colors.onSurface,
+            shape = GameHubTheme.shapes.small,
+            backgroundColor = GameHubTheme.colors.primaryVariant,
+            contentColor = GameHubTheme.colors.onSurface,
         ) {
             Row(
                 modifier = Modifier
-                    .padding(vertical = GameNewsTheme.spaces.spacing_1_5)
+                    .padding(vertical = GameHubTheme.spaces.spacing_1_5)
                     .padding(
-                        start = GameNewsTheme.spaces.spacing_2_5,
-                        end = GameNewsTheme.spaces.spacing_3_0,
+                        start = GameHubTheme.spaces.spacing_2_5,
+                        end = GameHubTheme.spaces.spacing_3_0,
                     ),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -72,8 +72,8 @@ private fun Link(
                 )
                 Text(
                     text = link.text,
-                    modifier = Modifier.padding(start = GameNewsTheme.spaces.spacing_1_5),
-                    style = GameNewsTheme.typography.button,
+                    modifier = Modifier.padding(start = GameHubTheme.spaces.spacing_1_5),
+                    style = GameHubTheme.typography.button,
                 )
             }
         }
@@ -100,7 +100,7 @@ private fun GameInfoLinksPreview() {
             )
         }
 
-    GameNewsTheme {
+    GameHubTheme {
         GameInfoLinks(
             links = links,
             onLinkClicked = {},

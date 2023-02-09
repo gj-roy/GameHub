@@ -22,7 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.common_ui.base.events.Route
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
@@ -160,7 +160,7 @@ private fun EmptyState(modifier: Modifier) {
     Info(
         icon = painterResource(R.drawable.gamepad_variant_outline),
         title = stringResource(R.string.game_info_info_view_title),
-        modifier = modifier.padding(horizontal = GameNewsTheme.spaces.spacing_7_5),
+        modifier = modifier.padding(horizontal = GameHubTheme.spaces.spacing_7_5),
     )
 }
 
@@ -211,7 +211,7 @@ private fun Content(
 ) {
     LazyColumn(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_3_5),
+        verticalArrangement = Arrangement.spacedBy(GameHubTheme.spaces.spacing_3_5),
     ) {
         headerItem(
             model = gameInfo.headerModel,
@@ -372,7 +372,7 @@ private fun LazyListScope.relatedGamesItem(
             onCategoryGameClicked = {
                 onGameClicked(it.mapToInfoRelatedGameUiModel())
             },
-            topBarMargin = GameNewsTheme.spaces.spacing_2_5,
+            topBarMargin = GameHubTheme.spaces.spacing_2_5,
             isMoreButtonVisible = false,
         )
     }
@@ -414,7 +414,7 @@ private enum class GameInfoItem(
 @Preview(heightDp = 2000, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoSuccessStateWithMaxUiElementsPreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GameInfo(
             uiState = GameInfoUiState(
                 isLoading = false,
@@ -454,7 +454,7 @@ private fun GameInfoSuccessStateWithMinUiElementsPreview() {
         similarGames = null,
     )
 
-    GameNewsTheme {
+    GameHubTheme {
         GameInfo(
             uiState = GameInfoUiState(
                 isLoading = false,
@@ -477,7 +477,7 @@ private fun GameInfoSuccessStateWithMinUiElementsPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoEmptyStatePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GameInfo(
             uiState = GameInfoUiState(
                 isLoading = false,
@@ -500,7 +500,7 @@ private fun GameInfoEmptyStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GameInfoLoadingStatePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GameInfo(
             uiState = GameInfoUiState(
                 isLoading = true,

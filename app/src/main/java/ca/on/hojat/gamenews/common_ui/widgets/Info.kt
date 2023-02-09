@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 
 @Composable
 fun Info(
@@ -27,9 +27,9 @@ fun Info(
     title: String,
     modifier: Modifier = Modifier,
     iconSize: Dp = 100.dp,
-    iconColor: Color = GameNewsTheme.colors.onBackground,
-    titleTextColor: Color = GameNewsTheme.colors.onBackground,
-    titleTextStyle: TextStyle = GameNewsTheme.typography.subtitle1,
+    iconColor: Color = GameHubTheme.colors.onBackground,
+    titleTextColor: Color = GameHubTheme.colors.onBackground,
+    titleTextStyle: TextStyle = GameHubTheme.typography.subtitle1,
 ) {
     Column(
         modifier = modifier,
@@ -41,7 +41,7 @@ fun Info(
             contentDescription = null,
             tint = iconColor,
         )
-        Spacer(Modifier.height(GameNewsTheme.spaces.spacing_1_0))
+        Spacer(Modifier.height(GameHubTheme.spaces.spacing_1_0))
         Text(
             text = title,
             color = titleTextColor,
@@ -64,7 +64,7 @@ fun Info(
 )
 @Composable
 private fun InfoWithSingleLineTitlePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         Info(
             icon = painterResource(R.drawable.heart),
             title = "Lorem ipsum dolor sit amet",
@@ -85,7 +85,7 @@ private fun InfoWithSingleLineTitlePreview() {
 )
 @Composable
 private fun InfoWithMultiLineTitlePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         Info(
             icon = painterResource(R.drawable.heart),
             title = "Lorem ipsum dolor sit amet\nLorem ipsum dolor sit amet",

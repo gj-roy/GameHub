@@ -7,13 +7,16 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 
 private const val GRID_SPAN_COUNT = 3
 private const val ITEM_HEIGHT_TO_WIDTH_RATIO = 1.366f
 
+/**
+ * The config for Grid of items in [CategoryScreen]
+ */
 @Immutable
-internal data class GamesGridConfig(
+internal data class GridConfig(
     val spanCount: Int,
     val itemSpacingInPx: Float,
     val itemWidthInDp: Dp,
@@ -21,10 +24,10 @@ internal data class GamesGridConfig(
 )
 
 @Composable
-internal fun rememberGamesGridConfig(): GamesGridConfig {
+internal fun rememberGridConfig(): GridConfig {
     val density = LocalDensity.current
     val configuration = LocalConfiguration.current
-    val gridItemSpacingInDp = GameNewsTheme.spaces.spacing_0_5
+    val gridItemSpacingInDp = GameHubTheme.spaces.spacing_0_5
 
     return remember(density, configuration) {
         val gridItemSpacingInPx = with(density) { gridItemSpacingInDp.toPx() }
@@ -38,7 +41,7 @@ internal fun rememberGamesGridConfig(): GamesGridConfig {
         val itemHeight = (itemWidth * ITEM_HEIGHT_TO_WIDTH_RATIO)
         val itemHeightInDp = with(density) { itemHeight.toDp() }
 
-        GamesGridConfig(
+        GridConfig(
             spanCount = GRID_SPAN_COUNT,
             itemSpacingInPx = gridItemSpacingInPx,
             itemWidthInDp = itemWidthInDp,

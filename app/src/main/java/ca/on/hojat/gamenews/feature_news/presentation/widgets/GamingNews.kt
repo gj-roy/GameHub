@@ -33,7 +33,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.core.extensions.showShortToast
 import ca.on.hojat.gamenews.feature_news.presentation.GamingNewsCommand
 import ca.on.hojat.gamenews.feature_news.presentation.GamingNewsViewModel
@@ -137,7 +137,7 @@ private fun EmptyState(modifier: Modifier) {
             icon = painterResource(R.drawable.newspaper_variant_outline),
             title = stringResource(R.string.gaming_news_info_view_title),
             modifier = Modifier.padding(
-                horizontal = GameNewsTheme.spaces.spacing_7_5,
+                horizontal = GameHubTheme.spaces.spacing_7_5,
             ),
         )
     }
@@ -149,7 +149,7 @@ private fun SuccessState(
     onNewsItemClicked: (GamingNewsItemUiModel) -> Unit,
 ) {
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_3_5),
+        verticalArrangement = Arrangement.spacedBy(GameHubTheme.spaces.spacing_3_5),
     ) {
         items(items = news, key = GamingNewsItemUiModel::id) { itemModel ->
             GamingNewsItem(
@@ -194,7 +194,7 @@ private fun GamingNewsSuccessStatePreview() {
         ),
     )
 
-    GameNewsTheme {
+    GameHubTheme {
         GamingNews(
             uiState = GamingNewsUiState(
                 news = news,
@@ -209,7 +209,7 @@ private fun GamingNewsSuccessStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamingNewsEmptyStatePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GamingNews(
             uiState = GamingNewsUiState(),
             onNewsItemClicked = {},
@@ -222,7 +222,7 @@ private fun GamingNewsEmptyStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GamingNewsLoadingStatePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         GamingNews(
             uiState = GamingNewsUiState(isLoading = true),
             onNewsItemClicked = {},

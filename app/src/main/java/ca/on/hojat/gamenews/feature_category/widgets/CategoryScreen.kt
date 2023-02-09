@@ -24,7 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.NavBarColorHandler
@@ -117,7 +117,7 @@ private fun EmptyState(modifier: Modifier) {
     Info(
         icon = painterResource(R.drawable.gamepad_variant_outline),
         title = stringResource(R.string.games_category_info_view_title),
-        modifier = modifier.padding(horizontal = GameNewsTheme.spaces.spacing_7_5),
+        modifier = modifier.padding(horizontal = GameHubTheme.spaces.spacing_7_5),
     )
 }
 
@@ -147,7 +147,7 @@ private fun VerticalGrid(
     onGameClicked: (CategoryUiModel) -> Unit,
     onBottomReached: () -> Unit,
 ) {
-    val gridConfig = rememberGamesGridConfig()
+    val gridConfig = rememberGridConfig()
     val gridItemSpacingInPx = gridConfig.itemSpacingInPx
     val gridSpanCount = gridConfig.spanCount
     val lastIndex = games.lastIndex
@@ -202,7 +202,7 @@ private fun CategorySuccessStatePreview() {
         }
     }
 
-    GameNewsTheme {
+    GameHubTheme {
         CategoryScreen(
             uiState = GamesCategoryUiState(
                 isLoading = false,
@@ -220,7 +220,7 @@ private fun CategorySuccessStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun CategoryEmptyStatePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         CategoryScreen(
             uiState = GamesCategoryUiState(
                 isLoading = false,
@@ -238,7 +238,7 @@ private fun CategoryEmptyStatePreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun CategoryLoadingStatePreview() {
-    GameNewsTheme {
+    GameHubTheme {
         CategoryScreen(
             uiState = GamesCategoryUiState(
                 isLoading = true,

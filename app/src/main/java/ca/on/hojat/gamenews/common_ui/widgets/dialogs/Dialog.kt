@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import ca.on.hojat.gamenews.common_ui.theme.GameNewsTheme
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 
 @Composable
 fun GameNewsDialog(
@@ -23,10 +23,10 @@ fun GameNewsDialog(
     ) {
         Surface(
             modifier = Modifier.fillMaxWidth(),
-            shape = GameNewsTheme.shapes.medium,
+            shape = GameHubTheme.shapes.medium,
         ) {
             Column(
-                modifier = Modifier.padding(vertical = GameNewsTheme.spaces.spacing_4_5),
+                modifier = Modifier.padding(vertical = GameHubTheme.spaces.spacing_4_5),
                 content = content,
             )
         }
