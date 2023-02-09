@@ -42,12 +42,12 @@ import javax.inject.Inject
 private const val PARAM_GAMES_CATEGORY = "category"
 
 @HiltViewModel
-internal class GamesCategoryViewModel @Inject constructor(
+internal class CategoryViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     stringProvider: StringProvider,
     @TransitionAnimationDuration
     transitionAnimationDuration: Long,
-    private val useCases: GamesCategoryUseCases,
+    private val useCases: CategoryUseCases,
     private val uiModelMapper: GameCategoryUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val errorMapper: ErrorMapper
@@ -97,7 +97,7 @@ internal class GamesCategoryViewModel @Inject constructor(
     private fun observeGames(resultEmissionDelay: Long = 0L) {
         if (isObservingGames) return
 
-        gamesObservingJob = useCases.getObservableUseCase(gamesCategoryKeyType)
+        gamesObservingJob = useCases.getObservableGamesUseCase(gamesCategoryKeyType)
             .execute(observeGamesUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
             .flowOn(dispatcherProvider.computation)
@@ -135,7 +135,7 @@ internal class GamesCategoryViewModel @Inject constructor(
     private fun refreshGames(resultEmissionDelay: Long = 0L) {
         if (isRefreshingGames) return
 
-        gamesRefreshingJob = useCases.getRefreshableUseCase(gamesCategoryKeyType)
+        gamesRefreshingJob = useCases.getRefreshableGamesUseCase(gamesCategoryKeyType)
             .execute(refreshGamesUseCaseParams)
             .resultOrError()
             .map { currentUiState }
@@ -161,11 +161,11 @@ internal class GamesCategoryViewModel @Inject constructor(
     }
 
     fun onToolbarLeftButtonClicked() {
-        route(GamesCategoryRoute.Back)
+        route(CategoryScreenRoute.Back)
     }
 
     fun onGameClicked(game: GameCategoryUiModel) {
-        route(GamesCategoryRoute.Info(game.id))
+        route(CategoryScreenRoute.Info(game.id))
     }
 
     fun onBottomReached() {

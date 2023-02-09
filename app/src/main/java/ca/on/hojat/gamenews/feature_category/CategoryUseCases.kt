@@ -6,16 +6,16 @@ import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey.Type
 import javax.inject.Inject
 import javax.inject.Provider
 
-internal class GamesCategoryUseCases @Inject constructor(
+internal class CategoryUseCases @Inject constructor(
     private val observeGamesUseCasesMap: Map<Type, @JvmSuppressWildcards Provider<ObservableGamesUseCase>>,
     private val refreshGamesUseCasesMap: Map<Type, @JvmSuppressWildcards Provider<RefreshableGamesUseCase>>
 ) {
 
-    fun getObservableUseCase(keyType: Type): ObservableGamesUseCase {
+    fun getObservableGamesUseCase(keyType: Type): ObservableGamesUseCase {
         return observeGamesUseCasesMap.getValue(keyType).get()
     }
 
-    fun getRefreshableUseCase(keyType: Type): RefreshableGamesUseCase {
+    fun getRefreshableGamesUseCase(keyType: Type): RefreshableGamesUseCase {
         return refreshGamesUseCasesMap.getValue(keyType).get()
     }
 }

@@ -39,7 +39,7 @@ internal class CategoryViewModelTest {
 
     private val logger = FakeLogger()
     private val sut by lazy {
-        GamesCategoryViewModel(
+        CategoryViewModel(
             savedStateHandle = setupSavedStateHandle(),
             stringProvider = FakeStringProvider(),
             transitionAnimationDuration = 0L,
@@ -56,8 +56,8 @@ internal class CategoryViewModelTest {
         }
     }
 
-    private fun setupUseCases(): GamesCategoryUseCases {
-        return GamesCategoryUseCases(
+    private fun setupUseCases(): CategoryUseCases {
+        return CategoryUseCases(
             observeGamesUseCasesMap = mapOf(
                 GamesCategoryKey.Type.POPULAR to Provider { observePopularGamesUseCase },
                 GamesCategoryKey.Type.RECENTLY_RELEASED to Provider(::mockk),
@@ -154,7 +154,7 @@ internal class CategoryViewModelTest {
             sut.routeFlow.test {
                 sut.onToolbarLeftButtonClicked()
 
-                assertThat(awaitItem()).isInstanceOf(GamesCategoryRoute.Back::class.java)
+                assertThat(awaitItem()).isInstanceOf(CategoryScreenRoute.Back::class.java)
             }
         }
     }
@@ -173,8 +173,8 @@ internal class CategoryViewModelTest {
 
                 val route = awaitItem()
 
-                assertThat(route).isInstanceOf(GamesCategoryRoute.Info::class.java)
-                assertThat((route as GamesCategoryRoute.Info).gameId).isEqualTo(game.id)
+                assertThat(route).isInstanceOf(CategoryScreenRoute.Info::class.java)
+                assertThat((route as CategoryScreenRoute.Info).gameId).isEqualTo(game.id)
             }
         }
     }

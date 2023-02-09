@@ -37,7 +37,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.common_ui.base.events.Route
-import ca.on.hojat.gamenews.feature_category.GamesCategoryViewModel
+import ca.on.hojat.gamenews.feature_category.CategoryViewModel
 
 @Composable
 fun GamesCategory(onRoute: (Route) -> Unit) {
@@ -49,7 +49,7 @@ fun GamesCategory(onRoute: (Route) -> Unit) {
 
 @Composable
 private fun GamesCategory(
-    viewModel: GamesCategoryViewModel,
+    viewModel: CategoryViewModel,
     onRoute: (Route) -> Unit,
 ) {
     NavBarColorHandler()

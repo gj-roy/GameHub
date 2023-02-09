@@ -95,7 +95,7 @@ internal class DiscoverViewModel @Inject constructor(
     }
 
     private fun observeGames(category: DiscoverType): Flow<List<DiscoverScreenItemData>> {
-        return useCases.getObservableUseCase(category.toKeyType())
+        return useCases.getObservableGamesUseCase(category.toKeyType())
             .execute(observeGamesUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
             .flowOn(dispatcherProvider.computation)
@@ -126,7 +126,7 @@ internal class DiscoverViewModel @Inject constructor(
     }
 
     private fun refreshGames(category: DiscoverType): Flow<List<Game>> {
-        return useCases.getRefreshableUseCase(category.toKeyType())
+        return useCases.getRefreshableGamesUseCase(category.toKeyType())
             .execute(refreshGamesUseCaseParams)
             .resultOrError()
     }

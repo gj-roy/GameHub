@@ -12,7 +12,7 @@ import ca.on.hojat.gamenews.common_ui.HorizontalSliding
 import ca.on.hojat.gamenews.common_ui.OvershootScaling
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
-import ca.on.hojat.gamenews.feature_category.GamesCategoryRoute
+import ca.on.hojat.gamenews.feature_category.CategoryScreenRoute
 import ca.on.hojat.gamenews.feature_category.widgets.GamesCategory
 import ca.on.hojat.gamenews.feature_discovery.DiscoverScreenRoute
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreen
@@ -226,10 +226,10 @@ private fun NavGraphBuilder.gamesCategoryScreen(navController: NavHostController
     ) {
         GamesCategory { route ->
             when (route) {
-                is GamesCategoryRoute.Info -> {
+                is CategoryScreenRoute.Info -> {
                     navController.navigate(Destination.InfoPage.createLink(route.gameId))
                 }
-                is GamesCategoryRoute.Back -> {
+                is CategoryScreenRoute.Back -> {
                     navController.popBackStack()
                 }
             }
