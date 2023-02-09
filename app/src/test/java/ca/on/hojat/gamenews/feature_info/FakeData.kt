@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
 import ca.on.hojat.gamenews.feature_info.domain.usecases.game.RefreshSimilarGamesUseCase
-import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
+import ca.on.hojat.gamenews.feature_info.domain.entities.InfoScreenData
 import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetCompanyDevelopedGamesUseCase
 import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameUseCase
 import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetSimilarGamesUseCase
@@ -22,7 +22,7 @@ private val COMPANY = Company(
     developedGames = listOf(1, 2, 3),
 )
 
-val GAME_INFO = GameInfo(
+val GAME_INFO = InfoScreenData(
     game = DOMAIN_GAME,
     isGameLiked = true,
     companyGames = DOMAIN_GAMES,

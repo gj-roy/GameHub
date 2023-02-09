@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.feature_info.GAME_INFO
-import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
+import ca.on.hojat.gamenews.feature_info.domain.entities.InfoScreenData
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
@@ -51,8 +51,8 @@ internal class InfoScreenViewModelTest {
         )
     }
 
-    private fun setupUseCases(): GameInfoUseCases {
-        return GameInfoUseCases(
+    private fun setupUseCases(): InfoScreenUseCases {
+        return InfoScreenUseCases(
             getGameInfoUseCase = mockk(relaxed = true),
             getGameImageUrlsUseCase = mockk(relaxed = true),
             toggleLikeStateUseCase = mockk(relaxed = true),
@@ -303,7 +303,7 @@ internal class InfoScreenViewModelTest {
 
     private class FakeGameInfoUiModelMapper : GameInfoUiModelMapper {
 
-        override fun mapToUiModel(gameInfo: GameInfo): GameInfoUiModel {
+        override fun mapToUiModel(infoScreenData: InfoScreenData): GameInfoUiModel {
             return GameInfoUiModel(
                 id = 1,
                 headerModel = GameInfoHeaderUiModel(

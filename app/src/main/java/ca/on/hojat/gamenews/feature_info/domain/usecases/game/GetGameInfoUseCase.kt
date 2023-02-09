@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
-import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
+import ca.on.hojat.gamenews.feature_info.domain.entities.InfoScreenData
 import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveLikeStateUseCase
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
-internal interface GetGameInfoUseCase : UseCase<GetGameInfoUseCase.Params, Flow<GameInfo>> {
+internal interface GetGameInfoUseCase : UseCase<GetGameInfoUseCase.Params, Flow<InfoScreenData>> {
 
     data class Params(val gameId: Int)
 }
@@ -37,7 +37,7 @@ internal class GetGameInfoUseCaseImpl @Inject constructor(
         private val RELATED_GAMES_PAGINATION = Pagination()
     }
 
-    override suspend fun execute(params: GetGameInfoUseCase.Params): Flow<GameInfo> {
+    override suspend fun execute(params: GetGameInfoUseCase.Params): Flow<InfoScreenData> {
         return getGameUseCase.execute(GetGameUseCase.Params(params.gameId))
             .resultOrError()
             .flatMapConcat { game ->
@@ -49,7 +49,7 @@ internal class GetGameInfoUseCaseImpl @Inject constructor(
                 )
             }
             .map { (game, isGameLiked, companyGames, similarGames) ->
-                GameInfo(
+                InfoScreenData(
                     game = game,
                     isGameLiked = isGameLiked,
                     companyGames = companyGames,

@@ -46,7 +46,7 @@ internal class InfoScreenViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     @TransitionAnimationDuration
     transitionAnimationDuration: Long,
-    private val useCases: GameInfoUseCases,
+    private val useCases: InfoScreenUseCases,
     private val uiModelMapper: GameInfoUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val stringProvider: StringProvider,
