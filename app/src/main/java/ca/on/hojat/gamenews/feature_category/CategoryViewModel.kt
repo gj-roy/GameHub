@@ -13,13 +13,9 @@ import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
+import ca.on.hojat.gamenews.feature_category.widgets.CategoryItemModelMapper
 import ca.on.hojat.gamenews.feature_category.widgets.GameCategoryUiModel
 import ca.on.hojat.gamenews.feature_category.widgets.GamesCategoryUiState
-import ca.on.hojat.gamenews.feature_category.widgets.CategoryItemModelMapper
-import ca.on.hojat.gamenews.feature_category.widgets.disableLoading
-import ca.on.hojat.gamenews.feature_category.widgets.enableLoading
-import ca.on.hojat.gamenews.feature_category.widgets.toEmptyState
-import ca.on.hojat.gamenews.feature_category.widgets.toSuccessState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin

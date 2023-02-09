@@ -8,7 +8,45 @@ internal data class GamesCategoryUiState(
     val isLoading: Boolean,
     val title: String,
     val games: List<GameCategoryUiModel>,
-)
+) {
+    internal val finiteUiState: FiniteUiState
+        get() = when {
+            isInEmptyState -> FiniteUiState.Empty
+            isInLoadingState -> FiniteUiState.Loading
+            isInSuccessState -> FiniteUiState.Success
+            else -> error("Unknown games category UI state.")
+        }
+
+    private val isInEmptyState: Boolean
+        get() = (!isLoading && games.isEmpty())
+
+    private val isInLoadingState: Boolean
+        get() = (isLoading && games.isEmpty())
+
+    private val isInSuccessState: Boolean
+        get() = games.isNotEmpty()
+
+    internal val isRefreshing: Boolean
+        get() = (isLoading && games.isNotEmpty())
+
+    internal fun enableLoading(): GamesCategoryUiState {
+        return copy(isLoading = true)
+    }
+
+    internal fun disableLoading(): GamesCategoryUiState {
+        return copy(isLoading = false)
+    }
+
+    internal fun toEmptyState(): GamesCategoryUiState {
+        return copy(isLoading = false, games = emptyList())
+    }
+
+    internal fun toSuccessState(
+        games: List<GameCategoryUiModel>
+    ): GamesCategoryUiState {
+        return copy(isLoading = false, games = games)
+    }
+}
 
 @Immutable
 internal data class GameCategoryUiModel(
@@ -16,41 +54,3 @@ internal data class GameCategoryUiModel(
     val title: String,
     val coverUrl: String?,
 )
-
-internal val GamesCategoryUiState.finiteUiState: FiniteUiState
-    get() = when {
-        isInEmptyState -> FiniteUiState.Empty
-        isInLoadingState -> FiniteUiState.Loading
-        isInSuccessState -> FiniteUiState.Success
-        else -> error("Unknown games category UI state.")
-    }
-
-private val GamesCategoryUiState.isInEmptyState: Boolean
-    get() = (!isLoading && games.isEmpty())
-
-private val GamesCategoryUiState.isInLoadingState: Boolean
-    get() = (isLoading && games.isEmpty())
-
-private val GamesCategoryUiState.isInSuccessState: Boolean
-    get() = games.isNotEmpty()
-
-internal val GamesCategoryUiState.isRefreshing: Boolean
-    get() = (isLoading && games.isNotEmpty())
-
-internal fun GamesCategoryUiState.enableLoading(): GamesCategoryUiState {
-    return copy(isLoading = true)
-}
-
-internal fun GamesCategoryUiState.disableLoading(): GamesCategoryUiState {
-    return copy(isLoading = false)
-}
-
-internal fun GamesCategoryUiState.toEmptyState(): GamesCategoryUiState {
-    return copy(isLoading = false, games = emptyList())
-}
-
-internal fun GamesCategoryUiState.toSuccessState(
-    games: List<GameCategoryUiModel>
-): GamesCategoryUiState {
-    return copy(isLoading = false, games = games)
-}
