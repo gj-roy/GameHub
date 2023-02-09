@@ -34,7 +34,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.common_ui.widgets.categorypreview.GamesCategoryPreview
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.feature_discovery.DiscoverCategoryType
-import ca.on.hojat.gamenews.feature_discovery.GamesDiscoveryViewModel
+import ca.on.hojat.gamenews.feature_discovery.DiscoverViewModel
 import ca.on.hojat.gamenews.feature_discovery.titleId
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -60,7 +60,7 @@ fun DiscoverScreen(
 
 @Composable
 private fun DiscoverScreen(
-    viewModel: GamesDiscoveryViewModel,
+    viewModel: DiscoverViewModel,
     modifier: Modifier,
     onRoute: (Route) -> Unit,
 ) {

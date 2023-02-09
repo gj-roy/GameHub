@@ -5,7 +5,8 @@ import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
-import ca.on.hojat.gamenews.feature_discovery.mapping.GamesDiscoveryItemGameUiModelMapper
+import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreen
+import ca.on.hojat.gamenews.feature_discovery.mapping.DiscoverItemModelMapper
 import ca.on.hojat.gamenews.feature_discovery.mapping.mapToUiModels
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemUiModel
@@ -34,10 +35,13 @@ import kotlinx.coroutines.flow.update
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ * The only View Model that controls [DiscoverScreen].
+ */
 @HiltViewModel
-internal class GamesDiscoveryViewModel @Inject constructor(
+internal class  DiscoverViewModel @Inject constructor(
     private val useCases: DiscoverUseCases,
-    private val uiModelMapper: GamesDiscoveryItemGameUiModelMapper,
+    private val uiModelMapper: DiscoverItemModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val stringProvider: StringProvider,
     private val errorMapper: ErrorMapper

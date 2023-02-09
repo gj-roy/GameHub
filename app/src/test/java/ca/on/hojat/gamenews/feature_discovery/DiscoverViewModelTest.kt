@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_discovery
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_discovery.di.DiscoverKey
-import ca.on.hojat.gamenews.feature_discovery.mapping.GamesDiscoveryItemGameUiModelMapper
+import ca.on.hojat.gamenews.feature_discovery.mapping.DiscoverItemModelMapper
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
@@ -23,7 +23,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 
-internal class GamesDiscoveryViewModelTest {
+internal class DiscoverViewModelTest {
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule(StandardTestDispatcher())
@@ -32,9 +32,9 @@ internal class GamesDiscoveryViewModelTest {
     private val refreshPopularGamesUseCase = mockk<RefreshPopularGamesUseCase>(relaxed = true)
 
     private val sut by lazy {
-        GamesDiscoveryViewModel(
+        DiscoverViewModel(
             useCases = setupUseCases(),
-            uiModelMapper = FakeGamesDiscoveryItemGameUiModelMapper(),
+            uiModelMapper = FakeDiscoverItemModelMapper(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             stringProvider = FakeStringProvider(),
             errorMapper = FakeErrorMapper()
@@ -133,7 +133,7 @@ internal class GamesDiscoveryViewModelTest {
         }
     }
 
-    private class FakeGamesDiscoveryItemGameUiModelMapper : GamesDiscoveryItemGameUiModelMapper {
+    private class FakeDiscoverItemModelMapper : DiscoverItemModelMapper {
 
         override fun mapToUiModel(game: Game): DiscoverScreenItemData {
             return DiscoverScreenItemData(

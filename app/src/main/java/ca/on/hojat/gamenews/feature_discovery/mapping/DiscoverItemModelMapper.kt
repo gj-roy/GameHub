@@ -7,14 +7,19 @@ import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GamesDiscoveryItemGameUiModelMapper {
+internal interface DiscoverItemModelMapper {
+
+    /**
+     * You give it a [Game] and it will be converted to the normal data we use
+     * in discover screen; which is [DiscoverScreenItemData].
+     */
     fun mapToUiModel(game: Game): DiscoverScreenItemData
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GamesDiscoveryItemGameUiModelMapperImpl @Inject constructor(
+internal class DiscoverItemModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory
-) : GamesDiscoveryItemGameUiModelMapper {
+) : DiscoverItemModelMapper {
 
     override fun mapToUiModel(game: Game): DiscoverScreenItemData {
         return DiscoverScreenItemData(
@@ -30,7 +35,7 @@ internal class GamesDiscoveryItemGameUiModelMapperImpl @Inject constructor(
     }
 }
 
-internal fun GamesDiscoveryItemGameUiModelMapper.mapToUiModels(
+internal fun DiscoverItemModelMapper.mapToUiModels(
     games: List<Game>,
 ): List<DiscoverScreenItemData> {
     return games.map(::mapToUiModel)
