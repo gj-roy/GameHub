@@ -6,7 +6,12 @@ import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
+/**
+ * This mapper converts Domain entities to stuff we can use
+ * in the UI layer of "category" feature.
+ */
 abstract class CategoryItemModelMapper {
+
     internal abstract fun mapToUiModel(game: Game): CategoryUiModel
 
     internal fun mapToUiModels(

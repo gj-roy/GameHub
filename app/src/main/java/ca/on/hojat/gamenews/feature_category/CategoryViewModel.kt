@@ -12,10 +12,10 @@ import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
-import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
+import ca.on.hojat.gamenews.feature_category.di.CategoryKey
 import ca.on.hojat.gamenews.feature_category.widgets.CategoryItemModelMapper
 import ca.on.hojat.gamenews.feature_category.widgets.CategoryUiModel
-import ca.on.hojat.gamenews.feature_category.widgets.GamesCategoryUiState
+import ca.on.hojat.gamenews.feature_category.widgets.CategoryUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin
@@ -56,22 +56,22 @@ internal class CategoryViewModel @Inject constructor(
     private var refreshGamesUseCaseParams = RefreshGamesUseCaseParams()
 
     private val categoryType: CategoryType
-    private val gamesCategoryKeyType: GamesCategoryKey.Type
+    private val categoryKeyType: CategoryKey.Type
 
     private var gamesObservingJob: Job? = null
     private var gamesRefreshingJob: Job? = null
 
     private val _uiState = MutableStateFlow(createEmptyUiState())
 
-    private val currentUiState: GamesCategoryUiState
+    private val currentUiState: CategoryUiState
         get() = _uiState.value
 
-    val uiState: StateFlow<GamesCategoryUiState> = _uiState.asStateFlow()
+    val uiState: StateFlow<CategoryUiState> = _uiState.asStateFlow()
 
     init {
         categoryType =
             CategoryType.valueOf(checkNotNull(savedStateHandle.get<String>(PARAM_CATEGORY)))
-        gamesCategoryKeyType = categoryType.toKeyType()
+        categoryKeyType = categoryType.toKeyType()
 
         _uiState.update {
             it.copy(title = stringProvider.getString(categoryType.titleId))
@@ -81,18 +81,18 @@ internal class CategoryViewModel @Inject constructor(
         refreshGames(resultEmissionDelay = transitionAnimationDuration)
     }
 
-    private fun createEmptyUiState(): GamesCategoryUiState {
-        return GamesCategoryUiState(
+    private fun createEmptyUiState(): CategoryUiState {
+        return CategoryUiState(
             isLoading = false,
             title = "",
-            games = emptyList(),
+            items = emptyList(),
         )
     }
 
     private fun observeGames(resultEmissionDelay: Long = 0L) {
         if (isObservingGames) return
 
-        gamesObservingJob = useCases.getObservableGamesUseCase(gamesCategoryKeyType)
+        gamesObservingJob = useCases.getObservableGamesUseCase(categoryKeyType)
             .execute(observeGamesUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
             .flowOn(dispatcherProvider.computation)
@@ -114,23 +114,23 @@ internal class CategoryViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    private fun configureNextLoad(uiState: GamesCategoryUiState) {
+    private fun configureNextLoad(uiState: CategoryUiState) {
         if (!uiState.hasLoadedNewGames()) return
 
         val paginationLimit = observeGamesUseCaseParams.pagination.limit
-        val gameCount = uiState.games.size
+        val gameCount = uiState.items.size
 
         hasMoreGamesToLoad = (paginationLimit == gameCount)
     }
 
-    private fun GamesCategoryUiState.hasLoadedNewGames(): Boolean {
-        return (!isLoading && games.isNotEmpty())
+    private fun CategoryUiState.hasLoadedNewGames(): Boolean {
+        return (!isLoading && items.isNotEmpty())
     }
 
     private fun refreshGames(resultEmissionDelay: Long = 0L) {
         if (isRefreshingGames) return
 
-        gamesRefreshingJob = useCases.getRefreshableGamesUseCase(gamesCategoryKeyType)
+        gamesRefreshingJob = useCases.getRefreshableGamesUseCase(categoryKeyType)
             .execute(refreshGamesUseCaseParams)
             .resultOrError()
             .map { currentUiState }

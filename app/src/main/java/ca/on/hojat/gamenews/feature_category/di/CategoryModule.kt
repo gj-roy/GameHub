@@ -18,11 +18,11 @@ import dagger.multibindings.IntoMap
 
 @Module
 @InstallIn(ActivityRetainedComponent::class)
-internal object GamesCategoryModule {
+internal object CategoryModule {
 
     @Provides
     @IntoMap
-    @GamesCategoryKey(GamesCategoryKey.Type.POPULAR)
+    @CategoryKey(CategoryKey.Type.POPULAR)
     fun providePopularGamesObserverUseCase(
         observePopularGamesUseCase: ObservePopularGamesUseCase
     ): ObservableGamesUseCase {
@@ -31,7 +31,7 @@ internal object GamesCategoryModule {
 
     @Provides
     @IntoMap
-    @GamesCategoryKey(GamesCategoryKey.Type.POPULAR)
+    @CategoryKey(CategoryKey.Type.POPULAR)
     fun providePopularGamesRefresherUseCase(
         refreshPopularGamesUseCase: RefreshPopularGamesUseCase
     ): RefreshableGamesUseCase {
@@ -40,7 +40,7 @@ internal object GamesCategoryModule {
 
     @Provides
     @IntoMap
-    @GamesCategoryKey(GamesCategoryKey.Type.RECENTLY_RELEASED)
+    @CategoryKey(CategoryKey.Type.RECENTLY_RELEASED)
     fun provideRecentlyReleasedGamesObserverUseCase(
         observeRecentlyReleasedGamesUseCase: ObserveRecentlyReleasedGamesUseCase
     ): ObservableGamesUseCase {
@@ -49,7 +49,7 @@ internal object GamesCategoryModule {
 
     @Provides
     @IntoMap
-    @GamesCategoryKey(GamesCategoryKey.Type.RECENTLY_RELEASED)
+    @CategoryKey(CategoryKey.Type.RECENTLY_RELEASED)
     fun provideRecentlyReleasedGamesRefresherUseCase(
         refreshRecentlyReleasedGamesUseCase: RefreshRecentlyReleasedGamesUseCase
     ): RefreshableGamesUseCase {
@@ -58,7 +58,7 @@ internal object GamesCategoryModule {
 
     @Provides
     @IntoMap
-    @GamesCategoryKey(GamesCategoryKey.Type.COMING_SOON)
+    @CategoryKey(CategoryKey.Type.COMING_SOON)
     fun provideComingSoonGamesObserverUseCase(
         observeComingSoonGamesUseCase: ObserveComingSoonGamesUseCase
     ): ObservableGamesUseCase {
@@ -67,7 +67,7 @@ internal object GamesCategoryModule {
 
     @Provides
     @IntoMap
-    @GamesCategoryKey(GamesCategoryKey.Type.COMING_SOON)
+    @CategoryKey(CategoryKey.Type.COMING_SOON)
     fun provideComingSoonGamesRefresherUseCase(
         refreshComingSoonGamesUseCase: RefreshComingSoonGamesUseCase
     ): RefreshableGamesUseCase {
@@ -76,7 +76,7 @@ internal object GamesCategoryModule {
 
     @Provides
     @IntoMap
-    @GamesCategoryKey(GamesCategoryKey.Type.MOST_ANTICIPATED)
+    @CategoryKey(CategoryKey.Type.MOST_ANTICIPATED)
     fun provideMostAnticipatedGamesObserverUseCase(
         observeMostAnticipatedGamesUseCase: ObserveMostAnticipatedGamesUseCase
     ): ObservableGamesUseCase {
@@ -85,7 +85,7 @@ internal object GamesCategoryModule {
 
     @Provides
     @IntoMap
-    @GamesCategoryKey(GamesCategoryKey.Type.MOST_ANTICIPATED)
+    @CategoryKey(CategoryKey.Type.MOST_ANTICIPATED)
     fun provideMostAnticipatedGamesRefresherUseCase(
         refreshMostAnticipatedGamesUseCase: RefreshMostAnticipatedGamesUseCase
     ): RefreshableGamesUseCase {

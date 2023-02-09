@@ -12,7 +12,7 @@ import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
 import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
-import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
+import ca.on.hojat.gamenews.feature_category.di.CategoryKey
 import ca.on.hojat.gamenews.feature_category.widgets.CategoryUiModel
 import ca.on.hojat.gamenews.feature_category.widgets.CategoryItemModelMapper
 import com.github.michaelbull.result.Ok
@@ -58,16 +58,16 @@ internal class CategoryViewModelTest {
     private fun setupUseCases(): CategoryUseCases {
         return CategoryUseCases(
             observeGamesUseCasesMap = mapOf(
-                GamesCategoryKey.Type.POPULAR to Provider { observePopularGamesUseCase },
-                GamesCategoryKey.Type.RECENTLY_RELEASED to Provider(::mockk),
-                GamesCategoryKey.Type.COMING_SOON to Provider(::mockk),
-                GamesCategoryKey.Type.MOST_ANTICIPATED to Provider(::mockk)
+                CategoryKey.Type.POPULAR to Provider { observePopularGamesUseCase },
+                CategoryKey.Type.RECENTLY_RELEASED to Provider(::mockk),
+                CategoryKey.Type.COMING_SOON to Provider(::mockk),
+                CategoryKey.Type.MOST_ANTICIPATED to Provider(::mockk)
             ),
             refreshGamesUseCasesMap = mapOf(
-                GamesCategoryKey.Type.POPULAR to Provider { refreshPopularGamesUseCase },
-                GamesCategoryKey.Type.RECENTLY_RELEASED to Provider(::mockk),
-                GamesCategoryKey.Type.COMING_SOON to Provider(::mockk),
-                GamesCategoryKey.Type.MOST_ANTICIPATED to Provider(::mockk)
+                CategoryKey.Type.POPULAR to Provider { refreshPopularGamesUseCase },
+                CategoryKey.Type.RECENTLY_RELEASED to Provider(::mockk),
+                CategoryKey.Type.COMING_SOON to Provider(::mockk),
+                CategoryKey.Type.MOST_ANTICIPATED to Provider(::mockk)
             )
         )
     }

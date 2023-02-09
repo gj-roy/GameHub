@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_category
 
 import ca.on.hojat.gamenews.core.domain.games.ObservableGamesUseCase
 import ca.on.hojat.gamenews.core.domain.games.RefreshableGamesUseCase
-import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey.Type
+import ca.on.hojat.gamenews.feature_category.di.CategoryKey.Type
 import javax.inject.Inject
 import javax.inject.Provider
 

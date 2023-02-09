@@ -4,10 +4,10 @@ import androidx.compose.runtime.Immutable
 import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 
 @Immutable
-internal data class GamesCategoryUiState(
+internal data class CategoryUiState(
     val isLoading: Boolean,
     val title: String,
-    val games: List<CategoryUiModel>,
+    val items: List<CategoryUiModel>,
 ) {
     internal val finiteUiState: FiniteUiState
         get() = when {
@@ -18,33 +18,33 @@ internal data class GamesCategoryUiState(
         }
 
     private val isInEmptyState: Boolean
-        get() = (!isLoading && games.isEmpty())
+        get() = (!isLoading && items.isEmpty())
 
     private val isInLoadingState: Boolean
-        get() = (isLoading && games.isEmpty())
+        get() = (isLoading && items.isEmpty())
 
     private val isInSuccessState: Boolean
-        get() = games.isNotEmpty()
+        get() = items.isNotEmpty()
 
     internal val isRefreshing: Boolean
-        get() = (isLoading && games.isNotEmpty())
+        get() = (isLoading && items.isNotEmpty())
 
-    internal fun enableLoading(): GamesCategoryUiState {
+    internal fun enableLoading(): CategoryUiState {
         return copy(isLoading = true)
     }
 
-    internal fun disableLoading(): GamesCategoryUiState {
+    internal fun disableLoading(): CategoryUiState {
         return copy(isLoading = false)
     }
 
-    internal fun toEmptyState(): GamesCategoryUiState {
-        return copy(isLoading = false, games = emptyList())
+    internal fun toEmptyState(): CategoryUiState {
+        return copy(isLoading = false, items = emptyList())
     }
 
     internal fun toSuccessState(
         games: List<CategoryUiModel>
-    ): GamesCategoryUiState {
-        return copy(isLoading = false, games = games)
+    ): CategoryUiState {
+        return copy(isLoading = false, items = games)
     }
 }
 

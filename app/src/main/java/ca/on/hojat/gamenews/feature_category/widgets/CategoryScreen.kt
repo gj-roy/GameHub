@@ -65,7 +65,7 @@ private fun CategoryScreen(
 
 @Composable
 private fun CategoryScreen(
-    uiState: GamesCategoryUiState,
+    uiState: CategoryUiState,
     onBackButtonClicked: () -> Unit,
     onGameClicked: (CategoryUiModel) -> Unit,
     onBottomReached: () -> Unit,
@@ -123,7 +123,7 @@ private fun EmptyState(modifier: Modifier) {
 
 @Composable
 private fun SuccessState(
-    uiState: GamesCategoryUiState,
+    uiState: CategoryUiState,
     modifier: Modifier,
     onGameClicked: (CategoryUiModel) -> Unit,
     onBottomReached: () -> Unit,
@@ -134,7 +134,7 @@ private fun SuccessState(
         isSwipeEnabled = false,
     ) {
         VerticalGrid(
-            games = uiState.games,
+            games = uiState.items,
             onGameClicked = onGameClicked,
             onBottomReached = onBottomReached,
         )
@@ -204,10 +204,10 @@ private fun CategorySuccessStatePreview() {
 
     GameHubTheme {
         CategoryScreen(
-            uiState = GamesCategoryUiState(
+            uiState = CategoryUiState(
                 isLoading = false,
                 title = "Popular",
-                games = games,
+                items = games,
             ),
             onBackButtonClicked = {},
             onGameClicked = {},
@@ -222,10 +222,10 @@ private fun CategorySuccessStatePreview() {
 private fun CategoryEmptyStatePreview() {
     GameHubTheme {
         CategoryScreen(
-            uiState = GamesCategoryUiState(
+            uiState = CategoryUiState(
                 isLoading = false,
                 title = "Popular",
-                games = emptyList(),
+                items = emptyList(),
             ),
             onBackButtonClicked = {},
             onGameClicked = {},
@@ -240,10 +240,10 @@ private fun CategoryEmptyStatePreview() {
 private fun CategoryLoadingStatePreview() {
     GameHubTheme {
         CategoryScreen(
-            uiState = GamesCategoryUiState(
+            uiState = CategoryUiState(
                 isLoading = true,
                 title = "Popular",
-                games = emptyList(),
+                items = emptyList(),
             ),
             onBackButtonClicked = {},
             onGameClicked = {},

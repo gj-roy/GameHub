@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_category
 
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.feature_category.di.GamesCategoryKey
+import ca.on.hojat.gamenews.feature_category.di.CategoryKey
 
 internal enum class CategoryType {
     POPULAR,
@@ -17,12 +17,12 @@ internal enum class CategoryType {
             MOST_ANTICIPATED -> R.string.games_category_most_anticipated
         }
 
-    fun toKeyType(): GamesCategoryKey.Type {
+    fun toKeyType(): CategoryKey.Type {
         return when (this) {
-            POPULAR -> GamesCategoryKey.Type.POPULAR
-            RECENTLY_RELEASED -> GamesCategoryKey.Type.RECENTLY_RELEASED
-            COMING_SOON -> GamesCategoryKey.Type.COMING_SOON
-            MOST_ANTICIPATED -> GamesCategoryKey.Type.MOST_ANTICIPATED
+            POPULAR -> CategoryKey.Type.POPULAR
+            RECENTLY_RELEASED -> CategoryKey.Type.RECENTLY_RELEASED
+            COMING_SOON -> CategoryKey.Type.COMING_SOON
+            MOST_ANTICIPATED -> CategoryKey.Type.MOST_ANTICIPATED
         }
     }
 }
