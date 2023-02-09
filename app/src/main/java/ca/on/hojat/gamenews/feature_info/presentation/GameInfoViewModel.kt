@@ -9,9 +9,9 @@ import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameImageType
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameImageUrlsUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameInfoUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleGameLikeStateUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameImageUrlsUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameInfoUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleLikeStateUseCase
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.GameInfoCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiModelMapper
@@ -112,7 +112,7 @@ internal class GameInfoViewModel @Inject constructor(
             useCases.getGameImageUrlsUseCase.execute(
                 GetGameImageUrlsUseCase.Params(
                     gameId = gameId,
-                    imageType = imageType,
+                    gameImageType = imageType,
                 )
             )
                 .resultOrError()
@@ -139,8 +139,8 @@ internal class GameInfoViewModel @Inject constructor(
 
     fun onLikeButtonClicked() {
         viewModelScope.launch {
-            useCases.toggleGameLikeStateUseCase
-                .execute(ToggleGameLikeStateUseCase.Params(gameId))
+            useCases.toggleLikeStateUseCase
+                .execute(ToggleLikeStateUseCase.Params(gameId))
         }
     }
 

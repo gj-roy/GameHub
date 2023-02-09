@@ -5,14 +5,14 @@ import ca.on.hojat.gamenews.core.domain.entities.InvolvedCompany
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
-import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshSimilarGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.RefreshSimilarGamesUseCase
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetSimilarGamesUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleGameLikeStateUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetCompanyDevelopedGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetSimilarGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.RefreshCompanyDevelopedGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveLikeStateUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleLikeStateUseCase
 
 private val COMPANY = Company(
     id = 1,
@@ -37,8 +37,8 @@ val INVOLVED_COMPANY = InvolvedCompany(
 )
 
 internal val OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS =
-    ObserveGameLikeStateUseCase.Params(gameId = 10)
-internal val TOGGLE_GAME_LIKE_STATE_USE_CASE_PARAMS = ToggleGameLikeStateUseCase.Params(gameId = 10)
+    ObserveLikeStateUseCase.Params(id = 10)
+internal val TOGGLE_GAME_LIKE_STATE_USE_CASE_PARAMS = ToggleLikeStateUseCase.Params(id = 10)
 internal val GET_GAME_USE_CASE_PARAMS = GetGameUseCase.Params(gameId = 10)
 internal val GET_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS = GetCompanyDevelopedGamesUseCase.Params(
     COMPANY,

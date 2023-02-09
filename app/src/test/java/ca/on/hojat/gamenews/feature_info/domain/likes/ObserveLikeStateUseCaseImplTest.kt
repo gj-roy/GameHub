@@ -2,10 +2,10 @@ package ca.on.hojat.gamenews.feature_info.domain.likes
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_info.OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS
-import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataSource
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveLikeStateUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -15,22 +15,22 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-internal class ObserveGameLikeStateUseCaseImplTest {
+internal class ObserveLikeStateUseCaseImplTest {
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var likedGamesLocalDataStore: LikedGamesLocalDataStore
+    private lateinit var likedGamesLocalDataSource: LikedGamesLocalDataSource
 
-    private lateinit var sut: ObserveGameLikeStateUseCaseImpl
+    private lateinit var sut: ObserveLikeStateUseCaseImpl
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        sut = ObserveGameLikeStateUseCaseImpl(
-            likedGamesLocalDataStore = likedGamesLocalDataStore,
+        sut = ObserveLikeStateUseCaseImpl(
+            likedGamesLocalDataSource = likedGamesLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -38,13 +38,13 @@ internal class ObserveGameLikeStateUseCaseImplTest {
     @Test
     fun `Emits game like state successfully`() {
         runTest {
-            every { likedGamesLocalDataStore.observeGameLikeState(any()) } returns flowOf(true)
+            every { likedGamesLocalDataSource.observeGameLikeState(any()) } returns flowOf(true)
             sut.execute(OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS).test {
                 assertThat(awaitItem()).isTrue()
                 awaitComplete()
             }
 
-            every { likedGamesLocalDataStore.observeGameLikeState(any()) } returns flowOf(false)
+            every { likedGamesLocalDataSource.observeGameLikeState(any()) } returns flowOf(false)
             sut.execute(OBSERVE_GAME_LIKE_STATE_USE_CASE_PARAMS).test {
                 assertThat(awaitItem()).isFalse()
                 awaitComplete()

@@ -11,12 +11,12 @@ import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameInfoUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameInfoUseCaseImpl
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetSimilarGamesUseCase
-import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetCompanyDevelopedGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameInfoUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameInfoUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetSimilarGamesUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveLikeStateUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.every
@@ -38,7 +38,7 @@ internal class GetGameInfoUseCaseImplTest {
     private lateinit var getGameUseCase: GetGameUseCase
 
     @MockK
-    private lateinit var observeGameLikeStateUseCase: ObserveGameLikeStateUseCase
+    private lateinit var observeLikeStateUseCase: ObserveLikeStateUseCase
 
     @MockK
     private lateinit var getCompanyDevelopedGamesUseCase: GetCompanyDevelopedGamesUseCase
@@ -54,7 +54,7 @@ internal class GetGameInfoUseCaseImplTest {
 
         sut = GetGameInfoUseCaseImpl(
             getGameUseCase = getGameUseCase,
-            observeGameLikeStateUseCase = observeGameLikeStateUseCase,
+            observeLikeStateUseCase = observeLikeStateUseCase,
             getCompanyDevelopedGamesUseCase = getCompanyDevelopedGamesUseCase,
             getSimilarGamesUseCase = getSimilarGamesUseCase,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
@@ -71,7 +71,7 @@ internal class GetGameInfoUseCaseImplTest {
             val expectedGameInfo = GAME_INFO.copy(game = game)
 
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Ok(game))
-            every { observeGameLikeStateUseCase.execute(any()) } returns flowOf(true)
+            every { observeLikeStateUseCase.execute(any()) } returns flowOf(true)
             coEvery { getCompanyDevelopedGamesUseCase.execute(any()) } returns flowOf(
                 Ok(
                     DOMAIN_GAMES
@@ -103,7 +103,7 @@ internal class GetGameInfoUseCaseImplTest {
             val game = DOMAIN_GAME.copy(involvedCompanies = emptyList())
 
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Ok(game))
-            every { observeGameLikeStateUseCase.execute(any()) } returns flowOf(true)
+            every { observeLikeStateUseCase.execute(any()) } returns flowOf(true)
 
             sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitItem().companyGames).isEmpty()
@@ -118,7 +118,7 @@ internal class GetGameInfoUseCaseImplTest {
             val game = DOMAIN_GAME.copy(similarGames = emptyList())
 
             coEvery { getGameUseCase.execute(any()) } returns flowOf(Ok(game))
-            every { observeGameLikeStateUseCase.execute(any()) } returns flowOf(true)
+            every { observeLikeStateUseCase.execute(any()) } returns flowOf(true)
 
             sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitItem().similarGames).isEmpty()

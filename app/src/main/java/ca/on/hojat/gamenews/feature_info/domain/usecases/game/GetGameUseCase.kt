@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.feature_info.domain.usecases
+package ca.on.hojat.gamenews.feature_info.domain.usecases.game
 
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.DomainResult
@@ -8,7 +8,7 @@ import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameUseCase.Params
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

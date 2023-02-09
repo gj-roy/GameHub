@@ -9,7 +9,7 @@ import ca.on.hojat.gamenews.core.data.database.games.entities.DbLikedGame
 import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
 import ca.on.hojat.gamenews.core.data.games.datastores.DbGameMapper
 import ca.on.hojat.gamenews.core.data.games.datastores.LikedGameFactory
-import ca.on.hojat.gamenews.core.data.games.datastores.LikedGamesDatabaseDataStore
+import ca.on.hojat.gamenews.core.data.games.datastores.LikedGamesDatabaseDataSource
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
@@ -28,13 +28,13 @@ internal class LikedGamesDatabaseDataStoreTest {
 
     private lateinit var likedGamesTable: FakeLikedGamesTable
     private lateinit var dbGameMapper: DbGameMapper
-    private lateinit var sut: LikedGamesDatabaseDataStore
+    private lateinit var sut: LikedGamesDatabaseDataSource
 
     @Before
     fun setup() {
         likedGamesTable = FakeLikedGamesTable()
         dbGameMapper = DbGameMapper()
-        sut = LikedGamesDatabaseDataStore(
+        sut = LikedGamesDatabaseDataSource(
             likedGamesTable = likedGamesTable,
             likedGameFactory = FakeLikedGameFactory(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,

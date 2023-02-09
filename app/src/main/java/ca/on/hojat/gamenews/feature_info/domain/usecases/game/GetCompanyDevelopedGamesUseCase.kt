@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.feature_info.domain.usecases
+package ca.on.hojat.gamenews.feature_info.domain.usecases.game
 
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.DomainResult
@@ -8,7 +8,7 @@ import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import com.github.michaelbull.result.Ok
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetCompanyDevelopedGamesUseCase.Params
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetCompanyDevelopedGamesUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
@@ -19,6 +19,9 @@ import kotlinx.coroutines.flow.onEmpty
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Returns a list of other games developed by the company that has made this game.
+ */
 internal interface GetCompanyDevelopedGamesUseCase :
     UseCase<Params, Flow<DomainResult<List<Game>>>> {
 

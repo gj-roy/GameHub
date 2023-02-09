@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.core.data.database.games.entities.DbGame
 import ca.on.hojat.gamenews.core.data.database.games.tables.LikedGamesTable
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
@@ -16,12 +16,12 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-class LikedGamesDatabaseDataStore @Inject constructor(
+class LikedGamesDatabaseDataSource @Inject constructor(
     private val likedGamesTable: LikedGamesTable,
     private val likedGameFactory: LikedGameFactory,
     private val dispatcherProvider: DispatcherProvider,
     private val dbGameMapper: DbGameMapper,
-) : LikedGamesLocalDataStore {
+) : LikedGamesLocalDataSource {
 
     override suspend fun likeGame(gameId: Int) {
         likedGamesTable.saveLikedGame(likedGameFactory.createLikedGame(gameId))

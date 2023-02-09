@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.feature_info.domain.usecases
+package ca.on.hojat.gamenews.feature_info.domain.usecases.game
 
 import ca.on.hojat.gamenews.core.extensions.combine
 import ca.on.hojat.gamenews.core.extensions.resultOrError
@@ -8,7 +8,7 @@ import ca.on.hojat.gamenews.core.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameInfo
-import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveGameLikeStateUseCase
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ObserveLikeStateUseCase
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapConcat
@@ -27,7 +27,7 @@ internal interface GetGameInfoUseCase : UseCase<GetGameInfoUseCase.Params, Flow<
 @BindType
 internal class GetGameInfoUseCaseImpl @Inject constructor(
     private val getGameUseCase: GetGameUseCase,
-    private val observeGameLikeStateUseCase: ObserveGameLikeStateUseCase,
+    private val observeLikeStateUseCase: ObserveLikeStateUseCase,
     private val getCompanyDevelopedGamesUseCase: GetCompanyDevelopedGamesUseCase,
     private val getSimilarGamesUseCase: GetSimilarGamesUseCase,
     private val dispatcherProvider: DispatcherProvider,
@@ -60,8 +60,8 @@ internal class GetGameInfoUseCaseImpl @Inject constructor(
     }
 
     private fun observeGameLikeState(gameId: Int): Flow<Boolean> {
-        return observeGameLikeStateUseCase.execute(
-            ObserveGameLikeStateUseCase.Params(gameId)
+        return observeLikeStateUseCase.execute(
+            ObserveLikeStateUseCase.Params(gameId)
         )
     }
 

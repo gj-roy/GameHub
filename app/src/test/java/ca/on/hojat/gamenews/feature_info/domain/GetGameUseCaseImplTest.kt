@@ -9,7 +9,7 @@ import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK

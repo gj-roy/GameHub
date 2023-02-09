@@ -2,11 +2,11 @@ package ca.on.hojat.gamenews.feature_info.domain.likes
 
 import ca.on.hojat.gamenews.feature_info.TOGGLE_GAME_LIKE_STATE_USE_CASE_PARAMS
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleGameLikeStateUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleLikeStateUseCaseImpl
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
@@ -16,20 +16,20 @@ import org.junit.Test
 
 private const val GAME_ID = 100
 
-private val USE_CASE_PARAMS = TOGGLE_GAME_LIKE_STATE_USE_CASE_PARAMS.copy(gameId = GAME_ID)
+private val USE_CASE_PARAMS = TOGGLE_GAME_LIKE_STATE_USE_CASE_PARAMS.copy(id = GAME_ID)
 
-internal class ToggleGameLikeStateUseCaseImplTest {
+internal class ToggleLikeStateUseCaseImplTest {
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
-    private lateinit var likedGamesLocalDataStore: FakeLikedGamesLocalDataStore
-    private lateinit var sut: ToggleGameLikeStateUseCaseImpl
+    private lateinit var likedGamesLocalDataStore: FakeLikedGamesLocalDataSource
+    private lateinit var sut: ToggleLikeStateUseCaseImpl
 
     @Before
     fun setup() {
-        likedGamesLocalDataStore = FakeLikedGamesLocalDataStore()
-        sut = ToggleGameLikeStateUseCaseImpl(likedGamesLocalDataStore)
+        likedGamesLocalDataStore = FakeLikedGamesLocalDataSource()
+        sut = ToggleLikeStateUseCaseImpl(likedGamesLocalDataStore)
     }
 
     @Test
@@ -56,7 +56,7 @@ internal class ToggleGameLikeStateUseCaseImplTest {
         }
     }
 
-    private class FakeLikedGamesLocalDataStore : LikedGamesLocalDataStore {
+    private class FakeLikedGamesLocalDataSource : LikedGamesLocalDataSource {
 
         private val likedGameIds = mutableSetOf<Int>()
 

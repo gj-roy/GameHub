@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_info.REFRESH_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS
-import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshCompanyDevelopedGamesUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.RefreshCompanyDevelopedGamesUseCaseImpl
 import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottler
 import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottlerTools
 import ca.on.hojat.gamenews.core.domain.games.repository.GamesRepository

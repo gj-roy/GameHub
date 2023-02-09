@@ -16,7 +16,7 @@ import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshSimilarGamesUseCaseImpl
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.RefreshSimilarGamesUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

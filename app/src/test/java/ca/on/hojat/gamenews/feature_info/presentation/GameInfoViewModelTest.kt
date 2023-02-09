@@ -55,7 +55,7 @@ internal class GameInfoViewModelTest {
         return GameInfoUseCases(
             getGameInfoUseCase = mockk(relaxed = true),
             getGameImageUrlsUseCase = mockk(relaxed = true),
-            toggleGameLikeStateUseCase = mockk(relaxed = true),
+            toggleLikeStateUseCase = mockk(relaxed = true),
         )
     }
 

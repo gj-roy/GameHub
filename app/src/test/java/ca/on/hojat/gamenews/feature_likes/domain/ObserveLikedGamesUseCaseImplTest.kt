@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_likes.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
-import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataSource
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
@@ -23,7 +23,7 @@ internal class ObserveLikedGamesUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var likedGamesLocalDataStore: LikedGamesLocalDataStore
+    private lateinit var likedGamesLocalDataSource: LikedGamesLocalDataSource
 
     private lateinit var sut: ObserveLikedGamesUseCaseImpl
 
@@ -32,7 +32,7 @@ internal class ObserveLikedGamesUseCaseImplTest {
         MockKAnnotations.init(this)
 
         sut = ObserveLikedGamesUseCaseImpl(
-            likedGamesLocalDataStore = likedGamesLocalDataStore,
+            likedGamesLocalDataSource = likedGamesLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -40,7 +40,7 @@ internal class ObserveLikedGamesUseCaseImplTest {
     @Test
     fun `Emits liked games successfully`() {
         runTest {
-            every { likedGamesLocalDataStore.observeLikedGames(any()) } returns flowOf(DOMAIN_GAMES)
+            every { likedGamesLocalDataSource.observeLikedGames(any()) } returns flowOf(DOMAIN_GAMES)
 
             sut.execute(OBSERVE_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)

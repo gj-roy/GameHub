@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.feature_info.domain.usecases
+package ca.on.hojat.gamenews.feature_info.domain.usecases.game
 
 import ca.on.hojat.gamenews.core.factories.ImageViewerGameUrlFactory
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
@@ -8,7 +8,7 @@ import com.github.michaelbull.result.Err
 import ca.on.hojat.gamenews.core.domain.entities.Error
 import ca.on.hojat.gamenews.core.extensions.mapSuccess
 import ca.on.hojat.gamenews.core.extensions.onError
-import ca.on.hojat.gamenews.feature_info.domain.usecases.GetGameImageUrlsUseCase.Params
+import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameImageUrlsUseCase.Params
 import ca.on.hojat.gamenews.feature_info.domain.entities.GameImageType
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
@@ -20,7 +20,7 @@ internal interface GetGameImageUrlsUseCase : UseCase<Params, Flow<DomainResult<L
 
     data class Params(
         val gameId: Int,
-        val imageType: GameImageType,
+        val gameImageType: GameImageType,
     )
 }
 
@@ -36,7 +36,7 @@ internal class GetGameImageUrlsUseCaseImpl @Inject constructor(
         return getGameUseCase.execute(GetGameUseCase.Params(params.gameId))
             .flowOn(dispatcherProvider.main)
             .mapSuccess { game ->
-                when (params.imageType) {
+                when (params.gameImageType) {
                     GameImageType.COVER -> {
                         gameUrlFactory.createCoverImageUrl(game)
                             ?.let(::listOf)
