@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.core.extensions.onEachSuccess
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.common.usecases.UseCase
 import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottlerTools
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesDataStores
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesRepository
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_info.domain.usecases.RefreshSimilarGamesUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType
@@ -28,7 +28,7 @@ internal interface RefreshSimilarGamesUseCase : UseCase<Params, Flow<DomainResul
 @Singleton
 @BindType
 internal class RefreshSimilarGamesUseCaseImpl @Inject constructor(
-    private val gamesDataStores: GamesDataStores,
+    private val gamesRepository: GamesRepository,
     private val dispatcherProvider: DispatcherProvider,
     private val throttlerTools: GamesRefreshingThrottlerTools,
 ) : RefreshSimilarGamesUseCase {
@@ -43,11 +43,11 @@ internal class RefreshSimilarGamesUseCaseImpl @Inject constructor(
 
         return flow {
             if (throttlerTools.throttler.canRefreshSimilarGames(throttlerKey)) {
-                emit(gamesDataStores.remote.getSimilarGames(params.game, params.pagination))
+                emit(gamesRepository.remote.getSimilarGames(params.game, params.pagination))
             }
         }
             .onEachSuccess { games ->
-                gamesDataStores.local.saveGames(games)
+                gamesRepository.local.saveGames(games)
                 throttlerTools.throttler.updateGamesLastRefreshTime(throttlerKey)
             }
             .flowOn(dispatcherProvider.main)

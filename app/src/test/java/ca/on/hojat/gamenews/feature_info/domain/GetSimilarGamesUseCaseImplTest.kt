@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_info.GET_SIMILAR_GAMES_USE_CASE_PARAMS
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.github.michaelbull.result.Ok
@@ -27,7 +27,7 @@ internal class GetSimilarGamesUseCaseImplTest {
     @MockK
     private lateinit var refreshSimilarGamesUseCase: RefreshSimilarGamesUseCase
     @MockK
-    private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    private lateinit var gamesLocalDataSource: GamesLocalDataSource
 
     private lateinit var sut: GetSimilarGamesUseCaseImpl
 
@@ -37,7 +37,7 @@ internal class GetSimilarGamesUseCaseImplTest {
 
         sut = GetSimilarGamesUseCaseImpl(
             refreshSimilarGamesUseCase = refreshSimilarGamesUseCase,
-            gamesLocalDataStore = gamesLocalDataStore,
+            gamesLocalDataSource = gamesLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -58,7 +58,7 @@ internal class GetSimilarGamesUseCaseImplTest {
     fun `Emits games from local data store if refresh use case does not emit`() {
         runTest {
             coEvery { refreshSimilarGamesUseCase.execute(any()) } returns flowOf()
-            coEvery { gamesLocalDataStore.getSimilarGames(any(), any()) } returns DOMAIN_GAMES
+            coEvery { gamesLocalDataSource.getSimilarGames(any(), any()) } returns DOMAIN_GAMES
 
             sut.execute(GET_SIMILAR_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)

@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_likes.domain
 
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
-import ca.on.hojat.gamenews.core.domain.games.datastores.LikedGamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataStore
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.games.ObservableGamesUseCase
 import com.paulrybitskyi.hiltbinder.BindType

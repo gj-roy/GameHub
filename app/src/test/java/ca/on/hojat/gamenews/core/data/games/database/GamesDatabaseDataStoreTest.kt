@@ -9,7 +9,7 @@ import ca.on.hojat.gamenews.core.data.DOMAIN_COMPANY
 import ca.on.hojat.gamenews.core.data.FakeDiscoveryGamesReleaseDatesProvider
 import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.core.data.games.datastores.DbGameMapper
-import ca.on.hojat.gamenews.core.data.games.datastores.GamesDatabaseDataStore
+import ca.on.hojat.gamenews.core.data.games.datastores.GamesDatabaseDataSource
 import com.google.common.truth.Truth.assertThat
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -31,14 +31,14 @@ internal class GamesDatabaseDataStoreTest {
     private lateinit var gamesTable: GamesTable
 
     private lateinit var dbGameMapper: DbGameMapper
-    private lateinit var sut: GamesDatabaseDataStore
+    private lateinit var sut: GamesDatabaseDataSource
 
     @Before
     fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
         dbGameMapper = DbGameMapper()
-        sut = GamesDatabaseDataStore(
+        sut = GamesDatabaseDataSource(
             gamesTable = gamesTable,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             discoveryGamesReleaseDatesProvider = FakeDiscoveryGamesReleaseDatesProvider(),

@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.common.usecases.UseCase
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.github.michaelbull.result.Ok
 import ca.on.hojat.gamenews.feature_info.domain.usecases.GetSimilarGamesUseCase.Params
@@ -30,7 +30,7 @@ internal interface GetSimilarGamesUseCase : UseCase<Params, Flow<DomainResult<Li
 @BindType
 internal class GetSimilarGamesUseCaseImpl @Inject constructor(
     private val refreshSimilarGamesUseCase: RefreshSimilarGamesUseCase,
-    private val gamesLocalDataStore: GamesLocalDataStore,
+    private val gamesLocalDataSource: GamesLocalDataSource,
     private val dispatcherProvider: DispatcherProvider,
 ) : GetSimilarGamesUseCase {
 
@@ -39,7 +39,7 @@ internal class GetSimilarGamesUseCaseImpl @Inject constructor(
             .execute(RefreshSimilarGamesUseCase.Params(params.game, params.pagination))
             .onEmpty {
                 val localSimilarGamesFlow = flow {
-                    emit(gamesLocalDataStore.getSimilarGames(params.game, params.pagination))
+                    emit(gamesLocalDataSource.getSimilarGames(params.game, params.pagination))
                 }
                     .map<List<Game>, DomainResult<List<Game>>>(::Ok)
 

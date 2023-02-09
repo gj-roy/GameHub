@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesRemoteDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesRemoteDataSource
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
 import ca.on.hojat.gamenews.core.data.api.igdb.games.GamesEndpoint
@@ -25,13 +25,13 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-class GamesIgdbDataStore @Inject constructor(
+class GamesIgdbDataSource @Inject constructor(
     private val gamesEndpoint: GamesEndpoint,
     private val releaseDatesProvider: DiscoveryGamesReleaseDatesProvider,
     private val dispatcherProvider: DispatcherProvider,
     private val igdbGameMapper: IgdbGameMapper,
     private val apiErrorMapper: ApiErrorMapper,
-) : GamesRemoteDataStore {
+) : GamesRemoteDataSource {
 
     override suspend fun searchGames(
         searchQuery: String,

@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.core.data.games.common.DiscoveryGamesReleaseDatesPro
 import ca.on.hojat.gamenews.core.data.database.games.tables.GamesTable
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType
@@ -19,12 +19,12 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-class GamesDatabaseDataStore @Inject constructor(
+class GamesDatabaseDataSource @Inject constructor(
     private val gamesTable: GamesTable,
     private val dispatcherProvider: DispatcherProvider,
     private val discoveryGamesReleaseDatesProvider: DiscoveryGamesReleaseDatesProvider,
     private val dbGameMapper: DbGameMapper,
-) : GamesLocalDataStore {
+) : GamesLocalDataSource {
 
     override suspend fun saveGames(games: List<Game>) {
         gamesTable.saveGames(

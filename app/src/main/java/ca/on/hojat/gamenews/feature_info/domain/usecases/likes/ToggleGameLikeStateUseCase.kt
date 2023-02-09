@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_info.domain.usecases.likes
 
 import ca.on.hojat.gamenews.core.domain.common.usecases.UseCase
-import ca.on.hojat.gamenews.core.domain.games.datastores.LikedGamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.LikedGamesLocalDataStore
 import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleGameLikeStateUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject

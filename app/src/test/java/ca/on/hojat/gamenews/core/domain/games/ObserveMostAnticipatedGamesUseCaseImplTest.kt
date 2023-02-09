@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.core.domain.games
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObserveMostAnticipatedGamesUseCaseImpl
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
@@ -22,7 +22,7 @@ internal class ObserveMostAnticipatedGamesUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    private lateinit var gamesLocalDataSource: GamesLocalDataSource
 
     private lateinit var sut: ObserveMostAnticipatedGamesUseCaseImpl
 
@@ -31,7 +31,7 @@ internal class ObserveMostAnticipatedGamesUseCaseImplTest {
         MockKAnnotations.init(this)
 
         sut = ObserveMostAnticipatedGamesUseCaseImpl(
-            gamesLocalDataStore = gamesLocalDataStore,
+            gamesLocalDataSource = gamesLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -39,7 +39,7 @@ internal class ObserveMostAnticipatedGamesUseCaseImplTest {
     @Test
     fun `Emits games successfully`() {
         runTest {
-            every { gamesLocalDataStore.observeMostAnticipatedGames(any()) } returns flowOf(
+            every { gamesLocalDataSource.observeMostAnticipatedGames(any()) } returns flowOf(
                 DOMAIN_GAMES
             )
 

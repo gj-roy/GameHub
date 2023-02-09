@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObserveComingSoonGamesUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -22,7 +22,7 @@ internal class ObserveComingSoonGamesUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    private lateinit var gamesLocalDataSource: GamesLocalDataSource
 
     private lateinit var sut: ObserveComingSoonGamesUseCaseImpl
 
@@ -31,7 +31,7 @@ internal class ObserveComingSoonGamesUseCaseImplTest {
         MockKAnnotations.init(this)
 
         sut = ObserveComingSoonGamesUseCaseImpl(
-            gamesLocalDataStore = gamesLocalDataStore,
+            gamesLocalDataSource = gamesLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -39,7 +39,7 @@ internal class ObserveComingSoonGamesUseCaseImplTest {
     @Test
     fun `Emits games successfully`() {
         runTest {
-            every { gamesLocalDataStore.observeComingSoonGames(any()) } returns flowOf(DOMAIN_GAMES)
+            every { gamesLocalDataSource.observeComingSoonGames(any()) } returns flowOf(DOMAIN_GAMES)
 
             sut.execute(ObserveUseCaseParams()).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)

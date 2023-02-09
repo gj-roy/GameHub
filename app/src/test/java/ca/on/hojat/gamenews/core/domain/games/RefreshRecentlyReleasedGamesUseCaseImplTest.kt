@@ -4,9 +4,9 @@ import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.domain.REFRESH_GAMES_USE_CASE_PARAMS
 import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottler
 import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottlerTools
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesDataStores
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesRemoteDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesRepository
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesRemoteDataSource
 import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshRecentlyReleasedGamesUseCaseImpl
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
@@ -33,9 +33,9 @@ internal class RefreshRecentlyReleasedGamesUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    private lateinit var gamesLocalDataSource: GamesLocalDataSource
     @MockK
-    private lateinit var gamesRemoteDataStore: GamesRemoteDataStore
+    private lateinit var gamesRemoteDataSource: GamesRemoteDataSource
     @MockK
     private lateinit var throttler: GamesRefreshingThrottler
 
@@ -46,9 +46,9 @@ internal class RefreshRecentlyReleasedGamesUseCaseImplTest {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
         sut = RefreshRecentlyReleasedGamesUseCaseImpl(
-            gamesDataStores = GamesDataStores(
-                local = gamesLocalDataStore,
-                remote = gamesRemoteDataStore
+            gamesRepository = GamesRepository(
+                local = gamesLocalDataSource,
+                remote = gamesRemoteDataSource
             ),
             throttlerTools = GamesRefreshingThrottlerTools(
                 throttler = throttler,
@@ -62,7 +62,7 @@ internal class RefreshRecentlyReleasedGamesUseCaseImplTest {
     fun `Emits remote games when refresh is possible`() {
         runTest {
             coEvery { throttler.canRefreshGames(any()) } returns true
-            coEvery { gamesRemoteDataStore.getRecentlyReleasedGames(any()) } returns Ok(DOMAIN_GAMES)
+            coEvery { gamesRemoteDataSource.getRecentlyReleasedGames(any()) } returns Ok(DOMAIN_GAMES)
 
             sut.execute(REFRESH_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
@@ -86,11 +86,11 @@ internal class RefreshRecentlyReleasedGamesUseCaseImplTest {
     fun `Saves remote games into local data store when refresh is successful`() {
         runTest {
             coEvery { throttler.canRefreshGames(any()) } returns true
-            coEvery { gamesRemoteDataStore.getRecentlyReleasedGames(any()) } returns Ok(DOMAIN_GAMES)
+            coEvery { gamesRemoteDataSource.getRecentlyReleasedGames(any()) } returns Ok(DOMAIN_GAMES)
 
             sut.execute(REFRESH_GAMES_USE_CASE_PARAMS).firstOrNull()
 
-            coVerify { gamesLocalDataStore.saveGames(DOMAIN_GAMES) }
+            coVerify { gamesLocalDataSource.saveGames(DOMAIN_GAMES) }
         }
     }
 
@@ -101,7 +101,7 @@ internal class RefreshRecentlyReleasedGamesUseCaseImplTest {
 
             sut.execute(REFRESH_GAMES_USE_CASE_PARAMS).firstOrNull()
 
-            coVerifyNotCalled { gamesLocalDataStore.saveGames(any()) }
+            coVerifyNotCalled { gamesLocalDataSource.saveGames(any()) }
         }
     }
 
@@ -109,13 +109,13 @@ internal class RefreshRecentlyReleasedGamesUseCaseImplTest {
     fun `Does not save remote games into local data store when refresh is unsuccessful`() {
         runTest {
             coEvery { throttler.canRefreshGames(any()) } returns false
-            coEvery { gamesRemoteDataStore.getRecentlyReleasedGames(any()) } returns Err(
+            coEvery { gamesRemoteDataSource.getRecentlyReleasedGames(any()) } returns Err(
                 DOMAIN_ERROR_UNKNOWN
             )
 
             sut.execute(REFRESH_GAMES_USE_CASE_PARAMS).firstOrNull()
 
-            coVerifyNotCalled { gamesLocalDataStore.saveGames(any()) }
+            coVerifyNotCalled { gamesLocalDataSource.saveGames(any()) }
         }
     }
 
@@ -123,7 +123,7 @@ internal class RefreshRecentlyReleasedGamesUseCaseImplTest {
     fun `Updates games last refresh time when refresh is successful`() {
         runTest {
             coEvery { throttler.canRefreshGames(any()) } returns true
-            coEvery { gamesRemoteDataStore.getRecentlyReleasedGames(any()) } returns Ok(DOMAIN_GAMES)
+            coEvery { gamesRemoteDataSource.getRecentlyReleasedGames(any()) } returns Ok(DOMAIN_GAMES)
 
             sut.execute(REFRESH_GAMES_USE_CASE_PARAMS).firstOrNull()
 
@@ -146,7 +146,7 @@ internal class RefreshRecentlyReleasedGamesUseCaseImplTest {
     fun `Does not update games last refresh time when refresh is unsuccessful`() {
         runTest {
             coEvery { throttler.canRefreshGames(any()) } returns false
-            coEvery { gamesRemoteDataStore.getRecentlyReleasedGames(any()) } returns Err(
+            coEvery { gamesRemoteDataSource.getRecentlyReleasedGames(any()) } returns Err(
                 DOMAIN_ERROR_UNKNOWN
             )
 

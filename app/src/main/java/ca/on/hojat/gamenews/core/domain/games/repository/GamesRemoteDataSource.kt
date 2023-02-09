@@ -1,11 +1,11 @@
-package ca.on.hojat.gamenews.core.domain.games.datastores
+package ca.on.hojat.gamenews.core.domain.games.repository
 
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 
-interface GamesRemoteDataStore {
+interface GamesRemoteDataSource {
     suspend fun searchGames(searchQuery: String, pagination: Pagination): DomainResult<List<Game>>
     suspend fun getPopularGames(pagination: Pagination): DomainResult<List<Game>>
     suspend fun getRecentlyReleasedGames(pagination: Pagination): DomainResult<List<Game>>

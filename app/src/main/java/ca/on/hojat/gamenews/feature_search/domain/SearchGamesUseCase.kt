@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.common.usecases.UseCase
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesDataStores
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesRepository
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_search.domain.SearchGamesUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType
@@ -29,7 +29,7 @@ internal interface SearchGamesUseCase : UseCase<Params, Flow<DomainResult<List<G
 @Singleton
 @BindType
 internal class SearchGamesUseCaseImpl @Inject constructor(
-    private val gamesDataStores: GamesDataStores,
+    private val gamesRepository: GamesRepository,
     private val dispatcherProvider: DispatcherProvider,
     private val networkStateProvider: NetworkStateProvider,
 ) : SearchGamesUseCase {
@@ -48,12 +48,12 @@ internal class SearchGamesUseCaseImpl @Inject constructor(
         val pagination = params.pagination
 
         if (networkStateProvider.isNetworkAvailable) {
-            return gamesDataStores.remote
+            return gamesRepository.remote
                 .searchGames(searchQuery, pagination)
-                .onSuccess(gamesDataStores.local::saveGames)
+                .onSuccess(gamesRepository.local::saveGames)
         }
 
-        return gamesDataStores.local
+        return gamesRepository.local
             .searchGames(searchQuery, pagination)
             .asSuccess()
             // Delaying to give a sense of "loading" since it's really fast without it

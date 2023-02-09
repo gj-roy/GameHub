@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_info.GET_COMPANY_DEVELOPED_GAMES_USE_CASE_PARAMS
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.github.michaelbull.result.Ok
@@ -27,7 +27,7 @@ internal class GetCompanyDevelopedGamesUseCaseImplTest {
     @MockK
     private lateinit var refreshCompanyDevelopedGamesUseCase: RefreshCompanyDevelopedGamesUseCase
     @MockK
-    private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    private lateinit var gamesLocalDataSource: GamesLocalDataSource
 
     private lateinit var sut: GetCompanyDevelopedGamesUseCaseImpl
 
@@ -37,7 +37,7 @@ internal class GetCompanyDevelopedGamesUseCaseImplTest {
 
         sut = GetCompanyDevelopedGamesUseCaseImpl(
             refreshCompanyDevelopedGamesUseCase = refreshCompanyDevelopedGamesUseCase,
-            gamesLocalDataStore = gamesLocalDataStore,
+            gamesLocalDataSource = gamesLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -63,7 +63,7 @@ internal class GetCompanyDevelopedGamesUseCaseImplTest {
         runTest {
             coEvery { refreshCompanyDevelopedGamesUseCase.execute(any()) } returns flowOf()
             coEvery {
-                gamesLocalDataStore.getCompanyDevelopedGames(
+                gamesLocalDataSource.getCompanyDevelopedGames(
                     any(),
                     any()
                 )

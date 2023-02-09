@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.core.extensions.onEachSuccess
 import ca.on.hojat.gamenews.core.domain.games.RefreshableGamesUseCase
 import ca.on.hojat.gamenews.core.domain.games.common.RefreshUseCaseParams
 import ca.on.hojat.gamenews.core.domain.games.common.throttling.GamesRefreshingThrottlerTools
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesDataStores
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesRepository
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -18,7 +18,7 @@ interface RefreshRecentlyReleasedGamesUseCase : RefreshableGamesUseCase
 
 @Singleton
 class RefreshRecentlyReleasedGamesUseCaseImpl @Inject constructor(
-    private val gamesDataStores: GamesDataStores,
+    private val gamesRepository: GamesRepository,
     private val throttlerTools: GamesRefreshingThrottlerTools,
     private val dispatcherProvider: DispatcherProvider,
 ) : RefreshRecentlyReleasedGamesUseCase {
@@ -29,11 +29,11 @@ class RefreshRecentlyReleasedGamesUseCaseImpl @Inject constructor(
 
         return flow {
             if (throttlerTools.throttler.canRefreshGames(throttlerKey)) {
-                emit(gamesDataStores.remote.getRecentlyReleasedGames(params.pagination))
+                emit(gamesRepository.remote.getRecentlyReleasedGames(params.pagination))
             }
         }
             .onEachSuccess { games ->
-                gamesDataStores.local.saveGames(games)
+                gamesRepository.local.saveGames(games)
                 throttlerTools.throttler.updateGamesLastRefreshTime(throttlerKey)
             }
             .flowOn(dispatcherProvider.main)

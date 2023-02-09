@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.feature_info.domain.usecases
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.common.usecases.UseCase
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.entities.Company
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
@@ -32,7 +32,7 @@ internal interface GetCompanyDevelopedGamesUseCase :
 @BindType
 internal class GetCompanyDevelopedGamesUseCaseImpl @Inject constructor(
     private val refreshCompanyDevelopedGamesUseCase: RefreshCompanyDevelopedGamesUseCase,
-    private val gamesLocalDataStore: GamesLocalDataStore,
+    private val gamesLocalDataSource: GamesLocalDataSource,
     private val dispatcherProvider: DispatcherProvider,
 ) : GetCompanyDevelopedGamesUseCase {
 
@@ -42,7 +42,7 @@ internal class GetCompanyDevelopedGamesUseCaseImpl @Inject constructor(
             .onEmpty {
                 val localCompanyDevelopedGamesFlow = flow {
                     emit(
-                        gamesLocalDataStore.getCompanyDevelopedGames(
+                        gamesLocalDataSource.getCompanyDevelopedGames(
                             params.company,
                             params.pagination
                         )

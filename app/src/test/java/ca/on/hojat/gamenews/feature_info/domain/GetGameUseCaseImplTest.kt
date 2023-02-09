@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_info.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_info.GET_GAME_USE_CASE_PARAMS
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.entities.Error
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAME
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
@@ -24,7 +24,7 @@ internal class GetGameUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    private lateinit var gamesLocalDataSource: GamesLocalDataSource
 
     private lateinit var sut: GetGameUseCaseImpl
 
@@ -33,7 +33,7 @@ internal class GetGameUseCaseImplTest {
         MockKAnnotations.init(this)
 
         sut = GetGameUseCaseImpl(
-            gamesLocalDataStore = gamesLocalDataStore,
+            gamesLocalDataSource = gamesLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -41,7 +41,7 @@ internal class GetGameUseCaseImplTest {
     @Test
     fun `Emits game successfully`() {
         runTest {
-            coEvery { gamesLocalDataStore.getGame(any()) } returns DOMAIN_GAME
+            coEvery { gamesLocalDataSource.getGame(any()) } returns DOMAIN_GAME
 
             sut.execute(GET_GAME_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAME)
@@ -53,7 +53,7 @@ internal class GetGameUseCaseImplTest {
     @Test
     fun `Emits not found error if game ID does not reference existing game`() {
         runTest {
-            coEvery { gamesLocalDataStore.getGame(any()) } returns null
+            coEvery { gamesLocalDataSource.getGame(any()) } returns null
 
             sut.execute(GET_GAME_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().getError() is Error.NotFound).isTrue()

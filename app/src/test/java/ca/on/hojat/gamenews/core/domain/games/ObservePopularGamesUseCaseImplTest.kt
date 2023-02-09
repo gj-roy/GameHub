@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.core.domain.games
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.domain.games.common.ObserveUseCaseParams
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCaseImpl
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
@@ -22,7 +22,7 @@ internal class ObservePopularGamesUseCaseImplTest {
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
-    @MockK private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    @MockK private lateinit var gamesLocalDataSource: GamesLocalDataSource
 
     private lateinit var sut: ObservePopularGamesUseCaseImpl
 
@@ -31,7 +31,7 @@ internal class ObservePopularGamesUseCaseImplTest {
         MockKAnnotations.init(this)
 
         sut = ObservePopularGamesUseCaseImpl(
-            gamesLocalDataStore = gamesLocalDataStore,
+            gamesLocalDataSource = gamesLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -39,7 +39,7 @@ internal class ObservePopularGamesUseCaseImplTest {
     @Test
     fun `Emits games successfully`() {
         runTest {
-            every { gamesLocalDataStore.observePopularGames(any()) } returns flowOf(DOMAIN_GAMES)
+            every { gamesLocalDataSource.observePopularGames(any()) } returns flowOf(DOMAIN_GAMES)
 
             sut.execute(ObserveUseCaseParams()).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_GAMES)

@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.domain.games.datastores
+package ca.on.hojat.gamenews.core.domain.games.repository
 
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.entities.Game

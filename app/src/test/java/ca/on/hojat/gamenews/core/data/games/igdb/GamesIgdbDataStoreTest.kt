@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.core.data.games.igdb
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.data.api.igdb.games.entities.ApiGame
 import ca.on.hojat.gamenews.core.data.api.igdb.games.GamesEndpoint
-import ca.on.hojat.gamenews.core.data.games.datastores.GamesIgdbDataStore
+import ca.on.hojat.gamenews.core.data.games.datastores.GamesIgdbDataSource
 import ca.on.hojat.gamenews.core.data.games.datastores.IgdbGameMapper
 import ca.on.hojat.gamenews.core.data.DOMAIN_COMPANY
 import ca.on.hojat.gamenews.core.data.FakeDiscoveryGamesReleaseDatesProvider
@@ -43,7 +43,7 @@ internal class GamesIgdbDataStoreTest {
 
     private lateinit var igdbGameMapper: IgdbGameMapper
     private lateinit var apiErrorMapper: ApiErrorMapper
-    private lateinit var sut: GamesIgdbDataStore
+    private lateinit var sut: GamesIgdbDataSource
 
     @Before
     fun setup() {
@@ -51,7 +51,7 @@ internal class GamesIgdbDataStoreTest {
 
         igdbGameMapper = IgdbGameMapper()
         apiErrorMapper = ApiErrorMapper()
-        sut = GamesIgdbDataStore(
+        sut = GamesIgdbDataSource(
             gamesEndpoint = gamesEndpoint,
             releaseDatesProvider = FakeDiscoveryGamesReleaseDatesProvider(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,

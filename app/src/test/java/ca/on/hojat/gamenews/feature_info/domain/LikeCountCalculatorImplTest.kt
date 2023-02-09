@@ -5,13 +5,13 @@ import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAME
 import org.junit.Before
 import org.junit.Test
 
-internal class GameLikeCountCalculatorImplTest {
+internal class LikeCountCalculatorImplTest {
 
-    private lateinit var sut: GameLikeCountCalculatorImpl
+    private lateinit var sut: LikeCountCalculatorImpl
 
     @Before
     fun setup() {
-        sut = GameLikeCountCalculatorImpl()
+        sut = LikeCountCalculatorImpl()
     }
 
     @Test

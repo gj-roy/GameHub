@@ -4,12 +4,12 @@ import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-interface GameLikeCountCalculator {
+interface LikeCountCalculator {
     fun calculateLikeCount(game: Game): Int
 }
 
 @BindType
-internal class GameLikeCountCalculatorImpl @Inject constructor() : GameLikeCountCalculator {
+internal class LikeCountCalculatorImpl @Inject constructor() : LikeCountCalculator {
 
     override fun calculateLikeCount(game: Game): Int {
         val followerCount = (game.followerCount ?: 0)

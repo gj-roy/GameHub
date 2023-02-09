@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.core.formatters.GameCategoryFormatter
 import ca.on.hojat.gamenews.core.formatters.GameRatingFormatter
 import ca.on.hojat.gamenews.core.formatters.GameReleaseDateFormatter
 import ca.on.hojat.gamenews.core.domain.entities.Game
-import ca.on.hojat.gamenews.feature_info.domain.GameLikeCountCalculator
+import ca.on.hojat.gamenews.feature_info.domain.LikeCountCalculator
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.mapToUiModels
@@ -24,7 +24,7 @@ internal class GameInfoHeaderUiModelMapperImpl @Inject constructor(
     private val artworkModelMapper: GameInfoArtworkUiModelMapper,
     private val releaseDateFormatter: GameReleaseDateFormatter,
     private val ratingFormatter: GameRatingFormatter,
-    private val likeCountCalculator: GameLikeCountCalculator,
+    private val likeCountCalculator: LikeCountCalculator,
     private val ageRatingFormatter: GameAgeRatingFormatter,
     private val categoryFormatter: GameCategoryFormatter,
 ) : GameInfoHeaderUiModelMapper {

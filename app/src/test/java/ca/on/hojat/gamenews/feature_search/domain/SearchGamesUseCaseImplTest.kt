@@ -2,9 +2,9 @@ package ca.on.hojat.gamenews.feature_search.domain
 
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesDataStores
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesLocalDataStore
-import ca.on.hojat.gamenews.core.domain.games.datastores.GamesRemoteDataStore
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesRepository
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesLocalDataSource
+import ca.on.hojat.gamenews.core.domain.games.repository.GamesRemoteDataSource
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
@@ -36,9 +36,9 @@ internal class SearchGamesUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var gamesLocalDataStore: GamesLocalDataStore
+    private lateinit var gamesLocalDataSource: GamesLocalDataSource
     @MockK
-    private lateinit var gamesRemoteDataStore: GamesRemoteDataStore
+    private lateinit var gamesRemoteDataSource: GamesRemoteDataSource
     @MockK
     private lateinit var networkStateProvider: NetworkStateProvider
 
@@ -49,9 +49,9 @@ internal class SearchGamesUseCaseImplTest {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
         sut = SearchGamesUseCaseImpl(
-            gamesDataStores = GamesDataStores(
-                local = gamesLocalDataStore,
-                remote = gamesRemoteDataStore,
+            gamesRepository = GamesRepository(
+                local = gamesLocalDataSource,
+                remote = gamesRemoteDataSource,
             ),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             networkStateProvider = networkStateProvider,
@@ -62,7 +62,7 @@ internal class SearchGamesUseCaseImplTest {
     fun `Emits from remote data store when network is on`() {
         runTest {
             every { networkStateProvider.isNetworkAvailable } returns true
-            coEvery { gamesRemoteDataStore.searchGames(any(), any()) } returns Ok(DOMAIN_GAMES)
+            coEvery { gamesRemoteDataSource.searchGames(any(), any()) } returns Ok(DOMAIN_GAMES)
 
             sut.execute(SEARCH_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
@@ -75,11 +75,11 @@ internal class SearchGamesUseCaseImplTest {
     fun `Saves remote games into local data store when network is on & request succeeds`() {
         runTest {
             every { networkStateProvider.isNetworkAvailable } returns true
-            coEvery { gamesRemoteDataStore.searchGames(any(), any()) } returns Ok(DOMAIN_GAMES)
+            coEvery { gamesRemoteDataSource.searchGames(any(), any()) } returns Ok(DOMAIN_GAMES)
 
             sut.execute(SEARCH_GAMES_USE_CASE_PARAMS).firstOrNull()
 
-            coVerify { gamesLocalDataStore.saveGames(DOMAIN_GAMES) }
+            coVerify { gamesLocalDataSource.saveGames(DOMAIN_GAMES) }
         }
     }
 
@@ -87,13 +87,13 @@ internal class SearchGamesUseCaseImplTest {
     fun `Does not save remote games into local data store when network is on & request fails`() {
         runTest {
             every { networkStateProvider.isNetworkAvailable } returns true
-            coEvery { gamesRemoteDataStore.searchGames(any(), any()) } returns Err(
+            coEvery { gamesRemoteDataSource.searchGames(any(), any()) } returns Err(
                 DOMAIN_ERROR_UNKNOWN
             )
 
             sut.execute(SEARCH_GAMES_USE_CASE_PARAMS).firstOrNull()
 
-            coVerifyNotCalled { gamesLocalDataStore.saveGames(any()) }
+            coVerifyNotCalled { gamesLocalDataSource.saveGames(any()) }
         }
     }
 
@@ -101,7 +101,7 @@ internal class SearchGamesUseCaseImplTest {
     fun `Emits from local data store when network is off`() {
         runTest {
             every { networkStateProvider.isNetworkAvailable } returns false
-            coEvery { gamesLocalDataStore.searchGames(any(), any()) } returns DOMAIN_GAMES
+            coEvery { gamesLocalDataSource.searchGames(any(), any()) } returns DOMAIN_GAMES
 
             sut.execute(SEARCH_GAMES_USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_GAMES)
