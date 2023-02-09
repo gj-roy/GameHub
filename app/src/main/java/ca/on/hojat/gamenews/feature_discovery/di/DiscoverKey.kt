@@ -5,7 +5,7 @@ import dagger.MapKey
 @MapKey
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.BINARY)
-annotation class GamesDiscoveryKey(val type: Type) {
+annotation class DiscoverKey(val type: Type) {
 
     enum class Type {
         POPULAR,

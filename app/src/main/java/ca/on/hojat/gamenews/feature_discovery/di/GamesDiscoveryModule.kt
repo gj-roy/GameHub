@@ -22,7 +22,7 @@ internal object GamesDiscoveryModule {
 
     @Provides
     @IntoMap
-    @GamesDiscoveryKey(GamesDiscoveryKey.Type.POPULAR)
+    @DiscoverKey(DiscoverKey.Type.POPULAR)
     fun providePopularGamesObserverUseCase(
         observePopularGamesUseCase: ObservePopularGamesUseCase
     ): ObservableGamesUseCase {
@@ -31,7 +31,7 @@ internal object GamesDiscoveryModule {
 
     @Provides
     @IntoMap
-    @GamesDiscoveryKey(GamesDiscoveryKey.Type.POPULAR)
+    @DiscoverKey(DiscoverKey.Type.POPULAR)
     fun providePopularGamesRefresherUseCase(
         refreshPopularGamesUseCase: RefreshPopularGamesUseCase
     ): RefreshableGamesUseCase {
@@ -40,7 +40,7 @@ internal object GamesDiscoveryModule {
 
     @Provides
     @IntoMap
-    @GamesDiscoveryKey(GamesDiscoveryKey.Type.RECENTLY_RELEASED)
+    @DiscoverKey(DiscoverKey.Type.RECENTLY_RELEASED)
     fun provideRecentlyReleasedGamesObserverUseCase(
         observeRecentlyReleasedGamesUseCase: ObserveRecentlyReleasedGamesUseCase
     ): ObservableGamesUseCase {
@@ -49,7 +49,7 @@ internal object GamesDiscoveryModule {
 
     @Provides
     @IntoMap
-    @GamesDiscoveryKey(GamesDiscoveryKey.Type.RECENTLY_RELEASED)
+    @DiscoverKey(DiscoverKey.Type.RECENTLY_RELEASED)
     fun provideRecentlyReleasedGamesRefresherUseCase(
         refreshRecentlyReleasedGamesUseCase: RefreshRecentlyReleasedGamesUseCase
     ): RefreshableGamesUseCase {
@@ -58,7 +58,7 @@ internal object GamesDiscoveryModule {
 
     @Provides
     @IntoMap
-    @GamesDiscoveryKey(GamesDiscoveryKey.Type.COMING_SOON)
+    @DiscoverKey(DiscoverKey.Type.COMING_SOON)
     fun provideComingSoonGamesObserverUseCase(
         observeComingSoonGamesUseCase: ObserveComingSoonGamesUseCase
     ): ObservableGamesUseCase {
@@ -67,7 +67,7 @@ internal object GamesDiscoveryModule {
 
     @Provides
     @IntoMap
-    @GamesDiscoveryKey(GamesDiscoveryKey.Type.COMING_SOON)
+    @DiscoverKey(DiscoverKey.Type.COMING_SOON)
     fun provideComingSoonGamesRefresherUseCase(
         refreshComingSoonGamesUseCase: RefreshComingSoonGamesUseCase
     ): RefreshableGamesUseCase {
@@ -76,7 +76,7 @@ internal object GamesDiscoveryModule {
 
     @Provides
     @IntoMap
-    @GamesDiscoveryKey(GamesDiscoveryKey.Type.MOST_ANTICIPATED)
+    @DiscoverKey(DiscoverKey.Type.MOST_ANTICIPATED)
     fun provideMostAnticipatedGamesObserverUseCase(
         observeMostAnticipatedGamesUseCase: ObserveMostAnticipatedGamesUseCase
     ): ObservableGamesUseCase {
@@ -85,7 +85,7 @@ internal object GamesDiscoveryModule {
 
     @Provides
     @IntoMap
-    @GamesDiscoveryKey(GamesDiscoveryKey.Type.MOST_ANTICIPATED)
+    @DiscoverKey(DiscoverKey.Type.MOST_ANTICIPATED)
     fun provideMostAnticipatedGamesRefresherUseCase(
         refreshMostAnticipatedGamesUseCase: RefreshMostAnticipatedGamesUseCase
     ): RefreshableGamesUseCase {

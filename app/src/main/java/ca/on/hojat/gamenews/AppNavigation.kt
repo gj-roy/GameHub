@@ -14,7 +14,7 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import ca.on.hojat.gamenews.feature_category.GamesCategoryRoute
 import ca.on.hojat.gamenews.feature_category.widgets.GamesCategory
-import ca.on.hojat.gamenews.feature_discovery.GamesDiscoveryRoute
+import ca.on.hojat.gamenews.feature_discovery.DiscoverScreenRoute
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreen
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNews
 import ca.on.hojat.gamenews.feature_settings.presentation.Settings
@@ -82,13 +82,13 @@ private fun NavGraphBuilder.discoverScreen(
     ) {
         DiscoverScreen(modifier) { route ->
             when (route) {
-                is GamesDiscoveryRoute.Search -> {
+                is DiscoverScreenRoute.Search -> {
                     navController.navigate(Destination.Search.route)
                 }
-                is GamesDiscoveryRoute.Category -> {
+                is DiscoverScreenRoute.Category -> {
                     navController.navigate(Destination.Category.createLink(route.category))
                 }
-                is GamesDiscoveryRoute.Info -> {
+                is DiscoverScreenRoute.Info -> {
                     navController.navigate(Destination.InfoPage.createLink(route.gameId))
                 }
             }

@@ -36,7 +36,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 internal class GamesDiscoveryViewModel @Inject constructor(
-    private val useCases: GamesDiscoveryUseCases,
+    private val useCases: DiscoverUseCases,
     private val uiModelMapper: GamesDiscoveryItemGameUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val stringProvider: StringProvider,
@@ -64,7 +64,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
 
     private fun initDiscoveryItemsData() {
         _items.update {
-            GamesDiscoveryCategory.values().map { category ->
+            DiscoverCategoryType.values().map { category ->
                 GamesDiscoveryItemUiModel(
                     id = category.id,
                     categoryName = category.name,
@@ -80,7 +80,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
         if (isObservingGames) return
 
         combine(
-            flows = GamesDiscoveryCategory.values().map(::observeGames),
+            flows = DiscoverCategoryType.values().map(::observeGames),
             transform = { it.toList() }
         )
             .map { games -> currentItems.toSuccessState(games) }
@@ -91,7 +91,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    private fun observeGames(category: GamesDiscoveryCategory): Flow<List<DiscoverScreenItemData>> {
+    private fun observeGames(category: DiscoverCategoryType): Flow<List<DiscoverScreenItemData>> {
         return useCases.getObservableUseCase(category.toKeyType())
             .execute(observeGamesUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
@@ -102,7 +102,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
         if (isRefreshingGames) return
 
         combine(
-            flows = GamesDiscoveryCategory.values().map(::refreshGames),
+            flows = DiscoverCategoryType.values().map(::refreshGames),
             transform = { it.toList() }
         )
             .map { currentItems }
@@ -122,22 +122,22 @@ internal class GamesDiscoveryViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    private fun refreshGames(category: GamesDiscoveryCategory): Flow<List<Game>> {
+    private fun refreshGames(category: DiscoverCategoryType): Flow<List<Game>> {
         return useCases.getRefreshableUseCase(category.toKeyType())
             .execute(refreshGamesUseCaseParams)
             .resultOrError()
     }
 
     fun onSearchButtonClicked() {
-        route(GamesDiscoveryRoute.Search)
+        route(DiscoverScreenRoute.Search)
     }
 
     fun onCategoryMoreButtonClicked(category: String) {
-        route(GamesDiscoveryRoute.Category(category))
+        route(DiscoverScreenRoute.Category(category))
     }
 
     fun onCategoryGameClicked(item: DiscoverScreenItemData) {
-        route(GamesDiscoveryRoute.Info(gameId = item.id))
+        route(DiscoverScreenRoute.Info(gameId = item.id))
     }
 
     fun onRefreshRequested() {

@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_discovery
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.feature_discovery.di.GamesDiscoveryKey
+import ca.on.hojat.gamenews.feature_discovery.di.DiscoverKey
 import ca.on.hojat.gamenews.feature_discovery.mapping.GamesDiscoveryItemGameUiModelMapper
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import ca.on.hojat.gamenews.core.domain.entities.Game
@@ -41,29 +41,29 @@ internal class GamesDiscoveryViewModelTest {
         )
     }
 
-    private fun setupUseCases(): GamesDiscoveryUseCases {
-        return GamesDiscoveryUseCases(
+    private fun setupUseCases(): DiscoverUseCases {
+        return DiscoverUseCases(
             observeGamesUseCasesMap = mapOf(
-                GamesDiscoveryKey.Type.POPULAR to observePopularGamesUseCase,
-                GamesDiscoveryKey.Type.RECENTLY_RELEASED to mockk {
+                DiscoverKey.Type.POPULAR to observePopularGamesUseCase,
+                DiscoverKey.Type.RECENTLY_RELEASED to mockk {
                     every { execute(any()) } returns flowOf(DOMAIN_GAMES)
                 },
-                GamesDiscoveryKey.Type.COMING_SOON to mockk {
+                DiscoverKey.Type.COMING_SOON to mockk {
                     every { execute(any()) } returns flowOf(DOMAIN_GAMES)
                 },
-                GamesDiscoveryKey.Type.MOST_ANTICIPATED to mockk {
+                DiscoverKey.Type.MOST_ANTICIPATED to mockk {
                     every { execute(any()) } returns flowOf(DOMAIN_GAMES)
                 }
             ),
             refreshGamesUseCasesMap = mapOf(
-                GamesDiscoveryKey.Type.POPULAR to refreshPopularGamesUseCase,
-                GamesDiscoveryKey.Type.RECENTLY_RELEASED to mockk {
+                DiscoverKey.Type.POPULAR to refreshPopularGamesUseCase,
+                DiscoverKey.Type.RECENTLY_RELEASED to mockk {
                     every { execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
                 },
-                GamesDiscoveryKey.Type.COMING_SOON to mockk {
+                DiscoverKey.Type.COMING_SOON to mockk {
                     every { execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
                 },
-                GamesDiscoveryKey.Type.MOST_ANTICIPATED to mockk {
+                DiscoverKey.Type.MOST_ANTICIPATED to mockk {
                     every { execute(any()) } returns flowOf(Ok(DOMAIN_GAMES))
                 }
             )
@@ -92,7 +92,7 @@ internal class GamesDiscoveryViewModelTest {
             sut.routeFlow.test {
                 sut.onSearchButtonClicked()
 
-                assertThat(awaitItem()).isInstanceOf(GamesDiscoveryRoute.Search::class.java)
+                assertThat(awaitItem()).isInstanceOf(DiscoverScreenRoute.Search::class.java)
             }
         }
     }
@@ -100,15 +100,15 @@ internal class GamesDiscoveryViewModelTest {
     @Test
     fun `Routes to games category screen when more button is clicked`() {
         runTest {
-            val categoryName = GamesDiscoveryCategory.POPULAR.name
+            val categoryName = DiscoverCategoryType.POPULAR.name
 
             sut.routeFlow.test {
                 sut.onCategoryMoreButtonClicked(categoryName)
 
                 val route = awaitItem()
 
-                assertThat(route).isInstanceOf(GamesDiscoveryRoute.Category::class.java)
-                assertThat((route as GamesDiscoveryRoute.Category).category).isEqualTo(categoryName)
+                assertThat(route).isInstanceOf(DiscoverScreenRoute.Category::class.java)
+                assertThat((route as DiscoverScreenRoute.Category).category).isEqualTo(categoryName)
             }
         }
     }
@@ -127,8 +127,8 @@ internal class GamesDiscoveryViewModelTest {
 
                 val route = awaitItem()
 
-                assertThat(route).isInstanceOf(GamesDiscoveryRoute.Info::class.java)
-                assertThat((route as GamesDiscoveryRoute.Info).gameId).isEqualTo(item.id)
+                assertThat(route).isInstanceOf(DiscoverScreenRoute.Info::class.java)
+                assertThat((route as DiscoverScreenRoute.Info).gameId).isEqualTo(item.id)
             }
         }
     }
