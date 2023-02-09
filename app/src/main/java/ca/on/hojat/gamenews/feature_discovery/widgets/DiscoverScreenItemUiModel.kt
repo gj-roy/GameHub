@@ -8,11 +8,11 @@ internal data class GamesDiscoveryItemUiModel(
     val categoryName: String,
     val title: String,
     val isProgressBarVisible: Boolean,
-    val games: List<GamesDiscoveryItemGameUiModel>,
+    val games: List<DiscoverScreenItemData>,
 )
 
 internal fun List<GamesDiscoveryItemUiModel>.toSuccessState(
-    games: List<List<GamesDiscoveryItemGameUiModel>>,
+    games: List<List<DiscoverScreenItemData>>,
 ): List<GamesDiscoveryItemUiModel> {
     return mapIndexed { index, itemModel ->
         itemModel.copy(games = games[index])

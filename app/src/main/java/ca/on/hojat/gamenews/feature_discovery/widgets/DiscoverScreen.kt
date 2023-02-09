@@ -43,12 +43,15 @@ import kotlinx.coroutines.launch
 // because as soon as it is let go, it disappears instantaneously.
 private const val SwipeRefreshIntentionalDelay = 300L
 
+/**
+ * The composable UI for Discover screen.
+ */
 @Composable
-fun GamesDiscovery(
+fun DiscoverScreen(
     modifier: Modifier,
     onRoute: (Route) -> Unit,
 ) {
-    GamesDiscovery(
+    DiscoverScreen(
         viewModel = hiltViewModel(),
         modifier = modifier,
         onRoute = onRoute,
@@ -56,7 +59,7 @@ fun GamesDiscovery(
 }
 
 @Composable
-private fun GamesDiscovery(
+private fun DiscoverScreen(
     viewModel: GamesDiscoveryViewModel,
     modifier: Modifier,
     onRoute: (Route) -> Unit,
@@ -64,7 +67,7 @@ private fun GamesDiscovery(
     NavBarColorHandler()
     CommandsHandler(viewModel = viewModel)
     RoutesHandler(viewModel = viewModel, onRoute = onRoute)
-    GamesDiscovery(
+    DiscoverScreen(
         items = viewModel.items.collectAsState().value,
         onCategoryMoreButtonClicked = viewModel::onCategoryMoreButtonClicked,
         onSearchButtonClicked = viewModel::onSearchButtonClicked,
@@ -75,11 +78,11 @@ private fun GamesDiscovery(
 }
 
 @Composable
-private fun GamesDiscovery(
+private fun DiscoverScreen(
     items: List<GamesDiscoveryItemUiModel>,
     onSearchButtonClicked: () -> Unit,
     onCategoryMoreButtonClicked: (category: String) -> Unit,
-    onCategoryGameClicked: (GamesDiscoveryItemGameUiModel) -> Unit,
+    onCategoryGameClicked: (DiscoverScreenItemData) -> Unit,
     onRefreshRequested: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -127,7 +130,7 @@ private fun GamesDiscovery(
 private fun CategoryPreviewItems(
     items: List<GamesDiscoveryItemUiModel>,
     onCategoryMoreButtonClicked: (category: String) -> Unit,
-    onCategoryGameClicked: (GamesDiscoveryItemGameUiModel) -> Unit,
+    onCategoryGameClicked: (DiscoverScreenItemData) -> Unit,
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(GameNewsTheme.spaces.spacing_3_5),
@@ -159,7 +162,7 @@ private fun GamesDiscoverySuccessStatePreview() {
         "Forza Horizon 5",
     )
         .mapIndexed { index, gameTitle ->
-            GamesDiscoveryItemGameUiModel(id = index, title = gameTitle, coverUrl = null)
+            DiscoverScreenItemData(id = index, title = gameTitle, coverUrl = null)
         }
 
     val items = GamesDiscoveryCategory.values().map { category ->
@@ -173,7 +176,7 @@ private fun GamesDiscoverySuccessStatePreview() {
     }
 
     GameNewsTheme {
-        GamesDiscovery(
+        DiscoverScreen(
             items = items,
             onSearchButtonClicked = {},
             onCategoryMoreButtonClicked = {},
@@ -198,7 +201,7 @@ private fun GamesDiscoveryEmptyStatePreview() {
     }
 
     GameNewsTheme {
-        GamesDiscovery(
+        DiscoverScreen(
             items = items,
             onSearchButtonClicked = {},
             onCategoryMoreButtonClicked = {},

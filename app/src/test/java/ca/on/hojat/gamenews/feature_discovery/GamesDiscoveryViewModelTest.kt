@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.feature_discovery
 import app.cash.turbine.test
 import ca.on.hojat.gamenews.feature_discovery.di.GamesDiscoveryKey
 import ca.on.hojat.gamenews.feature_discovery.mapping.GamesDiscoveryItemGameUiModelMapper
-import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemGameUiModel
+import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.core.domain.games.usecases.ObservePopularGamesUseCase
 import ca.on.hojat.gamenews.core.domain.games.usecases.RefreshPopularGamesUseCase
@@ -116,7 +116,7 @@ internal class GamesDiscoveryViewModelTest {
     @Test
     fun `Routes to game info screen when game is clicked`() {
         runTest {
-            val item = GamesDiscoveryItemGameUiModel(
+            val item = DiscoverScreenItemData(
                 id = 1,
                 title = "title",
                 coverUrl = null
@@ -135,8 +135,8 @@ internal class GamesDiscoveryViewModelTest {
 
     private class FakeGamesDiscoveryItemGameUiModelMapper : GamesDiscoveryItemGameUiModelMapper {
 
-        override fun mapToUiModel(game: Game): GamesDiscoveryItemGameUiModel {
-            return GamesDiscoveryItemGameUiModel(
+        override fun mapToUiModel(game: Game): DiscoverScreenItemData {
+            return DiscoverScreenItemData(
                 id = game.id,
                 title = game.name,
                 coverUrl = null

@@ -15,7 +15,7 @@ import com.google.accompanist.navigation.animation.composable
 import ca.on.hojat.gamenews.feature_category.GamesCategoryRoute
 import ca.on.hojat.gamenews.feature_category.widgets.GamesCategory
 import ca.on.hojat.gamenews.feature_discovery.GamesDiscoveryRoute
-import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscovery
+import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreen
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNews
 import ca.on.hojat.gamenews.feature_settings.presentation.Settings
 import ca.on.hojat.gamenews.feature_image_viewer.ImageViewer
@@ -80,7 +80,7 @@ private fun NavGraphBuilder.discoverScreen(
         },
         popExitTransition = { null },
     ) {
-        GamesDiscovery(modifier) { route ->
+        DiscoverScreen(modifier) { route ->
             when (route) {
                 is GamesDiscoveryRoute.Search -> {
                     navController.navigate(Destination.Search.route)

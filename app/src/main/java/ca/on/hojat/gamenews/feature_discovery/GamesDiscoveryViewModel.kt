@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_discovery.mapping.GamesDiscoveryItemGameUiModelMapper
 import ca.on.hojat.gamenews.feature_discovery.mapping.mapToUiModels
-import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemGameUiModel
+import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreenItemData
 import ca.on.hojat.gamenews.feature_discovery.widgets.GamesDiscoveryItemUiModel
 import ca.on.hojat.gamenews.feature_discovery.widgets.hideProgressBar
 import ca.on.hojat.gamenews.feature_discovery.widgets.showProgressBar
@@ -91,7 +91,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    private fun observeGames(category: GamesDiscoveryCategory): Flow<List<GamesDiscoveryItemGameUiModel>> {
+    private fun observeGames(category: GamesDiscoveryCategory): Flow<List<DiscoverScreenItemData>> {
         return useCases.getObservableUseCase(category.toKeyType())
             .execute(observeGamesUseCaseParams)
             .map(uiModelMapper::mapToUiModels)
@@ -136,7 +136,7 @@ internal class GamesDiscoveryViewModel @Inject constructor(
         route(GamesDiscoveryRoute.Category(category))
     }
 
-    fun onCategoryGameClicked(item: GamesDiscoveryItemGameUiModel) {
+    fun onCategoryGameClicked(item: DiscoverScreenItemData) {
         route(GamesDiscoveryRoute.Info(gameId = item.id))
     }
 
