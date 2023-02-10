@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesRemoteDataStore
+import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesRemoteDataSource
 import ca.on.hojat.gamenews.feature_news.domain.entities.Article
 import ca.on.hojat.gamenews.core.data.api.common.ApiResult
 import ca.on.hojat.gamenews.core.data.api.gamespot.articles.ArticlesEndpoint
@@ -17,12 +17,12 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-internal class ArticlesGamespotDataStore @Inject constructor(
+internal class ArticlesGamespotDataSource @Inject constructor(
     private val articlesEndpoint: ArticlesEndpoint,
     private val dispatcherProvider: DispatcherProvider,
     private val apiArticleMapper: GamespotArticleMapper,
     private val apiErrorMapper: ApiErrorMapper,
-) : ArticlesRemoteDataStore {
+) : ArticlesRemoteDataSource {
 
     override suspend fun getArticles(pagination: Pagination): DomainResult<List<Article>> {
         return articlesEndpoint

@@ -15,8 +15,8 @@ import ca.on.hojat.gamenews.feature_news.domain.throttling.ArticlesRefreshingThr
 import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCaseImpl
 import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesDataStores
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataStore
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesRemoteDataStore
+import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataSource
+import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesRemoteDataSource
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -36,9 +36,9 @@ internal class RefreshArticlesUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var articlesLocalDataStore: ArticlesLocalDataStore
+    private lateinit var articlesLocalDataSource: ArticlesLocalDataSource
     @MockK
-    private lateinit var articlesRemoteDataStore: ArticlesRemoteDataStore
+    private lateinit var articlesRemoteDataSource: ArticlesRemoteDataSource
     @MockK
     private lateinit var throttler: ArticlesRefreshingThrottler
     @MockK
@@ -52,8 +52,8 @@ internal class RefreshArticlesUseCaseImplTest {
 
         sut = RefreshArticlesUseCaseImpl(
             articlesDataStores = ArticlesDataStores(
-                local = articlesLocalDataStore,
-                remote = articlesRemoteDataStore
+                local = articlesLocalDataSource,
+                remote = articlesRemoteDataSource
             ),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             throttlerTools = ArticlesRefreshingThrottlerTools(
@@ -69,7 +69,7 @@ internal class RefreshArticlesUseCaseImplTest {
     fun `Emits remote articles when refresh is possible`() {
         runTest {
             coEvery { throttler.canRefreshArticles(any()) } returns true
-            coEvery { articlesRemoteDataStore.getArticles(any()) } returns Ok(DOMAIN_ARTICLES)
+            coEvery { articlesRemoteDataSource.getArticles(any()) } returns Ok(DOMAIN_ARTICLES)
 
             sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitItem().get()).isEqualTo(DOMAIN_ARTICLES)
@@ -93,11 +93,11 @@ internal class RefreshArticlesUseCaseImplTest {
     fun `Saves remote articles into local data store when refresh is successful`() {
         runTest {
             coEvery { throttler.canRefreshArticles(any()) } returns true
-            coEvery { articlesRemoteDataStore.getArticles(any()) } returns Ok(DOMAIN_ARTICLES)
+            coEvery { articlesRemoteDataSource.getArticles(any()) } returns Ok(DOMAIN_ARTICLES)
 
             sut.execute(USE_CASE_PARAMS).firstOrNull()
 
-            coVerify { articlesLocalDataStore.saveArticles(DOMAIN_ARTICLES) }
+            coVerify { articlesLocalDataSource.saveArticles(DOMAIN_ARTICLES) }
         }
     }
 
@@ -108,7 +108,7 @@ internal class RefreshArticlesUseCaseImplTest {
 
             sut.execute(USE_CASE_PARAMS).firstOrNull()
 
-            coVerifyNotCalled { articlesLocalDataStore.saveArticles(any()) }
+            coVerifyNotCalled { articlesLocalDataSource.saveArticles(any()) }
         }
     }
 
@@ -116,11 +116,11 @@ internal class RefreshArticlesUseCaseImplTest {
     fun `Does not save remote articles into local data store when refresh is unsuccessful`() {
         runTest {
             coEvery { throttler.canRefreshArticles(any()) } returns false
-            coEvery { articlesRemoteDataStore.getArticles(any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
+            coEvery { articlesRemoteDataSource.getArticles(any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
 
             sut.execute(USE_CASE_PARAMS).firstOrNull()
 
-            coVerifyNotCalled { articlesLocalDataStore.saveArticles(any()) }
+            coVerifyNotCalled { articlesLocalDataSource.saveArticles(any()) }
         }
     }
 
@@ -128,7 +128,7 @@ internal class RefreshArticlesUseCaseImplTest {
     fun `Updates articles last refresh time when refresh is successful`() {
         runTest {
             coEvery { throttler.canRefreshArticles(any()) } returns true
-            coEvery { articlesRemoteDataStore.getArticles(any()) } returns Ok(DOMAIN_ARTICLES)
+            coEvery { articlesRemoteDataSource.getArticles(any()) } returns Ok(DOMAIN_ARTICLES)
 
             sut.execute(USE_CASE_PARAMS).firstOrNull()
 
@@ -151,7 +151,7 @@ internal class RefreshArticlesUseCaseImplTest {
     fun `Does not update articles last refresh time when refresh is unsuccessful`() {
         runTest {
             coEvery { throttler.canRefreshArticles(any()) } returns false
-            coEvery { articlesRemoteDataStore.getArticles(any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
+            coEvery { articlesRemoteDataSource.getArticles(any()) } returns Err(DOMAIN_ERROR_UNKNOWN)
 
             sut.execute(USE_CASE_PARAMS).firstOrNull()
 

@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.feature_news.data.datastores.database.ArticlesDatabaseDataStore
+import ca.on.hojat.gamenews.feature_news.data.datastores.database.ArticlesDatabaseDataSource
 import ca.on.hojat.gamenews.feature_news.data.datastores.database.DbArticleMapper
 import ca.on.hojat.gamenews.feature_news.data.datastores.database.mapToDatabaseArticles
 import io.mockk.MockKAnnotations
@@ -28,14 +28,14 @@ internal class ArticlesDatabaseDataStoreTest {
     private lateinit var articlesTable: ArticlesTable
 
     private lateinit var dbArticleMapper: DbArticleMapper
-    private lateinit var sut: ArticlesDatabaseDataStore
+    private lateinit var sut: ArticlesDatabaseDataSource
 
     @Before
     fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
         dbArticleMapper = DbArticleMapper()
-        sut = ArticlesDatabaseDataStore(
+        sut = ArticlesDatabaseDataSource(
             articlesTable = articlesTable,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             dbArticleMapper = dbArticleMapper,

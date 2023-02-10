@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCaseImpl
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataStore
+import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataSource
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -25,7 +25,7 @@ internal class ObserveArticlesUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var articlesLocalDataStore: ArticlesLocalDataStore
+    private lateinit var articlesLocalDataSource: ArticlesLocalDataSource
 
     private lateinit var sut: ObserveArticlesUseCaseImpl
 
@@ -34,7 +34,7 @@ internal class ObserveArticlesUseCaseImplTest {
         MockKAnnotations.init(this)
 
         sut = ObserveArticlesUseCaseImpl(
-            articlesLocalDataStore = articlesLocalDataStore,
+            articlesLocalDataSource = articlesLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -42,7 +42,7 @@ internal class ObserveArticlesUseCaseImplTest {
     @Test
     fun `Emits articles from local data store`() {
         runTest {
-            every { articlesLocalDataStore.observeArticles(any()) } returns flowOf(DOMAIN_ARTICLES)
+            every { articlesLocalDataSource.observeArticles(any()) } returns flowOf(DOMAIN_ARTICLES)
 
             sut.execute(USE_CASE_PARAMS).test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_ARTICLES)

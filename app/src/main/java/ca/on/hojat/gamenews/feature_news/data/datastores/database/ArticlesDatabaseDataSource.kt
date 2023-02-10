@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.core.data.database.articles.DbArticle
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataStore
+import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataSource
 import ca.on.hojat.gamenews.feature_news.domain.entities.Article
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow
@@ -17,11 +17,11 @@ import javax.inject.Singleton
 
 @Singleton
 @BindType
-internal class ArticlesDatabaseDataStore @Inject constructor(
+internal class ArticlesDatabaseDataSource @Inject constructor(
     private val articlesTable: ArticlesTable,
     private val dispatcherProvider: DispatcherProvider,
     private val dbArticleMapper: DbArticleMapper
-) : ArticlesLocalDataStore {
+) : ArticlesLocalDataSource {
 
     override suspend fun saveArticles(articles: List<Article>) {
         articlesTable.saveArticles(

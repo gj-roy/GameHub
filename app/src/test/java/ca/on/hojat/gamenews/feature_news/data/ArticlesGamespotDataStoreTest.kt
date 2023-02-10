@@ -1,17 +1,16 @@
 package ca.on.hojat.gamenews.feature_news.data
 
-import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlePublicationDateMapper
-import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlesGamespotDataStore
-import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.GamespotArticleMapper
-import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.mapToDomainArticles
-import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
-import ca.on.hojat.gamenews.core.data.api.gamespot.articles.ArticlesEndpoint
-import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiArticle
 import ca.on.hojat.gamenews.core.common_testing.API_ERROR_HTTP
 import ca.on.hojat.gamenews.core.common_testing.API_ERROR_NETWORK
 import ca.on.hojat.gamenews.core.common_testing.API_ERROR_UNKNOWN
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
+import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
+import ca.on.hojat.gamenews.core.data.api.gamespot.articles.ArticlesEndpoint
+import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiArticle
+import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlePublicationDateMapper
+import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlesGamespotDataSource
+import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.GamespotArticleMapper
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
@@ -41,7 +40,7 @@ internal class ArticlesGamespotDataStoreTest {
 
     private lateinit var apiArticleMapper: GamespotArticleMapper
     private lateinit var apiErrorMapper: ApiErrorMapper
-    private lateinit var sut: ArticlesGamespotDataStore
+    private lateinit var sut: ArticlesGamespotDataSource
 
     @Before
     fun setup() {
@@ -49,7 +48,7 @@ internal class ArticlesGamespotDataStoreTest {
 
         apiArticleMapper = GamespotArticleMapper(ArticlePublicationDateMapper())
         apiErrorMapper = ApiErrorMapper()
-        sut = ArticlesGamespotDataStore(
+        sut = ArticlesGamespotDataSource(
             articlesEndpoint = articlesEndpoint,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             apiArticleMapper = apiArticleMapper,

@@ -9,8 +9,7 @@ import javax.inject.Inject
 internal class GamespotArticleMapper @Inject constructor(
     private val publicationDateMapper: ArticlePublicationDateMapper,
 ) {
-
-    fun mapToDomainArticle(apiArticle: ApiArticle): DomainArticle {
+    private fun mapToDomainArticle(apiArticle: ApiArticle): DomainArticle {
         return DomainArticle(
             id = apiArticle.id,
             title = apiArticle.title,
@@ -26,8 +25,8 @@ internal class GamespotArticleMapper @Inject constructor(
             DomainImageType.valueOf(it.key.name)
         }
     }
-}
 
-internal fun GamespotArticleMapper.mapToDomainArticles(apiArticles: List<ApiArticle>): List<DomainArticle> {
-    return apiArticles.map(::mapToDomainArticle)
+    internal fun mapToDomainArticles(apiArticles: List<ApiArticle>): List<DomainArticle> {
+        return apiArticles.map(::mapToDomainArticle)
+    }
 }
