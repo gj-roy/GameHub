@@ -18,12 +18,11 @@ import io.mockk.mockk
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 
-internal class LikedGamesViewModelTest {
+internal class LikesViewModelTest {
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule(StandardTestDispatcher())
@@ -32,7 +31,7 @@ internal class LikedGamesViewModelTest {
 
     private val logger = FakeLogger()
     private val sut by lazy {
-        LikedGamesViewModel(
+        LikesViewModel(
             observeLikedGamesUseCase = observeLikedGamesUseCase,
             uiModelMapper = FakeGameUiModelMapper(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
@@ -80,7 +79,7 @@ internal class LikedGamesViewModelTest {
             sut.routeFlow.test {
                 sut.onSearchButtonClicked()
 
-                assertThat(awaitItem()).isInstanceOf(LikedGamesRoute.Search::class.java)
+                assertThat(awaitItem()).isInstanceOf(LikesRoute.Search::class.java)
             }
         }
     }
@@ -102,8 +101,8 @@ internal class LikedGamesViewModelTest {
 
                 val route = awaitItem()
 
-                assertThat(route).isInstanceOf(LikedGamesRoute.Info::class.java)
-                assertThat((route as LikedGamesRoute.Info).gameId).isEqualTo(game.id)
+                assertThat(route).isInstanceOf(LikesRoute.Info::class.java)
+                assertThat((route as LikesRoute.Info).gameId).isEqualTo(game.id)
             }
         }
     }

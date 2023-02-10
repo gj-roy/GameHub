@@ -35,7 +35,7 @@ import javax.inject.Inject
 private const val SUBSEQUENT_EMISSION_DELAY = 500L
 
 @HiltViewModel
-internal class LikedGamesViewModel @Inject constructor(
+internal class LikesViewModel @Inject constructor(
     private val observeLikedGamesUseCase: ObserveLikedGamesUseCase,
     private val uiModelMapper: GameUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
@@ -116,11 +116,11 @@ internal class LikedGamesViewModel @Inject constructor(
     }
 
     fun onSearchButtonClicked() {
-        route(LikedGamesRoute.Search)
+        route(LikesRoute.Search)
     }
 
     fun onGameClicked(game: GameUiModel) {
-        route(LikedGamesRoute.Info(game.id))
+        route(LikesRoute.Info(game.id))
     }
 
     fun onBottomReached() {

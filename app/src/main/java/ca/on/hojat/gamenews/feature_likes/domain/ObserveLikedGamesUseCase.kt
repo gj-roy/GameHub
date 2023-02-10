@@ -11,6 +11,11 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * This interface is coupled with a UseCase that returns a list of Games;
+ * so that's why I'm not renaming it. It can only be used for getting a
+ * list of liked games.
+ */
 internal interface ObserveLikedGamesUseCase : ObservableGamesUseCase
 
 @Singleton

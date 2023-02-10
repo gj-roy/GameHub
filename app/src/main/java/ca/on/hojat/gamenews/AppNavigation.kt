@@ -22,8 +22,8 @@ import ca.on.hojat.gamenews.feature_image_viewer.ImageViewer
 import ca.on.hojat.gamenews.feature_image_viewer.ImageViewerRoute
 import ca.on.hojat.gamenews.feature_info.presentation.InfoScreenRoute
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreen
-import ca.on.hojat.gamenews.feature_likes.presentation.LikedGames
-import ca.on.hojat.gamenews.feature_likes.presentation.LikedGamesRoute
+import ca.on.hojat.gamenews.feature_likes.presentation.LikesScreen
+import ca.on.hojat.gamenews.feature_likes.presentation.LikesRoute
 import ca.on.hojat.gamenews.feature_search.presentation.GamesSearch
 import ca.on.hojat.gamenews.feature_search.presentation.GamesSearchRoute
 
@@ -119,12 +119,12 @@ private fun NavGraphBuilder.likesScreen(
         },
         popExitTransition = { null },
     ) {
-        LikedGames(modifier) { route ->
+        LikesScreen(modifier) { route ->
             when (route) {
-                is LikedGamesRoute.Search -> {
+                is LikesRoute.Search -> {
                     navController.navigate(Destination.Search.route)
                 }
-                is LikedGamesRoute.Info -> {
+                is LikesRoute.Info -> {
                     navController.navigate(Destination.InfoPage.createLink(route.gameId))
                 }
             }

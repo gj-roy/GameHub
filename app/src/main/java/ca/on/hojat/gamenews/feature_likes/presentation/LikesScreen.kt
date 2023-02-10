@@ -27,11 +27,11 @@ import ca.on.hojat.gamenews.common_ui.base.events.Route
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 
 @Composable
-fun LikedGames(
+fun LikesScreen(
     modifier: Modifier,
     onRoute: (Route) -> Unit,
 ) {
-    LikedGames(
+    LikesScreen(
         viewModel = hiltViewModel(),
         modifier = modifier,
         onRoute = onRoute,
@@ -39,15 +39,15 @@ fun LikedGames(
 }
 
 @Composable
-private fun LikedGames(
-    viewModel: LikedGamesViewModel,
+private fun LikesScreen(
+    viewModel: LikesViewModel,
     modifier: Modifier,
     onRoute: (Route) -> Unit,
 ) {
     NavBarColorHandler()
     CommandsHandler(viewModel = viewModel)
     RoutesHandler(viewModel = viewModel, onRoute = onRoute)
-    LikedGames(
+    LikesScreen(
         uiState = viewModel.uiState.collectAsState().value,
         onSearchButtonClicked = viewModel::onSearchButtonClicked,
         onGameClicked = viewModel::onGameClicked,
@@ -57,7 +57,7 @@ private fun LikedGames(
 }
 
 @Composable
-private fun LikedGames(
+private fun LikesScreen(
     uiState: GamesUiState,
     onSearchButtonClicked: () -> Unit,
     onGameClicked: (GameUiModel) -> Unit,
@@ -91,7 +91,7 @@ private fun LikedGames(
 @Composable
 private fun LikedGamesPreview() {
     GameHubTheme {
-        LikedGames(
+        LikesScreen(
             uiState = GamesUiState(
                 isLoading = false,
                 infoIconId = R.drawable.gamepad_variant_outline,
