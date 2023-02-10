@@ -3,8 +3,8 @@ package ca.on.hojat.gamenews.feature_info.presentation.widgets.main
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_info.domain.entities.InfoScreenData
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetailsUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModelMapper
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.InfoScreenDetailsUiModelMapper
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mappers.GameInfoOtherCompanyGamesUiModelMapper
@@ -22,10 +22,10 @@ internal interface GameInfoUiModelMapper {
 @BindType(installIn = BindType.Component.VIEW_MODEL)
 @Suppress("LongParameterList")
 internal class GameInfoUiModelMapperImpl @Inject constructor(
-    private val headerModelMapper: GameInfoHeaderUiModelMapper,
+    private val headerModelMapper: InfoScreenHeaderUiModelMapper,
     private val videoModelMapper: InfoScreenVideoUiModelMapper,
     private val screenshotModelMapper: InfoScreenShotUiModelMapper,
-    private val detailsModelMapper: GameInfoDetailsUiModelMapper,
+    private val detailsModelMapper: InfoScreenDetailsUiModelMapper,
     private val linkModelMapper: GameInfoLinkUiModelMapper,
     private val companyModelMapper: InfoScreenCompanyUiModelMapper,
     private val otherCompanyGamesModelMapper: GameInfoOtherCompanyGamesUiModelMapper,

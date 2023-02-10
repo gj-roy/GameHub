@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.feature_info.presentation.widgets.details
 import androidx.compose.runtime.Immutable
 
 @Immutable
-internal data class GameInfoDetailsUiModel(
+internal data class InfoScreenDetailsUiModel(
     val genresText: String?,
     val platformsText: String?,
     val modesText: String?,

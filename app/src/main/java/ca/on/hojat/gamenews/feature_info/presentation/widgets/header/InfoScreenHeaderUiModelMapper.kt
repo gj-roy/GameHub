@@ -13,12 +13,12 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.In
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GameInfoHeaderUiModelMapper {
+internal interface InfoScreenHeaderUiModelMapper {
     fun mapToUiModel(game: Game, isLiked: Boolean): InfoScreenHeaderUiModel
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameInfoHeaderUiModelMapperImpl @Inject constructor(
+internal class InfoScreenHeaderUiModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
     private val artworkModelMapper: InfoScreenArtworkUiModelMapper,
     private val releaseDateFormatter: GameReleaseDateFormatter,
@@ -26,7 +26,7 @@ internal class GameInfoHeaderUiModelMapperImpl @Inject constructor(
     private val likeCountCalculator: LikeCountCalculator,
     private val ageRatingFormatter: GameAgeRatingFormatter,
     private val categoryFormatter: GameCategoryFormatter,
-) : GameInfoHeaderUiModelMapper {
+) : InfoScreenHeaderUiModelMapper {
 
     override fun mapToUiModel(game: Game, isLiked: Boolean): InfoScreenHeaderUiModel {
         return InfoScreenHeaderUiModel(

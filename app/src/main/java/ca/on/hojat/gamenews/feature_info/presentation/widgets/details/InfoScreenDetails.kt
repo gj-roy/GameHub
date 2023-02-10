@@ -14,42 +14,42 @@ import ca.on.hojat.gamenews.common_ui.theme.subtitle3
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSection
 
 @Composable
-internal fun GameInfoDetails(details: GameInfoDetailsUiModel) {
+internal fun InfoScreenDetails(details: InfoScreenDetailsUiModel) {
     InfoScreenSection(
         title = stringResource(R.string.game_info_details_title),
         titleBottomPadding = GameHubTheme.spaces.spacing_1_0,
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
             if (details.hasGenresText) {
-                CategorySection(
+                DetailsSectionRow(
                     title = stringResource(R.string.game_info_details_genres_title),
                     value = checkNotNull(details.genresText),
                 )
             }
 
             if (details.hasPlatformsText) {
-                CategorySection(
+                DetailsSectionRow(
                     title = stringResource(R.string.game_info_details_platforms_title),
                     value = checkNotNull(details.platformsText),
                 )
             }
 
             if (details.hasModesText) {
-                CategorySection(
+                DetailsSectionRow(
                     title = stringResource(R.string.game_info_details_modes_title),
                     value = checkNotNull(details.modesText),
                 )
             }
 
             if (details.hasPlayerPerspectivesText) {
-                CategorySection(
+                DetailsSectionRow(
                     title = stringResource(R.string.game_info_details_player_perspectives_title),
                     value = checkNotNull(details.playerPerspectivesText),
                 )
             }
 
             if (details.hasThemesText) {
-                CategorySection(
+                DetailsSectionRow(
                     title = stringResource(R.string.game_info_details_themes_title),
                     value = checkNotNull(details.themesText),
                 )
@@ -59,7 +59,7 @@ internal fun GameInfoDetails(details: GameInfoDetailsUiModel) {
 }
 
 @Composable
-private fun CategorySection(title: String, value: String) {
+private fun DetailsSectionRow(title: String, value: String) {
     Text(
         text = title,
         modifier = Modifier.padding(top = GameHubTheme.spaces.spacing_2_5),
@@ -76,10 +76,10 @@ private fun CategorySection(title: String, value: String) {
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GameInfoDetailsPreview() {
+private fun InfoScreenDetailsPreview() {
     GameHubTheme {
-        GameInfoDetails(
-            details = GameInfoDetailsUiModel(
+        InfoScreenDetails(
+            details = InfoScreenDetailsUiModel(
                 genresText = "Adventure • Shooter • Role-playing (RPG)",
                 platformsText = "PC • PS4 • XONE • PS5 • Series X • Stadia",
                 modesText = "Single Player • Multiplayer",

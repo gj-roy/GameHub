@@ -73,7 +73,7 @@ private val CoverSpace = 40.dp
 private val InfoIconSize = 34.dp
 
 @Composable
-internal fun GameInfoHeader(
+internal fun InfoScreenHeader(
     headerInfo: InfoScreenHeaderUiModel,
     onArtworkClicked: (artworkIndex: Int) -> Unit,
     onBackButtonClicked: () -> Unit,
@@ -415,9 +415,9 @@ private fun constructExpandedConstraintSet(): ConstraintSet {
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GameInfoHeaderPreview() {
+private fun InfoScreenHeaderPreview() {
     GameHubTheme {
-        GameInfoHeader(
+        InfoScreenHeader(
             headerInfo = InfoScreenHeaderUiModel(
                 artworks = listOf(InfoScreenArtworkUiModel.DefaultImage),
                 isLiked = true,

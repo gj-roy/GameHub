@@ -9,19 +9,19 @@ import ca.on.hojat.gamenews.core.domain.entities.Theme
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GameInfoDetailsUiModelMapper {
-    fun mapToUiModel(game: Game): GameInfoDetailsUiModel?
+internal interface InfoScreenDetailsUiModelMapper {
+    fun mapToUiModel(game: Game): InfoScreenDetailsUiModel?
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameInfoDetailsUiModelMapperImpl @Inject constructor() :
-    GameInfoDetailsUiModelMapper {
+internal class InfoScreenDetailsUiModelMapperImpl @Inject constructor() :
+    InfoScreenDetailsUiModelMapper {
 
     private companion object {
         private const val TEXT_SEPARATOR = " • "
     }
 
-    override fun mapToUiModel(game: Game): GameInfoDetailsUiModel? {
+    override fun mapToUiModel(game: Game): InfoScreenDetailsUiModel? {
         @Suppress("ComplexCondition")
         if (game.genres.isEmpty() &&
             game.platforms.isEmpty() &&
@@ -32,7 +32,7 @@ internal class GameInfoDetailsUiModelMapperImpl @Inject constructor() :
             return null
         }
 
-        return GameInfoDetailsUiModel(
+        return InfoScreenDetailsUiModel(
             genresText = game.genresToText(),
             platformsText = game.platformsToText(),
             modesText = game.modesToText(),

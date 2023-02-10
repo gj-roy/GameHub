@@ -39,9 +39,9 @@ import ca.on.hojat.gamenews.feature_info.presentation.InfoScreenViewModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.InfoScreenSummary
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanies
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetails
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetailsUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeader
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.InfoScreenDetails
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.InfoScreenDetailsUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeader
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
@@ -281,7 +281,7 @@ private fun LazyListScope.headerItem(
     onLikeButtonClicked: () -> Unit,
 ) {
     gameInfoItem(item = GameInfoItem.Header) {
-        GameInfoHeader(
+        InfoScreenHeader(
             headerInfo = model,
             onArtworkClicked = onArtworkClicked,
             onBackButtonClicked = onBackButtonClicked,
@@ -321,9 +321,9 @@ private fun LazyListScope.summaryItem(model: String) {
     }
 }
 
-private fun LazyListScope.detailsItem(model: GameInfoDetailsUiModel) {
+private fun LazyListScope.detailsItem(model: InfoScreenDetailsUiModel) {
     gameInfoItem(item = GameInfoItem.Details) {
-        GameInfoDetails(details = model)
+        InfoScreenDetails(details = model)
     }
 }
 
@@ -561,7 +561,7 @@ private fun buildFakeGameModel(): InfoScreenUiModel {
         ),
         summary = "Elden Ring is an action-RPG open world game with RPG " +
                 "elements such as stats, weapons and spells.",
-        detailsModel = GameInfoDetailsUiModel(
+        detailsModel = InfoScreenDetailsUiModel(
             genresText = "Role-playing (RPG)",
             platformsText = "PC (Microsoft Windows) • PlayStation 4 • " +
                     "Xbox One • PlayStation 5 • Xbox Series X|S",
