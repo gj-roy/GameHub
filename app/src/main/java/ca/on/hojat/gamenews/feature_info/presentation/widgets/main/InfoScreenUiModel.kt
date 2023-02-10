@@ -4,7 +4,7 @@ import androidx.compose.runtime.Immutable
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.InfoScreenDetailsUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
@@ -17,7 +17,7 @@ internal data class InfoScreenUiModel(
     val screenshotModels: List<InfoScreenShotUiModel>,
     val summary: String?,
     val detailsModel: InfoScreenDetailsUiModel?,
-    val linkModels: List<GameInfoLinkUiModel>,
+    val linkModels: List<InfoScreenLinkUiModel>,
     val companyModels: List<InfoScreenCompanyUiModel>,
     val otherCompanyGames: GameInfoRelatedGamesUiModel?,
     val similarGames: GameInfoRelatedGamesUiModel?,

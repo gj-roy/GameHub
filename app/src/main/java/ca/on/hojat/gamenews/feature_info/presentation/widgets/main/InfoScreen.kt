@@ -44,8 +44,8 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.InfoScreen
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeader
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinks
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinkUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinks
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesType
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
@@ -106,7 +106,7 @@ private fun InfoScreen(
     onLikeButtonClicked: () -> Unit,
     onVideoClicked: (InfoScreenVideoUiModel) -> Unit,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
-    onLinkClicked: (GameInfoLinkUiModel) -> Unit,
+    onLinkClicked: (InfoScreenLinkUiModel) -> Unit,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
     onRelatedGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
 ) {
@@ -174,7 +174,7 @@ private fun SuccessState(
     onLikeButtonClicked: () -> Unit,
     onVideoClicked: (InfoScreenVideoUiModel) -> Unit,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
-    onLinkClicked: (GameInfoLinkUiModel) -> Unit,
+    onLinkClicked: (InfoScreenLinkUiModel) -> Unit,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
     onRelatedGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
 ) {
@@ -205,7 +205,7 @@ private fun Content(
     onLikeButtonClicked: () -> Unit,
     onVideoClicked: (InfoScreenVideoUiModel) -> Unit,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
-    onLinkClicked: (GameInfoLinkUiModel) -> Unit,
+    onLinkClicked: (InfoScreenLinkUiModel) -> Unit,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
     onRelatedGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
 ) {
@@ -328,11 +328,11 @@ private fun LazyListScope.detailsItem(model: InfoScreenDetailsUiModel) {
 }
 
 private fun LazyListScope.linksItem(
-    model: List<GameInfoLinkUiModel>,
-    onLinkClicked: (GameInfoLinkUiModel) -> Unit,
+    model: List<InfoScreenLinkUiModel>,
+    onLinkClicked: (InfoScreenLinkUiModel) -> Unit,
 ) {
     gameInfoItem(item = GameInfoItem.Links) {
-        GameInfoLinks(
+        InfoScreenLinks(
             links = model,
             onLinkClicked = onLinkClicked,
         )
@@ -570,37 +570,37 @@ private fun buildFakeGameModel(): InfoScreenUiModel {
             themesText = "Action",
         ),
         linkModels = listOf(
-            GameInfoLinkUiModel(
+            InfoScreenLinkUiModel(
                 id = 1,
                 text = "Steam",
                 iconId = R.drawable.steam,
                 url = "",
             ),
-            GameInfoLinkUiModel(
+            InfoScreenLinkUiModel(
                 id = 2,
                 text = "Official",
                 iconId = R.drawable.web,
                 url = "",
             ),
-            GameInfoLinkUiModel(
+            InfoScreenLinkUiModel(
                 id = 3,
                 text = "Twitter",
                 iconId = R.drawable.twitter,
                 url = "",
             ),
-            GameInfoLinkUiModel(
+            InfoScreenLinkUiModel(
                 id = 4,
                 text = "Subreddit",
                 iconId = R.drawable.reddit,
                 url = "",
             ),
-            GameInfoLinkUiModel(
+            InfoScreenLinkUiModel(
                 id = 5,
                 text = "YouTube",
                 iconId = R.drawable.youtube,
                 url = "",
             ),
-            GameInfoLinkUiModel(
+            InfoScreenLinkUiModel(
                 id = 6,
                 text = "Twitch",
                 iconId = R.drawable.twitch,

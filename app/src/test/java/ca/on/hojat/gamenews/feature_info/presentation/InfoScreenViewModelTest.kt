@@ -7,9 +7,9 @@ import ca.on.hojat.gamenews.feature_info.GAME_INFO
 import ca.on.hojat.gamenews.feature_info.domain.entities.InfoScreenData
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreenUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiModelMapper
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreenUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.finiteUiState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
@@ -44,7 +44,7 @@ internal class InfoScreenViewModelTest {
             savedStateHandle = setupSavedStateHandle(),
             transitionAnimationDuration = 0L,
             useCases = useCases,
-            uiModelMapper = FakeGameInfoUiModelMapper(),
+            uiModelMapper = FakeInfoScreenUiModelMapper(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             stringProvider = FakeStringProvider(),
             errorMapper = FakeErrorMapper(),
@@ -239,7 +239,7 @@ internal class InfoScreenViewModelTest {
     @Test
     fun `Dispatches url opening command when game link is clicked`() {
         runTest {
-            val link = GameInfoLinkUiModel(
+            val link = InfoScreenLinkUiModel(
                 id = 1,
                 text = "text",
                 iconId = 0,
@@ -301,7 +301,7 @@ internal class InfoScreenViewModelTest {
         }
     }
 
-    private class FakeGameInfoUiModelMapper : GameInfoUiModelMapper {
+    private class FakeInfoScreenUiModelMapper : InfoScreenUiModelMapper {
 
         override fun mapToUiModel(infoScreenData: InfoScreenData): InfoScreenUiModel {
             return InfoScreenUiModel(

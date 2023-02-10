@@ -7,21 +7,21 @@ import ca.on.hojat.gamenews.core.providers.WebsiteNameProvider
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GameInfoLinkUiModelMapper {
-    fun mapToUiModel(website: Website): GameInfoLinkUiModel?
-    fun mapToUiModels(websites: List<Website>): List<GameInfoLinkUiModel>
+internal interface InfoScreenLinkUiModelMapper {
+    fun mapToUiModel(website: Website): InfoScreenLinkUiModel?
+    fun mapToUiModels(websites: List<Website>): List<InfoScreenLinkUiModel>
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameInfoLinkUiModelMapperImpl @Inject constructor(
+internal class InfoScreenLinkUiModelMapperImpl @Inject constructor(
     private val websiteNameProvider: WebsiteNameProvider,
     private val websiteIconProvider: WebsiteIconProvider,
-) : GameInfoLinkUiModelMapper {
+) : InfoScreenLinkUiModelMapper {
 
-    override fun mapToUiModel(website: Website): GameInfoLinkUiModel? {
+    override fun mapToUiModel(website: Website): InfoScreenLinkUiModel? {
         if (website.category == WebsiteCategory.UNKNOWN) return null
 
-        return GameInfoLinkUiModel(
+        return InfoScreenLinkUiModel(
             id = website.id,
             text = websiteNameProvider.provideWebsiteName(website),
             iconId = websiteIconProvider.provideIconIdForWebsite(website),
@@ -29,7 +29,7 @@ internal class GameInfoLinkUiModelMapperImpl @Inject constructor(
         )
     }
 
-    override fun mapToUiModels(websites: List<Website>): List<GameInfoLinkUiModel> {
+    override fun mapToUiModels(websites: List<Website>): List<InfoScreenLinkUiModel> {
         if (websites.isEmpty()) return emptyList()
 
         return websites

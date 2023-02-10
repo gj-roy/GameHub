@@ -24,9 +24,9 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSe
 import java.util.Locale
 
 @Composable
-internal fun GameInfoLinks(
-    links: List<GameInfoLinkUiModel>,
-    onLinkClicked: (GameInfoLinkUiModel) -> Unit,
+internal fun InfoScreenLinks(
+    links: List<InfoScreenLinkUiModel>,
+    onLinkClicked: (InfoScreenLinkUiModel) -> Unit,
 ) {
     InfoScreenSection(title = stringResource(R.string.game_info_links_title)) { paddingValues ->
         FlowRow(
@@ -46,7 +46,7 @@ internal fun GameInfoLinks(
 
 @Composable
 private fun Link(
-    link: GameInfoLinkUiModel,
+    link: InfoScreenLinkUiModel,
     onLinkClicked: () -> Unit,
 ) {
     CompositionLocalProvider(LocalMinimumTouchTargetEnforcement provides false) {
@@ -83,11 +83,11 @@ private fun Link(
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GameInfoLinksPreview() {
+private fun InfoScreenLinksPreview() {
     val links = WebsiteCategory.values()
         .filterNot { it == WebsiteCategory.UNKNOWN }
         .mapIndexed { index, websiteCategory ->
-            GameInfoLinkUiModel(
+            InfoScreenLinkUiModel(
                 id = index,
                 text = websiteCategory.name
                     .replace("_", " ")
@@ -101,7 +101,7 @@ private fun GameInfoLinksPreview() {
         }
 
     GameHubTheme {
-        GameInfoLinks(
+        InfoScreenLinks(
             links = links,
             onLinkClicked = {},
         )

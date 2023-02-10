@@ -13,8 +13,8 @@ import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameImageUrlsUs
 import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameInfoUseCase
 import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleLikeStateUseCase
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiModelMapper
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinkUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreenUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toEmptyState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toLoadingState
@@ -47,7 +47,7 @@ internal class InfoScreenViewModel @Inject constructor(
     @TransitionAnimationDuration
     transitionAnimationDuration: Long,
     private val useCases: InfoScreenUseCases,
-    private val uiModelMapper: GameInfoUiModelMapper,
+    private val uiModelMapper: InfoScreenUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val stringProvider: StringProvider,
     private val errorMapper: ErrorMapper
@@ -156,7 +156,7 @@ internal class InfoScreenViewModel @Inject constructor(
         )
     }
 
-    fun onLinkClicked(link: GameInfoLinkUiModel) {
+    fun onLinkClicked(link: InfoScreenLinkUiModel) {
         openUrl(link.url)
     }
 
