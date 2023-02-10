@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
 import ca.on.hojat.gamenews.feature_settings.data.datastores.ProtoSettings
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.feature_settings.data.datastores.ProtoSettingsMapper
-import ca.on.hojat.gamenews.feature_settings.data.datastores.SettingsFileDataStore
+import ca.on.hojat.gamenews.feature_settings.data.datastores.SettingsFileDataSource
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -25,13 +25,13 @@ internal class SettingsFileDataStoreTest {
     @MockK
     private lateinit var protoDataStore: DataStore<ProtoSettings>
 
-    private lateinit var sut: SettingsFileDataStore
+    private lateinit var sut: SettingsFileDataSource
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
 
-        sut = SettingsFileDataStore(
+        sut = SettingsFileDataSource(
             protoDataStore = protoDataStore,
             protoMapper = ProtoSettingsMapper(),
         )

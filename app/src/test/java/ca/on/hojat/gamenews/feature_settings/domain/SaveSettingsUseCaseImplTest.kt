@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_settings.domain
 
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
-import ca.on.hojat.gamenews.feature_settings.domain.datastores.SettingsLocalDataStore
+import ca.on.hojat.gamenews.feature_settings.domain.datastores.SettingsLocalDataSource
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.SaveSettingsUseCaseImpl
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
@@ -19,14 +19,14 @@ internal class SaveSettingsUseCaseImplTest {
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
-    private lateinit var settingsLocalDataStore: SettingsLocalDataStore
+    private lateinit var settingsLocalDataSource: SettingsLocalDataSource
     private lateinit var sut: SaveSettingsUseCaseImpl
 
     @Before
     fun setup() {
-        settingsLocalDataStore = FakeSettingsLocalDataStore()
+        settingsLocalDataSource = FakeSettingsLocalDataSource()
         sut = SaveSettingsUseCaseImpl(
-            localDataStore = settingsLocalDataStore,
+            localDataStore = settingsLocalDataSource,
         )
     }
 
@@ -37,11 +37,11 @@ internal class SaveSettingsUseCaseImplTest {
 
             sut.execute(settings)
 
-            assertThat(settingsLocalDataStore.observeSettings().first()).isEqualTo(settings)
+            assertThat(settingsLocalDataSource.observeSettings().first()).isEqualTo(settings)
         }
     }
 
-    private class FakeSettingsLocalDataStore : SettingsLocalDataStore {
+    private class FakeSettingsLocalDataSource : SettingsLocalDataSource {
 
         private var settings: DomainSettings? = null
 

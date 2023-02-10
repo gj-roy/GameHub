@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.feature_settings.domain.datastores.SettingsLocalDataStore
+import ca.on.hojat.gamenews.feature_settings.domain.datastores.SettingsLocalDataSource
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseCaseImpl
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -22,7 +22,7 @@ internal class ObserveSettingsUseCaseImplTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     @MockK
-    private lateinit var settingsLocalDataStore: SettingsLocalDataStore
+    private lateinit var settingsLocalDataSource: SettingsLocalDataSource
 
     private lateinit var sut: ObserveSettingsUseCaseImpl
 
@@ -31,7 +31,7 @@ internal class ObserveSettingsUseCaseImplTest {
         MockKAnnotations.init(this)
 
         sut = ObserveSettingsUseCaseImpl(
-            localDataStore = settingsLocalDataStore,
+            localDataStore = settingsLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
@@ -39,7 +39,7 @@ internal class ObserveSettingsUseCaseImplTest {
     @Test
     fun `Emits settings from local data store`() {
         runTest {
-            every { settingsLocalDataStore.observeSettings() } returns flowOf(DOMAIN_SETTINGS)
+            every { settingsLocalDataSource.observeSettings() } returns flowOf(DOMAIN_SETTINGS)
 
             sut.execute().test {
                 assertThat(awaitItem()).isEqualTo(DOMAIN_SETTINGS)
