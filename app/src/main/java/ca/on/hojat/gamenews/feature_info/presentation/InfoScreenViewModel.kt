@@ -20,7 +20,7 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toEmptyState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toLoadingState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toSuccessState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
@@ -144,7 +144,7 @@ internal class InfoScreenViewModel @Inject constructor(
         }
     }
 
-    fun onVideoClicked(video: GameInfoVideoUiModel) {
+    fun onVideoClicked(video: InfoScreenVideoUiModel) {
         openUrl(video.videoUrl)
     }
 

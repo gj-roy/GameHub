@@ -12,7 +12,6 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mappe
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.GameInfoScreenshotUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.mapToUiModels
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.mapToUiModels
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 

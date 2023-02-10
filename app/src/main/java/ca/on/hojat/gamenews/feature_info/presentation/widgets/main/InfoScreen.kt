@@ -51,10 +51,10 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameI
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mapToCategoryUiModels
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mapToInfoRelatedGameUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.GameInfoScreenshotUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.GameInfoScreenshots
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideos
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotSection
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoSection
 
 @Composable
 fun InfoScreen(onRoute: (Route) -> Unit) {
@@ -104,7 +104,7 @@ private fun InfoScreen(
     onBackButtonClicked: () -> Unit,
     onCoverClicked: () -> Unit,
     onLikeButtonClicked: () -> Unit,
-    onVideoClicked: (GameInfoVideoUiModel) -> Unit,
+    onVideoClicked: (InfoScreenVideoUiModel) -> Unit,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
     onLinkClicked: (GameInfoLinkUiModel) -> Unit,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
@@ -172,7 +172,7 @@ private fun SuccessState(
     onBackButtonClicked: () -> Unit,
     onCoverClicked: () -> Unit,
     onLikeButtonClicked: () -> Unit,
-    onVideoClicked: (GameInfoVideoUiModel) -> Unit,
+    onVideoClicked: (InfoScreenVideoUiModel) -> Unit,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
     onLinkClicked: (GameInfoLinkUiModel) -> Unit,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
@@ -203,7 +203,7 @@ private fun Content(
     onBackButtonClicked: () -> Unit,
     onCoverClicked: () -> Unit,
     onLikeButtonClicked: () -> Unit,
-    onVideoClicked: (GameInfoVideoUiModel) -> Unit,
+    onVideoClicked: (InfoScreenVideoUiModel) -> Unit,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
     onLinkClicked: (GameInfoLinkUiModel) -> Unit,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
@@ -292,11 +292,11 @@ private fun LazyListScope.headerItem(
 }
 
 private fun LazyListScope.videosItem(
-    videos: List<GameInfoVideoUiModel>,
-    onVideoClicked: (GameInfoVideoUiModel) -> Unit,
+    videos: List<InfoScreenVideoUiModel>,
+    onVideoClicked: (InfoScreenVideoUiModel) -> Unit,
 ) {
     gameInfoItem(item = GameInfoItem.Videos) {
-        GameInfoVideos(
+        InfoScreenVideoSection(
             videos = videos,
             onVideClicked = onVideoClicked,
         )
@@ -304,11 +304,11 @@ private fun LazyListScope.videosItem(
 }
 
 private fun LazyListScope.screenshotsItem(
-    screenshots: List<GameInfoScreenshotUiModel>,
+    screenshots: List<InfoScreenShotUiModel>,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
 ) {
     gameInfoItem(item = GameInfoItem.Screenshots) {
-        GameInfoScreenshots(
+        InfoScreenShotSection(
             screenshots = screenshots,
             onScreenshotClicked = onScreenshotClicked,
         )
@@ -536,13 +536,13 @@ private fun buildFakeGameModel(): GameInfoUiModel {
             gameCategory = "Main",
         ),
         videoModels = listOf(
-            GameInfoVideoUiModel(
+            InfoScreenVideoUiModel(
                 id = "1",
                 thumbnailUrl = "",
                 videoUrl = "",
                 title = "Announcement Trailer",
             ),
-            GameInfoVideoUiModel(
+            InfoScreenVideoUiModel(
                 id = "2",
                 thumbnailUrl = "",
                 videoUrl = "",
@@ -550,11 +550,11 @@ private fun buildFakeGameModel(): GameInfoUiModel {
             ),
         ),
         screenshotModels = listOf(
-            GameInfoScreenshotUiModel(
+            InfoScreenShotUiModel(
                 id = "1",
                 url = "",
             ),
-            GameInfoScreenshotUiModel(
+            InfoScreenShotUiModel(
                 id = "2",
                 url = "",
             ),

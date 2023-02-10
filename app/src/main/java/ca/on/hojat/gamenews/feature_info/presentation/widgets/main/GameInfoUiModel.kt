@@ -6,15 +6,15 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDe
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.GameInfoScreenshotUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
 
 @Immutable
 internal data class GameInfoUiModel(
     val id: Int,
     val headerModel: GameInfoHeaderUiModel,
-    val videoModels: List<GameInfoVideoUiModel>,
-    val screenshotModels: List<GameInfoScreenshotUiModel>,
+    val videoModels: List<InfoScreenVideoUiModel>,
+    val screenshotModels: List<InfoScreenShotUiModel>,
     val summary: String?,
     val detailsModel: GameInfoDetailsUiModel?,
     val linkModels: List<GameInfoLinkUiModel>,

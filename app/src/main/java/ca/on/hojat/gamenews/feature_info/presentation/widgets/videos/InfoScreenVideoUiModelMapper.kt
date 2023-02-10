@@ -8,17 +8,25 @@ import ca.on.hojat.gamenews.core.domain.entities.Video
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface InfoScreenVideoUiModelMapper {
-    fun mapToUiModel(video: Video): GameInfoVideoUiModel?
+abstract class InfoScreenVideoUiModelMapper {
+    internal abstract fun mapToUiModel(video: Video): InfoScreenVideoUiModel?
+
+    internal fun mapToUiModels(
+        videos: List<Video>,
+    ): List<InfoScreenVideoUiModel> {
+        if (videos.isEmpty()) return emptyList()
+
+        return videos.mapNotNull(::mapToUiModel)
+    }
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
 internal class InfoScreenVideoUiModelMapperImpl @Inject constructor(
     private val youtubeMediaUrlFactory: YoutubeMediaUrlFactory,
     private val stringProvider: StringProvider,
-) : InfoScreenVideoUiModelMapper {
+) : InfoScreenVideoUiModelMapper() {
 
-    override fun mapToUiModel(video: Video): GameInfoVideoUiModel? {
+    override fun mapToUiModel(video: Video): InfoScreenVideoUiModel? {
         val thumbnailUrl = youtubeMediaUrlFactory.createThumbnailUrl(
             video,
             YoutubeThumbnailSize.MEDIUM
@@ -30,19 +38,11 @@ internal class InfoScreenVideoUiModelMapperImpl @Inject constructor(
 
         if ((thumbnailUrl == null) && (videoUrl == null)) return null
 
-        return GameInfoVideoUiModel(
+        return InfoScreenVideoUiModel(
             id = video.id,
             thumbnailUrl = checkNotNull(thumbnailUrl),
             videoUrl = checkNotNull(videoUrl),
             title = videoTitle,
         )
     }
-}
-
-internal fun InfoScreenVideoUiModelMapper.mapToUiModels(
-    videos: List<Video>,
-): List<GameInfoVideoUiModel> {
-    if (videos.isEmpty()) return emptyList()
-
-    return videos.mapNotNull(::mapToUiModel)
 }

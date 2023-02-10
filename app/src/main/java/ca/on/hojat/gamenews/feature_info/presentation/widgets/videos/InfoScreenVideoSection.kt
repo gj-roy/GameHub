@@ -38,12 +38,12 @@ import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSectionWithInnerList
 
 @Composable
-internal fun GameInfoVideos(
-    videos: List<GameInfoVideoUiModel>,
-    onVideClicked: (GameInfoVideoUiModel) -> Unit,
+internal fun InfoScreenVideoSection(
+    videos: List<InfoScreenVideoUiModel>,
+    onVideClicked: (InfoScreenVideoUiModel) -> Unit,
 ) {
     InfoScreenSectionWithInnerList(title = stringResource(R.string.game_info_videos_title)) {
-        items(items = videos, key = GameInfoVideoUiModel::id) { video ->
+        items(items = videos, key = InfoScreenVideoUiModel::id) { video ->
             Video(
                 video = video,
                 thumbnailHeight = 150.dp,
@@ -56,7 +56,7 @@ internal fun GameInfoVideos(
 
 @Composable
 private fun Video(
-    video: GameInfoVideoUiModel,
+    video: InfoScreenVideoUiModel,
     thumbnailHeight: Dp,
     modifier: Modifier,
     onVideoClicked: () -> Unit,
@@ -121,17 +121,17 @@ private fun Video(
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GameInfoVideosPreview() {
+private fun InfoScreenVideoSectionPreview() {
     GameHubTheme {
-        GameInfoVideos(
+        InfoScreenVideoSection(
             videos = listOf(
-                GameInfoVideoUiModel(
+                InfoScreenVideoUiModel(
                     id = "1",
                     thumbnailUrl = "",
                     videoUrl = "",
                     title = "Announcement Trailer",
                 ),
-                GameInfoVideoUiModel(
+                InfoScreenVideoUiModel(
                     id = "2",
                     thumbnailUrl = "",
                     videoUrl = "",

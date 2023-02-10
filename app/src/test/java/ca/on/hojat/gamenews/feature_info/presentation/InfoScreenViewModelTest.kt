@@ -12,7 +12,7 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiMod
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.finiteUiState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.GameInfoVideoUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN
@@ -178,7 +178,7 @@ internal class InfoScreenViewModelTest {
     @Test
     fun `Dispatches url opening command when video is clicked`() {
         runTest {
-            val video = GameInfoVideoUiModel(
+            val video = InfoScreenVideoUiModel(
                 id = "1",
                 thumbnailUrl = "thumbnail_url",
                 videoUrl = "video_url",

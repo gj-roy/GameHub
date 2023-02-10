@@ -20,8 +20,8 @@ import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSectionWithInnerList
 
 @Composable
-internal fun GameInfoScreenshots(
-    screenshots: List<GameInfoScreenshotUiModel>,
+internal fun InfoScreenShotSection(
+    screenshots: List<InfoScreenShotUiModel>,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
 ) {
     InfoScreenSectionWithInnerList(title = stringResource(R.string.game_info_screenshots_title)) {
@@ -40,7 +40,7 @@ internal fun GameInfoScreenshots(
 
 @Composable
 private fun Screenshot(
-    screenshot: GameInfoScreenshotUiModel,
+    screenshot: InfoScreenShotUiModel,
     modifier: Modifier,
     onScreenshotClicked: () -> Unit,
 ) {
@@ -64,19 +64,19 @@ private fun Screenshot(
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GameInfoScreenshotsPreview() {
+private fun InfoScreenShotSectionPreview() {
     GameHubTheme {
-        GameInfoScreenshots(
+        InfoScreenShotSection(
             screenshots = listOf(
-                GameInfoScreenshotUiModel(
+                InfoScreenShotUiModel(
                     id = "1",
                     url = "",
                 ),
-                GameInfoScreenshotUiModel(
+                InfoScreenShotUiModel(
                     id = "2",
                     url = "",
                 ),
-                GameInfoScreenshotUiModel(
+                InfoScreenShotUiModel(
                     id = "3",
                     url = "",
                 ),
