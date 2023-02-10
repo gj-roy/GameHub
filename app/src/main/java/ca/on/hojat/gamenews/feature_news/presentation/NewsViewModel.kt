@@ -11,13 +11,8 @@ import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.presentation.mapping.NewsItemUiModelMapper
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiModel
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsUiState
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.disableRefreshing
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.enableRefreshing
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.toEmptyState
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.toLoadingState
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.toSuccessState
+import ca.on.hojat.gamenews.feature_news.presentation.widgets.NewsItemUiModel
+import ca.on.hojat.gamenews.feature_news.presentation.widgets.NewsUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -51,12 +46,12 @@ internal class NewsViewModel @Inject constructor(
     private lateinit var observerUseCaseParams: ObserveArticlesUseCase.Params
     private lateinit var refresherUseCaseParams: RefreshArticlesUseCase.Params
 
-    private val _uiState = MutableStateFlow(GamingNewsUiState())
+    private val _uiState = MutableStateFlow(NewsUiState())
 
-    private val currentUiState: GamingNewsUiState
+    private val currentUiState: NewsUiState
         get() = _uiState.value
 
-    val uiState: StateFlow<GamingNewsUiState> = _uiState.asStateFlow()
+    val uiState: StateFlow<NewsUiState> = _uiState.asStateFlow()
 
     init {
         initUseCaseParams()
@@ -92,7 +87,7 @@ internal class NewsViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    fun onNewsItemClicked(model: GamingNewsItemUiModel) {
+    fun onNewsItemClicked(model: NewsItemUiModel) {
         dispatchCommand(NewsScreenCommand.OpenUrl(model.siteDetailUrl))
     }
 

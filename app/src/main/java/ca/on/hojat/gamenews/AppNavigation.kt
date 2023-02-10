@@ -16,7 +16,7 @@ import ca.on.hojat.gamenews.feature_category.CategoryScreenRoute
 import ca.on.hojat.gamenews.feature_category.widgets.CategoryScreen
 import ca.on.hojat.gamenews.feature_discovery.DiscoverScreenRoute
 import ca.on.hojat.gamenews.feature_discovery.widgets.DiscoverScreen
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNews
+import ca.on.hojat.gamenews.feature_news.presentation.widgets.NewsScreen
 import ca.on.hojat.gamenews.feature_settings.presentation.Settings
 import ca.on.hojat.gamenews.feature_image_viewer.ImageViewer
 import ca.on.hojat.gamenews.feature_image_viewer.ImageViewerRoute
@@ -136,7 +136,7 @@ private fun NavGraphBuilder.newsScreen(modifier: Modifier) {
     composable(
         route = Destination.News.route,
     ) {
-        GamingNews(modifier)
+        NewsScreen(modifier)
     }
 }
 

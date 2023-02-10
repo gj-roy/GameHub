@@ -39,15 +39,15 @@ import ca.on.hojat.gamenews.feature_news.presentation.NewsScreenCommand
 import ca.on.hojat.gamenews.feature_news.presentation.NewsViewModel
 
 @Composable
-fun GamingNews(modifier: Modifier) {
-    GamingNews(
+fun NewsScreen(modifier: Modifier) {
+    NewsScreen(
         viewModel = hiltViewModel(),
         modifier = modifier,
     )
 }
 
 @Composable
-private fun GamingNews(
+private fun NewsScreen(
     viewModel: NewsViewModel,
     modifier: Modifier,
 ) {
@@ -64,7 +64,7 @@ private fun GamingNews(
             }
         }
     }
-    GamingNews(
+    NewsScreen(
         uiState = viewModel.uiState.collectAsState().value,
         onNewsItemClicked = viewModel::onNewsItemClicked,
         onRefreshRequested = viewModel::onRefreshRequested,
@@ -73,9 +73,9 @@ private fun GamingNews(
 }
 
 @Composable
-private fun GamingNews(
-    uiState: GamingNewsUiState,
-    onNewsItemClicked: (GamingNewsItemUiModel) -> Unit,
+private fun NewsScreen(
+    uiState: NewsUiState,
+    onNewsItemClicked: (NewsItemUiModel) -> Unit,
     onRefreshRequested: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -145,14 +145,14 @@ private fun EmptyState(modifier: Modifier) {
 
 @Composable
 private fun SuccessState(
-    news: List<GamingNewsItemUiModel>,
-    onNewsItemClicked: (GamingNewsItemUiModel) -> Unit,
+    news: List<NewsItemUiModel>,
+    onNewsItemClicked: (NewsItemUiModel) -> Unit,
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(GameHubTheme.spaces.spacing_3_5),
     ) {
-        items(items = news, key = GamingNewsItemUiModel::id) { itemModel ->
-            GamingNewsItem(
+        items(items = news, key = NewsItemUiModel::id) { itemModel ->
+            NewsScreenItem(
                 model = itemModel,
                 onClick = { onNewsItemClicked(itemModel) }
             )
@@ -163,9 +163,9 @@ private fun SuccessState(
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GamingNewsSuccessStatePreview() {
+private fun NewsScreenSuccessStatePreview() {
     val news = listOf(
-        GamingNewsItemUiModel(
+        NewsItemUiModel(
             id = 1,
             imageUrl = "",
             title = "Halo Infinite Season 1 Will Run Until May 2022",
@@ -174,7 +174,7 @@ private fun GamingNewsSuccessStatePreview() {
             publicationDate = "3 mins ago",
             siteDetailUrl = "url",
         ),
-        GamingNewsItemUiModel(
+        NewsItemUiModel(
             id = 2,
             imageUrl = "",
             title = "Call of Duty: Vanguard's UK Launch Sales are Down 40% From Last Year",
@@ -183,7 +183,7 @@ private fun GamingNewsSuccessStatePreview() {
             publicationDate = "an hour ago",
             siteDetailUrl = "url",
         ),
-        GamingNewsItemUiModel(
+        NewsItemUiModel(
             id = 3,
             imageUrl = null,
             title = "WoW Classic Season of Mastery: Full List of Changes",
@@ -195,8 +195,8 @@ private fun GamingNewsSuccessStatePreview() {
     )
 
     GameHubTheme {
-        GamingNews(
-            uiState = GamingNewsUiState(
+        NewsScreen(
+            uiState = NewsUiState(
                 news = news,
             ),
             onNewsItemClicked = {},
@@ -208,10 +208,10 @@ private fun GamingNewsSuccessStatePreview() {
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GamingNewsEmptyStatePreview() {
+private fun NewsScreenEmptyStatePreview() {
     GameHubTheme {
-        GamingNews(
-            uiState = GamingNewsUiState(),
+        NewsScreen(
+            uiState = NewsUiState(),
             onNewsItemClicked = {},
             onRefreshRequested = {},
         )
@@ -221,10 +221,10 @@ private fun GamingNewsEmptyStatePreview() {
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun GamingNewsLoadingStatePreview() {
+private fun NewsScreenLoadingStatePreview() {
     GameHubTheme {
-        GamingNews(
-            uiState = GamingNewsUiState(isLoading = true),
+        NewsScreen(
+            uiState = NewsUiState(isLoading = true),
             onNewsItemClicked = {},
             onRefreshRequested = {},
         )

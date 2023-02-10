@@ -25,8 +25,8 @@ import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
 
 @Composable
-internal fun GamingNewsItem(
-    model: GamingNewsItemUiModel,
+internal fun NewsScreenItem(
+    model: NewsItemUiModel,
     onClick: () -> Unit
 ) {
     GameHubCard(
@@ -108,8 +108,8 @@ private fun Timestamp(publicationDate: String) {
 @Composable
 private fun GamingNewsItemWithImagePreview() {
     GameHubTheme {
-        GamingNewsItem(
-            model = GamingNewsItemUiModel(
+        NewsScreenItem(
+            model = NewsItemUiModel(
                 id = 1,
                 imageUrl = "url",
                 title = "Steam Concurrent Player Count Breaks Record Again, Tops 26 Million",
@@ -127,8 +127,8 @@ private fun GamingNewsItemWithImagePreview() {
 @Composable
 private fun GamingNewsItemWithoutImagePreview() {
     GameHubTheme {
-        GamingNewsItem(
-            model = GamingNewsItemUiModel(
+        NewsScreenItem(
+            model = NewsItemUiModel(
                 id = 1,
                 imageUrl = null,
                 title = "Steam Concurrent Player Count Breaks Record Again, Tops 26 Million",

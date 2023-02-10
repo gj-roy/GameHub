@@ -10,8 +10,7 @@ import ca.on.hojat.gamenews.feature_news.domain.DomainArticle
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.presentation.mapping.NewsItemUiModelMapper
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiModel
-import ca.on.hojat.gamenews.feature_news.presentation.widgets.finiteUiState
+import ca.on.hojat.gamenews.feature_news.presentation.widgets.NewsItemUiModel
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
@@ -78,7 +77,7 @@ internal class NewsViewModelTest {
     @Test
     fun `Dispatches url opening command when clicking on news item`() {
         runTest {
-            val itemModel = GamingNewsItemUiModel(
+            val itemModel = NewsItemUiModel(
                 id = 1,
                 imageUrl = null,
                 title = "",
@@ -118,8 +117,8 @@ internal class NewsViewModelTest {
 
     private class FakeNewsItemUiModelMapper : NewsItemUiModelMapper() {
 
-        override fun mapToUiModel(article: DomainArticle): GamingNewsItemUiModel {
-            return GamingNewsItemUiModel(
+        override fun mapToUiModel(article: DomainArticle): NewsItemUiModel {
+            return NewsItemUiModel(
                 id = article.id,
                 imageUrl = null,
                 title = article.title,
