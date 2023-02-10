@@ -6,14 +6,21 @@ import ca.on.hojat.gamenews.core.domain.entities.Image
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GameInfoArtworkUiModelMapper {
-    fun mapToUiModel(image: Image): InfoScreenArtworkUiModel
+abstract class InfoScreenArtworkUiModelMapper {
+    internal abstract fun mapToUiModel(image: Image): InfoScreenArtworkUiModel
+
+    internal fun mapToUiModels(images: List<Image>): List<InfoScreenArtworkUiModel> {
+        if (images.isEmpty()) return listOf(InfoScreenArtworkUiModel.DefaultImage)
+
+        return images.map(::mapToUiModel)
+            .filterIsInstance<InfoScreenArtworkUiModel.UrlImage>()
+    }
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameInfoArtworkUiModelMapperImpl @Inject constructor(
+internal class InfoScreenArtworkUiModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
-) : GameInfoArtworkUiModelMapper {
+) : InfoScreenArtworkUiModelMapper() {
 
     override fun mapToUiModel(image: Image): InfoScreenArtworkUiModel {
         return igdbImageUrlFactory.createUrl(
@@ -23,13 +30,4 @@ internal class GameInfoArtworkUiModelMapperImpl @Inject constructor(
             ?.let { url -> InfoScreenArtworkUiModel.UrlImage(id = image.id, url = url) }
             ?: InfoScreenArtworkUiModel.DefaultImage
     }
-}
-
-internal fun GameInfoArtworkUiModelMapper.mapToUiModels(
-    images: List<Image>,
-): List<InfoScreenArtworkUiModel> {
-    if (images.isEmpty()) return listOf(InfoScreenArtworkUiModel.DefaultImage)
-
-    return images.map(::mapToUiModel)
-        .filterIsInstance<InfoScreenArtworkUiModel.UrlImage>()
 }

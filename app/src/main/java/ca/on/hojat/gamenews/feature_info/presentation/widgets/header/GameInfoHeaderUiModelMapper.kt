@@ -8,9 +8,8 @@ import ca.on.hojat.gamenews.core.formatters.GameCategoryFormatter
 import ca.on.hojat.gamenews.core.formatters.GameRatingFormatter
 import ca.on.hojat.gamenews.core.formatters.GameReleaseDateFormatter
 import ca.on.hojat.gamenews.feature_info.domain.LikeCountCalculator
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModelMapper
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.mapToUiModels
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
@@ -21,7 +20,7 @@ internal interface GameInfoHeaderUiModelMapper {
 @BindType(installIn = BindType.Component.VIEW_MODEL)
 internal class GameInfoHeaderUiModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
-    private val artworkModelMapper: GameInfoArtworkUiModelMapper,
+    private val artworkModelMapper: InfoScreenArtworkUiModelMapper,
     private val releaseDateFormatter: GameReleaseDateFormatter,
     private val ratingFormatter: GameRatingFormatter,
     private val likeCountCalculator: LikeCountCalculator,
