@@ -3,6 +3,9 @@ package ca.on.hojat.gamenews.feature_info.presentation.widgets.header
 import androidx.compose.runtime.Immutable
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModel
 
+/**
+ * @param isLiked : Whether this game has been liked or not.
+ */
 @Immutable
 internal data class InfoScreenHeaderUiModel(
     val artworks: List<InfoScreenArtworkUiModel>,
