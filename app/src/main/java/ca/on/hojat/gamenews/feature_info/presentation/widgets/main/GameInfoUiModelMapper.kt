@@ -9,15 +9,14 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLink
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mappers.GameInfoOtherCompanyGamesUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mappers.GameInfoSimilarGamesUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.GameInfoScreenshotUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.mapToUiModels
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModelMapper
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
 internal interface GameInfoUiModelMapper {
 
-    fun mapToUiModel(infoScreenData: InfoScreenData): GameInfoUiModel
+    fun mapToUiModel(infoScreenData: InfoScreenData): InfoScreenUiModel
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
@@ -25,7 +24,7 @@ internal interface GameInfoUiModelMapper {
 internal class GameInfoUiModelMapperImpl @Inject constructor(
     private val headerModelMapper: GameInfoHeaderUiModelMapper,
     private val videoModelMapper: InfoScreenVideoUiModelMapper,
-    private val screenshotModelMapper: GameInfoScreenshotUiModelMapper,
+    private val screenshotModelMapper: InfoScreenShotUiModelMapper,
     private val detailsModelMapper: GameInfoDetailsUiModelMapper,
     private val linkModelMapper: GameInfoLinkUiModelMapper,
     private val companyModelMapper: InfoScreenCompanyUiModelMapper,
@@ -33,9 +32,9 @@ internal class GameInfoUiModelMapperImpl @Inject constructor(
     private val similarGamesModelMapper: GameInfoSimilarGamesUiModelMapper,
 ) : GameInfoUiModelMapper {
 
-    override fun mapToUiModel(infoScreenData: InfoScreenData): GameInfoUiModel {
+    override fun mapToUiModel(infoScreenData: InfoScreenData): InfoScreenUiModel {
 
-        return GameInfoUiModel(
+        return InfoScreenUiModel(
             id = infoScreenData.game.id,
             headerModel = headerModelMapper.mapToUiModel(infoScreenData.game, infoScreenData.isGameLiked),
             videoModels = videoModelMapper.mapToUiModels(infoScreenData.game.videos),

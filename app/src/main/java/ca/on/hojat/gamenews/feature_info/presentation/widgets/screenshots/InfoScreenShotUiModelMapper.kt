@@ -6,14 +6,23 @@ import ca.on.hojat.gamenews.core.domain.entities.Image
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GameInfoScreenshotUiModelMapper {
-    fun mapToUiModel(image: Image): InfoScreenShotUiModel?
+abstract class InfoScreenShotUiModelMapper {
+    internal abstract fun mapToUiModel(image: Image): InfoScreenShotUiModel?
+
+    internal fun mapToUiModels(
+        images: List<Image>,
+    ): List<InfoScreenShotUiModel> {
+        if (images.isEmpty()) return emptyList()
+
+        return images.mapNotNull(::mapToUiModel)
+    }
+
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameInfoScreenshotUiModelMapperImpl @Inject constructor(
+internal class InfoScreenShotUiModelMapperImpl @Inject constructor(
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
-) : GameInfoScreenshotUiModelMapper {
+) : InfoScreenShotUiModelMapper() {
 
     override fun mapToUiModel(image: Image): InfoScreenShotUiModel? {
         val screenshotUrl = igdbImageUrlFactory.createUrl(
@@ -26,12 +35,4 @@ internal class GameInfoScreenshotUiModelMapperImpl @Inject constructor(
             url = screenshotUrl,
         )
     }
-}
-
-internal fun GameInfoScreenshotUiModelMapper.mapToUiModels(
-    images: List<Image>,
-): List<InfoScreenShotUiModel> {
-    if (images.isEmpty()) return emptyList()
-
-    return images.mapNotNull(::mapToUiModel)
 }

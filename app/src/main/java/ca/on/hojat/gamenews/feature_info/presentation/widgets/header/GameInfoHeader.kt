@@ -50,7 +50,7 @@ import ca.on.hojat.gamenews.common_ui.clickable
 import ca.on.hojat.gamenews.common_ui.widgets.GameCover
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.Artworks
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModel
 
 private const val ConstraintIdArtworks = "artworks"
 private const val ConstraintIdArtworksScrim = "artworks_scrim"
@@ -74,7 +74,7 @@ private val InfoIconSize = 34.dp
 
 @Composable
 internal fun GameInfoHeader(
-    headerInfo: GameInfoHeaderUiModel,
+    headerInfo: InfoScreenHeaderUiModel,
     onArtworkClicked: (artworkIndex: Int) -> Unit,
     onBackButtonClicked: () -> Unit,
     onCoverClicked: () -> Unit,
@@ -418,8 +418,8 @@ private fun constructExpandedConstraintSet(): ConstraintSet {
 private fun GameInfoHeaderPreview() {
     GameHubTheme {
         GameInfoHeader(
-            headerInfo = GameInfoHeaderUiModel(
-                artworks = listOf(GameInfoArtworkUiModel.DefaultImage),
+            headerInfo = InfoScreenHeaderUiModel(
+                artworks = listOf(InfoScreenArtworkUiModel.DefaultImage),
                 isLiked = true,
                 coverImageUrl = null,
                 title = "Elden Ring",

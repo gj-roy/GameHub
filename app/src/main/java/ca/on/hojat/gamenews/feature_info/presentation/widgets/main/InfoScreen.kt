@@ -42,8 +42,8 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScre
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetails
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetailsUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeader
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinks
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
@@ -166,7 +166,7 @@ private fun EmptyState(modifier: Modifier) {
 
 @Composable
 private fun SuccessState(
-    gameInfo: GameInfoUiModel,
+    gameInfo: InfoScreenUiModel,
     modifier: Modifier,
     onArtworkClicked: (artworkIndex: Int) -> Unit,
     onBackButtonClicked: () -> Unit,
@@ -197,7 +197,7 @@ private fun SuccessState(
 
 @Composable
 private fun Content(
-    gameInfo: GameInfoUiModel,
+    gameInfo: InfoScreenUiModel,
     modifier: Modifier,
     onArtworkClicked: (artworkIndex: Int) -> Unit,
     onBackButtonClicked: () -> Unit,
@@ -274,7 +274,7 @@ private fun Content(
 }
 
 private fun LazyListScope.headerItem(
-    model: GameInfoHeaderUiModel,
+    model: InfoScreenHeaderUiModel,
     onArtworkClicked: (artworkIndex: Int) -> Unit,
     onBackButtonClicked: () -> Unit,
     onCoverClicked: () -> Unit,
@@ -520,11 +520,11 @@ private fun GameInfoLoadingStatePreview() {
 }
 
 @Suppress("LongMethod")
-private fun buildFakeGameModel(): GameInfoUiModel {
-    return GameInfoUiModel(
+private fun buildFakeGameModel(): InfoScreenUiModel {
+    return InfoScreenUiModel(
         id = 1,
-        headerModel = GameInfoHeaderUiModel(
-            artworks = listOf(GameInfoArtworkUiModel.DefaultImage),
+        headerModel = InfoScreenHeaderUiModel(
+            artworks = listOf(InfoScreenArtworkUiModel.DefaultImage),
             isLiked = true,
             coverImageUrl = null,
             title = "Elden Ring",

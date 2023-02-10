@@ -3,16 +3,16 @@ package ca.on.hojat.gamenews.feature_info.presentation.widgets.main
 import androidx.compose.runtime.Immutable
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.GameInfoDetailsUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
 
 @Immutable
-internal data class GameInfoUiModel(
+internal data class InfoScreenUiModel(
     val id: Int,
-    val headerModel: GameInfoHeaderUiModel,
+    val headerModel: InfoScreenHeaderUiModel,
     val videoModels: List<InfoScreenVideoUiModel>,
     val screenshotModels: List<InfoScreenShotUiModel>,
     val summary: String?,

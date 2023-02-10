@@ -20,7 +20,7 @@ import com.google.accompanist.pager.rememberPagerState
 
 @Composable
 internal fun Artworks(
-    artworks: List<GameInfoArtworkUiModel>,
+    artworks: List<InfoScreenArtworkUiModel>,
     isScrollingEnabled: Boolean,
     modifier: Modifier,
     onArtworkChanged: (artworkIndex: Int) -> Unit,
@@ -49,12 +49,12 @@ internal fun Artworks(
 
 @Composable
 private fun Artwork(
-    artwork: GameInfoArtworkUiModel,
+    artwork: InfoScreenArtworkUiModel,
     onArtworkClicked: () -> Unit,
 ) {
     val data = when (artwork) {
-        is GameInfoArtworkUiModel.DefaultImage -> R.drawable.game_background_placeholder
-        is GameInfoArtworkUiModel.UrlImage -> artwork.url
+        is InfoScreenArtworkUiModel.DefaultImage -> R.drawable.game_background_placeholder
+        is InfoScreenArtworkUiModel.UrlImage -> artwork.url
     }
 
     AsyncImage(
@@ -79,7 +79,7 @@ private fun ArtworksPreview() {
     GameHubTheme {
         Artworks(
             artworks = listOf(
-                GameInfoArtworkUiModel.DefaultImage,
+                InfoScreenArtworkUiModel.DefaultImage,
             ),
             isScrollingEnabled = true,
             modifier = Modifier,

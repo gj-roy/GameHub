@@ -8,14 +8,14 @@ import ca.on.hojat.gamenews.core.formatters.GameRatingFormatter
 import ca.on.hojat.gamenews.core.formatters.GameReleaseDateFormatter
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import ca.on.hojat.gamenews.feature_info.domain.LikeCountCalculator
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.mapToUiModels
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
 internal interface GameInfoHeaderUiModelMapper {
-    fun mapToUiModel(game: Game, isLiked: Boolean): GameInfoHeaderUiModel
+    fun mapToUiModel(game: Game, isLiked: Boolean): InfoScreenHeaderUiModel
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
@@ -29,8 +29,8 @@ internal class GameInfoHeaderUiModelMapperImpl @Inject constructor(
     private val categoryFormatter: GameCategoryFormatter,
 ) : GameInfoHeaderUiModelMapper {
 
-    override fun mapToUiModel(game: Game, isLiked: Boolean): GameInfoHeaderUiModel {
-        return GameInfoHeaderUiModel(
+    override fun mapToUiModel(game: Game, isLiked: Boolean): InfoScreenHeaderUiModel {
+        return InfoScreenHeaderUiModel(
             artworks = game.createArtworks(),
             isLiked = isLiked,
             coverImageUrl = game.createCoverImageUrl(),
@@ -44,7 +44,7 @@ internal class GameInfoHeaderUiModelMapperImpl @Inject constructor(
         )
     }
 
-    private fun Game.createArtworks(): List<GameInfoArtworkUiModel> {
+    private fun Game.createArtworks(): List<InfoScreenArtworkUiModel> {
         return artworkModelMapper.mapToUiModels(artworks)
     }
 

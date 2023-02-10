@@ -1,11 +1,11 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.header
 
 import androidx.compose.runtime.Immutable
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.GameInfoArtworkUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModel
 
 @Immutable
-internal data class GameInfoHeaderUiModel(
-    val artworks: List<GameInfoArtworkUiModel>,
+internal data class InfoScreenHeaderUiModel(
+    val artworks: List<InfoScreenArtworkUiModel>,
     val isLiked: Boolean,
     val coverImageUrl: String?,
     val title: String,

@@ -6,9 +6,9 @@ import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.feature_info.GAME_INFO
 import ca.on.hojat.gamenews.feature_info.domain.entities.InfoScreenData
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.GameInfoHeaderUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.GameInfoLinkUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreenUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.finiteUiState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
@@ -303,10 +303,10 @@ internal class InfoScreenViewModelTest {
 
     private class FakeGameInfoUiModelMapper : GameInfoUiModelMapper {
 
-        override fun mapToUiModel(infoScreenData: InfoScreenData): GameInfoUiModel {
-            return GameInfoUiModel(
+        override fun mapToUiModel(infoScreenData: InfoScreenData): InfoScreenUiModel {
+            return InfoScreenUiModel(
                 id = 1,
-                headerModel = GameInfoHeaderUiModel(
+                headerModel = InfoScreenHeaderUiModel(
                     artworks = emptyList(),
                     isLiked = true,
                     coverImageUrl = null,

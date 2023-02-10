@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 @Immutable
 internal data class GameInfoUiState(
     val isLoading: Boolean,
-    val game: GameInfoUiModel?,
+    val game: InfoScreenUiModel?,
 )
 
 internal val GameInfoUiState.finiteUiState: FiniteUiState
@@ -34,6 +34,6 @@ internal fun GameInfoUiState.toLoadingState(): GameInfoUiState {
     return copy(isLoading = true)
 }
 
-internal fun GameInfoUiState.toSuccessState(game: GameInfoUiModel): GameInfoUiState {
+internal fun GameInfoUiState.toSuccessState(game: InfoScreenUiModel): GameInfoUiState {
     return copy(isLoading = false, game = game)
 }
