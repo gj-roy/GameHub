@@ -3,7 +3,10 @@ package ca.on.hojat.gamenews.feature_info.presentation
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.common_ui.di.TransitionAnimationDuration
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
@@ -14,16 +17,10 @@ import ca.on.hojat.gamenews.feature_info.domain.usecases.game.GetGameInfoUseCase
 import ca.on.hojat.gamenews.feature_info.domain.usecases.likes.ToggleLikeStateUseCase
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinkUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreenUiState
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreenUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.GameInfoUiState
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toEmptyState
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toLoadingState
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.toSuccessState
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
-import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -57,12 +54,12 @@ internal class InfoScreenViewModel @Inject constructor(
 
     private val gameId = checkNotNull(savedStateHandle.get<Int>(PARAM_GAME_ID))
 
-    private val _uiState = MutableStateFlow(GameInfoUiState(isLoading = false, game = null))
+    private val _uiState = MutableStateFlow(InfoScreenUiState(isLoading = false, game = null))
 
-    private val currentUiState: GameInfoUiState
+    private val currentUiState: InfoScreenUiState
         get() = _uiState.value
 
-    val uiState: StateFlow<GameInfoUiState> = _uiState.asStateFlow()
+    val uiState: StateFlow<InfoScreenUiState> = _uiState.asStateFlow()
 
     init {
         observeGameInfo(resultEmissionDelay = transitionAnimationDuration)
@@ -168,7 +165,7 @@ internal class InfoScreenViewModel @Inject constructor(
         dispatchCommand(InfoScreenCommand.OpenUrl(url))
     }
 
-    fun onRelatedGameClicked(game: GameInfoRelatedGameUiModel) {
+    fun onRelatedGameClicked(game: RelatedGameUiModel) {
         route(InfoScreenRoute.InfoScreen(id = game.id))
     }
 }

@@ -6,9 +6,9 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScre
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.InfoScreenDetailsUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinkUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGamesUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mappers.InfoScreenOtherCompanyGamesUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mappers.GameInfoSimilarGamesUiModelMapper
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mappers.InfoScreenSimilarGamesUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotUiModelMapper
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModelMapper
 import com.paulrybitskyi.hiltbinder.BindType
@@ -29,7 +29,7 @@ internal class InfoScreenUiModelMapperImpl @Inject constructor(
     private val linkModelMapper: InfoScreenLinkUiModelMapper,
     private val companyModelMapper: InfoScreenCompanyUiModelMapper,
     private val otherCompanyGamesModelMapper: InfoScreenOtherCompanyGamesUiModelMapper,
-    private val similarGamesModelMapper: GameInfoSimilarGamesUiModelMapper,
+    private val similarGamesModelMapper: InfoScreenSimilarGamesUiModelMapper,
 ) : InfoScreenUiModelMapper {
 
     override fun mapToUiModel(infoScreenData: InfoScreenData): InfoScreenUiModel {
@@ -51,7 +51,7 @@ internal class InfoScreenUiModelMapperImpl @Inject constructor(
         )
     }
 
-    private fun Game.createOtherCompanyGamesUiModel(otherCompanyGames: List<Game>): GameInfoRelatedGamesUiModel? {
+    private fun Game.createOtherCompanyGamesUiModel(otherCompanyGames: List<Game>): RelatedGamesUiModel? {
         return otherCompanyGamesModelMapper.mapToUiModel(otherCompanyGames, this)
     }
 }

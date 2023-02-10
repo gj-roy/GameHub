@@ -10,8 +10,7 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenH
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreenUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreenUiModelMapper
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.finiteUiState
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
@@ -284,7 +283,7 @@ internal class InfoScreenViewModelTest {
     @Test
     fun `Routes to game info when related game is clicked`() {
         runTest {
-            val relatedGame = GameInfoRelatedGameUiModel(
+            val relatedGame = RelatedGameUiModel(
                 id = 1,
                 title = "title",
                 coverUrl = "url",

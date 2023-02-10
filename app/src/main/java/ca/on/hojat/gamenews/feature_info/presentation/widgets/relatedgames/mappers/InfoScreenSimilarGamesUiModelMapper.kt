@@ -2,38 +2,38 @@ package ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mapp
 
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.providers.StringProvider
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesType
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGameUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGamesType
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGamesUiModel
 import ca.on.hojat.gamenews.core.factories.IgdbImageSize
 import ca.on.hojat.gamenews.core.factories.IgdbImageUrlFactory
 import ca.on.hojat.gamenews.core.domain.entities.Game
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
-internal interface GameInfoSimilarGamesUiModelMapper {
-    fun mapToUiModel(similarGames: List<Game>): GameInfoRelatedGamesUiModel?
+internal interface InfoScreenSimilarGamesUiModelMapper {
+    fun mapToUiModel(similarGames: List<Game>): RelatedGamesUiModel?
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GameInfoSimilarGamesUiModelMapperImpl @Inject constructor(
+internal class InfoScreenSimilarGamesUiModelMapperImpl @Inject constructor(
     private val stringProvider: StringProvider,
     private val igdbImageUrlFactory: IgdbImageUrlFactory,
-) : GameInfoSimilarGamesUiModelMapper {
+) : InfoScreenSimilarGamesUiModelMapper {
 
-    override fun mapToUiModel(similarGames: List<Game>): GameInfoRelatedGamesUiModel? {
+    override fun mapToUiModel(similarGames: List<Game>): RelatedGamesUiModel? {
         if (similarGames.isEmpty()) return null
 
-        return GameInfoRelatedGamesUiModel(
-            type = GameInfoRelatedGamesType.SIMILAR_GAMES,
+        return RelatedGamesUiModel(
+            type = RelatedGamesType.SIMILAR_GAMES,
             title = stringProvider.getString(R.string.game_info_similar_games_title),
             items = similarGames.toRelatedGameUiModels(),
         )
     }
 
-    private fun List<Game>.toRelatedGameUiModels(): List<GameInfoRelatedGameUiModel> {
+    private fun List<Game>.toRelatedGameUiModels(): List<RelatedGameUiModel> {
         return map {
-            GameInfoRelatedGameUiModel(
+            RelatedGameUiModel(
                 id = it.id,
                 title = it.name,
                 coverUrl = it.cover?.let { cover ->

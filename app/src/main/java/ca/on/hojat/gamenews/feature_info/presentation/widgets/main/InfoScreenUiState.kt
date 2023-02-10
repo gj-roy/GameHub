@@ -1,0 +1,41 @@
+package ca.on.hojat.gamenews.feature_info.presentation.widgets.main
+
+import androidx.compose.runtime.Immutable
+import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
+
+@Immutable
+internal data class InfoScreenUiState(
+    val isLoading: Boolean,
+    val game: InfoScreenUiModel?,
+) {
+
+    internal val finiteUiState: FiniteUiState
+        get() = when {
+            isInEmptyState -> FiniteUiState.Empty
+            isInLoadingState -> FiniteUiState.Loading
+            isInSuccessState -> FiniteUiState.Success
+            else -> error("Unknown game info UI state.")
+        }
+
+    private val isInEmptyState: Boolean
+        get() = (!isLoading && (game == null))
+
+    private val isInLoadingState: Boolean
+        get() = (isLoading && (game == null))
+
+    private val isInSuccessState: Boolean
+        get() = (game != null)
+
+    internal fun toEmptyState(): InfoScreenUiState {
+        return copy(isLoading = false, game = null)
+    }
+
+    internal fun toLoadingState(): InfoScreenUiState {
+        return copy(isLoading = true)
+    }
+
+    internal fun toSuccessState(game: InfoScreenUiModel): InfoScreenUiState {
+        return copy(isLoading = false, game = game)
+    }
+
+}

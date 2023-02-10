@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScre
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.details.InfoScreenDetailsUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenHeaderUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinkUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGamesUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
 
@@ -19,8 +19,8 @@ internal data class InfoScreenUiModel(
     val detailsModel: InfoScreenDetailsUiModel?,
     val linkModels: List<InfoScreenLinkUiModel>,
     val companyModels: List<InfoScreenCompanyUiModel>,
-    val otherCompanyGames: GameInfoRelatedGamesUiModel?,
-    val similarGames: GameInfoRelatedGamesUiModel?,
+    val otherCompanyGames: RelatedGamesUiModel?,
+    val similarGames: RelatedGamesUiModel?,
 ) {
 
     val hasVideos: Boolean

@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames
 
 import ca.on.hojat.gamenews.common_ui.widgets.categorypreview.GamesCategoryPreviewItemUiModel
 
-internal fun List<GameInfoRelatedGameUiModel>.mapToCategoryUiModels(): List<GamesCategoryPreviewItemUiModel> {
+internal fun List<RelatedGameUiModel>.mapToCategoryUiModels(): List<GamesCategoryPreviewItemUiModel> {
     return map {
         GamesCategoryPreviewItemUiModel(
             id = it.id,
@@ -12,8 +12,8 @@ internal fun List<GameInfoRelatedGameUiModel>.mapToCategoryUiModels(): List<Game
     }
 }
 
-internal fun GamesCategoryPreviewItemUiModel.mapToInfoRelatedGameUiModel(): GameInfoRelatedGameUiModel {
-    return GameInfoRelatedGameUiModel(
+internal fun GamesCategoryPreviewItemUiModel.mapToInfoRelatedGameUiModel(): RelatedGameUiModel {
+    return RelatedGameUiModel(
         id = id,
         title = title,
         coverUrl = coverUrl

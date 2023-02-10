@@ -46,9 +46,9 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.InfoScreenH
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.InfoScreenArtworkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinkUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.links.InfoScreenLinks
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGameUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesType
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGameUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGamesType
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.RelatedGamesUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mapToCategoryUiModels
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mapToInfoRelatedGameUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotSection
@@ -99,7 +99,7 @@ private fun InfoScreen(
 
 @Composable
 private fun InfoScreen(
-    uiState: GameInfoUiState,
+    uiState: InfoScreenUiState,
     onArtworkClicked: (artworkIndex: Int) -> Unit,
     onBackButtonClicked: () -> Unit,
     onCoverClicked: () -> Unit,
@@ -108,7 +108,7 @@ private fun InfoScreen(
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
     onLinkClicked: (InfoScreenLinkUiModel) -> Unit,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
-    onRelatedGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
+    onRelatedGameClicked: (RelatedGameUiModel) -> Unit,
 ) {
     Scaffold { paddingValues ->
         AnimatedContentContainer(
@@ -176,7 +176,7 @@ private fun SuccessState(
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
     onLinkClicked: (InfoScreenLinkUiModel) -> Unit,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
-    onRelatedGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
+    onRelatedGameClicked: (RelatedGameUiModel) -> Unit,
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Content(
@@ -207,7 +207,7 @@ private fun Content(
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
     onLinkClicked: (InfoScreenLinkUiModel) -> Unit,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
-    onRelatedGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
+    onRelatedGameClicked: (RelatedGameUiModel) -> Unit,
 ) {
     LazyColumn(
         modifier = modifier,
@@ -352,13 +352,13 @@ private fun LazyListScope.companiesItem(
 }
 
 private fun LazyListScope.relatedGamesItem(
-    model: GameInfoRelatedGamesUiModel,
-    onGameClicked: (GameInfoRelatedGameUiModel) -> Unit,
+    model: RelatedGamesUiModel,
+    onGameClicked: (RelatedGameUiModel) -> Unit,
 ) {
     gameInfoItem(
         item = when (model.type) {
-            GameInfoRelatedGamesType.OTHER_COMPANY_GAMES -> GameInfoItem.OtherCompanyGames
-            GameInfoRelatedGamesType.SIMILAR_GAMES -> GameInfoItem.SimilarGames
+            RelatedGamesType.OTHER_COMPANY_GAMES -> GameInfoItem.OtherCompanyGames
+            RelatedGamesType.SIMILAR_GAMES -> GameInfoItem.SimilarGames
         }
     ) {
         val categoryGames = remember(model.items) {
@@ -416,7 +416,7 @@ private enum class GameInfoItem(
 private fun GameInfoSuccessStateWithMaxUiElementsPreview() {
     GameHubTheme {
         InfoScreen(
-            uiState = GameInfoUiState(
+            uiState = InfoScreenUiState(
                 isLoading = false,
                 game = buildFakeGameModel(),
             ),
@@ -456,7 +456,7 @@ private fun GameInfoSuccessStateWithMinUiElementsPreview() {
 
     GameHubTheme {
         InfoScreen(
-            uiState = GameInfoUiState(
+            uiState = InfoScreenUiState(
                 isLoading = false,
                 game = strippedGame,
             ),
@@ -479,7 +479,7 @@ private fun GameInfoSuccessStateWithMinUiElementsPreview() {
 private fun GameInfoEmptyStatePreview() {
     GameHubTheme {
         InfoScreen(
-            uiState = GameInfoUiState(
+            uiState = InfoScreenUiState(
                 isLoading = false,
                 game = null,
             ),
@@ -502,7 +502,7 @@ private fun GameInfoEmptyStatePreview() {
 private fun GameInfoLoadingStatePreview() {
     GameHubTheme {
         InfoScreen(
-            uiState = GameInfoUiState(
+            uiState = InfoScreenUiState(
                 isLoading = true,
                 game = null,
             ),
@@ -627,52 +627,52 @@ private fun buildFakeGameModel(): InfoScreenUiModel {
                 roles = "Publisher",
             ),
         ),
-        otherCompanyGames = GameInfoRelatedGamesUiModel(
-            type = GameInfoRelatedGamesType.OTHER_COMPANY_GAMES,
+        otherCompanyGames = RelatedGamesUiModel(
+            type = RelatedGamesType.OTHER_COMPANY_GAMES,
             title = "More games by FromSoftware",
             items = listOf(
-                GameInfoRelatedGameUiModel(
+                RelatedGameUiModel(
                     id = 1,
                     title = "Dark Souls",
                     coverUrl = null,
                 ),
-                GameInfoRelatedGameUiModel(
+                RelatedGameUiModel(
                     id = 2,
                     title = "Dark Souls II",
                     coverUrl = null,
                 ),
-                GameInfoRelatedGameUiModel(
+                RelatedGameUiModel(
                     id = 3,
                     title = "Lost Kingdoms",
                     coverUrl = null,
                 ),
-                GameInfoRelatedGameUiModel(
+                RelatedGameUiModel(
                     id = 4,
                     title = "Lost Kingdoms II",
                     coverUrl = null,
                 ),
             ),
         ),
-        similarGames = GameInfoRelatedGamesUiModel(
-            type = GameInfoRelatedGamesType.SIMILAR_GAMES,
+        similarGames = RelatedGamesUiModel(
+            type = RelatedGamesType.SIMILAR_GAMES,
             title = "Similar Games",
             items = listOf(
-                GameInfoRelatedGameUiModel(
+                RelatedGameUiModel(
                     id = 1,
                     title = "Nights of Azure 2: Bride of the New Moon",
                     coverUrl = null,
                 ),
-                GameInfoRelatedGameUiModel(
+                RelatedGameUiModel(
                     id = 2,
                     title = "God Eater 3",
                     coverUrl = null,
                 ),
-                GameInfoRelatedGameUiModel(
+                RelatedGameUiModel(
                     id = 3,
                     title = "Shadows: Awakening",
                     coverUrl = null,
                 ),
-                GameInfoRelatedGameUiModel(
+                RelatedGameUiModel(
                     id = 3,
                     title = "SoulWorker",
                     coverUrl = null,
