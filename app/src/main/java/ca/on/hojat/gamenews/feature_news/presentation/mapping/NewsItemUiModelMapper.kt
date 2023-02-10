@@ -7,15 +7,24 @@ import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiMo
 import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
+abstract class NewsItemUiModelMapper {
+    internal abstract fun mapToUiModel(article: Article): GamingNewsItemUiModel
 
-internal interface GamingNewsItemUiModelMapper {
-    fun mapToUiModel(article: Article): GamingNewsItemUiModel
+    /**
+     * Just maps from the [Article] in our domain, to [GamingNewsItemUiModel] in UI layer.
+     * we do this to make the data ready to be shown in composables.
+     */
+    internal fun mapToUiModels(
+        articles: List<Article>,
+    ): List<GamingNewsItemUiModel> {
+        return articles.map(::mapToUiModel)
+    }
 }
 
 @BindType(installIn = BindType.Component.VIEW_MODEL)
-internal class GamingNewsItemUiModelMapperImpl @Inject constructor(
+internal class NewsItemUiModelMapperImpl @Inject constructor(
     private val publicationDateFormatter: ArticlePublicationDateFormatter
-) : GamingNewsItemUiModelMapper {
+) : NewsItemUiModelMapper() {
 
     override fun mapToUiModel(article: Article): GamingNewsItemUiModel {
         return GamingNewsItemUiModel(
@@ -31,14 +40,4 @@ internal class GamingNewsItemUiModelMapperImpl @Inject constructor(
     private fun Article.formatPublicationDate(): String {
         return publicationDateFormatter.formatPublicationDate(publicationDate)
     }
-}
-
-/**
- * Just maps from the [Article] in our domain, to [GamingNewsItemUiModel] in UI layer.
- * we do this to make the data ready to be shown in composables.
- */
-internal fun GamingNewsItemUiModelMapper.mapToUiModels(
-    articles: List<Article>,
-): List<GamingNewsItemUiModel> {
-    return articles.map(::mapToUiModel)
 }

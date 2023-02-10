@@ -35,8 +35,8 @@ import ca.on.hojat.gamenews.common_ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.core.extensions.showShortToast
-import ca.on.hojat.gamenews.feature_news.presentation.GamingNewsCommand
-import ca.on.hojat.gamenews.feature_news.presentation.GamingNewsViewModel
+import ca.on.hojat.gamenews.feature_news.presentation.NewsScreenCommand
+import ca.on.hojat.gamenews.feature_news.presentation.NewsViewModel
 
 @Composable
 fun GamingNews(modifier: Modifier) {
@@ -48,7 +48,7 @@ fun GamingNews(modifier: Modifier) {
 
 @Composable
 private fun GamingNews(
-    viewModel: GamingNewsViewModel,
+    viewModel: NewsViewModel,
     modifier: Modifier,
 ) {
     val urlOpener = LocalUrlOpener.current
@@ -57,7 +57,7 @@ private fun GamingNews(
     NavBarColorHandler()
     CommandsHandler(viewModel = viewModel) { command ->
         when (command) {
-            is GamingNewsCommand.OpenUrl -> {
+            is NewsScreenCommand.OpenUrl -> {
                 if (!urlOpener.openUrl(command.url, context)) {
                     context.showShortToast(context.getString(R.string.url_opener_not_found))
                 }

@@ -1,17 +1,16 @@
 package ca.on.hojat.gamenews.feature_news.presentation
 
 import androidx.lifecycle.viewModelScope
+import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
+import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
-import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
-import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCase
-import ca.on.hojat.gamenews.feature_news.presentation.mapping.GamingNewsItemUiModelMapper
-import ca.on.hojat.gamenews.feature_news.presentation.mapping.mapToUiModels
+import ca.on.hojat.gamenews.feature_news.presentation.mapping.NewsItemUiModelMapper
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiModel
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsUiState
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.disableRefreshing
@@ -39,10 +38,10 @@ private const val ARTICLES_REFRESH_INITIAL_DELAY = 500L
 private const val ARTICLES_REFRESH_DEFAULT_DELAY = 1000L
 
 @HiltViewModel
-internal class GamingNewsViewModel @Inject constructor(
+internal class NewsViewModel @Inject constructor(
     private val observeArticlesUseCase: ObserveArticlesUseCase,
     private val refreshArticlesUseCase: RefreshArticlesUseCase,
-    private val uiModelMapper: GamingNewsItemUiModelMapper,
+    private val uiModelMapper: NewsItemUiModelMapper,
     private val dispatcherProvider: DispatcherProvider,
     private val errorMapper: ErrorMapper
 ) : BaseViewModel() {
@@ -94,7 +93,7 @@ internal class GamingNewsViewModel @Inject constructor(
     }
 
     fun onNewsItemClicked(model: GamingNewsItemUiModel) {
-        dispatchCommand(GamingNewsCommand.OpenUrl(model.siteDetailUrl))
+        dispatchCommand(NewsScreenCommand.OpenUrl(model.siteDetailUrl))
     }
 
     fun onRefreshRequested() {

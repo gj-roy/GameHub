@@ -1,17 +1,17 @@
 package ca.on.hojat.gamenews.feature_news.presentation
 
 import app.cash.turbine.test
+import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
+import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.feature_news.DOMAIN_ARTICLES
 import ca.on.hojat.gamenews.feature_news.domain.DomainArticle
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCase
-import ca.on.hojat.gamenews.feature_news.presentation.mapping.GamingNewsItemUiModelMapper
+import ca.on.hojat.gamenews.feature_news.presentation.mapping.NewsItemUiModelMapper
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.GamingNewsItemUiModel
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.finiteUiState
-import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
-import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import com.github.michaelbull.result.Ok
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
@@ -24,7 +24,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 
-internal class GamingNewsViewModelTest {
+internal class NewsViewModelTest {
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule(StandardTestDispatcher())
@@ -33,10 +33,10 @@ internal class GamingNewsViewModelTest {
     private val refreshArticlesUseCase = mockk<RefreshArticlesUseCase>(relaxed = true)
 
     private val sut by lazy {
-        GamingNewsViewModel(
+        NewsViewModel(
             observeArticlesUseCase = observeArticlesUseCase,
             refreshArticlesUseCase = refreshArticlesUseCase,
-            uiModelMapper = FakeGamingNewsItemUiModelMapper(),
+            uiModelMapper = FakeNewsItemUiModelMapper(),
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
             errorMapper = FakeErrorMapper(),
         )
@@ -92,8 +92,8 @@ internal class GamingNewsViewModelTest {
 
                 val command = awaitItem()
 
-                assertThat(command).isInstanceOf(GamingNewsCommand.OpenUrl::class.java)
-                assertThat((command as GamingNewsCommand.OpenUrl).url).isEqualTo(itemModel.siteDetailUrl)
+                assertThat(command).isInstanceOf(NewsScreenCommand.OpenUrl::class.java)
+                assertThat((command as NewsScreenCommand.OpenUrl).url).isEqualTo(itemModel.siteDetailUrl)
             }
         }
     }
@@ -116,7 +116,7 @@ internal class GamingNewsViewModelTest {
         }
     }
 
-    private class FakeGamingNewsItemUiModelMapper : GamingNewsItemUiModelMapper {
+    private class FakeNewsItemUiModelMapper : NewsItemUiModelMapper() {
 
         override fun mapToUiModel(article: DomainArticle): GamingNewsItemUiModel {
             return GamingNewsItemUiModel(
