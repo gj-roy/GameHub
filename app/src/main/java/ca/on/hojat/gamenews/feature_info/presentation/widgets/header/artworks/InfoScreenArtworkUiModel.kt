@@ -5,13 +5,8 @@ import androidx.compose.runtime.Immutable
 private const val DEFAULT_IMAGE_ID = "default_image_id"
 
 @Immutable
-internal sealed class InfoScreenArtworkUiModel {
-    object DefaultImage : InfoScreenArtworkUiModel()
-    data class UrlImage(val id: String, val url: String) : InfoScreenArtworkUiModel()
+internal sealed class InfoScreenArtworkUiModel(open val id: String) {
+    object DefaultImage : InfoScreenArtworkUiModel(id = DEFAULT_IMAGE_ID)
+    data class UrlImage(override val id: String, val url: String) :
+        InfoScreenArtworkUiModel(id)
 }
-
-internal val InfoScreenArtworkUiModel.id: String
-    get() = when (this) {
-        is InfoScreenArtworkUiModel.DefaultImage -> DEFAULT_IMAGE_ID
-        is InfoScreenArtworkUiModel.UrlImage -> id
-    }

@@ -21,13 +21,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import ca.on.hojat.gamenews.common_ui.base.events.Route
-import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
 import ca.on.hojat.gamenews.common_ui.NavBarColorHandler
 import ca.on.hojat.gamenews.common_ui.RoutesHandler
+import ca.on.hojat.gamenews.common_ui.base.events.Route
+import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
@@ -51,10 +51,10 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameI
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.GameInfoRelatedGamesUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mapToCategoryUiModels
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames.mapToInfoRelatedGameUiModel
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotSection
-import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.screenshots.InfoScreenShotUiModel
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoSection
+import ca.on.hojat.gamenews.feature_info.presentation.widgets.videos.InfoScreenVideoUiModel
 
 @Composable
 fun InfoScreen(onRoute: (Route) -> Unit) {
