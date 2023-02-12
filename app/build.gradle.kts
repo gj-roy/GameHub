@@ -103,6 +103,7 @@ dependencies {
     implementation(Compose.navigationAnimations)
     implementation(Compose.systemUi)
     implementation(Compose.swipeRefresh)
+    implementation(Compose.lottie)
 
     // DI
     implementation(Hilt.daggerHiltAndroid)

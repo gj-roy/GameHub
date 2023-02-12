@@ -3,9 +3,6 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.header
 
 import android.content.res.Configuration
-import androidx.compose.animation.graphics.res.animatedVectorResource
-import androidx.compose.animation.graphics.res.rememberAnimatedVectorPainter
-import androidx.compose.animation.graphics.vector.AnimatedImageVector
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
@@ -16,7 +13,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.ripple.rememberRipple
@@ -184,27 +180,17 @@ internal fun InfoScreenHeader(
             onCoverClicked = if (headerInfo.hasCoverImageUrl) onCoverClicked else null,
         )
 
-        FloatingActionButton(
-            onClick = onLikeButtonClicked,
-            modifier = Modifier.layoutId(ConstraintIdLikeButton),
-            backgroundColor = GameHubTheme.colors.secondary,
-        ) {
-            // Animated selector drawables are not currently supported by the Jetpack Compose.
-            // https://issuetracker.google.com/issues/212418566
-            // Consider to use the R.drawable.heart_animated_selector when the support arrives.
-
-            Icon(
-                painter = rememberAnimatedVectorPainter(
-                    animatedImageVector = AnimatedImageVector.animatedVectorResource(
-                        R.drawable.heart_animated_fill
-                    ),
-                    atEnd = headerInfo.isLiked,
-                ),
-                contentDescription = null,
-                modifier = Modifier.size(52.dp),
-                tint = GameHubTheme.colors.onSecondary,
-            )
+        val state = remember {
+            LikeButtonState()
         }
+        state.isLiked = headerInfo.isLiked
+
+        LikeButton(
+            resId = R.raw.like_animation,
+            modifier = Modifier.layoutId(ConstraintIdLikeButton),
+            onClick = onLikeButtonClicked,
+            state = state
+        )
 
         Text(
             text = headerInfo.title,

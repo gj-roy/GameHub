@@ -95,6 +95,7 @@ https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-
       Custom Tabs is a browser feature that gives apps more control over their web experience.
 - [Accompanist](https://github.com/google/accompanist) - A collection of extension libraries for
   Jetpack Compose.
+- [Lottie](http://airbnb.io/lottie/#/README) - A multiplatform UI library for parsing Adobe After Effects animations exported as JSON.
 - [OkHttp](https://github.com/square/okhttp) - An HTTP client for making network calls.
 - [Retrofit](https://github.com/square/retrofit) - A library for building REST API clients.
 - [KotlinX Serialization](https://github.com/Kotlin/kotlinx.serialization) - A multiplatform Kotlin

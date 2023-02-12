@@ -107,6 +107,7 @@ object Compose {
         "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
     const val navigationAnimations =
         "com.google.accompanist:accompanist-navigation-animation:$accompanistVersion"
+    const val lottie = "com.airbnb.android:lottie-compose:5.2.0"
 }
 
 object Hilt {
