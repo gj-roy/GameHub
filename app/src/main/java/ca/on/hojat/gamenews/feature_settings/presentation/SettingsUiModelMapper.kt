@@ -20,18 +20,18 @@ internal class SettingsUiModelMapperImpl @Inject constructor(
 
     override fun mapToUiModels(settings: Settings): List<SettingsSectionUiModel> {
         return listOf(
-            createAppearanceSection(settings),
+            createGeneralSection(settings),
             createAboutSection(),
         )
     }
 
     /**
-     * The "Appearance" section of the settings page.
+     * The "General" section of the settings page.
      */
-    private fun createAppearanceSection(settings: Settings): SettingsSectionUiModel {
+    private fun createGeneralSection(settings: Settings): SettingsSectionUiModel {
         return SettingsSectionUiModel(
-            id = SettingSection.APPEARANCE.id,
-            title = stringProvider.getString(R.string.settings_section_appearance_title),
+            id = SettingSection.GENERAL.id,
+            title = stringProvider.getString(R.string.settings_section_general_title),
             items = listOf(
                 SettingsSectionItemUiModel(
                     id = SettingItem.THEME.id,

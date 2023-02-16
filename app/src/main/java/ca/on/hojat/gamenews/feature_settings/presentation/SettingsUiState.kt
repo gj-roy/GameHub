@@ -55,7 +55,7 @@ internal data class SettingsSectionItemUiModel(
 )
 
 internal enum class SettingSection(val id: Int) {
-    APPEARANCE(id = 1),
+    GENERAL(id = 1),
     ABOUT(id = 2),
 }
 

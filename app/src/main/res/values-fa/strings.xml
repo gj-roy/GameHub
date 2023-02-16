@@ -45,7 +45,7 @@
 
     <!--    feature settings -->
     <string name="settings_toolbar_title">تنظیمات</string>
-    <string name="settings_section_appearance_title">تنظیمات ظاهری</string>
+    <string name="settings_section_general_title">تنظیمات کلی</string>
     <string name="settings_item_theme_title">تم</string>
     <string name="settings_item_theme_option_light">روشن</string>
     <string name="settings_item_theme_option_dark">تاریک</string>

@@ -48,7 +48,7 @@
 
     <!--    feature settings -->
     <string name="settings_toolbar_title">Settings</string>
-    <string name="settings_section_appearance_title">Appearance</string>
+    <string name="settings_section_general_title">General</string>
     <string name="settings_item_theme_title">Theme</string>
     <string name="settings_item_theme_option_light">Light</string>
     <string name="settings_item_theme_option_dark">Dark</string>
