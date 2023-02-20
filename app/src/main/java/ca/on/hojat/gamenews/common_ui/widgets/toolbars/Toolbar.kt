@@ -37,8 +37,10 @@ fun Toolbar(
     titleTextStyle: TextStyle = GameHubTheme.typography.h5,
     backButtonIcon: Painter? = null,
     firstButtonIcon: Painter? = null,
+    secondButtonIcon: Painter? = null,
     onBackButtonClick: (() -> Unit)? = null,
-    onFirstButtonClick: (() -> Unit)? = null
+    onFirstButtonClick: (() -> Unit)? = null,
+    onSecondButtonClick: (() -> Unit)? = null,
 ) {
     Surface(
         modifier = Modifier
@@ -55,6 +57,7 @@ fun Toolbar(
                 .height(ToolbarHeight),
             verticalAlignment = Alignment.CenterVertically,
         ) {
+            // the padding on left and right of the title of the Toolbar
             val titleLeftPadding = getTitleHorizontalPadding(backButtonIcon)
             val titleRightPadding = getTitleHorizontalPadding(firstButtonIcon)
 
@@ -74,6 +77,16 @@ fun Toolbar(
                 maxLines = 1,
                 style = titleTextStyle,
             )
+
+            // We're drawing this row from left to right (unless the locale is RTL)
+            // so, the second button should come before the first button.
+
+            if (secondButtonIcon != null) {
+                Button(
+                    icon = secondButtonIcon,
+                    onClick = { onSecondButtonClick?.invoke() }
+                )
+            }
 
             if (firstButtonIcon != null) {
                 Button(

@@ -1,6 +1,7 @@
 package ca.on.hojat.gamenews.feature_image_viewer
 
 import android.content.res.Configuration
+import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
@@ -31,10 +32,19 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import ca.on.hojat.gamenews.R
+import ca.on.hojat.gamenews.common_ui.CommandsHandler
+import ca.on.hojat.gamenews.common_ui.LocalNetworkStateProvider
+import ca.on.hojat.gamenews.common_ui.LocalTextSharer
+import ca.on.hojat.gamenews.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.common_ui.base.events.Route
+import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.theme.navBar
 import ca.on.hojat.gamenews.common_ui.theme.statusBar
+import ca.on.hojat.gamenews.common_ui.widgets.Info
+import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
+import ca.on.hojat.gamenews.core.extensions.showLongToast
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
 import coil.size.Size
@@ -44,14 +54,6 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.mxalbert.zoomable.OverZoomConfig
 import com.mxalbert.zoomable.Zoomable
 import com.mxalbert.zoomable.rememberZoomableState
-import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.CommandsHandler
-import ca.on.hojat.gamenews.common_ui.LocalNetworkStateProvider
-import ca.on.hojat.gamenews.common_ui.LocalTextSharer
-import ca.on.hojat.gamenews.common_ui.RoutesHandler
-import ca.on.hojat.gamenews.common_ui.widgets.Info
-import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
-import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
 
 private const val ZoomScaleMin = 0.5f
 private const val ZoomScaleMax = 5f
@@ -87,6 +89,7 @@ private fun ImageViewer(
         onBackPressed = viewModel::onBackPressed,
         onShareBtnClicked = viewModel::onShareButtonClicked,
         onImageChanged = viewModel::onImageChanged,
+        onDownloadBtnClicked = viewModel::onDownloadButtonClicked,
         onDismiss = viewModel::onBackPressed,
     )
 }
@@ -96,6 +99,7 @@ private fun ImageViewer(
     uiState: ImageViewerUiState,
     onBackPressed: () -> Unit,
     onShareBtnClicked: () -> Unit,
+    onDownloadBtnClicked: () -> Unit,
     onImageChanged: (imageIndex: Int) -> Unit,
     onDismiss: () -> Unit,
 ) {
@@ -125,8 +129,10 @@ private fun ImageViewer(
                 elevation = 0.dp,
                 backButtonIcon = painterResource(R.drawable.arrow_left),
                 firstButtonIcon = painterResource(R.drawable.share_variant),
+                secondButtonIcon = painterResource(R.drawable.download_24),
                 onBackButtonClick = onBackPressed,
                 onFirstButtonClick = onShareBtnClicked,
+                onSecondButtonClick = onDownloadBtnClicked
             )
         }
     }
@@ -265,6 +271,7 @@ private fun ImageViewerPreview() {
             onBackPressed = {},
             onShareBtnClicked = {},
             onImageChanged = {},
+            onDownloadBtnClicked = {},
             onDismiss = {},
         )
     }
