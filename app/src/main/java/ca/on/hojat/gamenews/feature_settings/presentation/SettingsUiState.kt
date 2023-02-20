@@ -9,6 +9,8 @@ internal data class SettingsUiState(
     val sections: List<SettingsSectionUiModel>,
     val selectedThemeName: String?,
     val isThemePickerVisible: Boolean,
+    val selectedLanguageName: String?,
+    val isLanguagePickerVisible: Boolean
 )
 
 internal val SettingsUiState.finiteUiState: FiniteUiState
@@ -31,11 +33,13 @@ internal fun SettingsUiState.toLoadingState(): SettingsUiState {
 internal fun SettingsUiState.toSuccessState(
     sections: List<SettingsSectionUiModel>,
     selectedThemeName: String,
+    selectedLanguageName: String
 ): SettingsUiState {
     return copy(
         isLoading = false,
         sections = sections,
         selectedThemeName = selectedThemeName,
+        selectedLanguageName = selectedLanguageName
     )
 }
 
@@ -61,7 +65,8 @@ internal enum class SettingSection(val id: Int) {
 
 internal enum class SettingItem(val id: Int) {
     THEME(id = 1),
-    SOURCE_CODE(id = 2),
-    VERSION(id = 3),
-    PRIVACY_POLICY(id = 4)
+    LANGUAGE(id = 2),
+    SOURCE_CODE(id = 3),
+    VERSION(id = 4),
+    PRIVACY_POLICY(id = 5)
 }

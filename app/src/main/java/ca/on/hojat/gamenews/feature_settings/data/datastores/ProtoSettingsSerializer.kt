@@ -11,6 +11,7 @@ internal object ProtoSettingsSerializer : Serializer<ProtoSettings> {
     override val defaultValue: ProtoSettings
         get() = ProtoSettings.newBuilder()
             .setThemeName(DomainSettings.DEFAULT.theme.name)
+            .setLanguageName(DomainSettings.DEFAULT.language.name)
             .build()
 
     override suspend fun writeTo(t: ProtoSettings, output: OutputStream) = t.writeTo(output)

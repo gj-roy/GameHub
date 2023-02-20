@@ -6,5 +6,7 @@ option java_multiple_files = true;
 message ProtoSettings {
 
   string themeName = 1;
+  string languageName = 2;
+
 
 }

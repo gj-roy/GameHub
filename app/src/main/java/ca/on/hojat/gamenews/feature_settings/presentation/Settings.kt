@@ -40,6 +40,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.common_ui.widgets.dialogs.GameNewsDialog
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.core.extensions.showShortToast
+import ca.on.hojat.gamenews.feature_settings.domain.entities.Language
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 
 @Composable
@@ -73,6 +74,8 @@ private fun Settings(
         onSettingClicked = viewModel::onSettingClicked,
         onThemePicked = viewModel::onThemePicked,
         onThemePickerDismissed = viewModel::onThemePickerDismissed,
+        onLanguagePicked = viewModel::onLanguagePicked,
+        onLanguagePickerDismissed = viewModel::onLanguagePickerDismissed,
         modifier = modifier,
     )
 }
@@ -83,6 +86,8 @@ private fun Settings(
     onSettingClicked: (SettingsSectionItemUiModel) -> Unit,
     onThemePicked: (Theme) -> Unit,
     onThemePickerDismissed: () -> Unit,
+    onLanguagePicked: (Language) -> Unit,
+    onLanguagePickerDismissed: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -90,8 +95,7 @@ private fun Settings(
         topBar = {
             Toolbar(
                 title = stringResource(R.string.settings_toolbar_title),
-                contentPadding = WindowInsets.statusBars
-                    .only(WindowInsetsSides.Vertical + WindowInsetsSides.Horizontal)
+                contentPadding = WindowInsets.statusBars.only(WindowInsetsSides.Vertical + WindowInsetsSides.Horizontal)
                     .asPaddingValues(),
             )
         },
@@ -120,6 +124,13 @@ private fun Settings(
             uiState = uiState,
             onThemePicked = onThemePicked,
             onPickerDismissed = onThemePickerDismissed,
+        )
+    }
+    if (uiState.isLanguagePickerVisible) {
+        LanguagePickerDialog(
+            uiState = uiState,
+            onLanguagePicked = onLanguagePicked,
+            onPickerDismissed = onLanguagePickerDismissed
         )
     }
 }
@@ -157,11 +168,10 @@ private fun SettingsSection(
 ) {
     GameHubCard(modifier = Modifier.fillMaxWidth()) {
         Column(
-            modifier = Modifier
-                .padding(
-                    top = GameHubTheme.spaces.spacing_4_0,
-                    bottom = GameHubTheme.spaces.spacing_2_0,
-                ),
+            modifier = Modifier.padding(
+                top = GameHubTheme.spaces.spacing_4_0,
+                bottom = GameHubTheme.spaces.spacing_2_0,
+            ),
         ) {
             Text(
                 text = section.title,
@@ -234,9 +244,9 @@ private fun ThemePickerDialog(
         )
 
         for (theme in Theme.values()) {
-            ThemePickerDialogOption(
+            SingleChoiceListOption(
                 isSelected = (theme.name == uiState.selectedThemeName),
-                themeTitle = stringResource(theme.uiTextRes),
+                title = stringResource(theme.uiTextRes),
                 onOptionClicked = { onThemePicked(theme) },
             )
         }
@@ -244,9 +254,34 @@ private fun ThemePickerDialog(
 }
 
 @Composable
-private fun ThemePickerDialogOption(
+private fun LanguagePickerDialog(
+    uiState: SettingsUiState,
+    onLanguagePicked: (Language) -> Unit,
+    onPickerDismissed: () -> Unit,
+) {
+    GameNewsDialog(onDialogDismissed = onPickerDismissed) {
+        Text(
+            text = stringResource(R.string.settings_item_language_title),
+            modifier = Modifier
+                .padding(horizontal = GameHubTheme.spaces.spacing_6_0)
+                .padding(bottom = GameHubTheme.spaces.spacing_2_0),
+            color = GameHubTheme.colors.onPrimary,
+            style = GameHubTheme.typography.h5,
+        )
+
+        for (language in Language.values()) {
+            SingleChoiceListOption(isSelected = (language.name == uiState.selectedLanguageName),
+                title = stringResource(id = language.uiTextRes),
+                onOptionClicked = { onLanguagePicked(language) })
+        }
+    }
+
+}
+
+@Composable
+private fun SingleChoiceListOption(
     isSelected: Boolean,
-    themeTitle: String,
+    title: String,
     onOptionClicked: () -> Unit,
 ) {
     Row(
@@ -269,7 +304,7 @@ private fun ThemePickerDialogOption(
         )
 
         Text(
-            text = themeTitle,
+            text = title,
             modifier = Modifier.padding(start = GameHubTheme.spaces.spacing_4_0),
             style = GameHubTheme.typography.h6,
         )
@@ -281,17 +316,19 @@ private fun ThemePickerDialogOption(
 @Composable
 private fun SettingsLoadingStatePreview() {
     GameHubTheme {
-        Settings(
-            uiState = SettingsUiState(
-                isLoading = false,
-                sections = emptyList(),
-                selectedThemeName = null,
-                isThemePickerVisible = false,
-            ),
+        Settings(uiState = SettingsUiState(
+            isLoading = false,
+            sections = emptyList(),
+            selectedThemeName = null,
+            isThemePickerVisible = false,
+            selectedLanguageName = null,
+            isLanguagePickerVisible = false
+        ),
             onSettingClicked = {},
             onThemePicked = {},
             onThemePickerDismissed = {},
-        )
+            onLanguagePicked = {},
+            onLanguagePickerDismissed = {})
     }
 }
 
@@ -300,54 +337,51 @@ private fun SettingsLoadingStatePreview() {
 @Composable
 private fun SettingsSuccessStatePreview() {
     GameHubTheme {
-        Settings(
-            uiState = SettingsUiState(
-                isLoading = false,
-                sections = listOf(
-                    SettingsSectionUiModel(
-                        id = 1,
-                        title = "Section 1",
-                        items = listOf(
-                            SettingsSectionItemUiModel(
-                                id = 1,
-                                title = "Title 1",
-                                description = "Description 1",
-                            ),
-                            SettingsSectionItemUiModel(
-                                id = 2,
-                                title = "Title 2",
-                                description = "Description 2",
-                            ),
-                        )
-                    ),
-                    SettingsSectionUiModel(
-                        id = 2,
-                        title = "Section 2",
-                        items = listOf(
-                            SettingsSectionItemUiModel(
-                                id = 3,
-                                title = "Title 1",
-                                description = "Description 1",
-                            ),
-                            SettingsSectionItemUiModel(
-                                id = 4,
-                                title = "Title 2",
-                                description = "Description 2",
-                            ),
-                            SettingsSectionItemUiModel(
-                                id = 5,
-                                title = "Title 3",
-                                description = "Description 3",
-                            ),
-                        )
+        Settings(uiState = SettingsUiState(
+            isLoading = false,
+            sections = listOf(
+                SettingsSectionUiModel(
+                    id = 1, title = "Section 1", items = listOf(
+                        SettingsSectionItemUiModel(
+                            id = 1,
+                            title = "Title 1",
+                            description = "Description 1",
+                        ),
+                        SettingsSectionItemUiModel(
+                            id = 2,
+                            title = "Title 2",
+                            description = "Description 2",
+                        ),
                     )
-                ),
-                selectedThemeName = null,
-                isThemePickerVisible = false,
+                ), SettingsSectionUiModel(
+                    id = 2, title = "Section 2", items = listOf(
+                        SettingsSectionItemUiModel(
+                            id = 3,
+                            title = "Title 1",
+                            description = "Description 1",
+                        ),
+                        SettingsSectionItemUiModel(
+                            id = 4,
+                            title = "Title 2",
+                            description = "Description 2",
+                        ),
+                        SettingsSectionItemUiModel(
+                            id = 5,
+                            title = "Title 3",
+                            description = "Description 3",
+                        ),
+                    )
+                )
             ),
+            selectedThemeName = null,
+            isThemePickerVisible = false,
+            selectedLanguageName = null,
+            isLanguagePickerVisible = false
+        ),
             onSettingClicked = {},
             onThemePicked = {},
             onThemePickerDismissed = {},
-        )
+            onLanguagePicked = {},
+            onLanguagePickerDismissed = {})
     }
 }

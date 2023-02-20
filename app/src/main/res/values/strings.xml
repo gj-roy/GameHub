@@ -55,6 +55,14 @@
     <string name="settings_item_theme_option_light">Light</string>
     <string name="settings_item_theme_option_dark">Dark</string>
     <string name="settings_item_theme_option_system_default">System Default</string>
+
+
+    <string name="settings_item_language_title">Language</string>
+    <!--    pay attention that it's a better UX practice for names of languages to not be translated-->
+    <string name="settings_item_language_option_english" translatable="false">English</string>
+    <string name="settings_item_language_option_persian" translatable="false">فارسی</string>
+
+
     <string name="settings_section_about_title">About</string>
     <string name="settings_item_source_code_title">Source Code</string>
     <string name="settings_item_source_code_description">View GameHub\'s source code</string>

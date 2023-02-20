@@ -51,6 +51,7 @@
     <string name="settings_item_theme_option_light">روشن</string>
     <string name="settings_item_theme_option_dark">تاریک</string>
     <string name="settings_item_theme_option_system_default">پیش فرض سیستم</string>
+    <string name="settings_item_language_title">زبان</string>
     <string name="settings_section_about_title">درباره ی گیم هاب</string>
     <string name="settings_item_source_code_title">سورس کد</string>
     <string name="settings_item_source_code_description">سورس کد گیم هاب را مشاهده کنید</string>

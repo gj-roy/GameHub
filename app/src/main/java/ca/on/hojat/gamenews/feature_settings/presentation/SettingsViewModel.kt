@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
 import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
+import ca.on.hojat.gamenews.feature_settings.domain.entities.Language
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveSettingsUseCase
@@ -47,6 +48,8 @@ internal class SettingsViewModel @Inject constructor(
             sections = emptyList(),
             selectedThemeName = null,
             isThemePickerVisible = false,
+            selectedLanguageName = null,
+            isLanguagePickerVisible = false
         )
             .toLoadingState()
     }
@@ -56,12 +59,13 @@ internal class SettingsViewModel @Inject constructor(
             .map { settings ->
                 val sections = uiModelMapper.mapToUiModels(settings)
                 val selectedThemeName = settings.theme.name
+                val selectedLanguageName = settings.language.name
 
-                sections to selectedThemeName
+                Triple(sections, selectedThemeName, selectedLanguageName)
             }
             .flowOn(dispatcherProvider.computation)
-            .map { (sections, selectedThemeName) ->
-                currentUiState.toSuccessState(sections, selectedThemeName)
+            .map { (sections, selectedThemeName, selectedLanguageName) ->
+                currentUiState.toSuccessState(sections, selectedThemeName, selectedLanguageName)
             }
             .onStart { emit(currentUiState.toLoadingState()) }
             .onEach { emittedUiState -> _uiState.update { emittedUiState } }
@@ -71,9 +75,14 @@ internal class SettingsViewModel @Inject constructor(
     fun onSettingClicked(item: SettingsSectionItemUiModel) {
         when (item.id) {
             SettingItem.THEME.id -> onThemeSettingClicked()
+            SettingItem.LANGUAGE.id -> onLanguageSettingClicked()
             SettingItem.SOURCE_CODE.id -> onSourceCodeSettingClicked()
             SettingItem.PRIVACY_POLICY.id -> onPrivacyPolicyClicked()
         }
+    }
+
+    private fun onLanguageSettingClicked() {
+        _uiState.update { it.copy(isLanguagePickerVisible = true) }
     }
 
     private fun onThemeSettingClicked() {
@@ -88,6 +97,14 @@ internal class SettingsViewModel @Inject constructor(
         }
     }
 
+    fun onLanguagePicked(language: Language) {
+        onLanguagePickerDismissed()
+
+        updateSettings { oldSettings ->
+            oldSettings.copy(language = language)
+        }
+    }
+
     private fun updateSettings(newSettingsProvider: (old: Settings) -> Settings) {
         viewModelScope.launch {
             val oldSettings = observeSettingsUseCase.execute().first()
@@ -99,6 +116,10 @@ internal class SettingsViewModel @Inject constructor(
 
     fun onThemePickerDismissed() {
         _uiState.update { it.copy(isThemePickerVisible = false) }
+    }
+
+    fun onLanguagePickerDismissed() {
+        _uiState.update { it.copy(isLanguagePickerVisible = false) }
     }
 
     private fun onSourceCodeSettingClicked() {

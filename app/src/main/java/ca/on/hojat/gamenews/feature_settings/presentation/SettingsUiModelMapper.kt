@@ -37,7 +37,13 @@ internal class SettingsUiModelMapperImpl @Inject constructor(
                     id = SettingItem.THEME.id,
                     title = stringProvider.getString(R.string.settings_item_theme_title),
                     description = stringProvider.getString(settings.theme.uiTextRes),
-                )
+                ),
+                // TODO (Ticket_17): Whenever I managed to fully add that feature, I will un-comment this part.
+//                SettingsSectionItemUiModel(
+//                    id = SettingItem.LANGUAGE.id,
+//                    title = stringProvider.getString(R.string.settings_item_language_title),
+//                    description = stringProvider.getString(settings.language.uiTextRes)
+//                )
             )
         )
     }
