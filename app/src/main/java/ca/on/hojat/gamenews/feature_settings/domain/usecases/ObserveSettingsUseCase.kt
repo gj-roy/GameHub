@@ -15,12 +15,12 @@ internal interface ObserveSettingsUseCase : ObservableUseCase<Unit, Settings>
 @Singleton
 @BindType
 internal class ObserveSettingsUseCaseImpl @Inject constructor(
-    private val localDataStore: SettingsLocalDataSource,
+    private val localDataSource: SettingsLocalDataSource,
     private val dispatcherProvider: DispatcherProvider,
 ) : ObserveSettingsUseCase {
 
     override fun execute(params: Unit): Flow<Settings> {
-        return localDataStore.observeSettings()
+        return localDataSource.observeSettings()
             .flowOn(dispatcherProvider.main)
     }
 }

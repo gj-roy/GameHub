@@ -20,7 +20,7 @@ private val PROTO_SETTINGS = ProtoSettings.newBuilder()
     .setThemeName(DOMAIN_SETTINGS.theme.name)
     .build()
 
-internal class SettingsFileDataStoreTest {
+internal class SettingsFileDataSourceTest {
 
     @MockK
     private lateinit var protoDataStore: DataStore<ProtoSettings>
@@ -32,7 +32,7 @@ internal class SettingsFileDataStoreTest {
         MockKAnnotations.init(this)
 
         sut = SettingsFileDataSource(
-            protoDataStore = protoDataStore,
+            protoDataSource = protoDataStore,
             protoMapper = ProtoSettingsMapper(),
         )
     }

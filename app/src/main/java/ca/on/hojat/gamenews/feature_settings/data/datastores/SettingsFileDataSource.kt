@@ -12,18 +12,18 @@ import javax.inject.Singleton
 @Singleton
 @BindType
 internal class SettingsFileDataSource @Inject constructor(
-    private val protoDataStore: DataStore<ProtoSettings>,
+    private val protoDataSource: DataStore<ProtoSettings>,
     private val protoMapper: ProtoSettingsMapper,
 ) : SettingsLocalDataSource {
 
     override suspend fun saveSettings(settings: Settings) {
-        protoDataStore.updateData {
+        protoDataSource.updateData {
             protoMapper.mapToProtoSettings(settings)
         }
     }
 
     override fun observeSettings(): Flow<Settings> {
-        return protoDataStore.data
+        return protoDataSource.data
             .map(protoMapper::mapToDomainSettings)
     }
 }

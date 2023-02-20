@@ -31,7 +31,7 @@ internal class ObserveSettingsUseCaseImplTest {
         MockKAnnotations.init(this)
 
         sut = ObserveSettingsUseCaseImpl(
-            localDataStore = settingsLocalDataSource,
+            localDataSource = settingsLocalDataSource,
             dispatcherProvider = mainCoroutineRule.dispatcherProvider,
         )
     }
