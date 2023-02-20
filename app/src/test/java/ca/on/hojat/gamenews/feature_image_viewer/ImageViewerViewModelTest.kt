@@ -45,7 +45,7 @@ internal class ImageViewerViewModelTest {
     }
 
     @Test
-    fun `Dispatches text sharing command when toolbar right button is clicked`() {
+    fun `Dispatches text sharing command when toolbar share button is clicked`() {
         runTest {
             sut.commandFlow.test {
                 sut.onShareButtonClicked()
