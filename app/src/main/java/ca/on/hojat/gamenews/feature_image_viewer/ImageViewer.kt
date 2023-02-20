@@ -1,7 +1,6 @@
 package ca.on.hojat.gamenews.feature_image_viewer
 
 import android.content.res.Configuration
-import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
@@ -44,7 +43,6 @@ import ca.on.hojat.gamenews.common_ui.theme.navBar
 import ca.on.hojat.gamenews.common_ui.theme.statusBar
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
-import ca.on.hojat.gamenews.core.extensions.showLongToast
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
 import coil.size.Size
