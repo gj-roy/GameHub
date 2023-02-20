@@ -92,7 +92,7 @@ internal class ImageViewerViewModel @Inject constructor(
         )
     }
 
-    fun onToolbarRightButtonClicked() {
+    fun onShareButtonClicked() {
         val currentImageUrl = currentUiState.imageUrls[currentUiState.selectedImageUrlIndex]
         val textToShare = stringProvider.getString(
             R.string.text_sharing_message_template,

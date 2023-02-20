@@ -78,8 +78,8 @@ private fun CategoryScreen(
                 contentPadding = WindowInsets.statusBars
                     .only(WindowInsetsSides.Vertical + WindowInsetsSides.Horizontal)
                     .asPaddingValues(),
-                leftButtonIcon = painterResource(R.drawable.arrow_left),
-                onLeftButtonClick = onBackButtonClicked,
+                backButtonIcon = painterResource(R.drawable.arrow_left),
+                onBackButtonClick = onBackButtonClicked,
             )
         },
     ) { paddingValues ->

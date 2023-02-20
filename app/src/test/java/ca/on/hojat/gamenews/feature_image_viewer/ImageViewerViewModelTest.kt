@@ -48,7 +48,7 @@ internal class ImageViewerViewModelTest {
     fun `Dispatches text sharing command when toolbar right button is clicked`() {
         runTest {
             sut.commandFlow.test {
-                sut.onToolbarRightButtonClicked()
+                sut.onShareButtonClicked()
 
                 assertThat(awaitItem()).isInstanceOf(ImageViewerCommand.ShareText::class.java)
             }

@@ -72,8 +72,8 @@ private fun LikesScreen(
                 contentPadding = WindowInsets.statusBars
                     .only(WindowInsetsSides.Vertical + WindowInsetsSides.Horizontal)
                     .asPaddingValues(),
-                rightButtonIcon = painterResource(R.drawable.magnify),
-                onRightButtonClick = onSearchButtonClicked,
+                firstButtonIcon = painterResource(R.drawable.magnify),
+                onFirstButtonClick = onSearchButtonClicked,
             )
         },
     ) { paddingValues ->

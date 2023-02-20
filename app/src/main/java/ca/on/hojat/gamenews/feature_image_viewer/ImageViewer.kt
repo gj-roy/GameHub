@@ -85,7 +85,7 @@ private fun ImageViewer(
     ImageViewer(
         uiState = viewModel.uiState.collectAsState().value,
         onBackPressed = viewModel::onBackPressed,
-        onToolbarRightBtnClicked = viewModel::onToolbarRightButtonClicked,
+        onShareBtnClicked = viewModel::onShareButtonClicked,
         onImageChanged = viewModel::onImageChanged,
         onDismiss = viewModel::onBackPressed,
     )
@@ -95,7 +95,7 @@ private fun ImageViewer(
 private fun ImageViewer(
     uiState: ImageViewerUiState,
     onBackPressed: () -> Unit,
-    onToolbarRightBtnClicked: () -> Unit,
+    onShareBtnClicked: () -> Unit,
     onImageChanged: (imageIndex: Int) -> Unit,
     onDismiss: () -> Unit,
 ) {
@@ -123,10 +123,10 @@ private fun ImageViewer(
                 backgroundColor = GameHubTheme.colors.statusBar,
                 contentColor = LocalContentColor.current,
                 elevation = 0.dp,
-                leftButtonIcon = painterResource(R.drawable.arrow_left),
-                rightButtonIcon = painterResource(R.drawable.share_variant),
-                onLeftButtonClick = onBackPressed,
-                onRightButtonClick = onToolbarRightBtnClicked,
+                backButtonIcon = painterResource(R.drawable.arrow_left),
+                firstButtonIcon = painterResource(R.drawable.share_variant),
+                onBackButtonClick = onBackPressed,
+                onFirstButtonClick = onShareBtnClicked,
             )
         }
     }
@@ -263,7 +263,7 @@ private fun ImageViewerPreview() {
                 selectedImageUrlIndex = 0,
             ),
             onBackPressed = {},
-            onToolbarRightBtnClicked = {},
+            onShareBtnClicked = {},
             onImageChanged = {},
             onDismiss = {},
         )

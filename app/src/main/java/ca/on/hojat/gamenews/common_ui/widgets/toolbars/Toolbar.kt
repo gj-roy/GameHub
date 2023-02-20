@@ -35,10 +35,10 @@ fun Toolbar(
     contentColor: Color = contentColorFor(backgroundColor),
     elevation: Dp = ToolbarElevation,
     titleTextStyle: TextStyle = GameHubTheme.typography.h5,
-    leftButtonIcon: Painter? = null,
-    rightButtonIcon: Painter? = null,
-    onLeftButtonClick: (() -> Unit)? = null,
-    onRightButtonClick: (() -> Unit)? = null
+    backButtonIcon: Painter? = null,
+    firstButtonIcon: Painter? = null,
+    onBackButtonClick: (() -> Unit)? = null,
+    onFirstButtonClick: (() -> Unit)? = null
 ) {
     Surface(
         modifier = Modifier
@@ -55,13 +55,13 @@ fun Toolbar(
                 .height(ToolbarHeight),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            val titleLeftPadding = getTitleHorizontalPadding(leftButtonIcon)
-            val titleRightPadding = getTitleHorizontalPadding(rightButtonIcon)
+            val titleLeftPadding = getTitleHorizontalPadding(backButtonIcon)
+            val titleRightPadding = getTitleHorizontalPadding(firstButtonIcon)
 
-            if (leftButtonIcon != null) {
+            if (backButtonIcon != null) {
                 Button(
-                    icon = leftButtonIcon,
-                    onClick = { onLeftButtonClick?.invoke() }
+                    icon = backButtonIcon,
+                    onClick = { onBackButtonClick?.invoke() }
                 )
             }
 
@@ -75,10 +75,10 @@ fun Toolbar(
                 style = titleTextStyle,
             )
 
-            if (rightButtonIcon != null) {
+            if (firstButtonIcon != null) {
                 Button(
-                    icon = rightButtonIcon,
-                    onClick = { onRightButtonClick?.invoke() }
+                    icon = firstButtonIcon,
+                    onClick = { onFirstButtonClick?.invoke() }
                 )
             }
         }
@@ -139,8 +139,8 @@ private fun ToolbarPreviewWithBothIcons() {
     GameHubTheme {
         Toolbar(
             title = "Toolbar",
-            leftButtonIcon = painterResource(R.drawable.arrow_left),
-            rightButtonIcon = painterResource(R.drawable.magnify)
+            backButtonIcon = painterResource(R.drawable.arrow_left),
+            firstButtonIcon = painterResource(R.drawable.magnify)
         )
     }
 }
@@ -152,7 +152,7 @@ private fun ToolbarPreviewWithLeftIcon() {
     GameHubTheme {
         Toolbar(
             title = "Toolbar",
-            leftButtonIcon = painterResource(R.drawable.arrow_left),
+            backButtonIcon = painterResource(R.drawable.arrow_left),
         )
     }
 }
@@ -164,7 +164,7 @@ private fun ToolbarPreviewWithRightIcon() {
     GameHubTheme {
         Toolbar(
             title = "Toolbar",
-            rightButtonIcon = painterResource(R.drawable.magnify)
+            firstButtonIcon = painterResource(R.drawable.magnify)
         )
     }
 }
