@@ -4,6 +4,10 @@ import ca.on.hojat.gamenews.common_ui.base.events.Command
 import ca.on.hojat.gamenews.common_ui.base.events.Route
 
 internal sealed class ImageViewerCommand : Command {
+    /**
+     * The command that ViewModel sends when user
+     * wants to share a text with other users.
+     */
     data class ShareText(val text: String) : ImageViewerCommand()
 }
 
