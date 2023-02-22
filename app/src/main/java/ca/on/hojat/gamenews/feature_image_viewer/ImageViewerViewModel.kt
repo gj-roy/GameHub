@@ -6,7 +6,6 @@ import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.extensions.fromCsv
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -104,8 +103,9 @@ internal class ImageViewerViewModel @Inject constructor(
         dispatchCommand(ImageViewerCommand.ShareText(textToShare))
     }
 
-    fun onDownloadButtonClicked(){
-        dispatchCommand(GeneralCommand.ShowLongToast("This feature is not yet implemented"))
+    fun onDownloadButtonClicked() {
+        val url = currentUiState.imageUrls[currentUiState.selectedImageUrlIndex]
+        dispatchCommand(ImageViewerCommand.DownloadFile(url))
     }
 
     fun onImageChanged(imageIndex: Int) {

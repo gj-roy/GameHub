@@ -9,6 +9,11 @@ internal sealed class ImageViewerCommand : Command {
      * wants to share a text with other users.
      */
     data class ShareText(val text: String) : ImageViewerCommand()
+
+    /**
+     * The command for downloading a file into device storage.
+     */
+    data class DownloadFile(val url: String) : ImageViewerCommand()
 }
 
 sealed class ImageViewerRoute : Route {

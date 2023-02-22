@@ -36,6 +36,7 @@
     <!--    feature image viewer -->
     <string name="image_viewer_default_toolbar_title">عکس</string>
     <string name="image_viewer_toolbar_title_template">%1$s %2$d از %3$d</string>
+    <string name="image_viewer_download_completion_prompt">عکس مورد نظر با موفقیت دانلود شد!</string>
 
     <!--    feature category -->
     <string name="games_category_info_view_title">هیچ بازی ای در دسترس نیست</string>

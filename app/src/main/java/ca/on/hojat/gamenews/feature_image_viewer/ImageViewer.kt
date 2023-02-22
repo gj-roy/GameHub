@@ -43,6 +43,7 @@ import ca.on.hojat.gamenews.common_ui.theme.navBar
 import ca.on.hojat.gamenews.common_ui.theme.statusBar
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
+import ca.on.hojat.gamenews.core.downloader.DownloaderImpl
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
 import coil.size.Size
@@ -78,6 +79,11 @@ private fun ImageViewer(
         when (command) {
             is ImageViewerCommand.ShareText -> {
                 textSharer.share(context, command.text)
+            }
+            is ImageViewerCommand.DownloadFile -> {
+                DownloaderImpl(
+                    context = context,
+                ).downloadFile(url = command.url)
             }
         }
     }
