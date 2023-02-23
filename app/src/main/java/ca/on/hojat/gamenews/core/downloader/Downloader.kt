@@ -2,9 +2,9 @@ package ca.on.hojat.gamenews.core.downloader
 
 import android.app.DownloadManager
 import android.content.Context
-import android.os.Build
 import android.os.Environment
 import androidx.core.net.toUri
+import ca.on.hojat.gamenews.core.SdkInfo
 import com.paulrybitskyi.hiltbinder.BindType
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -26,7 +26,7 @@ internal class DownloaderImpl @Inject constructor(
 ) : Downloader {
 
 
-    private val downloadManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+    private val downloadManager = if (SdkInfo.IS_AT_LEAST_MARSHMALLOW) {
         context.getSystemService(DownloadManager::class.java)
     } else {
         TODO("need to do something for API 21 and 22 because this feature isn't available there")
