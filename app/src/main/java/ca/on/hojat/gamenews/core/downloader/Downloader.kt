@@ -27,9 +27,11 @@ internal class DownloaderImpl @Inject constructor(
 
 
     private val downloadManager = if (SdkInfo.IS_AT_LEAST_MARSHMALLOW) {
+        // Build the DownloadManager in the new way.
         context.getSystemService(DownloadManager::class.java)
     } else {
-        TODO("need to do something for API 21 and 22 because this feature isn't available there")
+        // Build the DownloadManager in the old way
+       context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
     }
 
     override fun downloadFile(
