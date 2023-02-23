@@ -97,7 +97,9 @@ internal fun InfoScreenHeader(
             onArtworkChanged = { page ->
                 selectedArtworkPage = page
             },
-            onArtworkClicked = onArtworkClicked,
+            onArtworkClicked = if (headerInfo.artworks.any { artWork ->
+                    artWork is InfoScreenArtworkUiModel.UrlImage
+                }) onArtworkClicked else null,
         )
 
         Box(

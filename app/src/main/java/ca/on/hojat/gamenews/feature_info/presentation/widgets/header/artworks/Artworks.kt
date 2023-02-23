@@ -24,7 +24,7 @@ internal fun Artworks(
     isScrollingEnabled: Boolean,
     modifier: Modifier,
     onArtworkChanged: (artworkIndex: Int) -> Unit,
-    onArtworkClicked: (artworkIndex: Int) -> Unit,
+    onArtworkClicked: ((artworkIndex: Int) -> Unit)? = null,
 ) {
     val pagerState = rememberPagerState()
 
@@ -42,7 +42,11 @@ internal fun Artworks(
     ) { page ->
         Artwork(
             artwork = artworks[page],
-            onArtworkClicked = { onArtworkClicked(page) },
+            onArtworkClicked = {
+                if (onArtworkClicked != null) {
+                    onArtworkClicked(page)
+                }
+            },
         )
     }
 }
