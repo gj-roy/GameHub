@@ -10,4 +10,6 @@ V1.1.0 :
 
 V1.2.0 :
 
-* Added the ability to download pictures of each game.
+* Added the ability to download pictures of each game to the "Downloads" folder of the device.
+* Fixed the 2 bugs that used to happen when artworks were empty but the user still could go to
+  ImageViewer page.
