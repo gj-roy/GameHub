@@ -23,6 +23,7 @@ internal class ImageViewerViewModelTest {
 
     private val savedStateHandle = mockk<SavedStateHandle>(relaxed = true) {
         every { get<String>(PARAM_TITLE) } returns ""
+        every { get<String>(PARAM_GAME_NAME) } returns ""
         every { get<Int>(PARAM_INITIAL_POSITION) } returns INITIAL_POSITION
         every { get<String>(PARAM_IMAGE_URLS) } returns "url1,url2,url3"
         every { get<Int>(KEY_SELECTED_POSITION) } returns INITIAL_POSITION
