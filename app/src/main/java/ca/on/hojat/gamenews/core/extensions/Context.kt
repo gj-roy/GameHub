@@ -1,5 +1,4 @@
-@file:JvmName("ContextUtils")
-@file:Suppress("TooManyFunctions")
+@file:JvmName("ContextUtils") @file:Suppress("TooManyFunctions")
 
 package ca.on.hojat.gamenews.core.extensions
 
@@ -9,7 +8,6 @@ import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.widget.Toast
 import androidx.annotation.ColorRes
-import androidx.annotation.DimenRes
 import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
 
@@ -18,14 +16,6 @@ val Context.configuration: Configuration
 
 fun Context.getCompatColor(@ColorRes colorId: Int): Int {
     return ContextCompat.getColor(this, colorId)
-}
-
-fun Context.getDimensionPixelSize(@DimenRes dimenId: Int): Int {
-    return resources.getDimensionPixelSize(dimenId)
-}
-
-fun Context.getDimension(@DimenRes dimenId: Int): Float {
-    return resources.getDimension(dimenId)
 }
 
 fun Context.showShortToast(message: CharSequence): Toast {
@@ -37,8 +27,7 @@ fun Context.showLongToast(message: CharSequence): Toast {
 }
 
 fun Context.showToast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT): Toast {
-    return Toast.makeText(this, message, duration)
-        .apply { show() }
+    return Toast.makeText(this, message, duration).apply { show() }
 }
 
 inline fun <reified T : Any> Context.getSystemService(): T {
@@ -51,4 +40,3 @@ inline fun <reified T : Any> Context.getSystemService(): T {
 @get:RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
 val Context.isConnectedToNetwork: Boolean
     get() = (getSystemService<ConnectivityManager>().activeNetworkInfo?.isConnected == true)
-

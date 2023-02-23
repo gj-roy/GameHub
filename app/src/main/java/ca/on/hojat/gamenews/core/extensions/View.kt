@@ -1,13 +1,9 @@
-@file:JvmName("ViewUtils")
-@file:Suppress("UNCHECKED_CAST", "TooManyFunctions")
+@file:JvmName("ViewUtils") @file:Suppress("UNCHECKED_CAST", "TooManyFunctions")
 
 package ca.on.hojat.gamenews.core.extensions
 
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.annotation.ColorRes
-import androidx.annotation.DimenRes
 import androidx.annotation.Px
 import androidx.annotation.StringRes
 import androidx.core.view.marginBottom
@@ -59,31 +55,8 @@ var View.bottomMargin: Int
     }
     get() = marginBottom
 
-@get:Px
-var View.topPadding: Int
-    set(@Px value) {
-        updatePadding(topPadding = value)
-    }
-    get() = paddingTop
-
-@get:Px
-var View.bottomPadding: Int
-    set(@Px value) {
-        updatePadding(bottomPadding = value)
-    }
-    get() = paddingBottom
-
-@get:Px
-val View.verticalPadding: Int
-    get() = (topPadding + bottomPadding)
-
-fun View.setLayoutParamsSize(size: Int) {
-    setLayoutParamsSize(width = size, height = size)
-}
-
 fun View.setLayoutParamsSize(
-    width: Int = layoutParamsWidth,
-    height: Int = layoutParamsHeight
+    width: Int = layoutParamsWidth, height: Int = layoutParamsHeight
 ) {
     if (!hasLayoutParams) return
 
@@ -111,38 +84,6 @@ fun View.setMargins(
     }
 }
 
-
-fun View.clearEndMargin() {
-    endMargin = 0
-}
-
-
-fun View.updatePadding(
-    @Px startPadding: Int = this.paddingStart,
-    @Px topPadding: Int = this.paddingTop,
-    @Px endPadding: Int = this.paddingEnd,
-    @Px bottomPadding: Int = this.paddingBottom
-) {
-    setPaddingRelative(startPadding, topPadding, endPadding, bottomPadding)
-}
-
-fun View.setHorizontalPadding(@Px padding: Int) {
-    updatePadding(startPadding = padding, endPadding = padding)
-}
-
-fun View.getColor(@ColorRes colorId: Int): Int {
-    return context.getCompatColor(colorId)
-}
-
-fun View.getDimensionPixelSize(@DimenRes dimenId: Int): Int {
-    return context.getDimensionPixelSize(dimenId)
-}
-
-
-fun View.getDimension(@DimenRes dimenId: Int): Float {
-    return context.getDimension(dimenId)
-}
-
 fun View.getString(@StringRes stringId: Int): String {
     return context.getString(stringId)
 }
@@ -150,10 +91,3 @@ fun View.getString(@StringRes stringId: Int): String {
 fun View.getString(@StringRes stringId: Int, vararg args: Any): String {
     return context.getString(stringId, *args)
 }
-
-fun View.showLongToast(message: CharSequence): Toast {
-    return context.showLongToast(message)
-}
-
-
-
