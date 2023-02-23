@@ -36,7 +36,7 @@ internal class ErrorMapperImpl @Inject constructor(
     private fun Error.ApiError.toMessage(): String {
         return stringProvider.getString(
             when (this) {
-                is Error.ApiError.NetworkError -> R.string.error_api_network_message
+                is Error.ApiError.NetworkError -> R.string.error_no_network_message
                 is Error.ApiError.ServiceUnavailable -> R.string.error_api_server_message
 
                 is Error.ApiError.ClientError,

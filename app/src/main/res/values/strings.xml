@@ -80,13 +80,12 @@
     <string name="image">image</string>
 
     <string name="error_unknown_message">Oops! Something went wrong.</string>
-    <string name="error_api_network_message">@string/error_no_network_message</string>
     <string name="error_api_server_message">The server is not responding! Please try again later.</string>
     <string name="error_no_network_message">Please check your network connection.</string>
     <string name="error_api_unknown_message">Could not perform the request! Please try again later.</string>
     <string name="version_name_template">v%s</string>
 
-    <string name="website_unknown">Unknown</string>
+    <string name="website_unknown">Unknown website</string>
     <string name="website_steam">Steam</string>
     <string name="website_gog">GOG</string>
     <string name="website_epic_games">Epic Games</string>
@@ -94,7 +93,7 @@
     <string name="website_app_store">App Store</string>
     <string name="website_official">Official</string>
     <string name="website_twitter">Twitter</string>
-    <string name="website_subreddit">Subreddit</string>
+    <string name="website_subreddit">Reddit</string>
     <string name="website_youtube">Youtube</string>
     <string name="website_twitch">Twitch</string>
     <string name="website_instagram">Instagram</string>

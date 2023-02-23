@@ -78,13 +78,12 @@
     <string name="image">Изображение</string>
 
     <string name="error_unknown_message">Ой! Что-то пошло не так.</string>
-    <string name="error_api_network_message">@string/error_no_network_message</string>
     <string name="error_api_server_message">Сервер не отвечает. Пожалуйста, зайдите позже</string>
     <string name="error_no_network_message">Пожалуйста, проверьте сетевое подключение</string>
     <string name="error_api_unknown_message">Не удалось выполнить запрос. Пожалуйста, зайдите позже</string>
     <string name="version_name_template">v%s</string>
 
-    <string name="website_unknown">Неизвестно</string>
+    <string name="website_unknown">неизвестный сайт</string>
     <string name="website_steam">Steam</string>
     <string name="website_gog">GOG</string>
     <string name="website_epic_games">Epic Games</string>

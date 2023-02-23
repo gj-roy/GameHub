@@ -76,7 +76,6 @@
     <string name="image">عکس</string>
 
     <string name="error_unknown_message">آخ! یه مشکلی پیش اومده.</string>
-    <string name="error_api_network_message">@string/error_no_network_message</string>
     <string name="error_api_server_message">سرور اپلیکیشن در دسترس نیست! لطفاْ بعداْ امتحان کنید</string>
     <string name="error_no_network_message">لطفاْ دسترسی اینترنت خود را دوباره چک کنید.</string>
     <string name="error_api_unknown_message">درخواست مورد نظر قابل اجرا نیست! لطقاْ بعداْ امتحان کنید.</string>
