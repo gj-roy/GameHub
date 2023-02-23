@@ -25,9 +25,7 @@ internal class GameCategoryFormatterImpl @Inject constructor(
                 Category.EPISODE -> R.string.game_category_episode
                 Category.SEASON -> R.string.game_category_season
 
-                Category.DLC,
-                Category.EXPANSION,
-                Category.STANDALONE_EXPANSION -> R.string.game_category_dlc
+                Category.DLC, Category.EXPANSION, Category.STANDALONE_EXPANSION -> R.string.game_category_dlc
             }
         )
     }

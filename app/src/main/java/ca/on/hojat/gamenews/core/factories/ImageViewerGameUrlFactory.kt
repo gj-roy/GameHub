@@ -26,14 +26,12 @@ internal class ImageViewerGameUrlFactoryImpl @Inject constructor(
     }
 
     override fun createArtworkImageUrls(game: Game): List<String> {
-        return igdbImageUrlFactory
-            .createUrls(game.artworks, IgdbImageUrlFactory.Config(IMAGE_SIZE))
+        return igdbImageUrlFactory.createUrls(game.artworks, IgdbImageUrlFactory.Config(IMAGE_SIZE))
     }
 
     override fun createScreenshotImageUrls(game: Game): List<String> {
         return igdbImageUrlFactory.createUrls(
-            game.screenshots,
-            IgdbImageUrlFactory.Config(IMAGE_SIZE)
+            game.screenshots, IgdbImageUrlFactory.Config(IMAGE_SIZE)
         )
     }
 }

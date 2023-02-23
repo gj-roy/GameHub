@@ -26,8 +26,7 @@ internal class GameRatingFormatterImpl @Inject constructor(
         }
 
         return stringProvider.getString(
-            R.string.rating_template,
-            rating.roundToInt().coerceIn(MIN_RATING, MAX_RATING)
+            R.string.rating_template, rating.roundToInt().coerceIn(MIN_RATING, MAX_RATING)
         )
     }
 }

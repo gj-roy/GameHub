@@ -14,8 +14,7 @@ interface RelativeDateFormatter {
 
 @BindType
 internal class RelativeDateFormatterImpl @Inject constructor(
-    private val timeProvider: TimeProvider,
-    private val stringProvider: StringProvider
+    private val timeProvider: TimeProvider, private val stringProvider: StringProvider
 ) : RelativeDateFormatter {
 
     override fun formatRelativeDate(dateTime: LocalDateTime): String {
@@ -32,38 +31,32 @@ internal class RelativeDateFormatterImpl @Inject constructor(
     private fun formatFutureDate(dateTime: LocalDateTime, currentDateTime: LocalDateTime): String {
         val yearCount = ChronoUnit.YEARS.between(currentDateTime, dateTime).toInt()
         if (yearCount > 0L) return getQuantityString(
-            R.plurals.future_relative_timestamp_year,
-            yearCount
+            R.plurals.future_relative_timestamp_year, yearCount
         )
 
         val monthCount = ChronoUnit.MONTHS.between(currentDateTime, dateTime).toInt()
         if (monthCount > 0L) return getQuantityString(
-            R.plurals.future_relative_timestamp_month,
-            monthCount
+            R.plurals.future_relative_timestamp_month, monthCount
         )
 
         val dayCount = ChronoUnit.DAYS.between(currentDateTime, dateTime).toInt()
         if (dayCount > 0L) return getQuantityString(
-            R.plurals.future_relative_timestamp_day,
-            dayCount
+            R.plurals.future_relative_timestamp_day, dayCount
         )
 
         val hourCount = ChronoUnit.HOURS.between(currentDateTime, dateTime).toInt()
         if (hourCount > 0L) return getQuantityString(
-            R.plurals.future_relative_timestamp_hour,
-            hourCount
+            R.plurals.future_relative_timestamp_hour, hourCount
         )
 
         val minuteCount = ChronoUnit.MINUTES.between(currentDateTime, dateTime).toInt()
         if (minuteCount > 0L) return getQuantityString(
-            R.plurals.future_relative_timestamp_minute,
-            minuteCount
+            R.plurals.future_relative_timestamp_minute, minuteCount
         )
 
         val secondCount = ChronoUnit.SECONDS.between(currentDateTime, dateTime).toInt()
         if (secondCount > 0L) return getQuantityString(
-            R.plurals.future_relative_timestamp_second,
-            secondCount
+            R.plurals.future_relative_timestamp_second, secondCount
         )
 
         throw IllegalStateException("Could not format the future date $dateTime in a relative way.")
@@ -72,14 +65,12 @@ internal class RelativeDateFormatterImpl @Inject constructor(
     private fun formatPastDate(dateTime: LocalDateTime, currentDateTime: LocalDateTime): String {
         val yearCount = ChronoUnit.YEARS.between(dateTime, currentDateTime).toInt()
         if (yearCount > 0L) return getQuantityString(
-            R.plurals.past_relative_timestamp_year,
-            yearCount
+            R.plurals.past_relative_timestamp_year, yearCount
         )
 
         val monthCount = ChronoUnit.MONTHS.between(dateTime, currentDateTime).toInt()
         if (monthCount > 0L) return getQuantityString(
-            R.plurals.past_relative_timestamp_month,
-            monthCount
+            R.plurals.past_relative_timestamp_month, monthCount
         )
 
         val dayCount = ChronoUnit.DAYS.between(dateTime, currentDateTime).toInt()
@@ -87,20 +78,17 @@ internal class RelativeDateFormatterImpl @Inject constructor(
 
         val hourCount = ChronoUnit.HOURS.between(dateTime, currentDateTime).toInt()
         if (hourCount > 0L) return getQuantityString(
-            R.plurals.past_relative_timestamp_hour,
-            hourCount
+            R.plurals.past_relative_timestamp_hour, hourCount
         )
 
         val minuteCount = ChronoUnit.MINUTES.between(dateTime, currentDateTime).toInt()
         if (minuteCount > 0L) return getQuantityString(
-            R.plurals.past_relative_timestamp_minute,
-            minuteCount
+            R.plurals.past_relative_timestamp_minute, minuteCount
         )
 
         val secondCount = ChronoUnit.SECONDS.between(dateTime, currentDateTime).toInt()
         if (secondCount > 0L) return getQuantityString(
-            R.plurals.past_relative_timestamp_second,
-            secondCount
+            R.plurals.past_relative_timestamp_second, secondCount
         )
 
         throw IllegalStateException("Could not format the past date $dateTime in a relative way.")

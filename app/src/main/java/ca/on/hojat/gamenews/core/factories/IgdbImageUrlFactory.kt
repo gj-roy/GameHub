@@ -5,25 +5,19 @@ import com.paulrybitskyi.hiltbinder.BindType
 import javax.inject.Inject
 
 enum class IgdbImageSize(internal val rawSize: String) {
-    SMALL_COVER("cover_small"),
-    BIG_COVER("cover_big"),
+    SMALL_COVER("cover_small"), BIG_COVER("cover_big"),
 
-    MEDIUM_SCREENSHOT("screenshot_med"),
-    BIG_SCREENSHOT("screenshot_big"),
-    HUGE_SCREENSHOT("screenshot_huge"),
+    MEDIUM_SCREENSHOT("screenshot_med"), BIG_SCREENSHOT("screenshot_big"), HUGE_SCREENSHOT("screenshot_huge"),
 
     MEDIUM_LOGO("logo_med"),
 
-    THUMBNAIL("thumb"),
-    MICRO("micro"),
+    THUMBNAIL("thumb"), MICRO("micro"),
 
-    HD("720p"),
-    FULL_HD("1080p")
+    HD("720p"), FULL_HD("1080p")
 }
 
 enum class IgdbImageExtension(internal val rawExtension: String) {
-    JPG("jpg"),
-    PNG("png")
+    JPG("jpg"), PNG("png")
 }
 
 interface IgdbImageUrlFactory {
@@ -38,8 +32,7 @@ interface IgdbImageUrlFactory {
 }
 
 fun IgdbImageUrlFactory.createUrls(
-    images: List<Image>,
-    config: IgdbImageUrlFactory.Config
+    images: List<Image>, config: IgdbImageUrlFactory.Config
 ): List<String> {
     if (images.isEmpty()) return emptyList()
 
@@ -61,10 +54,7 @@ internal class IgdbImageUrlFactoryImpl @Inject constructor() : IgdbImageUrlFacto
         if (image.id.isBlank()) return null
 
         return String.format(
-            IMAGE_URL_TEMPLATE,
-            constructType(config),
-            image.id,
-            config.extension.rawExtension
+            IMAGE_URL_TEMPLATE, constructType(config), image.id, config.extension.rawExtension
         )
     }
 

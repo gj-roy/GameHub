@@ -7,8 +7,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 enum class TimeFormat {
-    TWENTY_FOUR_HOURS,
-    TWELVE_HOURS
+    TWENTY_FOUR_HOURS, TWELVE_HOURS
 }
 
 interface TimeFormatProvider {

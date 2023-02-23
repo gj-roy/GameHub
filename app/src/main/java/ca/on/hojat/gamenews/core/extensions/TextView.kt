@@ -3,7 +3,6 @@
 package ca.on.hojat.gamenews.core.extensions
 
 import android.graphics.drawable.Drawable
-import android.util.TypedValue
 import android.widget.TextView
 
 private const val COMPOUND_DRAWABLE_INDEX_LEFT = 0
@@ -36,6 +35,3 @@ fun TextView.updateCompoundDrawable(
     setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom)
 }
 
-fun TextView.setTextSizeInPx(size: Float) {
-    setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
-}

@@ -19,8 +19,7 @@ class GameAgeRatingFormatterImpl @Inject constructor(
 
     override fun formatAgeRating(game: Game): String {
         val ageRatings = game.ageRatings.filterNot {
-            it.category == AgeRatingCategory.UNKNOWN ||
-                    it.type == AgeRatingType.UNKNOWN
+            it.category == AgeRatingCategory.UNKNOWN || it.type == AgeRatingType.UNKNOWN
         }
 
         val ageRating = ageRatings.firstOrNull { it.category == AgeRatingCategory.PEGI }
@@ -28,9 +27,7 @@ class GameAgeRatingFormatterImpl @Inject constructor(
             ?: return stringProvider.getString(R.string.not_available_abbr)
 
         return stringProvider.getString(
-            R.string.age_rating_template,
-            ageRating.category.title,
-            ageRating.type.title
+            R.string.age_rating_template, ageRating.category.title, ageRating.type.title
         )
     }
 }

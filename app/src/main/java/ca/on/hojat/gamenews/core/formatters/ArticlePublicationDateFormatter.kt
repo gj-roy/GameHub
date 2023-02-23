@@ -32,8 +32,7 @@ class ArticlePublicationDateFormatterImpl @Inject constructor(
 
     override fun formatPublicationDate(timestamp: Long): String {
         val dateTime = LocalDateTime.ofInstant(
-            Instant.ofEpochMilli(timestamp),
-            ZoneId.systemDefault()
+            Instant.ofEpochMilli(timestamp), ZoneId.systemDefault()
         )
 
         return if (shouldFormatAsRelativeDate(dateTime)) {

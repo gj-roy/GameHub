@@ -28,10 +28,7 @@ internal class WebsiteIconProviderImpl @Inject constructor() : WebsiteIconProvid
             WebsiteCategory.SUBREDDIT -> R.drawable.reddit
             WebsiteCategory.GOG -> R.drawable.gog
             WebsiteCategory.DISCORD -> R.drawable.discord
-            WebsiteCategory.UNKNOWN,
-            WebsiteCategory.OFFICIAL,
-            WebsiteCategory.WIKIA,
-            WebsiteCategory.EPIC_GAMES -> R.drawable.web
+            WebsiteCategory.UNKNOWN, WebsiteCategory.OFFICIAL, WebsiteCategory.WIKIA, WebsiteCategory.EPIC_GAMES -> R.drawable.web
         }
     }
 }
