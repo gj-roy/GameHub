@@ -1,5 +1,7 @@
 # `Game Hub` Android app
 
+<a href='https://play.google.com/store/apps/details?id=ca.on.hojat.gamenews'><img src='/media/button-google-play.svg' alt='Get it on Google Play' height='45' /></a>
+
 This is an Android client for <a href="https://www.igdb.com/">IGDB</a>
 and <a href="https://dev.twitch.tv/">Twitch</a> APIs for all the latest news and information about
 video games.
@@ -95,7 +97,8 @@ https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-
       Custom Tabs is a browser feature that gives apps more control over their web experience.
 - [Accompanist](https://github.com/google/accompanist) - A collection of extension libraries for
   Jetpack Compose.
-- [Lottie](http://airbnb.io/lottie/#/README) - A multiplatform UI library for parsing Adobe After Effects animations exported as JSON.
+- [Lottie](http://airbnb.io/lottie/#/README) - A multiplatform UI library for parsing Adobe After
+  Effects animations exported as JSON.
 - [OkHttp](https://github.com/square/okhttp) - An HTTP client for making network calls.
 - [Retrofit](https://github.com/square/retrofit) - A library for building REST API clients.
 - [KotlinX Serialization](https://github.com/Kotlin/kotlinx.serialization) - A multiplatform Kotlin
