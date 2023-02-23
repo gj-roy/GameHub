@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler
+import ca.on.hojat.gamenews.common_ui.LocalDownloader
 import ca.on.hojat.gamenews.common_ui.LocalNetworkStateProvider
 import ca.on.hojat.gamenews.common_ui.LocalTextSharer
 import ca.on.hojat.gamenews.common_ui.RoutesHandler
@@ -43,7 +44,6 @@ import ca.on.hojat.gamenews.common_ui.theme.navBar
 import ca.on.hojat.gamenews.common_ui.theme.statusBar
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
-import ca.on.hojat.gamenews.core.downloader.DownloaderImpl
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State
 import coil.size.Size
@@ -74,6 +74,7 @@ private fun ImageViewer(
 ) {
     val textSharer = LocalTextSharer.current
     val context = LocalContext.current
+    val downloader = LocalDownloader.current
 
     CommandsHandler(viewModel = viewModel) { command ->
         when (command) {
@@ -81,9 +82,7 @@ private fun ImageViewer(
                 textSharer.share(context, command.text)
             }
             is ImageViewerCommand.DownloadFile -> {
-                DownloaderImpl(
-                    context = context,
-                ).downloadFile(
+                downloader.downloadFile(
                     url = command.url,
                     notificationTitle = command.gameName,
                     fileName = command.fileName

@@ -6,6 +6,7 @@ import ca.on.hojat.gamenews.core.sharers.TextSharer
 import ca.on.hojat.gamenews.core.urlopeners.UrlOpener
 import androidx.compose.runtime.ProvidableCompositionLocal
 import android.content.Context
+import ca.on.hojat.gamenews.core.downloader.Downloader
 
 /**
  * As much as I have realized, these [ProvidableCompositionLocal]s are referring to the stuff that
@@ -26,4 +27,8 @@ val LocalTextSharer = staticCompositionLocalOf<TextSharer> {
 
 val LocalNetworkStateProvider = staticCompositionLocalOf<NetworkStateProvider> {
     error("NetworkStateProvider not provided.")
+}
+
+val LocalDownloader = staticCompositionLocalOf<Downloader> {
+    error("Downloader not provided.")
 }

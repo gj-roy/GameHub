@@ -5,17 +5,24 @@ import android.content.Context
 import android.os.Build
 import android.os.Environment
 import androidx.core.net.toUri
+import com.paulrybitskyi.hiltbinder.BindType
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
 /**
  * The API part that performs the download (so we don't have to do it in our ViewModels).
  */
 interface Downloader {
-    fun downloadFile(url: String, notificationTitle: String, fileName: String): Long
+    fun downloadFile(
+        url: String,
+        notificationTitle: String,
+        fileName: String,
+    ): Long
 }
 
-
-class DownloaderImpl(
-    context: Context,
+@BindType
+internal class DownloaderImpl @Inject constructor(
+    @ApplicationContext private val context: Context,
 ) : Downloader {
 
 

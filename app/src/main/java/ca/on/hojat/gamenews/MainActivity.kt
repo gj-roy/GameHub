@@ -11,11 +11,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.snapshotFlow
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import ca.on.hojat.gamenews.common_ui.LocalDownloader
 import ca.on.hojat.gamenews.common_ui.LocalNetworkStateProvider
 import ca.on.hojat.gamenews.common_ui.LocalTextSharer
 import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
+import ca.on.hojat.gamenews.core.downloader.Downloader
 import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
 import ca.on.hojat.gamenews.core.sharers.TextSharer
 import ca.on.hojat.gamenews.core.urlopeners.UrlOpener
@@ -37,6 +39,9 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var networkStateProvider: NetworkStateProvider
+
+    @Inject
+    lateinit var downloader: Downloader
 
     @Inject
     lateinit var observeThemeUseCase: ObserveThemeUseCase
@@ -67,8 +72,10 @@ class MainActivity : ComponentActivity() {
             CompositionLocalProvider(LocalUrlOpener provides urlOpener) {
                 CompositionLocalProvider(LocalTextSharer provides textSharer) {
                     CompositionLocalProvider(LocalNetworkStateProvider provides networkStateProvider) {
-                        GameHubTheme(useDarkTheme = shouldUseDarkTheme()) {
-                            MainScreen()
+                        CompositionLocalProvider(LocalDownloader provides downloader) {
+                            GameHubTheme(useDarkTheme = shouldUseDarkTheme()) {
+                                MainScreen()
+                            }
                         }
                     }
                 }
