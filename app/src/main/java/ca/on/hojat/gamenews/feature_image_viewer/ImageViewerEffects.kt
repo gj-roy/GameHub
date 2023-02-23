@@ -13,7 +13,7 @@ internal sealed class ImageViewerCommand : Command {
     /**
      * The command for downloading a file into device storage.
      */
-    data class DownloadFile(val url: String) : ImageViewerCommand()
+    data class DownloadFile(val url: String, val gameName: String, val fileName:String) : ImageViewerCommand()
 }
 
 sealed class ImageViewerRoute : Route {

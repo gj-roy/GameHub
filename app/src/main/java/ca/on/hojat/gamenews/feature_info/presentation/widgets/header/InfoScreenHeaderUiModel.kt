@@ -5,6 +5,7 @@ import ca.on.hojat.gamenews.feature_info.presentation.widgets.header.artworks.In
 
 /**
  * @param isLiked : Whether this game has been liked or not.
+ * @param title: name of the game.
  */
 @Immutable
 internal data class InfoScreenHeaderUiModel(

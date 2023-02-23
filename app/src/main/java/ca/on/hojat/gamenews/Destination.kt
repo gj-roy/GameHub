@@ -53,17 +53,23 @@ internal sealed class Destination(val route: String) {
      */
     object ImageViewer : Destination(
         "image-viewer?" +
+                "${Parameters.GAME_NAME}={${Parameters.GAME_NAME}}&" +
                 "${Parameters.TITLE}={${Parameters.TITLE}}&" +
                 "${Parameters.INITIAL_POSITION}={${Parameters.INITIAL_POSITION}}&" +
                 "${Parameters.IMAGE_URLS}={${Parameters.IMAGE_URLS}}"
     ) {
+        /**
+         * Any of the parameters that you will take from [InfoPage] to [ImageViewer] with yourself.
+         */
         object Parameters {
+            const val GAME_NAME = "game-name"
             const val TITLE = "title"
             const val INITIAL_POSITION = "initial-position"
             const val IMAGE_URLS = "image-urls"
         }
 
         fun createLink(
+            gameName: String,
             title: String?,
             initialPosition: Int,
             imageUrls: List<String>,
@@ -74,6 +80,8 @@ internal sealed class Destination(val route: String) {
 
             return buildString {
                 append("image-viewer?")
+
+                append("${Parameters.GAME_NAME}=$gameName&")
 
                 if (title != null) {
                     append("${Parameters.TITLE}=$title&")

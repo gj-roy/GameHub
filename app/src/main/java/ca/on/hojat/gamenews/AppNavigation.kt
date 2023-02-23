@@ -283,6 +283,7 @@ private fun NavGraphBuilder.gameInfoScreen(navController: NavHostController) {
                 is InfoScreenRoute.ImageViewer -> {
                     navController.navigate(
                         Destination.ImageViewer.createLink(
+                            gameName = route.gameName,
                             title = route.title,
                             initialPosition = route.initialPosition,
                             imageUrls = route.imageUrls,
@@ -304,6 +305,10 @@ private fun NavGraphBuilder.imageViewerScreen(navController: NavHostController) 
     composable(
         route = Destination.ImageViewer.route,
         arguments = listOf(
+            navArgument(Destination.ImageViewer.Parameters.GAME_NAME) {
+                type = NavType.StringType
+                defaultValue = ""
+            },
             navArgument(Destination.ImageViewer.Parameters.TITLE) {
                 type = NavType.StringType
                 nullable = true

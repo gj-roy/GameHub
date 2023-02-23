@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
 import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.feature_image_viewer.ImageViewerViewModel
 import ca.on.hojat.gamenews.common_ui.di.TransitionAnimationDuration
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.extensions.onError
@@ -94,13 +95,18 @@ internal class InfoScreenViewModel @Inject constructor(
 
     fun onArtworkClicked(artworkIndex: Int) {
         navigateToImageViewer(
+            gameName = currentUiState.game?.headerModel?.title ?: "",
             title = stringProvider.getString(R.string.artwork),
             imageType = GameImageType.ARTWORK,
             initialPosition = artworkIndex,
         )
     }
 
+    /**
+     * The data that goes from [InfoScreenViewModel] to [ImageViewerViewModel].
+     */
     private fun navigateToImageViewer(
+        gameName: String,
         title: String,
         imageType: GameImageType,
         initialPosition: Int = 0,
@@ -118,7 +124,14 @@ internal class InfoScreenViewModel @Inject constructor(
                     dispatchCommand(GeneralCommand.ShowLongToast(errorMapper.mapToMessage(it)))
                 }
                 .collect { imageUrls ->
-                    route(InfoScreenRoute.ImageViewer(title, initialPosition, imageUrls))
+                    route(
+                        InfoScreenRoute.ImageViewer(
+                            gameName = gameName,
+                            title = title,
+                            initialPosition = initialPosition,
+                            imageUrls = imageUrls
+                        )
+                    )
                 }
         }
     }
@@ -129,6 +142,7 @@ internal class InfoScreenViewModel @Inject constructor(
 
     fun onCoverClicked() {
         navigateToImageViewer(
+            gameName = currentUiState.game?.headerModel?.title ?: "",
             title = stringProvider.getString(R.string.cover),
             imageType = GameImageType.COVER,
         )
@@ -147,6 +161,7 @@ internal class InfoScreenViewModel @Inject constructor(
 
     fun onScreenshotClicked(screenshotIndex: Int) {
         navigateToImageViewer(
+            gameName = currentUiState.game?.headerModel?.title ?: "",
             title = stringProvider.getString(R.string.screenshot),
             imageType = GameImageType.SCREENSHOT,
             initialPosition = screenshotIndex,

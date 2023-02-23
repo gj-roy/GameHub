@@ -83,7 +83,11 @@ private fun ImageViewer(
             is ImageViewerCommand.DownloadFile -> {
                 DownloaderImpl(
                     context = context,
-                ).downloadFile(url = command.url)
+                ).downloadFile(
+                    url = command.url,
+                    notificationTitle = command.gameName,
+                    fileName = command.fileName
+                )
             }
         }
     }
@@ -268,6 +272,7 @@ private fun ImageViewerPreview() {
     GameHubTheme {
         ImageViewer(
             uiState = ImageViewerUiState(
+                gameName = "",
                 toolbarTitle = "Image",
                 imageUrls = emptyList(),
                 selectedImageUrlIndex = 0,

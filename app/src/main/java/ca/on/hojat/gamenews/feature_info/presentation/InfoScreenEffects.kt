@@ -11,6 +11,7 @@ sealed class InfoScreenRoute : Route {
     data class InfoScreen(val id: Int) : InfoScreenRoute()
 
     data class ImageViewer(
+        val gameName: String,
         val title: String?,
         val initialPosition: Int,
         val imageUrls: List<String>

@@ -17,6 +17,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
+internal const val PARAM_GAME_NAME = "game-name"
 internal const val PARAM_TITLE = "title"
 internal const val PARAM_INITIAL_POSITION = "initial-position"
 internal const val PARAM_IMAGE_URLS = "image-urls"
@@ -29,8 +30,12 @@ internal class ImageViewerViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
 ) : BaseViewModel() {
 
-    private val title: String = savedStateHandle.get<String>(PARAM_TITLE)
+    // can be artwork, cover, or screenshot
+    private val imageType: String = savedStateHandle.get<String>(PARAM_TITLE)
         ?: stringProvider.getString(R.string.image_viewer_default_toolbar_title)
+
+    // Name of the game will only be used for notification title, when user downloads this image.
+    private val gameName: String = savedStateHandle.get<String>(PARAM_GAME_NAME) ?: ""
 
     private val _uiState = MutableStateFlow(createInitialUiState())
 
@@ -53,6 +58,7 @@ internal class ImageViewerViewModel @Inject constructor(
 
     private fun createInitialUiState(): ImageViewerUiState {
         return ImageViewerUiState(
+            gameName = "",
             toolbarTitle = "",
             imageUrls = emptyList(),
             selectedImageUrlIndex = 0,
@@ -82,11 +88,11 @@ internal class ImageViewerViewModel @Inject constructor(
     }
 
     private fun updateToolbarTitle(): String {
-        if (currentUiState.imageUrls.size == 1) return title
+        if (currentUiState.imageUrls.size == 1) return imageType
 
         return stringProvider.getString(
             R.string.image_viewer_toolbar_title_template,
-            title,
+            imageType,
             (currentUiState.selectedImageUrlIndex + 1),
             currentUiState.imageUrls.size
         )
@@ -105,7 +111,9 @@ internal class ImageViewerViewModel @Inject constructor(
 
     fun onDownloadButtonClicked() {
         val url = currentUiState.imageUrls[currentUiState.selectedImageUrlIndex]
-        dispatchCommand(ImageViewerCommand.DownloadFile(url))
+        val fileName = "${gameName}_$imageType${currentUiState.selectedImageUrlIndex + 1}.jpg"
+
+        dispatchCommand(ImageViewerCommand.DownloadFile(url, gameName, fileName))
     }
 
     fun onImageChanged(imageIndex: Int) {

@@ -10,7 +10,7 @@ import androidx.core.net.toUri
  * The API part that performs the download (so we don't have to do it in our ViewModels).
  */
 interface Downloader {
-    fun downloadFile(url: String): Long
+    fun downloadFile(url: String, notificationTitle: String,  fileName: String): Long
 }
 
 
@@ -25,13 +25,16 @@ class DownloaderImpl(
         TODO("need to do something for API 21 and 22 because this feature isn't available there")
     }
 
-    override fun downloadFile(url: String): Long {
-        val fileName = url.substring(url.lastIndexOf('/') + 1)
+    override fun downloadFile(
+        url: String,
+        notificationTitle: String,
+        fileName: String
+    ): Long {
 
         val request = DownloadManager.Request(url.toUri())
             .setMimeType("image/jpeg")
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            .setTitle("The name of the game goes here")
+            .setTitle(notificationTitle)
             .setDestinationInExternalPublicDir(
                 Environment.DIRECTORY_DOWNLOADS,
                 fileName
