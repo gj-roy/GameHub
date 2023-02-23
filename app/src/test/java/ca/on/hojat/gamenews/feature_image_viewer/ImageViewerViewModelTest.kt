@@ -57,6 +57,17 @@ internal class ImageViewerViewModelTest {
     }
 
     @Test
+    fun `Dispatches download command when toolbar download button is clicked`() {
+        runTest {
+            sut.commandFlow.test {
+                sut.onDownloadButtonClicked()
+
+                assertThat(awaitItem()).isInstanceOf(ImageViewerCommand.DownloadFile::class.java)
+            }
+        }
+    }
+
+    @Test
     fun `Emits selected position when page is changed`() {
         runTest {
             val selectedPosition = 10
