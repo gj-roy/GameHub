@@ -69,6 +69,7 @@ private fun BottomBarNavigation(
 
             BottomNavigationItem(
                 selected = currentDestination == itemScreen,
+                alwaysShowLabel = false,
                 onClick = {
                     navController.navigate(itemScreen.route) {
                         navController.graph.startDestinationRoute?.let { route ->
