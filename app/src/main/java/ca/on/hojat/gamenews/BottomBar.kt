@@ -89,7 +89,7 @@ private fun BottomBarNavigation(
                     )
                 },
                 label = {
-                    Text(text = stringResource(bottomNavigationItemModel.titleId))
+                    Text(text = stringResource(bottomNavigationItemModel.titleId), maxLines = 1)
                 },
                 selectedContentColor = GameHubTheme.colors.secondary,
                 unselectedContentColor = GameHubTheme.colors.onBackground,
