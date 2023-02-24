@@ -57,7 +57,7 @@ fun GamesCategoryPreview(
                     width = Dimension.fillToConstraints
                     top.linkTo(parent.top, titleRefMargin)
                     start.linkTo(parent.start, titleRefMargin)
-                    end.linkTo(progressBarRef.start, titleRefMargin)
+                    end.linkTo(moreBtnRef.start, titleRefMargin)
                 },
             )
 
