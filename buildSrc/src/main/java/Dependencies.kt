@@ -11,8 +11,8 @@ object AppConfig {
     const val targetSdkVersion = 31
     const val minSdkVersion = 21
     const val applicationId = "ca.on.hojat.gamenews"
-    const val versionCode = 3
-    const val versionName = "1.1.0"
+    const val versionCode = 4
+    const val versionName = "1.2.2"
 
 }
 
