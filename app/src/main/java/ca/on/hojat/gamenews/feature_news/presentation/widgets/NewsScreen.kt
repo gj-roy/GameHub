@@ -27,6 +27,8 @@ import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
 import ca.on.hojat.gamenews.common_ui.NavBarColorHandler
+import ca.on.hojat.gamenews.common_ui.RoutesHandler
+import ca.on.hojat.gamenews.common_ui.base.events.Route
 import ca.on.hojat.gamenews.common_ui.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
 import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
@@ -39,10 +41,14 @@ import ca.on.hojat.gamenews.feature_news.presentation.NewsScreenCommand
 import ca.on.hojat.gamenews.feature_news.presentation.NewsViewModel
 
 @Composable
-fun NewsScreen(modifier: Modifier) {
+fun NewsScreen(
+    modifier: Modifier,
+    onRoute: (Route) -> Unit,
+) {
     NewsScreen(
         viewModel = hiltViewModel(),
         modifier = modifier,
+        onRoute = onRoute
     )
 }
 
@@ -50,6 +56,7 @@ fun NewsScreen(modifier: Modifier) {
 private fun NewsScreen(
     viewModel: NewsViewModel,
     modifier: Modifier,
+    onRoute: (Route) -> Unit,
 ) {
     val urlOpener = LocalUrlOpener.current
     val context = LocalContext.current
@@ -64,6 +71,7 @@ private fun NewsScreen(
             }
         }
     }
+    RoutesHandler(viewModel = viewModel, onRoute = onRoute)
     NewsScreen(
         uiState = viewModel.uiState.collectAsState().value,
         onNewsItemClicked = viewModel::onNewsItemClicked,
@@ -169,6 +177,7 @@ private fun NewsScreenSuccessStatePreview() {
             id = 1,
             imageUrl = "",
             title = "Halo Infinite Season 1 Will Run Until May 2022",
+            body = "",
             lede = "Season 1 has been extended until May 2020, which " +
                     "might mean campaign co-op and Forge are coming even later than expected.",
             publicationDate = "3 mins ago",
@@ -178,6 +187,7 @@ private fun NewsScreenSuccessStatePreview() {
             id = 2,
             imageUrl = "",
             title = "Call of Duty: Vanguard's UK Launch Sales are Down 40% From Last Year",
+            body = "",
             lede = "Call of Duty: Vanguard's launch sales are down about 40% compared to last year's " +
                     "Call of Duty: Black Ops Cold War in the UK.",
             publicationDate = "an hour ago",
@@ -187,6 +197,7 @@ private fun NewsScreenSuccessStatePreview() {
             id = 3,
             imageUrl = null,
             title = "WoW Classic Season of Mastery: Full List of Changes",
+            body = "",
             lede = "World of Warcraft Classic's first season is nearly here, and Blizzard has " +
                     "detailed all the changes players can expect.",
             publicationDate = "2 hours ago",

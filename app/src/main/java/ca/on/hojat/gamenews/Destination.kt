@@ -93,6 +93,55 @@ internal sealed class Destination(val route: String) {
         }
     }
 
+    /**
+     * The screen for viewing a specific news item.
+     */
+    object Article : Destination(
+        "article?" +
+                "${Parameters.IMAGE_URL}={${Parameters.IMAGE_URL}}&" +
+                "${Parameters.TITLE}={${Parameters.TITLE}}&" +
+                "${Parameters.LEDE}={${Parameters.LEDE}}&" +
+                "${Parameters.PUBLICATION_DATE}={${Parameters.PUBLICATION_DATE}}&" +
+                "${Parameters.ARTICLE_URL}={${Parameters.ARTICLE_URL}}&" +
+                "${Parameters.BODY}={${Parameters.BODY}}"
+    ) {
+
+        /**
+         * Any of the parameters that you will take from [News] to [Article] with yourself.
+         */
+        object Parameters {
+            const val IMAGE_URL = "image-url"
+            const val TITLE = "title"
+            const val LEDE = "lede"
+            const val PUBLICATION_DATE = "publication-date"
+            const val ARTICLE_URL = "article-url"
+            const val BODY = "body"
+        }
+
+        fun createLink(
+            imageUrl: String?,
+            title: String,
+            lede: String,
+            publicationDate: String,
+            articleUrl: String,
+            body: String
+        ): String {
+            return buildString {
+                append("article?")
+
+                if (imageUrl != null) {
+                    append("${Parameters.IMAGE_URL}=$imageUrl&")
+                }
+                append("${Parameters.TITLE}=$title&")
+                append("${Parameters.LEDE}=$lede&")
+                append("${Parameters.PUBLICATION_DATE}=$publicationDate&")
+                append("${Parameters.ARTICLE_URL}=$articleUrl&")
+                append("${Parameters.BODY}=$body")
+            }
+        }
+
+    }
+
     internal companion object {
 
         val Saver = Saver(
@@ -110,6 +159,7 @@ internal sealed class Destination(val route: String) {
                 Category.route -> Category
                 InfoPage.route -> InfoPage
                 ImageViewer.route -> ImageViewer
+                Article.route -> Article
                 else -> error("Cannot find screen for the route: $route.")
             }
         }

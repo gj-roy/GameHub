@@ -13,6 +13,7 @@ import androidx.room.Index
 )
 data class DbArticle(
     @ColumnInfo(name = Schema.ID) val id: Int,
+    @ColumnInfo(name = Schema.BODY) val body: String,
     @ColumnInfo(name = Schema.TITLE) val title: String,
     @ColumnInfo(name = Schema.LEDE) val lede: String,
     @ColumnInfo(name = Schema.IMAGE_URLS) val imageUrls: Map<DbImageType, String>,
@@ -23,6 +24,7 @@ data class DbArticle(
     object Schema {
         const val TABLE_NAME = "articles"
         const val ID = "id"
+        const val BODY = "body"
         const val TITLE = "title"
         const val LEDE = "lede"
         const val IMAGE_URLS = "image_urls"

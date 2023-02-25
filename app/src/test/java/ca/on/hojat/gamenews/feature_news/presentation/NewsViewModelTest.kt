@@ -75,7 +75,7 @@ internal class NewsViewModelTest {
     }
 
     @Test
-    fun `Dispatches url opening command when clicking on news item`() {
+    fun `Dispatches article screen route when clicking on news item`() {
         runTest {
             val itemModel = NewsItemUiModel(
                 id = 1,
@@ -84,15 +84,16 @@ internal class NewsViewModelTest {
                 lede = "",
                 publicationDate = "",
                 siteDetailUrl = "site_detail_url",
+                body = "body"
             )
 
-            sut.commandFlow.test {
+            sut.routeFlow.test {
                 sut.onNewsItemClicked(itemModel)
 
-                val command = awaitItem()
+                val route = awaitItem()
 
-                assertThat(command).isInstanceOf(NewsScreenCommand.OpenUrl::class.java)
-                assertThat((command as NewsScreenCommand.OpenUrl).url).isEqualTo(itemModel.siteDetailUrl)
+                assertThat(route).isInstanceOf(NewsScreenRoute.ArticleScreen::class.java)
+                assertThat((route as NewsScreenRoute.ArticleScreen).articleUrl).isEqualTo(itemModel.siteDetailUrl)
             }
         }
     }
@@ -125,6 +126,7 @@ internal class NewsViewModelTest {
                 lede = article.lede,
                 publicationDate = "publication_date",
                 siteDetailUrl = article.siteDetailUrl,
+                body = "body",
             )
         }
     }

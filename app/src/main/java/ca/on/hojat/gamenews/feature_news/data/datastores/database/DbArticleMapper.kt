@@ -11,6 +11,7 @@ internal class DbArticleMapper @Inject constructor() {
     fun mapToDatabaseArticle(dataArticle: DomainArticle): DbArticle {
         return DbArticle(
             id = dataArticle.id,
+            body = dataArticle.body,
             title = dataArticle.title,
             lede = dataArticle.lede,
             imageUrls = dataArticle.imageUrls.toDatabaseImageUrls(),
@@ -28,6 +29,7 @@ internal class DbArticleMapper @Inject constructor() {
     fun mapToDomainArticle(databaseArticle: DbArticle): DomainArticle {
         return DomainArticle(
             id = databaseArticle.id,
+            body = databaseArticle.body,
             title = databaseArticle.title,
             lede = databaseArticle.lede,
             imageUrls = databaseArticle.imageUrls.toDomainImageUrls(),

@@ -105,6 +105,8 @@ dependencies {
     implementation(Compose.navigationAnimations)
     implementation(Compose.systemUi)
     implementation(Compose.swipeRefresh)
+    implementation(Compose.webView)
+    // lottie (compose version)
     implementation(Compose.lottie)
 
     // DI

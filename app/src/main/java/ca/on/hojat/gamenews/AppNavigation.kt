@@ -10,6 +10,7 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import ca.on.hojat.gamenews.common_ui.HorizontalSliding
 import ca.on.hojat.gamenews.common_ui.OvershootScaling
+import ca.on.hojat.gamenews.feature_article.ArticleRoute
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import ca.on.hojat.gamenews.feature_category.CategoryScreenRoute
@@ -24,6 +25,8 @@ import ca.on.hojat.gamenews.feature_info.presentation.InfoScreenRoute
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.main.InfoScreen
 import ca.on.hojat.gamenews.feature_likes.presentation.LikesScreen
 import ca.on.hojat.gamenews.feature_likes.presentation.LikesRoute
+import ca.on.hojat.gamenews.feature_news.presentation.NewsScreenRoute
+import ca.on.hojat.gamenews.feature_article.ArticleScreen
 import ca.on.hojat.gamenews.feature_search.presentation.GamesSearch
 import ca.on.hojat.gamenews.feature_search.presentation.GamesSearchRoute
 
@@ -46,15 +49,22 @@ internal fun AppNavigation(
             navController = navController,
             modifier = modifier,
         )
-        newsScreen(modifier = modifier)
+        newsScreen(
+            navController = navController,
+            modifier = modifier
+        )
         settingsScreen(modifier = modifier)
         gamesSearchScreen(navController = navController)
         gamesCategoryScreen(navController = navController)
         gameInfoScreen(navController = navController)
         imageViewerScreen(navController = navController)
+        articleScreen(navController = navController)
     }
 }
 
+/**
+ * Main screen of the app, you could consider it as home screen.
+ */
 private fun NavGraphBuilder.discoverScreen(
     navController: NavHostController,
     modifier: Modifier,
@@ -96,6 +106,9 @@ private fun NavGraphBuilder.discoverScreen(
     }
 }
 
+/**
+ * The screen for viewing all the games that user has already liked.
+ */
 private fun NavGraphBuilder.likesScreen(
     navController: NavHostController,
     modifier: Modifier,
@@ -132,14 +145,79 @@ private fun NavGraphBuilder.likesScreen(
     }
 }
 
-private fun NavGraphBuilder.newsScreen(modifier: Modifier) {
+/**
+ * The screen for browsing through a list of news articles.
+ */
+private fun NavGraphBuilder.newsScreen(
+    navController: NavHostController,
+    modifier: Modifier
+) {
     composable(
         route = Destination.News.route,
     ) {
-        NewsScreen(modifier)
+        NewsScreen(modifier) { route ->
+            when (route) {
+                is NewsScreenRoute.ArticleScreen -> {
+                    navController.navigate(
+                        Destination.Article.createLink(
+                            imageUrl = route.imageUrl,
+                            title = route.title,
+                            lede = route.lede,
+                            publicationDate = route.publicationDate,
+                            articleUrl = route.articleUrl,
+                            body = route.body,
+                        )
+                    )
+                }
+            }
+        }
     }
 }
 
+/**
+ * The screen for reading a specific article.
+ */
+private fun NavGraphBuilder.articleScreen(navController: NavHostController) {
+    composable(
+        route = Destination.Article.route,
+        arguments = listOf(
+            navArgument(Destination.Article.Parameters.IMAGE_URL) {
+                type = NavType.StringType
+                nullable = true
+            },
+            navArgument(Destination.Article.Parameters.TITLE) {
+                type = NavType.StringType
+                defaultValue = ""
+            },
+            navArgument(Destination.Article.Parameters.LEDE) {
+                type = NavType.StringType
+                defaultValue = ""
+            },
+            navArgument(Destination.Article.Parameters.PUBLICATION_DATE) {
+                type = NavType.StringType
+                defaultValue = ""
+            },
+            navArgument(Destination.Article.Parameters.ARTICLE_URL) {
+                type = NavType.StringType
+                defaultValue = ""
+            },
+            navArgument(Destination.Article.Parameters.BODY) {
+                type = NavType.StringType
+                defaultValue = ""
+            },
+        ),
+    ) {
+        ArticleScreen { route ->
+            when (route) {
+                is ArticleRoute.Back -> navController.popBackStack()
+            }
+        }
+    }
+}
+
+/**
+ * The screen for viewing and changing all the app-level settings.
+ */
 private fun NavGraphBuilder.settingsScreen(modifier: Modifier) {
     composable(
         route = Destination.Settings.route,
@@ -148,6 +226,9 @@ private fun NavGraphBuilder.settingsScreen(modifier: Modifier) {
     }
 }
 
+/**
+ * The screen for searching desired game (by entering its name).
+ */
 private fun NavGraphBuilder.gamesSearchScreen(navController: NavHostController) {
     composable(
         route = Destination.Search.route,
@@ -193,6 +274,9 @@ private fun NavGraphBuilder.gamesSearchScreen(navController: NavHostController) 
     }
 }
 
+/**
+ * The screen for showing the games in any of the categories that are depicted in [DiscoverScreen].
+ */
 private fun NavGraphBuilder.gamesCategoryScreen(navController: NavHostController) {
     composable(
         route = Destination.Category.route,
@@ -237,6 +321,9 @@ private fun NavGraphBuilder.gamesCategoryScreen(navController: NavHostController
     }
 }
 
+/**
+ * The screen for viewing info about a specific game.
+ */
 private fun NavGraphBuilder.gameInfoScreen(navController: NavHostController) {
     composable(
         route = Destination.InfoPage.route,
@@ -301,6 +388,9 @@ private fun NavGraphBuilder.gameInfoScreen(navController: NavHostController) {
     }
 }
 
+/**
+ * The screen for viewing images of a game.
+ */
 private fun NavGraphBuilder.imageViewerScreen(navController: NavHostController) {
     composable(
         route = Destination.ImageViewer.route,

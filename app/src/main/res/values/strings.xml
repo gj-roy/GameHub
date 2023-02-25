@@ -78,6 +78,8 @@
     <string name="screenshot">Screenshot</string>
     <string name="text_sharing_message_template">Hey, check out this %1$s - %2$s</string>
     <string name="image">image</string>
+    <string name="news_article">news item</string>
+
 
     <string name="error_unknown_message">Oops! Something went wrong.</string>
     <string name="error_api_server_message">The server is not responding! Please try again later.</string>

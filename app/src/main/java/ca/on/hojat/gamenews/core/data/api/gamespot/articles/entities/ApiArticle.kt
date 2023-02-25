@@ -9,6 +9,10 @@ data class ApiArticle(
     @Gamespot(Schema.ID)
     @SerialName(Schema.ID)
     val id: Int = -1,
+    // Body of the article
+    @Gamespot(Schema.BODY)
+    @SerialName(Schema.BODY)
+    val body: String = "",
     @Gamespot(Schema.TITLE)
     @SerialName(Schema.TITLE)
     val title: String = "",
@@ -28,6 +32,7 @@ data class ApiArticle(
 
     object Schema {
         const val ID = "id"
+        const val BODY = "body"
         const val TITLE = "title"
         const val LEDE = "lede"
         const val IMAGE_URLS = "image"

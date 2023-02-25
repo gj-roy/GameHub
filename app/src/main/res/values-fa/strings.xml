@@ -74,6 +74,7 @@
     <string name="screenshot">اسکرین شات</string>
     <string name="text_sharing_message_template">سلام! یه نگاهی به این بنداز %1$s - %2$s</string>
     <string name="image">عکس</string>
+    <string name="news_article">مقاله خبری</string>
 
     <string name="error_unknown_message">آخ! یه مشکلی پیش اومده.</string>
     <string name="error_api_server_message">سرور اپلیکیشن در دسترس نیست! لطفاْ بعداْ امتحان کنید</string>

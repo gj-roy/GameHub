@@ -21,7 +21,9 @@ private const val VERSION = 2
         DbArticle::class
     ],
     version = VERSION,
-    exportSchema = true,
+    // if someday, I was making a big change to database, I need to set the exportSchema to true
+    // and also try to devise a migration plan (but that's not needed for now)
+    exportSchema = false,
 )
 // Seems really strange that I have to specify this annotation here
 // with custom provided type converters

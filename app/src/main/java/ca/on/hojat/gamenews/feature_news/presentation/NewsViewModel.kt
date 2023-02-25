@@ -88,7 +88,8 @@ internal class NewsViewModel @Inject constructor(
     }
 
     fun onNewsItemClicked(model: NewsItemUiModel) {
-        dispatchCommand(NewsScreenCommand.OpenUrl(model.siteDetailUrl))
+        Timber.d("link to the article => ${model.siteDetailUrl}")
+        navigateToArticleScreen(model)
     }
 
     fun onRefreshRequested() {
@@ -121,5 +122,22 @@ internal class NewsViewModel @Inject constructor(
             }
             .onEach { emittedUiState -> _uiState.update { emittedUiState } }
             .launchIn(viewModelScope)
+    }
+
+    /**
+     * Since Article screen is small, I'm gonna control
+     * it with the same VM as NewsScreen.
+     */
+    private fun navigateToArticleScreen(model: NewsItemUiModel) {
+        route(
+            NewsScreenRoute.ArticleScreen(
+                imageUrl = model.imageUrl,
+                title = model.title,
+                lede = model.lede,
+                publicationDate = model.publicationDate,
+                articleUrl = model.siteDetailUrl,
+                body = model.body
+            )
+        )
     }
 }

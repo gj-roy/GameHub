@@ -7,6 +7,7 @@ internal data class NewsItemUiModel(
     val id: Int,
     val imageUrl: String?,
     val title: String,
+    val body: String,
     val lede: String,
     val publicationDate: String,
     val siteDetailUrl: String

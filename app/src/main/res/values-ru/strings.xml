@@ -76,6 +76,7 @@
     <string name="screenshot">Скриншот</string>
     <string name="text_sharing_message_template">Посмотри сюда %1$s - %2$s</string>
     <string name="image">Изображение</string>
+    <string name="news_article">новостная статья</string>
 
     <string name="error_unknown_message">Ой! Что-то пошло не так.</string>
     <string name="error_api_server_message">Сервер не отвечает. Пожалуйста, зайдите позже</string>

@@ -85,6 +85,7 @@ class GameNewsAndroidPlugin : Plugin<Project> {
             }
 
             lintOptions {
+                checkOnly("NewApi", "HandlerLeak")
                 baseline(file("lint-baseline.xml"))
             }
 

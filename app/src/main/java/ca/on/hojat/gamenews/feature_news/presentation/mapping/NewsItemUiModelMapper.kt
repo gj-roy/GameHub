@@ -31,6 +31,7 @@ internal class NewsItemUiModelMapperImpl @Inject constructor(
             id = article.id,
             imageUrl = article.imageUrls[ImageType.ORIGINAL],
             title = article.title,
+            body = article.body,
             lede = article.lede,
             publicationDate = article.formatPublicationDate(),
             siteDetailUrl = article.siteDetailUrl

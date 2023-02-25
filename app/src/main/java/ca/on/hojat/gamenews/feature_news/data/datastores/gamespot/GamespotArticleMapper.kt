@@ -12,6 +12,7 @@ internal class GamespotArticleMapper @Inject constructor(
     private fun mapToDomainArticle(apiArticle: ApiArticle): DomainArticle {
         return DomainArticle(
             id = apiArticle.id,
+            body = apiArticle.body,
             title = apiArticle.title,
             lede = apiArticle.lede,
             imageUrls = apiArticle.imageUrls.toDataImageUrls(),

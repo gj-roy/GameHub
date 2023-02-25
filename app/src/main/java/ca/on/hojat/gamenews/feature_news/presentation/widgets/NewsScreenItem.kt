@@ -63,8 +63,12 @@ internal fun NewsScreenItem(
     }
 }
 
+/**
+ * A simple yet proficient composable, you give it a URL and
+ * a modifier, it shows the photo.
+ */
 @Composable
-private fun Image(
+internal fun Image(
     imageUrl: String,
     modifier: Modifier
 ) {
@@ -85,8 +89,11 @@ private fun Image(
     }
 }
 
+/**
+ * a nice and informative line for showing the date.
+ */
 @Composable
-private fun Timestamp(publicationDate: String) {
+internal fun Timestamp(publicationDate: String) {
     Row(
         modifier = Modifier.padding(top = GameHubTheme.spaces.spacing_2_5),
         verticalAlignment = Alignment.CenterVertically
@@ -113,6 +120,7 @@ private fun GamingNewsItemWithImagePreview() {
                 id = 1,
                 imageUrl = "url",
                 title = "Steam Concurrent Player Count Breaks Record Again, Tops 26 Million",
+                body = "",
                 lede = "However, the record for those actively in a game has not been broken yet.",
                 publicationDate = "3 mins ago",
                 siteDetailUrl = "url",
@@ -132,6 +140,7 @@ private fun GamingNewsItemWithoutImagePreview() {
                 id = 1,
                 imageUrl = null,
                 title = "Steam Concurrent Player Count Breaks Record Again, Tops 26 Million",
+                body = "",
                 lede = "However, the record for those actively in a game has not been broken yet.",
                 publicationDate = "3 mins ago",
                 siteDetailUrl = "url",
