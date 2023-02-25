@@ -164,6 +164,8 @@ I'll answer to all opened issues as fast as I can.
 
 ### Contributors
 
-Developer: [Hojat Ghasemi](mailto:hojat72elect@gmail.com)
+Main developer: [Hojat Ghasemi](mailto:hojat72elect@gmail.com)
 <br/>
 App icon designer: [Grace Peterson](mailto:gracepeterson2@outlook.com)
+<br/>
+Russian translations: [Daria Vinogradova](mailto:herrwerner278@gmail.com)
