@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material.LocalContentColor
-import androidx.compose.material.Surface
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -85,13 +85,9 @@ internal fun ArticleScreen(
     SystemBarsColorHandler()
     BackHandler(onBack = onBackPressed)
 
-    Surface(
+    Scaffold(
         modifier = Modifier.fillMaxSize(),
-        color = GameHubTheme.colors.primary,
-        contentColor = GameHubTheme.colors.onPrimary,
-    ) {
-        Column(modifier = Modifier.padding(GameHubTheme.spaces.spacing_4_0)) {
-
+        topBar = {
             Toolbar(
                 title = "",
                 contentPadding = WindowInsets.statusBars
@@ -99,12 +95,16 @@ internal fun ArticleScreen(
                     .asPaddingValues(),
                 backgroundColor = GameHubTheme.colors.statusBar,
                 contentColor = LocalContentColor.current,
-                elevation = 0.dp,
                 backButtonIcon = painterResource(R.drawable.arrow_left),
                 firstButtonIcon = painterResource(R.drawable.share_variant),
                 onBackButtonClick = onBackPressed,
                 onFirstButtonClick = onShareButtonClicked
             )
+        }
+    ) { paddingValues ->
+        Column(modifier = Modifier.padding(GameHubTheme.spaces.spacing_4_0)) {
+
+
             if (uiState.imageUrl != null) {
                 Image(
                     imageUrl = checkNotNull(uiState.imageUrl),
