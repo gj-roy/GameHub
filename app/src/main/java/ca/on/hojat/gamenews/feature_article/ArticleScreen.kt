@@ -91,8 +91,6 @@ internal fun ArticleScreen(
                 contentPadding = WindowInsets.statusBars
                     .only(WindowInsetsSides.Vertical + WindowInsetsSides.Horizontal)
                     .asPaddingValues(),
-                backgroundColor = GameHubTheme.colors.statusBar,
-                contentColor = LocalContentColor.current,
                 backButtonIcon = painterResource(R.drawable.arrow_left),
                 firstButtonIcon = painterResource(R.drawable.share_variant),
                 onBackButtonClick = onBackPressed,
