@@ -9,6 +9,11 @@ import kotlinx.coroutines.test.setMain
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 
+/**
+ * As long as the test rules you create for your coroutines are defined by
+ * this class (and this @param dispatcher), they will skip possible delays
+ * that you might have in your code.
+ */
 class MainCoroutineRule(
     private val dispatcher: TestDispatcher = UnconfinedTestDispatcher(),
 ) : TestWatcher() {

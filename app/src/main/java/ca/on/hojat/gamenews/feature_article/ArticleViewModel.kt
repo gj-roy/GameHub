@@ -10,12 +10,12 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
-private const val PARAM_IMAGE_URL = "image-url"
-private const val PARAM_TITLE = "title"
-private const val PARAM_LEDE = "lede"
-private const val PARAM_PUBLICATION_DATE = "publication-date"
-private const val PARAM_ARTICLE_URL = "article-url"
-private const val PARAM_BODY= "body"
+internal const val PARAM_IMAGE_URL = "image-url"
+internal const val PARAM_TITLE = "title"
+internal const val PARAM_LEDE = "lede"
+internal const val PARAM_PUBLICATION_DATE = "publication-date"
+internal const val PARAM_ARTICLE_URL = "article-url"
+internal const val PARAM_BODY = "body"
 
 @HiltViewModel
 internal class ArticleViewModel @Inject constructor(
@@ -37,7 +37,7 @@ internal class ArticleViewModel @Inject constructor(
             lede = savedStateHandle.get<String>(PARAM_LEDE) ?: "",
             publicationDate = savedStateHandle.get<String>(PARAM_PUBLICATION_DATE) ?: "",
             articleUrl = savedStateHandle.get<String>(PARAM_ARTICLE_URL) ?: "",
-            body =savedStateHandle.get<String>(PARAM_BODY) ?: "",
+            body = savedStateHandle.get<String>(PARAM_BODY) ?: "",
         )
     }
 
