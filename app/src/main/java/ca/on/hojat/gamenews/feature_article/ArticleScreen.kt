@@ -99,8 +99,8 @@ internal fun ArticleScreen(
                 onFirstButtonClick = onShareButtonClicked
             )
         }
-    ) {
-        Column(modifier = Modifier.padding(GameHubTheme.spaces.spacing_4_0)) {
+    ) { paddingValues ->
+        Column(modifier = Modifier.padding(paddingValues)) {
 
             if (uiState.imageUrl != null) {
                 Image(
