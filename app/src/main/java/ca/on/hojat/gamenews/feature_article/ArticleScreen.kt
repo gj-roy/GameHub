@@ -5,17 +5,20 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
-import androidx.compose.material.LocalContentColor
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -28,7 +31,6 @@ import ca.on.hojat.gamenews.common_ui.LocalTextSharer
 import ca.on.hojat.gamenews.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.common_ui.base.events.Route
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
-import ca.on.hojat.gamenews.common_ui.theme.statusBar
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.feature_image_viewer.SystemBarsColorHandler
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.Image
@@ -100,7 +102,6 @@ internal fun ArticleScreen(
     ) {
         Column(modifier = Modifier.padding(GameHubTheme.spaces.spacing_4_0)) {
 
-
             if (uiState.imageUrl != null) {
                 Image(
                     imageUrl = checkNotNull(uiState.imageUrl),
@@ -128,7 +129,8 @@ internal fun ArticleScreen(
             WebView(
                 state = webViewState,
                 Modifier
-                    .fillMaxWidth()
+                    .wrapContentWidth(align = Alignment.Start)
+                    .fillMaxHeight()
                     .padding(top = GameHubTheme.spaces.spacing_1_5),
             )
         }
