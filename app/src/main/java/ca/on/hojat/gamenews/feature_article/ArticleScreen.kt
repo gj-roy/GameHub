@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -41,7 +40,6 @@ import com.google.accompanist.web.rememberWebViewStateWithHTMLData
 /**
  * The composable for showing a specific article with its body.
  */
-
 @Composable
 fun ArticleScreen(onRoute: (Route) -> Unit) {
     ArticleScreen(
@@ -73,7 +71,6 @@ private fun ArticleScreen(
     )
 }
 
-
 @Composable
 internal fun ArticleScreen(
     uiState: ArticleUiState,
@@ -85,21 +82,17 @@ internal fun ArticleScreen(
     SystemBarsColorHandler()
     BackHandler(onBack = onBackPressed)
 
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        topBar = {
-            Toolbar(
-                title = "",
-                contentPadding = WindowInsets.statusBars
-                    .only(WindowInsetsSides.Vertical + WindowInsetsSides.Horizontal)
-                    .asPaddingValues(),
-                backButtonIcon = painterResource(R.drawable.arrow_left),
-                firstButtonIcon = painterResource(R.drawable.share_variant),
-                onBackButtonClick = onBackPressed,
-                onFirstButtonClick = onShareButtonClicked
-            )
-        }
-    ) { paddingValues ->
+    Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
+        Toolbar(
+            title = "",
+            contentPadding = WindowInsets.statusBars.only(WindowInsetsSides.Vertical + WindowInsetsSides.Horizontal)
+                .asPaddingValues(),
+            backButtonIcon = painterResource(R.drawable.arrow_left),
+            firstButtonIcon = painterResource(R.drawable.share_variant),
+            onBackButtonClick = onBackPressed,
+            onFirstButtonClick = onShareButtonClicked
+        )
+    }) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
 
             if (uiState.imageUrl != null) {
