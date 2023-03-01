@@ -1,5 +1,6 @@
 package ca.on.hojat.gamenews.feature_article
 
+import android.content.res.Configuration
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
@@ -21,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -124,5 +126,25 @@ internal fun ArticleScreen(
                     .padding(top = GameHubTheme.spaces.spacing_1_5),
             )
         }
+    }
+}
+
+@Preview
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun ArticleScreenPreview() {
+    GameHubTheme {
+        ArticleScreen(
+            uiState = ArticleUiState(
+                "https://www.hitc.com/static/uploads/2023/02/Destiny-2-Lightfall-release-date-downtime-countdown-pre-order-bonuses-300x172.jpg",
+                "Destiny 2 Sets New Concurrent Player Record On Steam As Lightfall Launches",
+                "More than 300,000 people played detsiny 2 at the same time today.",
+                "Feb 28, 2:07 p.m.",
+                "",
+                "The body goes here."
+            ),
+            onBackPressed = {},
+            onShareButtonClicked = {},
+        )
     }
 }
