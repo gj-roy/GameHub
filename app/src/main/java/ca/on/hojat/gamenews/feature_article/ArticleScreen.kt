@@ -89,8 +89,8 @@ internal fun ArticleScreen(
             onBackButtonClick = onBackPressed,
             onFirstButtonClick = onShareButtonClicked
         )
-    }) { paddingValues ->
-        Column(modifier = Modifier.padding(paddingValues)) {
+    }) {
+        Column(modifier = Modifier.padding(10.dp)) {
 
             if (uiState.imageUrl != null) {
                 Image(
