@@ -31,7 +31,6 @@ import ca.on.hojat.gamenews.common_ui.RoutesHandler
 import ca.on.hojat.gamenews.common_ui.base.events.Route
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
-import ca.on.hojat.gamenews.feature_image_viewer.SystemBarsColorHandler
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.Image
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.Timestamp
 import com.google.accompanist.web.WebView
@@ -78,8 +77,6 @@ internal fun ArticleScreen(
     onShareButtonClicked: () -> Unit,
 ) {
     val webViewState = rememberWebViewStateWithHTMLData(data = uiState.body)
-
-    SystemBarsColorHandler()
     BackHandler(onBack = onBackPressed)
 
     Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
