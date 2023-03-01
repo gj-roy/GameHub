@@ -16,3 +16,7 @@ V1.2.2 :
   ImageViewer page.
 * Fixed the runtime error that crashed the app on devices running API 23 and below.
 * Simple tweaks to UI.
+
+V1.3.0 :
+
+* Added the ability to read news articles inside GameHub (without leaving the app to go to browser).
