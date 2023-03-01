@@ -68,8 +68,7 @@ private fun ArticleScreen(
         uiState = viewModel.uiState.collectAsState().value,
         onBackPressed = viewModel::onBackPressed,
         onShareButtonClicked = viewModel::onShareButtonClicked,
-
-        )
+    )
 }
 
 
@@ -78,8 +77,7 @@ internal fun ArticleScreen(
     uiState: ArticleUiState,
     onBackPressed: () -> Unit,
     onShareButtonClicked: () -> Unit,
-
-    ) {
+) {
     val webViewState = rememberWebViewStateWithHTMLData(data = uiState.body)
 
     SystemBarsColorHandler()
@@ -101,7 +99,7 @@ internal fun ArticleScreen(
                 onFirstButtonClick = onShareButtonClicked
             )
         }
-    ) { paddingValues ->
+    ) {
         Column(modifier = Modifier.padding(GameHubTheme.spaces.spacing_4_0)) {
 
 
