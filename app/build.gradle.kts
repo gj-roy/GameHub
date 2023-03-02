@@ -80,6 +80,10 @@ android {
 
 dependencies {
 
+    // appcompat
+    implementation(AndroidX.appcompat)
+    implementation(AndroidX.appcompatResources)
+
     // general jetpack libs
     implementation(AndroidX.protoDataStore)
     implementation(AndroidX.splash)
@@ -92,7 +96,6 @@ dependencies {
     // Jetpack compose + Accompanist
     implementation(Compose.ui)
     implementation(Compose.tooling)
-    implementation(Compose.activity)
     implementation(Compose.foundation)
     implementation(Compose.material)
     implementation(Compose.runtime)

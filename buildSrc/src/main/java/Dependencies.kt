@@ -55,6 +55,11 @@ object AndroidX {
     const val viewModel = "2.5.1" // to be deleted when the linked issue at use site is fixed.
     private const val dataStoreVersion = "1.0.0"
     private const val roomVersion = "2.4.3"
+    private const val appCompatVersion = "1.6.0"
+
+    // The AppCompat
+    const val appcompat = "androidx.appcompat:appcompat:$appCompatVersion"
+    const val appcompatResources = "androidx.appcompat:appcompat-resources:$appCompatVersion"
 
     // splash screen
     const val splash = "androidx.core:core-splashscreen:1.0.0"
@@ -86,7 +91,6 @@ object Compose {
     const val tooling = "androidx.compose.ui:ui-tooling:$composeVersion"
     const val animation = "androidx.compose.animation:animation-graphics:$composeVersion"
     const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
-    const val activity = "androidx.activity:activity-compose:$composeVersion"
     const val material = "androidx.compose.material:material:$composeVersion"
     const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
     const val navigation = "androidx.navigation:navigation-compose:2.5.1"
