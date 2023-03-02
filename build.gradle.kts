@@ -17,8 +17,6 @@ buildscript {
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Hilt.coreHiltVersion}")
         classpath("com.google.protobuf:protobuf-gradle-plugin:${Tooling.protobufPluginVersion}")
         classpath("com.github.ben-manes:gradle-versions-plugin:${Tooling.gradleVersionsPlugin}")
-        classpath("com.google.gms:google-services:${Tooling.googleServicesVersion}")
-        classpath("com.google.firebase:firebase-crashlytics-gradle:${Tooling.crashlyticsVersion}")
     }
 }
 
