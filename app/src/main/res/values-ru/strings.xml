@@ -53,6 +53,7 @@
     <string name="settings_item_theme_option_light">Светлая</string>
     <string name="settings_item_theme_option_dark">Темная</string>
     <string name="settings_item_theme_option_system_default">По умолчанию</string>
+    <string name="settings_item_language_title">язык</string>
     <string name="settings_section_about_title">О приложении</string>
     <string name="settings_item_source_code_title">Исходный код</string>
     <string name="settings_item_source_code_description">Показать исходный код GameHub</string>
