@@ -116,21 +116,21 @@ private fun InfoScreen(
             modifier = Modifier.padding(paddingValues),
         ) { finiteUiState ->
             when (finiteUiState) {
-                FiniteUiState.Empty -> {
+                FiniteUiState.EMPTY -> {
                     EmptyState(
                         modifier = Modifier
                             .systemBarsPadding()
                             .align(Alignment.Center),
                     )
                 }
-                FiniteUiState.Loading -> {
+                FiniteUiState.LOADING -> {
                     LoadingState(
                         modifier = Modifier
                             .systemBarsPadding()
                             .align(Alignment.Center),
                     )
                 }
-                FiniteUiState.Success -> {
+                FiniteUiState.SUCCESS -> {
                     SuccessState(
                         gameInfo = checkNotNull(uiState.game),
                         modifier = Modifier.navigationBarsPadding(),
@@ -280,7 +280,7 @@ private fun LazyListScope.headerItem(
     onCoverClicked: () -> Unit,
     onLikeButtonClicked: () -> Unit,
 ) {
-    gameInfoItem(item = GameInfoItem.Header) {
+    gameInfoItem(item = GameInfoItem.HEADER) {
         InfoScreenHeader(
             headerInfo = model,
             onArtworkClicked = onArtworkClicked,
@@ -295,7 +295,7 @@ private fun LazyListScope.videosItem(
     videos: List<InfoScreenVideoUiModel>,
     onVideoClicked: (InfoScreenVideoUiModel) -> Unit,
 ) {
-    gameInfoItem(item = GameInfoItem.Videos) {
+    gameInfoItem(item = GameInfoItem.VIDEOS) {
         InfoScreenVideoSection(
             videos = videos,
             onVideClicked = onVideoClicked,
@@ -307,7 +307,7 @@ private fun LazyListScope.screenshotsItem(
     screenshots: List<InfoScreenShotUiModel>,
     onScreenshotClicked: (screenshotIndex: Int) -> Unit,
 ) {
-    gameInfoItem(item = GameInfoItem.Screenshots) {
+    gameInfoItem(item = GameInfoItem.SCREENSHOTS) {
         InfoScreenShotSection(
             screenshots = screenshots,
             onScreenshotClicked = onScreenshotClicked,
@@ -316,13 +316,13 @@ private fun LazyListScope.screenshotsItem(
 }
 
 private fun LazyListScope.summaryItem(model: String) {
-    gameInfoItem(item = GameInfoItem.Summary) {
+    gameInfoItem(item = GameInfoItem.SUMMARY) {
         InfoScreenSummary(summary = model)
     }
 }
 
 private fun LazyListScope.detailsItem(model: InfoScreenDetailsUiModel) {
-    gameInfoItem(item = GameInfoItem.Details) {
+    gameInfoItem(item = GameInfoItem.DETAILS) {
         InfoScreenDetails(details = model)
     }
 }
@@ -331,7 +331,7 @@ private fun LazyListScope.linksItem(
     model: List<InfoScreenLinkUiModel>,
     onLinkClicked: (InfoScreenLinkUiModel) -> Unit,
 ) {
-    gameInfoItem(item = GameInfoItem.Links) {
+    gameInfoItem(item = GameInfoItem.LINKS) {
         InfoScreenLinks(
             links = model,
             onLinkClicked = onLinkClicked,
@@ -343,7 +343,7 @@ private fun LazyListScope.companiesItem(
     model: List<InfoScreenCompanyUiModel>,
     onCompanyClicked: (InfoScreenCompanyUiModel) -> Unit,
 ) {
-    gameInfoItem(item = GameInfoItem.Companies) {
+    gameInfoItem(item = GameInfoItem.COMPANIES) {
         InfoScreenCompanies(
             companies = model,
             onCompanyClicked = onCompanyClicked,
@@ -357,8 +357,8 @@ private fun LazyListScope.relatedGamesItem(
 ) {
     gameInfoItem(
         item = when (model.type) {
-            RelatedGamesType.OTHER_COMPANY_GAMES -> GameInfoItem.OtherCompanyGames
-            RelatedGamesType.SIMILAR_GAMES -> GameInfoItem.SimilarGames
+            RelatedGamesType.OTHER_COMPANY_GAMES -> GameInfoItem.OTHER_COMPANY_GAMES
+            RelatedGamesType.SIMILAR_GAMES -> GameInfoItem.SIMILAR_GAMES
         }
     ) {
         val categoryGames = remember(model.items) {
@@ -393,19 +393,19 @@ private enum class GameInfoItem(
     val key: Int,
     val contentType: Int,
 ) {
-    Header(key = 1, contentType = 1),
-    Videos(key = 2, contentType = 2),
-    Screenshots(key = 3, contentType = 3),
-    Summary(key = 4, contentType = 4),
-    Details(key = 5, contentType = 5),
-    Links(key = 6, contentType = 6),
-    Companies(key = 7, contentType = 7),
+    HEADER(key = 1, contentType = 1),
+    VIDEOS(key = 2, contentType = 2),
+    SCREENSHOTS(key = 3, contentType = 3),
+    SUMMARY(key = 4, contentType = 4),
+    DETAILS(key = 5, contentType = 5),
+    LINKS(key = 6, contentType = 6),
+    COMPANIES(key = 7, contentType = 7),
 
     // Both other & similar games is the same composable
     // filled with different data. That's why contentType
     // is the same for them two.
-    OtherCompanyGames(key = 8, contentType = 8),
-    SimilarGames(key = 9, contentType = 8),
+    OTHER_COMPANY_GAMES(key = 8, contentType = 8),
+    SIMILAR_GAMES(key = 9, contentType = 8),
 }
 
 // TODO (02.01.2022): Currently, preview height is limited to 2k DP.

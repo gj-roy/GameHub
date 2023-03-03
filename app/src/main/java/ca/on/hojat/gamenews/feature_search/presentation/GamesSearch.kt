@@ -108,7 +108,7 @@ private fun GamesSearch(
 
         OnLifecycleEvent(
             onResume = {
-                if (uiState.gamesUiState.finiteUiState == FiniteUiState.Empty) {
+                if (uiState.gamesUiState.finiteUiState == FiniteUiState.EMPTY) {
                     // On subsequent openings of this screen from the background,
                     // simply calling focusRequester.requestFocus() does not make
                     // the keyboard visible. The workaround is to add small delay

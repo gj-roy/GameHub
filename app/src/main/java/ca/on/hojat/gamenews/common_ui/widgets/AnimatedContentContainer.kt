@@ -28,14 +28,14 @@ fun AnimatedContentContainer(
             targetState = finiteUiState,
             transitionSpec = {
                 val finalExitTransition = when (initialState) {
-                    FiniteUiState.Empty,
-                    FiniteUiState.Loading -> ExitTransition.None
-                    FiniteUiState.Success -> exitTransition
+                    FiniteUiState.EMPTY,
+                    FiniteUiState.LOADING -> ExitTransition.None
+                    FiniteUiState.SUCCESS -> exitTransition
                 }
                 val finalEnterTransition = when (targetState) {
-                    FiniteUiState.Loading -> EnterTransition.None
-                    FiniteUiState.Empty,
-                    FiniteUiState.Success -> enterTransition
+                    FiniteUiState.LOADING -> EnterTransition.None
+                    FiniteUiState.EMPTY,
+                    FiniteUiState.SUCCESS -> enterTransition
                 }
 
                 finalEnterTransition with finalExitTransition
@@ -49,7 +49,7 @@ fun AnimatedContentContainer(
 }
 
 enum class FiniteUiState {
-    Empty,
-    Loading,
-    Success,
+    EMPTY,
+    LOADING,
+    SUCCESS,
 }

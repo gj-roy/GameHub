@@ -87,8 +87,8 @@ internal class CategoryViewModelTest {
             every { observePopularGamesUseCase.execute(any()) } returns flowOf(DOMAIN_GAMES)
 
             sut.uiState.test {
-                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Empty)
-                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Success)
+                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.EMPTY)
+                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.SUCCESS)
                 cancelAndIgnoreRemainingEvents()
             }
         }
@@ -123,9 +123,9 @@ internal class CategoryViewModelTest {
             }
 
             sut.uiState.test {
-                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Empty)
-                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Loading)
-                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Empty)
+                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.EMPTY)
+                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.LOADING)
+                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.EMPTY)
                 cancelAndIgnoreRemainingEvents()
             }
         }

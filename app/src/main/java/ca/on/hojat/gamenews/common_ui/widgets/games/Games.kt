@@ -31,16 +31,16 @@ fun Games(
         modifier = modifier,
     ) { finiteUiState ->
         when (finiteUiState) {
-            FiniteUiState.Empty -> {
+            FiniteUiState.EMPTY -> {
                 EmptyState(
                     uiState = uiState,
                     modifier = Modifier.align(Alignment.Center),
                 )
             }
-            FiniteUiState.Loading -> {
+            FiniteUiState.LOADING -> {
                 LoadingState(modifier = Modifier.align(Alignment.Center))
             }
-            FiniteUiState.Success -> {
+            FiniteUiState.SUCCESS -> {
                 SuccessState(
                     uiState = uiState,
                     modifier = Modifier.matchParentSize(),

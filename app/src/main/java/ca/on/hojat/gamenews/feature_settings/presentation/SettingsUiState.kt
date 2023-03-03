@@ -15,8 +15,8 @@ internal data class SettingsUiState(
 
 internal val SettingsUiState.finiteUiState: FiniteUiState
     get() = when {
-        isInLoadingState -> FiniteUiState.Loading
-        isInSuccessState -> FiniteUiState.Success
+        isInLoadingState -> FiniteUiState.LOADING
+        isInSuccessState -> FiniteUiState.SUCCESS
         else -> error("Unknown settings UI state.")
     }
 

@@ -12,9 +12,9 @@ internal data class NewsUiState(
 
     internal val finiteUiState: FiniteUiState
         get() = when {
-            isInEmptyState -> FiniteUiState.Empty
-            isLoading -> FiniteUiState.Loading
-            isInSuccessState -> FiniteUiState.Success
+            isInEmptyState -> FiniteUiState.EMPTY
+            isLoading -> FiniteUiState.LOADING
+            isInSuccessState -> FiniteUiState.SUCCESS
             else -> error("Unknown gaming news UI state.")
         }
 

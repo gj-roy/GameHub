@@ -103,7 +103,7 @@ private fun NewsScreen(
             modifier = Modifier.padding(paddingValues),
         ) { finiteUiState ->
             when (finiteUiState) {
-                FiniteUiState.Loading -> {
+                FiniteUiState.LOADING -> {
                     LoadingState(modifier = Modifier.align(Alignment.Center))
                 }
                 else -> {
@@ -112,7 +112,7 @@ private fun NewsScreen(
                         modifier = Modifier.matchParentSize(),
                         onRefreshRequested = onRefreshRequested,
                     ) {
-                        if (finiteUiState == FiniteUiState.Empty) {
+                        if (finiteUiState == FiniteUiState.EMPTY) {
                             EmptyState(modifier = Modifier.matchParentSize())
                         } else {
                             SuccessState(

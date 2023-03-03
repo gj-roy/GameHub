@@ -25,9 +25,9 @@ data class GamesUiState(
 
     val finiteUiState: FiniteUiState
         get() = when {
-            isInEmptyState -> FiniteUiState.Empty
-            isInLoadingState -> FiniteUiState.Loading
-            isInSuccessState -> FiniteUiState.Success
+            isInEmptyState -> FiniteUiState.EMPTY
+            isInLoadingState -> FiniteUiState.LOADING
+            isInSuccessState -> FiniteUiState.SUCCESS
             else -> error("Unknown games UI state.")
         }
 

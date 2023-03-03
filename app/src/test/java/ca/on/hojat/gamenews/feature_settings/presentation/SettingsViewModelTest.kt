@@ -48,8 +48,8 @@ internal class SettingsViewModelTest {
                 val loadingState = awaitItem()
                 val resultState = awaitItem()
 
-                assertThat(loadingState.finiteUiState).isEqualTo(FiniteUiState.Loading)
-                assertThat(resultState.finiteUiState).isEqualTo(FiniteUiState.Success)
+                assertThat(loadingState.finiteUiState).isEqualTo(FiniteUiState.LOADING)
+                assertThat(resultState.finiteUiState).isEqualTo(FiniteUiState.SUCCESS)
                 assertThat(resultState.sections).hasSize(FakeSettingsUiModelMapper.SECTION_ITEM_COUNT)
                 assertThat(resultState.selectedThemeName).isEqualTo(DOMAIN_SETTINGS.theme.name)
             }

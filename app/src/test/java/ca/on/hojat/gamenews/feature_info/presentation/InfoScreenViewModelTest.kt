@@ -70,9 +70,9 @@ internal class InfoScreenViewModelTest {
             coEvery { useCases.getGameInfoUseCase.execute(any()) } returns flowOf(GAME_INFO)
 
             sut.uiState.test {
-                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Empty)
-                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Loading)
-                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.Success)
+                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.EMPTY)
+                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.LOADING)
+                assertThat(awaitItem().finiteUiState).isEqualTo(FiniteUiState.SUCCESS)
             }
         }
     }

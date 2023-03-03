@@ -105,10 +105,10 @@ private fun Settings(
             modifier = Modifier.padding(paddingValues),
         ) { finiteUiState ->
             when (finiteUiState) {
-                FiniteUiState.Loading -> {
+                FiniteUiState.LOADING -> {
                     LoadingState(modifier = Modifier.align(Alignment.Center))
                 }
-                FiniteUiState.Success -> {
+                FiniteUiState.SUCCESS -> {
                     SuccessState(
                         sections = uiState.sections,
                         onSettingClicked = onSettingClicked,

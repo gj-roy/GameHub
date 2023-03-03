@@ -103,9 +103,9 @@ internal class SearchViewModelTest {
                 val loadingState = awaitItem().gamesUiState
                 val resultState = awaitItem().gamesUiState
 
-                assertThat(emptyState.finiteUiState).isEqualTo(FiniteUiState.Empty)
-                assertThat(loadingState.finiteUiState).isEqualTo(FiniteUiState.Loading)
-                assertThat(resultState.finiteUiState).isEqualTo(FiniteUiState.Success)
+                assertThat(emptyState.finiteUiState).isEqualTo(FiniteUiState.EMPTY)
+                assertThat(loadingState.finiteUiState).isEqualTo(FiniteUiState.LOADING)
+                assertThat(resultState.finiteUiState).isEqualTo(FiniteUiState.SUCCESS)
                 assertThat(resultState.games).hasSize(DOMAIN_GAMES.size)
             }
         }
@@ -117,7 +117,7 @@ internal class SearchViewModelTest {
             sut.uiState.test {
                 sut.onSearchConfirmed("")
 
-                assertThat(awaitItem().gamesUiState.finiteUiState).isEqualTo(FiniteUiState.Empty)
+                assertThat(awaitItem().gamesUiState.finiteUiState).isEqualTo(FiniteUiState.EMPTY)
                 expectNoEvents()
             }
         }
@@ -136,7 +136,7 @@ internal class SearchViewModelTest {
             sut.uiState.test {
                 sut.onSearchConfirmed(gameQuery)
 
-                assertThat(awaitItem().gamesUiState.finiteUiState).isEqualTo(FiniteUiState.Success)
+                assertThat(awaitItem().gamesUiState.finiteUiState).isEqualTo(FiniteUiState.SUCCESS)
                 expectNoEvents()
             }
         }
@@ -148,7 +148,7 @@ internal class SearchViewModelTest {
             sut.uiState.test {
                 sut.onSearchConfirmed("   ")
 
-                assertThat(awaitItem().gamesUiState.finiteUiState).isEqualTo(FiniteUiState.Empty)
+                assertThat(awaitItem().gamesUiState.finiteUiState).isEqualTo(FiniteUiState.EMPTY)
                 expectNoEvents()
             }
         }

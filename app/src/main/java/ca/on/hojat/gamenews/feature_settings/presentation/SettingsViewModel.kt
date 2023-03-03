@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -99,7 +100,6 @@ internal class SettingsViewModel @Inject constructor(
 
     fun onLanguagePicked(language: Language) {
         onLanguagePickerDismissed()
-
         updateSettings { oldSettings ->
             oldSettings.copy(language = language)
         }
