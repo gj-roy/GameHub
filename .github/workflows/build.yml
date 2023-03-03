@@ -44,7 +44,7 @@ jobs:
         run: ./gradlew lint --continue
 
       - name: Run Unit Tests
-        run: ./gradlew testDebug
+        run: ./gradlew test
 
   instrumentation-test:
     name: Instrumentation Tests
