@@ -2,6 +2,8 @@
 
 <a href='https://play.google.com/store/apps/details?id=ca.on.hojat.gamenews'><img src='/media/button-google-play.svg' alt='Get it on Google Play' height='45' /></a>
 
+[![Build](https://github.com/hojat72elect/GameHub/actions/workflows/build.yml/badge.svg?branch=Hojat_Main_Branch)](https://github.com/hojat72elect/GameHub/actions/workflows/build.yml)
+
 This is an Android client for <a href="https://www.igdb.com/">IGDB</a>
 and <a href="https://dev.twitch.tv/">Twitch</a> APIs for all the latest news and information about
 video games.
