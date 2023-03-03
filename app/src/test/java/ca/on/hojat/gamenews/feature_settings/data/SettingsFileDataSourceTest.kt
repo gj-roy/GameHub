@@ -18,6 +18,7 @@ import org.junit.Test
 
 private val PROTO_SETTINGS = ProtoSettings.newBuilder()
     .setThemeName(DOMAIN_SETTINGS.theme.name)
+    .setLanguageName(DOMAIN_SETTINGS.language.name)
     .build()
 
 internal class SettingsFileDataSourceTest {
