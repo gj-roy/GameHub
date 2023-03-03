@@ -1,5 +1,7 @@
 package ca.on.hojat.gamenews.feature_settings.presentation
 
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
@@ -21,7 +23,6 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -99,6 +100,7 @@ internal class SettingsViewModel @Inject constructor(
     }
 
     fun onLanguagePicked(language: Language) {
+        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(language.locale))
         onLanguagePickerDismissed()
         updateSettings { oldSettings ->
             oldSettings.copy(language = language)
