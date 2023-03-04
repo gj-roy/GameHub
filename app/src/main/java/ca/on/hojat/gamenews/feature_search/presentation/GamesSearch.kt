@@ -21,10 +21,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.presentation.CommandsHandler
-import ca.on.hojat.gamenews.presentation.NavBarColorHandler
+import ca.on.hojat.gamenews.CommandsHandler
+import ca.on.hojat.gamenews.NavBarColorHandler
 import ca.on.hojat.gamenews.presentation.OnLifecycleEvent
-import ca.on.hojat.gamenews.presentation.RoutesHandler
+import ca.on.hojat.gamenews.RoutesHandler
 import ca.on.hojat.gamenews.presentation.widgets.FiniteUiState
 import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModel
 import ca.on.hojat.gamenews.presentation.widgets.games.Games

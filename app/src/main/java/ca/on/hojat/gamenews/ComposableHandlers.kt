@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.presentation
+package ca.on.hojat.gamenews
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

@@ -30,9 +30,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 import ca.on.hojat.gamenews.presentation.theme.subtitle3
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.presentation.CommandsHandler
-import ca.on.hojat.gamenews.presentation.LocalUrlOpener
-import ca.on.hojat.gamenews.presentation.NavBarColorHandler
+import ca.on.hojat.gamenews.CommandsHandler
+import ca.on.hojat.gamenews.LocalUrlOpener
+import ca.on.hojat.gamenews.NavBarColorHandler
 import ca.on.hojat.gamenews.presentation.widgets.AnimatedContentContainer
 import ca.on.hojat.gamenews.presentation.widgets.FiniteUiState
 import ca.on.hojat.gamenews.presentation.widgets.GameHubCard

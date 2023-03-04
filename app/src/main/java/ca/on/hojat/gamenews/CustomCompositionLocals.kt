@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.presentation
+package ca.on.hojat.gamenews
 
 import android.content.Context
 import androidx.compose.runtime.ProvidableCompositionLocal

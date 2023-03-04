@@ -27,9 +27,9 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.presentation.CommandsHandler
-import ca.on.hojat.gamenews.presentation.LocalTextSharer
-import ca.on.hojat.gamenews.presentation.RoutesHandler
+import ca.on.hojat.gamenews.CommandsHandler
+import ca.on.hojat.gamenews.LocalTextSharer
+import ca.on.hojat.gamenews.RoutesHandler
 import ca.on.hojat.gamenews.core.events.Route
 import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 import ca.on.hojat.gamenews.presentation.widgets.toolbars.Toolbar
