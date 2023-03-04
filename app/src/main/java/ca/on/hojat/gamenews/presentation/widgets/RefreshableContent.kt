@@ -2,10 +2,10 @@ package ca.on.hojat.gamenews.presentation.widgets
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 
 @Composable
 fun RefreshableContent(

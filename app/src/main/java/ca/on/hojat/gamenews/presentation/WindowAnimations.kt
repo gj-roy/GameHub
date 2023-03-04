@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.core.animations
+package ca.on.hojat.gamenews.presentation
 
 import ca.on.hojat.gamenews.R
 

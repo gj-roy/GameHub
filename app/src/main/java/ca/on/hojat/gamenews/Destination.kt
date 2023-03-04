@@ -9,6 +9,7 @@ import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.navigation.NavController
 import ca.on.hojat.gamenews.core.extensions.toCsv
+import ca.on.hojat.gamenews.presentation.requireRoute
 import java.net.URLEncoder
 
 internal val START_DESTINATION = Destination.Discover

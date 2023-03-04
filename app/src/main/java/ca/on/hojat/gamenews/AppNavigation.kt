@@ -29,6 +29,7 @@ import ca.on.hojat.gamenews.feature_news.presentation.NewsScreenRoute
 import ca.on.hojat.gamenews.feature_article.ArticleScreen
 import ca.on.hojat.gamenews.feature_search.presentation.GamesSearch
 import ca.on.hojat.gamenews.feature_search.presentation.GamesSearchRoute
+import ca.on.hojat.gamenews.presentation.requireRoute
 
 @Composable
 internal fun AppNavigation(
