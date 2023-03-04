@@ -20,3 +20,4 @@ V1.2.2 :
 V1.3.0 :
 
 * Added the ability to read news articles inside GameHub (without leaving the app to go to browser).
+* Added the ability to change app's language, inside the app (in settings page).
