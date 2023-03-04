@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_discovery
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.core.events.GeneralCommand
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_GAMES

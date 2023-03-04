@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_article
 
 import androidx.lifecycle.SavedStateHandle
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
+import ca.on.hojat.gamenews.core.BaseViewModel
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

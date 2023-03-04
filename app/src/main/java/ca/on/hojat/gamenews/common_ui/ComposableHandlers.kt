@@ -6,10 +6,10 @@ import androidx.compose.ui.platform.LocalContext
 import ca.on.hojat.gamenews.core.extensions.showLongToast
 import ca.on.hojat.gamenews.core.extensions.showShortToast
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
-import ca.on.hojat.gamenews.common_ui.base.events.Command
-import ca.on.hojat.gamenews.common_ui.base.events.Route
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.core.BaseViewModel
+import ca.on.hojat.gamenews.core.events.Command
+import ca.on.hojat.gamenews.core.events.Route
+import ca.on.hojat.gamenews.core.events.GeneralCommand
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.theme.navBar
 

@@ -2,7 +2,7 @@
 
 package ca.on.hojat.gamenews.feature_likes.presentation
 
-import ca.on.hojat.gamenews.common_ui.base.events.Route
+import ca.on.hojat.gamenews.core.events.Route
 
 sealed class LikesRoute : Route {
     object Search : LikesRoute()

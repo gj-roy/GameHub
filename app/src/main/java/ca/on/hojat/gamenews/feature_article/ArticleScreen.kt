@@ -30,7 +30,7 @@ import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.common_ui.CommandsHandler
 import ca.on.hojat.gamenews.common_ui.LocalTextSharer
 import ca.on.hojat.gamenews.common_ui.RoutesHandler
-import ca.on.hojat.gamenews.common_ui.base.events.Route
+import ca.on.hojat.gamenews.core.events.Route
 import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.feature_news.presentation.widgets.Image

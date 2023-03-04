@@ -2,7 +2,7 @@
 
 package ca.on.hojat.gamenews.feature_discovery
 
-import ca.on.hojat.gamenews.common_ui.base.events.Route
+import ca.on.hojat.gamenews.core.events.Route
 
 sealed class DiscoverScreenRoute : Route {
     object Search : DiscoverScreenRoute()

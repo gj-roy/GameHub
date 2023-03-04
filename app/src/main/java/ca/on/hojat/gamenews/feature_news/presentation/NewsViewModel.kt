@@ -1,8 +1,8 @@
 package ca.on.hojat.gamenews.feature_news.presentation
 
 import androidx.lifecycle.viewModelScope
-import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
-import ca.on.hojat.gamenews.common_ui.base.events.GeneralCommand
+import ca.on.hojat.gamenews.core.BaseViewModel
+import ca.on.hojat.gamenews.core.events.GeneralCommand
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.extensions.onError

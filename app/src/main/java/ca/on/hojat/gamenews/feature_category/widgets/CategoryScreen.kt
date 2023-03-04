@@ -36,7 +36,7 @@ import ca.on.hojat.gamenews.common_ui.widgets.GameNewsProgressIndicator
 import ca.on.hojat.gamenews.common_ui.widgets.Info
 import ca.on.hojat.gamenews.common_ui.widgets.RefreshableContent
 import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
-import ca.on.hojat.gamenews.common_ui.base.events.Route
+import ca.on.hojat.gamenews.core.events.Route
 import ca.on.hojat.gamenews.feature_category.CategoryViewModel
 
 @Composable

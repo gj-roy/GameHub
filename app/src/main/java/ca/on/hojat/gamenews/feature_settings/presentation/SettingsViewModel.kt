@@ -5,7 +5,7 @@ import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
-import ca.on.hojat.gamenews.common_ui.base.BaseViewModel
+import ca.on.hojat.gamenews.core.BaseViewModel
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Language
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
