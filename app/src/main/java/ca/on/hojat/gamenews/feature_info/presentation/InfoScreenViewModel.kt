@@ -6,7 +6,7 @@ import ca.on.hojat.gamenews.R
 import ca.on.hojat.gamenews.core.BaseViewModel
 import ca.on.hojat.gamenews.core.events.GeneralCommand
 import ca.on.hojat.gamenews.feature_image_viewer.ImageViewerViewModel
-import ca.on.hojat.gamenews.common_ui.di.TransitionAnimationDuration
+import ca.on.hojat.gamenews.presentation.di.TransitionAnimationDuration
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError

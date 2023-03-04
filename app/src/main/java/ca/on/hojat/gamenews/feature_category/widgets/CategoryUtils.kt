@@ -7,7 +7,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 
 private const val GRID_SPAN_COUNT = 3
 private const val ITEM_HEIGHT_TO_WIDTH_RATIO = 1.366f

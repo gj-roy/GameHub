@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.relatedgames
 
-import ca.on.hojat.gamenews.common_ui.widgets.categorypreview.GamesCategoryPreviewItemUiModel
+import ca.on.hojat.gamenews.presentation.widgets.categorypreview.GamesCategoryPreviewItemUiModel
 
 internal fun List<RelatedGameUiModel>.mapToCategoryUiModels(): List<GamesCategoryPreviewItemUiModel> {
     return map {

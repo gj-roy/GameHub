@@ -11,11 +11,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.snapshotFlow
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import ca.on.hojat.gamenews.common_ui.LocalDownloader
-import ca.on.hojat.gamenews.common_ui.LocalNetworkStateProvider
-import ca.on.hojat.gamenews.common_ui.LocalTextSharer
-import ca.on.hojat.gamenews.common_ui.LocalUrlOpener
-import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
+import ca.on.hojat.gamenews.presentation.LocalDownloader
+import ca.on.hojat.gamenews.presentation.LocalNetworkStateProvider
+import ca.on.hojat.gamenews.presentation.LocalTextSharer
+import ca.on.hojat.gamenews.presentation.LocalUrlOpener
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
 import ca.on.hojat.gamenews.core.downloader.Downloader
 import ca.on.hojat.gamenews.core.providers.NetworkStateProvider

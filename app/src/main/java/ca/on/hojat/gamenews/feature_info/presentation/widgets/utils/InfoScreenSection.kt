@@ -12,8 +12,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
-import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
+import ca.on.hojat.gamenews.presentation.widgets.GameHubCard
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 
 @Composable
 internal fun InfoScreenSection(

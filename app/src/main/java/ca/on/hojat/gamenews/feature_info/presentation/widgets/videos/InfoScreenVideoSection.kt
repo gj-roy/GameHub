@@ -28,13 +28,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
-import ca.on.hojat.gamenews.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
-import ca.on.hojat.gamenews.common_ui.theme.darkScrim
+import ca.on.hojat.gamenews.presentation.images.defaultImageRequest
+import ca.on.hojat.gamenews.presentation.images.secondaryImage
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
+import ca.on.hojat.gamenews.presentation.theme.darkScrim
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
+import ca.on.hojat.gamenews.presentation.widgets.GameHubCard
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSectionWithInnerList
 
 @Composable

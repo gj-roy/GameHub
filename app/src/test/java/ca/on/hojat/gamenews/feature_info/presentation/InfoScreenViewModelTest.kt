@@ -2,7 +2,7 @@ package ca.on.hojat.gamenews.feature_info.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.presentation.widgets.FiniteUiState
 import ca.on.hojat.gamenews.feature_info.GAME_INFO
 import ca.on.hojat.gamenews.feature_info.domain.entities.InfoScreenData
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.companies.InfoScreenCompanyUiModel

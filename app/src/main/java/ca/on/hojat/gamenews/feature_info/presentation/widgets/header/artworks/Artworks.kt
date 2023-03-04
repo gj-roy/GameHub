@@ -9,10 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.clickable
-import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
-import ca.on.hojat.gamenews.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
+import ca.on.hojat.gamenews.presentation.clickable
+import ca.on.hojat.gamenews.presentation.images.defaultImageRequest
+import ca.on.hojat.gamenews.presentation.images.secondaryImage
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 import coil.compose.AsyncImage
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState

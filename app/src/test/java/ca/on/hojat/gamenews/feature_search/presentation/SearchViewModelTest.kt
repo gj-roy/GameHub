@@ -2,9 +2,9 @@ package ca.on.hojat.gamenews.feature_search.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
-import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModel
-import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModelMapper
+import ca.on.hojat.gamenews.presentation.widgets.FiniteUiState
+import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModelMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeErrorMapper
 import ca.on.hojat.gamenews.core.common_testing.FakeStringProvider
 import ca.on.hojat.gamenews.core.common_testing.domain.DOMAIN_ERROR_UNKNOWN

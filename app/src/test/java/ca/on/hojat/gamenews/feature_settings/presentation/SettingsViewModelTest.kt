@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_settings.presentation
 
 import app.cash.turbine.test
-import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.presentation.widgets.FiniteUiState
 import ca.on.hojat.gamenews.feature_settings.DOMAIN_SETTINGS
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme

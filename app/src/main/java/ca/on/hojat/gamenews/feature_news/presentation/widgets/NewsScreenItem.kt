@@ -17,12 +17,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import ca.on.hojat.gamenews.common_ui.images.defaultImageRequest
-import ca.on.hojat.gamenews.common_ui.images.secondaryImage
-import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
+import ca.on.hojat.gamenews.presentation.images.defaultImageRequest
+import ca.on.hojat.gamenews.presentation.images.secondaryImage
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 import coil.compose.AsyncImage
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
+import ca.on.hojat.gamenews.presentation.widgets.GameHubCard
 
 @Composable
 internal fun NewsScreenItem(

@@ -16,15 +16,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.CommandsHandler
-import ca.on.hojat.gamenews.common_ui.NavBarColorHandler
-import ca.on.hojat.gamenews.common_ui.RoutesHandler
-import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModel
-import ca.on.hojat.gamenews.common_ui.widgets.games.Games
-import ca.on.hojat.gamenews.common_ui.widgets.games.GamesUiState
-import ca.on.hojat.gamenews.common_ui.widgets.toolbars.Toolbar
+import ca.on.hojat.gamenews.presentation.CommandsHandler
+import ca.on.hojat.gamenews.presentation.NavBarColorHandler
+import ca.on.hojat.gamenews.presentation.RoutesHandler
+import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.presentation.widgets.games.Games
+import ca.on.hojat.gamenews.presentation.widgets.games.GamesUiState
+import ca.on.hojat.gamenews.presentation.widgets.toolbars.Toolbar
 import ca.on.hojat.gamenews.core.events.Route
-import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 
 @Composable
 fun LikesScreen(

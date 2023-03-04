@@ -3,10 +3,10 @@ package ca.on.hojat.gamenews.feature_search.presentation
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModel
-import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModelMapper
-import ca.on.hojat.gamenews.common_ui.widgets.games.GamesUiState
-import ca.on.hojat.gamenews.common_ui.widgets.games.mapToUiModels
+import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModelMapper
+import ca.on.hojat.gamenews.presentation.widgets.games.GamesUiState
+import ca.on.hojat.gamenews.presentation.widgets.games.mapToUiModels
 import ca.on.hojat.gamenews.core.BaseViewModel
 import ca.on.hojat.gamenews.core.events.GeneralCommand
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider

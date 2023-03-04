@@ -1,8 +1,8 @@
 package ca.on.hojat.gamenews.feature_search.presentation
 
 import androidx.compose.runtime.Immutable
-import ca.on.hojat.gamenews.common_ui.widgets.games.GameUiModel
-import ca.on.hojat.gamenews.common_ui.widgets.games.GamesUiState
+import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.presentation.widgets.games.GamesUiState
 
 @Immutable
 internal data class GamesSearchUiState(

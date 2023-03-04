@@ -16,10 +16,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ca.on.hojat.gamenews.core.domain.entities.WebsiteCategory
-import ca.on.hojat.gamenews.common_ui.theme.GameHubTheme
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 import com.google.accompanist.flowlayout.FlowRow
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.common_ui.widgets.GameHubCard
+import ca.on.hojat.gamenews.presentation.widgets.GameHubCard
 import ca.on.hojat.gamenews.feature_info.presentation.widgets.utils.InfoScreenSection
 import java.util.Locale
 

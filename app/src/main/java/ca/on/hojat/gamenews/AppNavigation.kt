@@ -8,8 +8,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import ca.on.hojat.gamenews.common_ui.HorizontalSliding
-import ca.on.hojat.gamenews.common_ui.OvershootScaling
+import ca.on.hojat.gamenews.presentation.HorizontalSliding
+import ca.on.hojat.gamenews.presentation.OvershootScaling
 import ca.on.hojat.gamenews.feature_article.ArticleRoute
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable

@@ -1,7 +1,7 @@
 package ca.on.hojat.gamenews.feature_info.presentation.widgets.main
 
 import androidx.compose.runtime.Immutable
-import ca.on.hojat.gamenews.common_ui.widgets.FiniteUiState
+import ca.on.hojat.gamenews.presentation.widgets.FiniteUiState
 
 @Immutable
 internal data class InfoScreenUiState(
