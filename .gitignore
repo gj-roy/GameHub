@@ -18,3 +18,4 @@ keystore.properties
 settings.gradle.kts
 gradle.properties
 app/google-services.json
+gradle.properties
