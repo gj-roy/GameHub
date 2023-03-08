@@ -27,7 +27,7 @@ App's UI and presentation layer are built entirely using the Jetpack Compose.
     * [IGDB](#igdb)
     * [Gamespot](#gamespot)
 * [Contributors](#Contributors)
-* [Questions](#questions)
+* [Contribution Guidelines](#contribution-guidelines)
 
 ## Demonstration
 
@@ -158,11 +158,17 @@ that the app uses to fetch information about pretty much any video game there is
 previews, downloads, and other information on video games. The app uses its API to solely retrieve
 the latest news in the gaming world.
 
-## Questions
+## Contribution Guidelines
 
-If you have any questions regarding the codebase or have found an issue, please open up an issue on
-GitHub repository.
-I'll answer to all opened issues as fast as I can.
+Please pay attention that in order to build and run this app, you will need to have
+API keys from [IGDB](https://api-docs.igdb.com/#getting-started) and [GameSpot](https://www.gamespot.com/api/)
+respectively. Their websites provide enough information to do so.<br/>
+We are currently trying to convert this project into a multiplatform app which can work on Android, iOS, web, and
+desktop. Following the migration, the corresponding code of conduct for each module will be provided.<br/>
+For the time-being, the best way for starting contribution to this project is to just fork the repo, start playing with
+**main** branch and when you felt comfortable enough with it, have a look at
+our [trello board](https://trello.com/b/lG03zl6P/gamehub) and choose a ticket you feel most comfortable with. If you
+like to add a feature that's not mentioned in trello board, just open an issue for it.
 
 ### Contributors
 
