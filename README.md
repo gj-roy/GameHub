@@ -177,3 +177,8 @@ Main developer: [Hojat Ghasemi](mailto:hojat72elect@gmail.com)
 App icon designer: [Grace Peterson](mailto:gracepeterson2@outlook.com)
 <br/>
 Russian translations: [Daria Vinogradova](mailto:herrwerner278@gmail.com)
+
+### Supporters
+
+<img height="150" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" width="150"/><br/>
+Thanks to our lovely friends in Jetbrains, we have received <a href="https://jb.gg/OpenSourceSupport">open source licence</a> to all of their products.
