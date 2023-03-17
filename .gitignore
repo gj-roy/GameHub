@@ -19,3 +19,4 @@ settings.gradle.kts
 gradle.properties
 app/google-services.json
 *.properties
+app/src/main/java/ca/on/hojat/gamenews/core/data/api/ApiKeys.kt

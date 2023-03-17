@@ -1,6 +1,6 @@
 package ca.on.hojat.gamenews.core.data.api.igdb.common
 
-import ca.on.hojat.gamenews.BuildConfig
+import ca.on.hojat.gamenews.core.data.api.ApiKeys
 import javax.inject.Inject
 
 interface TwitchConstantsProvider {
@@ -10,7 +10,7 @@ interface TwitchConstantsProvider {
 }
 
 class ProdTwitchConstantsProvider @Inject constructor() : TwitchConstantsProvider {
-    override val clientId: String = BuildConfig.TWITCH_APP_CLIENT_ID
-    override val clientSecret: String = BuildConfig.TWITCH_APP_CLIENT_SECRET
+    override val clientId: String = ApiKeys["TWITCH_APP_CLIENT_ID"]!!
+    override val clientSecret: String = ApiKeys["TWITCH_APP_CLIENT_SECRET"]!!
     override val apiBaseUrl: String = Constants.TWITCH_API_BASE_URL
 }
