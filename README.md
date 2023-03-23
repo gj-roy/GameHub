@@ -36,19 +36,13 @@ App's UI and presentation layer are built entirely using the Jetpack Compose.
 <summary><b>Demo 1</b></summary>
 
 
-https://user-images.githubusercontent.com/14782808/111520186-88671800-8760-11eb-8995-8e45a5cd9213.mp4
+https://user-images.githubusercontent.com/8706521/227368120-95590cee-d832-4426-a7e1-4b3fa4e10c3a.mp4
 </details>
 <details>
 <summary><b>Demo 2</b></summary>
 
 
-https://user-images.githubusercontent.com/14782808/111520260-9b79e800-8760-11eb-9665-1062ed2b2c24.mp4
-</details>
-<details>
-<summary><b>Demo 3</b></summary>
-
-
-https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-9dbe-0ffc44635ef8.mp4
+https://user-images.githubusercontent.com/8706521/227369894-81f89cab-8d60-428d-9583-5370024957fd.mp4
 </details>
 
 ### Screenshots
@@ -89,7 +83,9 @@ https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-
       provides an abstraction layer over SQLite to allow for more robust database access.
     - [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - DataStore
       is a data storage solution that stores key-value pairs or typed objects
-      with [protocol buffers](https://developers.google.com/protocol-buffers) (it's an asynchronous and safe replacement for the legacy [SharedPreferences](https://developer.android.com/reference/kotlin/android/content/SharedPreferences)).
+      with [protocol buffers](https://developers.google.com/protocol-buffers) (it's an asynchronous and safe replacement
+      for the
+      legacy [SharedPreferences](https://developer.android.com/reference/kotlin/android/content/SharedPreferences)).
     - [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - Hilt
       is a dependency injection library for Android which performs DI with an extensive use of annotations.
     - [Custom Tabs](https://developers.google.com/web/android/custom-tabs/implementation-guide) -
@@ -115,12 +111,12 @@ https://user-images.githubusercontent.com/14782808/111520365-b187a880-8760-11eb-
       Java and Android.
     - [MockK](https://github.com/mockk/mockk) - MockK is a mocking library for Kotlin.
     - [Coroutines Test](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-test) - A library
-          for testing Kotlin coroutines.
+      for testing Kotlin coroutines.
     - [Turbine](https://github.com/cashapp/turbine) - A testing library for Kotlin Flows.
     - [Dagger Hilt Test](https://developer.android.com/training/dependency-injection/hilt-testing) -
       A testing library for modifying the Dagger bindings in instrumented tests.
     - [Room Testing](https://developer.android.com/training/data-storage/room/migrating-db-versions#test) - A library
-  for testing Room migrations.
+      for testing Room migrations.
 - [Gradle's Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - Gradle’s Kotlin
   DSL is an alternative syntax to the Groovy DSL with an enhanced editing experience.
 - [buildSrc](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources)
