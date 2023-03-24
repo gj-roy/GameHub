@@ -21,6 +21,9 @@ object Tooling {
     val javaCompatibilityVersion = JavaVersion.VERSION_11
     val kotlinCompatibilityVersion = JavaVersion.VERSION_11
 
+    // Kover code coverage
+    const val kover = "0.7.0-Alpha"
+
     // https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md
     // some libs from open JDK to access Java 8 and later
     const val desugaredLibs = "com.android.tools:desugar_jdk_libs:1.1.5"

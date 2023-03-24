@@ -9,6 +9,7 @@ plugins {
     id(PLUGIN_KSP) version Tooling.kspPlugin
     id(PLUGIN_KOTLINX_SERIALIZATION) version Tooling.kotlin
     id(PLUGIN_DAGGER_HILT_ANDROID)
+    id(PLUGIN_KOVER) version Tooling.kover
 }
 
 android {
