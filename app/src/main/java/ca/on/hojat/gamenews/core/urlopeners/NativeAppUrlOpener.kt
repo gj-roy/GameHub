@@ -20,7 +20,7 @@ internal class NativeAppUrlOpener @Inject constructor() : UrlOpener {
             // API 30+
             openUrlInNewWay(url, context)
         } else {
-            // before API 30
+            // API 29 and below
             openUrlInLegacyWay(url, context)
         }
     }

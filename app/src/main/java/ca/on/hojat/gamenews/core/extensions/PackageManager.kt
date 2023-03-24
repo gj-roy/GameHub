@@ -1,11 +1,16 @@
 @file:JvmName("PackageManagerUtils")
+@file:Suppress("DEPRECATION")
 
 package ca.on.hojat.gamenews.core.extensions
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PackageInfoFlags
 import android.net.Uri
+import ca.on.hojat.gamenews.core.SdkInfo
 
 /**
  * Tries to figure out a package name of a native application that
@@ -45,4 +50,18 @@ fun PackageManager.getNativeAppPackageForUrl(url: String): String? {
  */
 fun PackageManager.canUrlBeOpenedByNativeApp(url: String): Boolean {
     return (getNativeAppPackageForUrl(url) != null)
+}
+
+/**
+ * In older versions, it uses a deprecated method for providing [PackageInfo] but in
+ * modern versions, that's been replaced with a safer option
+ */
+fun PackageManager.getPackageInfoSafely(context: Context): PackageInfo {
+    return if (SdkInfo.IS_AT_LEAST_TIRAMISU) {
+        // API 33+
+        getPackageInfo(context.packageName, PackageInfoFlags.of(0))
+    } else {
+        // API 32 and below
+        getPackageInfo(context.packageName, 0)
+    }
 }
