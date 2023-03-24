@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ResolveInfo
 import android.net.Uri
+import ca.on.hojat.gamenews.core.extensions.queryIntentActivitiesSafely
 import com.paulrybitskyi.hiltbinder.BindType
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -52,7 +53,7 @@ internal class CustomTabsProviderImpl @Inject constructor(
         val packageManager = context.packageManager
         val viewIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.example.com"))
 
-        return packageManager.queryIntentActivities(viewIntent, 0)
+        return packageManager.queryIntentActivitiesSafely(viewIntent)
     }
 
     private fun composeServiceIntent(resolveInfo: ResolveInfo): Intent {

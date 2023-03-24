@@ -9,6 +9,8 @@ import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.PackageInfoFlags
+import android.content.pm.PackageManager.ResolveInfoFlags
+import android.content.pm.ResolveInfo
 import android.net.Uri
 import ca.on.hojat.gamenews.core.SdkInfo
 
@@ -63,5 +65,21 @@ fun PackageManager.getPackageInfoSafely(context: Context): PackageInfo {
     } else {
         // API 32 and below
         getPackageInfo(context.packageName, 0)
+    }
+}
+
+/**
+ * You give it an [Intent] and it will return a list of
+ * all the app components that can resolve that intent.
+ * In later APIs, it uses a deprecated function and in newer APIs,
+ * calls a safer function.
+ */
+fun PackageManager.queryIntentActivitiesSafely(intent: Intent): List<ResolveInfo> {
+    return if (SdkInfo.IS_AT_LEAST_TIRAMISU) {
+        // API 33+
+        queryIntentActivities(intent, ResolveInfoFlags.of(0))
+    } else {
+        // API 32 and below
+        queryIntentActivities(intent, 0)
     }
 }
