@@ -32,7 +32,7 @@ internal class AuthExpiryTimeCalculatorTest {
 
     @Test
     fun `Calculates expiry time successfully`() {
-        val credentials = ca.on.hojat.gamenews.core.data.DOMAIN_OAUTH_CREDENTIALS
+        val credentials = DOMAIN_OAUTH_CREDENTIALS
         val expiryTime = sut.calculateExpiryTime(credentials)
         val expected =
             (CURRENT_TIMESTAMP + TimeUnit.SECONDS.toMillis(credentials.tokenTtl) - AUTH_TOKEN_TTL_DEDUCTION)

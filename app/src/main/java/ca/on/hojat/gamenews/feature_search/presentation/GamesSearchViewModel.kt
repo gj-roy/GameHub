@@ -3,19 +3,19 @@ package ca.on.hojat.gamenews.feature_search.presentation
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import ca.on.hojat.gamenews.R
-import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModel
-import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModelMapper
-import ca.on.hojat.gamenews.presentation.widgets.games.GamesUiState
-import ca.on.hojat.gamenews.presentation.widgets.games.mapToUiModels
 import ca.on.hojat.gamenews.core.BaseViewModel
-import ca.on.hojat.gamenews.core.events.GeneralCommand
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
+import ca.on.hojat.gamenews.core.events.GeneralCommand
 import ca.on.hojat.gamenews.core.extensions.onError
 import ca.on.hojat.gamenews.core.extensions.resultOrError
 import ca.on.hojat.gamenews.core.mappers.ErrorMapper
 import ca.on.hojat.gamenews.core.providers.StringProvider
 import ca.on.hojat.gamenews.feature_search.domain.SearchGamesUseCase
+import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModel
+import ca.on.hojat.gamenews.presentation.widgets.games.GameUiModelMapper
+import ca.on.hojat.gamenews.presentation.widgets.games.GamesUiState
+import ca.on.hojat.gamenews.presentation.widgets.games.mapToUiModels
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -184,7 +184,7 @@ internal class GamesSearchViewModel @Inject constructor(
     }
 
     private fun combineWithAlreadyLoadedGames(gamesUiState: GamesUiState): GamesUiState {
-        if (!gamesUiState.hasLoadedNewGames() || allLoadedGames.isEmpty()) {
+        if (gamesUiState.hasLoadedNewGames().not() || allLoadedGames.isEmpty()) {
             return gamesUiState
         }
 
@@ -208,7 +208,7 @@ internal class GamesSearchViewModel @Inject constructor(
     }
 
     private fun configureNextLoad(gamesUiState: GamesUiState) {
-        if (!gamesUiState.hasLoadedNewGames()) return
+        if (gamesUiState.hasLoadedNewGames().not()) return
 
         val paginationLimit = useCaseParams.pagination.limit
         val gameCount = gamesUiState.games.size
@@ -217,7 +217,7 @@ internal class GamesSearchViewModel @Inject constructor(
     }
 
     private fun updateTotalGamesResult(gamesUiState: GamesUiState) {
-        if (!gamesUiState.hasLoadedNewGames()) return
+        if (gamesUiState.hasLoadedNewGames().not()) return
 
         allLoadedGames = gamesUiState.games
     }
