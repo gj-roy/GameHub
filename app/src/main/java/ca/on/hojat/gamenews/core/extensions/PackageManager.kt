@@ -4,6 +4,7 @@
 package ca.on.hojat.gamenews.core.extensions
 
 import android.annotation.SuppressLint
+import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInfo
@@ -81,5 +82,21 @@ fun PackageManager.queryIntentActivitiesSafely(intent: Intent): List<ResolveInfo
     } else {
         // API 32 and below
         queryIntentActivities(intent, 0)
+    }
+}
+
+/**
+ * You give it an [Intent] and it will return the [ResolveInfo]
+ * referring to the [Service] that can resolve this intent. In
+ * later APIs, it uses a deprecated function and in newer APIs,
+ * calls a safer function.
+ */
+fun PackageManager.resolveServiceSafely(serviceIntent: Intent): ResolveInfo? {
+    return if (SdkInfo.IS_AT_LEAST_TIRAMISU) {
+        // API 33+
+        resolveService(serviceIntent, ResolveInfoFlags.of(0))
+    } else {
+        // API 32 and below
+        resolveService(serviceIntent, 0)
     }
 }

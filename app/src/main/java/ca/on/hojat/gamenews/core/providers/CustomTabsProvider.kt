@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.ResolveInfo
 import android.net.Uri
 import ca.on.hojat.gamenews.core.extensions.queryIntentActivitiesSafely
+import ca.on.hojat.gamenews.core.extensions.resolveServiceSafely
 import com.paulrybitskyi.hiltbinder.BindType
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -39,7 +40,7 @@ internal class CustomTabsProviderImpl @Inject constructor(
             for (resolveInfo in viewIntentResolveInfoList) {
                 val serviceIntent = composeServiceIntent(resolveInfo)
 
-                if (packageManager.resolveService(serviceIntent, 0) != null) {
+                if (packageManager.resolveServiceSafely(serviceIntent) != null) {
                     add(resolveInfo.activityInfo.packageName)
                 }
             }
