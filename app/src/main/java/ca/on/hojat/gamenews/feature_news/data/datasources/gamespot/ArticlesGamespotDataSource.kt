@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.feature_news.data.datastores.gamespot
+package ca.on.hojat.gamenews.feature_news.data.datasources.gamespot
 
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.domain.DomainResult

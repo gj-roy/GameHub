@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.feature_news.data.datastores.gamespot
+package ca.on.hojat.gamenews.feature_news.data.datasources.gamespot
 
 import ca.on.hojat.gamenews.feature_news.domain.DomainArticle
 import ca.on.hojat.gamenews.feature_news.domain.DomainImageType

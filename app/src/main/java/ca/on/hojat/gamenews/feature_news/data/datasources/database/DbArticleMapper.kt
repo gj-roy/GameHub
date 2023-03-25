@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.feature_news.data.datastores.database
+package ca.on.hojat.gamenews.feature_news.data.datasources.database
 
 import ca.on.hojat.gamenews.core.data.database.articles.DbArticle
 import ca.on.hojat.gamenews.core.data.database.articles.DbImageType

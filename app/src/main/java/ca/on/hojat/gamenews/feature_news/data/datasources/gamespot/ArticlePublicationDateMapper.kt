@@ -1,4 +1,4 @@
-package ca.on.hojat.gamenews.feature_news.data.datastores.gamespot
+package ca.on.hojat.gamenews.feature_news.data.datasources.gamespot
 
 import java.time.LocalDateTime
 import java.time.ZoneId

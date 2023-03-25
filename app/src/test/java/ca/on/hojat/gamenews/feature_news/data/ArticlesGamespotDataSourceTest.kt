@@ -8,9 +8,9 @@ import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
 import ca.on.hojat.gamenews.core.data.api.ApiErrorMapper
 import ca.on.hojat.gamenews.core.data.api.gamespot.articles.ArticlesEndpoint
 import ca.on.hojat.gamenews.core.data.api.gamespot.articles.entities.ApiArticle
-import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlePublicationDateMapper
-import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.ArticlesGamespotDataSource
-import ca.on.hojat.gamenews.feature_news.data.datastores.gamespot.GamespotArticleMapper
+import ca.on.hojat.gamenews.feature_news.data.datasources.gamespot.ArticlePublicationDateMapper
+import ca.on.hojat.gamenews.feature_news.data.datasources.gamespot.ArticlesGamespotDataSource
+import ca.on.hojat.gamenews.feature_news.data.datasources.gamespot.GamespotArticleMapper
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get

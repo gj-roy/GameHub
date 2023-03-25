@@ -6,9 +6,9 @@ import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.core.common_testing.domain.MainCoroutineRule
 import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
 import com.google.common.truth.Truth.assertThat
-import ca.on.hojat.gamenews.feature_news.data.datastores.database.ArticlesDatabaseDataSource
-import ca.on.hojat.gamenews.feature_news.data.datastores.database.DbArticleMapper
-import ca.on.hojat.gamenews.feature_news.data.datastores.database.mapToDatabaseArticles
+import ca.on.hojat.gamenews.feature_news.data.datasources.database.ArticlesDatabaseDataSource
+import ca.on.hojat.gamenews.feature_news.data.datasources.database.DbArticleMapper
+import ca.on.hojat.gamenews.feature_news.data.datasources.database.mapToDatabaseArticles
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify
 import io.mockk.every
@@ -19,7 +19,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-internal class ArticlesDatabaseDataStoreTest {
+internal class ArticlesDatabaseDataSourceTest {
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
