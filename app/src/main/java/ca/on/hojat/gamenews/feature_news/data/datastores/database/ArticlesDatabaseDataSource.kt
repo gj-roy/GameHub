@@ -4,7 +4,7 @@ import ca.on.hojat.gamenews.core.data.database.articles.ArticlesTable
 import ca.on.hojat.gamenews.core.data.database.articles.DbArticle
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataSource
+import ca.on.hojat.gamenews.feature_news.domain.repository.ArticlesLocalDataSource
 import ca.on.hojat.gamenews.feature_news.domain.entities.Article
 import com.paulrybitskyi.hiltbinder.BindType
 import kotlinx.coroutines.flow.Flow

@@ -3,7 +3,7 @@ package ca.on.hojat.gamenews.feature_news.domain.usecases
 import ca.on.hojat.gamenews.core.domain.common.DispatcherProvider
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.common.usecases.ObservableUseCase
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataSource
+import ca.on.hojat.gamenews.feature_news.domain.repository.ArticlesLocalDataSource
 import ca.on.hojat.gamenews.feature_news.domain.entities.Article
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase.Params
 import com.paulrybitskyi.hiltbinder.BindType

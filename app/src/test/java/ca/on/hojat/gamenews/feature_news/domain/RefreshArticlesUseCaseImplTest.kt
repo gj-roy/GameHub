@@ -14,9 +14,9 @@ import ca.on.hojat.gamenews.feature_news.domain.throttling.ArticlesRefreshingThr
 import ca.on.hojat.gamenews.feature_news.domain.throttling.ArticlesRefreshingThrottlerTools
 import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCaseImpl
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesDataStores
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataSource
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesRemoteDataSource
+import ca.on.hojat.gamenews.feature_news.domain.repository.ArticlesRepository
+import ca.on.hojat.gamenews.feature_news.domain.repository.ArticlesLocalDataSource
+import ca.on.hojat.gamenews.feature_news.domain.repository.ArticlesRemoteDataSource
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -51,7 +51,7 @@ internal class RefreshArticlesUseCaseImplTest {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
         sut = RefreshArticlesUseCaseImpl(
-            articlesDataStores = ArticlesDataStores(
+            articlesRepository = ArticlesRepository(
                 local = articlesLocalDataSource,
                 remote = articlesRemoteDataSource
             ),

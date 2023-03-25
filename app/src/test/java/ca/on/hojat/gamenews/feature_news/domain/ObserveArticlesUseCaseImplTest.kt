@@ -7,7 +7,7 @@ import ca.on.hojat.gamenews.core.common_testing.domain.PAGINATION
 import com.google.common.truth.Truth.assertThat
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCase
 import ca.on.hojat.gamenews.feature_news.domain.usecases.ObserveArticlesUseCaseImpl
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesLocalDataSource
+import ca.on.hojat.gamenews.feature_news.domain.repository.ArticlesLocalDataSource
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

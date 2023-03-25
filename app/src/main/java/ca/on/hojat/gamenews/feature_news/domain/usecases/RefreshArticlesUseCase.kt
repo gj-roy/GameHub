@@ -5,7 +5,7 @@ import ca.on.hojat.gamenews.core.domain.DomainResult
 import ca.on.hojat.gamenews.core.extensions.onEachSuccess
 import ca.on.hojat.gamenews.core.domain.entities.Pagination
 import ca.on.hojat.gamenews.core.domain.common.usecases.ObservableUseCase
-import ca.on.hojat.gamenews.feature_news.domain.datastores.ArticlesDataStores
+import ca.on.hojat.gamenews.feature_news.domain.repository.ArticlesRepository
 import ca.on.hojat.gamenews.feature_news.domain.entities.Article
 import ca.on.hojat.gamenews.feature_news.domain.throttling.ArticlesRefreshingThrottlerTools
 import ca.on.hojat.gamenews.feature_news.domain.usecases.RefreshArticlesUseCase.Params
@@ -27,7 +27,7 @@ internal interface RefreshArticlesUseCase : ObservableUseCase<Params, DomainResu
 @Singleton
 @BindType
 internal class RefreshArticlesUseCaseImpl @Inject constructor(
-    private val articlesDataStores: ArticlesDataStores,
+    private val articlesRepository: ArticlesRepository,
     private val dispatcherProvider: DispatcherProvider,
     private val throttlerTools: ArticlesRefreshingThrottlerTools,
 ) : RefreshArticlesUseCase {
@@ -37,11 +37,11 @@ internal class RefreshArticlesUseCaseImpl @Inject constructor(
 
         return flow {
             if (throttlerTools.throttler.canRefreshArticles(throttlerKey)) {
-                emit(articlesDataStores.remote.getArticles(params.pagination))
+                emit(articlesRepository.remote.getArticles(params.pagination))
             }
         }
             .onEachSuccess { articles ->
-                articlesDataStores.local.saveArticles(articles)
+                articlesRepository.local.saveArticles(articles)
                 throttlerTools.throttler.updateArticlesLastRefreshTime(throttlerKey)
             }
             .flowOn(dispatcherProvider.main)
