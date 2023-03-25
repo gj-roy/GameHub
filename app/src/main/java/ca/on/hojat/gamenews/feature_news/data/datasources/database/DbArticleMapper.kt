@@ -6,9 +6,12 @@ import ca.on.hojat.gamenews.feature_news.domain.DomainArticle
 import ca.on.hojat.gamenews.feature_news.domain.DomainImageType
 import javax.inject.Inject
 
+/**
+ * All the conversions related to [DbArticle] are performed in here.
+ */
 internal class DbArticleMapper @Inject constructor() {
 
-    fun mapToDatabaseArticle(dataArticle: DomainArticle): DbArticle {
+    private fun mapToDatabaseArticle(dataArticle: DomainArticle): DbArticle {
         return DbArticle(
             id = dataArticle.id,
             body = dataArticle.body,
@@ -26,7 +29,7 @@ internal class DbArticleMapper @Inject constructor() {
         }
     }
 
-    fun mapToDomainArticle(databaseArticle: DbArticle): DomainArticle {
+    private fun mapToDomainArticle(databaseArticle: DbArticle): DomainArticle {
         return DomainArticle(
             id = databaseArticle.id,
             body = databaseArticle.body,
@@ -43,12 +46,12 @@ internal class DbArticleMapper @Inject constructor() {
             DomainImageType.valueOf(it.key.name)
         }
     }
-}
 
-internal fun DbArticleMapper.mapToDatabaseArticles(dataArticles: List<DomainArticle>): List<DbArticle> {
-    return dataArticles.map(::mapToDatabaseArticle)
-}
+    fun mapToDatabaseArticles(dataArticles: List<DomainArticle>): List<DbArticle> {
+        return dataArticles.map(::mapToDatabaseArticle)
+    }
 
-internal fun DbArticleMapper.mapToDomainArticles(databaseArticles: List<DbArticle>): List<DomainArticle> {
-    return databaseArticles.map(::mapToDomainArticle)
+    fun mapToDomainArticles(databaseArticles: List<DbArticle>): List<DomainArticle> {
+        return databaseArticles.map(::mapToDomainArticle)
+    }
 }
