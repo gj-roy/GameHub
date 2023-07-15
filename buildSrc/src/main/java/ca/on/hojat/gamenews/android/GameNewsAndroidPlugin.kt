@@ -1,56 +1,35 @@
 package ca.on.hojat.gamenews.android
 
 import com.android.build.gradle.BaseExtension
+import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import java.util.Properties
+import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import PLUGIN_ANDROID_APPLICATION
-import PLUGIN_KOTLIN_ANDROID
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import org.gradle.kotlin.dsl.findByType
-import java.util.Properties
 
 class GameNewsAndroidPlugin : Plugin<Project> {
 
-    private companion object {
-        const val BUILD_TYPE_DEBUG = "debug"
-        const val BUILD_TYPE_RELEASE = "release"
-        const val SIGNING_CONFIG_RELEASE = "release"
-        const val KEYSTORE_FILE_NAME = "keystore.properties"
-    }
-
     override fun apply(project: Project) = with(project) {
-        setupPlugins()
-        configurePlugins()
-    }
-
-    private fun Project.setupPlugins() {
-        plugins.apply(PLUGIN_KOTLIN_ANDROID)
-    }
-
-    private fun Project.configurePlugins() {
-        configureAndroidCommonInfo()
-        configureAndroidApplicationId()
-    }
-
-    private fun Project.configureAndroidCommonInfo() {
+        plugins.apply("kotlin-android")
         extensions.findByType<BaseExtension>()?.run {
-            compileSdkVersion(AppConfig.compileSdkVersion)
+            compileSdkVersion(33)
 
             defaultConfig {
-                minSdk = AppConfig.minSdkVersion
-                targetSdk = AppConfig.targetSdkVersion
-                versionCode = AppConfig.versionCode
-                versionName = AppConfig.versionName
+                minSdk = 21
+                targetSdk = 31
+                versionCode = 5
+                versionName = "1.3.0"
 
                 testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             }
 
             buildTypes {
-                getByName(BUILD_TYPE_DEBUG) {
+                getByName("debug") {
                     sourceSets {
-                        getByName(BUILD_TYPE_DEBUG) {
-                            java.srcDir(file("build/generated/ksp/$BUILD_TYPE_DEBUG/java"))
-                            java.srcDir(file("build/generated/ksp/$BUILD_TYPE_DEBUG/kotlin"))
+                        getByName("debug") {
+                            java.srcDir(file("build/generated/ksp/debug/java"))
+                            java.srcDir(file("build/generated/ksp/debug/kotlin"))
                         }
                     }
 
@@ -60,11 +39,11 @@ class GameNewsAndroidPlugin : Plugin<Project> {
                     manifestPlaceholders["usesCleartextTraffic"] = true
                 }
 
-                getByName(BUILD_TYPE_RELEASE) {
+                getByName("release") {
                     sourceSets {
-                        getByName(BUILD_TYPE_RELEASE) {
-                            java.srcDir(file("build/generated/ksp/$BUILD_TYPE_RELEASE/java"))
-                            java.srcDir(file("build/generated/ksp/$BUILD_TYPE_RELEASE/kotlin"))
+                        getByName("release") {
+                            java.srcDir(file("build/generated/ksp/release/java"))
+                            java.srcDir(file("build/generated/ksp/release/kotlin"))
                         }
                     }
 
@@ -80,8 +59,8 @@ class GameNewsAndroidPlugin : Plugin<Project> {
             }
 
             compileOptions {
-                sourceCompatibility = Tooling.javaCompatibilityVersion
-                targetCompatibility = Tooling.javaCompatibilityVersion
+                sourceCompatibility = JavaVersion.VERSION_11
+                targetCompatibility = JavaVersion.VERSION_11
             }
 
             lintOptions {
@@ -90,29 +69,31 @@ class GameNewsAndroidPlugin : Plugin<Project> {
             }
 
         }
-    }
 
-    private fun Project.configureAndroidApplicationId() {
-        plugins.withId(PLUGIN_ANDROID_APPLICATION) {
+        plugins.withId("com.android.application") {
             extensions.findByType<BaseAppModuleExtension>()?.run {
                 defaultConfig {
-                    applicationId = AppConfig.applicationId
+                    applicationId = "ca.on.hojat.gamenews"
                 }
 
                 signingConfigs {
-                    create(SIGNING_CONFIG_RELEASE) {
-                        if (rootProject.file(KEYSTORE_FILE_NAME).canRead()) {
-                            val properties = readProperties(KEYSTORE_FILE_NAME)
+                    create("release") {
+                        if (rootProject.file("keystore.properties").canRead()) {
+                            val properties = Properties().apply {
+                                load(rootProject.file("keystore.properties").inputStream())
+                            }
 
-                            storeFile = file(properties.getValue("storeFile"))
-                            storePassword = properties.getValue("storePassword")
-                            keyAlias = properties.getValue("keyAlias")
-                            keyPassword = properties.getValue("keyPassword")
+                            storeFile = file(properties.get("storeFile") as Any)
+                            storePassword = properties.get("storePassword") as String?
+
+                            keyAlias = properties.get("keyAlias") as String?
+                            keyPassword = properties.get("keyPassword") as String?
+
                         } else {
                             println(
                                 """
                                 Cannot create a release signing config. The file,
-                                $KEYSTORE_FILE_NAME, either does not exist or
+                                keystore.properties, either does not exist or
                                 cannot be read from.
                             """.trimIndent()
                             )
@@ -121,22 +102,12 @@ class GameNewsAndroidPlugin : Plugin<Project> {
                 }
 
                 buildTypes {
-                    getByName(BUILD_TYPE_RELEASE) {
-                        signingConfig = signingConfigs.getByName(SIGNING_CONFIG_RELEASE)
+                    getByName("release") {
+                        signingConfig = signingConfigs.getByName("release")
                     }
                 }
             }
         }
     }
 
-    private fun Project.readProperties(fileName: String): Properties {
-        return Properties().apply {
-            load(rootProject.file(fileName).inputStream())
-        }
-    }
-
-    @Suppress("UNCHECKED_CAST")
-    private fun <T> Properties.getValue(key: String): T {
-        return (get(key) as T)
-    }
 }

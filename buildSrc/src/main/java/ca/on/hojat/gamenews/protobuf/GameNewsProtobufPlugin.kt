@@ -1,31 +1,20 @@
 package ca.on.hojat.gamenews.protobuf
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-import PLUGIN_PROTOBUF
 import com.google.protobuf.gradle.generateProtoTasks
 import com.google.protobuf.gradle.id
 import com.google.protobuf.gradle.protobuf
 import com.google.protobuf.gradle.protoc
+import org.gradle.api.Plugin
+import org.gradle.api.Project
 import org.gradle.kotlin.dsl.invoke
 
-@Suppress("DEPRECATION")
 class GameNewsProtobufPlugin : Plugin<Project> {
 
-    override fun apply(project: Project) = with(project) {
-        setupPlugin()
-        configurePlugin()
-        addProtobufDependency()
-    }
-
-    private fun Project.setupPlugin() {
-        plugins.apply(PLUGIN_PROTOBUF)
-    }
-
-    private fun Project.configurePlugin() {
+    override fun apply(project: Project): Unit = with(project) {
+        plugins.apply("com.google.protobuf")
         protobuf {
             protoc {
-                artifact = Tooling.protobufCompiler
+                artifact = "com.google.protobuf:protoc:3.21.4"
             }
 
             generateProtoTasks {
@@ -38,9 +27,7 @@ class GameNewsProtobufPlugin : Plugin<Project> {
                 }
             }
         }
+        dependencies.add("implementation", "com.google.protobuf:protobuf-javalite:3.21.4")
     }
 
-    private fun Project.addProtobufDependency() {
-        dependencies.add("implementation", Tooling.protobuf)
-    }
 }

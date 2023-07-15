@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id(PLUGIN_GRADLE_VERSIONS) version Tooling.gradleVersionsPlugin
+    id("com.github.ben-manes.versions") version "0.42.0"
 }
 
 buildscript {
@@ -12,11 +12,13 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:${Tooling.gradlePluginVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Tooling.kotlin}")
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${Hilt.coreHiltVersion}")
-        classpath("com.google.protobuf:protobuf-gradle-plugin:${Tooling.protobufPluginVersion}")
-        classpath("com.github.ben-manes:gradle-versions-plugin:${Tooling.gradleVersionsPlugin}")
+        classpath("com.android.tools.build:gradle:7.2.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0")
+
+        // This should always be version of "coreHiltVersion".
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.43.2")
+        classpath("com.google.protobuf:protobuf-gradle-plugin:0.8.19")
+        classpath("com.github.ben-manes:gradle-versions-plugin:0.42.0")
     }
 }
 
@@ -52,11 +54,11 @@ subprojects {
                 "-opt-in=com.google.accompanist.pager.ExperimentalPagerApi",
             )
 
-            jvmTarget = Tooling.kotlinCompatibilityVersion.toString()
+            jvmTarget = JavaVersion.VERSION_11.toString()
         }
     }
 
-    plugins.withId(PLUGIN_KOTLIN_KAPT) {
+    plugins.withId("kotlin-kapt") {
         extensions.findByType<KaptExtension>()?.run {
             correctErrorTypes = true
         }
@@ -64,10 +66,11 @@ subprojects {
 
     // https://stackoverflow.com/a/70348822/7015881
     // https://issuetracker.google.com/issues/238425626
+    // (To be deleted when the linked issue is fixed.)
     configurations.all {
         resolutionStrategy.eachDependency {
             if (requested.group == "androidx.lifecycle" && requested.name == "lifecycle-viewmodel-ktx") {
-                useVersion(AndroidX.viewModel)
+                useVersion("2.5.1")
             }
         }
     }
