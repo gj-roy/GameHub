@@ -7,6 +7,7 @@ import java.util.Properties
 
 plugins {
     id("com.android.application")
+    id("com.facebook.react")
     id("com.google.protobuf")
     id("kotlin-kapt")
     id("kotlin-android")
@@ -184,6 +185,10 @@ dependencies {
     val mockWebServerVersion = "4.10.0"
     val archCoreVersion = "2.1.0"
     val hiltBinderVersion = "1.1.2"
+
+    // React Native dependencies
+    implementation ("com.facebook.react:react-android")
+    implementation ("com.facebook.react:hermes-android")
 
     // Protobuf
     implementation("com.google.protobuf:protobuf-javalite:3.21.4")
