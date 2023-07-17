@@ -2,6 +2,7 @@ import com.google.protobuf.gradle.generateProtoTasks
 import com.google.protobuf.gradle.id
 import com.google.protobuf.gradle.protobuf
 import com.google.protobuf.gradle.protoc
+import groovy.lang.Closure
 import java.util.Properties
 
 
@@ -187,8 +188,8 @@ dependencies {
     val hiltBinderVersion = "1.1.2"
 
     // React Native dependencies
-    implementation ("com.facebook.react:react-android")
-    implementation ("com.facebook.react:hermes-android")
+    implementation("com.facebook.react:react-android")
+    implementation("com.facebook.react:hermes-android")
 
     // Protobuf
     implementation("com.google.protobuf:protobuf-javalite:3.21.4")
@@ -294,3 +295,8 @@ val installGitHook by tasks.registering(Copy::class) {
 }
 
 tasks.getByPath(":app:preBuild").dependsOn(installGitHook)
+
+// including the RN's native android code:
+apply(from = file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"))
+val applyNativeModules: Closure<Any> = extra.get("applyNativeModulesAppBuildGradle") as Closure<Any>
+applyNativeModules(project)
