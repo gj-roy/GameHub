@@ -1,16 +1,26 @@
+import com.google.protobuf.gradle.generateProtoTasks
+import com.google.protobuf.gradle.id
+import com.google.protobuf.gradle.protobuf
+import com.google.protobuf.gradle.protoc
+import java.util.Properties
+
+
 plugins {
     id("com.android.application")
-    id("ca.on.hojat.gamenews.android")
-    id("ca.on.hojat.gamenews.protobuf")
+    id("com.google.protobuf")
     id("kotlin-kapt")
+    id("kotlin-android")
     id("com.google.devtools.ksp") version "1.7.0-1.0.6"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.7.0"
     id("dagger.hilt.android.plugin")
 }
 
 android {
+    compileSdk = 33
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     buildFeatures {
@@ -19,6 +29,13 @@ android {
     }
 
     defaultConfig {
+
+        applicationId = "ca.on.hojat.gamenews"
+        minSdk = 21
+        targetSdk = 31
+        versionCode = 5
+        versionName = "1.3.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField(
             "String",
@@ -71,23 +88,80 @@ android {
 
     buildTypes {
         getByName("debug") {
+            sourceSets {
+                getByName("debug") {
+                    java.srcDir(file("build/generated/ksp/debug/java"))
+                    java.srcDir(file("build/generated/ksp/debug/kotlin"))
+                }
+            }
+
             isDebuggable = true
             isMinifyEnabled = false
+
+            // Enabling accessing sites with http schemas for testing (especially
+            // instrumented tests using MockWebServer) and disabling it in the
+            // production to avoid security issues
+            manifestPlaceholders["usesCleartextTraffic"] = true
         }
 
         getByName("release") {
+
             isDebuggable = false
             isMinifyEnabled = true
+
+            sourceSets {
+                getByName("release") {
+                    java.srcDir(file("build/generated/ksp/release/java"))
+                    java.srcDir(file("build/generated/ksp/release/kotlin"))
+                }
+            }
+
+            manifestPlaceholders["usesCleartextTraffic"] = false
+
+
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+
         }
     }
 
     signingConfigs {
+
+        create("release") {
+            if (rootProject.file("keystore.properties").canRead()) {
+                val properties = Properties().apply {
+                    load(rootProject.file("keystore.properties").inputStream())
+                }
+
+                storeFile = file(properties.get("storeFile") as Any)
+                storePassword = properties.get("storePassword") as String?
+
+                keyAlias = properties.get("keyAlias") as String?
+                keyPassword = properties.get("keyPassword") as String?
+
+            } else {
+                println(
+                    """
+                                Cannot create a release signing config. The file,
+                                keystore.properties, either does not exist or
+                                cannot be read from.
+                            """.trimIndent()
+                )
+            }
+        }
         getByName("release") {
             storeFile = file("/Users/hojat.ghasemi/Documents/Android/key/upload-keystore.jks")
             keyPassword = "j@va1android"
             storePassword = "j@va1android"
             keyAlias = "uploadkey"
         }
+    }
+
+    lintOptions {
+        checkOnly("NewApi", "HandlerLeak", "MissingTranslation")
+        baseline(file("lint-baseline.xml"))
     }
 }
 
@@ -110,6 +184,9 @@ dependencies {
     val mockWebServerVersion = "4.10.0"
     val archCoreVersion = "2.1.0"
     val hiltBinderVersion = "1.1.2"
+
+    // Protobuf
+    implementation("com.google.protobuf:protobuf-javalite:3.21.4")
 
     // appcompat
     implementation("androidx.appcompat:appcompat:$appCompatVersion")
@@ -186,6 +263,22 @@ dependencies {
     implementation("com.michael-bull.kotlin-result:kotlin-result:1.1.16")
     implementation("io.coil-kt:coil-compose:2.1.0")
     implementation("com.mxalbert.zoomable:zoomable:1.5.1")
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.21.4"
+    }
+
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                id("java") {
+                    option("lite")
+                }
+            }
+        }
+    }
 }
 
 val installGitHook by tasks.registering(Copy::class) {
