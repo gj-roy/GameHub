@@ -44,6 +44,12 @@
 
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
+        <!--        This is the root activity to the React Native part of the app. -->
+        <activity
+            android:name=".ReactActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
         <receiver
             android:name=".core.downloader.DownloadCompletionReceiver"
             android:exported="true">

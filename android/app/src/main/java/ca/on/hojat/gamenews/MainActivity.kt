@@ -1,8 +1,5 @@
 package ca.on.hojat.gamenews
 
-import android.content.Intent
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +11,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.snapshotFlow
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 import ca.on.hojat.gamenews.core.domain.common.usecases.execute
 import ca.on.hojat.gamenews.core.downloader.Downloader
 import ca.on.hojat.gamenews.core.providers.NetworkStateProvider
@@ -23,18 +19,13 @@ import ca.on.hojat.gamenews.core.urlopeners.UrlOpener
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Settings
 import ca.on.hojat.gamenews.feature_settings.domain.entities.Theme
 import ca.on.hojat.gamenews.feature_settings.domain.usecases.ObserveThemeUseCase
+import ca.on.hojat.gamenews.presentation.theme.GameHubTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.filterNotNull
-import timber.log.Timber
-import android.provider.Settings as SystemSettings
 import javax.inject.Inject
+import kotlinx.coroutines.flow.filterNotNull
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    companion object {
-        private const val OVERLAY_PERMISSION_REQ_CODE = 1
-    }
 
     @Inject
     lateinit var urlOpener: UrlOpener
@@ -53,45 +44,11 @@ class MainActivity : AppCompatActivity() {
 
     private var shouldKeepSplashOpen = true
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-
-        if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (SystemSettings.canDrawOverlays(this).not()) {
-                    // SYSTEM_ALERT_WINDOW permission not granted
-                    Timber.e("User didn't grant the permission for overlaying window.")
-                }
-            }
-        }
-//        reactInstanceManager?.onActivityResult(this, requestCode, resultCode, data)
-
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         setupSplashScreen()
         super.onCreate(savedInstanceState)
         setupSystemBars()
         setupCompose()
-        checkOverlayPermission()
-    }
-
-    /**
-     * In debug build of the app, this function will check if the app has permission to open up
-     * debug window in front of other windows (user has to give this permission). Should not be included in
-     * release build of the app.
-     */
-    private fun checkOverlayPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (SystemSettings.canDrawOverlays(this).not()) {
-                val intent = Intent(
-                    SystemSettings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package: $packageName")
-                )
-                startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
-            }
-        }
-
     }
 
     private fun setupSplashScreen() {
