@@ -1,4 +1,3 @@
-import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 const HelloWorld = () => {
@@ -22,6 +21,6 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent(
-    'GameHub',
+    'ReactActivity',
     () => HelloWorld,
 );

@@ -31,7 +31,7 @@ class ReactActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
         if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (Settings.canDrawOverlays(this).not()) {
-                    // SYSTEM_ALERT_WINDOW permission not granted
+                    // SYSTEM_ALERT_WINDOW permission is not granted.
                     Timber.e("User didn't grant the permission for overlaying window.")
                 }
             }
@@ -60,8 +60,10 @@ class ReactActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
             .build()
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
-        reactRootView.startReactApplication(reactInstanceManager, "GameHub", null)
+        reactRootView.startReactApplication(reactInstanceManager, "ReactActivity", null)
         setContentView(reactRootView)
+
+        // Check if overlay permission is granted.
         checkOverlayPermission()
     }
 
