@@ -5,3 +5,4 @@ android/buildSrc/build/
 android/buildSrc/.gradle/
 node_modules/
 package-lock.json
+.expo/
