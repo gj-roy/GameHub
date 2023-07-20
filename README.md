@@ -1,19 +1,16 @@
-# `Game Hub` Android app
+# `Game Hub` React Native App
 
-<a href='https://play.google.com/store/apps/details?id=ca.on.hojat.gamenews'><img src='/media/button-google-play.svg' alt='Get it on Google Play' height='45' /></a>
+<a href='https://play.google.com/store/apps/details?id=ca.on.hojat.gamenews'><img src='./media/button-google-play.svg' alt='Get it on Google Play' height='45' /></a>
 
-[![Build](https://github.com/hojat72elect/GameHub/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/hojat72elect/GameHub/actions/workflows/build.yml)
 ![Min API](https://img.shields.io/badge/API-21%2B-orange.svg?style=flat)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](http://developer.android.com/index.html)
 
-This is an Android client for <a href="https://www.igdb.com/">IGDB</a>
-and <a href="https://dev.twitch.tv/">Twitch</a> APIs for all the latest news and information about
-video games.
+This is a React Native app for getting all the latest news and information about
+video games; it currently uses <a href="https://www.igdb.com/">IGDB</a>
+and <a href="https://dev.twitch.tv/">Twitch</a> APIs.
 
 The trello board I use for keeping track of all the tickets of this project is shared in here:
 https://trello.com/b/lG03zl6P/game-news-app
-
-App's UI and presentation layer are built entirely using the Jetpack Compose.
 
 ## Contents
 
@@ -48,14 +45,14 @@ https://user-images.githubusercontent.com/8706521/227369894-81f89cab-8d60-428d-9
 ### Screenshots
 
 <p>
-<img src="/media/screenshot1.png" width="32%"/>
-<img src="/media/screenshot2.png" width="32%"/>
-<img src="/media/screenshot3.png" width="32%"/>
+<img src="./media/screenshot1.png" width="32%"/>
+<img src="./media/screenshot2.png" width="32%"/>
+<img src="./media/screenshot3.png" width="32%"/>
 </p>
 <p>
-<img src="/media/screenshot4.png" width="32%"/>
-<img src="/media/screenshot5.png" width="32%"/>
-<img src="/media/screenshot6.png" width="32%"/>
+<img src="./media/screenshot4.png" width="32%"/>
+<img src="./media/screenshot5.png" width="32%"/>
+<img src="./media/screenshot6.png" width="32%"/>
 </p>
 
 ## Tech Stack
@@ -153,16 +150,17 @@ Please pay attention that in order to build and run this app, you will need to h
 API keys from [IGDB](https://api-docs.igdb.com/#getting-started)
 and [GameSpot](https://www.gamespot.com/api/)
 respectively. Their websites provide enough information to do so.<br/>
-We are currently trying to convert this project into a multiplatform app which can work on Android,
-iOS, web, and
-desktop. Following the migration, the corresponding code of conduct for each module will be
-provided.<br/>
-For the time-being, the best way for starting contribution to this project is to just fork the repo,
-start playing with
-**main** branch and when you felt comfortable enough with it, have a look at
-our [trello board](https://trello.com/b/lG03zl6P/gamehub) and choose a ticket you feel most
-comfortable with. If you
-like to add a feature that's not mentioned in trello board, just open an issue for it.
+
+<span style="background-color: #008200">This repo is currently in the process of being fully migrated from a Native
+Android app to a multiplatform React Native
+project. Following the migration, the corresponding code of conduct for each module will be
+provided.<br/></span>
+
+<span style="background-color: #900000">For the time-being, I am mostly in need of developers who can help me with
+migrating the app to React Native. Please hit
+me
+up with an email if you are interested in cooperating in this project. I plan to sell ads and subscriptions on this app
+in the future, so hopefully, your efforts will be paid accordingly.<br/></span>
 
 ### Contributors
 
@@ -176,4 +174,4 @@ Russian translations: [Daria Vinogradova](mailto:herrwerner278@gmail.com)
 
 <img height="150" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" width="150"/><br/>
 Thanks to our lovely friends in Jetbrains, we have
-received <a href="https://jb.gg/OpenSourceSupport">open source licence</a> to all of their products.
+received <a href="https://jb.gg/OpenSourceSupport">open source licence</a> to all of their products ❤️.
