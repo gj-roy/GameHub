@@ -30,7 +30,7 @@
         <!-- See this https://stackoverflow.com/a/68899786/7015881 why tools:ignore is needed above -->
 
         <activity
-            android:name=".MainActivity"
+            android:name=".LegacyMainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
@@ -39,9 +39,9 @@
 
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
-        <!--        This is the root activity to the React Native part of the app. -->
+        <!-- This is the root activity to the React Native part of the app. -->
         <activity
-            android:name=".ReactActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
