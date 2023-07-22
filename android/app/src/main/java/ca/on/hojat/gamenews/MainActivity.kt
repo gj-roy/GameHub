@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(null)
         SoLoader.init(this, false)
         reactRootView = ReactRootView(this)
         val packages: List<ReactPackage> = PackageList(application).packages
