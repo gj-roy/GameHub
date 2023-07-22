@@ -1,3 +1,4 @@
+// Never convert this file to TSX.
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 const HelloWorld = () => {
