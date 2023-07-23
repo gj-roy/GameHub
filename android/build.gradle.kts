@@ -75,4 +75,16 @@ subprojects {
             }
         }
     }
+
+    // unfortunately, "react-native-svg" is currently (version 13.10.0) using compile sdk version 28
+    // which makes it non-compatible with my build environment. This script below forces all of our
+    // dependencies to be compiled with SDK 33 and build tools 33.0.0.
+    afterEvaluate {
+        if ((plugins.hasPlugin("android") || plugins.hasPlugin("android-library"))) {
+            configure<com.android.build.gradle.BaseExtension> {
+                compileSdkVersion(33)
+                buildToolsVersion("33.0.0")
+            }
+        }
+    }
 }
