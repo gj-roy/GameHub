@@ -3,7 +3,11 @@ import React from 'react'
 
 export const NewsScreen = () => {
     return (
-        <View>
+        <View style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}>
             <Text>NewsScreen</Text>
         </View>
     )

@@ -3,7 +3,11 @@ import React from 'react'
 
 export const LikesScreen = () => {
     return (
-        <View>
+        <View style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}>
             <Text>LikesScreen</Text>
         </View>
     )
