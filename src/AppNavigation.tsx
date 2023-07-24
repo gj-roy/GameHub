@@ -1,7 +1,7 @@
 import {Text, View} from 'react-native'
 import React from 'react'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {findFocusedRoute, NavigationContainer, Route} from "@react-navigation/native";
+import {NavigationContainer, Route} from "@react-navigation/native";
 import {DiscoverScreen} from "./DiscoverScreen";
 import {LikesScreen} from "./LikesScreen";
 import {NewsScreen} from "./NewsScreen";
