@@ -19,6 +19,7 @@ import {
     NewspaperIcon as NewspaperOutline,
     Cog6ToothIcon as SettingsOutline,
 } from "react-native-heroicons/outline";
+import {GameHubColors} from "./theme/GameHubTheme";
 
 export const AppNavigation = () => {
 
@@ -28,13 +29,17 @@ export const AppNavigation = () => {
     const menuIcons = (route: Route<any>, focused: boolean) => {
         let icon;
         if (route.name === 'discover') {
-            icon = focused ? <HomeSolid size={30} color="#f64b59"/> : <HomeOutline size={30} color="#4f5c68"/>
+            icon = focused ? <HomeSolid size={30} color={GameHubColors.secondary}/> :
+                <HomeOutline size={30} color={GameHubColors.primary}/>
         } else if (route.name === 'likes') {
-            icon = focused ? <HeartSolid size={30} color="#f64b59"/> : <HeartOutline size={30} color="#4f5c68"/>
+            icon = focused ? <HeartSolid size={30} color={GameHubColors.secondary}/> :
+                <HeartOutline size={30} color={GameHubColors.primary}/>
         } else if (route.name === 'news') {
-            icon = focused ? <NewspaperSolid size={30} color="#f64b59"/> : <NewspaperOutline size={30} color="#4f5c68"/>
+            icon = focused ? <NewspaperSolid size={30} color={GameHubColors.secondary}/> :
+                <NewspaperOutline size={30} color={GameHubColors.primary}/>
         } else if (route.name === 'settings') {
-            icon = focused ? <SettingsSolid size={30} color="#f64b59"/> : <SettingsOutline size={30} color="#4f5c68"/>
+            icon = focused ? <SettingsSolid size={30} color={GameHubColors.secondary}/> :
+                <SettingsOutline size={30} color={GameHubColors.primary}/>
         }
 
         return (
@@ -53,16 +58,17 @@ export const AppNavigation = () => {
 
         let label;
         if (route.name === 'discover') {
-            label = focused ? <Text style={{color: '#f64b59'}}>Discover</Text> :
-                <Text style={{color: '#4f5c68'}}>Discover</Text>
+            label = focused ? <Text style={{color: GameHubColors.secondary}}>Discover</Text> :
+                <Text style={{color: GameHubColors.primary}}>Discover</Text>
         } else if (route.name === 'likes') {
-            label = focused ? <Text style={{color: '#f64b59'}}>Likes</Text> :
-                <Text style={{color: '#4f5c68'}}>likes</Text>
+            label = focused ? <Text style={{color: GameHubColors.secondary}}>Likes</Text> :
+                <Text style={{color: GameHubColors.primary}}>likes</Text>
         } else if (route.name === 'news') {
-            label = focused ? <Text style={{color: '#f64b59'}}>News</Text> : <Text style={{color: '#4f5c68'}}>News</Text>
+            label = focused ? <Text style={{color: GameHubColors.secondary}}>News</Text> :
+                <Text style={{color: GameHubColors.primary}}>News</Text>
         } else if (route.name === 'settings') {
-            label = focused ? <Text style={{color: '#f64b59'}}>Settings</Text> :
-                <Text style={{color: '#4f5c68'}}>Settings</Text>
+            label = focused ? <Text style={{color: GameHubColors.secondary}}>Settings</Text> :
+                <Text style={{color: GameHubColors.primary}}>Settings</Text>
         }
         return label;
     }
