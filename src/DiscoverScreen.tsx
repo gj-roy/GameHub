@@ -1,6 +1,7 @@
-import {View} from 'react-native'
+import {ScrollView} from 'react-native'
 import React from 'react'
 import {GamesCategoryPreview, GamesCategoryPreviewDataModel} from "./ui/GamesCategoryPreview";
+import {GameHubColors} from "./theme/GameHubTheme";
 
 export const DiscoverScreen = () => {
 
@@ -24,10 +25,15 @@ export const DiscoverScreen = () => {
     ];
 
     return (
-        <View style={{
+        <ScrollView style={{
             flex: 1,
+            backgroundColor: GameHubColors.neutral
         }}>
             <GamesCategoryPreview title="popular" games={fakeGames}/>
-        </View>
+            <GamesCategoryPreview title="Recently Released" games={fakeGames}/>
+            <GamesCategoryPreview title="Coming Soon" games={fakeGames}/>
+            <GamesCategoryPreview title="Most Anticipated" games={fakeGames}/>
+
+        </ScrollView>
     )
 }

@@ -4,7 +4,7 @@ import {GamesCategoryPreviewDataModel} from "./GamesCategoryPreview";
 import {ImageURISource} from "react-native/Libraries/Image/ImageSource";
 
 
-export type GamePreviewCardProps = {
+type GamePreviewCardProps = {
     game: GamesCategoryPreviewDataModel;
 
 };

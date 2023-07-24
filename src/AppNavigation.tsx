@@ -46,7 +46,6 @@ export const AppNavigation = () => {
             <View
                 style={{
                     alignItems: 'center',
-                    backgroundColor: focused ? 'white' : undefined
                 }}
             >
                 {icon}
@@ -81,6 +80,10 @@ export const AppNavigation = () => {
             screenOptions={({route}) => ({
                 tabBarShowLabel: true,
                 headerShown: true,
+                headerStyle: {
+                    backgroundColor: GameHubColors.neutral,
+                },
+
                 tabBarIcon: ({focused}) => menuIcons(route, focused),
                 tabBarLabel: ({focused}) => menuLabels(route, focused),
                 tabBarStyle: {

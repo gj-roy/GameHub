@@ -6,7 +6,7 @@ import {GamePreviewCard} from "./GamePreviewCard";
 /**
  * Everything that will be fed to {GamesCategoryPreview}.
  */
-export type GamesCategoryPreviewProps = {
+type GamesCategoryPreviewProps = {
     title: string;
     games: GamesCategoryPreviewDataModel[];
 };
@@ -30,9 +30,10 @@ export const GamesCategoryPreview = ({title, games}: GamesCategoryPreviewProps) 
     return (
         <View style={{
             flexDirection: 'column',
-            paddingVertical: 8,
+            paddingVertical: 10,
             paddingHorizontal: 12,
-            backgroundColor: 'lightgray'
+            marginBottom: 10,
+            backgroundColor: 'white'
         }}>
             <View style={{
                 flexDirection: 'row',
