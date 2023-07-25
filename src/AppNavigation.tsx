@@ -20,6 +20,8 @@ import {
     Cog6ToothIcon as SettingsOutline,
 } from "react-native-heroicons/outline";
 import {GameHubColors} from "./theme/GameHubTheme";
+import {Destination} from "./Destination";
+
 
 export const AppNavigation = () => {
 
@@ -28,16 +30,16 @@ export const AppNavigation = () => {
 
     const menuIcons = (route: Route<any>, focused: boolean) => {
         let icon;
-        if (route.name === 'discover') {
+        if (route.name === Destination.Discover.route) {
             icon = focused ? <HomeSolid size={30} color={GameHubColors.secondary}/> :
                 <HomeOutline size={30} color={GameHubColors.primary}/>
-        } else if (route.name === 'likes') {
+        } else if (route.name === Destination.Likes.route) {
             icon = focused ? <HeartSolid size={30} color={GameHubColors.secondary}/> :
                 <HeartOutline size={30} color={GameHubColors.primary}/>
-        } else if (route.name === 'news') {
+        } else if (route.name === Destination.News.route) {
             icon = focused ? <NewspaperSolid size={30} color={GameHubColors.secondary}/> :
                 <NewspaperOutline size={30} color={GameHubColors.primary}/>
-        } else if (route.name === 'settings') {
+        } else if (route.name === Destination.Settings.route) {
             icon = focused ? <SettingsSolid size={30} color={GameHubColors.secondary}/> :
                 <SettingsOutline size={30} color={GameHubColors.primary}/>
         }
@@ -56,18 +58,22 @@ export const AppNavigation = () => {
     function menuLabels(route: Route<any>, focused: boolean) {
 
         let label;
-        if (route.name === 'discover') {
-            label = focused ? <Text style={{color: GameHubColors.secondary}}>Discover</Text> :
-                <Text style={{color: GameHubColors.primary}}>Discover</Text>
-        } else if (route.name === 'likes') {
-            label = focused ? <Text style={{color: GameHubColors.secondary}}>Likes</Text> :
-                <Text style={{color: GameHubColors.primary}}>likes</Text>
-        } else if (route.name === 'news') {
-            label = focused ? <Text style={{color: GameHubColors.secondary}}>News</Text> :
-                <Text style={{color: GameHubColors.primary}}>News</Text>
-        } else if (route.name === 'settings') {
-            label = focused ? <Text style={{color: GameHubColors.secondary}}>Settings</Text> :
-                <Text style={{color: GameHubColors.primary}}>Settings</Text>
+        if (route.name === Destination.Discover.route) {
+            label = focused ?
+                <Text style={{color: GameHubColors.secondary}}>{Destination.Discover.title}</Text> :
+                <Text style={{color: GameHubColors.primary}}>{Destination.Discover.title}</Text>
+        } else if (route.name === Destination.Likes.route) {
+            label = focused ?
+                <Text style={{color: GameHubColors.secondary}}>{Destination.Likes.title}</Text> :
+                <Text style={{color: GameHubColors.primary}}>{Destination.Likes.title}</Text>
+        } else if (route.name === Destination.News.route) {
+            label = focused ?
+                <Text style={{color: GameHubColors.secondary}}>{Destination.News.title}</Text> :
+                <Text style={{color: GameHubColors.primary}}>{Destination.News.title}</Text>
+        } else if (route.name === Destination.Settings.route) {
+            label = focused ?
+                <Text style={{color: GameHubColors.secondary}}>{Destination.Settings.title}</Text> :
+                <Text style={{color: GameHubColors.primary}}>{Destination.Settings.title}</Text>
         }
         return label;
     }
@@ -76,7 +82,7 @@ export const AppNavigation = () => {
 
 
         return (<Tab.Navigator
-            initialRouteName="discover"
+            initialRouteName={Destination.Discover.route}
             screenOptions={({route}) => ({
                 tabBarShowLabel: true,
                 headerShown: true,
@@ -89,15 +95,15 @@ export const AppNavigation = () => {
                 tabBarStyle: {
                     height: 60,
                     paddingBottom: 8,
-                    paddingTop:5,
+                    paddingTop: 5,
                 },
             })}
 
         >
-            <Tab.Screen name="discover" component={DiscoverScreen}/>
-            <Tab.Screen name="likes" component={LikesScreen}/>
-            <Tab.Screen name="news" component={NewsScreen}/>
-            <Tab.Screen name="settings" component={SettingsScreen}/>
+            <Tab.Screen name={Destination.Discover.route} component={DiscoverScreen}/>
+            <Tab.Screen name={Destination.Likes.route} component={LikesScreen}/>
+            <Tab.Screen name={Destination.News.route} component={NewsScreen}/>
+            <Tab.Screen name={Destination.Settings.route} component={SettingsScreen}/>
         </Tab.Navigator>)
     }
 
