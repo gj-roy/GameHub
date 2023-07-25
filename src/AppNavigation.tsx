@@ -89,6 +89,7 @@ export const AppNavigation = () => {
                 tabBarStyle: {
                     height: 60,
                     paddingBottom: 8,
+                    paddingTop:5,
                 },
             })}
 
