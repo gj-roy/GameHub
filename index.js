@@ -1,4 +1,4 @@
-// Never convert this file to TSX.
+// ⚠️ Never convert this file to TSX.⚠️
 import {AppRegistry} from 'react-native';
 import {AppNavigation} from "./src/AppNavigation";
 
