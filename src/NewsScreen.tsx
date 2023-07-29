@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 import {NewsScreenItem} from "./ui/NewsScreenItem";
 import {RemoteNewsArticlesDataSource} from "./data/api/news/RemoteNewsArticlesDataSource";
 import {convertApiNewsArticleToDomainNewsArticle, DomainNewsArticle} from "./data/entities/news/NewsArticle";
-import {ApiNewsResult} from "./data/entities/news/NewsResult";
 
 
 export const NewsScreen = () => {
@@ -12,8 +11,7 @@ export const NewsScreen = () => {
 
     const getRemoteNewsArticles = async () => {
         const dataSource = new RemoteNewsArticlesDataSource();
-        const data: ApiNewsResult | null = await dataSource.getArticles();
-        return data
+        return await dataSource.getArticles()
     }
 
     useEffect(() => {
