@@ -1,4 +1,4 @@
-import {View} from 'react-native'
+import {FlatList, View} from 'react-native'
 import React, {useEffect, useState} from 'react'
 import {NewsScreenItem} from "./ui/NewsScreenItem";
 import {ApiNewsResult} from "./data/api/ApiNewsEntities";
@@ -8,14 +8,8 @@ import {DomainNewsArticle} from "./data/entities/NewsArticle";
 
 export const NewsScreen = () => {
 
-    const [sampleNewsItem, setSampleNewsItem] = useState<DomainNewsArticle>({
-        id: -1,
-        title: "",
-        lede: "",
-        publish_date: "",
-        site_detail_url: "",
-        image: "",
-    });
+    const [newsArticles, setNewsArticles] = useState<DomainNewsArticle[]>([]);
+
     const getRemoteNewsArticles = async () => {
         const dataSource = new RemoteNewsArticlesDataSource();
         const data: ApiNewsResult | null = await dataSource.getArticles();
@@ -26,16 +20,17 @@ export const NewsScreen = () => {
     useEffect(() => {
         getRemoteNewsArticles().then(apiResult => {
 
-            const sampleNewsArticle = apiResult?.results[10] ?? null;
 
-            setSampleNewsItem({
-                id: sampleNewsArticle?.id ?? -1,
-                title: sampleNewsArticle?.title ?? " ",
-                lede: sampleNewsArticle?.lede ?? "",
-                publish_date: sampleNewsArticle?.publish_date ?? "",
-                site_detail_url: sampleNewsArticle?.site_detail_url ?? "",
-                image: sampleNewsArticle?.image.original ?? ""
-            })
+            setNewsArticles(apiResult?.results.map((apiNewsArticle) => {
+                return {
+                    id: apiNewsArticle?.id ?? -1,
+                    title: apiNewsArticle?.title ?? " ",
+                    lede: apiNewsArticle?.lede ?? "",
+                    publish_date: apiNewsArticle?.publish_date ?? "",
+                    site_detail_url: apiNewsArticle?.site_detail_url ?? "",
+                    image: apiNewsArticle?.image.original ?? ""
+                }
+            }) ?? []);
 
         });
     }, []);
@@ -44,13 +39,22 @@ export const NewsScreen = () => {
         <View style={{
             flex: 1,
         }}>
-            <NewsScreenItem
-                id={sampleNewsItem.id}
-                imageUrl={sampleNewsItem.image}
-                title={sampleNewsItem.title}
-                lede={sampleNewsItem.lede}
-                publicationDate={sampleNewsItem.publish_date}
+
+            <FlatList
+                data={newsArticles}
+                renderItem={({item}) =>
+                    <NewsScreenItem
+                        id={item.id}
+                        imageUrl={item.image}
+                        title={item.title}
+                        lede={item.lede}
+                        publicationDate={item.publish_date}
+                    />
+                }
+                keyExtractor={item => item.id.toString()}
             />
+
+
         </View>
     )
 }
