@@ -1,9 +1,25 @@
 import {ScrollView} from 'react-native'
-import React from 'react'
+import React, {useEffect} from 'react'
 import {GamesCategoryPreview, GamesCategoryPreviewDataModel} from "./ui/GamesCategoryPreview";
 import {GameHubColors} from "./theme/GameHubTheme";
+import {RemoteOAuthDataSource} from "./data/api/auth/RemoteOAuthDataSource";
 
 export const DiscoverScreen = () => {
+
+    const getRemoteOAuthCredentials = async () => {
+        const dataSource = new RemoteOAuthDataSource();
+        return dataSource.getCredentials();
+    }
+
+    useEffect(() => {
+
+        getRemoteOAuthCredentials().then(credentials => {
+
+            console.log(`The acquired credentials are: ${credentials.access_token}`);
+            console.log(`The acquired credentials are: ${credentials.expires_in}`);
+            console.log(`The acquired credentials are: ${credentials.token_type}`);
+        });
+    }, []);
 
     const fakeGames: GamesCategoryPreviewDataModel[] = [
         {id: 1, title: "Super Catboy", coverUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co42mw.jpg"},

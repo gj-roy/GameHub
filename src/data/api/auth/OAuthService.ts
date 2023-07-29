@@ -1,10 +1,5 @@
 import axios from "axios/index";
-
-type ApiCallOptions = {
-    method: string;
-    url: string;
-    params: OAuthRequestParams;
-};
+import {ApiOAuthCredentials} from "./entities/ApiOAuthCredentials";
 
 export type OAuthRequestParams = {
     client_id: string;
@@ -12,8 +7,13 @@ export type OAuthRequestParams = {
     grant_type: string;
 };
 
+type ApiCallOptions = {
+    method: string;
+    url: string;
+    params: OAuthRequestParams;
+};
 
-export const OAuthService = async (params: OAuthRequestParams) => {
+export const OAuthService: (params: OAuthRequestParams) => Promise<ApiOAuthCredentials> = async (params: OAuthRequestParams) => {
     const options: ApiCallOptions =
         {
             method: 'POST',
