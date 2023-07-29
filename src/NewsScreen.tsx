@@ -2,7 +2,8 @@ import {FlatList, View} from 'react-native'
 import React, {useEffect, useState} from 'react'
 import {NewsScreenItem} from "./ui/NewsScreenItem";
 import {RemoteNewsArticlesDataSource} from "./data/api/news/RemoteNewsArticlesDataSource";
-import {convertApiNewsArticleToDomainNewsArticle, DomainNewsArticle} from "./data/entities/news/NewsArticle";
+import {DomainNewsArticle} from "./data/domain/news/DomainNewsArticle";
+import {convertApiNewsArticleToDomainNewsArticle} from "./data/api/news/entities/ApiNewsArticle";
 
 
 export const NewsScreen = () => {

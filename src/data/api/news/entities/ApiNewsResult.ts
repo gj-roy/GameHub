@@ -1,4 +1,4 @@
-import {ApiNewsArticle} from "./NewsArticle";
+import {ApiNewsArticle} from "./ApiNewsArticle";
 
 export type ApiNewsResult = {
     error: string;

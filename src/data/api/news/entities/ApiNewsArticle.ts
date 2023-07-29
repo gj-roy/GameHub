@@ -1,6 +1,8 @@
-import {ApiNewsAssociation} from "./NewsAssociation";
-import {ApiNewsCategory} from "./NewsCategory";
-import {ApiNewsArticleImage} from "./NewsArticleImage";
+import {DomainNewsArticle} from "../../../domain/news/DomainNewsArticle";
+import {ApiNewsArticleImage} from "./ApiNewsArticleImage";
+import {ApiNewsCategory} from "./ApiNewsCategory";
+import {ApiNewsAssociation} from "./ApiNewsAssociation";
+
 
 /**
  * The news article that we receive from the web server.
@@ -18,18 +20,6 @@ export type ApiNewsArticle = {
     categories: ApiNewsCategory[];
     associations: ApiNewsAssociation[];
     site_detail_url: string;
-};
-
-/**
- * This is the news article that we will be working with in our app.
- */
-export type DomainNewsArticle = {
-    id: number;
-    title: string;
-    lede: string;
-    publish_date: string;
-    site_detail_url: string;
-    image: string;
 };
 
 /**
