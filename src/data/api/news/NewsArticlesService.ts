@@ -1,6 +1,6 @@
-import {GAMESPOT_API_BASE_URL, GAMESPOT_API_KEY} from "../../secrets/Secrets";
-import {ApiNewsResult} from "./ApiNewsEntities";
+import {GAMESPOT_API_BASE_URL, GAMESPOT_API_KEY} from "../../../secrets/Secrets";
 import axios, {AxiosResponse} from "axios";
+import {ApiNewsResult} from "../../entities/news/NewsResult";
 
 /**
  * For further information, read "https://www.gamespot.com/api/documentation#toc-0-4"

@@ -1,9 +1,9 @@
 import {FlatList, View} from 'react-native'
 import React, {useEffect, useState} from 'react'
 import {NewsScreenItem} from "./ui/NewsScreenItem";
-import {ApiNewsResult} from "./data/api/ApiNewsEntities";
-import {RemoteNewsArticlesDataSource} from "./data/api/RemoteNewsArticlesDataSource";
-import {DomainNewsArticle} from "./data/entities/NewsArticle";
+import {RemoteNewsArticlesDataSource} from "./data/api/news/RemoteNewsArticlesDataSource";
+import {convertApiNewsArticleToDomainNewsArticle, DomainNewsArticle} from "./data/entities/news/NewsArticle";
+import {ApiNewsResult} from "./data/entities/news/NewsResult";
 
 
 export const NewsScreen = () => {
@@ -16,20 +16,12 @@ export const NewsScreen = () => {
         return data
     }
 
-
     useEffect(() => {
         getRemoteNewsArticles().then(apiResult => {
 
 
             setNewsArticles(apiResult?.results.map((apiNewsArticle) => {
-                return {
-                    id: apiNewsArticle?.id ?? -1,
-                    title: apiNewsArticle?.title ?? " ",
-                    lede: apiNewsArticle?.lede ?? "",
-                    publish_date: apiNewsArticle?.publish_date ?? "",
-                    site_detail_url: apiNewsArticle?.site_detail_url ?? "",
-                    image: apiNewsArticle?.image.original ?? ""
-                }
+                return convertApiNewsArticleToDomainNewsArticle(apiNewsArticle)
             }) ?? []);
 
         });
