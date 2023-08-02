@@ -1,7 +1,7 @@
 import axios from "axios";
 import Queue from "better-queue";
 import MemoryStore from "better-queue-memory";
-import {Builder} from "./builder";
+import {Builder} from "./Builder";
 
 class Apicalypse extends Builder {
     constructor(opts) {

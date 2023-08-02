@@ -5,7 +5,7 @@ A simple client for creating Apicalypse queries.
 ### Raw Apicalypse
 
 ```js
-import apicalypse from 'apicalypse';
+import apicalypse from 'src/data/api/igdb/apicalypse/Apicalypse';
 
 const rawQueryString = 'fields a,b,c;limit 50;offset 0;';
 
