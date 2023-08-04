@@ -4,6 +4,7 @@ import {GamesCategoryPreview, GamesCategoryPreviewDataModel} from "./ui/GamesCat
 import {GameHubColors} from "./theme/GameHubTheme";
 import {RemoteOAuthDataSource} from "./data/api/auth/RemoteOAuthDataSource";
 import {RemotePopularGamesDataSource} from "./data/api/igdb/RemotePopularGamesDataSource";
+import {RemoteRecentlyReleasedGamesDataSource} from "./data/api/igdb/RemoteRecentlyReleasedGamesDataSource";
 
 export const DiscoverScreen = () => {
 
@@ -12,9 +13,14 @@ export const DiscoverScreen = () => {
         return dataSource.getCredentials();
     };
 
-    const getRemotePopularGames = async ()=>{
+    const getRemotePopularGames = async () => {
         const dataSource = new RemotePopularGamesDataSource();
         return dataSource.getPopularGames();
+    };
+
+    const getRemoteRecentlyReleasedGames = async () => {
+        const dataSource = new RemoteRecentlyReleasedGamesDataSource();
+        return dataSource.getRecentlyReleasedGames();
     };
 
     useEffect(() => {
@@ -26,9 +32,9 @@ export const DiscoverScreen = () => {
         //     console.log(`The acquired credentials are: ${credentials.token_type}`);
         // });
 
-        getRemotePopularGames().then(games=>{
-            games.map((popularGame)=>{
-                console.log(popularGame.url);
+        getRemoteRecentlyReleasedGames().then(games => {
+            games.map((popularGame, index) => {
+                console.log(`${index} - ${popularGame.url}`);
             })
         })
 

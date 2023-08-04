@@ -2,14 +2,14 @@ import {IGDB_API_BASE_URL} from "../../../secrets/Secrets";
 import {IgdbService} from "./IgdbService";
 import {AxiosRequestConfig} from "axios";
 
-export class RemotePopularGamesDataSource {
+export class RemoteRecentlyReleasedGamesDataSource {
 
     constructor() {
     }
 
-    getPopularGames() {
+    getRecentlyReleasedGames() {
 
-        const PopularGamesRequestConfig: AxiosRequestConfig = {
+        const recentlyReleasedGamesRequestConfig: AxiosRequestConfig = {
 
             url: '/games',
             method: 'POST',
@@ -20,9 +20,9 @@ export class RemotePopularGamesDataSource {
             },
             timeout: 10_000,
             responseType: 'json',
-            data: 'fields *;where rating != null;where first_release_date > 1538129354;limit 50;sort total_rating desc;',
+            data: 'fields *;where first_release_date > 1538129354 & first_release_date < 1691193575 ;limit 50;sort first_release_date desc;',
 
         };
-        return IgdbService(PopularGamesRequestConfig);
+        return IgdbService(recentlyReleasedGamesRequestConfig);
     }
 }
