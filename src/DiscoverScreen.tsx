@@ -3,22 +3,35 @@ import React, {useEffect} from 'react'
 import {GamesCategoryPreview, GamesCategoryPreviewDataModel} from "./ui/GamesCategoryPreview";
 import {GameHubColors} from "./theme/GameHubTheme";
 import {RemoteOAuthDataSource} from "./data/api/auth/RemoteOAuthDataSource";
+import {RemotePopularGamesDataSource} from "./data/api/igdb/RemotePopularGamesDataSource";
 
 export const DiscoverScreen = () => {
 
     const getRemoteOAuthCredentials = async () => {
         const dataSource = new RemoteOAuthDataSource();
         return dataSource.getCredentials();
-    }
+    };
+
+    const getRemotePopularGames = async ()=>{
+        const dataSource = new RemotePopularGamesDataSource();
+        return dataSource.getPopularGames();
+    };
 
     useEffect(() => {
 
-        getRemoteOAuthCredentials().then(credentials => {
+        // getRemoteOAuthCredentials().then(credentials => {
+        //
+        //     console.log(`The acquired credentials are: ${credentials.access_token}`);
+        //     console.log(`The acquired credentials are: ${credentials.expires_in}`);
+        //     console.log(`The acquired credentials are: ${credentials.token_type}`);
+        // });
 
-            console.log(`The acquired credentials are: ${credentials.access_token}`);
-            console.log(`The acquired credentials are: ${credentials.expires_in}`);
-            console.log(`The acquired credentials are: ${credentials.token_type}`);
-        });
+        getRemotePopularGames().then(games=>{
+            games.map((popularGame)=>{
+                console.log(popularGame.url);
+            })
+        })
+
     }, []);
 
     const fakeGames: GamesCategoryPreviewDataModel[] = [
