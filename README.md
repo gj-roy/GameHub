@@ -174,4 +174,4 @@ Russian translations: [Daria Vinogradova](mailto:herrwerner278@gmail.com)
 
 <img height="150" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" width="150"/><br/>
 Thanks to our lovely friends in Jetbrains, we have
-received <a href="https://jb.gg/OpenSourceSupport">open source licence</a> to all of their products ❤️.
+received an [open source](https://jb.gg/OpenSourceSupport) licence to [WebStorm]() IDE ❤️.
