@@ -1,5 +1,5 @@
 import {ScrollView} from 'react-native'
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {GamesCategoryPreview, GamesCategoryPreviewDataModel} from "./ui/GamesCategoryPreview";
 import {GameHubColors} from "./theme/GameHubTheme";
 import {RemoteOAuthDataSource} from "./data/api/auth/RemoteOAuthDataSource";
@@ -7,51 +7,79 @@ import {RemotePopularGamesDataSource} from "./data/api/igdb/RemotePopularGamesDa
 import {RemoteRecentlyReleasedGamesDataSource} from "./data/api/igdb/RemoteRecentlyReleasedGamesDataSource";
 import {RemoteComingSoonGamesDataSource} from "./data/api/igdb/RemoteComingSoonGamesDataSource";
 import {RemoteMostAnticipatedGamesDataSource} from "./data/api/igdb/RemoteMostAnticipatedGamesDataSource";
+import {ApiGame} from "./data/api/igdb/entities/ApiGame";
+import {ApiOAuthResult} from "./data/api/auth/entities/ApiOAuthResult";
+
+const oAuthCredentialsRepository = async () => {
+    const dataSource = new RemoteOAuthDataSource();
+    return dataSource.getCredentials();
+};
+
+const popularGamesRepository = async () => {
+    const dataSource = new RemotePopularGamesDataSource();
+    return dataSource.getPopularGames();
+};
+
+const recentlyReleasedGamesRepository = async () => {
+    const dataSource = new RemoteRecentlyReleasedGamesDataSource();
+    return dataSource.getRecentlyReleasedGames();
+};
+
+const comingSoonGamesRepository = async () => {
+    const dataSource = new RemoteComingSoonGamesDataSource();
+    return dataSource.getComingSoonGames();
+};
+
+const mostAnticipatedGamesRepository = async () => {
+    const dataSource = new RemoteMostAnticipatedGamesDataSource();
+    return dataSource.getMostAnticipatedGames();
+};
 
 export const DiscoverScreen = () => {
 
-    const getRemoteOAuthCredentials = async () => {
-        const dataSource = new RemoteOAuthDataSource();
-        return dataSource.getCredentials();
-    };
-
-    const getRemotePopularGames = async () => {
-        const dataSource = new RemotePopularGamesDataSource();
-        return dataSource.getPopularGames();
-    };
-
-    const getRemoteRecentlyReleasedGames = async () => {
-        const dataSource = new RemoteRecentlyReleasedGamesDataSource();
-        return dataSource.getRecentlyReleasedGames();
-    };
-
-    const getRemoteComingSoonGames = async () => {
-        const dataSource = new RemoteComingSoonGamesDataSource();
-        return dataSource.getComingSoonGames();
-    };
-
-    const getRemoteMostAnticipatedGames = async () => {
-        const dataSource = new RemoteMostAnticipatedGamesDataSource();
-        return dataSource.getMostAnticipatedGames();
-    };
+    const [oAuthCredentials, setOAuthCredentials] = useState<ApiOAuthResult | null>(null);
+    const [popularGames, setPopularGames] = useState<ApiGame[]>([]);
+    const [recentlyReleasedGames, setRecentlyReleasedGames] = useState<ApiGame[]>([]);
+    const [comingSoonGames, setComingSoonGames] = useState<ApiGame[]>([]);
+    const [mostAnticipatedGames, setMostAnticipatedGames] = useState<ApiGame[]>([]);
 
 
     useEffect(() => {
-
-        // getRemoteOAuthCredentials().then(credentials => {
-        //
-        //     console.log(`The acquired credentials are: ${credentials.access_token}`);
-        //     console.log(`The acquired credentials are: ${credentials.expires_in}`);
-        //     console.log(`The acquired credentials are: ${credentials.token_type}`);
-        // });
-
-        getRemoteMostAnticipatedGames().then(games => {
-            games.map((popularGame, index) => {
-                console.log(`${index} - ${popularGame.url}`);
-            })
-        })
-
+        oAuthCredentialsRepository().then(credentials => {
+            setOAuthCredentials(credentials);
+        });
+        popularGamesRepository().then(games => {
+            setPopularGames(games);
+        });
+        recentlyReleasedGamesRepository().then(games => {
+            setRecentlyReleasedGames(games);
+        });
+        comingSoonGamesRepository().then(games => {
+            setComingSoonGames(games);
+        });
+        mostAnticipatedGamesRepository().then(games => {
+            setMostAnticipatedGames(games);
+        });
     }, []);
+
+    console.log(`The credentials were received 👇🏼`);
+    console.log(`${oAuthCredentials?.access_token} - ${oAuthCredentials?.token_type} - ${oAuthCredentials?.expires_in}`);
+    console.log(`Popular games were received 👇🏼`);
+    popularGames.map((game, index) => {
+        console.log(`${index} - ${game.cover.url}`)
+    });
+    console.log(`Recently released games were received 👇🏼`);
+    recentlyReleasedGames.map((game, index) => {
+        console.log(`${index} - ${game.url}`)
+    });
+    console.log(`Coming soon games were received 👇🏼`);
+    comingSoonGames.map((game, index) => {
+        console.log(`${index} - ${game.url}`)
+    });
+    console.log(`Most anticipated games were received 👇🏼`);
+    mostAnticipatedGames.map((game, index) => {
+        console.log(`${index} - ${game.url}`)
+    });
 
     const fakeGames: GamesCategoryPreviewDataModel[] = [
         {id: 1, title: "Super Catboy", coverUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co42mw.jpg"},
@@ -83,5 +111,5 @@ export const DiscoverScreen = () => {
             <GamesCategoryPreview title="Most Anticipated" games={fakeGames}/>
 
         </ScrollView>
-    )
+    );
 }

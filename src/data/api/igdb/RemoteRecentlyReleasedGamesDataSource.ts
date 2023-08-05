@@ -1,6 +1,4 @@
-import {IGDB_API_BASE_URL} from "../../../secrets/Secrets";
 import {IgdbService} from "./IgdbService";
-import {AxiosRequestConfig} from "axios";
 
 export class RemoteRecentlyReleasedGamesDataSource {
 
@@ -9,20 +7,6 @@ export class RemoteRecentlyReleasedGamesDataSource {
 
     getRecentlyReleasedGames() {
 
-        const recentlyReleasedGamesRequestConfig: AxiosRequestConfig = {
-
-            url: '/games',
-            method: 'POST',
-            baseURL: IGDB_API_BASE_URL,
-            headers: {
-                'Client-ID': 'g88ty1lcsaf2ewvqqpyxngpssbvhsq',
-                'Authorization': 'Bearer g92h6pqhvsmiczksjvvjd6weswhc5o',
-            },
-            timeout: 10_000,
-            responseType: 'json',
-            data: 'fields *;where first_release_date > 1538129354 & first_release_date < 1691193575 ;limit 50;sort first_release_date desc;',
-
-        };
-        return IgdbService(recentlyReleasedGamesRequestConfig);
+        return IgdbService("fields id,name,category,cover,first_release_date,game_modes,genres,involved_companies,platforms,player_perspectives,screenshots,summary,videos,websites,themes,url ;where first_release_date > 1538129354 & first_release_date < 1691193575 ;limit 10;sort first_release_date desc;");
     }
 }
