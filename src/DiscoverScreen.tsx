@@ -6,6 +6,7 @@ import {RemoteOAuthDataSource} from "./data/api/auth/RemoteOAuthDataSource";
 import {RemotePopularGamesDataSource} from "./data/api/igdb/RemotePopularGamesDataSource";
 import {RemoteRecentlyReleasedGamesDataSource} from "./data/api/igdb/RemoteRecentlyReleasedGamesDataSource";
 import {RemoteComingSoonGamesDataSource} from "./data/api/igdb/RemoteComingSoonGamesDataSource";
+import {RemoteMostAnticipatedGamesDataSource} from "./data/api/igdb/RemoteMostAnticipatedGamesDataSource";
 
 export const DiscoverScreen = () => {
 
@@ -29,6 +30,11 @@ export const DiscoverScreen = () => {
         return dataSource.getComingSoonGames();
     };
 
+    const getRemoteMostAnticipatedGames = async () => {
+        const dataSource = new RemoteMostAnticipatedGamesDataSource();
+        return dataSource.getMostAnticipatedGames();
+    };
+
 
     useEffect(() => {
 
@@ -39,7 +45,7 @@ export const DiscoverScreen = () => {
         //     console.log(`The acquired credentials are: ${credentials.token_type}`);
         // });
 
-        getRemoteComingSoonGames().then(games => {
+        getRemoteMostAnticipatedGames().then(games => {
             games.map((popularGame, index) => {
                 console.log(`${index} - ${popularGame.url}`);
             })
