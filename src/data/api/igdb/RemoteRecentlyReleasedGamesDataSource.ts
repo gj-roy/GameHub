@@ -1,4 +1,5 @@
 import {IgdbService} from "./IgdbService";
+import {getAllRequestFields} from "./RequestFieldsRepository";
 
 export class RemoteRecentlyReleasedGamesDataSource {
 
@@ -7,6 +8,6 @@ export class RemoteRecentlyReleasedGamesDataSource {
 
     getRecentlyReleasedGames() {
 
-        return IgdbService("fields id,name,category,cover,first_release_date,game_modes,genres,involved_companies,platforms,player_perspectives,screenshots,summary,videos,websites,themes,url ;where first_release_date > 1538129354 & first_release_date < 1691193575 ;limit 10;sort first_release_date desc;");
+        return IgdbService(`${getAllRequestFields()};where first_release_date > 1538129354 & first_release_date < 1691193575 ;limit 10;sort first_release_date desc;`);
     }
 }

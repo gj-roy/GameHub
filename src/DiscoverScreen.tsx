@@ -35,6 +35,16 @@ const mostAnticipatedGamesRepository = async () => {
     return dataSource.getMostAnticipatedGames();
 };
 
+const convertApiGameToPreviewHeaderGame = (game: ApiGame, index: number) => {
+
+    const resultingGame: GamesCategoryPreviewDataModel = {
+        id: index,
+        title: game.name,
+        coverUrl: `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover?.image_id}.jpg`
+    };
+    return resultingGame;
+};
+
 export const DiscoverScreen = () => {
 
     const [oAuthCredentials, setOAuthCredentials] = useState<ApiOAuthResult | null>(null);
@@ -42,7 +52,6 @@ export const DiscoverScreen = () => {
     const [recentlyReleasedGames, setRecentlyReleasedGames] = useState<ApiGame[]>([]);
     const [comingSoonGames, setComingSoonGames] = useState<ApiGame[]>([]);
     const [mostAnticipatedGames, setMostAnticipatedGames] = useState<ApiGame[]>([]);
-
 
     useEffect(() => {
         oAuthCredentialsRepository().then(credentials => {
@@ -64,51 +73,24 @@ export const DiscoverScreen = () => {
 
     console.log(`The credentials were received 👇🏼`);
     console.log(`${oAuthCredentials?.access_token} - ${oAuthCredentials?.token_type} - ${oAuthCredentials?.expires_in}`);
-    console.log(`Popular games were received 👇🏼`);
-    popularGames.map((game, index) => {
-        console.log(`${index} - ${game.cover.url}`)
-    });
-    console.log(`Recently released games were received 👇🏼`);
-    recentlyReleasedGames.map((game, index) => {
-        console.log(`${index} - ${game.url}`)
-    });
-    console.log(`Coming soon games were received 👇🏼`);
-    comingSoonGames.map((game, index) => {
-        console.log(`${index} - ${game.url}`)
-    });
-    console.log(`Most anticipated games were received 👇🏼`);
-    mostAnticipatedGames.map((game, index) => {
-        console.log(`${index} - ${game.url}`)
-    });
-
-    const fakeGames: GamesCategoryPreviewDataModel[] = [
-        {id: 1, title: "Super Catboy", coverUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co42mw.jpg"},
-        {
-            id: 2,
-            title: "The Legend of Zelda: Tears of the Kingdom",
-            coverUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg"
-        },
-        {
-            id: 3,
-            title: "Street Fighter 6",
-            coverUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vst.jpg"
-        },
-        {
-            id: 4,
-            title: "The Banished Vault",
-            coverUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co69qx.jpg"
-        },
-    ];
 
     return (
         <ScrollView style={{
             flex: 1,
             backgroundColor: GameHubColors.neutral
         }}>
-            <GamesCategoryPreview title="popular" games={fakeGames}/>
-            <GamesCategoryPreview title="Recently Released" games={fakeGames}/>
-            <GamesCategoryPreview title="Coming Soon" games={fakeGames}/>
-            <GamesCategoryPreview title="Most Anticipated" games={fakeGames}/>
+            <GamesCategoryPreview title="popular" games={
+                popularGames.map(convertApiGameToPreviewHeaderGame)
+            }/>
+            <GamesCategoryPreview title="Recently Released" games={
+                recentlyReleasedGames.map(convertApiGameToPreviewHeaderGame)
+            }/>
+            <GamesCategoryPreview title="Coming Soon" games={
+                comingSoonGames.map(convertApiGameToPreviewHeaderGame)
+            }/>
+            <GamesCategoryPreview title="Most Anticipated" games={
+                mostAnticipatedGames.map(convertApiGameToPreviewHeaderGame)
+            }/>
 
         </ScrollView>
     );

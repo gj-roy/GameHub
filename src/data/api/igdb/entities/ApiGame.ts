@@ -1,54 +1,31 @@
 import {ApiWebsite} from "./ApiWebsite";
 import {ApiInvolvedCompany} from "./ApiInvolvedCompany";
-import {ApiKeyword} from "./ApiKeyword";
 import {ApiMode} from "./ApiMode";
 import {ApiTheme} from "./ApiTheme";
 import {ApiPlayerPerspective} from "./ApiPlayerPerspective";
 import {ApiPlatform} from "./ApiPlatform";
 import {ApiGenre} from "./ApiGenre";
 import {ApiVideo} from "./ApiVideo";
-import {ApiAgeRating} from "./ApiAgeRating";
-import {ApiReleaseDate} from "./ApiReleaseDate";
 import {ApiImage} from "./ApiImage";
 import {ApiCategory} from "./ApiCategory";
 
 
 export type ApiGame = {
     id: number;
-    follows: number | null;
-    hypes: number | null;
     category: ApiCategory;
     cover: ApiImage | null;
-    created_at: number;
-    external_games: number[];
     first_release_date: number | null;
-    aggregated_rating: number | null;
     game_modes: ApiMode[];
-    keywords: ApiKeyword[];
-    involved_companies: ApiInvolvedCompany[];
     genres: ApiGenre[];
+    involved_companies: ApiInvolvedCompany[];
     name: string;
     platforms: ApiPlatform[];
     player_perspectives: ApiPlayerPerspective[];
-    rating: number | null;
-    rating_count: number;
-    release_dates: ApiReleaseDate[];
-    age_ratings: ApiAgeRating[];
     screenshots: ApiImage[];
-    similar_games: number[];
-    slug: string;
     summary: string | null;
-    storyline: string | null;
-    tags: number[];
     themes: ApiTheme[];
-    total_rating: number | null;
-    total_rating_count: number;
-    updated_at: number;
     url: string;
     videos: ApiVideo[];
-    artworks: ApiImage[] | null;
     websites: ApiWebsite[];
-    checksum: string;
-    language_supports: number[];
 };
 
