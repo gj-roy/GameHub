@@ -7,6 +7,6 @@ export class RemoteMostAnticipatedGamesDataSource {
     }
 
     getMostAnticipatedGames() {
-        return IgdbService(`${getAllRequestFields()};where first_release_date > 1691193575 & hypes != null ;limit 10;sort hypes desc;`);
+        return IgdbService(`${getAllRequestFields()};where first_release_date > 1691193575 & hypes != null ;limit 20;sort hypes desc;`);
     }
 }

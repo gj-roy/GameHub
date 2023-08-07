@@ -8,6 +8,6 @@ export class RemoteComingSoonGamesDataSource {
 
     getComingSoonGames() {
 
-        return IgdbService(`${getAllRequestFields()};where first_release_date > 1691193575 ;limit 10;sort first_release_date asc;`);
+        return IgdbService(`${getAllRequestFields()};where first_release_date > 1691193575 ;limit 20;sort first_release_date asc;`);
     }
 }

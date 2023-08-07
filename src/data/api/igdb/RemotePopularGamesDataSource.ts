@@ -8,6 +8,6 @@ export class RemotePopularGamesDataSource {
 
     getPopularGames() {
 
-        return IgdbService(`${getAllRequestFields()};where rating != null;where first_release_date > 1538129354;limit 10;sort total_rating desc;`);
+        return IgdbService(`${getAllRequestFields()};where rating != null;where first_release_date > 1538129354;limit 20;sort total_rating desc;`);
     }
 }
