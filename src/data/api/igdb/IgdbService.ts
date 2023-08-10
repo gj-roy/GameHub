@@ -11,7 +11,7 @@ export const IgdbService: (requestFields: string) => Promise<ApiGame[]> =
             baseURL: IGDB_API_BASE_URL,
             headers: {
                 'Client-ID': 'g88ty1lcsaf2ewvqqpyxngpssbvhsq',
-                'Authorization': 'Bearer rv84j08pceq1yk51geqb75s3gym5eg',
+                'Authorization': 'Bearer gdwbczt2cyhp5l2d0akrl9292feav9',
             },
             timeout: 10_000,
             responseType: 'json',
