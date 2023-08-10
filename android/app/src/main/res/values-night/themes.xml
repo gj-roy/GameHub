@@ -2,13 +2,13 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="GameNewsThemeSplash" parent="Theme.SplashScreen">
+    <style name="GameHubThemeSplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/dark_colorPrimary</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
-        <item name="postSplashScreenTheme">@style/GameNewsTheme</item>
+        <item name="postSplashScreenTheme">@style/GameHubTheme</item>
     </style>
 
-    <style name="GameNewsTheme" parent="android:Theme.Material.NoActionBar">
+    <style name="GameHubTheme" parent="android:Theme.Material.NoActionBar">
         <item name="android:statusBarColor">@color/colorStatusBar</item>
         <item name="android:windowBackground">@color/dark_colorPrimary</item>
         <item name="android:navigationBarColor">@color/dark_colorNavigationBar</item>

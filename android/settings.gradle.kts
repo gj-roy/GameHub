@@ -1,6 +1,6 @@
 import groovy.lang.Closure
 
-rootProject.name = "GameNews"
+rootProject.name = "GameHub"
 
 pluginManagement {
     repositories {

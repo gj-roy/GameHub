@@ -32,7 +32,7 @@ android {
 
     defaultConfig {
 
-        applicationId = "ca.on.hojat.gamenews"
+        applicationId = "ca.on.hojat.gamehub"
         minSdk = 21
         targetSdk = 31
         versionCode = 5
