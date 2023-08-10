@@ -2,8 +2,8 @@ import axios, {AxiosRequestConfig} from "axios";
 import {ApiGame} from "./entities/ApiGame";
 import {IGDB_API_BASE_URL} from "../../../secrets/Secrets";
 
-export const IgdbService: (requestFields:string) => Promise<ApiGame[]> =
-    async (requestFields:string) => {
+export const IgdbService: (requestFields: string) => Promise<ApiGame[]> =
+    async (requestFields: string) => {
 
         const requestConfig: AxiosRequestConfig = {
             url: '/games',
@@ -20,7 +20,9 @@ export const IgdbService: (requestFields:string) => Promise<ApiGame[]> =
 
         try {
             const response = await axios.request(requestConfig);
+            console.log(`The response from server : ${response}`);
             return response.data;
+
         } catch (error) {
             console.error('error: ', error);
             return null;

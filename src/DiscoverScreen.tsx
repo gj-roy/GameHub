@@ -48,27 +48,47 @@ const convertApiGameToPreviewHeaderGame = (game: ApiGame, index: number) => {
 export const DiscoverScreen = () => {
 
     const [oAuthCredentials, setOAuthCredentials] = useState<ApiOAuthResult | null>(null);
-    const [popularGames, setPopularGames] = useState<ApiGame[]>([]);
-    const [recentlyReleasedGames, setRecentlyReleasedGames] = useState<ApiGame[]>([]);
-    const [comingSoonGames, setComingSoonGames] = useState<ApiGame[]>([]);
-    const [mostAnticipatedGames, setMostAnticipatedGames] = useState<ApiGame[]>([]);
+    const [popularGames, setPopularGames] = useState<ApiGame[] | null>([]);
+    const [recentlyReleasedGames, setRecentlyReleasedGames] = useState<ApiGame[] | null>([]);
+    const [comingSoonGames, setComingSoonGames] = useState<ApiGame[] | null>([]);
+    const [mostAnticipatedGames, setMostAnticipatedGames] = useState<ApiGame[] | null>([]);
 
     useEffect(() => {
-        oAuthCredentialsRepository().then(credentials => {
-            setOAuthCredentials(credentials);
-        });
-        popularGamesRepository().then(games => {
-            setPopularGames(games);
-        });
-        recentlyReleasedGamesRepository().then(games => {
-            setRecentlyReleasedGames(games);
-        });
-        comingSoonGamesRepository().then(games => {
-            setComingSoonGames(games);
-        });
-        mostAnticipatedGamesRepository().then(games => {
-            setMostAnticipatedGames(games);
-        });
+        oAuthCredentialsRepository()
+            .then(credentials => {
+                setOAuthCredentials(credentials);
+            })
+            .catch((error) => {
+                console.error(`Promise of credentials repository was rejected : ${error}`)
+            });
+        popularGamesRepository()
+            .then(games => {
+                setPopularGames(games);
+            })
+            .catch((error) => {
+                console.error(`Promise of PopularGamesRepository was rejected : ${error}`);
+            });
+        recentlyReleasedGamesRepository()
+            .then(games => {
+                setRecentlyReleasedGames(games);
+            })
+            .catch((error) => {
+                console.error(`Promise of RecentlyReleasedGamesRepository was rejected : ${error}`);
+            });
+        comingSoonGamesRepository()
+            .then(games => {
+                setComingSoonGames(games);
+            })
+            .catch((error) => {
+                console.error(`Promise of ComingSoonGamesRepository was rejected : ${error}`);
+            });
+        mostAnticipatedGamesRepository()
+            .then(games => {
+                setMostAnticipatedGames(games);
+            })
+            .catch((error) => {
+                console.error(`Promise of MostAnticipatedGamesRepository was rejected : ${error}`);
+            });
     }, []);
 
     console.log(`The credentials were received 👇🏼`);
@@ -80,16 +100,16 @@ export const DiscoverScreen = () => {
             backgroundColor: GameHubColors.neutral
         }}>
             <GamesCategoryPreview title="popular" games={
-                popularGames.map(convertApiGameToPreviewHeaderGame)
+                popularGames?.map(convertApiGameToPreviewHeaderGame) ?? []
             }/>
             <GamesCategoryPreview title="Recently Released" games={
-                recentlyReleasedGames.map(convertApiGameToPreviewHeaderGame)
+                recentlyReleasedGames?.map(convertApiGameToPreviewHeaderGame) ?? []
             }/>
             <GamesCategoryPreview title="Coming Soon" games={
-                comingSoonGames.map(convertApiGameToPreviewHeaderGame)
+                comingSoonGames?.map(convertApiGameToPreviewHeaderGame) ?? []
             }/>
             <GamesCategoryPreview title="Most Anticipated" games={
-                mostAnticipatedGames.map(convertApiGameToPreviewHeaderGame)
+                mostAnticipatedGames?.map(convertApiGameToPreviewHeaderGame) ?? []
             }/>
 
         </ScrollView>
