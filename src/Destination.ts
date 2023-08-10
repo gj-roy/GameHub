@@ -7,8 +7,11 @@ export class Destination {
         this.title = title;
     }
 
+    // The destinations you can reach through the bottom tab bar:
     public static Discover = new Destination("discover", "Discover");
     public static Likes = new Destination("likes", "Likes");
     public static News = new Destination("news", "News");
     public static Settings = new Destination("settings", "Settings");
+
+
 }

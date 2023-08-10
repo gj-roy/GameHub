@@ -8,19 +8,20 @@ import {NewsScreen} from "./NewsScreen";
 import {SettingsScreen} from "./SettingsScreen";
 import {createNativeStackNavigator} from "react-native-screens/native-stack";
 import {
-    HomeIcon as HomeSolid,
-    HeartIcon as HeartSolid,
-    NewspaperIcon as NewspaperSolid,
     Cog6ToothIcon as SettingsSolid,
+    HeartIcon as HeartSolid,
+    HomeIcon as HomeSolid,
+    NewspaperIcon as NewspaperSolid,
 } from "react-native-heroicons/solid";
 import {
-    HomeIcon as HomeOutline,
-    HeartIcon as HeartOutline,
-    NewspaperIcon as NewspaperOutline,
     Cog6ToothIcon as SettingsOutline,
+    HeartIcon as HeartOutline,
+    HomeIcon as HomeOutline,
+    NewspaperIcon as NewspaperOutline,
 } from "react-native-heroicons/outline";
 import {GameHubColors} from "./theme/GameHubTheme";
 import {Destination} from "./Destination";
+import {GameScreen} from "./GameScreen";
 
 
 export const AppNavigation = () => {
@@ -111,6 +112,7 @@ export const AppNavigation = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Home" options={{headerShown: false}} component={BottomTabs}/>
+                <Stack.Screen name="Game" options={{headerShown: false}} component={GameScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
