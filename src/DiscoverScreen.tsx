@@ -2,18 +2,16 @@ import {ScrollView} from 'react-native'
 import React, {useEffect, useState} from 'react'
 import {GamesCategoryPreview, GamesCategoryPreviewDataModel} from "./ui/GamesCategoryPreview";
 import {GameHubColors} from "./theme/GameHubTheme";
-import {RemoteOAuthDataSource} from "./data/api/auth/RemoteOAuthDataSource";
 import {RemotePopularGamesDataSource} from "./data/api/igdb/RemotePopularGamesDataSource";
 import {RemoteRecentlyReleasedGamesDataSource} from "./data/api/igdb/RemoteRecentlyReleasedGamesDataSource";
 import {RemoteComingSoonGamesDataSource} from "./data/api/igdb/RemoteComingSoonGamesDataSource";
 import {RemoteMostAnticipatedGamesDataSource} from "./data/api/igdb/RemoteMostAnticipatedGamesDataSource";
 import {ApiGame} from "./data/api/igdb/entities/ApiGame";
-import {ApiOAuthResult} from "./data/api/auth/entities/ApiOAuthResult";
 
-const oAuthCredentialsRepository = async () => {
-    const dataSource = new RemoteOAuthDataSource();
-    return dataSource.getCredentials();
-};
+// const oAuthCredentialsRepository = async () => {
+//     const dataSource = new RemoteOAuthDataSource();
+//     return dataSource.getCredentials();
+// };
 
 const popularGamesRepository = async () => {
     const dataSource = new RemotePopularGamesDataSource();
@@ -47,20 +45,20 @@ const convertApiGameToPreviewHeaderGame = (game: ApiGame, index: number) => {
 
 export const DiscoverScreen = () => {
 
-    const [oAuthCredentials, setOAuthCredentials] = useState<ApiOAuthResult | null>(null);
+    // const [oAuthCredentials, setOAuthCredentials] = useState<ApiOAuthResult | null>(null);
     const [popularGames, setPopularGames] = useState<ApiGame[] | null>([]);
     const [recentlyReleasedGames, setRecentlyReleasedGames] = useState<ApiGame[] | null>([]);
     const [comingSoonGames, setComingSoonGames] = useState<ApiGame[] | null>([]);
     const [mostAnticipatedGames, setMostAnticipatedGames] = useState<ApiGame[] | null>([]);
 
     useEffect(() => {
-        oAuthCredentialsRepository()
-            .then(credentials => {
-                setOAuthCredentials(credentials);
-            })
-            .catch((error) => {
-                console.error(`Promise of credentials repository was rejected : ${error}`)
-            });
+        // oAuthCredentialsRepository()
+        //     .then(credentials => {
+        //         setOAuthCredentials(credentials);
+        //     })
+        //     .catch((error) => {
+        //         console.error(`Promise of credentials repository was rejected : ${error}`)
+        //     });
         popularGamesRepository()
             .then(games => {
                 setPopularGames(games);
@@ -91,8 +89,8 @@ export const DiscoverScreen = () => {
             });
     }, []);
 
-    console.log(`The credentials were received 👇🏼`);
-    console.log(`${oAuthCredentials?.access_token} - ${oAuthCredentials?.token_type} - ${oAuthCredentials?.expires_in}`);
+    // console.log(`The credentials were received 👇🏼`);
+    // console.log(`${oAuthCredentials?.access_token} - ${oAuthCredentials?.token_type} - ${oAuthCredentials?.expires_in}`);
 
     return (
         <ScrollView style={{
