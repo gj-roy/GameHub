@@ -2,7 +2,6 @@ import React from 'react';
 import {Image, TouchableOpacity} from "react-native";
 import {GamesCategoryPreviewDataModel} from "./GamesCategoryPreview";
 import {ImageURISource} from "react-native/Libraries/Image/ImageSource";
-import { useNavigation} from "@react-navigation/native";
 
 
 type GamePreviewCardProps = {
@@ -15,13 +14,13 @@ type GamePreviewCardProps = {
  */
 export const GamePreviewCard = ({game}: GamePreviewCardProps) => {
 
-    const navigation = useNavigation();
+
     const gameCoverUrl: ImageURISource = {uri: game.coverUrl ?? undefined}
 
     return (
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity onPress={() => {
             // @ts-ignore
-            navigation.navigate("Game");
+
         }}>
             <Image
                 style={{
