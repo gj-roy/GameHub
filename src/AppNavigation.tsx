@@ -29,7 +29,10 @@ export const AppNavigation = () => {
     const Stack = createNativeStackNavigator();
     const Tab = createBottomTabNavigator();
 
-    const menuIcons = (route: Route<any>, focused: boolean) => {
+    /**
+     * Creates the icon of each one of the bottom bar tabs.
+     */
+    const bottomBarIcons = (route: Route<any>, focused: boolean) => {
         let icon;
         if (route.name === Destination.Discover.route) {
             icon = focused ? <HomeSolid size={30} color={GameHubColors.secondary}/> :
@@ -56,7 +59,11 @@ export const AppNavigation = () => {
         )
     }
 
-    function menuLabels(route: Route<any>, focused: boolean) {
+    /**
+     * Creates the label of each one of bottom bar tabs (it will be
+     * shown below the icon in the bottom tab bar).
+     */
+    function bottomBarLabels(route: Route<any>, focused: boolean) {
 
         let label;
         if (route.name === Destination.Discover.route) {
@@ -91,8 +98,8 @@ export const AppNavigation = () => {
                     backgroundColor: GameHubColors.neutral,
                 },
 
-                tabBarIcon: ({focused}) => menuIcons(route, focused),
-                tabBarLabel: ({focused}) => menuLabels(route, focused),
+                tabBarIcon: ({focused}) => bottomBarIcons(route, focused),
+                tabBarLabel: ({focused}) => bottomBarLabels(route, focused),
                 tabBarStyle: {
                     height: 60,
                     paddingBottom: 8,
