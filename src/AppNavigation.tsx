@@ -90,6 +90,7 @@ export const AppNavigation = () => {
 
 
         return (<Tab.Navigator
+            id="bottom-tab-navigator"
             initialRouteName={Destination.Discover.route}
             screenOptions={({route}) => ({
                 tabBarShowLabel: true,
@@ -117,9 +118,9 @@ export const AppNavigation = () => {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Home" options={{headerShown: false}} component={BottomTabs}/>
-                <Stack.Screen name="Game" options={{headerShown: false}} component={GameScreen}/>
+            <Stack.Navigator id="stack-navigator">
+                <Stack.Screen name="home" options={{headerShown: false}} component={BottomTabs}/>
+                <Stack.Screen name={Destination.Game.route} options={{headerShown: false}} component={GameScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

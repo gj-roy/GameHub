@@ -13,5 +13,8 @@ export class Destination {
     public static News = new Destination("News");
     public static Settings = new Destination("Settings");
 
+    // All the other destinations outside the reach of bottom tab navigator
+    public static Game = new Destination("Game");
+
 
 }
