@@ -6,7 +6,7 @@ import {DiscoverScreen} from "./DiscoverScreen";
 import {LikesScreen} from "./LikesScreen";
 import {NewsScreen} from "./NewsScreen";
 import {SettingsScreen} from "./SettingsScreen";
-import {createNativeStackNavigator} from "react-native-screens/native-stack";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {
     Cog6ToothIcon as SettingsSolid,
     HeartIcon as HeartSolid,
