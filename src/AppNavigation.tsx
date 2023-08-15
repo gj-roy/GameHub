@@ -68,20 +68,20 @@ export const AppNavigation = () => {
         let label;
         if (route.name === Destination.Discover.route) {
             label = focused ?
-                <Text style={{color: GameHubColors.secondary}}>{Destination.Discover.title}</Text> :
-                <Text style={{color: GameHubColors.primary}}>{Destination.Discover.title}</Text>
+                <Text style={{color: GameHubColors.secondary}}>{Destination.Discover.route}</Text> :
+                <Text style={{color: GameHubColors.primary}}>{Destination.Discover.route}</Text>
         } else if (route.name === Destination.Likes.route) {
             label = focused ?
-                <Text style={{color: GameHubColors.secondary}}>{Destination.Likes.title}</Text> :
-                <Text style={{color: GameHubColors.primary}}>{Destination.Likes.title}</Text>
+                <Text style={{color: GameHubColors.secondary}}>{Destination.Likes.route}</Text> :
+                <Text style={{color: GameHubColors.primary}}>{Destination.Likes.route}</Text>
         } else if (route.name === Destination.News.route) {
             label = focused ?
-                <Text style={{color: GameHubColors.secondary}}>{Destination.News.title}</Text> :
-                <Text style={{color: GameHubColors.primary}}>{Destination.News.title}</Text>
+                <Text style={{color: GameHubColors.secondary}}>{Destination.News.route}</Text> :
+                <Text style={{color: GameHubColors.primary}}>{Destination.News.route}</Text>
         } else if (route.name === Destination.Settings.route) {
             label = focused ?
-                <Text style={{color: GameHubColors.secondary}}>{Destination.Settings.title}</Text> :
-                <Text style={{color: GameHubColors.primary}}>{Destination.Settings.title}</Text>
+                <Text style={{color: GameHubColors.secondary}}>{Destination.Settings.route}</Text> :
+                <Text style={{color: GameHubColors.primary}}>{Destination.Settings.route}</Text>
         }
         return label;
     }
