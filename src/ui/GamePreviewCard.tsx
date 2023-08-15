@@ -3,7 +3,7 @@ import {Image, TouchableOpacity} from "react-native";
 import {GamesCategoryPreviewDataModel} from "./GamesCategoryPreview";
 import {ImageURISource} from "react-native/Libraries/Image/ImageSource";
 import { useNavigation} from "@react-navigation/native";
-import {Destination} from "../Destination";
+import {Destination} from "../navigation/Destination";
 
 
 type GamePreviewCardProps = {

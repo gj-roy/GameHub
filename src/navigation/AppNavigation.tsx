@@ -2,10 +2,10 @@ import {Text, View} from 'react-native'
 import React from 'react'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer, Route} from "@react-navigation/native";
-import {DiscoverScreen} from "./DiscoverScreen";
-import {LikesScreen} from "./LikesScreen";
-import {NewsScreen} from "./NewsScreen";
-import {SettingsScreen} from "./SettingsScreen";
+import {DiscoverScreen} from "../DiscoverScreen";
+import {LikesScreen} from "../LikesScreen";
+import {NewsScreen} from "../NewsScreen";
+import {SettingsScreen} from "../SettingsScreen";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {
     Cog6ToothIcon as SettingsSolid,
@@ -19,9 +19,9 @@ import {
     HomeIcon as HomeOutline,
     NewspaperIcon as NewspaperOutline,
 } from "react-native-heroicons/outline";
-import {GameHubColors} from "./theme/GameHubTheme";
+import {GameHubColors} from "../theme/GameHubTheme";
 import {Destination} from "./Destination";
-import {GameScreen} from "./GameScreen";
+import {GameScreen} from "../GameScreen";
 
 
 export const AppNavigation = () => {
