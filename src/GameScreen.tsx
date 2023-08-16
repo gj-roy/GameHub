@@ -3,6 +3,11 @@ import * as React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 
+/**
+ * The page for showing detailed information about a single game.
+ * User usually comes to this screen after clicking on a game in
+ * any of the other pages.
+ */
 export const GameScreen = () => {
 
     const navigation = useNavigation();
