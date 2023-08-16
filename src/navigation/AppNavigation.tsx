@@ -1,12 +1,10 @@
 import {Text, View} from 'react-native'
 import React from 'react'
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer, Route} from "@react-navigation/native";
 import {DiscoverScreen} from "../DiscoverScreen";
 import {LikesScreen} from "../LikesScreen";
 import {NewsScreen} from "../NewsScreen";
 import {SettingsScreen} from "../SettingsScreen";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {
     Cog6ToothIcon as SettingsSolid,
     HeartIcon as HeartSolid,
@@ -22,13 +20,10 @@ import {
 import {GameHubColors} from "../theme/GameHubTheme";
 import {Destination} from "./Destination";
 import {GameScreen} from "../GameScreen";
+import {myStackNavigator, myTabNavigator} from "./Navigators";
 
 
 export const AppNavigation = () => {
-
-    const Stack = createNativeStackNavigator();
-    const Tab = createBottomTabNavigator();
-
     /**
      * Creates the icon of each one of the bottom bar tabs.
      */
@@ -89,8 +84,8 @@ export const AppNavigation = () => {
     const BottomTabs = () => {
 
 
-        return (<Tab.Navigator
-            id="bottom-tab-navigator"
+        return (<myTabNavigator.Tab.Navigator
+            id={myTabNavigator.id}
             initialRouteName={Destination.Discover.route}
             screenOptions={({route}) => ({
                 tabBarShowLabel: true,
@@ -109,19 +104,27 @@ export const AppNavigation = () => {
             })}
 
         >
-            <Tab.Screen name={Destination.Discover.route} component={DiscoverScreen}/>
-            <Tab.Screen name={Destination.Likes.route} component={LikesScreen}/>
-            <Tab.Screen name={Destination.News.route} component={NewsScreen}/>
-            <Tab.Screen name={Destination.Settings.route} component={SettingsScreen}/>
-        </Tab.Navigator>)
+            <myTabNavigator.Tab.Screen name={Destination.Discover.route} component={DiscoverScreen}/>
+            <myTabNavigator.Tab.Screen name={Destination.Likes.route} component={LikesScreen}/>
+            <myTabNavigator.Tab.Screen name={Destination.News.route} component={NewsScreen}/>
+            <myTabNavigator.Tab.Screen name={Destination.Settings.route} component={SettingsScreen}/>
+        </myTabNavigator.Tab.Navigator>)
     }
 
     return (
         <NavigationContainer>
-            <Stack.Navigator id="stack-navigator">
-                <Stack.Screen name="home" options={{headerShown: false}} component={BottomTabs}/>
-                <Stack.Screen name={Destination.Game.route} options={{headerShown: false}} component={GameScreen}/>
-            </Stack.Navigator>
+            <myStackNavigator.Stack.Navigator id={myStackNavigator.id}>
+                <myStackNavigator.Stack.Screen
+                    name="home"
+                    options={{headerShown: false}}
+                    component={BottomTabs}
+                />
+                <myStackNavigator.Stack.Screen
+                    name={Destination.Game.route}
+                    options={{headerShown: false}}
+                    component={GameScreen}
+                />
+            </myStackNavigator.Stack.Navigator>
         </NavigationContainer>
     )
 }
