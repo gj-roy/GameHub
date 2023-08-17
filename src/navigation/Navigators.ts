@@ -19,4 +19,5 @@ export const myStackNavigator = {
 export const myTabNavigator = {
     Tab: createBottomTabNavigator(),
     id: "bottom-tab-navigator",
+    name: "home"
 };

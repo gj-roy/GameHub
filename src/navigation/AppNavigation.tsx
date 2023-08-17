@@ -113,9 +113,12 @@ export const AppNavigation = () => {
 
     return (
         <NavigationContainer>
-            <myStackNavigator.Stack.Navigator id={myStackNavigator.id}>
+            <myStackNavigator.Stack.Navigator
+                id={myStackNavigator.id}
+                initialRouteName={myTabNavigator.name}
+            >
                 <myStackNavigator.Stack.Screen
-                    name="home"
+                    name={myTabNavigator.name}
                     options={{headerShown: false}}
                     component={BottomTabs}
                 />
