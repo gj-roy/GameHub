@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
+import com.facebook.hermes.reactexecutor.HermesExecutorFactory
 import com.facebook.react.PackageList
 import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactPackage
@@ -57,6 +58,7 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
             .addPackages(packages)
             .setUseDeveloperSupport(BuildConfig.DEBUG)
             .setInitialLifecycleState(LifecycleState.RESUMED)
+            .setJavaScriptExecutorFactory(HermesExecutorFactory())
             .build()
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
