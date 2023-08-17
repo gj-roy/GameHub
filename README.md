@@ -170,8 +170,3 @@ App icon designer: [Grace Peterson](mailto:gracepeterson2@outlook.com)
 <br/>
 Russian translations: [Daria Vinogradova](mailto:herrwerner278@gmail.com)
 
-### Supporters
-
-<img height="150" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" width="150"/><br/>
-Thanks to our lovely friends in Jetbrains, we have
-received an [open source](https://jb.gg/OpenSourceSupport) licence to [WebStorm]() IDE ❤️.
