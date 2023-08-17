@@ -6,6 +6,6 @@ android/buildSrc/.gradle/
 node_modules/
 package-lock.json
 .expo/
-/.idea/
+.idea/
 /src/secrets/Secrets.ts
 android/.idea/
