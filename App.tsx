@@ -1,20 +1,16 @@
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Text>Ok let's start implementing our GameHub app.</Text>
-            <StatusBar style="auto"/>
+        <View style={{
+            flex: 1,
+            backgroundColor: '#fff',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }}>
+            <Text>GameHub app main page</Text>
+            <StatusBar style="light"/>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
