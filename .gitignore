@@ -1,11 +1,2 @@
-android/.gradle/
-android/.editorconfig
-android/app/build/
-android/buildSrc/build/
-android/buildSrc/.gradle/
-node_modules/
-package-lock.json
-.expo/
 .idea/
-/src/secrets/Secrets.ts
-android/.idea/
+legacy-native-android-gamehub/app/build
