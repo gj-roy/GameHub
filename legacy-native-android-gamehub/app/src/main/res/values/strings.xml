@@ -2,7 +2,7 @@
 
 <resources>
 
-    <string name="app_name" translatable="false">Game Hub</string>
+    <string name="app_name" translatable="false">Legacy Android GameHub</string>
 
     <!--    feature search -->
     <string name="games_search_toolbar_hint">Search games</string>
