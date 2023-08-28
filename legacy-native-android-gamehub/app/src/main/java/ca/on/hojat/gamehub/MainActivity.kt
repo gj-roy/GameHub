@@ -1,123 +1,103 @@
 package ca.on.hojat.gamehub
 
-import android.content.Intent
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
-import android.view.KeyEvent
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.facebook.hermes.reactexecutor.HermesExecutorFactory
-import com.facebook.react.PackageList
-import com.facebook.react.ReactInstanceManager
-import com.facebook.react.ReactPackage
-import com.facebook.react.ReactRootView
-import com.facebook.react.common.LifecycleState
-import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
-import com.facebook.soloader.SoLoader
-import timber.log.Timber
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.snapshotFlow
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.WindowCompat
+import ca.on.hojat.gamehub.core.domain.common.usecases.execute
+import ca.on.hojat.gamehub.core.downloader.Downloader
+import ca.on.hojat.gamehub.core.providers.NetworkStateProvider
+import ca.on.hojat.gamehub.core.sharers.TextSharer
+import ca.on.hojat.gamehub.core.urlopeners.UrlOpener
+import ca.on.hojat.gamehub.feature_settings.domain.entities.Settings
+import ca.on.hojat.gamehub.feature_settings.domain.entities.Theme
+import ca.on.hojat.gamehub.feature_settings.domain.usecases.ObserveThemeUseCase
+import ca.on.hojat.gamehub.presentation.theme.GameHubTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import kotlinx.coroutines.flow.filterNotNull
 
-class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
 
-    companion object {
-        private const val OVERLAY_PERMISSION_REQ_CODE = 1
+    @Inject
+    lateinit var urlOpener: UrlOpener
+
+    @Inject
+    lateinit var textSharer: TextSharer
+
+    @Inject
+    lateinit var networkStateProvider: NetworkStateProvider
+
+    @Inject
+    lateinit var downloader: Downloader
+
+    @Inject
+    lateinit var observeThemeUseCase: ObserveThemeUseCase
+
+    private var shouldKeepSplashOpen = true
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setupSplashScreen()
+        super.onCreate(savedInstanceState)
+        setupSystemBars()
+        setupCompose()
     }
 
-    private lateinit var reactRootView: ReactRootView
-    private lateinit var reactInstanceManager: ReactInstanceManager
+    private fun setupSplashScreen() {
+        // Waiting until the app's theme is loaded first before
+        // displaying the dashboard to prevent the user from seeing
+        // the app blinking as a result of the theme change
+        installSplashScreen().setKeepOnScreenCondition(::shouldKeepSplashOpen)
+    }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    private fun setupSystemBars() {
+        // To be able to draw behind system bars & change their colors
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+    }
 
-        if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (Settings.canDrawOverlays(this).not()) {
-                    // SYSTEM_ALERT_WINDOW permission is not granted.
-                    Timber.e("User didn't grant the permission for overlaying window.")
+    private fun setupCompose() {
+        setContent {
+            CompositionLocalProvider(LocalUrlOpener provides urlOpener) {
+                CompositionLocalProvider(LocalTextSharer provides textSharer) {
+                    CompositionLocalProvider(LocalNetworkStateProvider provides networkStateProvider) {
+                        CompositionLocalProvider(LocalDownloader provides downloader) {
+                            GameHubTheme(useDarkTheme = shouldUseDarkTheme()) {
+                                MainScreen()
+                            }
+                        }
+                    }
                 }
             }
         }
-        reactInstanceManager.onActivityResult(this, requestCode, resultCode, data)
-
     }
 
+    @Composable
+    private fun shouldUseDarkTheme(): Boolean {
+        val themeState = observeThemeUseCase.execute().collectAsState(initial = null)
+        val theme = (themeState.value ?: Settings.DEFAULT.theme)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(null)
-        SoLoader.init(this, false)
-        reactRootView = ReactRootView(this)
-        val packages: List<ReactPackage> = PackageList(application).packages
-        // Packages that cannot be autolinked yet can be added manually here, for example:
-        // packages.add(MyReactNativePackage())
-        // Remember to include them in `settings.gradle` and `app/build.gradle` too.
-        reactInstanceManager = ReactInstanceManager.builder()
-            .setApplication(application)
-            .setCurrentActivity(this)
-            .setBundleAssetName("index.android.bundle")
-            .setJSMainModulePath("index")
-            .addPackages(packages)
-            .setUseDeveloperSupport(BuildConfig.DEBUG)
-            .setInitialLifecycleState(LifecycleState.RESUMED)
-            .setJavaScriptExecutorFactory(HermesExecutorFactory())
-            .build()
-        // The string here (e.g. "MyReactNativeApp") has to match
-        // the string in AppRegistry.registerComponent() in index.js
-        reactRootView.startReactApplication(reactInstanceManager, "ReactActivity", null)
-        setContentView(reactRootView)
-
-        // Check if overlay permission is granted.
-        checkOverlayPermission()
-    }
-
-    /**
-     * In debug build of the app, this function will check if the app has permission to open up
-     * debug window in front of other windows (user has to give this permission). Should not be included in
-     * release build of the app.
-     */
-    private fun checkOverlayPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (Settings.canDrawOverlays(this).not()) {
-                val intent = Intent(
-                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package: $packageName")
-                )
-                startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
-            }
+        LaunchedEffect(Unit) {
+            snapshotFlow { themeState.value }
+                .filterNotNull()
+                .collect {
+                    if (shouldKeepSplashOpen) {
+                        shouldKeepSplashOpen = false
+                    }
+                }
         }
 
-    }
-
-    override fun invokeDefaultOnBackPressed() {
-        super.onBackPressed()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        reactInstanceManager.onHostResume(this, this)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        reactInstanceManager.onHostPause(this)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        reactInstanceManager.onHostDestroy(this)
-        reactRootView.unmountReactApplication()
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        reactInstanceManager.onBackPressed()
-        super.onBackPressed()
-    }
-
-    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_MENU) {
-            reactInstanceManager.showDevOptionsDialog()
-            return true
+        return when (theme) {
+            Theme.LIGHT -> false
+            Theme.DARK -> true
+            Theme.SYSTEM -> isSystemInDarkTheme()
         }
-        return super.onKeyUp(keyCode, event)
     }
 }

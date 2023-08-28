@@ -5,9 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!--    Only Needed for React Native's debug window which shows up during debug
-     time of the app (Shouldn't be included in release build). -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <!--    This permission is only for the sake of older API when we
     want to download something to external storage -->
     <uses-permission
@@ -29,17 +27,6 @@
 
         <!-- See this https://stackoverflow.com/a/68899786/7015881 why tools:ignore is needed above -->
 
-        <activity
-            android:name="ca.on.hojat.gamehub.LegacyMainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:windowSoftInputMode="adjustPan"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-
-        <!-- This is the root activity to the React Native part of the app. -->
         <activity
             android:name="ca.on.hojat.gamehub.MainActivity"
             android:exported="true"
