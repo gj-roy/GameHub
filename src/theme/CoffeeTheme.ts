@@ -1,5 +1,0 @@
-export const themeColors = {
-    bgLight: '#d4a574',
-    bgDark: '#8c5319',
-    text: '#3C2A21'
-}

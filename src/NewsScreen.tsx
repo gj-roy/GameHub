@@ -5,7 +5,6 @@ import {RemoteNewsArticlesDataSource} from "./data/api/news/RemoteNewsArticlesDa
 import {DomainNewsArticle} from "./data/domain/news/DomainNewsArticle";
 import {convertApiNewsArticleToDomainNewsArticle} from "./data/api/news/entities/ApiNewsArticle";
 
-
 export const NewsScreen = () => {
 
     const [newsArticles, setNewsArticles] = useState<DomainNewsArticle[]>([]);

@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native'
+import {Text, View} from 'react-native'
 import React from 'react'
 import {SettingsSectionItem} from "./ui/SettingsSectionItem";
 import {GameHubColors} from "./theme/GameHubTheme";

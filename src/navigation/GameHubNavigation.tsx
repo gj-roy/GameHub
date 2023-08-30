@@ -15,13 +15,13 @@ import {
     NewspaperIcon as NewspaperSolid
 } from 'react-native-heroicons/solid';
 import React, {ReactNode} from "react";
-import {Destination} from "../../bare-react-native-gamehub/src/navigation/Destination";
-import {GameHubColors} from "../../bare-react-native-gamehub/src/theme/GameHubTheme";
 import {DiscoverScreen} from "../DiscoverScreen";
 import {LikesScreen} from "../LikesScreen";
 import {NewsScreen} from "../NewsScreen";
 import {SettingsScreen} from "../SettingsScreen";
 import {GameScreen} from "../GameScreen";
+import {Destination} from "./Destination";
+import {GameHubColors} from "../theme/GameHubTheme";
 
 
 // The 2 navigators used for the navigation module of this app.
@@ -137,4 +137,3 @@ export const GameHubNavigation = () => {
     )
 
 }
-
