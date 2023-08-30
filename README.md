@@ -1,6 +1,6 @@
 # `Game Hub` React Native App
 
-<a href='https://play.google.com/store/apps/details?id=ca.on.hojat.gamenews'><img src='./media/button-google-play.svg' alt='Get it on Google Play' height='45' /></a>
+<a href='https://play.google.com/store/apps/details?id=ca.on.hojat.gamenews'><img src='./docs/button-google-play.svg' alt='Get it on Google Play' height='45' /></a>
 
 ![Min API](https://img.shields.io/badge/API-21%2B-orange.svg?style=flat)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](http://developer.android.com/index.html)
@@ -45,14 +45,14 @@ https://user-images.githubusercontent.com/8706521/227369894-81f89cab-8d60-428d-9
 ### Screenshots
 
 <p>
-<img src="./media/screenshot1.png" width="32%"/>
-<img src="./media/screenshot2.png" width="32%"/>
-<img src="./media/screenshot3.png" width="32%"/>
+<img src="docs/screenshot1.png" width="32%"/>
+<img src="docs/screenshot2.png" width="32%"/>
+<img src="docs/screenshot3.png" width="32%"/>
 </p>
 <p>
-<img src="./media/screenshot4.png" width="32%"/>
-<img src="./media/screenshot5.png" width="32%"/>
-<img src="./media/screenshot6.png" width="32%"/>
+<img src="docs/screenshot4.png" width="32%"/>
+<img src="docs/screenshot5.png" width="32%"/>
+<img src="docs/screenshot6.png" width="32%"/>
 </p>
 
 ## Tech Stack
@@ -125,7 +125,7 @@ file.
 
 ## Architecture
 
-![architecture](/media/architecture.png)
+![architecture](/docs/architecture.png)
 
 ## Development Setup
 

@@ -4,3 +4,4 @@ legacy-native-android-gamehub/.gradle/
 node_modules/
 .expo/
 package-lock.json
+src/secrets/

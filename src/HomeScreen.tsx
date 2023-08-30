@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Dimensions, FlatList, Image, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {StatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native-safe-area-context'
-import {themeColors} from "./CoffeeTheme";
+import {themeColors} from "./theme/CoffeeTheme";
 import {BellIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline'
 import {MapPinIcon} from 'react-native-heroicons/solid'
 import Carousel from 'react-native-snap-carousel';

@@ -4,7 +4,8 @@ import {useNavigation, useRoute} from '@react-navigation/native'
 import {StatusBar} from 'expo-status-bar';
 import {ArrowLeftCircleIcon, MinusIcon, PlusIcon, ShoppingBagIcon} from 'react-native-heroicons/outline';
 import {HeartIcon, StarIcon} from 'react-native-heroicons/solid';
-import {themeColors} from './CoffeeTheme';
+import {themeColors} from "./theme/CoffeeTheme";
+
 
 
 export const ProductScreen = () => {

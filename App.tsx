@@ -1,5 +1,6 @@
 import {LogBox} from 'react-native';
-import {GameHubNavigation} from "./src/GameHubNavigation";
+import {GameHubNavigation} from "./src/navigation/GameHubNavigation";
+
 
 // silencing the log messages we don't want to see.
 LogBox.ignoreLogs([

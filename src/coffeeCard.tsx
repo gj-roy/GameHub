@@ -1,6 +1,6 @@
 import {Dimensions, Image, Text, TouchableOpacity, View} from 'react-native'
 import React from 'react'
-import {themeColors} from './CoffeeTheme'
+import {themeColors} from './theme/CoffeeTheme'
 import {useNavigation} from '@react-navigation/native'
 import {StarIcon} from 'react-native-heroicons/solid';
 import {PlusIcon} from 'react-native-heroicons/outline';
