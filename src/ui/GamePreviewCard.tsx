@@ -24,7 +24,9 @@ export const GamePreviewCard = ({game}: GamePreviewCardProps) => {
         <TouchableOpacity onPress={() => {
             // Goes to the GameScreen.
             // @ts-ignore
-            navigation?.navigate(Destination.Game.route, {...game});
+            navigation?.navigate(Destination.Game.route, {
+                itemId: game.id
+            });
         }}>
             <Image
                 style={{

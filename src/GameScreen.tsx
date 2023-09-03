@@ -1,9 +1,16 @@
 import * as React from 'react';
+import {useEffect, useState} from 'react';
 
-import {Image, Text, TouchableOpacity, View} from 'react-native';
-import {RouteProp, useNavigation, useRoute} from "@react-navigation/native";
-import {GamesCategoryPreviewDataModel} from "./ui/GamesCategoryPreview";
-import {ImageURISource} from "react-native/Libraries/Image/ImageSource";
+import {Text, View} from 'react-native';
+import {useRoute} from "@react-navigation/native";
+import {RemoteGameDataSource} from "./data/api/igdb/RemoteGameDataSource";
+import {ApiGame} from "./data/api/igdb/entities/ApiGame";
+
+const gameRepository = async (id: number) => {
+    const dataSource = new RemoteGameDataSource();
+    return dataSource.getSpecificGameDetails(id);
+};
+
 
 /**
  * The page for showing detailed information about a single game.
@@ -12,27 +19,31 @@ import {ImageURISource} from "react-native/Libraries/Image/ImageSource";
  */
 export const GameScreen = () => {
 
-    const navigation = useNavigation();
+
     // the data that was given to this route
-    const game = useRoute<RouteProp<Record<string, GamesCategoryPreviewDataModel>>>().params;
-    const gameCoverUrl: ImageURISource = {uri: game.coverUrl ?? undefined}
+    // @ts-ignore
+    const {itemId} = useRoute().params;
+
+    const [game, setGame] = useState<ApiGame | null>(null);
+    useEffect(() => {
+        gameRepository(itemId as number)
+            .then(listOfGames => {
+                setGame(listOfGames[0]);
+            })
+            .catch((error) => {
+                console.error(`Promise of GameRepository was rejected : ${error}`);
+            });
+    }, []);
 
     return (
         <View
             style={{
+                marginTop: 35,
                 flex: 1,
                 alignItems: 'center'
             }}
         >
 
-            <Image
-                source={gameCoverUrl}
-                style={{
-                    width: '100%',
-                    height: 240,
-                    resizeMode: 'cover'
-                }}
-            />
             <Text
                 style={{
                     fontWeight: 'bold',
@@ -40,18 +51,10 @@ export const GameScreen = () => {
                     fontSize: 20,
                 }}
             >
-                {game.title}
+                {game?.name}
             </Text>
 
-            <TouchableOpacity
-                style={{marginTop: 20}}
-                onPress={() => {
-                    console.log("user wants to go back home!!!!");
-                    navigation.goBack();
-                }}
-            >
-                <Text>Go back to HomeScreen</Text>
-            </TouchableOpacity>
+
         </View>
     );
 }
