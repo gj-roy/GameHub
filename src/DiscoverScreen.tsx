@@ -33,10 +33,10 @@ const mostAnticipatedGamesRepository = async () => {
     return dataSource.getMostAnticipatedGames();
 };
 
-const convertApiGameToPreviewHeaderGame = (game: ApiGame, index: number) => {
+const convertApiGameToPreviewHeaderGame = (game: ApiGame) => {
 
     const resultingGame: GamesCategoryPreviewDataModel = {
-        id: index,
+        id: game.id,
         title: game.name,
         coverUrl: `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover?.image_id}.jpg`
     };
