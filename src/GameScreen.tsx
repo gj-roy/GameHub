@@ -3,14 +3,13 @@ import {useEffect, useState} from 'react';
 
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useRoute} from "@react-navigation/native";
-import {RemoteGameDataSource} from "./data/api/igdb/RemoteGameDataSource";
 import {ApiGame} from "./data/api/igdb/entities/ApiGame";
+import {RemoteGamesDataSource} from "./data/api/igdb/RemoteGamesDataSource";
 
 const gameRepository = async (id: number) => {
-    const dataSource = new RemoteGameDataSource();
+    const dataSource = new RemoteGamesDataSource();
     return dataSource.getSpecificGameDetails(id);
 };
-
 
 /**
  * The page for showing detailed information about a single game.

@@ -2,10 +2,7 @@ import {ScrollView} from 'react-native'
 import React, {useEffect, useState} from 'react'
 import {GamesCategoryPreview} from "./ui/GamesCategoryPreview";
 import {GameHubColors} from "./theme/GameHubTheme";
-import {RemotePopularGamesDataSource} from "./data/api/igdb/RemotePopularGamesDataSource";
-import {RemoteRecentlyReleasedGamesDataSource} from "./data/api/igdb/RemoteRecentlyReleasedGamesDataSource";
-import {RemoteComingSoonGamesDataSource} from "./data/api/igdb/RemoteComingSoonGamesDataSource";
-import {RemoteMostAnticipatedGamesDataSource} from "./data/api/igdb/RemoteMostAnticipatedGamesDataSource";
+import {RemoteGamesDataSource} from "./data/api/igdb/RemoteGamesDataSource";
 import {ApiGame} from "./data/api/igdb/entities/ApiGame";
 import {convertApiGameToPreviewHeaderGame} from "./data/mappers/ApiGameMappers";
 
@@ -15,22 +12,22 @@ import {convertApiGameToPreviewHeaderGame} from "./data/mappers/ApiGameMappers";
 // };
 
 const popularGamesRepository = async () => {
-    const dataSource = new RemotePopularGamesDataSource();
+    const dataSource = new RemoteGamesDataSource();
     return dataSource.getPopularGames();
 };
 
 const recentlyReleasedGamesRepository = async () => {
-    const dataSource = new RemoteRecentlyReleasedGamesDataSource();
+    const dataSource = new RemoteGamesDataSource();
     return dataSource.getRecentlyReleasedGames();
 };
 
 const comingSoonGamesRepository = async () => {
-    const dataSource = new RemoteComingSoonGamesDataSource();
+    const dataSource = new RemoteGamesDataSource();
     return dataSource.getComingSoonGames();
 };
 
 const mostAnticipatedGamesRepository = async () => {
-    const dataSource = new RemoteMostAnticipatedGamesDataSource();
+    const dataSource = new RemoteGamesDataSource();
     return dataSource.getMostAnticipatedGames();
 };
 
