@@ -9,7 +9,6 @@ import {ApiVideo} from "./ApiVideo";
 import {ApiImage} from "./ApiImage";
 import {ApiCategory} from "./ApiCategory";
 
-
 export type ApiGame = {
     id: number;
     category: ApiCategory;
