@@ -1,12 +1,13 @@
 import {ScrollView} from 'react-native'
 import React, {useEffect, useState} from 'react'
-import {GamesCategoryPreview, GamesCategoryPreviewDataModel} from "./ui/GamesCategoryPreview";
+import {GamesCategoryPreview} from "./ui/GamesCategoryPreview";
 import {GameHubColors} from "./theme/GameHubTheme";
 import {RemotePopularGamesDataSource} from "./data/api/igdb/RemotePopularGamesDataSource";
 import {RemoteRecentlyReleasedGamesDataSource} from "./data/api/igdb/RemoteRecentlyReleasedGamesDataSource";
 import {RemoteComingSoonGamesDataSource} from "./data/api/igdb/RemoteComingSoonGamesDataSource";
 import {RemoteMostAnticipatedGamesDataSource} from "./data/api/igdb/RemoteMostAnticipatedGamesDataSource";
 import {ApiGame} from "./data/api/igdb/entities/ApiGame";
+import {convertApiGameToPreviewHeaderGame} from "./data/mappers/ApiGameMappers";
 
 // const oAuthCredentialsRepository = async () => {
 //     const dataSource = new RemoteOAuthDataSource();
@@ -31,16 +32,6 @@ const comingSoonGamesRepository = async () => {
 const mostAnticipatedGamesRepository = async () => {
     const dataSource = new RemoteMostAnticipatedGamesDataSource();
     return dataSource.getMostAnticipatedGames();
-};
-
-const convertApiGameToPreviewHeaderGame = (game: ApiGame) => {
-
-    const resultingGame: GamesCategoryPreviewDataModel = {
-        id: game.id,
-        title: game.name,
-        coverUrl: `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover?.image_id}.jpg`
-    };
-    return resultingGame;
 };
 
 export const DiscoverScreen = () => {
