@@ -2,7 +2,7 @@ import {ScrollView} from 'react-native'
 import React, {useEffect, useState} from 'react'
 import {GamesCategoryPreview} from "./ui/GamesCategoryPreview";
 import {GameHubColors} from "./theme/GameHubTheme";
-import {RemoteGamesDataSource} from "./data/api/igdb/RemoteGamesDataSource";
+import {RemoteGamePreviewsDataSource} from "./data/api/igdb/RemoteGamePreviewsDataSource";
 import {ApiGamePreview} from "./data/api/igdb/entities/ApiGamePreview";
 
 // const oAuthCredentialsRepository = async () => {
@@ -11,22 +11,22 @@ import {ApiGamePreview} from "./data/api/igdb/entities/ApiGamePreview";
 // };
 
 const popularGamesRepository = async () => {
-    const dataSource = new RemoteGamesDataSource();
+    const dataSource = new RemoteGamePreviewsDataSource();
     return dataSource.getPopularGames();
 };
 
 const recentlyReleasedGamesRepository = async () => {
-    const dataSource = new RemoteGamesDataSource();
+    const dataSource = new RemoteGamePreviewsDataSource();
     return dataSource.getRecentlyReleasedGames();
 };
 
 const comingSoonGamesRepository = async () => {
-    const dataSource = new RemoteGamesDataSource();
+    const dataSource = new RemoteGamePreviewsDataSource();
     return dataSource.getComingSoonGames();
 };
 
 const mostAnticipatedGamesRepository = async () => {
-    const dataSource = new RemoteGamesDataSource();
+    const dataSource = new RemoteGamePreviewsDataSource();
     return dataSource.getMostAnticipatedGames();
 };
 

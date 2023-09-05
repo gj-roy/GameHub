@@ -4,10 +4,11 @@ import {useEffect, useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useRoute} from "@react-navigation/native";
 import {ApiGame} from "./data/api/igdb/entities/ApiGame";
-import {RemoteGamesDataSource} from "./data/api/igdb/RemoteGamesDataSource";
+import {RemoteGamePreviewsDataSource} from "./data/api/igdb/RemoteGamePreviewsDataSource";
+import {RemoteGameDataSource} from "./data/api/igdb/RemoteGameDataSource";
 
 const gameRepository = async (id: number) => {
-    const dataSource = new RemoteGamesDataSource();
+    const dataSource = new RemoteGameDataSource();
     return dataSource.getSpecificGameDetails(id);
 };
 
