@@ -3,8 +3,7 @@ import React, {useEffect, useState} from 'react'
 import {GamesCategoryPreview} from "./ui/GamesCategoryPreview";
 import {GameHubColors} from "./theme/GameHubTheme";
 import {RemoteGamesDataSource} from "./data/api/igdb/RemoteGamesDataSource";
-import {ApiGame} from "./data/api/igdb/entities/ApiGame";
-import {convertApiGameToPreviewHeaderGame} from "./data/mappers/ApiGameMappers";
+import {ApiGamePreview} from "./data/api/igdb/entities/ApiGamePreview";
 
 // const oAuthCredentialsRepository = async () => {
 //     const dataSource = new RemoteOAuthDataSource();
@@ -34,10 +33,10 @@ const mostAnticipatedGamesRepository = async () => {
 export const DiscoverScreen = () => {
 
     // const [oAuthCredentials, setOAuthCredentials] = useState<ApiOAuthResult | null>(null);
-    const [popularGames, setPopularGames] = useState<ApiGame[] | null>([]);
-    const [recentlyReleasedGames, setRecentlyReleasedGames] = useState<ApiGame[] | null>([]);
-    const [comingSoonGames, setComingSoonGames] = useState<ApiGame[] | null>([]);
-    const [mostAnticipatedGames, setMostAnticipatedGames] = useState<ApiGame[] | null>([]);
+    const [popularGames, setPopularGames] = useState<ApiGamePreview[]>([]);
+    const [recentlyReleasedGames, setRecentlyReleasedGames] = useState<ApiGamePreview[]>([]);
+    const [comingSoonGames, setComingSoonGames] = useState<ApiGamePreview[]>([]);
+    const [mostAnticipatedGames, setMostAnticipatedGames] = useState<ApiGamePreview[]>([]);
 
     useEffect(() => {
         // oAuthCredentialsRepository()
@@ -53,6 +52,7 @@ export const DiscoverScreen = () => {
             })
             .catch((error) => {
                 console.error(`Promise of PopularGamesRepository was rejected : ${error}`);
+                setPopularGames([]);
             });
         recentlyReleasedGamesRepository()
             .then(games => {
@@ -60,6 +60,7 @@ export const DiscoverScreen = () => {
             })
             .catch((error) => {
                 console.error(`Promise of RecentlyReleasedGamesRepository was rejected : ${error}`);
+                setRecentlyReleasedGames([]);
             });
         comingSoonGamesRepository()
             .then(games => {
@@ -67,6 +68,7 @@ export const DiscoverScreen = () => {
             })
             .catch((error) => {
                 console.error(`Promise of ComingSoonGamesRepository was rejected : ${error}`);
+                setComingSoonGames([]);
             });
         mostAnticipatedGamesRepository()
             .then(games => {
@@ -74,6 +76,7 @@ export const DiscoverScreen = () => {
             })
             .catch((error) => {
                 console.error(`Promise of MostAnticipatedGamesRepository was rejected : ${error}`);
+                setMostAnticipatedGames([]);
             });
     }, []);
 
@@ -85,18 +88,10 @@ export const DiscoverScreen = () => {
             flex: 1,
             backgroundColor: GameHubColors.neutral
         }}>
-            <GamesCategoryPreview title="popular" games={
-                popularGames?.map(convertApiGameToPreviewHeaderGame) ?? []
-            }/>
-            <GamesCategoryPreview title="Recently Released" games={
-                recentlyReleasedGames?.map(convertApiGameToPreviewHeaderGame) ?? []
-            }/>
-            <GamesCategoryPreview title="Coming Soon" games={
-                comingSoonGames?.map(convertApiGameToPreviewHeaderGame) ?? []
-            }/>
-            <GamesCategoryPreview title="Most Anticipated" games={
-                mostAnticipatedGames?.map(convertApiGameToPreviewHeaderGame) ?? []
-            }/>
+            <GamesCategoryPreview title="popular" games={popularGames}/>
+            <GamesCategoryPreview title="Recently Released" games={recentlyReleasedGames}/>
+            <GamesCategoryPreview title="Coming Soon" games={comingSoonGames}/>
+            <GamesCategoryPreview title="Most Anticipated" games={mostAnticipatedGames}/>
 
         </ScrollView>
     );

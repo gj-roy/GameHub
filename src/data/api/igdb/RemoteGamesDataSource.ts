@@ -1,29 +1,30 @@
 import {IgdbService} from "./IgdbService";
-import {getAllRequestFields} from "./RequestFieldsRepository";
+import {getAllRequestFields, getPreviewGamesRequestFields} from "./RequestFieldsRepository";
 import {ApiGame} from "./entities/ApiGame";
+import {ApiGamePreview} from "./entities/ApiGamePreview";
 
 export class RemoteGamesDataSource {
 
     constructor() {
     }
 
-    getPopularGames(): Promise<ApiGame[]> {
+    getPopularGames(): Promise<ApiGamePreview[]> {
 
-        return IgdbService(`${getAllRequestFields()};where rating != null;where first_release_date > 1538129354;limit 20;sort total_rating desc;`);
+        return IgdbService(`${getPreviewGamesRequestFields()};where rating != null;where first_release_date > 1538129354;limit 20;sort total_rating desc;`);
     }
 
-    getRecentlyReleasedGames(): Promise<ApiGame[]> {
+    getRecentlyReleasedGames(): Promise<ApiGamePreview[]> {
 
-        return IgdbService(`${getAllRequestFields()};where first_release_date > 1538129354 & first_release_date < 1691193575 ;limit 20;sort first_release_date desc;`);
+        return IgdbService(`${getPreviewGamesRequestFields()};where first_release_date > 1538129354 & first_release_date < 1691193575 ;limit 20;sort first_release_date desc;`);
     }
 
-    getComingSoonGames(): Promise<ApiGame[]> {
+    getComingSoonGames(): Promise<ApiGamePreview[]> {
 
-        return IgdbService(`${getAllRequestFields()};where first_release_date > 1691193575 ;limit 20;sort first_release_date asc;`);
+        return IgdbService(`${getPreviewGamesRequestFields()};where first_release_date > 1691193575 ;limit 20;sort first_release_date asc;`);
     }
 
-    getMostAnticipatedGames(): Promise<ApiGame[]> {
-        return IgdbService(`${getAllRequestFields()};where first_release_date > 1691193575 & hypes != null ;limit 20;sort hypes desc;`);
+    getMostAnticipatedGames(): Promise<ApiGamePreview[]> {
+        return IgdbService(`${getPreviewGamesRequestFields()};where first_release_date > 1691193575 & hypes != null ;limit 20;sort hypes desc;`);
     }
 
     /**

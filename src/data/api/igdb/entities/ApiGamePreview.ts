@@ -1,3 +1,5 @@
+import {ApiImage} from "./ApiImage";
+
 /**
  * When we are in the DiscoverScreen (or any other screen that just shows previews of
  * various games and not detailed data about a game), we don't have to work with ApiGame,
@@ -6,6 +8,6 @@
  */
 export type ApiGamePreview = {
     id: number;
-    title: string;
-    coverUrl: string | null;
+    name: string;
+    cover: ApiImage | null;
 };

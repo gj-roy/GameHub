@@ -18,7 +18,7 @@ export const GamePreviewCard = ({game}: GamePreviewCardProps) => {
 
     // @ts-ignore
     const navigation = useNavigation();
-    const gameCoverUrl: ImageURISource = {uri: game.coverUrl ?? undefined}
+    const gameCoverUrl: ImageURISource = {uri: `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover?.image_id}.jpg` ?? undefined}
 
     return (
         <TouchableOpacity onPress={() => {
