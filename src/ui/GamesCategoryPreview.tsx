@@ -1,26 +1,16 @@
-import {View, Text, TouchableOpacity, FlatList} from 'react-native'
+import {FlatList, Text, TouchableOpacity, View} from 'react-native'
 import React from 'react'
 import {GameHubColors} from "../theme/GameHubTheme";
 import {GamePreviewCard} from "./GamePreviewCard";
+import {ApiGamePreview} from "../data/api/igdb/entities/ApiGamePreview";
 
 /**
  * Everything that will be fed to {GamesCategoryPreview}.
  */
 type GamesCategoryPreviewProps = {
     title: string;
-    games: GamesCategoryPreviewDataModel[];
+    games: ApiGamePreview[];
 };
-
-/**
- * Each game you provide to the {GamesCategoryPreview} should be of
- * this type.
- */
-export type GamesCategoryPreviewDataModel = {
-    id: number;
-    title: string;
-    coverUrl: string | null;
-};
-
 
 /**
  * A view, with a title and an occasional "see all" button.

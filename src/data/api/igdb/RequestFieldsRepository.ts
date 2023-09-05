@@ -7,3 +7,7 @@
 export const getAllRequestFields = () => {
     return "fields id,name,category,cover.image_id,first_release_date,game_modes,genres,involved_companies,platforms,player_perspectives,screenshots,summary,videos,websites,themes,url ";
 }
+
+export const getPreviewGamesRequestFields = () => {
+    return "fields id,name,cover.image_id ";
+}

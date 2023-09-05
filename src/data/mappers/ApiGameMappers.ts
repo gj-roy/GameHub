@@ -1,8 +1,8 @@
 import {ApiGame} from "../api/igdb/entities/ApiGame";
-import {GamesCategoryPreviewDataModel} from "../../ui/GamesCategoryPreview";
+import {ApiGamePreview} from "../api/igdb/entities/ApiGamePreview";
 
 
-export function convertApiGameToPreviewHeaderGame(game: ApiGame): GamesCategoryPreviewDataModel {
+export function convertApiGameToPreviewHeaderGame(game: ApiGame): ApiGamePreview {
 
     return {
         id: game.id,
