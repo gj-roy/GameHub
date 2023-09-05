@@ -1,8 +1,7 @@
 import axios, {AxiosRequestConfig} from "axios";
-import {ApiGame} from "./entities/ApiGame";
 import {IGDB_API_BASE_URL} from "../../../secrets/Secrets";
 
-export const IgdbService: (requestFields: string) => Promise<ApiGame[]> =
+export const IgdbService: (requestFields: string) => Promise<any> =
     async (requestFields: string) => {
 
         const requestConfig: AxiosRequestConfig = {
