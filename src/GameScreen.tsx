@@ -4,13 +4,68 @@ import {useEffect, useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useRoute} from "@react-navigation/native";
 import {ApiGame} from "./data/api/igdb/entities/ApiGame";
-import {RemoteGamePreviewsDataSource} from "./data/api/igdb/RemoteGamePreviewsDataSource";
 import {RemoteGameDataSource} from "./data/api/igdb/RemoteGameDataSource";
 
 const gameRepository = async (id: number) => {
     const dataSource = new RemoteGameDataSource();
     return dataSource.getSpecificGameDetails(id);
 };
+
+function convertUnixTimeStampToPrettyDate(unixTime: number): string {
+    const prettyDate = new Date(unixTime * 1000);
+
+    //get the month of the year
+    const monthNumber = prettyDate.getMonth();
+    let monthName: string;
+    switch (monthNumber) {
+        case 0:
+            monthName = "Jan";
+            break;
+        case 1:
+            monthName = "Feb";
+            break;
+        case 2:
+            monthName = "Mar";
+            break;
+        case 3:
+            monthName = "Apr";
+            break;
+        case 4:
+            monthName = "May";
+            break;
+        case 5:
+            monthName = "Jun";
+            break;
+        case 6:
+            monthName = "Jul";
+            break;
+        case 7:
+            monthName = "Aug";
+            break;
+        case 8:
+            monthName = "Sep";
+            break;
+        case 9:
+            monthName = "Oct";
+            break;
+        case 10:
+            monthName = "Nov";
+            break;
+        case 11:
+            monthName = "Dec";
+            break;
+        default:
+            monthName = "";
+            break;
+    }
+
+    // get day of the month
+    const dayNumber = prettyDate.getDate();
+    // get the year
+    const year = prettyDate.getFullYear();
+
+    return `${monthName} ${dayNumber}, ${year}`;
+}
 
 /**
  * The page for showing detailed information about a single game.
@@ -99,7 +154,7 @@ export const GameScreen = () => {
                                 marginTop: 5,
                             }}
                         >
-                            Feb 09, 2023 (a month ago)
+                            {convertUnixTimeStampToPrettyDate(game?.first_release_date ?? 0)}
                         </Text>
                         <Text>
                             Avalanche Software
