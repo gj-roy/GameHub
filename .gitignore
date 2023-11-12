@@ -1,6 +1,4 @@
 .idea/
-legacy-native-android-gamehub/app/build
-legacy-native-android-gamehub/.gradle/
 node_modules/
 .expo/
 package-lock.json
