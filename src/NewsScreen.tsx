@@ -9,20 +9,18 @@ export const NewsScreen = () => {
 
     const [newsArticles, setNewsArticles] = useState<DomainNewsArticle[]>([]);
 
-    const getRemoteNewsArticles = async () => {
+    const getRemoteNewsArticles = () => {
         const dataSource = new RemoteNewsArticlesDataSource();
-        return await dataSource.getArticles()
+        return dataSource.getArticles();
     }
 
     useEffect(() => {
-        getRemoteNewsArticles().then(apiResult => {
+        const apiResult = getRemoteNewsArticles();
 
+        setNewsArticles(apiResult?.results.map((apiNewsArticle) => {
+            return convertApiNewsArticleToDomainNewsArticle(apiNewsArticle)
+        }) ?? []);
 
-            setNewsArticles(apiResult?.results.map((apiNewsArticle) => {
-                return convertApiNewsArticleToDomainNewsArticle(apiNewsArticle)
-            }) ?? []);
-
-        });
     }, []);
 
     return (

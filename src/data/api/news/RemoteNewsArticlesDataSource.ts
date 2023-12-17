@@ -1,4 +1,4 @@
-import {GameSpotNewsArticlesRequestParams, NewsArticlesService} from "./NewsArticlesService";
+import {newsServerResponse} from "./FakeNewsServer";
 
 export class RemoteNewsArticlesDataSource {
 
@@ -6,17 +6,6 @@ export class RemoteNewsArticlesDataSource {
     }
 
     getArticles() {
-
-        const requestParams: GameSpotNewsArticlesRequestParams = {
-            format: 'json',
-            field_list: null,
-            limit: 100,
-            offset: 0,
-            sort: "publish_date:desc",
-            filter: "categories:18",
-        }
-
-        return NewsArticlesService(requestParams);
-
+        return newsServerResponse;
     }
 }

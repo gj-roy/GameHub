@@ -20,6 +20,7 @@ export type ApiNewsArticle = {
     categories: ApiNewsCategory[];
     associations: ApiNewsAssociation[];
     site_detail_url: string;
+    videos_api_url?: string;
 };
 
 /**
