@@ -1,5 +1,7 @@
 export type ApiVideo = {
-
+    id: number;
+    game: number;
+    name: string;
     video_id: string;
-    name: string | null;
+    checksum: string;
 };

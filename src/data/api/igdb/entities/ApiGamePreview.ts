@@ -9,5 +9,5 @@ import {ApiImage} from "./ApiImage";
 export type ApiGamePreview = {
     id: number;
     name: string;
-    cover: ApiImage | null;
+    cover?: ApiImage;
 };

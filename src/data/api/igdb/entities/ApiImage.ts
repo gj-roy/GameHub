@@ -1,5 +1,11 @@
 export type ApiImage = {
+    id:number;
+    game:number;
     image_id: string;
-    width: number | null;
-    height: number | null;
+    alpha_channel?:boolean;
+    animated?:boolean;
+    width: number ;
+    height: number;
+    url:string;
+    checksum:string;
 };

@@ -11,20 +11,20 @@ import {ApiCategory} from "./ApiCategory";
 
 export type ApiGame = {
     id: number;
-    category: ApiCategory;
-    cover: ApiImage | null;
+    category: ApiCategory|number;
+    cover?: ApiImage | null;
     first_release_date: number | null;
-    game_modes: ApiMode[];
-    genres: ApiGenre[];
-    involved_companies: ApiInvolvedCompany[];
+    game_modes?: ApiMode[];
+    genres?: ApiGenre[];
+    involved_companies?: ApiInvolvedCompany[];
     name: string;
     platforms: ApiPlatform[];
-    player_perspectives: ApiPlayerPerspective[];
-    screenshots: ApiImage[];
-    summary: string | null;
-    themes: ApiTheme[];
+    player_perspectives?: ApiPlayerPerspective[] | number[];
+    screenshots?: ApiImage[];
+    summary?: string | null;
+    themes?: ApiTheme[];
     url: string;
-    videos: ApiVideo[];
+    videos?: ApiVideo[];
     websites: ApiWebsite[];
 };
 
