@@ -6,9 +6,9 @@ import {useRoute} from "@react-navigation/native";
 import {ApiGame} from "./data/api/igdb/entities/ApiGame";
 import {RemoteGameDataSource} from "./data/api/igdb/RemoteGameDataSource";
 
-const gameRepository = async (id: number) => {
+const getSingleGameData = async (id: number) => {
     const dataSource = new RemoteGameDataSource();
-    return dataSource.getSpecificGameDetails(id);
+    return dataSource.getFakeGameData(id);
 };
 
 function convertUnixTimeStampToPrettyDate(unixTime: number): string {
@@ -83,9 +83,9 @@ export const GameScreen = () => {
     const [game, setGame] = useState<ApiGame | null>(null);
     useEffect(() => {
         console.log(`Game's ID is : ${itemId}`);
-        gameRepository(itemId as number)
-            .then(listOfGames => {
-                setGame(listOfGames[0]);
+        getSingleGameData(itemId as number)
+            .then(gameData => {
+                setGame(gameData);
             })
             .catch((error) => {
                 console.error(`Promise of GameRepository was rejected : ${error}`);
@@ -106,7 +106,7 @@ export const GameScreen = () => {
                     height: 160,
                     resizeMode: 'cover'
                 }}
-                source={{uri: `https://images.igdb.com/igdb/image/upload/t_cover_small/${game?.cover?.image_id}.jpg`}}/>
+                source={{uri: `https://images.igdb.com/igdb/image/upload/t_cover_big/${game?.cover?.image_id}.jpg`}}/>
 
             <View
                 style={{
@@ -129,7 +129,7 @@ export const GameScreen = () => {
                         height: 140,
                         borderRadius: 4
                     }}
-                           source={{uri: `https://images.igdb.com/igdb/image/upload/t_cover_small/${game?.cover?.image_id}.jpg`}}
+                           source={{uri: `https://images.igdb.com/igdb/image/upload/t_cover_big/${game?.cover?.image_id}.jpg`}}
                     />
 
                     <View
