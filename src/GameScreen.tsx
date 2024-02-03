@@ -5,6 +5,10 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useRoute} from "@react-navigation/native";
 import {ApiGame} from "./data/api/igdb/entities/ApiGame";
 import {RemoteGameDataSource} from "./data/api/igdb/RemoteGameDataSource";
+import {AddGameToLikedListUseCase, RemoveGameFromLikedListUseCase} from './feature_likes/UseCases';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {LIKED_GAMES_DB_KEY} from "./feature_likes/Constants";
+
 
 const getSingleGameData = async (id: number) => {
     const dataSource = new RemoteGameDataSource();
@@ -74,13 +78,35 @@ function convertUnixTimeStampToPrettyDate(unixTime: number): string {
  */
 export const GameScreen = () => {
 
+    const [isLiked, setIsLiked] = useState<boolean | null>(null);
+    const [game, setGame] = useState<ApiGame | null>(null);
 
     // the data that was given to this route
     // @ts-ignore
     const {itemId} = useRoute().params;
 
-    const [isLiked, setIsLiked] = useState(false);
-    const [game, setGame] = useState<ApiGame | null>(null);
+
+    useEffect(() => {
+
+        /**
+         * Check if this game is liked by the user.
+         *
+         * @param {string} gameId - The ID of the game to check.
+         */
+        const CheckIfGameIsLikedUseCase = async (gameId: string) => {
+            // Firstly, get liked games from database (as a string)
+            const likedGamesString: string | null = await AsyncStorage.getItem(LIKED_GAMES_DB_KEY);
+            // This string should be converted to an array (if the string was null, we'll just make an empty array).
+            const likedGamesArray: string[] = (likedGamesString?.split(',')) ?? [];
+
+            setIsLiked(likedGamesArray.includes(gameId));
+        }
+
+        CheckIfGameIsLikedUseCase(itemId.toString())
+
+    }, []);
+
+
     useEffect(() => {
         console.log(`Game's ID is : ${itemId}`);
         getSingleGameData(itemId as number)
@@ -89,8 +115,37 @@ export const GameScreen = () => {
             })
             .catch((error) => {
                 console.error(`Promise of GameRepository was rejected : ${error}`);
+                throw error;
             });
     }, []);
+
+    useEffect(() => {
+        if (isLiked) {
+            // user has liked the game
+            AddGameToLikedListUseCase(itemId.toString())
+                .then(result => {
+                    if (!result) {
+                        console.error("There was an error saving the game state into database.");
+                    } else {
+                        console.log("The gameId was added successfully.");
+                    }
+                })
+                .catch(error => {
+                    console.error(`Promise of setGameLikedUseCase was rejected : ${error}`);
+                    throw error;
+                });
+        } else {
+            // User has un-liked the game
+            RemoveGameFromLikedListUseCase(itemId.toString())
+                .then(() => {
+                    console.log("The gameId was removed successfully.");
+                })
+                .catch(error => {
+                    console.error(`There was an error in removeGameLikedUseCase : ${error}.`);
+                    throw error;
+                });
+        }
+    }, [isLiked]);
 
     return (
         <View
@@ -187,3 +242,5 @@ export const GameScreen = () => {
         </View>
     );
 }
+
+

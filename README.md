@@ -58,6 +58,8 @@ https://user-images.githubusercontent.com/8706521/227369894-81f89cab-8d60-428d-9
   markup to be written inside a JavaScript/TypeScript file.
 - [React Navigation](https://reactnavigation.org/) - A routing and navigation module for React Native apps.
 - [Axios](https://axios-http.com/docs/intro) - A promise-based HTTP client for JavaScript.
+- [AsyncStorage](https://react-native-async-storage.github.io/async-storage/) - An asynchronous, unencrypted,
+  persistent, key-value storage solution for React Native applications.
 
 ## Contribution Guidelines
 
